@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hijri/hijri_calendar.dart';
+import 'package:majmua/application/state/main_app_state.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:provider/provider.dart';
 
 class CurrentDay extends StatefulWidget {
   const CurrentDay({Key? key}) : super(key: key);
@@ -9,27 +12,9 @@ class CurrentDay extends StatefulWidget {
 }
 
 class _CurrentDayState extends State<CurrentDay> {
+
   final DateTime _dateTime = DateTime.now();
-
-  final List<String> _weekDays = [
-    'Понедельник',
-    'Вторник',
-    'Среда',
-    'Четверг',
-    'Пятница',
-    'Суббота',
-    'Воскресенье',
-  ];
-
-  double restDayProgress() {
-    return _dateTime
-            .difference(
-                DateTime(_dateTime.year, _dateTime.month, _dateTime.day))
-            .inMinutes *
-        24 *
-        60 /
-        20736;
-  }
+  final HijriCalendar _dateTimeHijri = HijriCalendar.now();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +23,11 @@ class _CurrentDayState extends State<CurrentDay> {
       child: Column(
         children: [
           const SizedBox(height: 16),
-          Text('Сегодня ${_dateTime.day}.${_dateTime.month}.${_dateTime.year}'),
+          Text('Сегодня ${_dateTimeHijri.hDay}.${_dateTimeHijri.hMonth}.${_dateTimeHijri.hYear}'
+              ' / ${_dateTime.day}.${_dateTime.month}.${_dateTime.year}'),
+          const SizedBox(height: 8),
+          Text('${context.read<MainAppState>().getMonthHijriNames[_dateTimeHijri.hMonth - 1]} / '
+              '${context.read<MainAppState>().getMonthNames[_dateTime.month - 1]}'),
           const SizedBox(height: 8),
           LinearPercentIndicator(
             padding: const EdgeInsets.symmetric(
@@ -51,14 +40,14 @@ class _CurrentDayState extends State<CurrentDay> {
             progressColor: _dateTime.weekday == 5
                 ? Colors.red.shade300
                 : Colors.teal.shade300,
-            percent: restDayProgress() / 100,
+            percent: context.read<MainAppState>().restDayProgress() / 100,
             center: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('${_dateTime.hour}:${_dateTime.minute}  –'),
                 const SizedBox(width: 8),
                 Text(
-                  _weekDays[_dateTime.weekday - 1],
+                  _dateTimeHijri.dayWeName,
                   textAlign: TextAlign.center,
                 ),
               ],

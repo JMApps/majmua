@@ -1,13 +1,54 @@
 import 'package:flutter/material.dart';
 
 class MainAppState extends ChangeNotifier {
-  final PageController _fridayController = PageController(initialPage: 0, viewportFraction: 0.85);
+  final PageController _fridayController =
+      PageController(initialPage: 0, viewportFraction: 0.85);
 
   PageController get getFridayController => _fridayController;
 
   int _fridaySunnahControllerIndex = 0;
 
   int get getFridaySunnahControllerIndex => _fridaySunnahControllerIndex;
+
+  final DateTime _dateTime = DateTime.now();
+
+  final List<String> _monthHijriNames = [
+    'Мухаррам',
+    'Сафар',
+    'Раби\' Аль-Авваль',
+    'Раби\' Ас-Сани',
+    'Джумада Аль-Авваль',
+    'Джумада Ас-Сани',
+    'Раджаб',
+    'Ша\'бан',
+    'Рамадан',
+    'Шавваль',
+    'Зу-ль-Ка\'да',
+    'Зу-ль-Хиджа'
+  ];
+
+  List get getMonthHijriNames => _monthHijriNames;
+
+  final List<String> _monthNames = [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентабрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь'
+  ];
+
+  List get getMonthNames => _monthNames;
+
+  double restDayProgress() {
+    return _dateTime.difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day),).inMinutes * 24 * 60 / 20736;
+  }
 
   set fridaySunnahControllerIndex(int index) {
     _fridaySunnahControllerIndex = index;
