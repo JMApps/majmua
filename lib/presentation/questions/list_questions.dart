@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:majmua/presentation/questions/question_item.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ListQuestions extends StatefulWidget {
   const ListQuestions({Key? key}) : super(key: key);
@@ -29,7 +30,19 @@ class _ListQuestionsState extends State<ListQuestions> {
               return QuestionItem(index: index);
             },
           ),
-        )
+        ),
+        const SizedBox(height: 8),
+        SmoothPageIndicator(
+          controller: _questionsController,
+          count: 201,
+          effect: ScrollingDotsEffect(
+            maxVisibleDots: 11,
+            dotWidth: 12,
+            dotHeight: 4,
+            dotColor: Colors.teal.shade300,
+            activeDotColor: Colors.purple,
+          ),
+        ),
       ],
     );
   }

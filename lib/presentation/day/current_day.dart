@@ -49,18 +49,18 @@ class _CurrentDayState extends State<CurrentDay> {
             barRadius: const Radius.circular(7.5),
             lineHeight: 25,
             progressColor: _dateTime.weekday == 5
-                ? Colors.green.shade300
-                : Colors.indigo.shade300,
+                ? Colors.red.shade300
+                : Colors.teal.shade300,
             percent: restDayProgress() / 100,
             center: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Text('${_dateTime.hour}:${_dateTime.minute}  –'),
+                const SizedBox(width: 8),
                 Text(
                   _weekDays[_dateTime.weekday - 1],
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(width: 8),
-                Text('${_dateTime.hour}:${_dateTime.minute}'),
               ],
             ),
           ),

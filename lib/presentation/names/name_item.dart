@@ -12,10 +12,21 @@ class NameItem extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        alignment: Alignment.center,
-        child: Text('Name $index'),
+      child: Card(
+        elevation: 0,
+        margin: const EdgeInsets.all(8),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(
+            width: 1,
+            color: Colors.indigo.shade300,
+          ),
+        ),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          alignment: Alignment.center,
+          child: Text('Name $index'),
+        ),
       ),
     );
   }

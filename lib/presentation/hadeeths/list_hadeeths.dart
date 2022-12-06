@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:majmua/presentation/hadeeths/hadeeth_item.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ListHadeeths extends StatefulWidget {
   const ListHadeeths({Key? key}) : super(key: key);
@@ -28,6 +29,18 @@ class _ListHadeethsState extends State<ListHadeeths> {
             itemBuilder: (BuildContext context, int index) {
               return HadeethItem(index: index);
             },
+          ),
+        ),
+        const SizedBox(height: 8),
+        SmoothPageIndicator(
+          controller: _hadeethsController,
+          count: 42,
+          effect: const ScrollingDotsEffect(
+            maxVisibleDots: 11,
+            dotWidth: 4,
+            dotHeight: 12,
+            dotColor: Color(0xFF4DB6AC),
+            activeDotColor: Colors.deepOrange,
           ),
         ),
       ],

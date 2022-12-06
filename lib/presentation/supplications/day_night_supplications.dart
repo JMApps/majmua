@@ -30,10 +30,10 @@ class DayNightSupplications extends StatelessWidget {
                         image: AssetImage('assets/images/ic_dawn.jpg'),
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Утром',
                       style: TextStyle(
-                        color: Colors.teal.shade900,
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -55,10 +55,10 @@ class DayNightSupplications extends StatelessWidget {
                         image: AssetImage('assets/images/ic_sunset.jpg'),
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Вечером',
                       style: TextStyle(
-                        color: Colors.teal.shade900,
+                        color: Colors.black,
                       ),
                     ),
                   ),

@@ -12,10 +12,20 @@ class QuestionItem extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        alignment: Alignment.center,
-        child: Text('Question $index'),
+      child: Card(
+        margin: const EdgeInsets.all(8),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: const BorderSide(
+            width: 1,
+            color: Color(0xFFBA68C8),
+          ),
+        ),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          alignment: Alignment.center,
+          child: Text('Question $index'),
+        ),
       ),
     );
   }

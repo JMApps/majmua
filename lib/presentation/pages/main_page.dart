@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/presentation/day/current_day.dart';
 import 'package:majmua/presentation/friday/list_friday.dart';
 import 'package:majmua/presentation/hadeeths/list_hadeeths.dart';
 import 'package:majmua/presentation/names/list_names.dart';
 import 'package:majmua/presentation/questions/list_questions.dart';
+import 'package:majmua/presentation/ramadan/list_lessons_ramadan.dart';
 import 'package:majmua/presentation/supplications/day_night_supplications.dart';
 
 class MainPage extends StatelessWidget {
@@ -22,17 +24,16 @@ class MainPage extends StatelessWidget {
         elevation: 0,
         title: const Text('Полка M'),
       ),
-      body: Scrollbar(
-        child: ListView(
-          children: const [
-            CurrentDay(),
-            ListFriday(),
-            DayNightSupplications(),
-            ListNames(),
-            ListQuestions(),
-            ListHadeeths(),
-          ],
-        ),
+      body: ListView(
+        children: const [
+          CurrentDay(),
+          ListFriday(),
+          DayNightSupplications(),
+          ListNames(),
+          ListQuestions(),
+          ListHadeeths(),
+          ListLessonsRamadan(),
+        ],
       ),
     );
   }

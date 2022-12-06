@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:majmua/presentation/names/name_item.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ListNames extends StatefulWidget {
   const ListNames({Key? key}) : super(key: key);
@@ -30,6 +31,18 @@ class _ListNamesState extends State<ListNames> {
             itemBuilder: (BuildContext context, int index) {
               return NameItem(index: index);
             },
+          ),
+        ),
+        const SizedBox(height: 8),
+        SmoothPageIndicator(
+          controller: _namesController,
+          count: 99,
+          effect: ScrollingDotsEffect(
+            maxVisibleDots: 11,
+            dotWidth: 4,
+            dotHeight: 12,
+            dotColor: Colors.teal.shade300,
+            activeDotColor: Colors.indigo,
           ),
         ),
       ],

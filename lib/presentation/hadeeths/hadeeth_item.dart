@@ -12,10 +12,19 @@ class HadeethItem extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        alignment: Alignment.center,
-        child: Text('Hadeeth $index'),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: const BorderSide(
+            width: 1,
+            color: Color(0xFFFF8A65),
+          ),
+        ),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          alignment: Alignment.center,
+          child: Text('Hadeeth $index'),
+        ),
       ),
     );
   }
