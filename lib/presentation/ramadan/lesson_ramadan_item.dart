@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+
+class LessonRamadanItem extends StatelessWidget {
+  const LessonRamadanItem({Key? key, required this.index}) : super(key: key);
+
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Card(
+        margin: const EdgeInsets.all(8),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: const BorderSide(
+            width: 1,
+            color: Color(0xFFA1887F),
+          ),
+        ),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          alignment: Alignment.center,
+          child: Text('Lesson $index'),
+        ),
+      ),
+    );
+  }
+}
