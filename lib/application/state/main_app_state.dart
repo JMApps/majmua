@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MainAppState extends ChangeNotifier {
-  final _fridayController =
-      PageController(initialPage: 0, viewportFraction: 0.85);
+  final PageController _fridayController = PageController(initialPage: 0, viewportFraction: 0.85);
 
   PageController get getFridayController => _fridayController;
 
