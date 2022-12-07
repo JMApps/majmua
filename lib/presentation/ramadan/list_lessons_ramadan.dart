@@ -53,6 +53,7 @@ class _ListLessonsRamadanState extends State<ListLessonsRamadan> {
                       activeDotColor: Colors.brown,
                     ),
                   ),
+                  const SizedBox(height: 32),
                 ],
               )
             : const Center(
