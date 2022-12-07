@@ -24,19 +24,21 @@ class MainPage extends StatelessWidget {
         elevation: 0,
         title: const Text('ПM'),
       ),
-      body: ListView(
-        children: [
-          const CurrentDay(),
-          Visibility(
-            visible: MainAppStyle.dateTime.weekday >= 3 && MainAppStyle.dateTime.weekday <= 5 ? true : false,
-            child: const ListFriday(),
-          ),
-          const DayNightSupplications(),
-          const ListNames(),
-          const ListQuestions(),
-          const ListHadeeths(),
-          const ListLessonsRamadan(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const CurrentDay(),
+            Visibility(
+              visible: MainAppStyle.dateTime.weekday >= 3 && MainAppStyle.dateTime.weekday <= 5 ? true : false,
+              child: const ListFriday(),
+            ),
+            const DayNightSupplications(),
+            const ListNames(),
+            const ListQuestions(),
+            const ListHadeeths(),
+            const ListLessonsRamadan(),
+          ],
+        ),
       ),
     );
   }
