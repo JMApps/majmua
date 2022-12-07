@@ -6,19 +6,17 @@ class MainAppState extends ChangeNotifier {
 
   DatabaseQuery get getDatabaseQuery => _databaseQuery;
 
-  final PageController _fridayController =
-      PageController(initialPage: 0, viewportFraction: 0.85);
+  final PageController _fridayController = PageController(initialPage: 0, viewportFraction: 0.85);
 
-  final PageController _supplicationController =
-      PageController(initialPage: 0, viewportFraction: 0.85);
+  final PageController _supplicationController = PageController(initialPage: 0, viewportFraction: 0.85);
 
   final DateTime _dateTime = DateTime.now();
 
-  int get getDayInMinutes => _dateTime
-      .difference(
-        DateTime(_dateTime.year, _dateTime.month, _dateTime.day),
-      )
-      .inMinutes;
+  bool _isTextPercentChange = true;
+
+  bool get getIsTextPercentChange => _isTextPercentChange;
+
+  int get getDayInMinutes => _dateTime.difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day)).inMinutes;
 
   PageController get getFridayController => _fridayController;
 
@@ -31,40 +29,6 @@ class MainAppState extends ChangeNotifier {
   int get getFridaySunnahControllerIndex => _fridaySunnahControllerIndex;
 
   int get getSupplicationControllerIndex => _supplicationControllerIndex;
-
-  final List<String> _monthHijriNames = [
-    'Мухаррам',
-    'Сафар',
-    'Раби\' Аль-Авваль',
-    'Раби\' Ас-Сани',
-    'Джумада Аль-Авваль',
-    'Джумада Ас-Сани',
-    'Раджаб',
-    'Ша\'бан',
-    'Рамадан',
-    'Шавваль',
-    'Зу-ль-Ка\'да',
-    'Зу-ль-Хиджа'
-  ];
-
-  List get getMonthHijriNames => _monthHijriNames;
-
-  final List<String> _monthNames = [
-    'Январь',
-    'Февраль',
-    'Март',
-    'Апрель',
-    'Май',
-    'Июнь',
-    'Июль',
-    'Август',
-    'Сентабрь',
-    'Октябрь',
-    'Ноябрь',
-    'Декабрь'
-  ];
-
-  List get getMonthNames => _monthNames;
 
   double restDayProgress() {
     return getDayInMinutes * 24 * 60 / 20736;
@@ -91,6 +55,11 @@ class MainAppState extends ChangeNotifier {
         curve: Curves.easeOut,
       );
     }
+    notifyListeners();
+  }
+
+  setPercentTextChange() {
+    _isTextPercentChange = !_isTextPercentChange;
     notifyListeners();
   }
 }

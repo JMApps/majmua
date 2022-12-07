@@ -10,22 +10,32 @@ class ListFriday extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final readMainState = context.read<MainAppState>();
     return FutureBuilder(
-      future: context.read<MainAppState>().getDatabaseQuery.getFridaySunnah(),
+      future: readMainState.getDatabaseQuery.getFridaySunnah(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         return snapshot.hasData
             ? Column(
                 children: [
                   const SizedBox(height: 16),
-                  const Text('Суннаны пятничного дня'),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 16,
+                    ),
+                    child: Text(
+                      'Желательные (сунна) действия в день пятницы:',
+                      style: TextStyle(fontSize: 16),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                   const SizedBox(height: 8),
                   SizedBox(
                     height: 250,
                     child: PageView.builder(
-                      controller: context.read<MainAppState>().getFridayController,
+                      controller: readMainState.getFridayController,
                       itemCount: snapshot.data!.length,
                       onPageChanged: (index) {
-                        context.read<MainAppState>().fridaySunnahControllerIndex = index;
+                        readMainState.fridaySunnahControllerIndex = index;
                       },
                       itemBuilder: (BuildContext context, int index) {
                         return FridayItem(
@@ -37,13 +47,13 @@ class ListFriday extends StatelessWidget {
                   const SizedBox(height: 16),
                   SmoothPageIndicator(
                     onDotClicked: (index) {
-                      context.read<MainAppState>().fridaySunnahControllerIndex = index;
+                      readMainState.fridaySunnahControllerIndex = index;
                     },
-                    controller: context.read<MainAppState>().getFridayController,
+                    controller: readMainState.getFridayController,
                     count: snapshot.data!.length,
                     effect: CustomizableEffect(
                       activeDotDecoration: DotDecoration(
-                        color: Colors.primaries[context.watch<MainAppState>().getFridaySunnahControllerIndex + 1],
+                        color: Colors.primaries[readMainState.getFridaySunnahControllerIndex + 1],
                         dotBorder: const DotBorder(
                           padding: 2,
                           color: Colors.teal,

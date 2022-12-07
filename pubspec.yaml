@@ -46,4 +46,7 @@ flutter:
     - family: Lateef
       fonts:
         - asset: assets/fonts/lateef.ttf
+    - family: Gilroy
+      fonts:
+        - asset: assets/fonts/gilroy_medium.ttf
 

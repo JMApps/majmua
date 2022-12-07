@@ -9,43 +9,92 @@ class CurrentDay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        children: [
-          const SizedBox(height: 16),
-          Text(
-              'Сегодня ${MainAppStyle.dateTimeHijri.hDay}.${MainAppStyle.dateTimeHijri.hMonth}.${MainAppStyle.dateTimeHijri.hYear}'
-              ' / ${MainAppStyle.dateTime.day}.${MainAppStyle.dateTime.month}.${MainAppStyle.dateTime.year}'),
-          const SizedBox(height: 8),
-          Text(
-              '${context.read<MainAppState>().getMonthHijriNames[MainAppStyle.dateTimeHijri.hMonth - 1]} / '
-              '${context.read<MainAppState>().getMonthNames[MainAppStyle.dateTime.month - 1]}'),
-          const SizedBox(height: 8),
-          LinearPercentIndicator(
+    final readMainState = context.read<MainAppState>();
+    return Column(
+      children: [
+        const SizedBox(height: 16),
+        Text(
+          'Сегодня ${MainAppStyle.getHijriDate()} / ${MainAppStyle.getGregorianDate()}',
+          style: const TextStyle(
+            fontSize: 16,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          '${MainAppStyle.getMonthHijriNames} / ${MainAppStyle.getMonthNames}',
+          style: const TextStyle(
+            fontSize: 16,
+            fontFamily: 'Gilroy',
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 8),
+        GestureDetector(
+          onTap: () {
+            readMainState.setPercentTextChange();
+          },
+          child: LinearPercentIndicator(
             padding: const EdgeInsets.symmetric(
               horizontal: 16,
             ),
             animation: true,
             animationDuration: 750,
             barRadius: const Radius.circular(7.5),
-            lineHeight: 25,
+            lineHeight: 30,
             progressColor: Colors.primaries[MainAppStyle.dateTime.weekday * 2],
-            percent: context.read<MainAppState>().restDayProgress() / 100,
+            percent: readMainState.restDayProgress() / 100,
             center: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('${MainAppStyle.dateTime.hour}:${MainAppStyle.dateTime.minute}  –'),
-                const SizedBox(width: 8),
+                const SizedBox(width: 16),
                 Text(
-                  MainAppStyle.dateTimeHijri.dayWeName,
-                  textAlign: TextAlign.center,
+                    '${(readMainState.restDayProgress()).toStringAsFixed(2)}%'),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Text(
+                    context.watch<MainAppState>().getIsTextPercentChange
+                        ? '${DateTime.now().toString().substring(11, 16)} – '
+                            '${MainAppStyle.dateTimeHijri.dayWeName}'
+                        : 'Уходят дни – уходит часть тебя',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontFamily: 'Gilroy',
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
+                const SizedBox(width: 16),
+                Text(
+                    '${(readMainState.restDayProgress() - 100).toStringAsFixed(2)}%'),
+                const SizedBox(width: 16),
               ],
             ),
           ),
-        ],
-      ),
+        ),
+        MainAppStyle.getMessagesForDays.isNotEmpty
+            ? const SizedBox(height: 16)
+            : const SizedBox(),
+        MainAppStyle.getMessagesForDays.isNotEmpty
+            ? Card(
+                margin: const EdgeInsets.symmetric(horizontal: 16),
+                shape: const RoundedRectangleBorder(
+                  borderRadius: MainAppStyle.mainBorderRadius,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    MainAppStyle.getMessagesForDays,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.red,
+                      fontFamily: 'Gilroy',
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              )
+            : const SizedBox(),
+      ],
     );
   }
 }
