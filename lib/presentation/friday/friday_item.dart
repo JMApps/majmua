@@ -29,13 +29,14 @@ class FridayItem extends StatelessWidget {
               padding: MainAppStyle.mainPadding,
               alignment: Alignment.center,
               child: ListTile(
-                title: Text(
-                  item.numberSunnah,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.primaries[item.id].shade900,
+                title: CircleAvatar(
+                  backgroundColor: Colors.primaries[item.id],
+                  child: Text(
+                    item.id.toString(),
+                    style: const TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
-                  textAlign: TextAlign.center,
                 ),
                 subtitle: Padding(
                   padding: const EdgeInsets.only(top: 16),

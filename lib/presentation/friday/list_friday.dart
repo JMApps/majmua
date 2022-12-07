@@ -34,16 +34,16 @@ class ListFriday extends StatelessWidget {
                       },
                     ),
                   ),
+                  const SizedBox(height: 16),
                   SmoothPageIndicator(
                     onDotClicked: (index) {
-                      context.read<MainAppState>().fridaySunnahControllerIndex =
-                          index;
+                      context.read<MainAppState>().fridaySunnahControllerIndex = index;
                     },
                     controller: context.read<MainAppState>().getFridayController,
                     count: snapshot.data!.length,
                     effect: CustomizableEffect(
                       activeDotDecoration: DotDecoration(
-                        color: Colors.primaries[context.watch<MainAppState>().getFridaySunnahControllerIndex],
+                        color: Colors.primaries[context.watch<MainAppState>().getFridaySunnahControllerIndex + 1],
                         dotBorder: const DotBorder(
                           padding: 2,
                           color: Colors.teal,
