@@ -30,15 +30,12 @@ class CurrentDay extends StatelessWidget {
             animationDuration: 750,
             barRadius: const Radius.circular(7.5),
             lineHeight: 25,
-            progressColor: MainAppStyle.dateTime.weekday == 5
-                ? const Color(0xFFE57373)
-                : const Color(0xFF4DB6AC),
+            progressColor: Colors.primaries[MainAppStyle.dateTime.weekday * 2],
             percent: context.read<MainAppState>().restDayProgress() / 100,
             center: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                    '${MainAppStyle.dateTime.hour}:${MainAppStyle.dateTime.minute}  –'),
+                Text('${MainAppStyle.dateTime.hour}:${MainAppStyle.dateTime.minute}  –'),
                 const SizedBox(width: 8),
                 Text(
                   MainAppStyle.dateTimeHijri.dayWeName,
