@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:majmua/application/style/main_app_style.dart';
 import 'package:majmua/presentation/day/current_day.dart';
 import 'package:majmua/presentation/friday/list_friday.dart';
 import 'package:majmua/presentation/hadeeths/list_hadeeths.dart';
@@ -22,17 +22,20 @@ class MainPage extends StatelessWidget {
         ),
         centerTitle: true,
         elevation: 0,
-        title: const Text('Полка M'),
+        title: const Text('ПM'),
       ),
       body: ListView(
-        children: const [
-          CurrentDay(),
-          ListFriday(),
-          DayNightSupplications(),
-          ListNames(),
-          ListQuestions(),
-          ListHadeeths(),
-          ListLessonsRamadan(),
+        children: [
+          const CurrentDay(),
+          Visibility(
+            visible: MainAppStyle.dateTime.weekday == 4 | 5 ? true : false,
+            child: const ListFriday(),
+          ),
+          const DayNightSupplications(),
+          const ListNames(),
+          const ListQuestions(),
+          const ListHadeeths(),
+          const ListLessonsRamadan(),
         ],
       ),
     );

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/style/main_app_style.dart';
 
 class FridayItem extends StatelessWidget {
-  const FridayItem({Key? key, required this.index, required this.cardColor,})
-      : super(key: key);
+  const FridayItem({
+    Key? key,
+    required this.index,
+    required this.cardColor,
+  }) : super(key: key);
 
   final int index;
   final Color cardColor;
@@ -10,23 +14,23 @@ class FridayItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: MainAppStyle.mainPadding,
       child: Transform.rotate(
         angle: 0.15,
         child: Card(
           color: cardColor,
           elevation: 2,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+          shape: const RoundedRectangleBorder(
+            borderRadius: MainAppStyle.mainBorderRadius,
           ),
           child: Transform.rotate(
             angle: -0.15,
             child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+              decoration: const BoxDecoration(
+                borderRadius: MainAppStyle.mainBorderRadius,
                 color: Colors.white,
               ),
-              padding: const EdgeInsets.all(16),
+              padding: MainAppStyle.mainPadding,
               alignment: Alignment.center,
               child: Text('Sunnah $index'),
             ),

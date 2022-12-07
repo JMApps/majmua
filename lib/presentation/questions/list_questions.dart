@@ -35,11 +35,11 @@ class _ListQuestionsState extends State<ListQuestions> {
         SmoothPageIndicator(
           controller: _questionsController,
           count: 201,
-          effect: ScrollingDotsEffect(
+          effect: const ScrollingDotsEffect(
             maxVisibleDots: 11,
             dotWidth: 12,
             dotHeight: 4,
-            dotColor: Colors.teal.shade300,
+            dotColor: Color(0xFF4DB6AC),
             activeDotColor: Colors.purple,
           ),
         ),

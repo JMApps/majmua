@@ -37,11 +37,11 @@ class _ListNamesState extends State<ListNames> {
         SmoothPageIndicator(
           controller: _namesController,
           count: 99,
-          effect: ScrollingDotsEffect(
+          effect: const ScrollingDotsEffect(
             maxVisibleDots: 11,
             dotWidth: 4,
             dotHeight: 12,
-            dotColor: Colors.teal.shade300,
+            dotColor: Color(0xFF4DB6AC),
             activeDotColor: Colors.indigo,
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/style/main_app_style.dart';
 
 class DayNightSupplications extends StatelessWidget {
   const DayNightSupplications({Key? key}) : super(key: key);
@@ -17,15 +18,15 @@ class DayNightSupplications extends StatelessWidget {
               Expanded(
                 child: Card(
                   elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: MainAppStyle.mainBorderRadius,
                   ),
                   child: Container(
-                    padding: const EdgeInsets.all(16),
+                    padding: MainAppStyle.mainPadding,
                     alignment: Alignment.centerLeft,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      image: const DecorationImage(
+                    decoration: const BoxDecoration(
+                      borderRadius: MainAppStyle.mainBorderRadius,
+                      image: DecorationImage(
                         fit: BoxFit.fitWidth,
                         image: AssetImage('assets/images/ic_dawn.jpg'),
                       ),
@@ -42,15 +43,15 @@ class DayNightSupplications extends StatelessWidget {
               Expanded(
                 child: Card(
                   elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: MainAppStyle.mainBorderRadius,
                   ),
                   child: Container(
-                    padding: const EdgeInsets.all(16),
+                    padding: MainAppStyle.mainPadding,
                     alignment: Alignment.centerLeft,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      image: const DecorationImage(
+                    decoration: const BoxDecoration(
+                      borderRadius: MainAppStyle.mainBorderRadius,
+                      image: DecorationImage(
                         fit: BoxFit.fitWidth,
                         image: AssetImage('assets/images/ic_sunset.jpg'),
                       ),
@@ -71,15 +72,15 @@ class DayNightSupplications extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Card(
             elevation: 0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
+            shape: const RoundedRectangleBorder(
+              borderRadius: MainAppStyle.mainBorderRadius,
             ),
             child: Container(
-              padding: const EdgeInsets.all(16),
+              padding: MainAppStyle.mainPadding,
               alignment: Alignment.centerRight,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                image: const DecorationImage(
+              decoration: const BoxDecoration(
+                borderRadius: MainAppStyle.mainBorderRadius,
+                image: DecorationImage(
                   fit: BoxFit.cover,
                   image: AssetImage('assets/images/ic_night.jpg'),
                 ),

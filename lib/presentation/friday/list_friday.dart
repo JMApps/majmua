@@ -4,14 +4,8 @@ import 'package:majmua/presentation/friday/friday_item.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class ListFriday extends StatefulWidget {
+class ListFriday extends StatelessWidget {
   const ListFriday({Key? key}) : super(key: key);
-
-  @override
-  State<ListFriday> createState() => _ListFridayState();
-}
-
-class _ListFridayState extends State<ListFriday> {
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +50,7 @@ class _ListFridayState extends State<ListFriday> {
               rotationAngle: 45,
             ),
             dotDecoration: DotDecoration(
-              color: Colors.teal.shade300,
+              color: const Color(0xFF4DB6AC),
               width: 6,
               height: 6,
               borderRadius: BorderRadius.circular(3),

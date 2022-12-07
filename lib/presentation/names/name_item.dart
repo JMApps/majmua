@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/style/main_app_style.dart';
 
 class NameItem extends StatelessWidget {
   const NameItem({Key? key, required this.index}) : super(key: key);
@@ -9,21 +10,21 @@ class NameItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+      shape: const RoundedRectangleBorder(
+        borderRadius: MainAppStyle.mainBorderRadius,
       ),
       child: Card(
         elevation: 0,
-        margin: const EdgeInsets.all(8),
+        margin: MainAppStyle.mainMarginMini,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: MainAppStyle.mainBorderRadius,
           side: BorderSide(
             width: 1,
             color: Colors.indigo.shade300,
           ),
         ),
         child: Container(
-          padding: const EdgeInsets.all(16),
+          padding: MainAppStyle.mainPadding,
           alignment: Alignment.center,
           child: Text('Name $index'),
         ),
