@@ -3,6 +3,7 @@ import 'package:majmua/data/database/model/model_hadeeth_item.dart';
 import 'package:majmua/data/database/model/model_lesson_ramadan_item.dart';
 import 'package:majmua/data/database/model/model_name_item.dart';
 import 'package:majmua/data/database/model/model_question_item.dart';
+import 'package:majmua/data/database/model/model_supplication_item.dart';
 import 'package:majmua/data/database/service/database_service.dart';
 
 class DatabaseQuery {
@@ -41,5 +42,19 @@ class DatabaseQuery {
     var res = await dbClient.query('Table_of_lessons_ramadan');
     List<ModelLessonRamadanItem>? lessonsRamadan = res.isNotEmpty ? res.map((c) => ModelLessonRamadanItem.fromMap(c)).toList() : null;
     return lessonsRamadan!;
+  }
+
+  Future<List<ModelSupplicationItem>> getDayNightSupplications(bool isDayNight) async {
+    var dbClient = await con.db;
+    var res = await dbClient.rawQuery('SELECT * FROM Table_of_supplications WHERE ${isDayNight ? 'is_day_night == 0 OR is_day_night == 1' : 'is_day_night == 0 OR is_day_night == 2'}');
+    List<ModelSupplicationItem>? supplicationsDayNight = res.isNotEmpty ? res.map((c) => ModelSupplicationItem.fromMap(c)).toList() : null;
+    return supplicationsDayNight!;
+  }
+
+  Future<List<ModelSupplicationItem>> getNightSupplications(int sampleBy) async {
+    var dbClient = await con.db;
+    var res = await dbClient.query('Table_of_supplications', where: 'sample_by == $sampleBy');
+    List<ModelSupplicationItem>? supplicationsNight = res.isNotEmpty ? res.map((c) => ModelSupplicationItem.fromMap(c)).toList() : null;
+    return supplicationsNight!;
   }
 }
