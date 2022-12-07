@@ -16,7 +16,7 @@ class ListLessonsRamadan extends StatefulWidget {
 
 class _ListLessonsRamadanState extends State<ListLessonsRamadan> {
   final _lessonsRamadanController =
-      PageController(initialPage: Random().nextInt(50), viewportFraction: 0.85);
+      PageController(initialPage: Random().nextInt(30), viewportFraction: 0.85);
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +30,12 @@ class _ListLessonsRamadanState extends State<ListLessonsRamadan> {
                   const Text('Уроки Рамадана'),
                   const SizedBox(height: 8),
                   SizedBox(
-                    height: 150,
+                    height: 125,
                     child: PageView.builder(
                       controller: _lessonsRamadanController,
                       itemCount: snapshot.data!.length,
                       itemBuilder: (BuildContext context, int index) {
                         return LessonRamadanItem(
-                          index: index,
                           item: snapshot.data![index],
                         );
                       },

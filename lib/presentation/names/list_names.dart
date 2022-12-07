@@ -15,7 +15,8 @@ class ListNames extends StatefulWidget {
 }
 
 class _ListNamesState extends State<ListNames> {
-  final _namesController = PageController(initialPage: Random().nextInt(99), viewportFraction: 0.65);
+  final _namesController =
+      PageController(initialPage: Random().nextInt(99), viewportFraction: 0.65);
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +30,13 @@ class _ListNamesState extends State<ListNames> {
                   const Text('Прекрасные имена Аллаха'),
                   const SizedBox(height: 8),
                   SizedBox(
-                    height: 100,
+                    height: 150,
                     child: PageView.builder(
                       controller: _namesController,
                       scrollDirection: Axis.horizontal,
                       itemCount: snapshot.data!.length,
                       itemBuilder: (BuildContext context, int index) {
                         return NameItem(
-                          index: index,
                           item: snapshot.data![index],
                         );
                       },

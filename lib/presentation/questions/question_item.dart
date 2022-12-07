@@ -3,13 +3,8 @@ import 'package:majmua/application/style/main_app_style.dart';
 import 'package:majmua/data/database/model/model_question_item.dart';
 
 class QuestionItem extends StatelessWidget {
-  const QuestionItem({
-    Key? key,
-    required this.index,
-    required this.item,
-  }) : super(key: key);
+  const QuestionItem({Key? key, required this.item}) : super(key: key);
 
-  final int index;
   final ModelQuestionItem item;
 
   @override
@@ -28,10 +23,26 @@ class QuestionItem extends StatelessWidget {
             color: Color(0xFFBA68C8),
           ),
         ),
-        child: Container(
-          padding: MainAppStyle.mainPadding,
-          alignment: Alignment.center,
-          child: Text('Question $index'),
+        child: Center(
+          child: ListTile(
+            title: Text(
+              item.numberQuestion,
+              style: const TextStyle(
+                fontSize: 16,
+                color: Colors.purple,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            subtitle: Text(
+              item.question,
+              style: const TextStyle(
+                fontSize: 16,
+              ),
+              textAlign: TextAlign.center,
+              maxLines: 6,
+              overflow: TextOverflow.fade,
+            ),
+          ),
         ),
       ),
     );

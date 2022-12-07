@@ -30,13 +30,12 @@ class _ListHadeethsState extends State<ListHadeeths> {
                   const Text('40 хадисов имама ан-Навави'),
                   const SizedBox(height: 8),
                   SizedBox(
-                    height: 150,
+                    height: 175,
                     child: PageView.builder(
                       controller: _hadeethsController,
                       itemCount: snapshot.data!.length,
                       itemBuilder: (BuildContext context, int index) {
                         return HadeethItem(
-                          index: index,
                           item: snapshot.data![index],
                         );
                       },

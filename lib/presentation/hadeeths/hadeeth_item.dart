@@ -3,13 +3,8 @@ import 'package:majmua/application/style/main_app_style.dart';
 import 'package:majmua/data/database/model/model_hadeeth_item.dart';
 
 class HadeethItem extends StatelessWidget {
-  const HadeethItem({
-    Key? key,
-    required this.index,
-    required this.item,
-  }) : super(key: key);
+  const HadeethItem({Key? key, required this.item}) : super(key: key);
 
-  final int index;
   final ModelHadeethItem item;
 
   @override
@@ -20,20 +15,33 @@ class HadeethItem extends StatelessWidget {
         borderRadius: MainAppStyle.mainBorderRadius,
       ),
       child: Card(
-        margin: MainAppStyle.mainMarginMini,
-        shape: const RoundedRectangleBorder(
-          borderRadius: MainAppStyle.mainBorderRadius,
-          side: BorderSide(
-            width: 1,
-            color: Color(0xFFFF8A65),
+          margin: MainAppStyle.mainMarginMini,
+          shape: const RoundedRectangleBorder(
+            borderRadius: MainAppStyle.mainBorderRadius,
+            side: BorderSide(
+              width: 1,
+              color: Color(0xFFFF8A65),
+            ),
           ),
-        ),
-        child: Container(
-          padding: MainAppStyle.mainPadding,
-          alignment: Alignment.center,
-          child: Text('Hadeeth $index'),
-        ),
-      ),
+          child: Center(
+            child: ListTile(
+              title: Text(
+                item.numberHadeeth,
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.deepOrange,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              subtitle: Text(
+                item.titleHadeeth,
+                style: const TextStyle(
+                  fontSize: 16,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          )),
     );
   }
 }

@@ -3,13 +3,8 @@ import 'package:majmua/application/style/main_app_style.dart';
 import 'package:majmua/data/database/model/model_name_item.dart';
 
 class NameItem extends StatelessWidget {
-  const NameItem({
-    Key? key,
-    required this.index,
-    required this.item,
-  }) : super(key: key);
+  const NameItem({Key? key, required this.item}) : super(key: key);
 
-  final int index;
   final ModelNameItem item;
 
   @override
@@ -29,10 +24,25 @@ class NameItem extends StatelessWidget {
             color: Colors.indigo.shade300,
           ),
         ),
-        child: Container(
-          padding: MainAppStyle.mainPadding,
-          alignment: Alignment.center,
-          child: Text('Name $index'),
+        child: Center(
+          child: ListTile(
+            title: Text(
+              item.nameArabic,
+              style: const TextStyle(
+                fontSize: 20,
+                fontFamily: 'Lateef',
+                color: Colors.indigo,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            subtitle: Text(
+              item.nameTranslation,
+              style: const TextStyle(
+                fontSize: 16,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
         ),
       ),
     );

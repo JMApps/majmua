@@ -30,13 +30,12 @@ class _ListQuestionsState extends State<ListQuestions> {
                   const Text('200 вопросов по вероучению Ислама'),
                   const SizedBox(height: 8),
                   SizedBox(
-                    height: 150,
+                    height: 200,
                     child: PageView.builder(
                       controller: _questionsController,
                       itemCount: snapshot.data!.length,
                       itemBuilder: (BuildContext context, int index) {
                         return QuestionItem(
-                          index: index,
                           item: snapshot.data![index],
                         );
                       },

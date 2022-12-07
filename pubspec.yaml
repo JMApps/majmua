@@ -22,6 +22,7 @@ dependencies:
   percent_indicator: ^4.2.2
   smooth_page_indicator: ^1.0.0+2
   hijri: ^3.0.0
+  flutter_html: ^2.2.1
 
 dev_dependencies:
   flutter_test:
@@ -42,4 +43,7 @@ flutter:
     - family: Noto Sans
       fonts:
         - asset: assets/fonts/noto_sans.ttf
+    - family: Lateef
+      fonts:
+        - asset: assets/fonts/lateef.ttf
 

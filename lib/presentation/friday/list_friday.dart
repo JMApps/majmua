@@ -29,7 +29,6 @@ class ListFriday extends StatelessWidget {
                       },
                       itemBuilder: (BuildContext context, int index) {
                         return FridayItem(
-                          index: index,
                           item: snapshot.data[index],
                         );
                       },
@@ -44,7 +43,7 @@ class ListFriday extends StatelessWidget {
                     count: snapshot.data!.length,
                     effect: CustomizableEffect(
                       activeDotDecoration: DotDecoration(
-                        color: Colors.primaries[context.watch<MainAppState>().getFridaySunnahControllerIndex * 2],
+                        color: Colors.primaries[context.watch<MainAppState>().getFridaySunnahControllerIndex],
                         dotBorder: const DotBorder(
                           padding: 2,
                           color: Colors.teal,
