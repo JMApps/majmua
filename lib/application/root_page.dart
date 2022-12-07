@@ -10,6 +10,7 @@ class RootPage extends StatelessWidget {
       title: 'ПМ',
       theme: ThemeData(
         primarySwatch: Colors.teal,
+        fontFamily: 'Noto Sans'
       ),
       home: const MainPage(),
     );

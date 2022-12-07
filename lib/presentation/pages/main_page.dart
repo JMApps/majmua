@@ -28,7 +28,7 @@ class MainPage extends StatelessWidget {
         children: [
           const CurrentDay(),
           Visibility(
-            visible: MainAppStyle.dateTime.weekday == 4 | 5 ? true : false,
+            visible: MainAppStyle.dateTime.weekday > 3 & 5 ? true : false,
             child: const ListFriday(),
           ),
           const DayNightSupplications(),

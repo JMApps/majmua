@@ -31,8 +31,8 @@ class CurrentDay extends StatelessWidget {
             barRadius: const Radius.circular(7.5),
             lineHeight: 25,
             progressColor: MainAppStyle.dateTime.weekday == 5
-                ? Colors.red.shade300
-                : Colors.teal.shade300,
+                ? const Color(0xFFE57373)
+                : const Color(0xFF4DB6AC),
             percent: context.read<MainAppState>().restDayProgress() / 100,
             center: Row(
               mainAxisAlignment: MainAxisAlignment.center,
