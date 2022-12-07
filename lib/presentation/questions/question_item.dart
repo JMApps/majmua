@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/style/main_app_style.dart';
+import 'package:majmua/data/database/model/model_question_item.dart';
 
 class QuestionItem extends StatelessWidget {
-  const QuestionItem({Key? key, required this.index}) : super(key: key);
+  const QuestionItem({
+    Key? key,
+    required this.index,
+    required this.item,
+  }) : super(key: key);
 
   final int index;
+  final ModelQuestionItem item;
 
   @override
   Widget build(BuildContext context) {

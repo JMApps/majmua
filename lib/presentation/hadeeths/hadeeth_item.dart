@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/style/main_app_style.dart';
+import 'package:majmua/data/database/model/model_hadeeth_item.dart';
 
 class HadeethItem extends StatelessWidget {
-  const HadeethItem({Key? key, required this.index}) : super(key: key);
+  const HadeethItem({
+    Key? key,
+    required this.index,
+    required this.item,
+  }) : super(key: key);
 
   final int index;
+  final ModelHadeethItem item;
 
   @override
   Widget build(BuildContext context) {

@@ -36,6 +36,7 @@ flutter:
   assets:
     - assets/images/
     - assets/fonts/
+    - assets/databases/
     -
   fonts:
     - family: Noto Sans

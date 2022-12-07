@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/data/database/service/database_query.dart';
 
 class MainAppState extends ChangeNotifier {
 
-  final PageController _fridayController =
-      PageController(initialPage: 0, viewportFraction: 0.85);
+  final DatabaseQuery _databaseQuery = DatabaseQuery();
+
+  DatabaseQuery get getDatabaseQuery => _databaseQuery;
+
+  final PageController _fridayController = PageController(initialPage: 0, viewportFraction: 0.85);
 
   final DateTime _dateTime = DateTime.now();
 
