@@ -72,6 +72,35 @@ class SupplicationItem extends StatelessWidget {
                 color: Colors.red,
               ),
             },
+            onLinkTap: (String? url, RenderContext rendContext,
+                Map<String, String> attributes, element) {
+              showModalBottomSheet(
+                backgroundColor: Colors.transparent,
+                context: context,
+                builder: (_) => SingleChildScrollView(
+                  child: Container(
+                    padding: MainAppStyle.mainPadding,
+                    margin: MainAppStyle.mainMargin,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: MainAppStyle.mainBorderRadius,
+                    ),
+                    child: Html(
+                      data: url,
+                      style: {
+                        '#': Style(
+                          fontSize: const FontSize(16),
+                        ),
+                        'small': Style(
+                          fontSize: const FontSize(12),
+                          color: Colors.grey,
+                        )
+                      },
+                    ),
+                  ),
+                ),
+              );
+            },
           ),
         ],
       ),

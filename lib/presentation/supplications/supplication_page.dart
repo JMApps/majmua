@@ -20,7 +20,7 @@ class SupplicationPage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.green,
         title: Text(title),
       ),
       body: ListSupplications(

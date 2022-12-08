@@ -48,10 +48,10 @@ class ListSupplications extends StatelessWidget {
                     count: snapshot.data!.length,
                     effect: CustomizableEffect(
                       activeDotDecoration: DotDecoration(
-                        color: Colors.deepPurple,
+                        color: Colors.red,
                         dotBorder: const DotBorder(
                           padding: 2,
-                          color: Colors.teal,
+                          color: Colors.green,
                           width: 2,
                         ),
                         width: 10,
@@ -60,7 +60,7 @@ class ListSupplications extends StatelessWidget {
                         rotationAngle: 45,
                       ),
                       dotDecoration: DotDecoration(
-                        color: const Color(0xFF4DB6AC),
+                        color: const Color(0xFF81C784),
                         width: 6,
                         height: 6,
                         borderRadius: BorderRadius.circular(3),
