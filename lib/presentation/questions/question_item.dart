@@ -47,7 +47,7 @@ class QuestionItem extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              subtitle: SelectableHtml(
+              subtitle: Html(
                 data: item.question,
                 style: {
                   '#': Style(

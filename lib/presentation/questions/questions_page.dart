@@ -42,7 +42,7 @@ class QuestionsPage extends StatelessWidget {
                           ),
                           child: Padding(
                             padding: MainAppStyle.mainPadding,
-                            child: SelectableHtml(
+                            child: Html(
                               data: snapshot.data![0].question,
                               style: {
                                 '#': Style(
@@ -91,8 +91,8 @@ class QuestionsPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 16),
-                        SelectableHtml(
+                        const SizedBox(height: 8),
+                        Html(
                           data: snapshot.data![0].answerContent,
                           style: {
                             '#': Style(
@@ -105,7 +105,7 @@ class QuestionsPage extends StatelessWidget {
                             ),
                             'sup': Style(
                               fontSize: const FontSize(12),
-                              color: Colors.green,
+                              color: Colors.purple,
                             ),
                           },
                           onLinkTap: (String? url, RenderContext rendContext,
