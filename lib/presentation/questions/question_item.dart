@@ -47,7 +47,7 @@ class QuestionItem extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              subtitle: Html(
+              subtitle: SelectableHtml(
                 data: item.question,
                 style: {
                   '#': Style(
@@ -76,7 +76,7 @@ class QuestionItem extends StatelessWidget {
                           color: Colors.white,
                           borderRadius: MainAppStyle.mainBorderRadius,
                         ),
-                        child: Html(
+                        child: SelectableHtml(
                           data: url,
                           style: {
                             '#': Style(

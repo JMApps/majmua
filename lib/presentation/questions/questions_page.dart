@@ -121,7 +121,7 @@ class QuestionsPage extends StatelessWidget {
                                     color: Colors.white,
                                     borderRadius: MainAppStyle.mainBorderRadius,
                                   ),
-                                  child: Html(
+                                  child: SelectableHtml(
                                     data: url,
                                     style: {
                                       '#': Style(
