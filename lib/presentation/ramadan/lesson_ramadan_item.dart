@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/style/main_app_style.dart';
+import 'package:majmua/data/database/model/arguments/arguments_lesson_ramadan.dart';
 import 'package:majmua/data/database/model/model_lesson_ramadan_item.dart';
 
 class LessonRamadanItem extends StatelessWidget {
@@ -23,22 +24,35 @@ class LessonRamadanItem extends StatelessWidget {
               color: Color(0xFFA1887F),
             ),
           ),
-          child: Center(
-            child: ListTile(
-              title: Text(
-                item.numberChapter,
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.brown,
+          child: InkWell(
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                'lessons_ramadan_page',
+                arguments: ArgumentsLessonRamadan(
+                  numberChapter: item.numberChapter,
+                  chapterId: item.id,
                 ),
-                textAlign: TextAlign.center,
-              ),
-              subtitle: Text(
-                item.titleChapter,
-                style: const TextStyle(
-                  fontSize: 16,
+              );
+            },
+            borderRadius: MainAppStyle.mainBorderRadius,
+            child: Center(
+              child: ListTile(
+                title: Text(
+                  item.numberChapter,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Colors.brown,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
+                subtitle: Text(
+                  item.titleChapter,
+                  style: const TextStyle(
+                    fontSize: 16,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           )),

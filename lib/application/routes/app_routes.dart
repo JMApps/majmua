@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/data/database/model/arguments/arguments_hadeeth.dart';
+import 'package:majmua/data/database/model/arguments/arguments_lesson_ramadan.dart';
 import 'package:majmua/data/database/model/arguments/arguments_question.dart';
 import 'package:majmua/data/database/model/arguments/arguments_supplication.dart';
 import 'package:majmua/presentation/hadeeths/hadeeth_page.dart';
 import 'package:majmua/presentation/questions/questions_page.dart';
+import 'package:majmua/presentation/ramadan/lessons_ramadan_page.dart';
 import 'package:majmua/presentation/supplications/supplication_page.dart';
 
 class AppRoutes {
@@ -37,6 +39,16 @@ class AppRoutes {
           builder: (_) => HadeethPage(
             hadeethTitle: argumentsHadeeth.hadeethTitle,
             hadeethId: argumentsHadeeth.hadeethId,
+          ),
+          settings: routeSettings,
+        );
+      case 'lessons_ramadan_page':
+        final ArgumentsLessonRamadan lessonRamadan =
+            routeSettings.arguments as ArgumentsLessonRamadan;
+        return MaterialPageRoute(
+          builder: (_) => LessonsRamadanPage(
+            numberChapter: lessonRamadan.numberChapter,
+            chapterId: lessonRamadan.chapterId,
           ),
           settings: routeSettings,
         );

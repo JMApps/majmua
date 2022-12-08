@@ -58,6 +58,13 @@ class DatabaseQuery {
     return lessonsRamadan!;
   }
 
+  Future<List<ModelLessonRamadanItem>> getOneLessonRamadan(int chapterId) async {
+    var dbClient = await con.db;
+    var res = await dbClient.query('Table_of_lessons_ramadan', where: 'id == $chapterId');
+    List<ModelLessonRamadanItem>? lessonsRamadan = res.isNotEmpty ? res.map((c) => ModelLessonRamadanItem.fromMap(c)).toList() : null;
+    return lessonsRamadan!;
+  }
+
   Future<List<ModelSupplicationItem>> getDayNightSupplications(bool isDayNight) async {
     var dbClient = await con.db;
     var res = await dbClient.rawQuery('SELECT * FROM Table_of_supplications WHERE ${isDayNight ? 'is_day_night == 0 OR is_day_night == 1' : 'is_day_night == 0 OR is_day_night == 2'}');
