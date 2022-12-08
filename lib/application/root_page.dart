@@ -12,7 +12,7 @@ class RootPage extends StatelessWidget {
       title: 'Полка мусульманина',
       theme: ThemeData(
         primarySwatch: Colors.green,
-        fontFamily: 'Noto Sans'
+        fontFamily: 'Gilroy'
       ),
       onGenerateRoute: AppRoutes.onGenerateRoute,
       home: const MainPage(),

@@ -30,6 +30,13 @@ class DatabaseQuery {
     return questions!;
   }
 
+  Future<List<ModelQuestionItem>> getOneQuestion(int questionId) async {
+    var dbClient = await con.db;
+    var res = await dbClient.query('Table_of_questions', where: 'id == $questionId');
+    List<ModelQuestionItem>? questions = res.isNotEmpty ? res.map((c) => ModelQuestionItem.fromMap(c)).toList() : null;
+    return questions!;
+  }
+
   Future<List<ModelHadeethItem>> getHadeeths() async {
     var dbClient = await con.db;
     var res = await dbClient.query('Table_of_hadeeths');
