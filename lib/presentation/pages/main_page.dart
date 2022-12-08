@@ -22,7 +22,7 @@ class MainPage extends StatelessWidget {
         ),
         centerTitle: true,
         elevation: 0,
-        title: const Text('ПM'),
+        title: const Text('Полка мусульманина'),
       ),
       body: SingleChildScrollView(
         child: Column(

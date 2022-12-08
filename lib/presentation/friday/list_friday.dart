@@ -53,7 +53,7 @@ class ListFriday extends StatelessWidget {
                     count: snapshot.data!.length,
                     effect: CustomizableEffect(
                       activeDotDecoration: DotDecoration(
-                        color: Colors.primaries[readMainState.getFridaySunnahControllerIndex + 1],
+                        color: Colors.primaries[context.watch<MainAppState>().getFridaySunnahControllerIndex + 1],
                         dotBorder: const DotBorder(
                           padding: 2,
                           color: Colors.teal,

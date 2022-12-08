@@ -8,9 +8,10 @@ class RootPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ПМ',
+      debugShowCheckedModeBanner: false,
+      title: 'Полка мусульманина',
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        primarySwatch: Colors.green,
         fontFamily: 'Noto Sans'
       ),
       onGenerateRoute: AppRoutes.onGenerateRoute,
