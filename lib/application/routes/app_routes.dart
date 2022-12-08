@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/data/database/model/arguments/arguments_hadeeth.dart';
 import 'package:majmua/data/database/model/arguments/arguments_question.dart';
 import 'package:majmua/data/database/model/arguments/arguments_supplication.dart';
+import 'package:majmua/presentation/hadeeths/hadeeth_page.dart';
 import 'package:majmua/presentation/questions/questions_page.dart';
 import 'package:majmua/presentation/supplications/supplication_page.dart';
 
@@ -25,6 +27,16 @@ class AppRoutes {
           builder: (_) => QuestionsPage(
             numberQuestion: argumentsQuestion.numberQuestion,
             questionId: argumentsQuestion.questionId,
+          ),
+          settings: routeSettings,
+        );
+      case 'hadeeths_page':
+        final ArgumentsHadeeth argumentsHadeeth =
+            routeSettings.arguments as ArgumentsHadeeth;
+        return MaterialPageRoute(
+          builder: (_) => HadeethPage(
+            hadeethTitle: argumentsHadeeth.hadeethTitle,
+            hadeethId: argumentsHadeeth.hadeethId,
           ),
           settings: routeSettings,
         );

@@ -44,6 +44,13 @@ class DatabaseQuery {
     return hadeeths!;
   }
 
+  Future<List<ModelHadeethItem>> getOneHadeeth(int hadeethId) async {
+    var dbClient = await con.db;
+    var res = await dbClient.query('Table_of_hadeeths', where: 'id == $hadeethId');
+    List<ModelHadeethItem>? hadeeths = res.isNotEmpty ? res.map((c) => ModelHadeethItem.fromMap(c)).toList() : null;
+    return hadeeths!;
+  }
+
   Future<List<ModelLessonRamadanItem>> getLessonsRamadan() async {
     var dbClient = await con.db;
     var res = await dbClient.query('Table_of_lessons_ramadan');

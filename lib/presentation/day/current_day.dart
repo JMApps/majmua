@@ -39,17 +39,16 @@ class CurrentDay extends StatelessWidget {
             ),
             animation: true,
             animationDuration: 750,
-            barRadius: const Radius.circular(7.5),
-            lineHeight: 30,
+            barRadius: const Radius.circular(15),
+            lineHeight: 40,
             progressColor: Colors.primaries[MainAppStyle.dateTime.weekday * 2],
             percent: readMainState.restDayProgress() / 100,
             center: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(width: 16),
-                Text(
-                    '${(readMainState.restDayProgress()).toStringAsFixed(2)}%'),
-                const SizedBox(width: 16),
+                Text('-${(readMainState.restDayProgress()).toStringAsFixed(2)}%'),
+                const SizedBox(width: 8),
                 Expanded(
                   child: Text(
                     context.watch<MainAppState>().getIsTextPercentChange
@@ -63,9 +62,9 @@ class CurrentDay extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                const SizedBox(width: 16),
+                const SizedBox(width: 8),
                 Text(
-                    '${(readMainState.restDayProgress() - 100).toStringAsFixed(2)}%'),
+                    '${(readMainState.restDayProgress() - 100).toStringAsFixed(2).substring(1)}%'),
                 const SizedBox(width: 16),
               ],
             ),
