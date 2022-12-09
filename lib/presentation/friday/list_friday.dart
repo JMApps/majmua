@@ -23,7 +23,7 @@ class ListFriday extends StatelessWidget {
                       horizontal: 16,
                     ),
                     child: Text(
-                      'Желательные (сунна) действия в день пятницы:',
+                      'Желательные (сунна) действия в этот день:',
                       style: TextStyle(fontSize: 16),
                       textAlign: TextAlign.center,
                     ),

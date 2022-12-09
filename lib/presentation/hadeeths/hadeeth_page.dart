@@ -58,7 +58,7 @@ class HadeethPage extends StatelessWidget {
                               fontSize: const FontSize(18),
                               direction: TextDirection.rtl,
                               fontFamily: 'Lateef',
-                              lineHeight: LineHeight.number(1.6)
+                              lineHeight: LineHeight.number(1.7)
                             ),
                             'small': Style(
                               fontSize: const FontSize(12),
