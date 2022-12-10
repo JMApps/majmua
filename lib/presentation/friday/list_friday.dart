@@ -24,13 +24,15 @@ class ListFriday extends StatelessWidget {
                     ),
                     child: Text(
                       'Желательные (сунна) действия в этот день:',
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
                       textAlign: TextAlign.center,
                     ),
                   ),
                   const SizedBox(height: 8),
                   SizedBox(
-                    height: 250,
+                    height: 216,
                     child: PageView.builder(
                       controller: readMainState.getFridayController,
                       itemCount: snapshot.data!.length,
@@ -68,7 +70,7 @@ class ListFriday extends StatelessWidget {
                         color: const Color(0xFF4DB6AC),
                         width: 6,
                         height: 6,
-                        borderRadius: BorderRadius.circular(3),
+                        borderRadius: BorderRadius.circular(2.5),
                       ),
                       spacing: 6,
                     ),

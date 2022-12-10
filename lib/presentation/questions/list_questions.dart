@@ -26,9 +26,16 @@ class _ListQuestionsState extends State<ListQuestions> {
         return snapshot.hasData
             ? Column(
                 children: [
-                  const SizedBox(height: 16),
-                  const Text('200 вопросов по вероучению Ислама'),
                   const SizedBox(height: 8),
+                  const Divider(indent: 16, endIndent: 16),
+                  const SizedBox(height: 8),
+                  const Text(
+                    '200 вопросов по вероучению Ислама',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
                   SizedBox(
                     height: 200,
                     child: PageView.builder(
@@ -41,18 +48,20 @@ class _ListQuestionsState extends State<ListQuestions> {
                       },
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 16),
                   SmoothPageIndicator(
                     controller: _questionsController,
                     count: snapshot.data!.length,
                     effect: const ScrollingDotsEffect(
                       maxVisibleDots: 11,
-                      dotWidth: 12,
-                      dotHeight: 4,
-                      dotColor: Color(0xFF4DB6AC),
+                      dotWidth: 4,
+                      dotHeight: 12,
+                      dotColor: Color(0xFFCE93D8),
                       activeDotColor: Colors.purple,
                     ),
                   ),
+                  const SizedBox(height: 8),
+                  const Divider(indent: 16, endIndent: 16),
                 ],
               )
             : const Center(

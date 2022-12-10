@@ -10,8 +10,13 @@ class DayNightSupplications extends StatelessWidget {
     return Column(
       children: [
         const SizedBox(height: 16),
-        const Text('Слова поминания Аллаха'),
-        const SizedBox(height: 8),
+        const Text(
+          'Слова поминания Аллаха',
+          style: TextStyle(
+            fontSize: 18,
+          ),
+        ),
+        const SizedBox(height: 16),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(

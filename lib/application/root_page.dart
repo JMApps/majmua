@@ -11,7 +11,7 @@ class RootPage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Полка мусульманина',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.indigo,
         fontFamily: 'Gilroy'
       ),
       onGenerateRoute: AppRoutes.onGenerateRoute,

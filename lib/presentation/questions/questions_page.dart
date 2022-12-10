@@ -18,17 +18,14 @@ class QuestionsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green.shade50,
+      backgroundColor: Colors.indigo.shade50,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
         title: Text(numberQuestion),
       ),
       body: FutureBuilder(
-        future: context
-            .read<MainAppState>()
-            .getDatabaseQuery
-            .getOneQuestion(questionId),
+        future: context.read<MainAppState>().getDatabaseQuery.getOneQuestion(questionId),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           return snapshot.hasData
               ? CupertinoScrollbar(
@@ -36,69 +33,61 @@ class QuestionsPage extends StatelessWidget {
                     padding: MainAppStyle.mainPadding,
                     child: Column(
                       children: [
-                        Card(
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: MainAppStyle.mainBorderRadius,
-                          ),
-                          child: Padding(
-                            padding: MainAppStyle.mainPadding,
-                            child: Html(
-                              data: snapshot.data![0].question,
-                              style: {
-                                '#': Style(
-                                  padding: EdgeInsets.zero,
-                                  margin: EdgeInsets.zero,
-                                  fontSize: const FontSize(18),
-                                  textAlign: TextAlign.center,
-                                ),
-                                'sup': Style(
-                                  fontSize: const FontSize(12),
-                                  color: Colors.purple,
-                                ),
-                              },
-                              onLinkTap: (String? url,
-                                  RenderContext rendContext,
-                                  Map<String, String> attributes,
-                                  element) {
-                                showModalBottomSheet(
-                                  backgroundColor: Colors.transparent,
-                                  context: context,
-                                  builder: (_) => SingleChildScrollView(
-                                    child: Container(
-                                      padding: MainAppStyle.mainPadding,
-                                      margin: MainAppStyle.mainMargin,
-                                      decoration: const BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            MainAppStyle.mainBorderRadius,
-                                      ),
-                                      child: Html(
-                                        data: url,
-                                        style: {
-                                          '#': Style(
-                                            fontSize: const FontSize(16),
-                                          ),
-                                          'small': Style(
-                                            fontSize: const FontSize(12),
-                                            color: Colors.grey,
-                                          ),
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              },
+                        const Divider(indent: 16, endIndent: 16),
+                        Html(
+                          data: snapshot.data![0].question,
+                          style: {
+                            '#': Style(
+                              padding: EdgeInsets.zero,
+                              margin: EdgeInsets.zero,
+                              fontSize: const FontSize(18),
+                              textAlign: TextAlign.center,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.purple,
                             ),
-                          ),
+                            'sup': Style(
+                              fontSize: const FontSize(12),
+                              color: Colors.purple,
+                            ),
+                          },
+                          onLinkTap: (String? url, RenderContext rendContext,
+                              Map<String, String> attributes, element) {
+                            showModalBottomSheet(
+                              backgroundColor: Colors.transparent,
+                              context: context,
+                              builder: (_) => SingleChildScrollView(
+                                child: Container(
+                                  padding: MainAppStyle.mainPadding,
+                                  margin: MainAppStyle.mainMargin,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: MainAppStyle.mainBorderRadius,
+                                  ),
+                                  child: Html(
+                                    data: url,
+                                    style: {
+                                      '#': Style(
+                                        fontSize: const FontSize(16),
+                                      ),
+                                      'small': Style(
+                                        fontSize: const FontSize(12),
+                                        color: Colors.grey,
+                                      ),
+                                    },
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
                         ),
-                        const SizedBox(height: 8),
+                        const Divider(indent: 16, endIndent: 16),
                         Html(
                           data: snapshot.data![0].answerContent,
                           style: {
                             '#': Style(
-                              fontSize: const FontSize(18),
-                              textAlign: TextAlign.justify,
-                            ),
+                                fontSize: const FontSize(18),
+                                textAlign: TextAlign.justify,
+                                color: Colors.black87),
                             'small': Style(
                               fontSize: const FontSize(12),
                               color: Colors.grey,

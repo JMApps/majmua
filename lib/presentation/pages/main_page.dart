@@ -14,12 +14,8 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal.shade50,
+      backgroundColor: Colors.indigo.shade50,
       appBar: AppBar(
-        leading: const Icon(
-          Icons.ac_unit_outlined,
-          size: 35,
-        ),
         centerTitle: true,
         elevation: 0,
         title: const Text('Полка мусульманина'),
@@ -29,14 +25,19 @@ class MainPage extends StatelessWidget {
           children: [
             const CurrentDay(),
             Visibility(
-              visible: MainAppStyle.dateTime.weekday >= 4 && MainAppStyle.dateTime.weekday <= 5 ? true : false,
+              visible: MainAppStyle.dateTime.weekday >= 4 &&
+                      MainAppStyle.dateTime.weekday <= 5 ? true : false,
               child: const ListFriday(),
             ),
             const DayNightSupplications(),
             const ListNames(),
-            MainAppStyle.dateTimeHijri.hMonth == 9 ? const ListLessonsRamadan() : const ListQuestions(),
+            MainAppStyle.dateTimeHijri.hMonth == 9
+                ? const ListLessonsRamadan()
+                : const ListQuestions(),
             const ListHadeeths(),
-            MainAppStyle.dateTimeHijri.hMonth == 9 ? const ListQuestions() : const ListLessonsRamadan(),
+            MainAppStyle.dateTimeHijri.hMonth != 9
+                ? const ListLessonsRamadan()
+                : const ListQuestions(),
           ],
         ),
       ),

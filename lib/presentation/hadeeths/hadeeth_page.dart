@@ -18,6 +18,7 @@ class HadeethPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.indigo.shade50,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
@@ -35,31 +36,27 @@ class HadeethPage extends StatelessWidget {
                     padding: MainAppStyle.mainPadding,
                     child: Column(
                       children: [
-                        Card(
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: MainAppStyle.mainBorderRadius,
+                        const Divider(indent: 16, endIndent: 16),
+                        Text(
+                          snapshot.data![0].titleHadeeth,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.deepOrange,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(16),
-                            child: Text(
-                              snapshot.data![0].titleHadeeth,
-                              style: const TextStyle(
-                                fontSize: 16,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
+                          textAlign: TextAlign.center,
                         ),
-                        const SizedBox(height: 8),
+                        const Divider(indent: 16, endIndent: 16),
                         Html(
                           data: snapshot.data![0].hadeethArabic,
                           style: {
                             '#': Style(
-                              fontSize: const FontSize(18),
-                              direction: TextDirection.rtl,
-                              fontFamily: 'Lateef',
-                              lineHeight: LineHeight.number(1.7)
-                            ),
+                                padding: EdgeInsets.zero,
+                                margin: EdgeInsets.zero,
+                                fontSize: const FontSize(18),
+                                direction: TextDirection.rtl,
+                                fontFamily: 'Lateef',
+                                lineHeight: LineHeight.number(1.7)),
                             'small': Style(
                               fontSize: const FontSize(12),
                               color: Colors.grey,
@@ -70,7 +67,7 @@ class HadeethPage extends StatelessWidget {
                             ),
                           },
                         ),
-                        const SizedBox(height: 8),
+                        const Divider(indent: 16, endIndent: 16),
                         Html(
                           data: snapshot.data![0].hadeethTranslation,
                           style: {

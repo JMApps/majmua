@@ -56,7 +56,7 @@ class MainAppStyle {
   }
 
   static String getGregorianDate() {
-    return '${MainAppStyle.dateTime.day}.${MainAppStyle.dateTime.month}.${MainAppStyle.dateTime.year}';
+    return '${dateTime.day}.${dateTime.month}.${dateTime.year}';
   }
 
   static const mainBorderRadius = BorderRadius.all(Radius.circular(20));

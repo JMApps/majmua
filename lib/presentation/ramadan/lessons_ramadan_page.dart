@@ -18,6 +18,7 @@ class LessonsRamadanPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.indigo.shade50,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
@@ -35,26 +36,23 @@ class LessonsRamadanPage extends StatelessWidget {
                     padding: MainAppStyle.mainPadding,
                     child: Column(
                       children: [
-                        Card(
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: MainAppStyle.mainBorderRadius,
+                        const Divider(indent: 16, endIndent: 16),
+                        Text(
+                          snapshot.data![0].titleChapter,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.brown,
                           ),
-                          child: Padding(
-                            padding: MainAppStyle.mainPadding,
-                            child: Text(
-                              snapshot.data![0].titleChapter,
-                              style: const TextStyle(
-                                fontSize: 16,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
+                          textAlign: TextAlign.center,
                         ),
-                        const SizedBox(height: 8),
+                        const Divider(indent: 16, endIndent: 16),
                         Html(
                           data: snapshot.data![0].contentChapter,
                           style: {
                             '#': Style(
+                              padding: EdgeInsets.zero,
+                              margin: EdgeInsets.zero,
                               fontSize: const FontSize(18),
                               textAlign: TextAlign.justify,
                             ),

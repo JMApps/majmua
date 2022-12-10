@@ -26,9 +26,16 @@ class _ListLessonsRamadanState extends State<ListLessonsRamadan> {
         return snapshot.hasData
             ? Column(
                 children: [
-                  const SizedBox(height: 16),
-                  const Text('Уроки Рамадана'),
                   const SizedBox(height: 8),
+                  const Divider(indent: 16, endIndent: 16),
+                  const SizedBox(height: 8),
+                  const Text(
+                    'Уроки Рамадана',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
                   SizedBox(
                     height: 125,
                     child: PageView.builder(
@@ -41,18 +48,20 @@ class _ListLessonsRamadanState extends State<ListLessonsRamadan> {
                       },
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 16),
                   SmoothPageIndicator(
                     controller: _lessonsRamadanController,
                     count: snapshot.data!.length,
                     effect: const ScrollingDotsEffect(
                       maxVisibleDots: 11,
-                      dotWidth: 12,
-                      dotHeight: 4,
-                      dotColor: Color(0xFF4DB6AC),
+                      dotWidth: 4,
+                      dotHeight: 12,
+                      dotColor: Color(0xFFBCAAA4),
                       activeDotColor: Colors.brown,
                     ),
                   ),
+                  const SizedBox(height: 8),
+                  const Divider(indent: 16, endIndent: 16),
                   const SizedBox(height: 32),
                 ],
               )

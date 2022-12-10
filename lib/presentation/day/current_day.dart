@@ -13,22 +13,30 @@ class CurrentDay extends StatelessWidget {
     return Column(
       children: [
         const SizedBox(height: 16),
+        const Text(
+          'Сегодня',
+          style: TextStyle(
+            fontSize: 18,
+          ),
+        ),
+        const SizedBox(height: 8),
         Text(
-          'Сегодня ${MainAppStyle.getHijriDate()} / ${MainAppStyle.getGregorianDate()}',
+          '${MainAppStyle.getHijriDate()} / ${MainAppStyle.getGregorianDate()}',
           style: const TextStyle(
-            fontSize: 16,
+            fontSize: 20,
+            color: Colors.teal,
           ),
         ),
         const SizedBox(height: 8),
         Text(
           '${MainAppStyle.getMonthHijriNames} / ${MainAppStyle.getMonthNames}',
           style: const TextStyle(
-            fontSize: 16,
+            fontSize: 18,
             fontFamily: 'Gilroy',
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 16),
         GestureDetector(
           onTap: () {
             readMainState.setPercentTextChange();
@@ -63,8 +71,7 @@ class CurrentDay extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 8),
-                Text(
-                    '${(readMainState.restDayProgress() - 100).toStringAsFixed(2).substring(1)}%'),
+                Text('${(readMainState.restDayProgress() - 100).toStringAsFixed(2).substring(1)}%'),
                 const SizedBox(width: 16),
               ],
             ),
@@ -80,12 +87,12 @@ class CurrentDay extends StatelessWidget {
                   borderRadius: MainAppStyle.mainBorderRadius,
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(16),
+                  padding: MainAppStyle.mainPadding,
                   child: Text(
                     MainAppStyle.getMessagesForDays,
                     style: const TextStyle(
-                      fontSize: 16,
-                      color: Colors.red,
+                      fontSize: 18,
+                      color: Colors.teal,
                       fontFamily: 'Gilroy',
                     ),
                     textAlign: TextAlign.center,

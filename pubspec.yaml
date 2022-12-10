@@ -38,6 +38,7 @@ flutter:
     - assets/images/
     - assets/fonts/
     - assets/databases/
+    - assets/icons/
     -
   fonts:
     - family: Noto Sans

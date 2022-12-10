@@ -6,9 +6,11 @@ class MainAppState extends ChangeNotifier {
 
   DatabaseQuery get getDatabaseQuery => _databaseQuery;
 
-  final PageController _fridayController = PageController(initialPage: 0, viewportFraction: 0.85);
+  final PageController _fridayController =
+      PageController(initialPage: 0, viewportFraction: 0.85);
 
-  final PageController _supplicationController = PageController(initialPage: 0, viewportFraction: 0.85);
+  final PageController _supplicationController =
+      PageController(initialPage: 0, viewportFraction: 0.85);
 
   final DateTime _dateTime = DateTime.now();
 
@@ -16,7 +18,9 @@ class MainAppState extends ChangeNotifier {
 
   bool get getIsTextPercentChange => _isTextPercentChange;
 
-  int get getDayInMinutes => _dateTime.difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day)).inMinutes;
+  int get getDayInMinutes => _dateTime
+      .difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day))
+      .inMinutes;
 
   PageController get getFridayController => _fridayController;
 

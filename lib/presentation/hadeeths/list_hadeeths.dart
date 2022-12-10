@@ -16,7 +16,7 @@ class ListHadeeths extends StatefulWidget {
 
 class _ListHadeethsState extends State<ListHadeeths> {
   final _hadeethsController =
-      PageController(initialPage: Random().nextInt(42), viewportFraction: 0.65);
+      PageController(initialPage: Random().nextInt(42), viewportFraction: 0.75);
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +26,16 @@ class _ListHadeethsState extends State<ListHadeeths> {
         return snapshot.hasData
             ? Column(
                 children: [
-                  const SizedBox(height: 16),
-                  const Text('40 хадисов имама ан-Навави'),
                   const SizedBox(height: 8),
+                  const Divider(indent: 16, endIndent: 16),
+                  const SizedBox(height: 8),
+                  const Text(
+                    '40 хадисов имама ан-Навави',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
                   SizedBox(
                     height: 175,
                     child: PageView.builder(
@@ -41,7 +48,7 @@ class _ListHadeethsState extends State<ListHadeeths> {
                       },
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 16),
                   SmoothPageIndicator(
                     controller: _hadeethsController,
                     count: snapshot.data!.length,
@@ -49,10 +56,12 @@ class _ListHadeethsState extends State<ListHadeeths> {
                       maxVisibleDots: 11,
                       dotWidth: 4,
                       dotHeight: 12,
-                      dotColor: Color(0xFF4DB6AC),
+                      dotColor: Color(0xFFFFAB91),
                       activeDotColor: Colors.deepOrange,
                     ),
                   ),
+                  const SizedBox(height: 8),
+                  const Divider(indent: 16, endIndent: 16),
                 ],
               )
             : const Center(
