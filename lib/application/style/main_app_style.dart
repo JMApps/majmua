@@ -5,6 +5,13 @@ class MainAppStyle {
   static final DateTime dateTime = DateTime.now();
   static final HijriCalendar dateTimeHijri = HijriCalendar.now();
 
+  static int toRamadan() {
+    int countDays = 0;
+    final hijriRamadanToGregorian = dateTimeHijri.hijriToGregorian(dateTimeHijri.hYear, 9, 1);
+    countDays = dateTime.difference(DateTime(hijriRamadanToGregorian.year, hijriRamadanToGregorian.month, hijriRamadanToGregorian.day)).inDays;
+    return countDays;
+  }
+
   static final List<String> _messagesForDays = [
     'Сегодня понедельник, день желательного поста',
     '',

@@ -36,6 +36,16 @@ class CurrentDay extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        const SizedBox(height: 8),
+        Text(
+          'До Рамадана примерно ${MainAppStyle.toRamadan().toString().substring(1)}',
+          style: const TextStyle(
+            fontSize: 18,
+            fontFamily: 'Gilroy',
+            color: Colors.indigo,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         const SizedBox(height: 16),
         GestureDetector(
           onTap: () {
