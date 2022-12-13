@@ -7,6 +7,7 @@ import 'package:majmua/presentation/names/list_names.dart';
 import 'package:majmua/presentation/questions/list_questions.dart';
 import 'package:majmua/presentation/ramadan/list_lessons_ramadan.dart';
 import 'package:majmua/presentation/supplications/day_night_supplications.dart';
+import 'package:majmua/presentation/surah/surah.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -30,6 +31,7 @@ class MainPage extends StatelessWidget {
               child: const ListFriday(),
             ),
             const DayNightSupplications(),
+            const Surah(),
             const ListNames(),
             MainAppStyle.dateTimeHijri.hMonth == 9
                 ? const ListLessonsRamadan()

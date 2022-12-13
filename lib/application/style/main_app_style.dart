@@ -5,11 +5,11 @@ class MainAppStyle {
   static final DateTime dateTime = DateTime.now();
   static final HijriCalendar dateTimeHijri = HijriCalendar.now();
 
-  static int toRamadan() {
+  static String toRamadan() {
     int countDays = 0;
     final hijriRamadanToGregorian = dateTimeHijri.hijriToGregorian(dateTimeHijri.hYear, 9, 1);
     countDays = dateTime.difference(DateTime(hijriRamadanToGregorian.year, hijriRamadanToGregorian.month, hijriRamadanToGregorian.day)).inDays;
-    return countDays;
+    return countDays.toString();
   }
 
   static final List<String> _messagesForDays = [
