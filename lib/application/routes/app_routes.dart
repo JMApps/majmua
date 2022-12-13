@@ -7,6 +7,8 @@ import 'package:majmua/presentation/hadeeths/hadeeth_page.dart';
 import 'package:majmua/presentation/questions/questions_page.dart';
 import 'package:majmua/presentation/ramadan/lessons_ramadan_page.dart';
 import 'package:majmua/presentation/supplications/supplication_page.dart';
+import 'package:majmua/presentation/surah/surah_kahf.dart';
+import 'package:majmua/presentation/surah/surah_mulk.dart';
 
 class AppRoutes {
   static Route onGenerateRoute(RouteSettings routeSettings) {
@@ -50,6 +52,16 @@ class AppRoutes {
             numberChapter: lessonRamadan.numberChapter,
             chapterId: lessonRamadan.chapterId,
           ),
+          settings: routeSettings,
+        );
+      case 'surah_kahf':
+        return MaterialPageRoute(
+          builder: (_) => const SurahKahf(),
+          settings: routeSettings,
+        );
+      case 'surah_mulk':
+        return MaterialPageRoute(
+          builder: (_) => const SurahMulk(),
           settings: routeSettings,
         );
       default:

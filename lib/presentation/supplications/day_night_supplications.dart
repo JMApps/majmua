@@ -131,7 +131,7 @@ class DayNightSupplications extends StatelessWidget {
                 decoration: const BoxDecoration(
                   borderRadius: MainAppStyle.mainBorderRadius,
                   image: DecorationImage(
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fitWidth,
                     image: AssetImage('assets/images/ic_night.jpg'),
                   ),
                 ),

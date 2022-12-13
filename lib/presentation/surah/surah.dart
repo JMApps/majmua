@@ -22,7 +22,7 @@ class Surah extends StatelessWidget {
             splashColor: const Color(0xFF7986CB),
             borderRadius: MainAppStyle.mainBorderRadius,
             onTap: () {
-              Navigator.pushNamed(context, 'surah_page');
+              Navigator.pushNamed(context, 'surah_kahf');
             },
             child: Card(
               elevation: 0,
@@ -56,7 +56,7 @@ class Surah extends StatelessWidget {
             splashColor: const Color(0xFF7986CB),
             borderRadius: MainAppStyle.mainBorderRadius,
             onTap: () {
-              Navigator.pushNamed(context, 'surah_page');
+              Navigator.pushNamed(context, 'surah_mulk');
             },
             child: Card(
               elevation: 0,
@@ -69,7 +69,7 @@ class Surah extends StatelessWidget {
                 decoration: const BoxDecoration(
                   borderRadius: MainAppStyle.mainBorderRadius,
                   image: DecorationImage(
-                    fit: BoxFit.fill,
+                    fit: BoxFit.fitWidth,
                     image: AssetImage('assets/images/ic_al_mulk.jpg'),
                   ),
                 ),
