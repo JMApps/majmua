@@ -24,7 +24,7 @@ class SupplicationItem extends StatelessWidget {
         padding: MainAppStyle.mainPadding,
         children: [
           CircleAvatar(
-            backgroundColor: Colors.red,
+            backgroundColor: const Color(0xFFE91E63),
             child: Text(
               index.toString(),
               style: const TextStyle(
@@ -69,7 +69,7 @@ class SupplicationItem extends StatelessWidget {
               ),
               'a': Style(
                 fontSize: const FontSize(14),
-                color: Colors.red,
+                color: const Color(0xFFE91E63),
               ),
             },
             onLinkTap: (String? url, RenderContext rendContext,

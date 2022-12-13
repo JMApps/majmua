@@ -86,7 +86,7 @@ class SupplicationPage extends StatelessWidget {
                       icon: Icon(
                         Icons.vibration,
                         color: supplicationState.getIsVibration
-                            ? const Color(0xFFF44336)
+                            ? const Color(0xFFE91E63)
                             : Colors.white,
                       ),
                     ),
