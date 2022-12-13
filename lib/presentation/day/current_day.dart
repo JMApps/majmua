@@ -52,7 +52,6 @@ class CurrentDay extends StatelessWidget {
                 text: MainAppStyle.toRamadan().substring(1),
                 style: const TextStyle(
                   fontSize: 18,
-                  fontWeight: FontWeight.bold,
                   color: Colors.red,
                   fontFamily: 'Gilroy',
                 ),
