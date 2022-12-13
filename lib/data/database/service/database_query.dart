@@ -7,7 +7,11 @@ import 'package:majmua/data/database/model/model_supplication_item.dart';
 import 'package:majmua/data/database/service/database_service.dart';
 
 class DatabaseQuery {
+
   DatabaseService con = DatabaseService();
+  static final DatabaseQuery _instance = DatabaseQuery.internal();
+  factory DatabaseQuery() => _instance;
+  DatabaseQuery.internal();
 
   Future<List<ModelFridayItem>> getFridaySunnah() async {
     var dbClient = await con.db;

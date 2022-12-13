@@ -1,10 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:majmua/application/state/main_app_state.dart';
 import 'package:majmua/application/style/main_app_style.dart';
+import 'package:majmua/data/database/service/database_query.dart';
 import 'package:majmua/presentation/names/name_item.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ListNames extends StatefulWidget {
@@ -17,11 +16,12 @@ class ListNames extends StatefulWidget {
 class _ListNamesState extends State<ListNames> {
   final _namesController =
       PageController(initialPage: Random().nextInt(99), viewportFraction: 0.75);
+  final DatabaseQuery _databaseQuery = DatabaseQuery();
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: context.read<MainAppState>().getDatabaseQuery.getNames(),
+      future: _databaseQuery.getNames(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.hasError) {
           return Center(

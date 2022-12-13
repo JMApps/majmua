@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/main_app_state.dart';
 import 'package:majmua/application/style/main_app_style.dart';
+import 'package:majmua/data/database/service/database_query.dart';
 import 'package:majmua/presentation/friday/friday_item.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class ListFriday extends StatelessWidget {
+class ListFriday extends StatefulWidget {
   const ListFriday({Key? key}) : super(key: key);
+
+  @override
+  State<ListFriday> createState() => _ListFridayState();
+}
+
+class _ListFridayState extends State<ListFriday> {
+  final DatabaseQuery _databaseQuery = DatabaseQuery();
 
   @override
   Widget build(BuildContext context) {
     final readMainState = context.read<MainAppState>();
     return FutureBuilder(
-      future: readMainState.getDatabaseQuery.getFridaySunnah(),
+      future: _databaseQuery.getFridaySunnah(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         return snapshot.hasData
             ? Column(

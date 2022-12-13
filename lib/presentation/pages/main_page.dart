@@ -7,7 +7,6 @@ import 'package:majmua/presentation/names/list_names.dart';
 import 'package:majmua/presentation/questions/list_questions.dart';
 import 'package:majmua/presentation/ramadan/list_lessons_ramadan.dart';
 import 'package:majmua/presentation/supplications/day_night_supplications.dart';
-import 'package:majmua/presentation/surah/surah.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);

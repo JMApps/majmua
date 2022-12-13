@@ -1,10 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:majmua/application/state/main_app_state.dart';
 import 'package:majmua/application/style/main_app_style.dart';
+import 'package:majmua/data/database/service/database_query.dart';
 import 'package:majmua/presentation/questions/question_item.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ListQuestions extends StatefulWidget {
@@ -17,11 +16,12 @@ class ListQuestions extends StatefulWidget {
 class _ListQuestionsState extends State<ListQuestions> {
   final _questionsController = PageController(
       initialPage: Random().nextInt(201), viewportFraction: 0.85);
+  final DatabaseQuery _databaseQuery = DatabaseQuery();
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: context.read<MainAppState>().getDatabaseQuery.getQuestions(),
+      future: _databaseQuery.getQuestions(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         return snapshot.hasData
             ? Column(

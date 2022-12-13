@@ -1,10 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:majmua/application/state/main_app_state.dart';
 import 'package:majmua/application/style/main_app_style.dart';
+import 'package:majmua/data/database/service/database_query.dart';
 import 'package:majmua/presentation/ramadan/lesson_ramadan_item.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ListLessonsRamadan extends StatefulWidget {
@@ -17,11 +16,12 @@ class ListLessonsRamadan extends StatefulWidget {
 class _ListLessonsRamadanState extends State<ListLessonsRamadan> {
   final _lessonsRamadanController =
       PageController(initialPage: Random().nextInt(30), viewportFraction: 0.85);
+  final DatabaseQuery _databaseQuery = DatabaseQuery();
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: context.read<MainAppState>().getDatabaseQuery.getLessonsRamadan(),
+      future: _databaseQuery.getLessonsRamadan(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         return snapshot.hasData
             ? Column(
