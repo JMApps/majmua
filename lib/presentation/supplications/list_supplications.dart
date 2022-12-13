@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/main_app_state.dart';
 import 'package:majmua/application/style/main_app_style.dart';
+import 'package:majmua/data/database/service/database_query.dart';
 import 'package:majmua/presentation/supplications/supplication_item.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class ListSupplications extends StatelessWidget {
+class ListSupplications extends StatefulWidget {
   const ListSupplications({
     Key? key,
     required this.isNight,
@@ -16,12 +17,19 @@ class ListSupplications extends StatelessWidget {
   final bool isDawn;
 
   @override
+  State<ListSupplications> createState() => _ListSupplicationsState();
+}
+
+class _ListSupplicationsState extends State<ListSupplications> {
+  final DatabaseQuery _databaseQuery = DatabaseQuery();
+
+  @override
   Widget build(BuildContext context) {
     final readMainState = context.read<MainAppState>();
     return FutureBuilder(
-      future: isNight
-          ? readMainState.getDatabaseQuery.getNightSupplications(2)
-          : readMainState.getDatabaseQuery.getDayNightSupplications(isDawn),
+      future: widget.isNight
+          ? _databaseQuery.getNightSupplications(2)
+          : _databaseQuery.getDayNightSupplications(widget.isDawn),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         return snapshot.hasData
             ? Column(

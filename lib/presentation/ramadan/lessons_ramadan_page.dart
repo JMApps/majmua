@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:majmua/application/state/main_app_state.dart';
 import 'package:majmua/application/style/main_app_style.dart';
-import 'package:provider/provider.dart';
+import 'package:majmua/data/database/service/database_query.dart';
 
-class LessonsRamadanPage extends StatelessWidget {
+class LessonsRamadanPage extends StatefulWidget {
   const LessonsRamadanPage({
     Key? key,
     required this.numberChapter,
@@ -16,19 +15,23 @@ class LessonsRamadanPage extends StatelessWidget {
   final int chapterId;
 
   @override
+  State<LessonsRamadanPage> createState() => _LessonsRamadanPageState();
+}
+
+class _LessonsRamadanPageState extends State<LessonsRamadanPage> {
+  final DatabaseQuery _databaseQuery = DatabaseQuery();
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.indigo.shade50,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        title: Text(numberChapter),
+        title: Text(widget.numberChapter),
       ),
       body: FutureBuilder(
-        future: context
-            .read<MainAppState>()
-            .getDatabaseQuery
-            .getOneLessonRamadan(chapterId),
+        future: _databaseQuery.getOneLessonRamadan(widget.chapterId),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           return snapshot.hasData
               ? CupertinoScrollbar(

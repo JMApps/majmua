@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/data/database/service/database_query.dart';
 
 class MainAppState extends ChangeNotifier {
-  final DatabaseQuery _databaseQuery = DatabaseQuery();
-
-  DatabaseQuery get getDatabaseQuery => _databaseQuery;
-
   final PageController _fridayController =
       PageController(initialPage: 0, viewportFraction: 0.85);
 
@@ -18,7 +13,9 @@ class MainAppState extends ChangeNotifier {
 
   bool get getIsTextPercentChange => _isTextPercentChange;
 
-  int get getDayInMinutes => _dateTime.difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day)).inMinutes;
+  int get getDayInMinutes => _dateTime
+      .difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day))
+      .inMinutes;
 
   PageController get getFridayController => _fridayController;
 
