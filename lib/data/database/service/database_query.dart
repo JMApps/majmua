@@ -4,6 +4,7 @@ import 'package:majmua/data/database/model/model_lesson_ramadan_item.dart';
 import 'package:majmua/data/database/model/model_name_item.dart';
 import 'package:majmua/data/database/model/model_question_item.dart';
 import 'package:majmua/data/database/model/model_supplication_item.dart';
+import 'package:majmua/data/database/model/model_supplications_from_quran.dart';
 import 'package:majmua/data/database/service/database_service.dart';
 
 class DatabaseQuery {
@@ -81,5 +82,12 @@ class DatabaseQuery {
     var res = await dbClient.query('Table_of_supplications', where: 'sample_by == $sampleBy');
     List<ModelSupplicationItem>? supplicationsNight = res.isNotEmpty ? res.map((c) => ModelSupplicationItem.fromMap(c)).toList() : null;
     return supplicationsNight!;
+  }
+
+  Future<List<ModelSupplicationsFromQuran>> getSupplicationsFromQuran() async {
+    var dbClient = await con.db;
+    var res = await dbClient.query('Table_of_supplications_from_quran');
+    List<ModelSupplicationsFromQuran>? supplicationsFromQuran = res.isNotEmpty ? res.map((c) => ModelSupplicationsFromQuran.fromMap(c)).toList() : null;
+    return supplicationsFromQuran!;
   }
 }

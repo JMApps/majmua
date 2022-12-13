@@ -8,9 +8,9 @@ class Surah extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 8),
+        const SizedBox(height: 16),
         const Text(
-          'Суры',
+          'Коран',
           style: TextStyle(
             fontSize: 18,
           ),
@@ -78,6 +78,41 @@ class Surah extends StatelessWidget {
                   'Сура «Власть»',
                   style: TextStyle(
                     color: Color(0xFFEFEBE9),
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 8),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: InkWell(
+            splashColor: const Color(0xFF7986CB),
+            borderRadius: MainAppStyle.mainBorderRadius,
+            onTap: () {
+              Navigator.pushNamed(context, 'supplications_from_quran');
+            },
+            child: Card(
+              elevation: 0,
+              shape: const RoundedRectangleBorder(
+                borderRadius: MainAppStyle.mainBorderRadius,
+              ),
+              child: Container(
+                padding: MainAppStyle.mainPadding,
+                alignment: Alignment.centerLeft,
+                decoration: const BoxDecoration(
+                  borderRadius: MainAppStyle.mainBorderRadius,
+                  image: DecorationImage(
+                    fit: BoxFit.fitWidth,
+                    image: AssetImage('assets/images/ic_supplication.jpg'),
+                  ),
+                ),
+                child: const Text(
+                  'Мольбы из Корана',
+                  style: TextStyle(
+                    color: Color(0xFFFBE9E7),
                     fontSize: 16,
                   ),
                 ),

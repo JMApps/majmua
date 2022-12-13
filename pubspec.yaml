@@ -56,4 +56,7 @@ flutter:
     - family: Surah
       fonts:
         - asset: assets/fonts/quran_surah.ttf
+    - family: Quran
+      fonts:
+        - asset: assets/fonts/quran_font.ttf
 

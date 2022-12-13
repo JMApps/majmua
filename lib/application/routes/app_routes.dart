@@ -7,6 +7,7 @@ import 'package:majmua/presentation/hadeeths/hadeeth_page.dart';
 import 'package:majmua/presentation/questions/questions_page.dart';
 import 'package:majmua/presentation/ramadan/lessons_ramadan_page.dart';
 import 'package:majmua/presentation/supplications/supplication_page.dart';
+import 'package:majmua/presentation/surah/supplications_from_quran.dart';
 import 'package:majmua/presentation/surah/surah_kahf.dart';
 import 'package:majmua/presentation/surah/surah_mulk.dart';
 
@@ -62,6 +63,11 @@ class AppRoutes {
       case 'surah_mulk':
         return MaterialPageRoute(
           builder: (_) => const SurahMulk(),
+          settings: routeSettings,
+        );
+        case 'supplications_from_quran':
+        return MaterialPageRoute(
+          builder: (_) => const SupplicationsFromQuran(),
           settings: routeSettings,
         );
       default:
