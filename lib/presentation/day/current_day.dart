@@ -37,13 +37,27 @@ class CurrentDay extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        Text(
-          'До Рамадана примерно ${MainAppStyle.toRamadan().toString().substring(1)}',
-          style: const TextStyle(
-            fontSize: 18,
-            fontFamily: 'Gilroy',
-            color: Colors.indigo,
-            fontWeight: FontWeight.bold,
+        RichText(
+          text: TextSpan(
+            children: [
+              const TextSpan(
+                text: 'Осталось дней до Рамадана: ',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.indigo,
+                  fontFamily: 'Gilroy',
+                ),
+              ),
+              TextSpan(
+                text: MainAppStyle.toRamadan().substring(1),
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.red,
+                  fontFamily: 'Gilroy',
+                ),
+              ),
+            ],
           ),
         ),
         const SizedBox(height: 16),
@@ -65,7 +79,8 @@ class CurrentDay extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(width: 16),
-                Text('-${(readMainState.restDayProgress()).toStringAsFixed(2)}%'),
+                Text(
+                    '-${(readMainState.restDayProgress()).toStringAsFixed(2)}%'),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
@@ -81,7 +96,8 @@ class CurrentDay extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 8),
-                Text('${(readMainState.restDayProgress() - 100).toStringAsFixed(2).substring(1)}%'),
+                Text(
+                    '${(readMainState.restDayProgress() - 100).toStringAsFixed(2).substring(1)}%'),
                 const SizedBox(width: 16),
               ],
             ),
