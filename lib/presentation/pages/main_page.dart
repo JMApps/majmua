@@ -31,7 +31,7 @@ class MainPage extends StatelessWidget {
               child: const ListFriday(),
             ),
             const DayNightSupplications(),
-            const Surah(),
+            //const Surah(),
             const ListNames(),
             MainAppStyle.dateTimeHijri.hMonth == 9
                 ? const ListLessonsRamadan()

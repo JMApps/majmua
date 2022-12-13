@@ -35,8 +35,8 @@ class Surah extends StatelessWidget {
                 decoration: const BoxDecoration(
                   borderRadius: MainAppStyle.mainBorderRadius,
                   image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(''),
+                    fit: BoxFit.fill,
+                    image: AssetImage('assets/images/ic_cave.jpg'),
                   ),
                 ),
                 child: const Text(
@@ -69,8 +69,8 @@ class Surah extends StatelessWidget {
                 decoration: const BoxDecoration(
                   borderRadius: MainAppStyle.mainBorderRadius,
                   image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(''),
+                    fit: BoxFit.fill,
+                    image: AssetImage('assets/images/ic_al_mulk.jpg'),
                   ),
                 ),
                 child: const Text(

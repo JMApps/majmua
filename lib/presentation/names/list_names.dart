@@ -23,6 +23,11 @@ class _ListNamesState extends State<ListNames> {
     return FutureBuilder(
       future: context.read<MainAppState>().getDatabaseQuery.getNames(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (snapshot.hasError) {
+          return Center(
+            child: SelectableText('${snapshot.error}'),
+          );
+        }
         return snapshot.hasData
             ? Column(
                 children: [

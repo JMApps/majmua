@@ -13,6 +13,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.5
+  path: ^1.8.2
+  path_provider: ^2.0.11
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   sqflite: ^2.2.2
@@ -50,4 +52,7 @@ flutter:
     - family: Gilroy
       fonts:
         - asset: assets/fonts/gilroy_medium.ttf
+    - family: Surah
+      fonts:
+        - asset: assets/fonts/quran_surah.ttf
 
