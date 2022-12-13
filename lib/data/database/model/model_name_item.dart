@@ -4,7 +4,7 @@ class ModelNameItem {
   final String nameTranscription;
   final String nameTranslation;
 
-  ModelNameItem({
+  const ModelNameItem({
     required this.id,
     required this.nameArabic,
     required this.nameTranscription,

@@ -4,7 +4,7 @@ class ModelLessonRamadanItem {
   final String titleChapter;
   final String contentChapter;
 
-  ModelLessonRamadanItem({
+  const ModelLessonRamadanItem({
     required this.id,
     required this.numberChapter,
     required this.titleChapter,

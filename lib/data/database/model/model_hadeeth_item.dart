@@ -5,7 +5,7 @@ class ModelHadeethItem {
   final String hadeethArabic;
   final String hadeethTranslation;
 
-  ModelHadeethItem({
+  const ModelHadeethItem({
     required this.id,
     required this.numberHadeeth,
     required this.titleHadeeth,

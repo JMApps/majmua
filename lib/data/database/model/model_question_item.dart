@@ -4,7 +4,7 @@ class ModelQuestionItem {
   final String question;
   final String answerContent;
 
-  ModelQuestionItem({
+  const ModelQuestionItem({
     required this.id,
     required this.numberQuestion,
     required this.question,

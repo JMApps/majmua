@@ -4,7 +4,7 @@ class ModelFridayItem {
   final String contentSunnah;
   final String picture;
 
-  ModelFridayItem({
+  const ModelFridayItem({
     required this.id,
     required this.numberSunnah,
     required this.contentSunnah,
