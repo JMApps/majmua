@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/application/state/main_app_state.dart';
+import 'package:majmua/application/state/supplications_state.dart';
 import 'package:majmua/application/style/main_app_style.dart';
 import 'package:majmua/data/database/service/database_query.dart';
 import 'package:majmua/presentation/supplications/supplication_item.dart';
@@ -25,7 +25,7 @@ class _ListSupplicationsState extends State<ListSupplications> {
 
   @override
   Widget build(BuildContext context) {
-    final readMainState = context.read<MainAppState>();
+    final readMainState = context.read<SupplicationsState>();
     return FutureBuilder(
       future: widget.isNight
           ? _databaseQuery.getNightSupplications(2)
@@ -50,7 +50,7 @@ class _ListSupplicationsState extends State<ListSupplications> {
                   const SizedBox(height: 16),
                   SmoothPageIndicator(
                     onDotClicked: (index) {
-                      readMainState.supplicationControllerIndex = index;
+                      readMainState.setSupplicationControllerIndex = index;
                     },
                     controller: readMainState.getSupplicationController,
                     count: snapshot.data!.length,
@@ -76,7 +76,7 @@ class _ListSupplicationsState extends State<ListSupplications> {
                       spacing: 6,
                     ),
                   ),
-                  const SizedBox(height: 32),
+                  const SizedBox(height: 16),
                 ],
               )
             : const Center(
