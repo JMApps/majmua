@@ -18,9 +18,7 @@ class MainAppState extends ChangeNotifier {
 
   bool get getIsTextPercentChange => _isTextPercentChange;
 
-  int get getDayInMinutes => _dateTime
-      .difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day))
-      .inMinutes;
+  int get getDayInMinutes => _dateTime.difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day)).inMinutes;
 
   PageController get getFridayController => _fridayController;
 

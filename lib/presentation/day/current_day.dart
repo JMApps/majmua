@@ -79,8 +79,7 @@ class CurrentDay extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(width: 16),
-                Text(
-                    '-${(readMainState.restDayProgress()).toStringAsFixed(2)}%'),
+                Text('-${(readMainState.restDayProgress()).toStringAsFixed(2)}%'),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
@@ -96,8 +95,7 @@ class CurrentDay extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 8),
-                Text(
-                    '${(readMainState.restDayProgress() - 100).toStringAsFixed(2).substring(1)}%'),
+                Text('${(readMainState.restDayProgress() - 100).toStringAsFixed(2).substring(1)}%'),
                 const SizedBox(width: 16),
               ],
             ),

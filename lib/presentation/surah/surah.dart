@@ -31,18 +31,19 @@ class Surah extends StatelessWidget {
               ),
               child: Container(
                 padding: MainAppStyle.mainPadding,
-                alignment: Alignment.centerRight,
+                alignment: Alignment.centerLeft,
                 decoration: const BoxDecoration(
                   borderRadius: MainAppStyle.mainBorderRadius,
                   image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage('assets/images/ic_cave.jpg'),
+                    fit: BoxFit.fitWidth,
+                    image: AssetImage('assets/images/ic_surah.jpg'),
                   ),
                 ),
                 child: const Text(
-                  'Переща',
+                  'Сура «Пещера»',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Color(0xFF263238),
+                    fontSize: 16,
                   ),
                 ),
               ),
@@ -65,18 +66,19 @@ class Surah extends StatelessWidget {
               ),
               child: Container(
                 padding: MainAppStyle.mainPadding,
-                alignment: Alignment.centerRight,
+                alignment: Alignment.centerLeft,
                 decoration: const BoxDecoration(
                   borderRadius: MainAppStyle.mainBorderRadius,
                   image: DecorationImage(
                     fit: BoxFit.fitWidth,
-                    image: AssetImage('assets/images/ic_al_mulk.jpg'),
+                    image: AssetImage('assets/images/ic_surah_two.jpg'),
                   ),
                 ),
                 child: const Text(
-                  'Власть',
+                  'Сура «Власть»',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Color(0xFFEFEBE9),
+                    fontSize: 16,
                   ),
                 ),
               ),
