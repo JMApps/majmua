@@ -29,7 +29,13 @@ class SupplicationPage extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           centerTitle: true,
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.teal,
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                bottomRight: Radius.elliptical(35, 20),
+                bottomLeft: Radius.elliptical(35, 20),
+              )
+          ),
           title: Text(title),
           actions: [
             Consumer<SupplicationsState>(
@@ -69,7 +75,7 @@ class SupplicationPage extends StatelessWidget {
           builder: (context, supplicationState, _) {
             return Card(
               margin: EdgeInsets.zero,
-              color: Colors.green,
+              color: Colors.teal,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   topRight: Radius.elliptical(35, 20),

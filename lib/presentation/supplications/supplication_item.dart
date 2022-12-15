@@ -71,7 +71,7 @@ class SupplicationItem extends StatelessWidget {
               ),
               'a': Style(
                 fontSize: const FontSize(14),
-                color: const Color(0xFFE91E63),
+                color: const Color(0xFFEF5350),
               ),
             },
             onLinkTap: (String? url, RenderContext rendContext,

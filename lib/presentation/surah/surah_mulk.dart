@@ -10,7 +10,13 @@ class SurahMulk extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.brown,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.elliptical(35, 20),
+              bottomLeft: Radius.elliptical(35, 20),
+            )
+        ),
         title: const Text('Сура «Власть»'),
       ),
       body: PageView.builder(

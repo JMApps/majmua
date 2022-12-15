@@ -64,6 +64,7 @@ class _ListNamesState extends State<ListNames> {
                       dotHeight: 12,
                       dotColor: Color(0xFF9FA8DA),
                       activeDotColor: Colors.indigo,
+                      spacing: 8
                     ),
                   ),
                   const SizedBox(height: 8),

@@ -17,11 +17,17 @@ class _SupplicationsFromQuranState extends State<SupplicationsFromQuran> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE0F2F1),
+      backgroundColor: const Color(0xFFEFEBE9),
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.brown,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.elliptical(35, 20),
+              bottomLeft: Radius.elliptical(35, 20),
+            )
+        ),
         title: const Text('Мольбы из Корана'),
       ),
       body: FutureBuilder(
@@ -56,7 +62,7 @@ class _SupplicationsFromQuranState extends State<SupplicationsFromQuran> {
                           maxVisibleDots: 11,
                           dotWidth: 4,
                           dotHeight: 12,
-                          dotColor: Color(0xFF4DB6AC),
+                          dotColor: Color(0xFFA1887F),
                           activeDotColor: Colors.indigo,
                         ),
                       ),

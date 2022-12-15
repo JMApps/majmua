@@ -59,7 +59,7 @@ class _ListSupplicationsState extends State<ListSupplications> {
                         color: Colors.red,
                         dotBorder: const DotBorder(
                           padding: 2,
-                          color: Colors.green,
+                          color: Color(0xFF4DB6AC),
                           width: 2,
                         ),
                         width: 10,
@@ -68,7 +68,7 @@ class _ListSupplicationsState extends State<ListSupplications> {
                         rotationAngle: 45,
                       ),
                       dotDecoration: DotDecoration(
-                        color: const Color(0xFF81C784),
+                        color: const Color(0xFF4DB6AC),
                         width: 6,
                         height: 6,
                         borderRadius: BorderRadius.circular(3),

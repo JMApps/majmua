@@ -21,6 +21,12 @@ class MainPage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.elliptical(35, 20),
+            bottomLeft: Radius.elliptical(35, 20),
+          )
+        ),
         title: const Text('Полка мусульманина'),
       ),
       body: SingleChildScrollView(
@@ -30,8 +36,7 @@ class MainPage extends StatelessWidget {
             const CurrentDateTime(),
             const DaysTo(),
             Visibility(
-              visible: MainAppStyle.dateTime.weekday >= 4 &&
-                      MainAppStyle.dateTime.weekday <= 5 ? true : false,
+              visible: MainAppStyle.dateTime.weekday >= 4 && MainAppStyle.dateTime.weekday <= 5 ? true : false,
               child: const ListFriday(),
             ),
             const DayNightSupplications(),
