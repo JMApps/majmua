@@ -53,9 +53,6 @@ flutter:
     - family: Gilroy
       fonts:
         - asset: assets/fonts/gilroy_medium.ttf
-    - family: Surah
-      fonts:
-        - asset: assets/fonts/quran_surah.ttf
     - family: Quran
       fonts:
         - asset: assets/fonts/quran_font.ttf
