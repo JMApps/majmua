@@ -27,31 +27,29 @@ class DatabaseService {
         ? await getExternalStorageDirectory()
         : await getApplicationSupportDirectory();
 
-    String path = join(documentDirectory!.path, 'majmua_db.db');
-    var exists = await databaseExists(path);
+    String dbPath = join(documentDirectory!.path, 'majmua_2_db.db');
+    var exists = await databaseExists(dbPath);
 
-    // String toDeleteDB = '${documentDirectory.path}/fateeha.db';
-    // var delDB = await databaseExists(toDeleteDB);
-    //
-    // if (delDB) {
-    //   await deleteDatabase(toDeleteDB);
-    // }
+    String dbDeletePath = join(documentDirectory.path, 'majmua_db.db');
+    var delDB = await databaseExists(dbDeletePath);
+
+    if (delDB) {
+      await deleteDatabase(dbDeletePath);
+    }
 
     if (!exists) {
       try {
-        await Directory(dirname(path)).create(recursive: true);
+        await Directory(dirname(dbPath)).create(recursive: true);
       } catch (_) {
         Exception('Invalid database');
       }
 
-      ByteData data =
-          await rootBundle.load(join('assets/databases', 'majmua_db.db'));
-      List<int> bytes =
-          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
-      await File(path).writeAsBytes(bytes, flush: true);
+      ByteData data = await rootBundle.load(join('assets/databases', 'majmua_2_db.db'));
+      List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+      await File(dbPath).writeAsBytes(bytes, flush: true);
     }
 
-    var onOpen = await openDatabase(path, version: _databaseVersion);
+    var onOpen = await openDatabase(dbPath, version: _databaseVersion);
     return onOpen;
   }
 }
