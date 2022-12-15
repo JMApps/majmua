@@ -18,7 +18,7 @@ class SupplicationsState extends ChangeNotifier {
 
   bool get getIsVibration => _isVibration;
 
-  bool _isTranscription = true;
+  bool _isTranscription = false;
 
   bool get getIsTranscription => _isTranscription;
 
