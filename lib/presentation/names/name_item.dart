@@ -22,24 +22,45 @@ class NameItem extends StatelessWidget {
             color: Colors.indigo.shade300,
           ),
         ),
-        child: Center(
-          child: ListTile(
-            title: Text(
-              item.nameArabic,
-              style: const TextStyle(
-                fontSize: 20,
-                fontFamily: 'Lateef',
-                color: Colors.indigo,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Stack(
+            alignment: AlignmentDirectional.center,
+            children: [
+              Align(
+                alignment: Alignment.topRight,
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundColor: Colors.teal,
+                  child: Text(
+                    '${item.id}',
+                    style: const TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
               ),
-              textAlign: TextAlign.center,
-            ),
-            subtitle: Text(
-              item.nameTranslation,
-              style: const TextStyle(
-                fontSize: 16,
+              Center(
+                child: ListTile(
+                  title: Text(
+                    item.nameArabic,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'Lateef',
+                      color: Colors.indigo,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  subtitle: Text(
+                    item.nameTranslation,
+                    style: const TextStyle(
+                      fontSize: 16,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
               ),
-              textAlign: TextAlign.center,
-            ),
+            ],
           ),
         ),
       ),
