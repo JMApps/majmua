@@ -49,16 +49,63 @@ class _ListHadeethsState extends State<ListHadeeths> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  SmoothPageIndicator(
-                    controller: _hadeethsController,
-                    count: snapshot.data!.length,
-                    effect: const ScrollingDotsEffect(
-                      maxVisibleDots: 11,
-                      dotWidth: 4,
-                      dotHeight: 12,
-                      dotColor: Color(0xFFFFAB91),
-                      activeDotColor: Colors.deepOrange,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          if (_hadeethsController.hasClients) {
+                            _hadeethsController.animateToPage(
+                              0,
+                              duration: const Duration(milliseconds: 250),
+                              curve: Curves.easeOut,
+                            );
+                          }
+                        },
+                        child: const CircleAvatar(
+                          backgroundColor: Colors.deepOrange,
+                          child: Text(
+                            '1',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SmoothPageIndicator(
+                        controller: _hadeethsController,
+                        count: snapshot.data!.length,
+                        effect: const ScrollingDotsEffect(
+                          maxVisibleDots: 11,
+                          dotWidth: 4,
+                          dotHeight: 12,
+                          dotColor: Color(0xFFFFAB91),
+                          activeDotColor: Colors.deepOrange,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          if (_hadeethsController.hasClients) {
+                            _hadeethsController.animateToPage(
+                              snapshot.data!.length - 1,
+                              duration: const Duration(milliseconds: 250),
+                              curve: Curves.easeOut,
+                            );
+                          }
+                        },
+                        child: CircleAvatar(
+                          backgroundColor: Colors.deepOrange,
+                          child: Text(
+                            '${snapshot.data!.length}',
+                            style: const TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 8),
                   const Divider(indent: 16, endIndent: 16),
