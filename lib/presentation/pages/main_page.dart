@@ -10,6 +10,7 @@ import 'package:majmua/presentation/ramadan/list_lessons_ramadan.dart';
 import 'package:majmua/presentation/rests/rest_dates.dart';
 import 'package:majmua/presentation/supplications/day_night_supplications.dart';
 import 'package:majmua/presentation/surah/surah.dart';
+import 'package:share_plus/share_plus.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -22,12 +23,21 @@ class MainPage extends StatelessWidget {
         centerTitle: true,
         elevation: 0,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.elliptical(35, 20),
-            bottomLeft: Radius.elliptical(35, 20),
-          )
-        ),
+            borderRadius: BorderRadius.only(
+          bottomRight: Radius.elliptical(35, 20),
+          bottomLeft: Radius.elliptical(35, 20),
+        )),
         title: const Text('Полка мусульманина'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Share.share('Рекомендую скачать приложение "Полка мусульманина":\n\nВерсия для iOS:\nhttps://apps.apple.com/tr/app/полка-мусульманина/id1659190395\n\nВерсия для Android\nhttps://play.google.com/store/apps/details?id=jmapps.project.majmua');
+            },
+            icon: const Icon(
+              Icons.ios_share_rounded,
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -36,7 +46,10 @@ class MainPage extends StatelessWidget {
             const CurrentDateTime(),
             const DaysTo(),
             Visibility(
-              visible: MainAppStyle.dateTime.weekday >= 4 && MainAppStyle.dateTime.weekday <= 5 ? true : false,
+              visible: MainAppStyle.dateTime.weekday >= 4 &&
+                      MainAppStyle.dateTime.weekday <= 5
+                  ? true
+                  : false,
               child: const ListFriday(),
             ),
             const DayNightSupplications(),
