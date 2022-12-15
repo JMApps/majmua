@@ -12,13 +12,13 @@ class FridayItem extends StatelessWidget {
     return Padding(
       padding: MainAppStyle.mainPadding,
       child: Transform.rotate(
-        angle: 0.15,
+        angle: 0.10,
         child: Card(
           color: Colors.primaries[item.id],
           elevation: 2,
           shape: MainAppStyle.mainCardBorderRadius,
           child: Transform.rotate(
-            angle: -0.15,
+            angle: -0.10,
             child: Container(
               decoration: const BoxDecoration(
                 borderRadius: MainAppStyle.mainBorderRadius,
