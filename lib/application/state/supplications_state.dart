@@ -35,6 +35,9 @@ class SupplicationsState extends ChangeNotifier {
     } else {
       _supplicationCount = 1;
     }
+    if (_isVibration) {
+      HapticFeedback.lightImpact();
+    }
     notifyListeners();
   }
 
