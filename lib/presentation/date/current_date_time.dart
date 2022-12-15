@@ -86,8 +86,8 @@ class CurrentDateTime extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Text(
                     MainAppStyle.getMessagesForSaum,
-                    style: const TextStyle(
-                      fontSize: 14,
+                    style: TextStyle(
+                      fontSize: MainAppStyle.dateTime.weekday == 5 ? 40 : 14,
                       color: Colors.teal,
                     ),
                     textAlign: TextAlign.center,
