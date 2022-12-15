@@ -26,26 +26,19 @@ class _ListFridayState extends State<ListFriday> {
             ? Column(
                 children: [
                   const SizedBox(height: 16),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 16,
-                    ),
-                    child: Text(
-                      'Желательные (сунна) действия в этот день:',
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
+                  const Text(
+                    'Желательные действия в день пятницы:',
+                    style: MainAppStyle.mainTextSizeStyle,
+                    textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 16),
                   SizedBox(
                     height: 216,
                     child: PageView.builder(
                       controller: readMainState.getFridayController,
                       itemCount: snapshot.data!.length,
                       onPageChanged: (index) {
-                        readMainState.fridaySunnahControllerIndex = index;
+                        readMainState.setFridaySunnahControllerIndex = index;
                       },
                       itemBuilder: (BuildContext context, int index) {
                         return FridayItem(
@@ -57,7 +50,7 @@ class _ListFridayState extends State<ListFriday> {
                   const SizedBox(height: 16),
                   SmoothPageIndicator(
                     onDotClicked: (index) {
-                      readMainState.fridaySunnahControllerIndex = index;
+                      readMainState.setFridaySunnahControllerIndex = index;
                     },
                     controller: readMainState.getFridayController,
                     count: snapshot.data!.length,

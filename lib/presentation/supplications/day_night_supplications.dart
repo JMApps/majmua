@@ -38,9 +38,7 @@ class DayNightSupplications extends StatelessWidget {
                   },
                   child: Card(
                     elevation: 0,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: MainAppStyle.mainBorderRadius,
-                    ),
+                    shape: MainAppStyle.mainCardBorderRadius,
                     child: Container(
                       padding: MainAppStyle.mainPadding,
                       alignment: Alignment.centerLeft,
@@ -78,9 +76,7 @@ class DayNightSupplications extends StatelessWidget {
                   },
                   child: Card(
                     elevation: 0,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: MainAppStyle.mainBorderRadius,
-                    ),
+                    shape: MainAppStyle.mainCardBorderRadius,
                     child: Container(
                       padding: MainAppStyle.mainPadding,
                       alignment: Alignment.centerLeft,
@@ -122,9 +118,7 @@ class DayNightSupplications extends StatelessWidget {
             },
             child: Card(
               elevation: 0,
-              shape: const RoundedRectangleBorder(
-                borderRadius: MainAppStyle.mainBorderRadius,
-              ),
+              shape: MainAppStyle.mainCardBorderRadius,
               child: Container(
                 padding: MainAppStyle.mainPadding,
                 alignment: Alignment.centerRight,

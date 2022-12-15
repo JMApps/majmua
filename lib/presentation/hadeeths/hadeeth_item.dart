@@ -12,50 +12,49 @@ class HadeethItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
-      shape: const RoundedRectangleBorder(
-        borderRadius: MainAppStyle.mainBorderRadius,
-      ),
+      shape: MainAppStyle.mainCardBorderRadius,
       child: Card(
-          margin: MainAppStyle.mainMarginMini,
-          shape: const RoundedRectangleBorder(
-            borderRadius: MainAppStyle.mainBorderRadius,
-            side: BorderSide(
-              width: 1,
-              color: Color(0xFFFF8A65),
-            ),
+        margin: MainAppStyle.mainMarginMini,
+        shape: const RoundedRectangleBorder(
+          borderRadius: MainAppStyle.mainBorderRadius,
+          side: BorderSide(
+            width: 1,
+            color: Color(0xFFFF8A65),
           ),
-          child: InkWell(
-            onTap: () {
-              Navigator.pushNamed(
-                context,
-                'hadeeths_page',
-                arguments: ArgumentsHadeeth(
-                  hadeethTitle: item.numberHadeeth,
-                  hadeethId: item.id,
+        ),
+        child: InkWell(
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              'hadeeths_page',
+              arguments: ArgumentsHadeeth(
+                hadeethTitle: item.numberHadeeth,
+                hadeethId: item.id,
+              ),
+            );
+          },
+          borderRadius: MainAppStyle.mainBorderRadius,
+          child: Center(
+            child: ListTile(
+              title: Text(
+                item.numberHadeeth,
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.deepOrange,
                 ),
-              );
-            },
-            borderRadius: MainAppStyle.mainBorderRadius,
-            child: Center(
-              child: ListTile(
-                title: Text(
-                  item.numberHadeeth,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: Colors.deepOrange,
-                  ),
-                  textAlign: TextAlign.center,
+                textAlign: TextAlign.center,
+              ),
+              subtitle: Text(
+                item.titleHadeeth,
+                style: const TextStyle(
+                  fontSize: 16,
                 ),
-                subtitle: Text(
-                  item.titleHadeeth,
-                  style: const TextStyle(
-                    fontSize: 16,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
+                textAlign: TextAlign.center,
               ),
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 }

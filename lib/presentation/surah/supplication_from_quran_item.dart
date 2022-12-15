@@ -15,9 +15,7 @@ class SupplicationFromQuranItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
-      shape: const RoundedRectangleBorder(
-        borderRadius: MainAppStyle.mainBorderRadius,
-      ),
+      shape: MainAppStyle.mainCardBorderRadius,
       margin: const EdgeInsets.symmetric(
         horizontal: 8,
         vertical: 16,

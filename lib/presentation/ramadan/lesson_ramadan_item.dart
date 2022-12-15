@@ -12,9 +12,7 @@ class LessonRamadanItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
-      shape: const RoundedRectangleBorder(
-        borderRadius: MainAppStyle.mainBorderRadius,
-      ),
+      shape: MainAppStyle.mainCardBorderRadius,
       child: Card(
           margin: MainAppStyle.mainMarginMini,
           shape: const RoundedRectangleBorder(

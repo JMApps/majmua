@@ -16,9 +16,7 @@ class FridayItem extends StatelessWidget {
         child: Card(
           color: Colors.primaries[item.id],
           elevation: 2,
-          shape: const RoundedRectangleBorder(
-            borderRadius: MainAppStyle.mainBorderRadius,
-          ),
+          shape: MainAppStyle.mainCardBorderRadius,
           child: Transform.rotate(
             angle: -0.15,
             child: Container(
