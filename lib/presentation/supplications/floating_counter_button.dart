@@ -12,7 +12,7 @@ class FloatingCounterButton extends StatelessWidget {
       child: FloatingActionButton(
         elevation: 0,
         mini: false,
-        backgroundColor: const Color(0xFFE91E63),
+        backgroundColor: const Color(0xFFEF5350),
         child: CircularPercentIndicator(
           animationDuration: 0,
           radius: 25,
@@ -24,7 +24,7 @@ class FloatingCounterButton extends StatelessWidget {
             style: const TextStyle(color: Colors.white, fontSize: 20),
           ),
           circularStrokeCap: CircularStrokeCap.round,
-          progressColor: const Color(0xFFE91E63),
+          progressColor: const Color(0xFFEF5350),
         ),
         onPressed: () {
           context.read<SupplicationsState>().updateCountValue();

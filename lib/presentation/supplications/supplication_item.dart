@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:majmua/application/state/supplications_state.dart';
 import 'package:majmua/application/style/main_app_style.dart';
 import 'package:majmua/data/database/model/model_supplication_item.dart';
+import 'package:provider/provider.dart';
 
 class SupplicationItem extends StatelessWidget {
   const SupplicationItem({
@@ -22,7 +24,7 @@ class SupplicationItem extends StatelessWidget {
         padding: MainAppStyle.mainPadding,
         children: [
           CircleAvatar(
-            backgroundColor: const Color(0xFFE91E63),
+            backgroundColor: const Color(0xFFEF5350),
             child: Text(
               index.toString(),
               style: const TextStyle(
@@ -43,15 +45,17 @@ class SupplicationItem extends StatelessWidget {
                   textDirection: TextDirection.rtl,
                 )
               : const SizedBox(),
+          context.watch<SupplicationsState>().getIsTranscription ?
           item.supplicationTranscription != null
               ? const SizedBox(height: 16)
-              : const SizedBox(),
+              : const SizedBox() : const SizedBox(),
+          context.watch<SupplicationsState>().getIsTranscription ?
           item.supplicationTranscription != null
               ? Text(
                   item.supplicationTranscription!,
                   style: const TextStyle(fontSize: 18, color: Colors.black54),
                 )
-              : const SizedBox(),
+              : const SizedBox() : const SizedBox(),
           const SizedBox(height: 16),
           Html(
             data: item.supplicationTranslation,

@@ -18,6 +18,15 @@ class SupplicationsState extends ChangeNotifier {
 
   bool get getIsVibration => _isVibration;
 
+  bool _isTranscription = true;
+
+  bool get getIsTranscription => _isTranscription;
+
+  changeShowTranscription() {
+    _isTranscription = !_isTranscription;
+    notifyListeners();
+  }
+
   set setSupplicationControllerIndex(int index) {
     if (_supplicationController.hasClients) {
       _supplicationController.animateToPage(

@@ -38,10 +38,24 @@ class SupplicationPage extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
-                      context.watch<SupplicationsState>().getSupplicationCount.toString(),
+                      context
+                          .watch<SupplicationsState>()
+                          .getSupplicationCount
+                          .toString(),
                       style: const TextStyle(fontSize: 20, color: Colors.white),
                     ),
                   ),
+                );
+              },
+            ),
+            Consumer<SupplicationsState>(
+              builder: (context, supplicationState, _) {
+                return Switch(
+                  activeColor: Colors.red,
+                  value: supplicationState.getIsTranscription,
+                  onChanged: (value) {
+                    supplicationState.changeShowTranscription();
+                  },
                 );
               },
             ),
@@ -86,7 +100,7 @@ class SupplicationPage extends StatelessWidget {
                       icon: Icon(
                         Icons.vibration,
                         color: supplicationState.getIsVibration
-                            ? const Color(0xFFE91E63)
+                            ? const Color(0xFFEF5350)
                             : Colors.white,
                       ),
                     ),
