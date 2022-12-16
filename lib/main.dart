@@ -4,7 +4,8 @@ import 'package:majmua/application/root_page.dart';
 import 'package:majmua/application/state/main_app_state.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,

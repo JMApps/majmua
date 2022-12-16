@@ -13,67 +13,6 @@ class MainAppStyle {
     return '${dateTime.day}/${dateTime.month}/${dateTime.year}';
   }
 
-  static int getHourOfYear = dateTime.difference(DateTime(dateTime.year)).inHours;
-
-  static int getHourOfMonth = dateTime.difference(DateTime(dateTime.year, dateTime.month)).inHours;
-
-  static int getHourOfDay = dateTime.difference(DateTime(dateTime.year, dateTime.month, dateTime.day)).inHours;
-
-  static int getMinuteOfDay = dateTime.difference(DateTime(dateTime.year, dateTime.month, dateTime.day)).inMinutes;
-
-  static double restYearProgress() {
-    return getHourOfYear * 24 * 60 / 126144.0;
-  }
-
-  static double restMonthProgress() {
-    int monthDays = DateTime(dateTime.year, dateTime.month, 0).day;
-    late double seasonMonth;
-    switch (monthDays) {
-      case 28:
-        seasonMonth = getHourOfMonth * 24 * 60 / 9676.8;
-        break;
-      case 30:
-        seasonMonth = getHourOfMonth * 24 * 60 / 10368;
-        break;
-      case 31:
-        seasonMonth = getHourOfMonth * 24 * 60 / 10713.6;
-        break;
-    }
-    return seasonMonth;
-  }
-
-  static double restWeekProgress() {
-    late double seasonWeek;
-    switch (dateTime.weekday) {
-      case 1:
-        seasonWeek = getHourOfDay * 24 * 60 / 2419.2;
-        break;
-      case 2:
-        seasonWeek = (24 + getHourOfDay) * 24 * 60 / 2419.2;
-        break;
-      case 3:
-        seasonWeek = (48 + getHourOfDay) * 24 * 60 / 2419.2;
-        break;
-      case 4:
-        seasonWeek = (72 + getHourOfDay) * 24 * 60 / 2419.2;
-        break;
-      case 5:
-        seasonWeek = (96 + getHourOfDay) * 24 * 60 / 2419.2;
-        break;
-      case 6:
-        seasonWeek = (120 + getHourOfDay) * 24 * 60 / 2419.2;
-        break;
-      case 7:
-        seasonWeek = (144 + getHourOfDay) * 24 * 60 / 2419.2;
-        break;
-    }
-    return seasonWeek;
-  }
-
-  static double restDayProgress() {
-    return getMinuteOfDay * 24 * 60 / 20736;
-  }
-
   static int getToRamadanDays() {
     final int countDays;
     final hijriRamadanToGregorian = dateTimeHijri.hijriToGregorian(dateTimeHijri.hYear, 9, 1);

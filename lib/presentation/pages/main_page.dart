@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/notifications/local_notification_service.dart';
 import 'package:majmua/application/style/main_app_style.dart';
 import 'package:majmua/presentation/date/current_date_time.dart';
 import 'package:majmua/presentation/day/days_to.dart';
@@ -12,8 +13,23 @@ import 'package:majmua/presentation/supplications/day_night_supplications.dart';
 import 'package:majmua/presentation/surah/surah.dart';
 import 'package:share_plus/share_plus.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
+
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+
+  late final LocalNotificationService service;
+
+  @override
+  void initState() {
+    service = LocalNotificationService();
+    service.initialize();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +62,9 @@ class MainPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            TextButton(onPressed: () {
+              service.showScheduleNotification(id: 0, title: 'Notification title', body: 'Some body', seconds: 5);
+            }, child: Text('Уведомление')),
             const RestDates(),
             const CurrentDateTime(),
             const DaysTo(),
