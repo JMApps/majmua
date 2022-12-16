@@ -37,14 +37,14 @@ class DatabaseService {
       await deleteDatabase(dbDeletePath);
     }
 
-    if (!exists) {
+    if (!exists)  {
       try {
         await Directory(dirname(dbPath)).create(recursive: true);
       } catch (_) {
         Exception('Invalid database');
       }
 
-      ByteData data = await rootBundle.load(join('assets/databases', 'majmua_2_db.db'));
+      ByteData data = await rootBundle.load(join('assets/databases/', 'majmua_2_db.db'));
       List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
       await File(dbPath).writeAsBytes(bytes, flush: true);
     }

@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class SupplicationsState extends ChangeNotifier {
-  final PageController _supplicationController =
-      PageController(initialPage: 0, viewportFraction: 0.85);
+  final PageController _supplicationController = PageController(initialPage: 0, viewportFraction: 0.85);
 
   PageController get getSupplicationController => _supplicationController;
 
-  int get getSupplicationControllerIndex =>
-      _supplicationController.page!.toInt();
+  int get getSupplicationControllerIndex => _supplicationController.page!.toInt();
 
   int _supplicationCount = 0;
 
@@ -40,17 +38,18 @@ class SupplicationsState extends ChangeNotifier {
 
   updateCountValue() {
     if (_supplicationCount < 100) {
+      if (_isVibration) {
+        HapticFeedback.lightImpact();
+      }
       _supplicationCount++;
     } else {
       _supplicationCount = 1;
-    }
-    if (_isVibration) {
-      HapticFeedback.lightImpact();
     }
     notifyListeners();
   }
 
   resetCount() {
+    HapticFeedback.lightImpact();
     _supplicationCount = 0;
     notifyListeners();
   }
