@@ -7,20 +7,25 @@ class DaysTo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        DaysToId(
-          title: 'Осталось дней до Рамадана',
-          numberOfDays: MainAppStyle.getToRamadanDays(),
-          color: Colors.indigo,
-        ),
-        const SizedBox(height: 8),
-        DaysToId(
-          title: 'Осталось дней до Курбан-Байрама',
-          numberOfDays: MainAppStyle.getToQurbanDays(),
-          color: Colors.teal,
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: Row(
+        children: [
+          DaysToId(
+            title: 'До Рамадана',
+            numberOfDays: MainAppStyle.getToRamadanDays(),
+            color: Colors.indigo,
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: DaysToId(
+              title: 'До Курбан-Байрама',
+              numberOfDays: MainAppStyle.getToQurbanDays(),
+              color: Colors.teal,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

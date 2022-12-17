@@ -15,28 +15,33 @@ class DaysToId extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 0,
-      margin: const EdgeInsets.symmetric(horizontal: 8),
-      shape: MainAppStyle.mainCardBorderRadius,
-      child: ListTile(
-        title: Text(
-          title,
-          style: const TextStyle(
-            fontSize: 16,
-          ),
-          textAlign: TextAlign.start,
-        ),
-        trailing: CircleAvatar(
-          backgroundColor: color,
-          child: Text(
-            numberOfDays.toString().substring(1),
+    return Container(
+      height: 45,
+      padding: MainAppStyle.mainPaddingMini,
+      decoration: const BoxDecoration(
+        borderRadius: MainAppStyle.mainBorderRadius,
+        color: Colors.white,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            title,
             style: const TextStyle(
-              fontSize: 14,
-              color: Colors.white,
+              fontSize: 13,
             ),
           ),
-        ),
+          CircleAvatar(
+            backgroundColor: color,
+            child: Text(
+              numberOfDays.toString().substring(1),
+              style: const TextStyle(
+                fontSize: 13,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -9,12 +9,11 @@ class RestDates extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 16),
         const Text(
           'Уходят дни – уходит часть тебя',
           style: MainAppStyle.mainTextSizeStyle,
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 8),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

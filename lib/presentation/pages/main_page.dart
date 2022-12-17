@@ -11,6 +11,7 @@ import 'package:majmua/presentation/ramadan/list_lessons_ramadan.dart';
 import 'package:majmua/presentation/rests/rest_dates.dart';
 import 'package:majmua/presentation/supplications/day_night_supplications.dart';
 import 'package:majmua/presentation/surah/surah.dart';
+import 'package:majmua/presentation/whiteSaum/white_saum_container.dart';
 import 'package:share_plus/share_plus.dart';
 
 class MainPage extends StatefulWidget {
@@ -21,13 +22,24 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-
   late final LocalNotificationService service;
+  bool isDailyNotification = true;
+  bool isSaumNotification = true;
 
   @override
   void initState() {
     service = LocalNotificationService();
     service.initialize();
+    if (isDailyNotification) {
+      service.showDailyNotification(
+          id: 43, title: 'Полка мусульманина', body: 'Загляни');
+    }
+    if (isSaumNotification) {
+      service.showSaumScheduleNotification(
+          id: 12,
+          title: 'Полка мусульманина',
+          body: 'Завтра день желательного поста');
+    }
     super.initState();
   }
 
@@ -62,21 +74,39 @@ class _MainPageState extends State<MainPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TextButton(onPressed: () {
-              service.showScheduleNotification(id: 0, title: 'Notification title', body: 'Some body', seconds: 5);
-            }, child: Text('Уведомление')),
+            const SizedBox(height: 8),
             const RestDates(),
+            const SizedBox(height: 16),
             const CurrentDateTime(),
-            const DaysTo(),
             Visibility(
               visible: MainAppStyle.dateTime.weekday >= 4 &&
-                      MainAppStyle.dateTime.weekday <= 5
+                  MainAppStyle.dateTime.weekday <= 5
                   ? true
                   : false,
               child: const ListFriday(),
             ),
-            const DayNightSupplications(),
-            const Surah(),
+            const SizedBox(height: 8),
+            const DaysTo(),
+            MainAppStyle.dateTimeHijri.hDay == 12 ||
+                    MainAppStyle.dateTimeHijri.hDay == 13 ||
+                    MainAppStyle.dateTimeHijri.hDay == 14 ||
+                    MainAppStyle.dateTimeHijri.hDay == 15
+                ? const WhiteSaumContainer()
+                : const SizedBox(),
+            const SizedBox(height: 4),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Row(
+                children: const [
+                  Expanded(
+                    child: DayNightSupplications(),
+                  ),
+                  Expanded(
+                    child: Surah(),
+                  ),
+                ],
+              ),
+            ),
             const ListNames(),
             MainAppStyle.dateTimeHijri.hMonth == 9
                 ? const ListLessonsRamadan()

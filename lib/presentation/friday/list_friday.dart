@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/main_app_state.dart';
-import 'package:majmua/application/style/main_app_style.dart';
 import 'package:majmua/data/database/model/model_friday_item.dart';
 import 'package:majmua/presentation/friday/friday_item.dart';
 import 'package:provider/provider.dart';
@@ -14,21 +13,59 @@ class ListFriday extends StatefulWidget {
 }
 
 class _ListFridayState extends State<ListFriday> {
-
-  final _contentList = const <ModelFridayItem> [
-    ModelFridayItem(id: 1, numberSunnah: 'Сунна 1', contentSunnah: 'Совершить полное (гъусль) омовение'),
-    ModelFridayItem(id: 2, numberSunnah: 'Сунна 2', contentSunnah: 'Привести себя в порядок'),
-    ModelFridayItem(id: 3, numberSunnah: 'Сунна 3', contentSunnah: 'Надеть чистую одежду'),
-    ModelFridayItem(id: 4, numberSunnah: 'Сунна 4', contentSunnah: 'Умастить себя благовониями'),
-    ModelFridayItem(id: 5, numberSunnah: 'Сунна 5', contentSunnah: 'Пораньше отправиться в мечеть'),
-    ModelFridayItem(id: 6, numberSunnah: 'Сунна 6', contentSunnah: 'Отправиться в мечеть пешком'),
-    ModelFridayItem(id: 7, numberSunnah: 'Сунна 7', contentSunnah: 'Занять место ближе к минбару'),
-    ModelFridayItem(id: 8, numberSunnah: 'Сунна 8', contentSunnah: 'Не перешагивать через других'),
-    ModelFridayItem(id: 9, numberSunnah: 'Сунна 9', contentSunnah: 'Не разговаривать во время хутбы'),
-    ModelFridayItem(id: 10, numberSunnah: 'Сунна 10', contentSunnah: 'Совершить 4 ракаата (2 по 2) после джума в мечети или 2 ракаата дома'),
-    ModelFridayItem(id: 11, numberSunnah: 'Сунна 11', contentSunnah: 'Прочитать суру «Аль-Кахф»'),
-    ModelFridayItem(id: 12, numberSunnah: 'Сунна 12', contentSunnah: 'Как можно больше читать салават на Пророка, да благословит его Аллах и да приветствует'),
-    ModelFridayItem(id: 13, numberSunnah: 'Сунна 13', contentSunnah: 'Сделать дуа в последний час пятницы (час до магриба)'),
+  final _contentList = const <ModelFridayItem>[
+    ModelFridayItem(
+        id: 1,
+        numberSunnah: 'Сунна 1',
+        contentSunnah: 'Совершить полное (гъусль) омовение'),
+    ModelFridayItem(
+        id: 2,
+        numberSunnah: 'Сунна 2',
+        contentSunnah: 'Привести себя в порядок'),
+    ModelFridayItem(
+        id: 3, numberSunnah: 'Сунна 3', contentSunnah: 'Надеть чистую одежду'),
+    ModelFridayItem(
+        id: 4,
+        numberSunnah: 'Сунна 4',
+        contentSunnah: 'Умастить себя благовониями'),
+    ModelFridayItem(
+        id: 5,
+        numberSunnah: 'Сунна 5',
+        contentSunnah: 'Пораньше отправиться в мечеть'),
+    ModelFridayItem(
+        id: 6,
+        numberSunnah: 'Сунна 6',
+        contentSunnah: 'Отправиться в мечеть пешком'),
+    ModelFridayItem(
+        id: 7,
+        numberSunnah: 'Сунна 7',
+        contentSunnah: 'Занять место ближе к минбару'),
+    ModelFridayItem(
+        id: 8,
+        numberSunnah: 'Сунна 8',
+        contentSunnah: 'Не перешагивать через других'),
+    ModelFridayItem(
+        id: 9,
+        numberSunnah: 'Сунна 9',
+        contentSunnah: 'Не разговаривать во время хутбы'),
+    ModelFridayItem(
+        id: 10,
+        numberSunnah: 'Сунна 10',
+        contentSunnah:
+            'Совершить 4 ракаата (2 по 2) после джума в мечети или 2 ракаата дома'),
+    ModelFridayItem(
+        id: 11,
+        numberSunnah: 'Сунна 11',
+        contentSunnah: 'Прочитать суру «Аль-Кахф»'),
+    ModelFridayItem(
+        id: 12,
+        numberSunnah: 'Сунна 12',
+        contentSunnah:
+            'Как можно больше читать салават на Пророка, да благословит его Аллах и да приветствует'),
+    ModelFridayItem(
+        id: 13,
+        numberSunnah: 'Сунна 13',
+        contentSunnah: 'Сделать дуа в последний час пятницы (час до магриба)'),
   ];
 
   @override
@@ -36,15 +73,9 @@ class _ListFridayState extends State<ListFriday> {
     final readMainState = context.read<MainAppState>();
     return Column(
       children: [
-        const SizedBox(height: 16),
-        const Text(
-          'Желательные действия в день пятницы:',
-          style: MainAppStyle.mainTextSizeStyle,
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 4),
         SizedBox(
-          height: 216,
+          height: 175,
           child: PageView.builder(
             controller: readMainState.getFridayController,
             itemCount: _contentList.length,
@@ -58,7 +89,7 @@ class _ListFridayState extends State<ListFriday> {
             },
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 8),
         SmoothPageIndicator(
           onDotClicked: (index) {
             readMainState.setFridaySunnahControllerIndex = index;
@@ -67,21 +98,23 @@ class _ListFridayState extends State<ListFriday> {
           count: _contentList.length,
           effect: CustomizableEffect(
             activeDotDecoration: DotDecoration(
-              color: Colors.primaries[context.watch<MainAppState>().getFridaySunnahControllerIndex + 1],
+              color: Colors.primaries[
+                  context.watch<MainAppState>().getFridaySunnahControllerIndex +
+                      1],
               dotBorder: const DotBorder(
                 padding: 2,
                 color: Colors.teal,
                 width: 2,
               ),
-              width: 10,
-              height: 10,
+              width: 8,
+              height: 8,
               borderRadius: BorderRadius.circular(4),
               rotationAngle: 45,
             ),
             dotDecoration: DotDecoration(
               color: const Color(0xFF4DB6AC),
-              width: 6,
-              height: 6,
+              width: 3,
+              height: 3,
               borderRadius: BorderRadius.circular(2.5),
             ),
             spacing: 6,

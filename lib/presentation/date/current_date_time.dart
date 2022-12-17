@@ -8,12 +8,7 @@ class CurrentDateTime extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        top: 16,
-        left: 8,
-        right: 8,
-        bottom: 8,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Row(
         children: [
           Expanded(
