@@ -71,13 +71,46 @@ class LocalNotificationService {
       id,
       title,
       body,
-      tz.TZDateTime.from(
-          DateTime.now().add(const Duration(days: 1)), tz.local),
+      tz.TZDateTime.from(DateTime.now().add(const Duration(days: 1)), tz.local),
       details,
       androidAllowWhileIdle: true,
       uiLocalNotificationDateInterpretation:
           UILocalNotificationDateInterpretation.absoluteTime,
     );
+  }
+
+  Future<void> showDailyNotification({
+    required int id,
+    required String title,
+    required String body,
+  }) async {
+    final details = await _notificationDetails();
+    await _localNotificationService.periodicallyShow(
+      id,
+      title,
+      body,
+      RepeatInterval.daily,
+      details,
+      androidAllowWhileIdle: true,
+    );
+  }
+
+
+  Future<void> showSaumScheduleNotification({
+    required int id,
+    required String title,
+    required String body,
+  }) async {
+    final details = await _notificationDetails();
+    DateTime.now().weekday == 1 || DateTime.now().weekday == 4
+        ? await _localNotificationService.periodicallyShow(
+      id,
+      title,
+      body,
+      RepeatInterval.daily,
+      details,
+      androidAllowWhileIdle: true,
+    ) : _localNotificationService.toString();
   }
 
   Future<void> showNotificationWithPayload({
