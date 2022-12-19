@@ -4,10 +4,6 @@ import 'package:majmua/application/style/main_app_style.dart';
 import 'package:majmua/presentation/date/current_date_time.dart';
 import 'package:majmua/presentation/day/days_to.dart';
 import 'package:majmua/presentation/friday/list_friday.dart';
-import 'package:majmua/presentation/hadeeths/list_hadeeths.dart';
-import 'package:majmua/presentation/names/list_names.dart';
-import 'package:majmua/presentation/questions/list_questions.dart';
-import 'package:majmua/presentation/ramadan/list_lessons_ramadan.dart';
 import 'package:majmua/presentation/rests/rest_dates.dart';
 import 'package:majmua/presentation/supplications/day_night_supplications.dart';
 import 'package:majmua/presentation/surah/surah.dart';
@@ -80,7 +76,7 @@ class _MainPageState extends State<MainPage> {
             const CurrentDateTime(),
             Visibility(
               visible: MainAppStyle.dateTime.weekday >= 4 &&
-                  MainAppStyle.dateTime.weekday <= 5
+                      MainAppStyle.dateTime.weekday <= 5
                   ? true
                   : false,
               child: const ListFriday(),
@@ -107,14 +103,34 @@ class _MainPageState extends State<MainPage> {
                 ],
               ),
             ),
-            const ListNames(),
-            MainAppStyle.dateTimeHijri.hMonth == 9
-                ? const ListLessonsRamadan()
-                : const ListQuestions(),
-            const ListHadeeths(),
-            MainAppStyle.dateTimeHijri.hMonth != 9
-                ? const ListLessonsRamadan()
-                : const ListQuestions(),
+            InkWell(
+              onTap: () {},
+              borderRadius: MainAppStyle.mainBorderRadius,
+              splashColor: Colors.brown.shade300,
+              child: Container(
+                width: double.infinity,
+                padding: MainAppStyle.mainPadding,
+                margin: MainAppStyle.mainMarginMini,
+                decoration: const BoxDecoration(
+                  borderRadius: MainAppStyle.mainBorderRadius,
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    opacity: 0.25,
+                    image: AssetImage('assets/images/shelf.png'),
+                  ),
+                  color: Colors.white,
+                ),
+                child: Text(
+                  'Книжная полка',
+                  style: TextStyle(
+                    color: Colors.brown.shade900,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
           ],
         ),
       ),

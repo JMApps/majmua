@@ -21,7 +21,7 @@ class _ListNamesState extends State<ListNames> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: _databaseQuery.getNames(),
+      future: _databaseQuery.getRaqaiq(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.hasError) {
           return Center(
