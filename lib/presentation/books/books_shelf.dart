@@ -39,7 +39,7 @@ class BooksShelf extends StatelessWidget {
           ),
           SizedBox(height: 8),
           BookItem(
-            routeName: 'page_names_of',
+            routeName: 'list_raqaiq_page',
             title: 'Смягчение сердец Кораном',
             subTitle: 'Ракъаикъ Къуран',
             color: Colors.orange,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:majmua/data/database/model/arguments/arguments_hadeeth.dart';
 import 'package:majmua/data/database/model/arguments/arguments_lesson_ramadan.dart';
 import 'package:majmua/data/database/model/arguments/arguments_question.dart';
+import 'package:majmua/data/database/model/arguments/arguments_raqaiq.dart';
 import 'package:majmua/data/database/model/arguments/arguments_supplication.dart';
 import 'package:majmua/presentation/books/books_page.dart';
 import 'package:majmua/presentation/hadeeths/hadeeth_content_page.dart';
@@ -10,6 +11,8 @@ import 'package:majmua/presentation/questions/list_questions_page.dart';
 import 'package:majmua/presentation/questions/questions_content_page.dart';
 import 'package:majmua/presentation/ramadan/lessons_ramadan_content_page.dart';
 import 'package:majmua/presentation/ramadan/list_lessons_ramadan_page.dart';
+import 'package:majmua/presentation/raqaiq/list_raqaiq_page.dart';
+import 'package:majmua/presentation/raqaiq/raqaiq_content_page.dart';
 import 'package:majmua/presentation/supplications/supplication_page.dart';
 import 'package:majmua/presentation/surah/supplications_from_quran.dart';
 import 'package:majmua/presentation/surah/surah_kahf.dart';
@@ -69,6 +72,20 @@ class AppRoutes {
       case 'list_hadeeths_page':
         return MaterialPageRoute(
           builder: (_) => const ListHadeethsPage(),
+          settings: routeSettings,
+        );
+      case 'raqaiq_content_page':
+        final ArgumentsRaqaiq argumentsRaqaiq =
+            routeSettings.arguments as ArgumentsRaqaiq;
+        return MaterialPageRoute(
+          builder: (_) => RaqaiqContentPage(
+            chapterId: argumentsRaqaiq.chapterId,
+          ),
+          settings: routeSettings,
+        );
+      case 'list_raqaiq_page':
+        return MaterialPageRoute(
+          builder: (_) => const ListRaqaiqPage(),
           settings: routeSettings,
         );
       case 'surah_kahf':
