@@ -31,7 +31,7 @@ class CenterPercentText extends StatelessWidget {
             text: '$firstPercent\n',
             style: const TextStyle(
               fontSize: 12,
-              color: Colors.red,
+              color: Color(0xFFE57373),
             ),
           ),
           TextSpan(
