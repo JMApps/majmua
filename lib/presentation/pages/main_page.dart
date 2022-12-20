@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/notifications/local_notification_service.dart';
 import 'package:majmua/application/style/main_app_style.dart';
+import 'package:majmua/presentation/adhan/adhan_time_row.dart';
 import 'package:majmua/presentation/books/library.dart';
 import 'package:majmua/presentation/date/current_date_time.dart';
 import 'package:majmua/presentation/day/days_to.dart';
@@ -68,6 +69,8 @@ class _MainPageState extends State<MainPage> {
         child: Column(
           children: [
             const RestDates(),
+            const SizedBox(height: 8),
+            const AdhanTimeRow(),
             const SizedBox(height: 8),
             const CurrentDateTime(),
             Visibility(
