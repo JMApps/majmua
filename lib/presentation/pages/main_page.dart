@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/notifications/local_notification_service.dart';
 import 'package:majmua/application/style/main_app_style.dart';
+import 'package:majmua/presentation/books/library.dart';
 import 'package:majmua/presentation/date/current_date_time.dart';
 import 'package:majmua/presentation/day/days_to.dart';
 import 'package:majmua/presentation/friday/list_friday.dart';
@@ -98,27 +99,8 @@ class _MainPageState extends State<MainPage> {
                 ],
               ),
             ),
-            Container(
-              width: double.infinity,
-              padding: MainAppStyle.mainPadding,
-              margin: MainAppStyle.mainMarginMini,
-              decoration: const BoxDecoration(
-                borderRadius: MainAppStyle.mainBorderRadius,
-                color: Colors.white,
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage('assets/images/shelf.png'),
-                ),
-              ),
-              child: const Text(
-                'Книжная полка',
-                style: TextStyle(
-                  color: Colors.black87,
-                  fontSize: 18,
-                ),
-                textAlign: TextAlign.start,
-              ),
-            ),
+            const SizedBox(height: 4),
+            const Library(),
           ],
         ),
       ),
