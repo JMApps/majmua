@@ -18,7 +18,7 @@ class _SupplicationsFromQuranState extends State<SupplicationsFromQuran> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFEFEBE9),
+      backgroundColor: const Color(0xFFECEFF1),
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,

@@ -79,14 +79,14 @@ class SupplicationItem extends StatelessWidget {
               showModalBottomSheet(
                 backgroundColor: Colors.transparent,
                 context: context,
-                builder: (_) => SingleChildScrollView(
-                  child: Container(
+                builder: (_) => Container(
+                  margin: MainAppStyle.mainMargin,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: MainAppStyle.mainBorderRadius,
+                  ),
+                  child: SingleChildScrollView(
                     padding: MainAppStyle.mainPadding,
-                    margin: MainAppStyle.mainMargin,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: MainAppStyle.mainBorderRadius,
-                    ),
                     child: Html(
                       data: url,
                       style: {

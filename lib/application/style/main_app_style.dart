@@ -13,19 +13,13 @@ class MainAppStyle {
     return '${dateTime.day}/${dateTime.month}/${dateTime.year}';
   }
 
-  static int getHourOfYear =
-      dateTime.difference(DateTime(dateTime.year)).inHours;
+  static int getHourOfYear = dateTime.difference(DateTime(dateTime.year)).inHours;
 
-  static int getHourOfMonth =
-      dateTime.difference(DateTime(dateTime.year, dateTime.month)).inHours;
+  static int getHourOfMonth = dateTime.difference(DateTime(dateTime.year, dateTime.month)).inHours;
 
-  static int getHourOfDay = dateTime
-      .difference(DateTime(dateTime.year, dateTime.month, dateTime.day))
-      .inHours;
+  static int getHourOfDay = dateTime.difference(DateTime(dateTime.year, dateTime.month, dateTime.day)).inHours;
 
-  static int getMinuteOfDay = dateTime
-      .difference(DateTime(dateTime.year, dateTime.month, dateTime.day))
-      .inMinutes;
+  static int getMinuteOfDay = dateTime.difference(DateTime(dateTime.year, dateTime.month, dateTime.day)).inMinutes;
 
   static double restYearProgress() {
     return getHourOfYear * 24 * 60 / 126144.0;
