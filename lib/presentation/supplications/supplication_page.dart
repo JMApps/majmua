@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/supplications_state.dart';
+import 'package:majmua/application/style/main_app_style.dart';
 import 'package:majmua/presentation/supplications/floating_counter_button.dart';
 import 'package:majmua/presentation/supplications/list_supplications.dart';
 import 'package:provider/provider.dart';
@@ -29,13 +30,8 @@ class SupplicationPage extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           centerTitle: true,
-          backgroundColor: Colors.teal,
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                bottomRight: Radius.elliptical(35, 20),
-                bottomLeft: Radius.elliptical(35, 20),
-              )
-          ),
+          backgroundColor: Colors.teal.shade700,
+          shape: MainAppStyle.appBarShape,
           title: Text(title),
           actions: [
             Consumer<SupplicationsState>(
@@ -75,7 +71,7 @@ class SupplicationPage extends StatelessWidget {
           builder: (context, supplicationState, _) {
             return Card(
               margin: EdgeInsets.zero,
-              color: Colors.teal,
+              color: Colors.teal.shade700,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   topRight: Radius.elliptical(35, 20),

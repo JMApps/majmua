@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/style/main_app_style.dart';
 import 'package:majmua/data/database/service/database_query.dart';
 import 'package:majmua/presentation/surah/supplication_from_quran_item.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -21,13 +22,8 @@ class _SupplicationsFromQuranState extends State<SupplicationsFromQuran> {
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.brown,
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              bottomRight: Radius.elliptical(35, 20),
-              bottomLeft: Radius.elliptical(35, 20),
-            )
-        ),
+        backgroundColor: Colors.blueGrey.shade900,
+        shape: MainAppStyle.mainCardBorderRadius,
         title: const Text('Мольбы из Корана'),
       ),
       body: FutureBuilder(
@@ -62,7 +58,7 @@ class _SupplicationsFromQuranState extends State<SupplicationsFromQuran> {
                           maxVisibleDots: 11,
                           dotWidth: 4,
                           dotHeight: 12,
-                          dotColor: Color(0xFFA1887F),
+                          dotColor: Color(0xFF90A4AE),
                           activeDotColor: Colors.indigo,
                         ),
                       ),

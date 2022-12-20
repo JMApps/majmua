@@ -14,7 +14,7 @@ class CurrentDateTime extends StatelessWidget {
           Expanded(
             flex: 3,
             child: Container(
-              padding: const EdgeInsets.all(8),
+              padding: MainAppStyle.mainPaddingMini,
               decoration: const BoxDecoration(
                 borderRadius: MainAppStyle.mainBorderRadius,
                 color: Colors.white,
@@ -48,7 +48,7 @@ class CurrentDateTime extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  padding: const EdgeInsets.all(8),
+                  padding: MainAppStyle.mainPaddingMini,
                   decoration: const BoxDecoration(
                     borderRadius: MainAppStyle.mainBorderRadius,
                     color: Colors.white,
@@ -59,7 +59,7 @@ class CurrentDateTime extends StatelessWidget {
                   ),
                   alignment: Alignment.center,
                   child: Text(
-                    MainAppStyle.getMessagesForDays,
+                    MainAppStyle.getNamesWeekDay,
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.primaries[MainAppStyle.dateTime.weekday],
@@ -69,7 +69,6 @@ class CurrentDateTime extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Container(
-                  padding: const EdgeInsets.all(8),
                   decoration: const BoxDecoration(
                     borderRadius: MainAppStyle.mainBorderRadius,
                     color: Colors.white,

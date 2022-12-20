@@ -91,7 +91,7 @@ class SupplicationItem extends StatelessWidget {
                       data: url,
                       style: {
                         '#': Style(
-                          fontSize: const FontSize(16),
+                          fontSize: const FontSize(18),
                         ),
                         'small': Style(
                           fontSize: const FontSize(12),

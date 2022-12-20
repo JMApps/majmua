@@ -13,7 +13,7 @@ class WhiteDayCircle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      backgroundColor: currentHijriDay == whiteDay ? Colors.indigo : Colors.red.shade300,
+      backgroundColor: currentHijriDay == whiteDay ? Colors.teal : Colors.red.shade300,
       child: Text(
         '$whiteDay',
         style: const TextStyle(

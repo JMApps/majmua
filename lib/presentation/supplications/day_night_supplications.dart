@@ -33,7 +33,6 @@ class DayNightSupplications extends StatelessWidget {
                 borderRadius: MainAppStyle.mainBorderRadius,
                 image: DecorationImage(
                   fit: BoxFit.fitWidth,
-                  opacity: 0.60,
                   image: AssetImage('assets/images/ic_dawn.jpg'),
                 ),
               ),
@@ -42,6 +41,12 @@ class DayNightSupplications extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
+                  shadows: [
+                    BoxShadow(
+                      color: Colors.white,
+                      blurRadius: 12,
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -71,7 +76,6 @@ class DayNightSupplications extends StatelessWidget {
                 borderRadius: MainAppStyle.mainBorderRadius,
                 image: DecorationImage(
                   fit: BoxFit.fitWidth,
-                  opacity: 0.60,
                   image: AssetImage('assets/images/ic_sunset.jpg'),
                 ),
               ),
@@ -80,6 +84,12 @@ class DayNightSupplications extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
+                  shadows: [
+                    BoxShadow(
+                      color: Colors.white,
+                      blurRadius: 12,
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -109,15 +119,20 @@ class DayNightSupplications extends StatelessWidget {
                 borderRadius: MainAppStyle.mainBorderRadius,
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  opacity: 0.60,
                   image: AssetImage('assets/images/ic_night.jpg'),
                 ),
               ),
               child: const Text(
                 'Перед сном',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 16,
+                  shadows: [
+                    BoxShadow(
+                      color: Colors.black,
+                      blurRadius: 12,
+                    ),
+                  ],
                 ),
               ),
             ),

@@ -15,57 +15,72 @@ class ListFriday extends StatefulWidget {
 class _ListFridayState extends State<ListFriday> {
   final _contentList = const <ModelFridayItem>[
     ModelFridayItem(
-        id: 1,
-        numberSunnah: 'Сунна 1',
-        contentSunnah: 'Совершить полное (гъусль) омовение'),
+      id: 1,
+      numberSunnah: 'Сунна 1',
+      contentSunnah: 'Совершить полное (гъусль) омовение',
+    ),
     ModelFridayItem(
-        id: 2,
-        numberSunnah: 'Сунна 2',
-        contentSunnah: 'Привести себя в порядок'),
+      id: 2,
+      numberSunnah: 'Сунна 2',
+      contentSunnah: 'Привести себя в порядок',
+    ),
     ModelFridayItem(
-        id: 3, numberSunnah: 'Сунна 3', contentSunnah: 'Надеть чистую одежду'),
+      id: 3,
+      numberSunnah: 'Сунна 3',
+      contentSunnah: 'Надеть чистую одежду',
+    ),
     ModelFridayItem(
-        id: 4,
-        numberSunnah: 'Сунна 4',
-        contentSunnah: 'Умастить себя благовониями'),
+      id: 4,
+      numberSunnah: 'Сунна 4',
+      contentSunnah: 'Умастить себя благовониями',
+    ),
     ModelFridayItem(
-        id: 5,
-        numberSunnah: 'Сунна 5',
-        contentSunnah: 'Пораньше отправиться в мечеть'),
+      id: 5,
+      numberSunnah: 'Сунна 5',
+      contentSunnah: 'Пораньше отправиться в мечеть',
+    ),
     ModelFridayItem(
-        id: 6,
-        numberSunnah: 'Сунна 6',
-        contentSunnah: 'Отправиться в мечеть пешком'),
+      id: 6,
+      numberSunnah: 'Сунна 6',
+      contentSunnah: 'Отправиться в мечеть пешком',
+    ),
     ModelFridayItem(
-        id: 7,
-        numberSunnah: 'Сунна 7',
-        contentSunnah: 'Занять место ближе к минбару'),
+      id: 7,
+      numberSunnah: 'Сунна 7',
+      contentSunnah: 'Занять место ближе к минбару',
+    ),
     ModelFridayItem(
-        id: 8,
-        numberSunnah: 'Сунна 8',
-        contentSunnah: 'Не перешагивать через других'),
+      id: 8,
+      numberSunnah: 'Сунна 8',
+      contentSunnah: 'Не перешагивать через других',
+    ),
     ModelFridayItem(
-        id: 9,
-        numberSunnah: 'Сунна 9',
-        contentSunnah: 'Не разговаривать во время хутбы'),
+      id: 9,
+      numberSunnah: 'Сунна 9',
+      contentSunnah: 'Не разговаривать во время хутбы',
+    ),
     ModelFridayItem(
-        id: 10,
-        numberSunnah: 'Сунна 10',
-        contentSunnah:
-            'Совершить 4 ракаата (2 по 2) после джума в мечети или 2 ракаата дома'),
+      id: 10,
+      numberSunnah: 'Сунна 10',
+      contentSunnah:
+          'Совершить 4 ракаата (2 по 2) после джума в мечети или 2 ракаата дома',
+    ),
     ModelFridayItem(
-        id: 11,
-        numberSunnah: 'Сунна 11',
-        contentSunnah: 'Прочитать суру «Аль-Кахф»'),
+      id: 11,
+      numberSunnah: 'Сунна 11',
+      contentSunnah: 'Прочитать суру «Аль-Кахф»',
+    ),
     ModelFridayItem(
-        id: 12,
-        numberSunnah: 'Сунна 12',
-        contentSunnah:
-            'Как можно больше читать салават на Пророка, да благословит его Аллах и да приветствует'),
+      id: 12,
+      numberSunnah: 'Сунна 12',
+      contentSunnah:
+          'Как можно больше читать салават на Пророка, да благословит его Аллах и да приветствует',
+    ),
     ModelFridayItem(
-        id: 13,
-        numberSunnah: 'Сунна 13',
-        contentSunnah: 'Сделать дуа в последний час пятницы (час до магриба)'),
+      id: 13,
+      numberSunnah: 'Сунна 13',
+      contentSunnah: 'Сделать дуа в последний час пятницы (час до магриба)',
+    ),
   ];
 
   @override
@@ -99,8 +114,7 @@ class _ListFridayState extends State<ListFriday> {
           effect: CustomizableEffect(
             activeDotDecoration: DotDecoration(
               color: Colors.primaries[
-                  context.watch<MainAppState>().getFridaySunnahControllerIndex +
-                      1],
+                  context.watch<MainAppState>().getFridaySunnahControllerIndex + 1],
               dotBorder: const DotBorder(
                 padding: 2,
                 color: Colors.teal,

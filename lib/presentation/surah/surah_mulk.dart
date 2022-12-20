@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/style/main_app_style.dart';
 
 class SurahMulk extends StatelessWidget {
   const SurahMulk({Key? key}) : super(key: key);
@@ -10,13 +11,8 @@ class SurahMulk extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.brown,
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              bottomRight: Radius.elliptical(35, 20),
-              bottomLeft: Radius.elliptical(35, 20),
-            )
-        ),
+        backgroundColor: Colors.blueGrey.shade900,
+        shape: MainAppStyle.appBarShape,
         title: const Text('Сура «Власть»'),
       ),
       body: PageView.builder(

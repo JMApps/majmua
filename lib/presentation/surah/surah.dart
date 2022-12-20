@@ -24,15 +24,20 @@ class Surah extends StatelessWidget {
                 borderRadius: MainAppStyle.mainBorderRadius,
                 image: DecorationImage(
                   fit: BoxFit.fitWidth,
-                  opacity: 0.60,
                   image: AssetImage('assets/images/ic_surah.jpg'),
                 ),
               ),
               child: const Text(
                 'Сура «Пещера»',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 16,
+                  shadows: [
+                    BoxShadow(
+                      color: Colors.black,
+                      blurRadius: 12,
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -54,15 +59,20 @@ class Surah extends StatelessWidget {
                 borderRadius: MainAppStyle.mainBorderRadius,
                 image: DecorationImage(
                   fit: BoxFit.fitWidth,
-                  opacity: 0.60,
                   image: AssetImage('assets/images/ic_surah_two.jpg'),
                 ),
               ),
               child: const Text(
                 'Сура «Власть»',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 16,
+                  shadows: [
+                    BoxShadow(
+                      color: Colors.black,
+                      blurRadius: 12,
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -84,15 +94,20 @@ class Surah extends StatelessWidget {
                 borderRadius: MainAppStyle.mainBorderRadius,
                 image: DecorationImage(
                   fit: BoxFit.fitWidth,
-                  opacity: 0.60,
                   image: AssetImage('assets/images/ic_supplication.jpg'),
                 ),
               ),
               child: const Text(
                 'Мольбы из Корана',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 16,
+                  shadows: [
+                    BoxShadow(
+                      color: Colors.black,
+                      blurRadius: 12,
+                    ),
+                  ],
                 ),
               ),
             ),
