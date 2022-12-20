@@ -2,31 +2,31 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/style/main_app_style.dart';
 import 'package:majmua/data/database/service/database_query.dart';
-import 'package:majmua/presentation/ramadan/lesson_ramadan_item.dart';
+import 'package:majmua/presentation/hadeeths/hadeeth_item.dart';
 
-class ListLessonsRamadanPage extends StatefulWidget {
-  const ListLessonsRamadanPage({Key? key}) : super(key: key);
+class ListHadeethsPage extends StatefulWidget {
+  const ListHadeethsPage({Key? key}) : super(key: key);
 
   @override
-  State<ListLessonsRamadanPage> createState() => _ListLessonsRamadanPageState();
+  State<ListHadeethsPage> createState() => _ListHadeethsPageState();
 }
 
-class _ListLessonsRamadanPageState extends State<ListLessonsRamadanPage> {
+class _ListHadeethsPageState extends State<ListHadeethsPage> {
   final DatabaseQuery _databaseQuery = DatabaseQuery();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFEDE7F6),
+      backgroundColor: const Color(0xFFEEEEEE),
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.deepPurple,
         shape: MainAppStyle.appBarShape,
-        title: const Text('Уроки Рамадана'),
+        backgroundColor: Colors.grey.shade800,
+        title: const Text('40 хадисов'),
       ),
       body: FutureBuilder(
-        future: _databaseQuery.getLessonsRamadan(),
+        future: _databaseQuery.getHadeeths(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           return snapshot.hasData
               ? CupertinoScrollbar(
@@ -34,7 +34,7 @@ class _ListLessonsRamadanPageState extends State<ListLessonsRamadanPage> {
                     padding: MainAppStyle.mainPaddingMini,
                     itemCount: snapshot.data!.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return LessonRamadanItem(
+                      return HadeethItem(
                         item: snapshot.data![index],
                       );
                     },

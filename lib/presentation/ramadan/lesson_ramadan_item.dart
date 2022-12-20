@@ -28,6 +28,7 @@ class LessonRamadanItem extends StatelessWidget {
           borderRadius: MainAppStyle.mainBorderRadius,
           child: Center(
             child: ListTile(
+              contentPadding: MainAppStyle.mainPadding,
               title: Text(
                 item.numberChapter,
                 style: const TextStyle(
