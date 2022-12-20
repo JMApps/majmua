@@ -3,7 +3,9 @@ import 'package:majmua/data/database/model/arguments/arguments_hadeeth.dart';
 import 'package:majmua/data/database/model/arguments/arguments_lesson_ramadan.dart';
 import 'package:majmua/data/database/model/arguments/arguments_question.dart';
 import 'package:majmua/data/database/model/arguments/arguments_supplication.dart';
+import 'package:majmua/presentation/books/books_page.dart';
 import 'package:majmua/presentation/hadeeths/hadeeth_page.dart';
+import 'package:majmua/presentation/questions/list_questions_page.dart';
 import 'package:majmua/presentation/questions/questions_page.dart';
 import 'package:majmua/presentation/ramadan/lessons_ramadan_page.dart';
 import 'package:majmua/presentation/supplications/supplication_page.dart';
@@ -25,12 +27,16 @@ class AppRoutes {
           ),
           settings: routeSettings,
         );
-      case 'questions_page':
+      case 'questions_list_page':
+        return MaterialPageRoute(
+          builder: (_) => const ListQuestionsPage(),
+          settings: routeSettings,
+        );
+      case 'questions_content_page':
         final ArgumentsQuestion argumentsQuestion =
             routeSettings.arguments as ArgumentsQuestion;
         return MaterialPageRoute(
           builder: (_) => QuestionsPage(
-            numberQuestion: argumentsQuestion.numberQuestion,
             questionId: argumentsQuestion.questionId,
           ),
           settings: routeSettings,
@@ -68,6 +74,11 @@ class AppRoutes {
         case 'supplications_from_quran':
         return MaterialPageRoute(
           builder: (_) => const SupplicationsFromQuran(),
+          settings: routeSettings,
+        );
+        case 'library_page':
+        return MaterialPageRoute(
+          builder: (_) => const BooksPage(),
           settings: routeSettings,
         );
       default:

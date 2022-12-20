@@ -14,83 +14,72 @@ class QuestionItem extends StatelessWidget {
     return Card(
       elevation: 0,
       shape: MainAppStyle.mainCardBorderRadius,
-      child: Card(
-        margin: MainAppStyle.mainMarginMini,
-        shape: const RoundedRectangleBorder(
-          borderRadius: MainAppStyle.mainBorderRadius,
-          side: BorderSide(
-            width: 1,
-            color: Color(0xFFBA68C8),
-          ),
-        ),
-        child: InkWell(
-          onTap: () {
-            Navigator.pushNamed(
-              context,
-              'questions_page',
-              arguments: ArgumentsQuestion(
-                numberQuestion: item.numberQuestion,
-                questionId: item.id,
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(
+            context,
+            'questions_content_page',
+            arguments: ArgumentsQuestion(
+              questionId: item.id,
+            ),
+          );
+        },
+        borderRadius: MainAppStyle.mainBorderRadius,
+        child: Center(
+          child: ListTile(
+            contentPadding: MainAppStyle.mainPadding,
+            title: Text(
+              item.numberQuestion,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.teal.shade800,
+                fontWeight: FontWeight.bold,
               ),
-            );
-          },
-          borderRadius: MainAppStyle.mainBorderRadius,
-          child: Center(
-            child: ListTile(
-              title: Text(
-                item.numberQuestion,
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.purple,
+              textAlign: TextAlign.center,
+            ),
+            subtitle: Html(
+              data: item.question,
+              style: {
+                '#': Style(
+                  padding: EdgeInsets.zero,
+                  margin: EdgeInsets.zero,
+                  fontSize: const FontSize(18),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
-              ),
-              subtitle: Html(
-                data: item.question,
-                style: {
-                  '#': Style(
-                    padding: EdgeInsets.zero,
-                    margin: EdgeInsets.zero,
-                    fontSize: const FontSize(16),
-                    textAlign: TextAlign.center,
-                    maxLines: 6,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  'sup': Style(
-                    fontSize: const FontSize(12),
-                    color: Colors.purple,
-                  ),
-                },
-                onLinkTap: (String? url, RenderContext rendContext,
-                    Map<String, String> attributes, element) {
-                  showModalBottomSheet(
-                    backgroundColor: Colors.transparent,
-                    context: context,
-                    builder: (_) => SingleChildScrollView(
-                      child: Container(
-                        padding: MainAppStyle.mainPadding,
-                        margin: MainAppStyle.mainMargin,
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: MainAppStyle.mainBorderRadius,
-                        ),
-                        child: SelectableHtml(
-                          data: url,
-                          style: {
-                            '#': Style(
-                              fontSize: const FontSize(16),
-                            ),
-                            'small': Style(
-                              fontSize: const FontSize(12),
-                              color: Colors.grey,
-                            ),
-                          },
-                        ),
+                'sup': Style(
+                  fontSize: const FontSize(14),
+                  color: Colors.teal.shade800,
+                ),
+              },
+              onLinkTap: (String? url, RenderContext rendContext,
+                  Map<String, String> attributes, element) {
+                showModalBottomSheet(
+                  backgroundColor: Colors.transparent,
+                  context: context,
+                  builder: (_) => Container(
+                    margin: MainAppStyle.mainMargin,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: MainAppStyle.mainBorderRadius,
+                    ),
+                    child: SingleChildScrollView(
+                      padding: MainAppStyle.mainPadding,
+                      child: SelectableHtml(
+                        data: url,
+                        style: {
+                          '#': Style(
+                            fontSize: const FontSize(18),
+                          ),
+                          'small': Style(
+                            fontSize: const FontSize(12),
+                            color: Colors.grey,
+                          ),
+                        },
                       ),
                     ),
-                  );
-                },
-              ),
+                  ),
+                );
+              },
             ),
           ),
         ),
