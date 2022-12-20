@@ -6,8 +6,9 @@ import 'package:majmua/data/database/model/arguments/arguments_supplication.dart
 import 'package:majmua/presentation/books/books_page.dart';
 import 'package:majmua/presentation/hadeeths/hadeeth_page.dart';
 import 'package:majmua/presentation/questions/list_questions_page.dart';
-import 'package:majmua/presentation/questions/questions_page.dart';
-import 'package:majmua/presentation/ramadan/lessons_ramadan_page.dart';
+import 'package:majmua/presentation/questions/questions_content_page.dart';
+import 'package:majmua/presentation/ramadan/lessons_ramadan_content_page.dart';
+import 'package:majmua/presentation/ramadan/list_lessons_ramadan_page.dart';
 import 'package:majmua/presentation/supplications/supplication_page.dart';
 import 'package:majmua/presentation/surah/supplications_from_quran.dart';
 import 'package:majmua/presentation/surah/surah_kahf.dart';
@@ -36,8 +37,22 @@ class AppRoutes {
         final ArgumentsQuestion argumentsQuestion =
             routeSettings.arguments as ArgumentsQuestion;
         return MaterialPageRoute(
-          builder: (_) => QuestionsPage(
+          builder: (_) => QuestionsContentPage(
             questionId: argumentsQuestion.questionId,
+          ),
+          settings: routeSettings,
+        );
+      case 'lessons_ramadan_list_page':
+        return MaterialPageRoute(
+          builder: (_) => const ListLessonsRamadanPage(),
+          settings: routeSettings,
+        );
+      case 'lessons_ramadan_content_page':
+        final ArgumentsLessonRamadan lessonRamadan =
+            routeSettings.arguments as ArgumentsLessonRamadan;
+        return MaterialPageRoute(
+          builder: (_) => LessonsRamadanContentPage(
+            chapterId: lessonRamadan.chapterId,
           ),
           settings: routeSettings,
         );
@@ -51,16 +66,6 @@ class AppRoutes {
           ),
           settings: routeSettings,
         );
-      case 'lessons_ramadan_page':
-        final ArgumentsLessonRamadan lessonRamadan =
-            routeSettings.arguments as ArgumentsLessonRamadan;
-        return MaterialPageRoute(
-          builder: (_) => LessonsRamadanPage(
-            numberChapter: lessonRamadan.numberChapter,
-            chapterId: lessonRamadan.chapterId,
-          ),
-          settings: routeSettings,
-        );
       case 'surah_kahf':
         return MaterialPageRoute(
           builder: (_) => const SurahKahf(),
@@ -71,12 +76,12 @@ class AppRoutes {
           builder: (_) => const SurahMulk(),
           settings: routeSettings,
         );
-        case 'supplications_from_quran':
+      case 'supplications_from_quran':
         return MaterialPageRoute(
           builder: (_) => const SupplicationsFromQuran(),
           settings: routeSettings,
         );
-        case 'library_page':
+      case 'library_page':
         return MaterialPageRoute(
           builder: (_) => const BooksPage(),
           settings: routeSettings,

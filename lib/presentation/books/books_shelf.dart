@@ -25,10 +25,10 @@ class BooksShelf extends StatelessWidget {
           ),
           SizedBox(height: 8),
           BookItem(
-            routeName: 'page_names_of',
+            routeName: 'lessons_ramadan_list_page',
             title: 'Уроки Рамадана',
             subTitle: 'Пост и его значение',
-            color: Colors.purple,
+            color: Colors.deepPurple,
           ),
           SizedBox(height: 8),
           BookItem(

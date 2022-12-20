@@ -11,49 +11,41 @@ class LessonRamadanItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 0,
-      shape: MainAppStyle.mainCardBorderRadius,
-      child: Card(
-          margin: MainAppStyle.mainMarginMini,
-          shape: const RoundedRectangleBorder(
-            borderRadius: MainAppStyle.mainBorderRadius,
-            side: BorderSide(
-              width: 1,
-              color: Color(0xFFA1887F),
-            ),
-          ),
-          child: InkWell(
-            onTap: () {
-              Navigator.pushNamed(
-                context,
-                'lessons_ramadan_page',
-                arguments: ArgumentsLessonRamadan(
-                  numberChapter: item.numberChapter,
-                  chapterId: item.id,
+        elevation: 0,
+        shape: const RoundedRectangleBorder(
+          borderRadius: MainAppStyle.mainBorderRadius,
+        ),
+        child: InkWell(
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              'lessons_ramadan_content_page',
+              arguments: ArgumentsLessonRamadan(
+                chapterId: item.id,
+              ),
+            );
+          },
+          borderRadius: MainAppStyle.mainBorderRadius,
+          child: Center(
+            child: ListTile(
+              title: Text(
+                item.numberChapter,
+                style: const TextStyle(
+                  fontSize: 18,
+                  color: Colors.deepPurple,
+                  fontWeight: FontWeight.bold,
                 ),
-              );
-            },
-            borderRadius: MainAppStyle.mainBorderRadius,
-            child: Center(
-              child: ListTile(
-                title: Text(
-                  item.numberChapter,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: Colors.brown,
-                  ),
-                  textAlign: TextAlign.center,
+                textAlign: TextAlign.center,
+              ),
+              subtitle: Text(
+                item.titleChapter,
+                style: const TextStyle(
+                  fontSize: 18,
                 ),
-                subtitle: Text(
-                  item.titleChapter,
-                  style: const TextStyle(
-                    fontSize: 16,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
+                textAlign: TextAlign.center,
               ),
             ),
-          )),
-    );
+          ),
+        ));
   }
 }

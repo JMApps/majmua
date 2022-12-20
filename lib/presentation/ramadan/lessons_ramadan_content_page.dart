@@ -2,23 +2,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:majmua/application/style/main_app_style.dart';
+import 'package:majmua/data/database/model/arguments/arguments_lesson_ramadan.dart';
 import 'package:majmua/data/database/service/database_query.dart';
 
-class LessonsRamadanPage extends StatefulWidget {
-  const LessonsRamadanPage({
+class LessonsRamadanContentPage extends StatefulWidget {
+  const LessonsRamadanContentPage({
     Key? key,
-    required this.numberChapter,
     required this.chapterId,
   }) : super(key: key);
 
-  final String numberChapter;
   final int chapterId;
 
   @override
-  State<LessonsRamadanPage> createState() => _LessonsRamadanPageState();
+  State<LessonsRamadanContentPage> createState() =>
+      _LessonsRamadanContentPageState();
 }
 
-class _LessonsRamadanPageState extends State<LessonsRamadanPage> {
+class _LessonsRamadanContentPageState extends State<LessonsRamadanContentPage> {
   final DatabaseQuery _databaseQuery = DatabaseQuery();
 
   @override
@@ -28,7 +28,25 @@ class _LessonsRamadanPageState extends State<LessonsRamadanPage> {
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        title: Text(widget.numberChapter),
+        title: const Text('Уроки Рамадана'),
+        actions: [
+          widget.chapterId <= 30
+              ? IconButton(
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(
+                      context,
+                      'lessons_ramadan_content_page',
+                      arguments: ArgumentsLessonRamadan(
+                        chapterId: widget.chapterId + 1,
+                      ),
+                    );
+                  },
+                  icon: const Icon(
+                    Icons.arrow_forward_ios_rounded,
+                  ),
+                )
+              : const SizedBox(),
+        ],
       ),
       body: FutureBuilder(
         future: _databaseQuery.getOneLessonRamadan(widget.chapterId),
@@ -41,11 +59,18 @@ class _LessonsRamadanPageState extends State<LessonsRamadanPage> {
                       children: [
                         const Divider(indent: 16, endIndent: 16),
                         Text(
-                          snapshot.data![0].titleChapter,
+                          '${snapshot.data![0].numberChapter}',
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Colors.brown,
+                          ),
+                        ),
+                        const Divider(indent: 16, endIndent: 16),
+                        Text(
+                          snapshot.data![0].titleChapter,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            color: Colors.deepPurple,
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -64,8 +89,9 @@ class _LessonsRamadanPageState extends State<LessonsRamadanPage> {
                               color: Colors.grey,
                             ),
                             'a': Style(
-                              fontSize: const FontSize(12),
-                              color: Colors.brown,
+                              fontSize: const FontSize(14),
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.bold,
                             ),
                           },
                           onLinkTap: (String? url, RenderContext rendContext,
@@ -73,19 +99,19 @@ class _LessonsRamadanPageState extends State<LessonsRamadanPage> {
                             showModalBottomSheet(
                               backgroundColor: Colors.transparent,
                               context: context,
-                              builder: (_) => SingleChildScrollView(
-                                child: Container(
+                              builder: (_) => Container(
+                                margin: MainAppStyle.mainMargin,
+                                decoration: const BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: MainAppStyle.mainBorderRadius,
+                                ),
+                                child: SingleChildScrollView(
                                   padding: MainAppStyle.mainPadding,
-                                  margin: MainAppStyle.mainMargin,
-                                  decoration: const BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: MainAppStyle.mainBorderRadius,
-                                  ),
                                   child: SelectableHtml(
                                     data: url,
                                     style: {
                                       '#': Style(
-                                        fontSize: const FontSize(16),
+                                        fontSize: const FontSize(18),
                                       ),
                                       'small': Style(
                                         fontSize: const FontSize(12),
