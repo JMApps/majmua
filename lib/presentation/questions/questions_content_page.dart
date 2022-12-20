@@ -5,8 +5,8 @@ import 'package:majmua/application/style/main_app_style.dart';
 import 'package:majmua/data/database/model/arguments/arguments_question.dart';
 import 'package:majmua/data/database/service/database_query.dart';
 
-class QuestionsPage extends StatefulWidget {
-  const QuestionsPage({
+class QuestionsContentPage extends StatefulWidget {
+  const QuestionsContentPage({
     Key? key,
     required this.questionId,
   }) : super(key: key);
@@ -14,10 +14,10 @@ class QuestionsPage extends StatefulWidget {
   final int questionId;
 
   @override
-  State<QuestionsPage> createState() => _QuestionsPageState();
+  State<QuestionsContentPage> createState() => _QuestionsContentPageState();
 }
 
-class _QuestionsPageState extends State<QuestionsPage> {
+class _QuestionsContentPageState extends State<QuestionsContentPage> {
   final DatabaseQuery _databaseQuery = DatabaseQuery();
 
   @override
@@ -27,24 +27,23 @@ class _QuestionsPageState extends State<QuestionsPage> {
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        title: Text('Вопрос ${widget.questionId}'),
+        title: const Text('200 вопросов'),
         actions: [
           widget.questionId <= 200
               ? IconButton(
                   onPressed: () {
-                    if (widget.questionId < 201) {
-                      Navigator.pushReplacementNamed(
-                        context,
-                        'questions_content_page',
-                        arguments: ArgumentsQuestion(
-                          questionId: widget.questionId + 1,
-                        ),
-                      );
-                    }
+                    Navigator.pushReplacementNamed(
+                      context,
+                      'questions_content_page',
+                      arguments: ArgumentsQuestion(
+                        questionId: widget.questionId + 1,
+                      ),
+                    );
                   },
                   icon: const Icon(
                     Icons.arrow_forward_ios_rounded,
-                  ))
+                  ),
+                )
               : const SizedBox(),
         ],
       ),
@@ -57,6 +56,14 @@ class _QuestionsPageState extends State<QuestionsPage> {
                     padding: MainAppStyle.mainPadding,
                     child: Column(
                       children: [
+                        const Divider(indent: 16, endIndent: 16),
+                        Text(
+                          '${snapshot.data![0].numberQuestion}',
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                         const Divider(indent: 16, endIndent: 16),
                         Html(
                           data: snapshot.data![0].question,

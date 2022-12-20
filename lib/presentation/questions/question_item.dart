@@ -31,7 +31,7 @@ class QuestionItem extends StatelessWidget {
             title: Text(
               item.numberQuestion,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 18,
                 color: Colors.teal.shade800,
                 fontWeight: FontWeight.bold,
               ),
