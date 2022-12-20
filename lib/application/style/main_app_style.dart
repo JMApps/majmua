@@ -13,13 +13,19 @@ class MainAppStyle {
     return '${dateTime.day}/${dateTime.month}/${dateTime.year}';
   }
 
-  static int getHourOfYear = dateTime.difference(DateTime(dateTime.year)).inHours;
+  static int getHourOfYear =
+      dateTime.difference(DateTime(dateTime.year)).inHours;
 
-  static int getHourOfMonth = dateTime.difference(DateTime(dateTime.year, dateTime.month)).inHours;
+  static int getHourOfMonth =
+      dateTime.difference(DateTime(dateTime.year, dateTime.month)).inHours;
 
-  static int getHourOfDay = dateTime.difference(DateTime(dateTime.year, dateTime.month, dateTime.day)).inHours;
+  static int getHourOfDay = dateTime
+      .difference(DateTime(dateTime.year, dateTime.month, dateTime.day))
+      .inHours;
 
-  static int getMinuteOfDay = dateTime.difference(DateTime(dateTime.year, dateTime.month, dateTime.day)).inMinutes;
+  static int getMinuteOfDay = dateTime
+      .difference(DateTime(dateTime.year, dateTime.month, dateTime.day))
+      .inMinutes;
 
   static double restYearProgress() {
     return getHourOfYear * 24 * 60 / 126144.0;
@@ -76,15 +82,23 @@ class MainAppStyle {
 
   static int getToRamadanDays() {
     final int countDays;
-    final hijriRamadanToGregorian = dateTimeHijri.hijriToGregorian(dateTimeHijri.hYear, 9, 1);
-    countDays = dateTime.difference(DateTime(hijriRamadanToGregorian.year, hijriRamadanToGregorian.month, hijriRamadanToGregorian.day)).inDays;
+    final hijriRamadanToGregorian =
+        dateTimeHijri.hijriToGregorian(dateTimeHijri.hYear, 9, 1);
+    countDays = dateTime
+        .difference(DateTime(hijriRamadanToGregorian.year,
+            hijriRamadanToGregorian.month, hijriRamadanToGregorian.day))
+        .inDays;
     return countDays;
   }
 
   static int getToQurbanDays() {
     final int countDays;
-    final hijriZulHidjaToGregorian = dateTimeHijri.hijriToGregorian(dateTimeHijri.hYear, 12, 10);
-    countDays = dateTime.difference(DateTime(hijriZulHidjaToGregorian.year, hijriZulHidjaToGregorian.month, hijriZulHidjaToGregorian.day)).inDays;
+    final hijriZulHidjaToGregorian =
+        dateTimeHijri.hijriToGregorian(dateTimeHijri.hYear, 12, 10);
+    countDays = dateTime
+        .difference(DateTime(hijriZulHidjaToGregorian.year,
+            hijriZulHidjaToGregorian.month, hijriZulHidjaToGregorian.day))
+        .inDays;
     return countDays;
   }
 
@@ -103,7 +117,8 @@ class MainAppStyle {
     'Зу-ль-Хиджа'
   ];
 
-  static String get getMonthHijriNames => _monthHijriNames[dateTimeHijri.hMonth - 1];
+  static String get getMonthHijriNames =>
+      _monthHijriNames[dateTimeHijri.hMonth - 1];
 
   static final List<String> _monthNames = [
     'Январь',
@@ -132,7 +147,8 @@ class MainAppStyle {
     'Воскресенье',
   ];
 
-  static String get getMessagesForDays => _messagesForDays[dateTime.weekday - 1];
+  static String get getMessagesForDays =>
+      _messagesForDays[dateTime.weekday - 1];
 
   static final List<String> _messagesForSaum = [
     'День желательного поста',
@@ -144,9 +160,11 @@ class MainAppStyle {
     'Завтра день желательного поста',
   ];
 
-  static String get getMessagesForSaum => _messagesForSaum[dateTime.weekday - 1];
+  static String get getMessagesForSaum =>
+      _messagesForSaum[dateTime.weekday - 1];
 
-  static const mainCardBorderRadius = RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20)));
+  static const mainCardBorderRadius = RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20)));
   static const mainBorderRadius = BorderRadius.all(Radius.circular(20));
 
   static const mainTextSizeStyle = TextStyle(fontSize: 18);
@@ -155,4 +173,11 @@ class MainAppStyle {
   static const mainPaddingMini = EdgeInsets.all(8);
   static const mainMargin = EdgeInsets.all(16);
   static const mainMarginMini = EdgeInsets.all(8);
+
+  static const appBarShape = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      bottomRight: Radius.elliptical(35, 20),
+      bottomLeft: Radius.elliptical(35, 20),
+    ),
+  );
 }

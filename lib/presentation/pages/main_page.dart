@@ -46,12 +46,7 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.elliptical(35, 20),
-            bottomLeft: Radius.elliptical(35, 20),
-          ),
-        ),
+        shape: MainAppStyle.appBarShape,
         title: const Text('Полка мусульманина'),
         actions: [
           IconButton(
@@ -103,32 +98,27 @@ class _MainPageState extends State<MainPage> {
                 ],
               ),
             ),
-            InkWell(
-              onTap: () {},
-              borderRadius: MainAppStyle.mainBorderRadius,
-              splashColor: Colors.brown.shade300,
-              child: Container(
-                width: double.infinity,
-                padding: MainAppStyle.mainPadding,
-                margin: MainAppStyle.mainMarginMini,
-                decoration: const BoxDecoration(
-                  borderRadius: MainAppStyle.mainBorderRadius,
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    opacity: 0.25,
-                    image: AssetImage('assets/images/shelf.png'),
-                  ),
-                  color: Colors.white,
+            Container(
+              width: double.infinity,
+              padding: MainAppStyle.mainPadding,
+              margin: MainAppStyle.mainMarginMini,
+              decoration: const BoxDecoration(
+                borderRadius: MainAppStyle.mainBorderRadius,
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  opacity: 0.25,
+                  image: AssetImage('assets/images/shelf.png'),
                 ),
-                child: Text(
-                  'Книжная полка',
-                  style: TextStyle(
-                    color: Colors.brown.shade900,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.center,
+                color: Colors.white,
+              ),
+              child: Text(
+                'Книжная полка',
+                style: TextStyle(
+                  color: Colors.brown.shade900,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
+                textAlign: TextAlign.center,
               ),
             ),
           ],
