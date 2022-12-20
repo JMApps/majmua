@@ -63,11 +63,11 @@ class _MainPageState extends State<MainPage> {
         ],
       ),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(vertical: 16),
         child: Column(
           children: [
-            const SizedBox(height: 8),
             const RestDates(),
-            const SizedBox(height: 16),
+            const SizedBox(height: 8),
             const CurrentDateTime(),
             Visibility(
               visible: MainAppStyle.dateTime.weekday >= 4 &&
@@ -104,21 +104,19 @@ class _MainPageState extends State<MainPage> {
               margin: MainAppStyle.mainMarginMini,
               decoration: const BoxDecoration(
                 borderRadius: MainAppStyle.mainBorderRadius,
+                color: Colors.white,
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  opacity: 0.25,
                   image: AssetImage('assets/images/shelf.png'),
                 ),
-                color: Colors.white,
               ),
-              child: Text(
+              child: const Text(
                 'Книжная полка',
                 style: TextStyle(
-                  color: Colors.brown.shade900,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
+                  fontSize: 18,
                 ),
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.start,
               ),
             ),
           ],

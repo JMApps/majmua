@@ -137,7 +137,7 @@ class MainAppStyle {
 
   static String get getMonthNames => _monthNames[dateTime.month - 1];
 
-  static final List<String> _messagesForDays = [
+  static final List<String> _namesWeekDay = [
     'Понедельник',
     'Вторник',
     'Среда',
@@ -147,8 +147,7 @@ class MainAppStyle {
     'Воскресенье',
   ];
 
-  static String get getMessagesForDays =>
-      _messagesForDays[dateTime.weekday - 1];
+  static String get getNamesWeekDay => _namesWeekDay[dateTime.weekday - 1];
 
   static final List<String> _messagesForSaum = [
     'День желательного поста',
@@ -164,8 +163,14 @@ class MainAppStyle {
       _messagesForSaum[dateTime.weekday - 1];
 
   static const mainCardBorderRadius = RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(20)));
-  static const mainBorderRadius = BorderRadius.all(Radius.circular(20));
+    borderRadius: BorderRadius.all(
+      Radius.circular(20),
+    ),
+  );
+
+  static const mainBorderRadius = BorderRadius.all(
+    Radius.circular(20),
+  );
 
   static const mainTextSizeStyle = TextStyle(fontSize: 18);
 
