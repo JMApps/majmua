@@ -13,44 +13,35 @@ class HadeethItem extends StatelessWidget {
     return Card(
       elevation: 0,
       shape: MainAppStyle.mainCardBorderRadius,
-      child: Card(
-        margin: MainAppStyle.mainMarginMini,
-        shape: const RoundedRectangleBorder(
-          borderRadius: MainAppStyle.mainBorderRadius,
-          side: BorderSide(
-            width: 1,
-            color: Color(0xFFFF8A65),
-          ),
-        ),
-        child: InkWell(
-          onTap: () {
-            Navigator.pushNamed(
-              context,
-              'hadeeths_page',
-              arguments: ArgumentsHadeeth(
-                hadeethTitle: item.numberHadeeth,
-                hadeethId: item.id,
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(
+            context,
+            'hadeeths_content_page',
+            arguments: ArgumentsHadeeth(
+              hadeethId: item.id,
+            ),
+          );
+        },
+        borderRadius: MainAppStyle.mainBorderRadius,
+        child: Center(
+          child: ListTile(
+            contentPadding: MainAppStyle.mainPadding,
+            title: Text(
+              item.numberHadeeth,
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.grey.shade800,
+                fontWeight: FontWeight.bold,
               ),
-            );
-          },
-          borderRadius: MainAppStyle.mainBorderRadius,
-          child: Center(
-            child: ListTile(
-              title: Text(
-                item.numberHadeeth,
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.deepOrange,
-                ),
-                textAlign: TextAlign.center,
+              textAlign: TextAlign.center,
+            ),
+            subtitle: Text(
+              item.titleHadeeth,
+              style: const TextStyle(
+                fontSize: 18,
               ),
-              subtitle: Text(
-                item.titleHadeeth,
-                style: const TextStyle(
-                  fontSize: 16,
-                ),
-                textAlign: TextAlign.center,
-              ),
+              textAlign: TextAlign.center,
             ),
           ),
         ),

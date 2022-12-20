@@ -2,23 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:majmua/application/style/main_app_style.dart';
+import 'package:majmua/data/database/model/arguments/arguments_hadeeth.dart';
 import 'package:majmua/data/database/service/database_query.dart';
 
-class HadeethPage extends StatefulWidget {
-  const HadeethPage({
+class HadeethContentPage extends StatefulWidget {
+  const HadeethContentPage({
     Key? key,
-    required this.hadeethTitle,
     required this.hadeethId,
   }) : super(key: key);
 
-  final String hadeethTitle;
   final int hadeethId;
 
   @override
-  State<HadeethPage> createState() => _HadeethPageState();
+  State<HadeethContentPage> createState() => _HadeethContentPageState();
 }
 
-class _HadeethPageState extends State<HadeethPage> {
+class _HadeethContentPageState extends State<HadeethContentPage> {
   final DatabaseQuery _databaseQuery = DatabaseQuery();
 
   @override
@@ -28,7 +27,25 @@ class _HadeethPageState extends State<HadeethPage> {
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        title: Text(widget.hadeethTitle),
+        title: const Text('40 хадисов'),
+        actions: [
+          widget.hadeethId <= 41
+              ? IconButton(
+            onPressed: () {
+              Navigator.pushReplacementNamed(
+                context,
+                'hadeeths_content_page',
+                arguments: ArgumentsHadeeth(
+                  hadeethId: widget.hadeethId + 1,
+                ),
+              );
+            },
+            icon: const Icon(
+              Icons.arrow_forward_ios_rounded,
+            ),
+          )
+              : const SizedBox(),
+        ],
       ),
       body: FutureBuilder(
         future: _databaseQuery.getOneHadeeth(widget.hadeethId),
@@ -41,11 +58,19 @@ class _HadeethPageState extends State<HadeethPage> {
                       children: [
                         const Divider(indent: 16, endIndent: 16),
                         Text(
-                          snapshot.data![0].titleHadeeth,
+                          '${snapshot.data![0].numberHadeeth}',
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Colors.deepOrange,
+                          ),
+                        ),
+                        const Divider(indent: 16, endIndent: 16),
+                        Text(
+                          snapshot.data![0].titleHadeeth,
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey.shade700,
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -65,7 +90,7 @@ class _HadeethPageState extends State<HadeethPage> {
                               color: Colors.grey,
                             ),
                             'sup': Style(
-                              fontSize: const FontSize(12),
+                              fontSize: const FontSize(14),
                               color: Colors.orange,
                             ),
                           },
@@ -83,7 +108,7 @@ class _HadeethPageState extends State<HadeethPage> {
                               color: Colors.grey,
                             ),
                             'sup': Style(
-                              fontSize: const FontSize(12),
+                              fontSize: const FontSize(14),
                               color: Colors.orange,
                             ),
                           },
@@ -92,19 +117,19 @@ class _HadeethPageState extends State<HadeethPage> {
                             showModalBottomSheet(
                               backgroundColor: Colors.transparent,
                               context: context,
-                              builder: (_) => SingleChildScrollView(
-                                child: Container(
+                              builder: (_) => Container(
+                                margin: MainAppStyle.mainMargin,
+                                decoration: const BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: MainAppStyle.mainBorderRadius,
+                                ),
+                                child: SingleChildScrollView(
                                   padding: MainAppStyle.mainPadding,
-                                  margin: MainAppStyle.mainMargin,
-                                  decoration: const BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: MainAppStyle.mainBorderRadius,
-                                  ),
                                   child: SelectableHtml(
                                     data: url,
                                     style: {
                                       '#': Style(
-                                        fontSize: const FontSize(16),
+                                        fontSize: const FontSize(18),
                                       ),
                                       'small': Style(
                                         fontSize: const FontSize(12),

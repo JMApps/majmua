@@ -32,7 +32,7 @@ class BooksShelf extends StatelessWidget {
           ),
           SizedBox(height: 8),
           BookItem(
-            routeName: 'page_names_of',
+            routeName: 'list_hadeeths_page',
             title: '40 хадисов',
             subTitle: 'Имама ан-Навави',
             color: Colors.grey,
