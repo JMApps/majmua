@@ -8,12 +8,14 @@ class BookItem extends StatelessWidget {
     required this.title,
     required this.subTitle,
     required this.color,
+    required this.bookNumber,
   }) : super(key: key);
 
   final String routeName;
   final String title;
   final String subTitle;
   final Color color;
+  final int bookNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -23,19 +25,24 @@ class BookItem extends StatelessWidget {
         Navigator.pushNamed(context, routeName);
       },
       shape: MainAppStyle.mainCardBorderRadius,
+      leading: CircleAvatar(
+        backgroundColor: Colors.indigo,
+        radius: 20,
+        child: Text(
+          '$bookNumber',
+          style: const TextStyle(
+            fontSize: 16,
+            color: Colors.white,
+          ),
+        ),
+      ),
       title: Text(
         title,
-        style: const TextStyle(
-          fontSize: 18,
-          color: Colors.black87
-        ),
+        style: const TextStyle(fontSize: 18, color: Colors.black87),
       ),
       subtitle: Text(
         subTitle,
-        style: TextStyle(
-          fontSize: 18,
-          color: color
-        ),
+        style: TextStyle(fontSize: 18, color: color),
       ),
     );
   }

@@ -15,6 +15,7 @@ class BooksShelf extends StatelessWidget {
             title: 'Толкование прекрасных имён Аллаха',
             subTitle: 'В свете Корана и Сунны',
             color: Colors.blue,
+            bookNumber: 1,
           ),
           SizedBox(height: 8),
           BookItem(
@@ -22,6 +23,7 @@ class BooksShelf extends StatelessWidget {
             title: '200 вопросов',
             subTitle: 'По вероучению Ислама',
             color: Colors.teal,
+            bookNumber: 2,
           ),
           SizedBox(height: 8),
           BookItem(
@@ -29,6 +31,7 @@ class BooksShelf extends StatelessWidget {
             title: 'Уроки Рамадана',
             subTitle: 'Пост и его значение',
             color: Colors.deepPurple,
+            bookNumber: 3,
           ),
           SizedBox(height: 8),
           BookItem(
@@ -36,6 +39,7 @@ class BooksShelf extends StatelessWidget {
             title: '40 хадисов',
             subTitle: 'Имама ан-Навави',
             color: Colors.grey,
+            bookNumber: 4,
           ),
           SizedBox(height: 8),
           BookItem(
@@ -43,6 +47,7 @@ class BooksShelf extends StatelessWidget {
             title: 'Смягчение сердец Кораном',
             subTitle: 'Ракъаикъ Къуран',
             color: Colors.orange,
+            bookNumber: 5,
           ),
         ],
       ),
