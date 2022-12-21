@@ -49,9 +49,11 @@ class CurrentDateTime extends StatelessWidget {
               children: [
                 Container(
                   padding: MainAppStyle.mainPaddingMini,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     borderRadius: MainAppStyle.mainBorderRadius,
-                    color: Colors.white,
+                    color: Colors.primaries[MainAppStyle.dateTime.weekday].shade100,
+                    border: Border.all(
+                        color: Colors.primaries[MainAppStyle.dateTime.weekday].shade900),
                   ),
                   constraints: const BoxConstraints(
                     minHeight: 37,
@@ -62,7 +64,8 @@ class CurrentDateTime extends StatelessWidget {
                     MainAppStyle.getNamesWeekDay,
                     style: TextStyle(
                       fontSize: 16,
-                      color: Colors.primaries[MainAppStyle.dateTime.weekday],
+                      color: Colors
+                          .primaries[MainAppStyle.dateTime.weekday].shade900,
                     ),
                     textAlign: TextAlign.center,
                   ),
