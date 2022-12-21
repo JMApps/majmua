@@ -17,7 +17,14 @@ class Library extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 8),
         alignment: Alignment.center,
         decoration: const BoxDecoration(
-            borderRadius: MainAppStyle.mainBorderRadius, color: Colors.white),
+          borderRadius: MainAppStyle.mainBorderRadius,
+          color: Colors.white,
+          image: DecorationImage(
+            colorFilter: ColorFilter.mode(Colors.white, BlendMode.multiply),
+            fit: BoxFit.cover,
+            image: AssetImage('assets/images/shelf.jpg'),
+          ),
+        ),
         constraints: const BoxConstraints(
           minHeight: 50,
         ),
@@ -25,11 +32,12 @@ class Library extends StatelessWidget {
           'Библиотека',
           style: TextStyle(
             fontSize: 18,
-            color: Colors.black87,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
             shadows: [
               BoxShadow(
-                color: Colors.indigo,
-                blurRadius: 6,
+                color: Colors.black,
+                blurRadius: 16,
               ),
             ],
           ),
