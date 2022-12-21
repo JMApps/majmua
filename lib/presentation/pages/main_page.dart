@@ -28,16 +28,8 @@ class _MainPageState extends State<MainPage> {
   void initState() {
     service = LocalNotificationService();
     service.initialize();
-    if (isDailyNotification) {
-      service.showDailyNotification(
-          id: 43, title: 'Полка мусульманина', body: 'Загляни');
-    }
-    if (isSaumNotification) {
-      service.showSaumScheduleNotification(
-          id: 12,
-          title: 'Полка мусульманина',
-          body: 'Завтра день желательного поста');
-    }
+    service.showDailyNotification(id: 0, title: 'Полка мусульманина', body: 'Загляни');
+    service.showSaumScheduleNotification(id: 34, title: 'Полка мусульманина', body: 'Завтра день желательного поста');
     super.initState();
   }
 

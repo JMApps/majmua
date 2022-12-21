@@ -14,7 +14,7 @@ class _AdhanTimeRowState extends State<AdhanTimeRow> {
 
   @override
   void initState() {
-    final myCoordinates = Coordinates(36.263587562315955, 36.57045147256616);
+    final myCoordinates = Coordinates(36.2134290492795, 36.521747813609586);
     final params = CalculationMethod.north_america.getParameters();
     prayerTimes = PrayerTimes.today(myCoordinates, params);
     super.initState();
