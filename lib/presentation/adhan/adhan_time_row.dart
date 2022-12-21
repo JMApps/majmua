@@ -1,6 +1,7 @@
-import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:majmua/presentation/adhan/adhan_item.dart';
+import 'package:majmua/presentation/adhan/prayer_time.dart';
 
 class AdhanTimeRow extends StatefulWidget {
   const AdhanTimeRow({Key? key}) : super(key: key);
@@ -10,16 +11,7 @@ class AdhanTimeRow extends StatefulWidget {
 }
 
 class _AdhanTimeRowState extends State<AdhanTimeRow> {
-  late final PrayerTimes prayerTimes;
-
-  @override
-  void initState() {
-    final myCoordinates = Coordinates(36.2134290492795, 36.521747813609586);
-    final params = CalculationMethod.north_america.getParameters();
-    prayerTimes = PrayerTimes.today(myCoordinates, params);
-    super.initState();
-    daysBetween(DateTime.now(), DateTime.now());
-  }
+  final PrayerTime _prayerTime = PrayerTime();
 
   @override
   Widget build(BuildContext context) {
@@ -40,48 +32,67 @@ class _AdhanTimeRowState extends State<AdhanTimeRow> {
             children: [
               AdhanItem(
                 prayerName: 'Фаджр',
-                prayerHour: '${prayerTimes.fajr.hour}',
-                prayerMinute: '${prayerTimes.fajr.minute}',
+                prayerHour: '${_prayerTime.getFajrTime.hour}',
+                prayerMinute: '${_prayerTime.getFajrTime.minute}',
+                setFirstTimeValue: _prayerTime.setCurrentValue = 0,
+                getFirstTimeValue: _prayerTime.getCurrentValue,
+                setNextTimeValue: _prayerTime.setCurrentValue = 1,
+                getNextTimeValue: _prayerTime.getCurrentValue,
               ),
               AdhanItem(
                 prayerName: 'Рассвет',
-                prayerHour: '${prayerTimes.sunrise.hour}',
-                prayerMinute: '${prayerTimes.sunrise.minute}',
+                prayerHour: '${_prayerTime.getSunriseTime.hour}',
+                prayerMinute: '${_prayerTime.getSunriseTime.minute}',
+                setFirstTimeValue: _prayerTime.setCurrentValue = 2,
+                getFirstTimeValue: _prayerTime.getCurrentValue,
+                setNextTimeValue: _prayerTime.setCurrentValue = 3,
+                getNextTimeValue: _prayerTime.getCurrentValue,
               ),
               AdhanItem(
                 prayerName: 'Зухр',
-                prayerHour: '${prayerTimes.dhuhr.hour}',
-                prayerMinute: '${prayerTimes.dhuhr.minute}',
+                prayerHour: '${_prayerTime.getDhuhrTime.hour}',
+                prayerMinute: '${_prayerTime.getDhuhrTime.minute}',
+                setFirstTimeValue: _prayerTime.setCurrentValue = 3,
+                getFirstTimeValue: _prayerTime.getCurrentValue,
+                setNextTimeValue: _prayerTime.setCurrentValue = 4,
+                getNextTimeValue: _prayerTime.getCurrentValue,
               ),
               AdhanItem(
                 prayerName: 'Аср',
-                prayerHour: '${prayerTimes.asr.hour}',
-                prayerMinute: '${prayerTimes.asr.minute}',
+                prayerHour: '${_prayerTime.getAsrTime.hour}',
+                prayerMinute: '${_prayerTime.getAsrTime.minute}',
+                setFirstTimeValue: _prayerTime.setCurrentValue = 4,
+                getFirstTimeValue: _prayerTime.getCurrentValue,
+                setNextTimeValue: _prayerTime.setCurrentValue = 5,
+                getNextTimeValue: _prayerTime.getCurrentValue,
               ),
               AdhanItem(
                 prayerName: 'Магриб',
-                prayerHour: '${prayerTimes.maghrib.hour}',
-                prayerMinute: '${prayerTimes.maghrib.minute}',
+                prayerHour: '${_prayerTime.getMaghribTime.hour}',
+                prayerMinute: '${_prayerTime.getMaghribTime.minute}',
+                setFirstTimeValue: _prayerTime.setCurrentValue = 5,
+                getFirstTimeValue: _prayerTime.getCurrentValue,
+                setNextTimeValue: _prayerTime.setCurrentValue = 6,
+                getNextTimeValue: _prayerTime.getCurrentValue,
               ),
               AdhanItem(
                 prayerName: 'Иша',
-                prayerHour: '${prayerTimes.isha.hour}',
-                prayerMinute: '${prayerTimes.isha.minute}',
+                prayerHour: '${_prayerTime.getIshaTime.hour}',
+                prayerMinute: '${_prayerTime.getIshaTime.minute}',
+                setFirstTimeValue: _prayerTime.setCurrentValue = 6,
+                getFirstTimeValue: _prayerTime.getCurrentValue,
+                setNextTimeValue: _prayerTime.setCurrentValue = 7,
+                getNextTimeValue: _prayerTime.getCurrentValue,
               ),
             ],
           ),
           const Divider(indent: 8, endIndent: 8),
-          Text('Последний час пятницы: ${prayerTimes.maghrib.hour - 1}:${prayerTimes.maghrib.minute}'),
+          Text('Последняя треть ночи: ${DateFormat.Hm().format(_prayerTime.getThirdNightPart)}'),
+          const Divider(indent: 8, endIndent: 8),
+          Text('Последний час пятницы: ${DateFormat.Hm().format(_prayerTime.getLastHourFriday)}'),
           const Divider(indent: 8, endIndent: 8),
         ],
       ),
     );
-  }
-
-  int daysBetween(DateTime from, DateTime to) {
-    from = DateTime(from.year, from.month, from.day, prayerTimes.fajr.hour, prayerTimes.fajr.minute);
-    to = DateTime(to.year, to.month, to.day, prayerTimes.maghrib.hour, prayerTimes.maghrib.minute);
-    print(to.difference(from).inMinutes);
-    return to.difference(from).inMinutes;
   }
 }

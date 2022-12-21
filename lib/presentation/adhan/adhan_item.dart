@@ -1,23 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/style/main_app_style.dart';
 
-class AdhanItem extends StatelessWidget {
+class AdhanItem extends StatefulWidget {
   const AdhanItem({
     Key? key,
     required this.prayerName,
     required this.prayerHour,
     required this.prayerMinute,
+    required this.setFirstTimeValue,
+    required this.getFirstTimeValue,
+    required this.setNextTimeValue,
+    required this.getNextTimeValue,
+    required this.pastAdhanTime,
+    required this.futureAdhanTime,
   }) : super(key: key);
 
   final String prayerName;
   final String prayerHour;
   final String prayerMinute;
+  final int setFirstTimeValue;
+  final int getFirstTimeValue;
+  final int setNextTimeValue;
+  final int getNextTimeValue;
+  final DateTime pastAdhanTime;
+  final DateTime futureAdhanTime;
+
+  @override
+  State<AdhanItem> createState() => _AdhanItemState();
+}
+
+class _AdhanItemState extends State<AdhanItem> {
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Text(
-          prayerName,
+          widget.prayerName,
           style: const TextStyle(
             fontSize: 10,
           ),
@@ -27,15 +46,15 @@ class AdhanItem extends StatelessWidget {
           width: 40,
           height: 35,
           alignment: Alignment.center,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.only(
               topRight: Radius.circular(20),
               topLeft: Radius.circular(20),
             ),
-            color: Colors.teal,
+            color: MainAppStyle.getMinuteOfDay > widget.getFirstTimeValue && MainAppStyle.getMinuteOfDay < widget.getNextTimeValue ? Colors.orange : Colors.teal,
           ),
           child: Text(
-            prayerHour,
+            widget.prayerHour,
             style: const TextStyle(
               fontSize: 14,
               color: Colors.white,
@@ -55,7 +74,7 @@ class AdhanItem extends StatelessWidget {
             color: Colors.indigo,
           ),
           child: Text(
-            prayerMinute,
+            widget.prayerMinute,
             style: const TextStyle(
               fontSize: 14,
               color: Colors.white,
