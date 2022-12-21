@@ -42,23 +42,23 @@ flutter:
 
   uses-material-design: true
 
-  assets:
-    - assets/databases/
-    - assets/images/
-    - assets/fonts/
-    - assets/icons/
-    - assets/surahs/
-  fonts:
-    - family: Noto Sans
-      fonts:
-        - asset: assets/fonts/noto_sans.ttf
-    - family: Lateef
-      fonts:
-        - asset: assets/fonts/lateef.ttf
-    - family: Gilroy
-      fonts:
-        - asset: assets/fonts/gilroy_medium.ttf
-    - family: Quran
-      fonts:
-        - asset: assets/fonts/quran_font.ttf
+#  assets:
+#    - assets/databases/
+#    - assets/images/
+#    - assets/fonts/
+#    - assets/icons/
+#    - assets/surahs/
+#  fonts:
+#    - family: Noto Sans
+#      fonts:
+#        - asset: assets/fonts/noto_sans.ttf
+#    - family: Lateef
+#      fonts:
+#        - asset: assets/fonts/lateef.ttf
+#    - family: Gilroy
+#      fonts:
+#        - asset: assets/fonts/gilroy_medium.ttf
+#    - family: Quran
+#      fonts:
+#        - asset: assets/fonts/quran_font.ttf
 
