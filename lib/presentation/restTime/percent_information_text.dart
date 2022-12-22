@@ -28,13 +28,13 @@ class PercentInformationText extends StatelessWidget {
             ),
           ),
           TextSpan(
-            text: '-${pastPercent.toStringAsFixed(2)}%\n',
+            text: '-${pastPercent.toStringAsFixed(1)}%\n',
             style: const TextStyle(
               color: Color(0xFFF06292),
             ),
           ),
           TextSpan(
-            text: '${(leftPercent - 100).toStringAsFixed(2).substring(1)}%',
+            text: '${(leftPercent - 100).toStringAsFixed(1).substring(1)}%',
             style: TextStyle(
               color: progressColor,
             ),
