@@ -10,7 +10,7 @@ class CurrentPrayerTimes {
     CalculationMethod.north_america.getParameters(),
   );
 
-  int get getSecondNightValue => CurrentPrayerTimeValue(DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 1)).getPrayerTimeValue;
+  int get getSecondNightValue => CurrentPrayerTimeValue(DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 00, 01)).getPrayerTimeValue;
 
   DateTime get getFajrTime => _prayerTime.fajr;
 
@@ -36,7 +36,56 @@ class CurrentPrayerTimes {
 
   int get getIshaTimeValue => CurrentPrayerTimeValue(_prayerTime.isha).getPrayerTimeValue;
 
-  int get getFirstNightValue => CurrentPrayerTimeValue(DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 1)).getPrayerTimeValue;
+  int get getFirstNightValue => CurrentPrayerTimeValue(DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 00, 00)).getPrayerTimeValue;
+
+  DateTime get getPastSecondNightTime => _fromTo(00, 01);
+
+  DateTime get getPastFajrTime => _fromTo(_prayerTime.fajr.hour, _prayerTime.fajr.minute);
+
+  DateTime get getRemainingFajrTime => _toTo(_prayerTime.fajr.hour, _prayerTime.fajr.minute);
+
+  DateTime get getPastSunriseTime => _fromTo(_prayerTime.sunrise.hour, _prayerTime.sunrise.minute);
+
+  DateTime get getRemainingSunriseTime => _toTo(_prayerTime.sunrise.hour, _prayerTime.sunrise.minute);
+
+  DateTime get getPastDhuhrTime => _fromTo(_prayerTime.dhuhr.hour, _prayerTime.dhuhr.minute);
+
+  DateTime get getRemainingDhuhrTime => _toTo(_prayerTime.dhuhr.hour, _prayerTime.dhuhr.minute);
+
+  DateTime get getPastAsrTime => _fromTo(_prayerTime.asr.hour, _prayerTime.asr.minute);
+
+  DateTime get getRemainingAsrTime => _toTo(_prayerTime.asr.hour, _prayerTime.asr.minute);
+
+  DateTime get getPastMaghribTime => _fromTo(_prayerTime.maghrib.hour, _prayerTime.maghrib.minute);
+
+  DateTime get getRemainingMaghribTime => _toTo(_prayerTime.maghrib.hour, _prayerTime.maghrib.minute);
+
+  DateTime get getPastIshaTime => _fromTo(_prayerTime.isha.hour, _prayerTime.isha.minute);
+
+  DateTime get getRemainingIshaTime => _toTo(_prayerTime.isha.hour, _prayerTime.isha.minute);
+
+  DateTime _fromTo(final int hour, final int minute) {
+    final DateTime fromPast = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, hour, minute);
+    final toPrayer = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, _dateTime.hour, _dateTime.minute);
+    int value = toPrayer.difference(fromPast).inMinutes * 60;
+    int getHour, getMinute;
+    getHour = value ~/ 3600;
+    getMinute = ((value - getHour * 3600)) ~/ 60;
+    DateTime result = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, getHour, getMinute);
+    return result;
+  }
+
+  DateTime _toTo(final int hour, final int minute) {
+    final DateTime fromPast = DateTime(_dateTime.year, _dateTime.month, _dateTime.day,  _dateTime.hour, _dateTime.minute);
+    final toPrayer = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, hour, minute);
+    int value = toPrayer.difference(fromPast).inMinutes * 60;
+    int getHour, getMinute;
+    getHour = value ~/ 3600;
+    getMinute = ((value - getHour * 3600)) ~/ 60;
+    DateTime result = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, getHour, getMinute);
+    return result;
+  }
+
 
   DateTime get getThirdNightPart {
     double value =  ((1440 - getMaghribTimeValue + getFajrTimeValue) / 3) * 60;

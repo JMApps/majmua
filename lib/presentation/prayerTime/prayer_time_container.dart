@@ -14,50 +14,85 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        CircularPrayer(
-          prayerName: 'Фаджр',
-          prayerTime: _currentPrayerTimes.getFajrTime,
-          currentPrayerTimeValue: _currentPrayerTimes.getSecondNightValue,
-          nextPrayerTimeValue: _currentPrayerTimes.getFajrTimeValue,
-          leftPrayerTime: _currentPrayerTimes.getFajrTime,
+        const Text('Турция, Стамбул'),
+        const Divider(indent: 16, endIndent: 16),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            CircularPrayer(
+              prayerName: 'Фаджр',
+              prayerTime: _currentPrayerTimes.getFajrTime,
+              previousPrayerTimeValue: _currentPrayerTimes.getSecondNightValue,
+              currentPrayerTimeValue: _currentPrayerTimes.getFajrTimeValue,
+              remainingPrayerTime: _currentPrayerTimes.getRemainingFajrTime,
+              pastPrayerTime: _currentPrayerTimes.getPastSecondNightTime,
+            ),
+            CircularPrayer(
+              prayerName: 'Зухр',
+              prayerTime: _currentPrayerTimes.getDhuhrTime,
+              previousPrayerTimeValue: _currentPrayerTimes.getSunriseTimeValue,
+              currentPrayerTimeValue: _currentPrayerTimes.getDhuhrTimeValue,
+              remainingPrayerTime: _currentPrayerTimes.getRemainingDhuhrTime,
+              pastPrayerTime: _currentPrayerTimes.getPastSunriseTime,
+            ),
+            CircularPrayer(
+              prayerName: 'Аср',
+              prayerTime: _currentPrayerTimes.getAsrTime,
+              previousPrayerTimeValue: _currentPrayerTimes.getDhuhrTimeValue,
+              currentPrayerTimeValue: _currentPrayerTimes.getAsrTimeValue,
+              remainingPrayerTime: _currentPrayerTimes.getRemainingAsrTime,
+              pastPrayerTime: _currentPrayerTimes.getPastDhuhrTime,
+            ),
+            CircularPrayer(
+              prayerName: 'Магриб',
+              prayerTime: _currentPrayerTimes.getMaghribTime,
+              previousPrayerTimeValue: _currentPrayerTimes.getAsrTimeValue,
+              currentPrayerTimeValue: _currentPrayerTimes.getMaghribTimeValue,
+              remainingPrayerTime: _currentPrayerTimes.getRemainingMaghribTime,
+              pastPrayerTime: _currentPrayerTimes.getPastAsrTime,
+            ),
+            CircularPrayer(
+              prayerName: 'Иша',
+              prayerTime: _currentPrayerTimes.getIshaTime,
+              previousPrayerTimeValue: _currentPrayerTimes.getMaghribTimeValue,
+              currentPrayerTimeValue: _currentPrayerTimes.getIshaTimeValue,
+              remainingPrayerTime: _currentPrayerTimes.getRemainingIshaTime,
+              pastPrayerTime: _currentPrayerTimes.getPastMaghribTime,
+            ),
+          ],
         ),
-        CircularPrayer(
-          prayerName: 'Рассвет',
-          prayerTime: _currentPrayerTimes.getSunriseTime,
-          currentPrayerTimeValue: _currentPrayerTimes.getSunriseTimeValue,
-          nextPrayerTimeValue: _currentPrayerTimes.getDhuhrTimeValue,
-          leftPrayerTime: _currentPrayerTimes.getSunriseTime,
-        ),
-        CircularPrayer(
-          prayerName: 'Зухр',
-          prayerTime: _currentPrayerTimes.getDhuhrTime,
-          currentPrayerTimeValue: _currentPrayerTimes.getDhuhrTimeValue,
-          nextPrayerTimeValue: _currentPrayerTimes.getAsrTimeValue,
-          leftPrayerTime: _currentPrayerTimes.getDhuhrTime,
-        ),
-        CircularPrayer(
-          prayerName: 'Аср',
-          prayerTime: _currentPrayerTimes.getAsrTime,
-          currentPrayerTimeValue: _currentPrayerTimes.getAsrTimeValue,
-          nextPrayerTimeValue: _currentPrayerTimes.getMaghribTimeValue,
-          leftPrayerTime: _currentPrayerTimes.getAsrTime,
-        ),
-        CircularPrayer(
-          prayerName: 'Магриб',
-          prayerTime: _currentPrayerTimes.getMaghribTime,
-          currentPrayerTimeValue: _currentPrayerTimes.getMaghribTimeValue,
-          nextPrayerTimeValue: _currentPrayerTimes.getIshaTimeValue,
-          leftPrayerTime: _currentPrayerTimes.getMaghribTime,
-        ),
-        CircularPrayer(
-          prayerName: 'Иша',
-          prayerTime: _currentPrayerTimes.getIshaTime,
-          currentPrayerTimeValue: _currentPrayerTimes.getIshaTimeValue,
-          nextPrayerTimeValue: _currentPrayerTimes.getSecondNightValue,
-          leftPrayerTime: _currentPrayerTimes.getIshaTime,
+        const Divider(indent: 16, endIndent: 16),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            CircularPrayer(
+              prayerName: 'Рассвет',
+              prayerTime: _currentPrayerTimes.getSunriseTime,
+              previousPrayerTimeValue: _currentPrayerTimes.getFajrTimeValue,
+              currentPrayerTimeValue: _currentPrayerTimes.getSunriseTimeValue,
+              remainingPrayerTime: _currentPrayerTimes.getRemainingSunriseTime,
+              pastPrayerTime: _currentPrayerTimes.getPastFajrTime,
+            ),
+            CircularPrayer(
+              prayerName: 'Треть',
+              prayerTime: _currentPrayerTimes.getThirdNightPart,
+              previousPrayerTimeValue: _currentPrayerTimes.getFajrTimeValue,
+              currentPrayerTimeValue: _currentPrayerTimes.getSunriseTimeValue,
+              remainingPrayerTime: _currentPrayerTimes.getRemainingSunriseTime,
+              pastPrayerTime: _currentPrayerTimes.getPastFajrTime,
+            ),
+            CircularPrayer(
+              prayerName: 'Час пятницы',
+              prayerTime: _currentPrayerTimes.getLastHourFriday,
+              previousPrayerTimeValue: _currentPrayerTimes.getFajrTimeValue,
+              currentPrayerTimeValue: _currentPrayerTimes.getSunriseTimeValue,
+              remainingPrayerTime: _currentPrayerTimes.getRemainingSunriseTime,
+              pastPrayerTime: _currentPrayerTimes.getPastFajrTime,
+            ),
+          ],
         ),
       ],
     );
