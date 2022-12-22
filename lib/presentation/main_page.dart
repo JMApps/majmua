@@ -3,6 +3,7 @@ import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/presentation/currentDate/current_date_container.dart';
 import 'package:majmua/presentation/prayerTime/prayer_time_container.dart';
 import 'package:majmua/presentation/restTime/rest_time_container.dart';
+import 'package:majmua/presentation/whiteDays/white_day_container.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -28,6 +29,7 @@ class MainPage extends StatelessWidget {
             CurrentDateContainer(),
             SizedBox(height: 4),
             Divider(indent: 16, endIndent: 16),
+            WhiteDayContainer(),
           ],
         ),
       ),
