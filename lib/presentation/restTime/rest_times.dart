@@ -137,4 +137,24 @@ class RestTimes {
   ];
 
   String get getMessageForSaum => _messagesForSaum[dateTime.weekday - 1];
+
+  int _toRamadanDays() {
+    final int countDays;
+    final hijriRamadanToGregorian =
+    dateTimeHijri.hijriToGregorian(dateTimeHijri.hYear, 9, 1);
+    countDays = dateTime.difference(DateTime(hijriRamadanToGregorian.year, hijriRamadanToGregorian.month, hijriRamadanToGregorian.day)).inDays;
+    return countDays;
+  }
+
+  int get getToRamadanDays => _toRamadanDays();
+
+  int _toQurbanDays() {
+    final int countDays;
+    final hijriZulHidjaToGregorian =
+    dateTimeHijri.hijriToGregorian(dateTimeHijri.hYear, 12, 10);
+    countDays = dateTime.difference(DateTime(hijriZulHidjaToGregorian.year, hijriZulHidjaToGregorian.month, hijriZulHidjaToGregorian.day)).inDays;
+    return countDays;
+  }
+
+  int get getToQurbanDays => _toQurbanDays();
 }
