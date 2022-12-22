@@ -88,7 +88,8 @@ class CurrentPrayerTimes {
 
 
   DateTime get getThirdNightPart {
-    double value =  ((1440 - getMaghribTimeValue + getFajrTimeValue) / 3) * 60;
+    double valueThird =  ((1440 - getMaghribTimeValue + getFajrTimeValue) / 3) * 60;
+    double value = (getFajrTimeValue.toDouble() * 60) - valueThird;
     int hour, minute;
     hour = value ~/ 3600;
     minute = ((value - hour * 3600)) ~/ 60;
