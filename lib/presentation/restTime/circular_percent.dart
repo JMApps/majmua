@@ -28,7 +28,7 @@ class CircularPercent extends StatelessWidget {
         currentTime: currentTime,
         progressColor: progressPercentColor,
         pastPercent: percent,
-        leftOverPercent: percent,
+        leftPercent: percent,
       ),
     );
   }

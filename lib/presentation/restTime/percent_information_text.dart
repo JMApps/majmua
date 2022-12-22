@@ -6,13 +6,13 @@ class PercentInformationText extends StatelessWidget {
     required this.currentTime,
     required this.progressColor,
     required this.pastPercent,
-    required this.leftOverPercent,
+    required this.leftPercent,
   }) : super(key: key);
 
   final String currentTime;
   final Color progressColor;
   final double pastPercent;
-  final double leftOverPercent;
+  final double leftPercent;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class PercentInformationText extends StatelessWidget {
             ),
           ),
           TextSpan(
-            text: '${(leftOverPercent - 100).toStringAsFixed(2).substring(1)}%',
+            text: '${(leftPercent - 100).toStringAsFixed(2).substring(1)}%',
             style: TextStyle(
               color: progressColor,
             ),

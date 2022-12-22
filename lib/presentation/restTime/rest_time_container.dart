@@ -21,7 +21,6 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const SizedBox(height: 8),
         const Text(
           AppStrings.restContainerTitle,
           style: AppStyles.mainFontSizeStyle,
