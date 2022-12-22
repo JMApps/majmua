@@ -20,7 +20,7 @@ class _WhiteDayContainerState extends State<WhiteDayContainer> {
         curDay <= 15
         ? Column(
             children: [
-              const SizedBox(height: 4),
+              const SizedBox(height: 2),
               Container(
                 width: double.infinity,
                 margin: AppStyles.symmetricHorizontalMarginMini,

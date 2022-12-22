@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/route/app_routes.dart';
 import 'package:majmua/application/theme/app_themes.dart';
-import 'package:majmua/presentation/main_page.dart';
+import 'package:majmua/presentation/pages/main_page.dart';
 
 class RootPage extends StatelessWidget {
   const RootPage({Key? key}) : super(key: key);
