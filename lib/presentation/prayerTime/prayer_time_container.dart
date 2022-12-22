@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/presentation/prayerTime/circular_prayer.dart';
 import 'package:majmua/presentation/prayerTime/current_prayer_times.dart';
 
@@ -25,21 +27,21 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
             CircularPrayer(
               prayerName: 'Фаджр',
               prayerTime: _currentPrayerTimes.getFajrTime,
-              previousPrayerTimeValue: _currentPrayerTimes.getSecondNightValue,
+              previousPrayerTimeValue: _currentPrayerTimes.getFirstNightValue,
               currentPrayerTimeValue: _currentPrayerTimes.getFajrTimeValue,
               remainingPrayerTime: _currentPrayerTimes.getRemainingFajrTime,
-              pastPrayerTime: _currentPrayerTimes.getPastFajrTime,
+              pastPrayerTime: _currentPrayerTimes.getFajrTime,
             ),
             CircularPrayer(
               prayerName: 'Зухр',
               prayerTime: _currentPrayerTimes.getDhuhrTime,
-              previousPrayerTimeValue: _currentPrayerTimes.getSunriseTimeValue,
+              previousPrayerTimeValue: _currentPrayerTimes.getFajrTimeValue,
               currentPrayerTimeValue: _currentPrayerTimes.getDhuhrTimeValue,
               remainingPrayerTime: _currentPrayerTimes.getRemainingDhuhrTime,
               pastPrayerTime: _currentPrayerTimes.getPastDhuhrTime,
             ),
             CircularPrayer(
-              prayerName: 'Аср',
+              prayerName: '\'Аср',
               prayerTime: _currentPrayerTimes.getAsrTime,
               previousPrayerTimeValue: _currentPrayerTimes.getDhuhrTimeValue,
               currentPrayerTimeValue: _currentPrayerTimes.getAsrTimeValue,
@@ -55,13 +57,80 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
               pastPrayerTime: _currentPrayerTimes.getPastMaghribTime,
             ),
             CircularPrayer(
-              prayerName: 'Иша',
+              prayerName: '\'Иша',
               prayerTime: _currentPrayerTimes.getIshaTime,
               previousPrayerTimeValue: _currentPrayerTimes.getMaghribTimeValue,
               currentPrayerTimeValue: _currentPrayerTimes.getIshaTimeValue,
               remainingPrayerTime: _currentPrayerTimes.getRemainingIshaTime,
               pastPrayerTime: _currentPrayerTimes.getPastIshaTime,
             ),
+          ],
+        ),
+        const Divider(indent: 16, endIndent: 16),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            const SizedBox(width: 8),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+              decoration: const BoxDecoration(
+                borderRadius: AppStyles.mainBorderRadius,
+                color: Colors.white,
+              ),
+              child: RichText(
+                text: TextSpan(
+                  children: [
+                    const TextSpan(
+                      text: 'Восход солнца: ',
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: Colors.black,
+                        fontFamily: 'SF',
+                      ),
+                    ),
+                    TextSpan(
+                      text: DateFormat.Hm().format(_currentPrayerTimes.getSunriseTime),
+                      style: const TextStyle(
+                        fontSize: 13,
+                        color: Colors.teal,
+                        fontFamily: 'SF',
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(width: 8),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+              decoration: const BoxDecoration(
+                borderRadius: AppStyles.mainBorderRadius,
+                color: Colors.white,
+              ),
+              child: RichText(
+                text: TextSpan(
+                  children: [
+                    const TextSpan(
+                      text: 'Последняя треть ночи: ',
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: Colors.black,
+                        fontFamily: 'SF',
+                      ),
+                    ),
+                    TextSpan(
+                      text: DateFormat.Hm().format(_currentPrayerTimes.getThirdNightPart),
+                      style: const TextStyle(
+                        fontSize: 13,
+                        color: Colors.indigo,
+                        fontFamily: 'SF',
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(width: 8),
           ],
         ),
       ],
