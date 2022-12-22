@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/strings/app_strings.dart';
+import 'package:majmua/presentation/beforeHolidays/before_holidays_container.dart';
 import 'package:majmua/presentation/currentDate/current_date_container.dart';
 import 'package:majmua/presentation/friday/friday_container.dart';
 import 'package:majmua/presentation/prayerTime/prayer_time_container.dart';
@@ -30,6 +31,8 @@ class MainPage extends StatelessWidget {
             SizedBox(height: 2),
             CurrentDateContainer(),
             SizedBox(height: 2),
+            Divider(indent: 16, endIndent: 16),
+            BeforeHolidaysContainer(),
             Divider(indent: 16, endIndent: 16),
             WhiteDayContainer(),
           ],
