@@ -4,6 +4,7 @@ class AppThemes {
   static final lightTheme = ThemeData(
     primarySwatch: Colors.indigo,
     scaffoldBackgroundColor: const Color(0xFFE8EAF6),
+    fontFamily: 'SF',
     appBarTheme: const AppBarTheme(
       elevation: 0,
       centerTitle: true,
