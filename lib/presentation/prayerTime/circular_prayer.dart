@@ -39,7 +39,8 @@ class _CircularPrayerState extends State<CircularPrayer> {
     _isRemainingTime =
         _restTimes.getMinuteOfDay > widget.previousPrayerTimeValue &&
             _restTimes.getMinuteOfDay <= widget.currentPrayerTimeValue;
-    _isPastTime = _restTimes.getMinuteOfDay > widget.previousPrayerTimeValue &&
+    _isPastTime =
+        _restTimes.getMinuteOfDay > widget.previousPrayerTimeValue &&
         _restTimes.getMinuteOfDay < widget.currentPrayerTimeValue;
     super.initState();
   }
@@ -82,7 +83,7 @@ class _CircularPrayerState extends State<CircularPrayer> {
               child: Text(
                 DateFormat.Hm().format(widget.prayerTime),
                 style: const TextStyle(
-                  fontSize: 16,
+                  fontSize: 14,
                 ),
               ),
             ),

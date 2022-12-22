@@ -64,36 +64,6 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
             ),
           ],
         ),
-        const Divider(indent: 16, endIndent: 16),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            CircularPrayer(
-              prayerName: 'Рассвет',
-              prayerTime: _currentPrayerTimes.getSunriseTime,
-              previousPrayerTimeValue: _currentPrayerTimes.getFajrTimeValue,
-              currentPrayerTimeValue: _currentPrayerTimes.getSunriseTimeValue,
-              remainingPrayerTime: _currentPrayerTimes.getRemainingSunriseTime,
-              pastPrayerTime: _currentPrayerTimes.getPastFajrTime,
-            ),
-            CircularPrayer(
-              prayerName: 'Треть',
-              prayerTime: _currentPrayerTimes.getThirdNightPart,
-              previousPrayerTimeValue: _currentPrayerTimes.getFajrTimeValue,
-              currentPrayerTimeValue: _currentPrayerTimes.getSunriseTimeValue,
-              remainingPrayerTime: _currentPrayerTimes.getRemainingSunriseTime,
-              pastPrayerTime: _currentPrayerTimes.getPastFajrTime,
-            ),
-            CircularPrayer(
-              prayerName: 'Час пятницы',
-              prayerTime: _currentPrayerTimes.getLastHourFriday,
-              previousPrayerTimeValue: _currentPrayerTimes.getFajrTimeValue,
-              currentPrayerTimeValue: _currentPrayerTimes.getSunriseTimeValue,
-              remainingPrayerTime: _currentPrayerTimes.getRemainingSunriseTime,
-              pastPrayerTime: _currentPrayerTimes.getPastFajrTime,
-            ),
-          ],
-        ),
       ],
     );
   }

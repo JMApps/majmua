@@ -19,7 +19,7 @@ class CircularPercent extends StatelessWidget {
     return CircularPercentIndicator(
       animation: true,
       animationDuration: 1500,
-      radius: 42.5,
+      radius: 35,
       curve: Curves.easeInOutCubic,
       backgroundColor: progressPercentColor.withOpacity(0.25),
       progressColor: progressPercentColor,
