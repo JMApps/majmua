@@ -94,7 +94,7 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
                   _restTimes.getMessageForSaum,
                   style: TextStyle(
                     fontSize: _restTimes.dateTime.weekday == 5 ? 25 : 14,
-                    color: Colors.black,
+                    color: _restTimes.dateTime.weekday == 5 ? Colors.indigo : Colors.black,
                   ),
                   textAlign: TextAlign.center,
                 ),

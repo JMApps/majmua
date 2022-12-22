@@ -99,7 +99,11 @@ class CurrentPrayerTimes {
   }
 
   DateTime get getLastHourFriday {
-    DateTime result = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, getMaghribTime.hour - 1, getMaghribTime.minute);
+    int value = (CurrentPrayerTimeValue(_prayerTime.maghrib).getPrayerTimeValue - 60) * 60;
+    int getHour, getMinute;
+    getHour = value ~/ 3600;
+    getMinute = ((value - getHour * 3600)) ~/ 60;
+    DateTime result = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, getHour, getMinute);
     return result;
   }
 }

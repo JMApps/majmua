@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/presentation/prayerTime/circular_prayer.dart';
 import 'package:majmua/presentation/prayerTime/current_prayer_times.dart';
+import 'package:majmua/presentation/restTime/rest_times.dart';
 
 class PrayerTimeContainer extends StatefulWidget {
   const PrayerTimeContainer({Key? key}) : super(key: key);
@@ -13,6 +14,7 @@ class PrayerTimeContainer extends StatefulWidget {
 
 class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
   final CurrentPrayerTimes _currentPrayerTimes = CurrentPrayerTimes();
+  final RestTimes _restTimes = RestTimes();
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +91,8 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
                       ),
                     ),
                     TextSpan(
-                      text: DateFormat.Hm().format(_currentPrayerTimes.getSunriseTime),
+                      text: DateFormat.Hm()
+                          .format(_currentPrayerTimes.getSunriseTime),
                       style: const TextStyle(
                         fontSize: 13,
                         color: Colors.teal,
@@ -119,7 +122,8 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
                       ),
                     ),
                     TextSpan(
-                      text: DateFormat.Hm().format(_currentPrayerTimes.getThirdNightPart),
+                      text: DateFormat.Hm()
+                          .format(_currentPrayerTimes.getThirdNightPart),
                       style: const TextStyle(
                         fontSize: 13,
                         color: Colors.indigo,
@@ -133,6 +137,34 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
             const SizedBox(width: 8),
           ],
         ),
+        _restTimes.dateTime.weekday == 4
+            ? const Divider(indent: 16, endIndent: 16)
+            : const SizedBox(),
+        _restTimes.dateTime.weekday == 4
+            ? RichText(
+                text: TextSpan(
+                  children: [
+                    const TextSpan(
+                      text: 'Последний час пятницы в ',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black,
+                        fontFamily: 'SF',
+                      ),
+                    ),
+                    TextSpan(
+                      text:
+                          '${DateFormat.Hm().format(_currentPrayerTimes.getLastHourFriday)} 🤲',
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.teal,
+                        fontFamily: 'SF',
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            : const SizedBox(),
       ],
     );
   }
