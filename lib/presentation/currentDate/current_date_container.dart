@@ -92,8 +92,8 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
                 alignment: Alignment.center,
                 child: Text(
                   _restTimes.getMessageForSaum,
-                  style: const TextStyle(
-                    fontSize: 14,
+                  style: TextStyle(
+                    fontSize: _restTimes.dateTime.weekday == 5 ? 25 : 14,
                     color: Colors.black,
                   ),
                   textAlign: TextAlign.center,
