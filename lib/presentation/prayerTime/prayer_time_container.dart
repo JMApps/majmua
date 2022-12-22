@@ -28,7 +28,7 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
               previousPrayerTimeValue: _currentPrayerTimes.getSecondNightValue,
               currentPrayerTimeValue: _currentPrayerTimes.getFajrTimeValue,
               remainingPrayerTime: _currentPrayerTimes.getRemainingFajrTime,
-              pastPrayerTime: _currentPrayerTimes.getPastSecondNightTime,
+              pastPrayerTime: _currentPrayerTimes.getPastFajrTime,
             ),
             CircularPrayer(
               prayerName: 'Зухр',
@@ -36,7 +36,7 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
               previousPrayerTimeValue: _currentPrayerTimes.getSunriseTimeValue,
               currentPrayerTimeValue: _currentPrayerTimes.getDhuhrTimeValue,
               remainingPrayerTime: _currentPrayerTimes.getRemainingDhuhrTime,
-              pastPrayerTime: _currentPrayerTimes.getPastSunriseTime,
+              pastPrayerTime: _currentPrayerTimes.getPastDhuhrTime,
             ),
             CircularPrayer(
               prayerName: 'Аср',
@@ -44,7 +44,7 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
               previousPrayerTimeValue: _currentPrayerTimes.getDhuhrTimeValue,
               currentPrayerTimeValue: _currentPrayerTimes.getAsrTimeValue,
               remainingPrayerTime: _currentPrayerTimes.getRemainingAsrTime,
-              pastPrayerTime: _currentPrayerTimes.getPastDhuhrTime,
+              pastPrayerTime: _currentPrayerTimes.getPastAsrTime,
             ),
             CircularPrayer(
               prayerName: 'Магриб',
@@ -52,7 +52,7 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
               previousPrayerTimeValue: _currentPrayerTimes.getAsrTimeValue,
               currentPrayerTimeValue: _currentPrayerTimes.getMaghribTimeValue,
               remainingPrayerTime: _currentPrayerTimes.getRemainingMaghribTime,
-              pastPrayerTime: _currentPrayerTimes.getPastAsrTime,
+              pastPrayerTime: _currentPrayerTimes.getPastMaghribTime,
             ),
             CircularPrayer(
               prayerName: 'Иша',
@@ -60,7 +60,7 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
               previousPrayerTimeValue: _currentPrayerTimes.getMaghribTimeValue,
               currentPrayerTimeValue: _currentPrayerTimes.getIshaTimeValue,
               remainingPrayerTime: _currentPrayerTimes.getRemainingIshaTime,
-              pastPrayerTime: _currentPrayerTimes.getPastMaghribTime,
+              pastPrayerTime: _currentPrayerTimes.getPastIshaTime,
             ),
           ],
         ),
