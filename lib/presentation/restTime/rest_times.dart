@@ -1,33 +1,38 @@
 import 'package:hijri/hijri_calendar.dart';
 
 class RestTimes {
-  final DateTime _dateTime = DateTime.now();
-  final HijriCalendar _dateTimeHijri = HijriCalendar.now();
+
+  static final RestTimes _instance = RestTimes.internal();
+  factory RestTimes() => _instance;
+  RestTimes.internal();
+
+  final DateTime dateTime = DateTime.now();
+  final HijriCalendar dateTimeHijri = HijriCalendar.now();
 
   String get getHijriDate {
-    return '${_dateTimeHijri.hDay}/${_dateTimeHijri.hMonth}/${_dateTimeHijri.hYear}';
+    return '${dateTimeHijri.hDay}/${dateTimeHijri.hMonth}/${dateTimeHijri.hYear}';
   }
 
   String get getGregorianDate {
-    return '${_dateTime.day}/${_dateTime.month}/${_dateTime.year}';
+    return '${dateTime.day}/${dateTime.month}/${dateTime.year}';
   }
 
   int get getHourOfYear =>
-      _dateTime.difference(DateTime(_dateTime.year)).inHours;
+      dateTime.difference(DateTime(dateTime.year)).inHours;
 
   int get getHourOfMonth =>
-      _dateTime.difference(DateTime(_dateTime.year, _dateTime.month)).inHours;
+      dateTime.difference(DateTime(dateTime.year, dateTime.month)).inHours;
 
-  int get getHourOfDay => _dateTime.difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day)).inHours;
+  int get getHourOfDay => dateTime.difference(DateTime(dateTime.year, dateTime.month, dateTime.day)).inHours;
 
-  int get getMinuteOfDay => _dateTime.difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day)).inMinutes;
+  int get getMinuteOfDay => dateTime.difference(DateTime(dateTime.year, dateTime.month, dateTime.day)).inMinutes;
 
   double get getRestYearProgress {
     return getHourOfYear * 24 * 60 / 126144.0;
   }
 
   double get getRestMonthProgress {
-    int monthDays = DateTime(_dateTime.year, _dateTime.month, 0).day;
+    int monthDays = DateTime(dateTime.year, dateTime.month, 0).day;
     double seasonMonth = 0;
     switch (monthDays) {
       case 28:
@@ -45,7 +50,7 @@ class RestTimes {
 
   double get getRestWeekProgress {
     late double seasonWeek;
-    switch (_dateTime.weekday) {
+    switch (dateTime.weekday) {
       case 1:
         seasonWeek = getHourOfDay * 24 * 60 / 2419.2;
         break;
@@ -74,4 +79,62 @@ class RestTimes {
   double get getRestDayProgress {
     return getMinuteOfDay * 24 * 60 / 20736;
   }
+
+  final List<String> _monthHijriNames = [
+    'Мухаррам',
+    'Сафар',
+    'Раби\' аль-Авваль',
+    'Раби\' ас-Сани',
+    'Джумада аль-Уля',
+    'Джумада ас-Сани',
+    'Раджаб',
+    'Ша\'бан',
+    'Рамадан',
+    'Шавваль',
+    'Зу-ль-Ка\'да',
+    'Зу-ль-Хиджа'
+  ];
+
+  String get getMonthHijriName => _monthHijriNames[dateTimeHijri.hMonth - 1];
+
+  final List<String> _monthNames = [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентабрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь'
+  ];
+
+  String get getMonthName => _monthNames[dateTime.month - 1];
+
+  final List<String> _namesWeekDay = [
+    'Понедельник',
+    'Вторник',
+    'Среда',
+    'Четверг',
+    'Пятница',
+    'Суббота',
+    'Воскресенье',
+  ];
+
+  String get getNameWeekDay => _namesWeekDay[dateTime.weekday - 1];
+
+  final List<String> _messagesForSaum = [
+    'День желательного поста',
+    'Почитай Коран и поразмышляй над ним',
+    'Завтра день желательного поста',
+    'День желательного поста',
+    'ﷺ',
+    'Почитай Коран и поразмышляй над ним',
+    'Завтра день желательного поста',
+  ];
+
+  String get getMessageForSaum => _messagesForSaum[dateTime.weekday - 1];
 }
