@@ -53,7 +53,7 @@ class _CircularPrayerState extends State<CircularPrayer> {
         Text(
           widget.prayerName,
           style: TextStyle(
-            fontSize: 12,
+            fontSize: 13,
             color: _isPrayerTime
                 ? _isPastTime
                     ? Colors.teal
@@ -62,15 +62,15 @@ class _CircularPrayerState extends State<CircularPrayer> {
           ),
         ),
         Card(
-          elevation: 0,
+          elevation: 2,
           shape: AppStyles.mainCardBorderRadius,
           child: Card(
-            elevation: 0,
+            elevation: 2,
             color: _isPrayerTime ? Colors.white : Colors.indigo.shade50,
             shape: RoundedRectangleBorder(
               borderRadius: AppStyles.mainBorderRadius,
               side: BorderSide(
-                width: 2,
+                width: 1.5,
                 color: _isPrayerTime
                     ? _isPastTime
                         ? Colors.teal
@@ -83,7 +83,7 @@ class _CircularPrayerState extends State<CircularPrayer> {
               child: Text(
                 DateFormat.Hm().format(widget.prayerTime),
                 style: const TextStyle(
-                  fontSize: 14,
+                  fontSize: 15,
                 ),
               ),
             ),

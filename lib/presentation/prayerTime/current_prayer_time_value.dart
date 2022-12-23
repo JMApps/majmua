@@ -9,8 +9,8 @@ class CurrentPrayerTimeValue {
 
   int _getPrayerValueInMinutes(final DateTime prayerTime) {
     final DateTime dateTime = DateTime.now();
-    final DateTime fromFirst = DateTime(dateTime.year, dateTime.month, dateTime.day, 0, 0);
+    final DateTime fromZero = DateTime(dateTime.year, dateTime.month, dateTime.day, 0, 0);
     final toPrayer = DateTime(prayerTime.year, prayerTime.month, prayerTime.day, prayerTime.hour, prayerTime.minute);
-    return toPrayer.difference(fromFirst).inMinutes;
+    return toPrayer.difference(fromZero).inMinutes;
   }
 }

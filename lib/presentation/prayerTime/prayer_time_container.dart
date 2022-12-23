@@ -19,7 +19,6 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Text('Турция, Стамбул'),
         const Divider(indent: 16, endIndent: 16),
@@ -70,11 +69,11 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
         ),
         const Divider(indent: 16, endIndent: 16),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             const SizedBox(width: 8),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+              padding: AppStyles.mainPaddingMini,
               decoration: const BoxDecoration(
                 borderRadius: AppStyles.mainBorderRadius,
                 color: Colors.white,
@@ -91,8 +90,7 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
                       ),
                     ),
                     TextSpan(
-                      text: DateFormat.Hm()
-                          .format(_currentPrayerTimes.getSunriseTime),
+                      text: DateFormat.Hm().format(_currentPrayerTimes.getSunriseTime),
                       style: const TextStyle(
                         fontSize: 13,
                         color: Colors.teal,
@@ -105,7 +103,7 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
             ),
             const SizedBox(width: 8),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+              padding: AppStyles.mainPaddingMini,
               decoration: const BoxDecoration(
                 borderRadius: AppStyles.mainBorderRadius,
                 color: Colors.white,
@@ -122,8 +120,7 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
                       ),
                     ),
                     TextSpan(
-                      text: DateFormat.Hm()
-                          .format(_currentPrayerTimes.getThirdNightPart),
+                      text: DateFormat.Hm().format(_currentPrayerTimes.getThirdNightPart),
                       style: const TextStyle(
                         fontSize: 13,
                         color: Colors.indigo,
@@ -153,10 +150,9 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
                       ),
                     ),
                     TextSpan(
-                      text:
-                          '${DateFormat.Hm().format(_currentPrayerTimes.getLastHourFriday)} 🤲',
+                      text: '${DateFormat.Hm().format(_currentPrayerTimes.getLastHourFriday)} 🤲',
                       style: const TextStyle(
-                        fontSize: 16,
+                        fontSize: 14,
                         color: Colors.teal,
                         fontFamily: 'SF',
                       ),
