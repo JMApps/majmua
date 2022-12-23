@@ -20,10 +20,7 @@ class MainPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
-            SizedBox(height: 8),
-            Divider(indent: 16, endIndent: 16),
             RestTimeContainer(),
-            SizedBox(height: 8),
             Divider(indent: 16, endIndent: 16),
             PrayerTimeContainer(),
             Divider(indent: 16, endIndent: 16),

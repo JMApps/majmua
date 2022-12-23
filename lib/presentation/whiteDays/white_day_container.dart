@@ -33,13 +33,13 @@ class _WhiteDayContainerState extends State<WhiteDayContainer> {
                   children: [
                     _restTimes.dateTimeHijri.hDay == 12
                         ? const Text(
-                            'Завтра начинаются белые дни',
+                            'Завтра начинаются белые дни ',
                             style: TextStyle(
                               fontSize: 16,
                             ),
                           )
                         : const Text(
-                            'Пост в белые дни',
+                            'Пост в белые дни ',
                             style: TextStyle(
                               fontSize: 16,
                             ),

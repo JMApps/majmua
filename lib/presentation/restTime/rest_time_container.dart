@@ -17,41 +17,50 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Text(
-          AppStrings.restContainerTitle,
-          style: AppStyles.mainFontSizeStyle,
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 8),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return Card(
+      elevation: 1,
+      color: Colors.white,
+      shape: AppStyles.mainCardBorderRadius,
+      margin: AppStyles.mainMarginMini,
+      child: Padding(
+        padding: AppStyles.mainPaddingMini,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircularPercent(
-              currentPeriod: 'День',
-              progressPercentColor: const Color(0xFF5C6BC0),
-              percent: _restTimes.getRestDayProgress,
+            const Text(
+              AppStrings.restContainerTitle,
+              style: AppStyles.mainFontSizeStyle,
+              textAlign: TextAlign.center,
             ),
-            CircularPercent(
-              currentPeriod: 'Неделя',
-              progressPercentColor: const Color(0xFF009688),
-              percent: _restTimes.getRestWeekProgress,
-            ),
-            CircularPercent(
-              currentPeriod: 'Месяц',
-              progressPercentColor: const Color(0xFFFF7043),
-              percent: _restTimes.getRestMonthProgress,
-            ),
-            CircularPercent(
-              currentPeriod: 'Год',
-              progressPercentColor: const Color(0xFFAB47BC),
-              percent: _restTimes.getRestYearProgress,
-            ),
+            const SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                CircularPercent(
+                  currentPeriod: 'День',
+                  progressPercentColor: const Color(0xFF5C6BC0),
+                  percent: _restTimes.getRestDayProgress,
+                ),
+                CircularPercent(
+                  currentPeriod: 'Неделя',
+                  progressPercentColor: const Color(0xFF009688),
+                  percent: _restTimes.getRestWeekProgress,
+                ),
+                CircularPercent(
+                  currentPeriod: 'Месяц',
+                  progressPercentColor: const Color(0xFFFF7043),
+                  percent: _restTimes.getRestMonthProgress,
+                ),
+                CircularPercent(
+                  currentPeriod: 'Год',
+                  progressPercentColor: const Color(0xFFAB47BC),
+                  percent: _restTimes.getRestYearProgress,
+                ),
+              ],
+            )
           ],
-        )
-      ],
+        ),
+      ),
     );
   }
 }
