@@ -12,7 +12,6 @@ class RestTimeContainer extends StatefulWidget {
 }
 
 class _RestTimeContainerState extends State<RestTimeContainer> {
-
   final RestTimes _restTimes = RestTimes();
 
   @override
@@ -22,7 +21,15 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
       color: Colors.white,
       shape: AppStyles.mainCardBorderRadius,
       margin: AppStyles.symmetricHorizontalMarginMini,
-      child: Padding(
+      child: Container(
+        decoration: const BoxDecoration(
+          borderRadius: AppStyles.mainBorderRadius,
+          image: DecorationImage(
+            opacity: 0.075,
+            fit: BoxFit.none,
+            image: AssetImage('assets/images/abstract_time.png'),
+          ),
+        ),
         padding: AppStyles.mainPaddingMini,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -36,25 +43,41 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                CircularPercent(
-                  currentPeriod: 'День',
-                  progressPercentColor: const Color(0xFF5C6BC0),
-                  percent: _restTimes.getRestDayProgress,
+                CircleAvatar(
+                  backgroundColor: Colors.white,
+                  radius: 40,
+                  child: CircularPercent(
+                    currentPeriod: 'День',
+                    progressPercentColor: const Color(0xFF5C6BC0),
+                    percent: _restTimes.getRestDayProgress,
+                  ),
                 ),
-                CircularPercent(
-                  currentPeriod: 'Неделя',
-                  progressPercentColor: const Color(0xFF009688),
-                  percent: _restTimes.getRestWeekProgress,
+                CircleAvatar(
+                  backgroundColor: Colors.white,
+                  radius: 40,
+                  child: CircularPercent(
+                    currentPeriod: 'Неделя',
+                    progressPercentColor: const Color(0xFF009688),
+                    percent: _restTimes.getRestWeekProgress,
+                  ),
                 ),
-                CircularPercent(
-                  currentPeriod: 'Месяц',
-                  progressPercentColor: const Color(0xFFFF7043),
-                  percent: _restTimes.getRestMonthProgress,
+                CircleAvatar(
+                  backgroundColor: Colors.white,
+                  radius: 40,
+                  child: CircularPercent(
+                    currentPeriod: 'Месяц',
+                    progressPercentColor: const Color(0xFFFF7043),
+                    percent: _restTimes.getRestMonthProgress,
+                  ),
                 ),
-                CircularPercent(
-                  currentPeriod: 'Год',
-                  progressPercentColor: const Color(0xFFAB47BC),
-                  percent: _restTimes.getRestYearProgress,
+                CircleAvatar(
+                  backgroundColor: Colors.white,
+                  radius: 40,
+                  child: CircularPercent(
+                    currentPeriod: 'Год',
+                    progressPercentColor: const Color(0xFFAB47BC),
+                    percent: _restTimes.getRestYearProgress,
+                  ),
                 ),
               ],
             )
