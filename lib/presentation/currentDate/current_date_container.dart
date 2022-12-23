@@ -20,33 +20,38 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
         const SizedBox(width: 8),
         Expanded(
           flex: 3,
-          child: Container(
-            padding: AppStyles.mainPaddingMini,
-            decoration: const BoxDecoration(
-              borderRadius: AppStyles.mainBorderRadius,
-              color: Colors.white,
-            ),
-            constraints: const BoxConstraints(
-              minWidth: 110,
-              maxHeight: 110,
-            ),
-            alignment: Alignment.center,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CurrentDateItem(
-                  currentMonth: _restTimes.getMonthName,
-                  currentYear: _restTimes.dateTime.year,
-                  currentDay: _restTimes.dateTime.day,
-                  color: Colors.indigo,
-                ),
-                CurrentDateItem(
-                  currentMonth: _restTimes.getMonthHijriName,
-                  currentYear: _restTimes.dateTimeHijri.hYear,
-                  currentDay: _restTimes.dateTimeHijri.hDay,
-                  color: Colors.teal,
-                ),
-              ],
+          child: Card(
+            elevation: 2,
+            margin: EdgeInsets.zero,
+            shape: AppStyles.mainCardBorderRadius,
+            child: Container(
+              padding: AppStyles.mainPaddingMini,
+              decoration: const BoxDecoration(
+                borderRadius: AppStyles.mainBorderRadius,
+                color: Colors.white,
+              ),
+              constraints: const BoxConstraints(
+                minWidth: 110,
+                maxHeight: 110,
+              ),
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CurrentDateItem(
+                    currentMonth: _restTimes.getMonthName,
+                    currentYear: _restTimes.dateTime.year,
+                    currentDay: _restTimes.dateTime.day,
+                    color: Colors.indigo,
+                  ),
+                  CurrentDateItem(
+                    currentMonth: _restTimes.getMonthHijriName,
+                    currentYear: _restTimes.dateTimeHijri.hYear,
+                    currentDay: _restTimes.dateTimeHijri.hDay,
+                    color: Colors.teal,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
