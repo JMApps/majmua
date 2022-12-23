@@ -44,7 +44,7 @@ flutter:
 
   assets:
 #    - assets/databases/
-#    - assets/images/
+    - assets/images/
     - assets/fonts/
 #    - assets/icons/
 #    - assets/surahs/
