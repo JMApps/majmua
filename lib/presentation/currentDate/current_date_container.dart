@@ -60,7 +60,7 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
                   borderRadius: AppStyles.mainBorderRadius,
                   color: Colors.white,
                   border: Border.all(
-                    color: Colors.teal,
+                    color: _restTimes.dateTime.weekday == 5 ? Colors.deepOrange : Colors.teal,
                     width: 1,
                   ),
                 ),
@@ -71,9 +71,9 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
                 alignment: Alignment.center,
                 child: Text(
                   _restTimes.getNameWeekDay,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 16,
-                    color: Colors.teal,
+                    color: _restTimes.dateTime.weekday == 5 ? Colors.deepOrange : Colors.teal,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -93,7 +93,7 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
                 child: Text(
                   _restTimes.getMessageForSaum,
                   style: TextStyle(
-                    fontSize: _restTimes.dateTime.weekday == 5 ? 25 : 14,
+                    fontSize: _restTimes.dateTime.weekday == 5 ? 40 : 14,
                     color: _restTimes.dateTime.weekday == 5 ? Colors.indigo : Colors.black,
                   ),
                   textAlign: TextAlign.center,

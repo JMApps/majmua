@@ -15,52 +15,71 @@ class _BeforeHolidaysContainerState extends State<BeforeHolidaysContainer> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: AppStyles.symmetricHorizontalMarginMini,
-      padding: AppStyles.mainPaddingMini,
-      decoration: const BoxDecoration(
-        borderRadius: AppStyles.mainBorderRadius,
-        color: Colors.white,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          const Text(
-            'До Рамадана:',
-            style: TextStyle(
-              fontSize: 16,
-            ),
+    return Row(
+      children: [
+        const SizedBox(width: 8),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          decoration: const BoxDecoration(
+            borderRadius: AppStyles.mainBorderRadius,
+            color: Colors.white,
           ),
-          CircleAvatar(
-            radius: 17.5,
-            backgroundColor: Colors.teal,
-            child: Text(
-              _restTimes.getToRamadanDays.toString().substring(1),
-              style: const TextStyle(
-                fontSize: 12,
-                color: Colors.white,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const Text(
+                'До Рамадана:  ',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
               ),
-            ),
-          ),
-          const Text(
-            'До Курбан-Байрама:',
-            style: TextStyle(
-              fontSize: 16,
-            ),
-          ),
-          CircleAvatar(
-            radius: 17.5,
-            child: Text(
-              _restTimes.getToQurbanDays.toString().substring(1),
-              style: const TextStyle(
-                fontSize: 12,
-                color: Colors.white,
+              CircleAvatar(
+                radius: 17.5,
+                backgroundColor: Colors.teal,
+                child: Text(
+                  _restTimes.getToRamadanDays.toString().substring(1),
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: Colors.white,
+                  ),
+                ),
               ),
+            ],
+          ),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Container(
+            padding: AppStyles.mainPaddingMini,
+            decoration: const BoxDecoration(
+              borderRadius: AppStyles.mainBorderRadius,
+              color: Colors.white,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                const Text(
+                  'До Курбан-Байрама:',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+                CircleAvatar(
+                  radius: 17.5,
+                  child: Text(
+                    _restTimes.getToQurbanDays.toString().substring(1),
+                    style: const TextStyle(
+                      fontSize: 12,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
-        ],
-      ),
+        ),
+        const SizedBox(width: 8),
+      ],
     );
   }
 }

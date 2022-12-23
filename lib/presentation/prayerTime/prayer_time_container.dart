@@ -29,10 +29,10 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
             CircularPrayer(
               prayerName: 'Фаджр',
               prayerTime: _currentPrayerTimes.getFajrTime,
-              previousPrayerTimeValue: _currentPrayerTimes.getFirstNightValue,
+              previousPrayerTimeValue: _currentPrayerTimes.getSecondNightValue,
               currentPrayerTimeValue: _currentPrayerTimes.getFajrTimeValue,
               remainingPrayerTime: _currentPrayerTimes.getRemainingFajrTime,
-              pastPrayerTime: _currentPrayerTimes.getFajrTime,
+              pastPrayerTime: _currentPrayerTimes.getPastFajrTime,
             ),
             CircularPrayer(
               prayerName: 'Зухр',
@@ -137,10 +137,10 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
             const SizedBox(width: 8),
           ],
         ),
-        _restTimes.dateTime.weekday == 4
+        _restTimes.dateTime.weekday == 5
             ? const Divider(indent: 16, endIndent: 16)
             : const SizedBox(),
-        _restTimes.dateTime.weekday == 4
+        _restTimes.dateTime.weekday == 5
             ? RichText(
                 text: TextSpan(
                   children: [

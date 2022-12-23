@@ -87,7 +87,7 @@ class _FridayContainerState extends State<FridayContainer> {
 
   @override
   Widget build(BuildContext context) {
-    return _restTimes.dateTime.weekday == 4 ? Column(
+    return _restTimes.dateTime.weekday == 5 ? Column(
       children: [
         SizedBox(
           height: 100,

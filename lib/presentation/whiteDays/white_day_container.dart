@@ -12,12 +12,11 @@ class WhiteDayContainer extends StatefulWidget {
 
 class _WhiteDayContainerState extends State<WhiteDayContainer> {
   final RestTimes _restTimes = RestTimes();
-  int curDay = 12;
 
   @override
   Widget build(BuildContext context) {
-    return curDay >= 12 &&
-        curDay <= 15
+    return _restTimes.dateTimeHijri.hDay >= 12 &&
+        _restTimes.dateTimeHijri.hDay <= 15
         ? Column(
             children: [
               const SizedBox(height: 2),
