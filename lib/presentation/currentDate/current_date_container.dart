@@ -21,7 +21,7 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
         Expanded(
           flex: 3,
           child: Card(
-            elevation: 2,
+            elevation: 1,
             margin: EdgeInsets.zero,
             shape: AppStyles.mainCardBorderRadius,
             child: Container(
