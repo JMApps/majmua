@@ -42,4 +42,14 @@ class AppStyles {
   static const mainBorderRadius = BorderRadius.all(
     Radius.circular(25),
   );
+
+  static const rightBorderRadius = BorderRadius.only(
+    topRight: Radius.circular(25),
+    bottomRight: Radius.circular(25),
+  );
+
+  static const leftBorderRadius = BorderRadius.only(
+    topLeft: Radius.circular(25),
+    bottomLeft: Radius.circular(25),
+  );
 }
