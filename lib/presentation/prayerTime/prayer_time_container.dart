@@ -129,6 +129,7 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
           ],
         ),
         const Divider(indent: 16, endIndent: 16),
+        const SizedBox(height: 2),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

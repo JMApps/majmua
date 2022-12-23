@@ -15,11 +15,11 @@ class _WhiteDayContainerState extends State<WhiteDayContainer> {
 
   @override
   Widget build(BuildContext context) {
-    return _restTimes.dateTimeHijri.hDay >= 12 &&
-        _restTimes.dateTimeHijri.hDay <= 15
+    return _restTimes.dateTimeHijri.hDay >= 29 &&
+            _restTimes.dateTimeHijri.hDay <= 30
         ? Column(
             children: [
-              const SizedBox(height: 2),
+              const SizedBox(height: 6),
               Container(
                 width: double.infinity,
                 margin: AppStyles.symmetricHorizontalMarginMini,
@@ -59,7 +59,7 @@ class _WhiteDayContainerState extends State<WhiteDayContainer> {
                   ],
                 ),
               ),
-              const SizedBox(height: 4),
+              const SizedBox(height: 6),
               const Divider(indent: 16, endIndent: 16),
             ],
           )
