@@ -20,7 +20,68 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Text('Турция, Стамбул'),
+        Row(
+          children: [
+            const SizedBox(width: 8),
+            const Expanded(
+              flex: 3,
+              child: Card(
+                elevation: 1,
+                shape: AppStyles.mainCardBorderRadius,
+                margin: EdgeInsets.zero,
+                child: Padding(
+                  padding: AppStyles.mainPaddingMini,
+                  child: Text(
+                    'Турция, Стамбул',
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontFamily: 'SF',
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(width: 8),
+            Expanded(
+              flex: 2,
+              child: Card(
+                elevation: 0,
+                shape: AppStyles.mainCardBorderRadius,
+                margin: EdgeInsets.zero,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          const TextSpan(
+                            text: 'Восход солнца: ',
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.black,
+                              fontFamily: 'SF',
+                            ),
+                          ),
+                          TextSpan(
+                            text: DateFormat.Hm().format(_currentPrayerTimes.getSunriseTime),
+                            style: const TextStyle(
+                              fontSize: 13,
+                              color: Colors.teal,
+                              fontFamily: 'SF',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(width: 8),
+          ],
+        ),
+        const SizedBox(height: 4),
         const Divider(indent: 16, endIndent: 16),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -69,38 +130,8 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
         ),
         const Divider(indent: 16, endIndent: 16),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(width: 8),
-            Container(
-              padding: AppStyles.mainPaddingMini,
-              decoration: const BoxDecoration(
-                borderRadius: AppStyles.mainBorderRadius,
-                color: Colors.white,
-              ),
-              child: RichText(
-                text: TextSpan(
-                  children: [
-                    const TextSpan(
-                      text: 'Восход солнца: ',
-                      style: TextStyle(
-                        fontSize: 13,
-                        color: Colors.black,
-                        fontFamily: 'SF',
-                      ),
-                    ),
-                    TextSpan(
-                      text: DateFormat.Hm().format(_currentPrayerTimes.getSunriseTime),
-                      style: const TextStyle(
-                        fontSize: 13,
-                        color: Colors.teal,
-                        fontFamily: 'SF',
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
             const SizedBox(width: 8),
             Container(
               padding: AppStyles.mainPaddingMini,
@@ -120,7 +151,8 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
                       ),
                     ),
                     TextSpan(
-                      text: DateFormat.Hm().format(_currentPrayerTimes.getThirdNightPart),
+                      text: DateFormat.Hm()
+                          .format(_currentPrayerTimes.getThirdNightPart),
                       style: const TextStyle(
                         fontSize: 13,
                         color: Colors.indigo,
@@ -131,36 +163,44 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
                 ),
               ),
             ),
+            _restTimes.dateTime.weekday == 5
+                ? const SizedBox(width: 8)
+                : const SizedBox(),
+            _restTimes.dateTime.weekday == 5
+                ? Container(
+                    padding: AppStyles.mainPaddingMini,
+                    decoration: const BoxDecoration(
+                      borderRadius: AppStyles.mainBorderRadius,
+                      color: Colors.white,
+                    ),
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          const TextSpan(
+                            text: 'Последний час пятницы: ',
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.black,
+                              fontFamily: 'SF',
+                            ),
+                          ),
+                          TextSpan(
+                            text: DateFormat.Hm()
+                                .format(_currentPrayerTimes.getLastHourFriday),
+                            style: const TextStyle(
+                              fontSize: 13,
+                              color: Colors.teal,
+                              fontFamily: 'SF',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                : const SizedBox(),
             const SizedBox(width: 8),
           ],
         ),
-        _restTimes.dateTime.weekday == 5
-            ? const Divider(indent: 16, endIndent: 16)
-            : const SizedBox(),
-        _restTimes.dateTime.weekday == 5
-            ? RichText(
-                text: TextSpan(
-                  children: [
-                    const TextSpan(
-                      text: 'Последний час пятницы в ',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black,
-                        fontFamily: 'SF',
-                      ),
-                    ),
-                    TextSpan(
-                      text: '${DateFormat.Hm().format(_currentPrayerTimes.getLastHourFriday)} 🤲',
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: Colors.teal,
-                        fontFamily: 'SF',
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            : const SizedBox(),
       ],
     );
   }
