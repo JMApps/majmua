@@ -26,16 +26,12 @@ class FridayItem extends StatelessWidget {
             contentPadding: AppStyles.symmetricHorizontalPaddingMini,
             title: Text(
               item.numberSunnah,
-              style: const TextStyle(
-                fontSize: 16,
-              ),
+              style: AppStyles.mainFontSizeStyle,
               textAlign: TextAlign.center,
             ),
             subtitle: Text(
               item.contentSunnah,
-              style: const TextStyle(
-                fontSize: 16,
-              ),
+              style: AppStyles.mainFontSizeStyle,
               textAlign: TextAlign.center,
             ),
           ),

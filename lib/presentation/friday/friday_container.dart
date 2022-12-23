@@ -109,9 +109,9 @@ class _FridayContainerState extends State<FridayContainer> {
             activeDotDecoration: DotDecoration(
               color: const Color(0xFF3F51B5),
               dotBorder: const DotBorder(
-                padding: 2,
+                padding: 3,
                 color: Color(0xFF009688),
-                width: 2,
+                width: 1,
               ),
               width: 8,
               height: 8,

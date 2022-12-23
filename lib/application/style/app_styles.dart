@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppStyles {
 
-  static const mainFontSizeStyle = TextStyle(fontSize: 18);
+  static const mainFontSizeStyle = TextStyle(fontSize: 16);
 
   static const mainPadding = EdgeInsets.all(16);
   static const mainPaddingMini = EdgeInsets.all(8);
