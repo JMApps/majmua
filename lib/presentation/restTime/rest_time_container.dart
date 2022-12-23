@@ -21,7 +21,7 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
       elevation: 1,
       color: Colors.white,
       shape: AppStyles.mainCardBorderRadius,
-      margin: AppStyles.mainMarginMini,
+      margin: AppStyles.symmetricHorizontalMarginMini,
       child: Padding(
         padding: AppStyles.mainPaddingMini,
         child: Column(

@@ -8,18 +8,34 @@ class AppStyles {
   static const mainPaddingMini = EdgeInsets.all(8);
   static const mainMargin = EdgeInsets.all(16);
   static const mainMarginMini = EdgeInsets.all(8);
+
   static const symmetricHorizontalPadding = EdgeInsets.symmetric(horizontal: 16);
-  static const symmetricVerticalPadding = EdgeInsets.symmetric(vertical: 16);
   static const symmetricHorizontalPaddingMini = EdgeInsets.symmetric(horizontal: 8);
-  static const symmetricVerticalPaddingMini = EdgeInsets.symmetric(vertical: 8);
   static const symmetricHorizontalMargin = EdgeInsets.symmetric(horizontal: 16);
-  static const symmetricVerticalMargin = EdgeInsets.symmetric(vertical: 16);
   static const symmetricHorizontalMarginMini = EdgeInsets.symmetric(horizontal: 8);
+
+  static const symmetricVerticalPadding = EdgeInsets.symmetric(vertical: 16);
+  static const symmetricVerticalPaddingMini = EdgeInsets.symmetric(vertical: 8);
+  static const symmetricVerticalMargin = EdgeInsets.symmetric(vertical: 16);
   static const symmetricVerticalMarginMini = EdgeInsets.symmetric(vertical: 8);
 
   static const mainCardBorderRadius = RoundedRectangleBorder(
     borderRadius: BorderRadius.all(
       Radius.circular(25),
+    ),
+  );
+
+  static const rightCardBorderRadius = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      topRight: Radius.circular(25),
+      bottomRight: Radius.circular(25),
+    ),
+  );
+
+  static const leftCardBorderRadius = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      topLeft: Radius.circular(25),
+      bottomLeft: Radius.circular(25),
     ),
   );
 
