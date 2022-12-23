@@ -19,34 +19,33 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const Text(
           AppStrings.restContainerTitle,
           style: AppStyles.mainFontSizeStyle,
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 12),
+        const SizedBox(height: 8),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             CircularPercent(
-              currentTime: 'День',
+              currentPeriod: 'День',
               progressPercentColor: const Color(0xFF5C6BC0),
               percent: _restTimes.getRestDayProgress,
             ),
             CircularPercent(
-              currentTime: 'Неделя',
+              currentPeriod: 'Неделя',
               progressPercentColor: const Color(0xFF009688),
               percent: _restTimes.getRestWeekProgress,
             ),
             CircularPercent(
-              currentTime: 'Месяц',
+              currentPeriod: 'Месяц',
               progressPercentColor: const Color(0xFFFF7043),
               percent: _restTimes.getRestMonthProgress,
             ),
             CircularPercent(
-              currentTime: 'Год',
+              currentPeriod: 'Год',
               progressPercentColor: const Color(0xFFAB47BC),
               percent: _restTimes.getRestYearProgress,
             ),

@@ -17,11 +17,9 @@ class RestTimes {
     return '${dateTime.day}/${dateTime.month}/${dateTime.year}';
   }
 
-  int get getHourOfYear =>
-      dateTime.difference(DateTime(dateTime.year)).inHours;
+  int get getHourOfYear => dateTime.difference(DateTime(dateTime.year)).inHours;
 
-  int get getHourOfMonth =>
-      dateTime.difference(DateTime(dateTime.year, dateTime.month)).inHours;
+  int get getHourOfMonth => dateTime.difference(DateTime(dateTime.year, dateTime.month)).inHours;
 
   int get getHourOfDay => dateTime.difference(DateTime(dateTime.year, dateTime.month, dateTime.day)).inHours;
 
@@ -140,8 +138,7 @@ class RestTimes {
 
   int _toRamadanDays() {
     final int countDays;
-    final hijriRamadanToGregorian =
-    dateTimeHijri.hijriToGregorian(dateTimeHijri.hYear, 9, 1);
+    final hijriRamadanToGregorian = dateTimeHijri.hijriToGregorian(dateTimeHijri.hYear, 9, 1);
     countDays = dateTime.difference(DateTime(hijriRamadanToGregorian.year, hijriRamadanToGregorian.month, hijriRamadanToGregorian.day)).inDays;
     return countDays;
   }

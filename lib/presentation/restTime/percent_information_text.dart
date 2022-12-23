@@ -5,19 +5,17 @@ class PercentInformationText extends StatelessWidget {
     Key? key,
     required this.currentTime,
     required this.progressColor,
-    required this.pastPercent,
-    required this.leftPercent,
+    required this.percent,
   }) : super(key: key);
 
   final String currentTime;
   final Color progressColor;
-  final double pastPercent;
-  final double leftPercent;
+  final double percent;
 
   @override
   Widget build(BuildContext context) {
     return RichText(
-      textScaleFactor: 0.75,
+      textScaleFactor: 0.80,
       textAlign: TextAlign.center,
       text: TextSpan(
         children: [
@@ -28,13 +26,13 @@ class PercentInformationText extends StatelessWidget {
             ),
           ),
           TextSpan(
-            text: '-${pastPercent.toStringAsFixed(1)}%\n',
+            text: '-${percent.toStringAsFixed(1)}%\n',
             style: const TextStyle(
-              color: Color(0xFFF06292),
+              color: Color(0xFF9E9E9E),
             ),
           ),
           TextSpan(
-            text: '${(leftPercent - 100).toStringAsFixed(1).substring(1)}%',
+            text: '${(percent - 100).toStringAsFixed(1).substring(1)}%',
             style: TextStyle(
               color: progressColor,
             ),

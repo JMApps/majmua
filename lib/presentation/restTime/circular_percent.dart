@@ -5,12 +5,12 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 class CircularPercent extends StatelessWidget {
   const CircularPercent({
     Key? key,
-    required this.currentTime,
+    required this.currentPeriod,
     required this.progressPercentColor,
     required this.percent,
   }) : super(key: key);
 
-  final String currentTime;
+  final String currentPeriod;
   final Color progressPercentColor;
   final double percent;
 
@@ -25,10 +25,9 @@ class CircularPercent extends StatelessWidget {
       progressColor: progressPercentColor,
       percent: percent / 100,
       center: PercentInformationText(
-        currentTime: currentTime,
+        currentTime: currentPeriod,
         progressColor: progressPercentColor,
-        pastPercent: percent,
-        leftPercent: percent,
+        percent: percent,
       ),
     );
   }
