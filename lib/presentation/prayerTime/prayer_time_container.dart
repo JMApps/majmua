@@ -4,7 +4,6 @@ import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/application/theme/app_themes.dart';
 import 'package:majmua/presentation/prayerTime/circular_prayer.dart';
 import 'package:majmua/presentation/prayerTime/current_prayer_times.dart';
-import 'package:majmua/presentation/prayerTime/prayer_settings.dart';
 
 class PrayerTimeContainer extends StatefulWidget {
   const PrayerTimeContainer({Key? key}) : super(key: key);
@@ -23,11 +22,7 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
       children: [
         TextButton.icon(
           onPressed: () {
-            showModalBottomSheet(
-              context: context,
-              backgroundColor: Colors.transparent,
-              builder: (context) => const PrayerSettings(),
-            );
+            Navigator.pushNamed(context, 'region_settings_page');
           },
           style: TextButton.styleFrom(
               padding: AppStyles.symmetricHorizontalPaddingMini,
