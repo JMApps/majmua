@@ -19,7 +19,7 @@ class _WhiteDayContainerState extends State<WhiteDayContainer> {
             _restTimes.dateTimeHijri.hDay <= 15
         ? Column(
             children: [
-              const SizedBox(height: 6),
+              const SizedBox(height: 4),
               Container(
                 width: double.infinity,
                 margin: AppStyles.symmetricHorizontalMarginMini,
@@ -33,7 +33,7 @@ class _WhiteDayContainerState extends State<WhiteDayContainer> {
                   children: [
                     _restTimes.dateTimeHijri.hDay == 12
                         ? const Text(
-                            'Завтра начинаются белые дни ',
+                            'Приблизилсь белые дни ',
                             style: TextStyle(
                               fontSize: 16,
                             ),
@@ -59,7 +59,7 @@ class _WhiteDayContainerState extends State<WhiteDayContainer> {
                   ],
                 ),
               ),
-              const SizedBox(height: 6),
+              const SizedBox(height: 4),
               const Divider(indent: 16, endIndent: 16),
             ],
           )

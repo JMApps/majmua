@@ -13,7 +13,7 @@ class WhiteDayItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      backgroundColor: hijriMonthDay == whiteDay ? Colors.teal : Colors.indigo,
+      backgroundColor: hijriMonthDay == whiteDay ? Colors.deepOrange : Colors.indigo,
       radius: 15,
       child: Text(
         '$whiteDay',
