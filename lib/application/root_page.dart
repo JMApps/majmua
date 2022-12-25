@@ -12,6 +12,7 @@ class RootPage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Полка М',
       theme: AppThemes.lightTheme,
+      darkTheme: AppThemes.darkTheme,
       onGenerateRoute: AppRoutes.appGeneratorRoute,
       home: const MainPage(),
     );

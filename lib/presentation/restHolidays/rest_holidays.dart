@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/style/app_styles.dart';
+import 'package:majmua/application/theme/app_themes.dart';
 import 'package:majmua/presentation/restTime/rest_times.dart';
 
 class RestHolidaysContainer extends StatefulWidget {
@@ -14,6 +15,7 @@ class _RestHolidaysContainerState extends State<RestHolidaysContainer> {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).colorScheme;
     return Column(
       children: [
         const SizedBox(height: 4),
@@ -22,20 +24,27 @@ class _RestHolidaysContainerState extends State<RestHolidaysContainer> {
           margin: AppStyles.symmetricHorizontalMarginMini,
           shape: AppStyles.mainCardBorderRadius,
           child: Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               borderRadius: AppStyles.mainBorderRadius,
               image: DecorationImage(
-                opacity: 0.15,
+                opacity: Theme.of(context).brightness == Brightness.light
+                    ? 0.15
+                    : 0.05,
                 fit: BoxFit.none,
-                image: AssetImage('assets/images/ramadan.jpg'),
+                image: const AssetImage('assets/images/ramadan.jpg'),
               ),
             ),
             child: ListTile(
               visualDensity: const VisualDensity(vertical: -2),
               contentPadding: AppStyles.symmetricHorizontalPadding,
-              title: const Text('Осталось дней до Рамадана'),
+              title: Text(
+                'Осталось дней до Рамадана',
+                style: TextStyle(
+                  color: appColors.mainTextColor,
+                ),
+              ),
               trailing: CircleAvatar(
-                backgroundColor: Colors.teal,
+                backgroundColor: appColors.secondAppColor,
                 radius: 17.5,
                 child: Text(
                   _restTimes.getToRamadanDays.toString().substring(1),
@@ -54,20 +63,27 @@ class _RestHolidaysContainerState extends State<RestHolidaysContainer> {
           margin: AppStyles.symmetricHorizontalMarginMini,
           shape: AppStyles.mainCardBorderRadius,
           child: Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               borderRadius: AppStyles.mainBorderRadius,
               image: DecorationImage(
-                opacity: 0.15,
+                opacity: Theme.of(context).brightness == Brightness.light
+                    ? 0.15
+                    : 0.05,
                 fit: BoxFit.none,
-                image: AssetImage('assets/images/adha.jpg'),
+                image: const AssetImage('assets/images/adha.jpg'),
               ),
             ),
             child: ListTile(
               visualDensity: const VisualDensity(vertical: -2),
               contentPadding: AppStyles.symmetricHorizontalPadding,
-              title: const Text('Осталось дней до Ид аль-Адха'),
+              title: Text(
+                'Осталось дней до Ид аль-Адха',
+                style: TextStyle(
+                  color: appColors.mainTextColor,
+                ),
+              ),
               trailing: CircleAvatar(
-                backgroundColor: Colors.indigo,
+                backgroundColor: appColors.firstAppColor,
                 radius: 17.5,
                 child: Text(
                   _restTimes.getToQurbanDays.toString().substring(1),

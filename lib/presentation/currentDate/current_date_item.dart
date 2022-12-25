@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/theme/app_themes.dart';
 
 class CurrentDateItem extends StatelessWidget {
   const CurrentDateItem({
@@ -16,6 +17,7 @@ class CurrentDateItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).colorScheme;
     return ListTile(
       dense: true,
       visualDensity: const VisualDensity(vertical: -4),
@@ -23,9 +25,10 @@ class CurrentDateItem extends StatelessWidget {
       horizontalTitleGap: 8,
       title: Text(
         currentMonth,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 16,
-          fontWeight: FontWeight.w700
+          fontWeight: FontWeight.w700,
+          color: appColors.mainTextColor,
         ),
       ),
       subtitle: Text(

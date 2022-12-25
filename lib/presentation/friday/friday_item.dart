@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/style/app_styles.dart';
+import 'package:majmua/application/theme/app_themes.dart';
 import 'package:majmua/presentation/friday/model_friday.dart';
 
 class FridayItem extends StatelessWidget {
@@ -12,6 +13,7 @@ class FridayItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).colorScheme;
     return Card(
       margin: const EdgeInsets.only(left: 8),
       elevation: 0,
@@ -20,12 +22,16 @@ class FridayItem extends StatelessWidget {
         alignment: Alignment.center,
         decoration: const BoxDecoration(
           borderRadius: AppStyles.mainBorderRadius,
-          color: Colors.white,
           image: DecorationImage(
             fit: BoxFit.fitWidth,
             opacity: 0.075,
-            colorFilter: ColorFilter.mode(Colors.indigo, BlendMode.srcATop),
-            image: AssetImage('assets/images/background_item.png'),
+            colorFilter: ColorFilter.mode(
+              Colors.indigo,
+              BlendMode.srcATop,
+            ),
+            image: AssetImage(
+              'assets/images/background_item.png',
+            ),
           ),
         ),
         child: ListTile(
@@ -34,9 +40,9 @@ class FridayItem extends StatelessWidget {
           contentPadding: AppStyles.symmetricHorizontalPaddingMini,
           title: Text(
             item.numberSunnah,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 16,
-              color: Colors.deepOrange,
+              color: appColors.thirdAppColor,
             ),
             textAlign: TextAlign.center,
           ),
@@ -44,7 +50,6 @@ class FridayItem extends StatelessWidget {
             item.contentSunnah,
             style: const TextStyle(
               fontSize: 16,
-              color: Colors.black87,
             ),
             textAlign: TextAlign.center,
           ),

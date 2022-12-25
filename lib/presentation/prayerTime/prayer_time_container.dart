@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:majmua/application/theme/app_themes.dart';
 import 'package:majmua/presentation/prayerTime/circular_prayer.dart';
 import 'package:majmua/presentation/prayerTime/current_prayer_times.dart';
 
@@ -15,13 +16,15 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).colorScheme;
     return Column(
       children: [
-        const Text(
+        Text(
           'Турция, Стамбул',
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w700,
+            color: appColors.mainTextColor,
           ),
           textAlign: TextAlign.center,
         ),
@@ -83,18 +86,18 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
         RichText(
           text: TextSpan(
             children: [
-              const TextSpan(
+              TextSpan(
                 text: 'Последняя треть ночи: ',
                 style: TextStyle(
-                  color: Colors.black87,
+                  color: appColors.mainTextColor,
                   fontFamily: 'Nexa',
                 ),
               ),
               TextSpan(
                 text: DateFormat.Hm().format(_currentPrayerTimes.getThirdNightPart),
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.indigo,
+                  color: appColors.lastThirdHourColor,
                   fontFamily: 'Nexa',
                 ),
               ),

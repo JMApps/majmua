@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:majmua/application/style/app_styles.dart';
+import 'package:majmua/application/theme/app_themes.dart';
 import 'package:majmua/presentation/restTime/rest_times.dart';
 
 class CircularPrayer extends StatefulWidget {
@@ -46,6 +47,7 @@ class _CircularPrayerState extends State<CircularPrayer> {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).colorScheme;
     return Column(
       children: [
         Text(
@@ -54,9 +56,9 @@ class _CircularPrayerState extends State<CircularPrayer> {
             fontSize: 12,
             color: _isPrayerTime
                 ? _isPastTime
-                    ? Colors.deepOrange.shade300
-                    : Colors.deepOrange
-                : Colors.black,
+                    ? appColors.prayerTimeFirstActiveCardColor
+                    : appColors.prayerTimeSecondActiveCardColor
+                : appColors.mainTextColor,
           ),
         ),
         const SizedBox(height: 4),
@@ -66,9 +68,9 @@ class _CircularPrayerState extends State<CircularPrayer> {
           shape: AppStyles.topCardBorderRadius,
           color: _isPrayerTime
               ? _isPastTime
-                  ? Colors.deepOrange.shade300
-                  : Colors.deepOrange
-              : Colors.teal,
+                  ? appColors.prayerTimeFirstActiveCardColor
+                  : appColors.thirdAppColor
+              : appColors.prayerTimeFirstCardColor,
           child: Padding(
             padding: AppStyles.mainPaddingMini,
             child: Text(
@@ -85,7 +87,7 @@ class _CircularPrayerState extends State<CircularPrayer> {
           elevation: 0,
           margin: EdgeInsets.zero,
           shape: AppStyles.bottomCardBorderRadius,
-          color: Colors.indigo,
+          color: appColors.prayerTimeSecondCardColor,
           child: Padding(
             padding: AppStyles.mainPaddingMini,
             child: Text(

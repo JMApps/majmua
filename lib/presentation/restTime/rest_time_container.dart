@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/style/app_styles.dart';
+import 'package:majmua/application/theme/app_themes.dart';
 import 'package:majmua/presentation/restTime/circular_percent.dart';
 import 'package:majmua/presentation/restTime/rest_times.dart';
 
@@ -16,29 +17,30 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).colorScheme;
     return Card(
       elevation: 1,
-      color: Colors.white,
       shape: AppStyles.mainCardBorderRadius,
       margin: AppStyles.symmetricHorizontalMarginMini,
       child: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           borderRadius: AppStyles.mainBorderRadius,
           image: DecorationImage(
-            opacity: 0.150,
+            opacity: Theme.of(context).brightness == Brightness.light ? 0.150 : 0.150,
             fit: BoxFit.none,
-            image: AssetImage('assets/images/abstract_time.png'),
+            image: const AssetImage('assets/images/abstract_time.png'),
           ),
         ),
         padding: AppStyles.mainPaddingMini,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               AppStrings.restContainerTitle,
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
+                color: appColors.mainTextColor,
               ),
               textAlign: TextAlign.center,
             ),
@@ -47,16 +49,16 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 CircleAvatar(
-                  backgroundColor: Colors.white,
+                  backgroundColor: appColors.circleAvatarBackgroundColor,
                   radius: 40,
                   child: CircularPercent(
                     currentPeriod: 'День',
-                    progressPercentColor: const Color(0xFF5C6BC0),
+                    progressPercentColor: const Color(0xFF3F51B5),
                     percent: _restTimes.getRestDayProgress,
                   ),
                 ),
                 CircleAvatar(
-                  backgroundColor: Colors.white,
+                  backgroundColor: appColors.circleAvatarBackgroundColor,
                   radius: 40,
                   child: CircularPercent(
                     currentPeriod: 'Неделя',
@@ -65,7 +67,7 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
                   ),
                 ),
                 CircleAvatar(
-                  backgroundColor: Colors.white,
+                  backgroundColor: appColors.circleAvatarBackgroundColor,
                   radius: 40,
                   child: CircularPercent(
                     currentPeriod: 'Месяц',
@@ -74,7 +76,7 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
                   ),
                 ),
                 CircleAvatar(
-                  backgroundColor: Colors.white,
+                  backgroundColor: appColors.circleAvatarBackgroundColor,
                   radius: 40,
                   child: CircularPercent(
                     currentPeriod: 'Год',

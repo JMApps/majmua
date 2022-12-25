@@ -20,43 +20,42 @@ class _WhiteDayContainerState extends State<WhiteDayContainer> {
         ? Column(
             children: [
               const SizedBox(height: 4),
-              Container(
-                width: double.infinity,
+              Card(
+                elevation: 0,
                 margin: AppStyles.symmetricHorizontalMarginMini,
-                padding: AppStyles.mainPaddingMini,
-                decoration: const BoxDecoration(
-                  borderRadius: AppStyles.mainBorderRadius,
-                  color: Colors.white,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    _restTimes.dateTimeHijri.hDay == 12
-                        ? const Text(
-                            'Приблизилсь белые дни ',
-                            style: TextStyle(
-                              fontSize: 16,
+                shape: AppStyles.mainCardBorderRadius,
+                child: Padding(
+                  padding: AppStyles.mainPaddingMini,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      _restTimes.dateTimeHijri.hDay == 12
+                          ? const Text(
+                              'Приблизилсь белые дни ',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            )
+                          : const Text(
+                              'Пост в белые дни ',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
                             ),
-                          )
-                        : const Text(
-                            'Пост в белые дни ',
-                            style: TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
-                    WhiteDayItem(
-                      hijriMonthDay: _restTimes.dateTimeHijri.hDay,
-                      whiteDay: 13,
-                    ),
-                    WhiteDayItem(
-                      hijriMonthDay: _restTimes.dateTimeHijri.hDay,
-                      whiteDay: 14,
-                    ),
-                    WhiteDayItem(
-                      hijriMonthDay: _restTimes.dateTimeHijri.hDay,
-                      whiteDay: 15,
-                    ),
-                  ],
+                      WhiteDayItem(
+                        hijriMonthDay: _restTimes.dateTimeHijri.hDay,
+                        whiteDay: 13,
+                      ),
+                      WhiteDayItem(
+                        hijriMonthDay: _restTimes.dateTimeHijri.hDay,
+                        whiteDay: 14,
+                      ),
+                      WhiteDayItem(
+                        hijriMonthDay: _restTimes.dateTimeHijri.hDay,
+                        whiteDay: 15,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 4),

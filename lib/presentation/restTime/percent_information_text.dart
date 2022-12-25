@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/theme/app_themes.dart';
 
 class PercentInformationText extends StatelessWidget {
   const PercentInformationText({
@@ -21,8 +22,8 @@ class PercentInformationText extends StatelessWidget {
         children: [
           TextSpan(
             text: '$currentTime\n',
-            style: const TextStyle(
-              color: Color(0xDD000000),
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.mainTextColor,
               fontWeight: FontWeight.w700,
             ),
           ),

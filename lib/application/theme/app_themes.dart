@@ -5,6 +5,7 @@ class AppThemes {
     primarySwatch: Colors.indigo,
     scaffoldBackgroundColor: const Color(0xFFE8EAF6),
     fontFamily: 'Nexa',
+    brightness: Brightness.light,
     appBarTheme: const AppBarTheme(
       elevation: 0,
       centerTitle: true,
@@ -13,16 +14,88 @@ class AppThemes {
         borderRadius: BorderRadius.only(
           bottomRight: Radius.elliptical(35, 20),
           bottomLeft: Radius.elliptical(35, 20),
-        )
+        ),
+      ),
+      titleTextStyle: TextStyle(
+        color: Color(0xFFFFFFFF),
+        fontSize: 18,
+        fontFamily: 'Nexa',
       ),
     ),
+    cardColor: const Color(0xFFFFFFFF),
   );
 
-  static final darkTheme = ThemeData(primarySwatch: Colors.brown);
+  static final darkTheme = ThemeData(
+    primarySwatch: Colors.orange,
+    scaffoldBackgroundColor: const Color(0xFF171821),
+    fontFamily: 'Nexa',
+    brightness: Brightness.dark,
+    appBarTheme: const AppBarTheme(
+      elevation: 0,
+      centerTitle: true,
+      backgroundColor: Color(0xFF232433),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.elliptical(35, 20),
+          bottomLeft: Radius.elliptical(35, 20),
+        ),
+      ),
+      titleTextStyle: TextStyle(
+        color: Color(0xFFFFFFFF),
+        fontSize: 18,
+        fontFamily: 'Nexa',
+      ),
+    ),
+    cardColor: const Color(0xFF2C2D33),
+  );
 }
 
 extension ColorSchemeS on ColorScheme {
-  Color get mainBackground => brightness == Brightness.light
-      ? const Color(0xff383864)
-      : const Color(0xff2c2c34);
+  Color get firstAppColor => brightness == Brightness.light
+      ? const Color(0xFF3F51B5)
+      : const Color(0xFF303F9F);
+
+  Color get secondAppColor => brightness == Brightness.light
+      ? const Color(0xFF009688)
+      : const Color(0xFF00695C);
+
+  Color get thirdAppColor => brightness == Brightness.light
+      ? const Color(0xFFFF5722)
+      : const Color(0xFFFF9800);
+
+  Color get mainTextColor => brightness == Brightness.light
+      ? const Color(0xFF171821)
+      : const Color(0xBEFFFFFF);
+
+  Color get circleAvatarBackgroundColor => brightness == Brightness.light
+      ? const Color(0xFFFFFFFF)
+      : const Color(0xFF232433);
+
+  Color get prayerTimeFirstActiveCardColor => brightness == Brightness.light
+      ? const Color(0xFFFF5722)
+      : const Color(0xFFFF9800);
+
+  Color get prayerTimeSecondActiveCardColor => brightness == Brightness.light
+      ? const Color(0xFFFF8A65)
+      : const Color(0xFFFF8A65);
+
+  Color get prayerTimeFirstCardColor => brightness == Brightness.light
+      ? const Color(0xFF009688)
+      : const Color(0xFF00695C);
+
+  Color get prayerTimeSecondCardColor => brightness == Brightness.light
+      ? const Color(0xFF3F51B5)
+      : const Color(0xFF303F9F);
+
+  Color get lastThirdHourColor => brightness == Brightness.light
+      ? const Color(0xFF3F51B5)
+      : const Color(0xFFFF9800);
+
+  Color get weekDaysColor => brightness == Brightness.light
+      ? const Color(0xFF009688)
+      : const Color(0xFF7986CB);
+
+  Color get dotColor => brightness == Brightness.light
+      ? const Color(0xFF3F51B5)
+      : const Color(0xFFFF9800);
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/theme/app_themes.dart';
 import 'package:majmua/presentation/friday/friday_item.dart';
 import 'package:majmua/presentation/friday/model_friday.dart';
 import 'package:majmua/presentation/restTime/rest_times.dart';
@@ -87,6 +88,7 @@ class _FridayContainerState extends State<FridayContainer> {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).colorScheme;
     return _restTimes.dateTime.weekday >= 4 && _restTimes.dateTime.weekday <= 5
         ? Column(
             children: [
@@ -110,10 +112,10 @@ class _FridayContainerState extends State<FridayContainer> {
                 count: _fridayContentList.length,
                 effect: CustomizableEffect(
                   activeDotDecoration: DotDecoration(
-                    color: const Color(0xFF3F51B5),
-                    dotBorder: const DotBorder(
+                    color: appColors.dotColor,
+                    dotBorder: DotBorder(
                       padding: 3,
-                      color: Color(0xFF009688),
+                      color: appColors.secondAppColor,
                       width: 1,
                     ),
                     width: 8,
@@ -122,7 +124,7 @@ class _FridayContainerState extends State<FridayContainer> {
                     rotationAngle: 45,
                   ),
                   dotDecoration: DotDecoration(
-                    color: const Color(0xFF009688),
+                    color: appColors.secondAppColor,
                     width: 3,
                     height: 3,
                     borderRadius: BorderRadius.circular(2.5),

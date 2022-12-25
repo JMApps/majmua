@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/theme/app_themes.dart';
 
 class WhiteDayItem extends StatelessWidget {
   const WhiteDayItem({
@@ -12,8 +13,9 @@ class WhiteDayItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).colorScheme;
     return CircleAvatar(
-      backgroundColor: hijriMonthDay == whiteDay ? Colors.deepOrange : Colors.indigo,
+      backgroundColor: hijriMonthDay == whiteDay ? appColors.thirdAppColor : appColors.firstAppColor,
       radius: 15,
       child: Text(
         '$whiteDay',

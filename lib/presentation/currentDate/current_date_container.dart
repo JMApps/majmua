@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/style/app_styles.dart';
+import 'package:majmua/application/theme/app_themes.dart';
 import 'package:majmua/presentation/currentDate/current_date_item.dart';
 import 'package:majmua/presentation/restTime/rest_times.dart';
 
@@ -15,6 +16,7 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).colorScheme;
     return Row(
       children: [
         const SizedBox(width: 8),
@@ -34,13 +36,13 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
                     currentMonth: _restTimes.getMonthName,
                     currentYear: _restTimes.dateTime.year,
                     currentDay: _restTimes.dateTime.day,
-                    color: Colors.indigo,
+                    color: appColors.firstAppColor,
                   ),
                   CurrentDateItem(
                     currentMonth: _restTimes.getMonthHijriName,
                     currentYear: _restTimes.dateTimeHijri.hYear,
                     currentDay: _restTimes.dateTimeHijri.hDay,
-                    color: Colors.teal,
+                    color: appColors.secondAppColor,
                   ),
                 ],
               ),
@@ -55,14 +57,13 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
             children: [
               Card(
                 elevation: 0,
-                color: Colors.white,
                 margin: EdgeInsets.zero,
                 shape: RoundedRectangleBorder(
                   borderRadius: AppStyles.mainBorderRadius,
                   side: BorderSide(
                     color: _restTimes.dateTime.weekday == 5
-                        ? Colors.deepOrange
-                        : Colors.teal,
+                        ? appColors.weekDaysColor
+                        : appColors.weekDaysColor,
                     width: 1,
                   ),
                 ),
@@ -75,8 +76,8 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
                         style: TextStyle(
                           fontSize: 16,
                           color: _restTimes.dateTime.weekday == 5
-                              ? Colors.deepOrange
-                              : Colors.teal,
+                              ? appColors.weekDaysColor
+                              : appColors.weekDaysColor,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -87,7 +88,6 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
               const SizedBox(height: 8),
               Card(
                 elevation: 1,
-                color: Colors.white,
                 margin: EdgeInsets.zero,
                 shape: AppStyles.mainCardBorderRadius,
                 child: SizedBox(
@@ -100,8 +100,8 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
                         style: TextStyle(
                           fontSize: _restTimes.dateTime.weekday == 5 ? 50 : 14,
                           color: _restTimes.dateTime.weekday == 5
-                              ? Colors.indigo
-                              : Colors.black87,
+                              ? appColors.thirdAppColor
+                              : appColors.mainTextColor,
                         ),
                         textAlign: TextAlign.center,
                       ),

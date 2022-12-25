@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/style/app_styles.dart';
+import 'package:majmua/application/theme/app_themes.dart';
 
 class ColumnItem extends StatelessWidget {
   const ColumnItem({
@@ -17,6 +18,7 @@ class ColumnItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).colorScheme;
     return Card(
       elevation: 1,
       margin: EdgeInsets.zero,
@@ -34,19 +36,19 @@ class ColumnItem extends StatelessWidget {
                 : AppStyles.rightBorderRadius,
             image: DecorationImage(
               fit: BoxFit.fitWidth,
-              opacity: 0.75,
+              opacity: Theme.of(context).brightness == Brightness.light ? 0.75 : 0.25,
               image: AssetImage('assets/images/$imageName'),
             ),
           ),
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           child: Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 16,
-              color: Colors.black,
+              color: appColors.mainTextColor,
               shadows: [
                 Shadow(
-                  color: Colors.indigo,
+                  color: appColors.firstAppColor,
                   blurRadius: 0.5,
                 )
               ],

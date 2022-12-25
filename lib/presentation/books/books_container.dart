@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/style/app_styles.dart';
+import 'package:majmua/application/theme/app_themes.dart';
 
 class BooksContainer extends StatelessWidget {
   const BooksContainer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).colorScheme;
     return Card(
       elevation: 0,
       shape: AppStyles.mainCardBorderRadius,
@@ -24,13 +26,18 @@ class BooksContainer extends StatelessWidget {
           shape: AppStyles.mainCardBorderRadius,
           visualDensity: const VisualDensity(vertical: -2),
           contentPadding: AppStyles.symmetricHorizontalPadding,
-          trailing: const Icon(
-            Icons.arrow_forward_ios_rounded,
-            color: Colors.indigo,
-          ),
-          title: const Text(
+          title: Text(
             'Библиотека',
             textAlign: TextAlign.center,
+            style: TextStyle(
+              color: appColors.mainTextColor,
+              shadows: [
+                Shadow(
+                  color: appColors.firstAppColor,
+                  blurRadius: 0.5,
+                )
+              ],
+            ),
           ),
         ),
       ),
