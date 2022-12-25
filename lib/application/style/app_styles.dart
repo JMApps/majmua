@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AppStyles {
-
   static const mainFontSizeStyle = TextStyle(fontSize: 16);
+
+  static const mainNumberFontSizeStyle = TextStyle(
+    fontSize: 16,
+    fontFamily: 'Lato',
+  );
 
   static const mainPadding = EdgeInsets.all(16);
   static const mainPaddingMini = EdgeInsets.all(8);
@@ -39,6 +43,20 @@ class AppStyles {
     ),
   );
 
+  static const topCardBorderRadius = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      topRight: Radius.circular(25),
+      topLeft: Radius.circular(25),
+    ),
+  );
+
+  static const bottomCardBorderRadius = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      bottomRight: Radius.circular(25),
+      bottomLeft: Radius.circular(25),
+    ),
+  );
+
   static const mainBorderRadius = BorderRadius.all(
     Radius.circular(25),
   );
@@ -50,6 +68,16 @@ class AppStyles {
 
   static const leftBorderRadius = BorderRadius.only(
     topLeft: Radius.circular(25),
+    bottomLeft: Radius.circular(25),
+  );
+
+  static const topBorderRadius = BorderRadius.only(
+    topRight: Radius.circular(25),
+    topLeft: Radius.circular(25),
+  );
+
+  static const bottomBorderRadius = BorderRadius.only(
+    bottomRight: Radius.circular(25),
     bottomLeft: Radius.circular(25),
   );
 }
