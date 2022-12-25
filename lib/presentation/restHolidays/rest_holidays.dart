@@ -21,18 +21,28 @@ class _RestHolidaysContainerState extends State<RestHolidaysContainer> {
           elevation: 1,
           margin: AppStyles.symmetricHorizontalMarginMini,
           shape: AppStyles.mainCardBorderRadius,
-          child: ListTile(
-            visualDensity: const VisualDensity(vertical: -2),
-            contentPadding: AppStyles.symmetricHorizontalPadding,
-            title: const Text('Осталось дней до Рамадана'),
-            trailing: CircleAvatar(
-              backgroundColor: Colors.teal,
-              radius: 17.5,
-              child: Text(
-                _restTimes.getToRamadanDays.toString().substring(1),
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Colors.white,
+          child: Container(
+            decoration: const BoxDecoration(
+              borderRadius: AppStyles.mainBorderRadius,
+              image: DecorationImage(
+                opacity: 0.15,
+                fit: BoxFit.none,
+                image: AssetImage('assets/images/ramadan.jpg'),
+              ),
+            ),
+            child: ListTile(
+              visualDensity: const VisualDensity(vertical: -2),
+              contentPadding: AppStyles.symmetricHorizontalPadding,
+              title: const Text('Осталось дней до Рамадана'),
+              trailing: CircleAvatar(
+                backgroundColor: Colors.teal,
+                radius: 17.5,
+                child: Text(
+                  _restTimes.getToRamadanDays.toString().substring(1),
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
@@ -43,18 +53,28 @@ class _RestHolidaysContainerState extends State<RestHolidaysContainer> {
           elevation: 1,
           margin: AppStyles.symmetricHorizontalMarginMini,
           shape: AppStyles.mainCardBorderRadius,
-          child: ListTile(
-            visualDensity: const VisualDensity(vertical: -2),
-            contentPadding: AppStyles.symmetricHorizontalPadding,
-            title: const Text('Осталось дней до Ид аль-Адха'),
-            trailing: CircleAvatar(
-              backgroundColor: Colors.indigo,
-              radius: 17.5,
-              child: Text(
-                _restTimes.getToQurbanDays.toString().substring(1),
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Colors.white,
+          child: Container(
+            decoration: const BoxDecoration(
+              borderRadius: AppStyles.mainBorderRadius,
+              image: DecorationImage(
+                opacity: 0.15,
+                fit: BoxFit.none,
+                image: AssetImage('assets/images/adha.jpg'),
+              ),
+            ),
+            child: ListTile(
+              visualDensity: const VisualDensity(vertical: -2),
+              contentPadding: AppStyles.symmetricHorizontalPadding,
+              title: const Text('Осталось дней до Ид аль-Адха'),
+              trailing: CircleAvatar(
+                backgroundColor: Colors.indigo,
+                radius: 17.5,
+                child: Text(
+                  _restTimes.getToQurbanDays.toString().substring(1),
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),

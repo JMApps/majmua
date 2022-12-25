@@ -35,7 +35,7 @@ class _CircularPrayerState extends State<CircularPrayer> {
   void initState() {
     _isPrayerTime =
         _restTimes.getMinuteOfDay > widget.previousPrayerTimeValue &&
-            _restTimes.getMinuteOfDay <= widget.currentPrayerTimeValue + 60;
+            _restTimes.getMinuteOfDay <= widget.currentPrayerTimeValue + 30;
     _isRemainingTime =
         _restTimes.getMinuteOfDay > widget.previousPrayerTimeValue &&
             _restTimes.getMinuteOfDay <= widget.currentPrayerTimeValue;

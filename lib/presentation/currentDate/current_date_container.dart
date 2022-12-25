@@ -93,15 +93,18 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
                 child: SizedBox(
                   height: 77,
                   child: Center(
-                    child: Text(
-                      _restTimes.getMessageForSaum,
-                      style: TextStyle(
-                        fontSize: _restTimes.dateTime.weekday == 5 ? 50 : 14,
-                        color: _restTimes.dateTime.weekday == 5
-                            ? Colors.indigo
-                            : Colors.black87,
+                    child: Padding(
+                      padding: AppStyles.mainPaddingMini,
+                      child: Text(
+                        _restTimes.getMessageForSaum,
+                        style: TextStyle(
+                          fontSize: _restTimes.dateTime.weekday == 5 ? 50 : 14,
+                          color: _restTimes.dateTime.weekday == 5
+                              ? Colors.indigo
+                              : Colors.black87,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),

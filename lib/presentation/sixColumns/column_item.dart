@@ -25,16 +25,31 @@ class ColumnItem extends StatelessWidget {
           : AppStyles.rightCardBorderRadius,
       child: InkWell(
         onTap: () {},
-        borderRadius: isLeft ? AppStyles.leftBorderRadius : AppStyles.rightBorderRadius,
+        borderRadius:
+            isLeft ? AppStyles.leftBorderRadius : AppStyles.rightBorderRadius,
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: isLeft ? AppStyles.leftBorderRadius : AppStyles.rightBorderRadius,
+            borderRadius: isLeft
+                ? AppStyles.leftBorderRadius
+                : AppStyles.rightBorderRadius,
+            image: DecorationImage(
+              fit: BoxFit.fitWidth,
+              opacity: 0.75,
+              image: AssetImage('assets/images/$imageName'),
+            ),
           ),
-          padding: AppStyles.mainPadding,
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           child: Text(
             title,
             style: const TextStyle(
               fontSize: 16,
+              color: Colors.black,
+              shadows: [
+                Shadow(
+                  color: Colors.indigo,
+                  blurRadius: 0.5,
+                )
+              ],
             ),
             textAlign: TextAlign.center,
           ),

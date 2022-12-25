@@ -6,18 +6,33 @@ class BooksContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Card(
+    return Card(
       elevation: 0,
       shape: AppStyles.mainCardBorderRadius,
       margin: AppStyles.symmetricHorizontalMarginMini,
-      child: ListTile(
-        visualDensity: VisualDensity(vertical: -2),
-        contentPadding: AppStyles.symmetricHorizontalPadding,
-        trailing: Icon(
-          Icons.arrow_forward_ios_rounded,
-          color: Colors.indigo,
+      child: Container(
+        decoration: const BoxDecoration(
+          borderRadius: AppStyles.mainBorderRadius,
+          image: DecorationImage(
+            opacity: 0.50,
+            fit: BoxFit.cover,
+            image: AssetImage('assets/images/books.png'),
+          ),
         ),
-        title: Text('Библиотека'),
+        child: ListTile(
+          onTap: () {},
+          shape: AppStyles.mainCardBorderRadius,
+          visualDensity: const VisualDensity(vertical: -2),
+          contentPadding: AppStyles.symmetricHorizontalPadding,
+          trailing: const Icon(
+            Icons.arrow_forward_ios_rounded,
+            color: Colors.indigo,
+          ),
+          title: const Text(
+            'Библиотека',
+            textAlign: TextAlign.center,
+          ),
+        ),
       ),
     );
   }
