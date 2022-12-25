@@ -23,6 +23,7 @@ class PercentInformationText extends StatelessWidget {
             text: '$currentTime\n',
             style: const TextStyle(
               color: Color(0xDD000000),
+              fontWeight: FontWeight.w700,
             ),
           ),
           TextSpan(
@@ -35,6 +36,7 @@ class PercentInformationText extends StatelessWidget {
             text: '${(percent - 100).toStringAsFixed(1).substring(1)}%',
             style: TextStyle(
               color: progressColor,
+              fontWeight: FontWeight.w700
             ),
           ),
         ],

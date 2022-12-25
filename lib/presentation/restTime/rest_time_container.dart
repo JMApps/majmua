@@ -25,7 +25,7 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
         decoration: const BoxDecoration(
           borderRadius: AppStyles.mainBorderRadius,
           image: DecorationImage(
-            opacity: 0.075,
+            opacity: 0.150,
             fit: BoxFit.none,
             image: AssetImage('assets/images/abstract_time.png'),
           ),
@@ -36,7 +36,10 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
           children: [
             const Text(
               AppStrings.restContainerTitle,
-              style: AppStyles.mainFontSizeStyle,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 8),
