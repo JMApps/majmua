@@ -12,14 +12,15 @@ class FridayContainer extends StatefulWidget {
 }
 
 class _FridayContainerState extends State<FridayContainer> {
-  final PageController _fridayController = PageController(initialPage: 0, viewportFraction: 0.85);
+  final PageController _fridayController =
+      PageController(initialPage: 0, viewportFraction: 0.85);
   final RestTimes _restTimes = RestTimes();
 
   final _fridayContentList = const <ModelFriday>[
     ModelFriday(
       id: 1,
       numberSunnah: 'Сунна 1',
-      contentSunnah: 'Совершить полное (гъусль) омовение',
+      contentSunnah: 'Совершить большое омовение',
     ),
     ModelFriday(
       id: 2,
@@ -65,7 +66,7 @@ class _FridayContainerState extends State<FridayContainer> {
       id: 10,
       numberSunnah: 'Сунна 10',
       contentSunnah:
-          'Совершить 4 ракаата (2 по 2) после джума в мечети или 2 ракаата дома',
+          'Совершить 4 ракаата, 2 по 2, после джума в мечети или 2 ракаата дома',
     ),
     ModelFriday(
       id: 11,
@@ -75,60 +76,63 @@ class _FridayContainerState extends State<FridayContainer> {
     ModelFriday(
       id: 12,
       numberSunnah: 'Сунна 12',
-      contentSunnah:
-          'Как можно больше читать салават на Пророка ﷺ',
+      contentSunnah: 'Как можно больше читать салават на Пророка ﷺ',
     ),
     ModelFriday(
       id: 13,
       numberSunnah: 'Сунна 13',
-      contentSunnah: 'Сделать дуа в последний час пятницы\n(час до магриба)',
+      contentSunnah: 'Сделать дуа в последний час пятницы\nчас до магриба',
     ),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return _restTimes.dateTime.weekday == 5 ? Column(
-      children: [
-        SizedBox(
-          height: 100,
-          child: PageView.builder(
-            controller: _fridayController,
-            itemCount: _fridayContentList.length,
-            itemBuilder: (BuildContext context, int index) {
-              return FridayItem(
-                item: _fridayContentList[index],
-              );
-            },
-          ),
-        ),
-        const SizedBox(height: 8),
-        SmoothPageIndicator(
-          controller: _fridayController,
-          count: _fridayContentList.length,
-          effect: CustomizableEffect(
-            activeDotDecoration: DotDecoration(
-              color: const Color(0xFF3F51B5),
-              dotBorder: const DotBorder(
-                padding: 3,
-                color: Color(0xFF009688),
-                width: 1,
+    return _restTimes.dateTime.weekday >= 4 && _restTimes.dateTime.weekday <= 5
+        ? Column(
+            children: [
+              const Text('Желательные действия в день пятницы:'),
+              const SizedBox(height: 12),
+              SizedBox(
+                height: 100,
+                child: PageView.builder(
+                  controller: _fridayController,
+                  itemCount: _fridayContentList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return FridayItem(
+                      item: _fridayContentList[index],
+                    );
+                  },
+                ),
               ),
-              width: 8,
-              height: 8,
-              borderRadius: BorderRadius.circular(4),
-              rotationAngle: 45,
-            ),
-            dotDecoration: DotDecoration(
-              color: const Color(0xFF009688),
-              width: 3,
-              height: 3,
-              borderRadius: BorderRadius.circular(2.5),
-            ),
-            spacing: 6,
-          ),
-        ),
-        const Divider(indent: 16, endIndent: 16),
-      ],
-    ) : const SizedBox();
+              const SizedBox(height: 8),
+              SmoothPageIndicator(
+                controller: _fridayController,
+                count: _fridayContentList.length,
+                effect: CustomizableEffect(
+                  activeDotDecoration: DotDecoration(
+                    color: const Color(0xFF3F51B5),
+                    dotBorder: const DotBorder(
+                      padding: 3,
+                      color: Color(0xFF009688),
+                      width: 1,
+                    ),
+                    width: 8,
+                    height: 8,
+                    borderRadius: BorderRadius.circular(4),
+                    rotationAngle: 45,
+                  ),
+                  dotDecoration: DotDecoration(
+                    color: const Color(0xFF009688),
+                    width: 3,
+                    height: 3,
+                    borderRadius: BorderRadius.circular(2.5),
+                  ),
+                  spacing: 6,
+                ),
+              ),
+              const Divider(indent: 16, endIndent: 16),
+            ],
+          )
+        : const SizedBox();
   }
 }

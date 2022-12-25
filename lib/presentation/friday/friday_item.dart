@@ -13,27 +13,40 @@ class FridayItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: const EdgeInsets.only(left: 8),
+      elevation: 0,
       shape: AppStyles.mainCardBorderRadius,
-      color: item.id.isOdd ? Colors.indigo : Colors.teal,
-      child: Card(
-        margin: const EdgeInsets.only(left: 8),
-        elevation: 0,
-        shape: AppStyles.mainCardBorderRadius,
-        child: Center(
-          child: ListTile(
-            dense: true,
-            visualDensity: const VisualDensity(vertical: -4),
-            contentPadding: AppStyles.symmetricHorizontalPaddingMini,
-            title: Text(
-              item.numberSunnah,
-              style: AppStyles.mainFontSizeStyle,
-              textAlign: TextAlign.center,
+      child: Container(
+        alignment: Alignment.center,
+        decoration: const BoxDecoration(
+          borderRadius: AppStyles.mainBorderRadius,
+          color: Colors.white,
+          image: DecorationImage(
+            fit: BoxFit.fitWidth,
+            opacity: 0.075,
+            colorFilter: ColorFilter.mode(Colors.indigo, BlendMode.srcATop),
+            image: AssetImage('assets/images/background_item.png'),
+          ),
+        ),
+        child: ListTile(
+          dense: true,
+          visualDensity: const VisualDensity(vertical: -4),
+          contentPadding: AppStyles.symmetricHorizontalPaddingMini,
+          title: Text(
+            item.numberSunnah,
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.deepOrange,
             ),
-            subtitle: Text(
-              item.contentSunnah,
-              style: AppStyles.mainFontSizeStyle,
-              textAlign: TextAlign.center,
+            textAlign: TextAlign.center,
+          ),
+          subtitle: Text(
+            item.contentSunnah,
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.black87,
             ),
+            textAlign: TextAlign.center,
           ),
         ),
       ),
