@@ -56,8 +56,8 @@ class _CircularPrayerState extends State<CircularPrayer> {
             fontSize: 12,
             color: _isPrayerTime
                 ? _isPastTime
-                    ? appColors.prayerTimeFirstActiveCardColor
-                    : appColors.prayerTimeSecondActiveCardColor
+                    ? appColors.prayerTimeSecondActiveCardColor
+                    : appColors.prayerTimeFirstActiveCardColor
                 : appColors.mainTextColor,
           ),
         ),
@@ -68,8 +68,8 @@ class _CircularPrayerState extends State<CircularPrayer> {
           shape: AppStyles.topCardBorderRadius,
           color: _isPrayerTime
               ? _isPastTime
-                  ? appColors.prayerTimeFirstActiveCardColor
-                  : appColors.thirdAppColor
+              ? appColors.prayerTimeSecondActiveCardColor
+              : appColors.prayerTimeFirstActiveCardColor
               : appColors.prayerTimeFirstCardColor,
           child: Padding(
             padding: AppStyles.mainPaddingMini,

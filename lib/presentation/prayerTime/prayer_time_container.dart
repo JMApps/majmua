@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/application/theme/app_themes.dart';
 import 'package:majmua/presentation/prayerTime/circular_prayer.dart';
 import 'package:majmua/presentation/prayerTime/current_prayer_times.dart';
+import 'package:majmua/presentation/prayerTime/prayer_settings.dart';
 
 class PrayerTimeContainer extends StatefulWidget {
   const PrayerTimeContainer({Key? key}) : super(key: key);
@@ -19,14 +21,32 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
     final appColors = Theme.of(context).colorScheme;
     return Column(
       children: [
-        Text(
-          'Турция, Стамбул',
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-            color: appColors.mainTextColor,
+        TextButton.icon(
+          onPressed: () {
+            showModalBottomSheet(
+              context: context,
+              backgroundColor: Colors.transparent,
+              builder: (context) => const PrayerSettings(),
+            );
+          },
+          style: TextButton.styleFrom(
+              padding: AppStyles.symmetricHorizontalPaddingMini,
+              minimumSize: const Size(0, 16),
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              alignment: Alignment.centerLeft),
+          label: Text(
+            'Турция, Стамбул',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w700,
+              color: appColors.mainTextColor,
+            ),
+            textAlign: TextAlign.center,
           ),
-          textAlign: TextAlign.center,
+          icon: const Icon(
+            Icons.info_outline,
+            size: 20,
+          ),
         ),
         const Divider(indent: 16, endIndent: 16),
         Row(
@@ -94,7 +114,8 @@ class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
                 ),
               ),
               TextSpan(
-                text: DateFormat.Hm().format(_currentPrayerTimes.getThirdNightPart),
+                text: DateFormat.Hm()
+                    .format(_currentPrayerTimes.getThirdNightPart),
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: appColors.lastThirdHourColor,

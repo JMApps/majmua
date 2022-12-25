@@ -77,7 +77,7 @@ extension ColorSchemeS on ColorScheme {
 
   Color get prayerTimeSecondActiveCardColor => brightness == Brightness.light
       ? const Color(0xFFFF8A65)
-      : const Color(0xFFFF8A65);
+      : const Color(0xFFFFB74D);
 
   Color get prayerTimeFirstCardColor => brightness == Brightness.light
       ? const Color(0xFF009688)
