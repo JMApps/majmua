@@ -35,12 +35,11 @@ class _CircularPrayerState extends State<CircularPrayer> {
   void initState() {
     _isPrayerTime =
         _restTimes.getMinuteOfDay > widget.previousPrayerTimeValue &&
-            _restTimes.getMinuteOfDay <= widget.currentPrayerTimeValue + 30;
+            _restTimes.getMinuteOfDay <= widget.currentPrayerTimeValue + 60;
     _isRemainingTime =
         _restTimes.getMinuteOfDay > widget.previousPrayerTimeValue &&
             _restTimes.getMinuteOfDay <= widget.currentPrayerTimeValue;
-    _isPastTime =
-        _restTimes.getMinuteOfDay > widget.previousPrayerTimeValue &&
+    _isPastTime = _restTimes.getMinuteOfDay > widget.previousPrayerTimeValue &&
         _restTimes.getMinuteOfDay <= widget.currentPrayerTimeValue;
     super.initState();
   }
@@ -48,53 +47,65 @@ class _CircularPrayerState extends State<CircularPrayer> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           widget.prayerName,
           style: TextStyle(
-            fontSize: 13,
+            fontSize: 12,
             color: _isPrayerTime
                 ? _isPastTime
-                    ? Colors.teal
-                    : Colors.indigo
+                    ? Colors.deepOrange.shade300
+                    : Colors.deepOrange
                 : Colors.black,
           ),
         ),
+        const SizedBox(height: 4),
         Card(
-          elevation: 2,
-          shape: AppStyles.mainCardBorderRadius,
-          child: Card(
-            elevation: 2,
-            color: _isPrayerTime ? Colors.white : Colors.indigo.shade50,
-            shape: RoundedRectangleBorder(
-              borderRadius: AppStyles.mainBorderRadius,
-              side: BorderSide(
-                width: 1.5,
-                color: _isPrayerTime
-                    ? _isPastTime
-                        ? Colors.teal
-                        : Colors.indigo
-                    : Colors.white,
-              ),
-            ),
-            child: Padding(
-              padding: AppStyles.mainPaddingMini,
-              child: Text(
-                DateFormat.Hm().format(widget.prayerTime),
-                style: const TextStyle(
-                  fontSize: 15,
-                ),
+          elevation: 0,
+          margin: EdgeInsets.zero,
+          shape: AppStyles.topCardBorderRadius,
+          color: _isPrayerTime
+              ? _isPastTime
+                  ? Colors.deepOrange.shade300
+                  : Colors.deepOrange
+              : Colors.teal,
+          child: Padding(
+            padding: AppStyles.mainPaddingMini,
+            child: Text(
+              DateFormat.Hm().format(widget.prayerTime).substring(0, 2),
+              style: const TextStyle(
+                fontSize: 16,
+                fontFamily: 'Lato',
+                color: Colors.white,
               ),
             ),
           ),
         ),
+        Card(
+          elevation: 0,
+          margin: EdgeInsets.zero,
+          shape: AppStyles.bottomCardBorderRadius,
+          color: Colors.indigo,
+          child: Padding(
+            padding: AppStyles.mainPaddingMini,
+            child: Text(
+              DateFormat.Hm().format(widget.prayerTime).substring(3),
+              style: const TextStyle(
+                fontSize: 16,
+                fontFamily: 'Lato',
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 4),
         Visibility(
           visible: _isRemainingTime,
           child: Text(
             '-${DateFormat.Hm().format(widget.remainingPrayerTime)}',
             style: const TextStyle(
-              fontSize: 12,
+              fontSize: 13,
+              fontFamily: 'Lato',
             ),
           ),
         ),
@@ -107,10 +118,11 @@ class _CircularPrayerState extends State<CircularPrayer> {
           child: Text(
             DateFormat.Hm().format(widget.pastPrayerTime),
             style: const TextStyle(
-              fontSize: 12,
+              fontSize: 13,
+              fontFamily: 'Lato',
             ),
           ),
-        ),
+        )
       ],
     );
   }
