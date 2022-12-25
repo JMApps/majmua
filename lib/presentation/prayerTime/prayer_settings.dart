@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/state/prayer_parameters_state.dart';
 import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/application/theme/app_themes.dart';
+import 'package:provider/provider.dart';
 
 class RegionSettings extends StatefulWidget {
   const RegionSettings({Key? key}) : super(key: key);
@@ -58,6 +60,15 @@ class _RegionSettingsState extends State<RegionSettings> {
             const Text(
               'Система расчета времени молитв:',
               textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
+            TextButton(
+              onPressed: () {
+                context.read<PrayerParametersState>().setCurrentLatitude = 41.06565675024613;
+                context.read<PrayerParametersState>().setCurrentLongitude = 28.956285291403617;
+                context.read<PrayerParametersState>().setCalculationIndex = 9;
+              },
+              child: const Text('New coordinates'),
             ),
           ],
         ),

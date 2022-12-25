@@ -6,18 +6,31 @@ import 'package:majmua/presentation/prayerTime/circular_prayer.dart';
 import 'package:majmua/presentation/prayerTime/current_prayer_times.dart';
 
 class PrayerTimeContainer extends StatefulWidget {
-  const PrayerTimeContainer({Key? key}) : super(key: key);
+  const PrayerTimeContainer({
+    Key? key,
+    required this.currentLatitude,
+    required this.currentLongitude,
+    required this.calculationIndex,
+  }) : super(key: key);
+
+  final double currentLatitude;
+  final double currentLongitude;
+  final int calculationIndex;
 
   @override
   State<PrayerTimeContainer> createState() => _PrayerTimeContainerState();
 }
 
 class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
-  final CurrentPrayerTimes _currentPrayerTimes = CurrentPrayerTimes();
-  latitude: _mainSettingsBox.get('key', defaultValue: 36.2134290492795),
-  longitude: _mainSettingsBox.get('key', defaultValue: 36.521747813609586),
+  late final CurrentPrayerTimes _currentPrayerTimes;
+
   @override
   void initState() {
+    _currentPrayerTimes = CurrentPrayerTimes(
+      currentLatitude: widget.currentLatitude,
+      currentLongitude: widget.currentLongitude,
+      calculationIndex: widget.calculationIndex,
+    );
     _currentPrayerTimes.initPrayer();
     super.initState();
   }
