@@ -49,12 +49,12 @@ flutter:
 #    - assets/icons/
 #    - assets/surahs/
   fonts:
-    - family: SF
+    - family: Lato
       fonts:
-        - asset: assets/fonts/sf_pro_reqular.ttf
-#    - family: Lateef
-#      fonts:
-#        - asset: assets/fonts/lateef.ttf
+        - asset: assets/fonts/lato.ttf
+    - family: Nexa
+      fonts:
+        - asset: assets/fonts/nexa_reqular.ttf
 #    - family: Gilroy
 #      fonts:
 #        - asset: assets/fonts/gilroy_medium.ttf
