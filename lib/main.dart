@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:majmua/application/contants/app_constants.dart';
+import 'package:majmua/application/constants/app_constants.dart';
 import 'package:majmua/application/root_page.dart';
 
 void main() async {

@@ -17,7 +17,10 @@ class PrayerParameters {
 
   PrayerTimes get getPrayerTimes {
     return PrayerTimes.today(
-      Coordinates(latitude, longitude),
+      Coordinates(
+        latitude,
+        longitude,
+      ),
       calculationMethod.getParameters(),
     );
   }

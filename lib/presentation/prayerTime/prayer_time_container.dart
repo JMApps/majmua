@@ -14,6 +14,13 @@ class PrayerTimeContainer extends StatefulWidget {
 
 class _PrayerTimeContainerState extends State<PrayerTimeContainer> {
   final CurrentPrayerTimes _currentPrayerTimes = CurrentPrayerTimes();
+  latitude: _mainSettingsBox.get('key', defaultValue: 36.2134290492795),
+  longitude: _mainSettingsBox.get('key', defaultValue: 36.521747813609586),
+  @override
+  void initState() {
+    _currentPrayerTimes.initPrayer();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
