@@ -29,10 +29,6 @@ class ColumnItem extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: isLeft ? AppStyles.leftBorderRadius : AppStyles.rightBorderRadius,
-            image: const DecorationImage(
-              fit: BoxFit.fitWidth,
-              image: AssetImage('assets/images/ic_column_item.png'),
-            ),
           ),
           padding: AppStyles.mainPadding,
           child: Text(

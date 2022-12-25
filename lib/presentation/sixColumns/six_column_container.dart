@@ -43,14 +43,14 @@ class SixColumnsContainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: const [
               ColumnItem(
-                title: 'Сура Кахф',
+                title: 'Сура «Аль-Кахф»',
                 isLeft: true,
                 routeName: 'surah_qahf_page',
                 imageName: 'sunrise',
               ),
               SizedBox(height: 8),
               ColumnItem(
-                title: 'Сура Власть',
+                title: 'Сура «Власть»',
                 isLeft: true,
                 routeName: 'surah_milk_page',
                 imageName: 'sunrise',
