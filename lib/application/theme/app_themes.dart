@@ -4,11 +4,17 @@ class AppThemes {
   static final lightTheme = ThemeData(
     primarySwatch: Colors.indigo,
     scaffoldBackgroundColor: const Color(0xFFE8EAF6),
-    fontFamily: 'SF',
+    fontFamily: 'Nexa',
     appBarTheme: const AppBarTheme(
       elevation: 0,
       centerTitle: true,
       backgroundColor: Color(0xFF3F51B5),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.elliptical(35, 20),
+          bottomLeft: Radius.elliptical(35, 20),
+        )
+      ),
     ),
   );
 
