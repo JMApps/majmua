@@ -26,20 +26,7 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
             shape: AppStyles.mainCardBorderRadius,
             child: Container(
               padding: AppStyles.mainPaddingMini,
-              decoration: const BoxDecoration(
-                borderRadius: AppStyles.mainBorderRadius,
-                color: Colors.white,
-                image: DecorationImage(
-                  opacity: 0.075,
-                  fit: BoxFit.fitWidth,
-                  image: AssetImage('assets/images/time.png'),
-                ),
-              ),
-              constraints: const BoxConstraints(
-                minWidth: 110,
-                maxHeight: 110,
-              ),
-              alignment: Alignment.center,
+              height: 120,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -64,55 +51,59 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
         Expanded(
           flex: 2,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Container(
-                decoration: BoxDecoration(
+              Card(
+                elevation: 0,
+                color: Colors.white,
+                margin: EdgeInsets.zero,
+                shape: RoundedRectangleBorder(
                   borderRadius: AppStyles.mainBorderRadius,
-                  color: Colors.white,
-                  border: Border.all(
+                  side: BorderSide(
                     color: _restTimes.dateTime.weekday == 5
                         ? Colors.deepOrange
                         : Colors.teal,
                     width: 1,
                   ),
                 ),
-                constraints: const BoxConstraints(
-                  minWidth: 35,
-                  maxHeight: 35,
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  _restTimes.getNameWeekDay,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: _restTimes.dateTime.weekday == 5
-                        ? Colors.deepOrange
-                        : Colors.teal,
-                    fontWeight: FontWeight.bold,
+                child: Center(
+                  child: SizedBox(
+                    height: 35,
+                    child: Center(
+                      child: Text(
+                        _restTimes.getNameWeekDay,
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: _restTimes.dateTime.weekday == 5
+                              ? Colors.deepOrange
+                              : Colors.teal,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                   ),
                 ),
               ),
               const SizedBox(height: 8),
-              Container(
-                padding: AppStyles.mainPaddingMini,
-                decoration: const BoxDecoration(
-                  borderRadius: AppStyles.mainBorderRadius,
-                  color: Colors.white,
-                ),
-                constraints: const BoxConstraints(
-                  minWidth: 67,
-                  maxHeight: 67,
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  _restTimes.getMessageForSaum,
-                  style: TextStyle(
-                    fontSize: _restTimes.dateTime.weekday == 5 ? 40 : 14,
-                    color: _restTimes.dateTime.weekday == 5
-                        ? Colors.indigo
-                        : Colors.black,
+              Card(
+                elevation: 1,
+                color: Colors.white,
+                margin: EdgeInsets.zero,
+                shape: AppStyles.mainCardBorderRadius,
+                child: SizedBox(
+                  height: 77,
+                  child: Center(
+                    child: Text(
+                      _restTimes.getMessageForSaum,
+                      style: TextStyle(
+                        fontSize: _restTimes.dateTime.weekday == 5 ? 50 : 14,
+                        color: _restTimes.dateTime.weekday == 5
+                            ? Colors.indigo
+                            : Colors.black87,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ),
             ],

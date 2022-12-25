@@ -25,12 +25,14 @@ class CurrentDateItem extends StatelessWidget {
         currentMonth,
         style: const TextStyle(
           fontSize: 16,
+          fontWeight: FontWeight.w700
         ),
       ),
       subtitle: Text(
         '$currentYear год',
         style: const TextStyle(
           fontSize: 16,
+          fontFamily: 'Lato'
         ),
       ),
       leading: CircleAvatar(
@@ -41,6 +43,7 @@ class CurrentDateItem extends StatelessWidget {
           style: const TextStyle(
             fontSize: 14,
             color: Colors.white,
+            fontFamily: 'Lato',
           ),
         ),
       ),
