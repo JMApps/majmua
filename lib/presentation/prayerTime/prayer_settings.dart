@@ -2,29 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:majmua/application/state/country_coordinates_state.dart';
 import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/application/theme/app_themes.dart';
+import 'package:majmua/presentation/prayerTime/calculation_method_container.dart';
 import 'package:majmua/presentation/prayerTime/select_city.dart';
 import 'package:provider/provider.dart';
 
-class RegionSettings extends StatefulWidget {
+class RegionSettings extends StatelessWidget {
   const RegionSettings({Key? key}) : super(key: key);
-
-  @override
-  State<RegionSettings> createState() => _RegionSettingsState();
-}
-
-class _RegionSettingsState extends State<RegionSettings> {
-  final List<String> _calculationMethod = [
-    'Umm al-Qura',
-    'North America – ISNA',
-    'Dubai',
-    'Egyptian',
-    'Karachi',
-    'Kuwait',
-    'Moon sighting committee',
-    'Muslim world league',
-    'Qatar',
-    'Turkey',
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +45,7 @@ class _RegionSettingsState extends State<RegionSettings> {
                     TextSpan(
                       text: countryCoordinationState.getCity,
                       style: TextStyle(
-                        color: appColors.mainTextColor,
+                        color: appColors.secondAppColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                         fontFamily: 'Nexa',
@@ -104,29 +87,7 @@ class _RegionSettingsState extends State<RegionSettings> {
                 ),
               ),
               const SizedBox(height: 8),
-              RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  children: [
-                    TextSpan(
-                      text: 'Метод расчета времени молитв:\n',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.grey.shade700,
-                        fontFamily: 'Nexa',
-                      ),
-                    ),
-                    TextSpan(
-                      text: _calculationMethod[countryCoordinationState.getCalculationMethodIndex],
-                      style: TextStyle(
-                        color: appColors.mainTextColor,
-                        fontSize: 18,
-                        fontFamily: 'Nexa',
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              const CalculationMethodContainer(),
               const SizedBox(height: 8),
               Padding(
                 padding: AppStyles.symmetricHorizontalPadding,
