@@ -10,6 +10,8 @@ class AppRoutes {
           builder: (_) => const PageLibrary(),
         );
       case 'region_settings_page':
+        // final ArgumentsCountySettings argumentsCountySettings =
+        //     routeSettings.arguments as ArgumentsCountySettings;
         return MaterialPageRoute(
           builder: (_) => const RegionSettings(),
         );

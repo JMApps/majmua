@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/application/state/prayer_parameters_state.dart';
+import 'package:majmua/application/state/country_coordinates_state.dart';
 import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/application/theme/app_themes.dart';
+import 'package:majmua/presentation/prayerTime/select_city.dart';
 import 'package:provider/provider.dart';
 
 class RegionSettings extends StatefulWidget {
@@ -12,66 +13,145 @@ class RegionSettings extends StatefulWidget {
 }
 
 class _RegionSettingsState extends State<RegionSettings> {
+  final List<String> _calculationMethod = [
+    'Umm al-Qura',
+    'North America – ISNA',
+    'Dubai',
+    'Egyptian',
+    'Karachi',
+    'Kuwait',
+    'Moon sighting committee',
+    'Muslim world league',
+    'Qatar',
+    'Turkey',
+  ];
+
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Выбор региона'),
+        title: const Text('Выбор города'),
       ),
-      body: SingleChildScrollView(
-        padding: AppStyles.mainPadding,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            RichText(
-              textAlign: TextAlign.center,
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'Текущий город: ',
-                    style: TextStyle(
-                      color: Colors.grey.shade700,
-                      fontSize: 18,
-                      fontFamily: 'Nexa',
+      body: Consumer<CountryCoordinatesState>(
+        builder: (BuildContext context, countryCoordinationState, _) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(height: 8),
+              RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Выбраный город:\n',
+                      style: TextStyle(
+                        color: Colors.grey.shade700,
+                        fontSize: 18,
+                        fontFamily: 'Nexa',
+                      ),
                     ),
-                  ),
-                  TextSpan(
-                    text: 'Турция, ',
-                    style: TextStyle(
-                      color: appColors.mainTextColor,
-                      fontSize: 18,
-                      fontFamily: 'Nexa',
+                    TextSpan(
+                      text: '${countryCoordinationState.getCountry}, ',
+                      style: TextStyle(
+                        color: appColors.mainTextColor,
+                        fontSize: 18,
+                        fontFamily: 'Nexa',
+                      ),
                     ),
-                  ),
-                  TextSpan(
-                    text: 'Стамбул',
-                    style: TextStyle(
-                      color: appColors.mainTextColor,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      fontFamily: 'Nexa',
+                    TextSpan(
+                      text: countryCoordinationState.getCity,
+                      style: TextStyle(
+                        color: appColors.mainTextColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        fontFamily: 'Nexa',
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: 16),
-            const Text(
-              'Система расчета времени молитв:',
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 16),
-            TextButton(
-              onPressed: () {
-                context.read<PrayerParametersState>().setCurrentLatitude = 41.06565675024613;
-                context.read<PrayerParametersState>().setCurrentLongitude = 28.956285291403617;
-                context.read<PrayerParametersState>().setCalculationIndex = 9;
-              },
-              child: const Text('New coordinates'),
-            ),
-          ],
-        ),
+              const SizedBox(height: 8),
+              RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Координаты:\n',
+                      style: TextStyle(
+                        color: Colors.grey.shade700,
+                        fontSize: 18,
+                        fontFamily: 'Nexa',
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'Долгота: ${countryCoordinationState.getLatitude.toStringAsFixed(5)}\n',
+                      style: TextStyle(
+                        color: appColors.mainTextColor,
+                        fontSize: 18,
+                        fontFamily: 'Nexa',
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'Широта: ${countryCoordinationState.getLongitude.toStringAsFixed(5)}',
+                      style: TextStyle(
+                        color: appColors.mainTextColor,
+                        fontSize: 18,
+                        fontFamily: 'Nexa',
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 8),
+              RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Метод расчета времени молитв:\n',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.grey.shade700,
+                        fontFamily: 'Nexa',
+                      ),
+                    ),
+                    TextSpan(
+                      text: _calculationMethod[countryCoordinationState.getCalculationMethodIndex],
+                      style: TextStyle(
+                        color: appColors.mainTextColor,
+                        fontSize: 18,
+                        fontFamily: 'Nexa',
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 8),
+              Padding(
+                padding: AppStyles.symmetricHorizontalPadding,
+                child: MaterialButton(
+                  onPressed: () {
+                    showModalBottomSheet(
+                      backgroundColor: Colors.transparent,
+                      context: context,
+                      builder: (_) => SelectCity(),
+                    );
+                  },
+                  shape: AppStyles.mainCardBorderRadius,
+                  color: appColors.firstAppColor,
+                  child: const Text(
+                    'Выбрать другой город',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
