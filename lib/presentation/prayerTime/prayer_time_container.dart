@@ -1,3 +1,4 @@
+import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:majmua/application/state/country_coordinates_state.dart';
@@ -48,36 +49,48 @@ class PrayerTimeContainer extends StatelessWidget {
                   prayerTime: countryCoordinatesState.getPrayerTime.fajr,
                   previousPrayerTimeValue: countryCoordinatesState.getSecondNightValueInMinutes,
                   currentPrayerTimeValue: countryCoordinatesState.getFajrValueInMinutes,
+                  toPrayerTime: countryCoordinatesState.toPrayerTime(Prayer.fajr),
+                  fromPrayerTime: countryCoordinatesState.fromPrayerTime(Prayer.fajr),
                 ),
                 CircularPrayer(
                   prayerName: 'Восход',
                   prayerTime: countryCoordinatesState.getPrayerTime.sunrise,
                   previousPrayerTimeValue: countryCoordinatesState.getFajrValueInMinutes,
                   currentPrayerTimeValue: countryCoordinatesState.getSunriseValueInMinutes,
+                  toPrayerTime: countryCoordinatesState.toPrayerTime(Prayer.sunrise),
+                  fromPrayerTime: countryCoordinatesState.fromPrayerTime(Prayer.sunrise),
                 ),
                 CircularPrayer(
                   prayerName: 'Зухр',
                   prayerTime: countryCoordinatesState.getPrayerTime.dhuhr,
                   previousPrayerTimeValue: countryCoordinatesState.getSunriseValueInMinutes,
                   currentPrayerTimeValue: countryCoordinatesState.getDhuhrValueInMinutes,
+                  toPrayerTime: countryCoordinatesState.toPrayerTime(Prayer.dhuhr),
+                  fromPrayerTime: countryCoordinatesState.fromPrayerTime(Prayer.dhuhr),
                 ),
                 CircularPrayer(
                   prayerName: 'Аср',
                   prayerTime: countryCoordinatesState.getPrayerTime.asr,
                   previousPrayerTimeValue: countryCoordinatesState.getDhuhrValueInMinutes,
                   currentPrayerTimeValue: countryCoordinatesState.getAsrValueInMinutes,
+                  toPrayerTime: countryCoordinatesState.toPrayerTime(Prayer.asr),
+                  fromPrayerTime: countryCoordinatesState.fromPrayerTime(Prayer.asr),
                 ),
                 CircularPrayer(
                   prayerName: 'Магриб',
                   prayerTime: countryCoordinatesState.getPrayerTime.maghrib,
                   previousPrayerTimeValue: countryCoordinatesState.getAsrValueInMinutes,
                   currentPrayerTimeValue: countryCoordinatesState.getMaghribValueInMinutes,
+                  toPrayerTime: countryCoordinatesState.toPrayerTime(Prayer.maghrib),
+                  fromPrayerTime: countryCoordinatesState.fromPrayerTime(Prayer.maghrib),
                 ),
                 CircularPrayer(
                   prayerName: 'Иша',
                   prayerTime: countryCoordinatesState.getPrayerTime.isha,
                   previousPrayerTimeValue: countryCoordinatesState.getMaghribValueInMinutes,
                   currentPrayerTimeValue: countryCoordinatesState.getIshaValueInMinutes,
+                  toPrayerTime: countryCoordinatesState.toPrayerTime(Prayer.isha),
+                  fromPrayerTime: countryCoordinatesState.fromPrayerTime(Prayer.isha),
                 ),
               ],
             ),

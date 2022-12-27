@@ -11,12 +11,16 @@ class CircularPrayer extends StatefulWidget {
     required this.prayerTime,
     required this.previousPrayerTimeValue,
     required this.currentPrayerTimeValue,
+    required this.toPrayerTime,
+    required this.fromPrayerTime,
   }) : super(key: key);
 
   final String prayerName;
   final DateTime prayerTime;
   final int previousPrayerTimeValue;
   final int currentPrayerTimeValue;
+  final DateTime toPrayerTime;
+  final DateTime fromPrayerTime;
 
   @override
   State<CircularPrayer> createState() => _CircularPrayerState();
@@ -30,21 +34,11 @@ class _CircularPrayerState extends State<CircularPrayer> {
 
   @override
   void initState() {
-    _isPrayerTime =
-        _restTimes.getMinuteOfDay > widget.previousPrayerTimeValue &&
-            _restTimes.getMinuteOfDay <= widget.currentPrayerTimeValue + 30;
-    _isRemainingTime =
-        _restTimes.getMinuteOfDay > widget.previousPrayerTimeValue &&
-            _restTimes.getMinuteOfDay <= widget.currentPrayerTimeValue;
-    _isPastTime = _restTimes.getMinuteOfDay > widget.previousPrayerTimeValue &&
-        _restTimes.getMinuteOfDay <= widget.currentPrayerTimeValue;
+    int currentTime = _restTimes.getMinuteOfDay;
+    _isPrayerTime = currentTime >= widget.currentPrayerTimeValue - 59 && currentTime <= widget.currentPrayerTimeValue + 30;
+    _isRemainingTime = currentTime >= widget.currentPrayerTimeValue - 59 && currentTime <= widget.currentPrayerTimeValue;
+    _isPastTime = currentTime <= widget.currentPrayerTimeValue + 30;
     super.initState();
-  }
-
-  @override
-  void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
-    super.didChangeDependencies();
   }
 
   @override
@@ -56,11 +50,8 @@ class _CircularPrayerState extends State<CircularPrayer> {
           widget.prayerName,
           style: TextStyle(
             fontSize: 12,
-            color: _isPrayerTime
-                ? _isPastTime
-                    ? appColors.prayerTimeSecondActiveCardColor
-                    : appColors.prayerTimeFirstActiveCardColor
-                : appColors.mainTextColor,
+            color: _isPrayerTime ? appColors.thirdAppColor
+                : Theme.of(context).colorScheme.mainTextColor,
           ),
         ),
         const SizedBox(height: 4),
@@ -68,11 +59,8 @@ class _CircularPrayerState extends State<CircularPrayer> {
           elevation: 0,
           margin: EdgeInsets.zero,
           shape: AppStyles.topCardBorderRadius,
-          color: _isPrayerTime
-              ? _isPastTime
-                  ? appColors.prayerTimeSecondActiveCardColor
-                  : appColors.prayerTimeFirstActiveCardColor
-              : appColors.prayerTimeFirstCardColor,
+          color: _isPrayerTime ? appColors.thirdAppColor
+              : appColors.secondAppColor,
           child: Padding(
             padding: AppStyles.mainPaddingMini,
             child: Text(
@@ -103,30 +91,24 @@ class _CircularPrayerState extends State<CircularPrayer> {
           ),
         ),
         const SizedBox(height: 4),
-        // Visibility(
-        //   visible: _isRemainingTime,
-        //   child: Text(
-        //     '-${DateFormat.Hm().format(widget.remainingPrayerTime)}',
-        //     style: const TextStyle(
-        //       fontSize: 13,
-        //       fontFamily: 'Lato',
-        //     ),
-        //   ),
-        // ),
-        // Visibility(
-        //   visible: _isPrayerTime
-        //       ? _isPastTime
-        //           ? false
-        //           : true
-        //       : false,
-        //   child: Text(
-        //     DateFormat.Hm().format(widget.pastPrayerTime),
-        //     style: const TextStyle(
-        //       fontSize: 13,
-        //       fontFamily: 'Lato',
-        //     ),
-        //   ),
-        // )
+        Visibility(
+          visible: _isPrayerTime && _isRemainingTime,
+          child: Text(
+            '-${DateFormat.Hm().format(widget.toPrayerTime).substring(3)}',
+            style: const TextStyle(
+              fontSize: 13,
+            ),
+          ),
+        ),
+        Visibility(
+          visible: !_isRemainingTime && _isPrayerTime && _isPastTime,
+          child: Text(
+            DateFormat.Hm().format(widget.fromPrayerTime).substring(3),
+            style: const TextStyle(
+              fontSize: 13,
+            ),
+          ),
+        )
       ],
     );
   }

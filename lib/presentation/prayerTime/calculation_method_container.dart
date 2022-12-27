@@ -26,7 +26,6 @@ const List<String> _calculationMethod = [
 
 class _CalculationMethodContainerState
     extends State<CalculationMethodContainer> {
-
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
@@ -51,8 +50,8 @@ class _CalculationMethodContainerState
             height: 2,
           ),
           onChanged: (String? value) {
-            context.read<CountryCoordinatesState>().changeCalculationMethod(
-                calculationMethodIndex: _calculationMethod.indexOf(value!));
+            context.read<CountryCoordinatesState>().changeCalculationMethod =
+                _calculationMethod.indexOf(value!);
           },
           items: _calculationMethod.map<DropdownMenuItem<String>>(
             (String value) {

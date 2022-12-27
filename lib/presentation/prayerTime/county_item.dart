@@ -16,9 +16,7 @@ class CountyItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        context.read<CountryCoordinatesState>().changeCountry(
-              item: countryModelItem,
-            );
+        context.read<CountryCoordinatesState>().changeCountry = countryModelItem;
         Navigator.pop(context);
       },
       visualDensity: const VisualDensity(vertical: -2),

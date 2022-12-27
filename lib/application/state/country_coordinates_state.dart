@@ -68,7 +68,7 @@ class CountryCoordinatesState extends ChangeNotifier {
 
   int get getCalculationMethodIndex => _calculationMethodIndex;
 
-  changeCountry({required CountryModel item}) {
+  set changeCountry(CountryModel item) {
     _county = item.country;
     _city = item.city;
     _currentLatitude = item.latitude;
@@ -85,7 +85,7 @@ class CountryCoordinatesState extends ChangeNotifier {
     notifyListeners();
   }
 
-  changeCalculationMethod({required int calculationMethodIndex}) {
+  set changeCalculationMethod(int calculationMethodIndex) {
     _calculationMethodIndex = calculationMethodIndex;
     initWithNewCoordinates(
       currentLatitude: _currentLatitude,
@@ -97,13 +97,32 @@ class CountryCoordinatesState extends ChangeNotifier {
   }
 
   int _prayerValueInMinutes({required DateTime prayerTime}) {
-    final DateTime dateTime = DateTime.now();
-    final DateTime fromZero = DateTime(dateTime.year, dateTime.month, dateTime.day, 0, 0);
+    final DateTime fromZero = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 0);
     final toPrayer = DateTime(prayerTime.year, prayerTime.month, prayerTime.day, prayerTime.hour, prayerTime.minute);
     return toPrayer.difference(fromZero).inMinutes;
   }
 
-  int get getSecondNightValueInMinutes => _prayerValueInMinutes(prayerTime: DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 0));
+  DateTime toPrayerTime(Prayer currentPrayer) {
+    DateTime prayerTime = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, _prayerTime.timeForPrayer(currentPrayer)!.hour, _prayerTime.timeForPrayer(currentPrayer)!.minute,);
+    int valueInMinutes = prayerTime.difference(_dateTime).inMinutes * 60;
+    int hour, minute;
+    hour = valueInMinutes ~/ 3600;
+    minute = ((valueInMinutes - hour * 3600)) ~/ 60;
+    DateTime toPayerTime = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, hour, minute);
+    return toPayerTime;
+  }
+
+  DateTime fromPrayerTime(Prayer currentPrayer) {
+    DateTime prayerTime = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, _prayerTime.timeForPrayer(currentPrayer)!.hour, _prayerTime.timeForPrayer(currentPrayer)!.minute,);
+    int valueInMinutes = (prayerTime.difference(_dateTime).inMinutes + 30) * 60;
+    int hour, minute;
+    hour = valueInMinutes ~/ 3600;
+    minute = ((valueInMinutes - hour * 3600)) ~/ 60;
+    DateTime toPayerTime = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, hour, minute);
+    return toPayerTime;
+  }
+
+  int get getSecondNightValueInMinutes => _prayerValueInMinutes(prayerTime: DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 1));
 
   int get getFajrValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTime.fajr);
 
@@ -119,7 +138,7 @@ class CountryCoordinatesState extends ChangeNotifier {
 
   DateTime get getThirdNightPart {
     double valueThird = ((1440 - getMaghribValueInMinutes + getFajrValueInMinutes) / 3) * 60;
-    double value = (getFajrValueInMinutes.toDouble() * 60) - valueThird;
+    double value = (getFajrValueInMinutes * 60) - valueThird;
     int hour, minute;
     hour = value ~/ 3600;
     minute = ((value - hour * 3600)) ~/ 60;
