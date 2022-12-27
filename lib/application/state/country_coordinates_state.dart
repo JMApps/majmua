@@ -2,6 +2,7 @@ import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/application/constants/app_constants.dart';
+import 'package:majmua/data/database/local/model/country_model.dart';
 
 class CountryCoordinatesState extends ChangeNotifier {
   final _mainSettingsBox = Hive.box(AppConstants.keySettingsPrayerTimeBox);
@@ -15,8 +16,8 @@ class CountryCoordinatesState extends ChangeNotifier {
   late int _calculationMethodIndex;
 
   final List<CalculationMethod> _calculationParameters = [
-    CalculationMethod.north_america,
     CalculationMethod.umm_al_qura,
+    CalculationMethod.north_america,
     CalculationMethod.dubai,
     CalculationMethod.egyptian,
     CalculationMethod.karachi,
@@ -34,14 +35,14 @@ class CountryCoordinatesState extends ChangeNotifier {
     _currentLongitude = _mainSettingsBox.get(AppConstants.keyCurrentLongitude, defaultValue: 39.85797038428307);
     _calculationMethodIndex = _mainSettingsBox.get(AppConstants.keyCalculationIndex, defaultValue: 0);
 
-    initPrayerTimes(
+    initWithNewCoordinates(
       currentLatitude: _currentLatitude,
       currentLongitude: _currentLongitude,
       calculationMethodIndex: _calculationMethodIndex,
     );
   }
 
-  initPrayerTimes({
+  initWithNewCoordinates({
     required double currentLatitude,
     required double currentLongitude,
     required int calculationMethodIndex,
@@ -67,28 +68,31 @@ class CountryCoordinatesState extends ChangeNotifier {
 
   int get getCalculationMethodIndex => _calculationMethodIndex;
 
-  changeCountry({
-    required String county,
-    required String city,
-    required double currentLatitude,
-    required double currentLongitude,
-    required int calculationMethodIndex,
-  }) {
-    _county = county;
-    _city = city;
-    _currentLatitude = currentLatitude;
-    _currentLongitude = currentLongitude;
-    _calculationMethodIndex = calculationMethodIndex;
+  changeCountry({required CountryModel item}) {
+    _county = item.country;
+    _city = item.city;
+    _currentLatitude = item.latitude;
+    _currentLongitude = item.longitude;
     _mainSettingsBox.put(AppConstants.keyCountry, _county);
     _mainSettingsBox.put(AppConstants.keyCity, _city);
     _mainSettingsBox.put(AppConstants.keyCurrentLatitude, _currentLatitude);
     _mainSettingsBox.put(AppConstants.keyCurrentLongitude, _currentLongitude);
-    _mainSettingsBox.put(AppConstants.keyCalculationIndex, _calculationMethodIndex);
-    initPrayerTimes(
-      currentLatitude: currentLatitude,
-      currentLongitude: currentLongitude,
+    initWithNewCoordinates(
+      currentLatitude: item.latitude,
+      currentLongitude: item.longitude,
+      calculationMethodIndex: _calculationMethodIndex,
+    );
+    notifyListeners();
+  }
+
+  changeCalculationMethod({required int calculationMethodIndex}) {
+    _calculationMethodIndex = calculationMethodIndex;
+    initWithNewCoordinates(
+      currentLatitude: _currentLatitude,
+      currentLongitude:_currentLongitude,
       calculationMethodIndex: calculationMethodIndex,
     );
+    _mainSettingsBox.put(AppConstants.keyCalculationIndex, calculationMethodIndex);
     notifyListeners();
   }
 

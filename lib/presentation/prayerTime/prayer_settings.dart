@@ -45,7 +45,7 @@ class RegionSettings extends StatelessWidget {
                     TextSpan(
                       text: countryCoordinationState.getCity,
                       style: TextStyle(
-                        color: appColors.secondAppColor,
+                        color: appColors.mainTextColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                         fontFamily: 'Nexa',

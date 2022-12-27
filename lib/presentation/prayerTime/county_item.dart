@@ -17,11 +17,7 @@ class CountyItem extends StatelessWidget {
     return ListTile(
       onTap: () {
         context.read<CountryCoordinatesState>().changeCountry(
-              county: countryModelItem.country,
-              city: countryModelItem.city,
-              currentLatitude: countryModelItem.latitude,
-              currentLongitude: countryModelItem.longitude,
-              calculationMethodIndex: countryModelItem.calculationIndex,
+              item: countryModelItem,
             );
         Navigator.pop(context);
       },

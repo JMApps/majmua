@@ -4,7 +4,6 @@ class CountryModel {
   final String city;
   final double latitude;
   final double longitude;
-  final int calculationIndex;
 
   CountryModel({
     required this.id,
@@ -12,7 +11,6 @@ class CountryModel {
     required this.city,
     required this.latitude,
     required this.longitude,
-    required this.calculationIndex,
   });
 
   CountryModel.fromMap(dynamic object)
@@ -20,6 +18,5 @@ class CountryModel {
         country = object['county'],
         city = object['city'],
         latitude = object['latitude'],
-        longitude = object['longitude'],
-        calculationIndex = object['calculationIndex'];
+        longitude = object['longitude'];
 }

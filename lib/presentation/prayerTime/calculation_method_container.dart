@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/state/country_coordinates_state.dart';
 import 'package:majmua/application/theme/app_themes.dart';
+import 'package:provider/provider.dart';
 
 class CalculationMethodContainer extends StatefulWidget {
   const CalculationMethodContainer({Key? key}) : super(key: key);
@@ -22,8 +24,9 @@ const List<String> _calculationMethod = [
   'Turkey',
 ];
 
-class _CalculationMethodContainerState extends State<CalculationMethodContainer> {
-  final String _dropdownValue = _calculationMethod.first;
+class _CalculationMethodContainerState
+    extends State<CalculationMethodContainer> {
+
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
@@ -37,17 +40,20 @@ class _CalculationMethodContainerState extends State<CalculationMethodContainer>
           ),
         ),
         DropdownButton<String>(
-          value: _dropdownValue,
+          value: _calculationMethod[context.watch<CountryCoordinatesState>().getCalculationMethodIndex],
           style: TextStyle(
             fontSize: 16,
-            color: appColors.firstAppColor,
+            color: appColors.dotColor,
           ),
           icon: const Icon(Icons.arrow_drop_down_rounded),
           elevation: 16,
           underline: Container(
             height: 2,
           ),
-          onChanged: (String? value) {},
+          onChanged: (String? value) {
+            context.read<CountryCoordinatesState>().changeCalculationMethod(
+                calculationMethodIndex: _calculationMethod.indexOf(value!));
+          },
           items: _calculationMethod.map<DropdownMenuItem<String>>(
             (String value) {
               return DropdownMenuItem<String>(
