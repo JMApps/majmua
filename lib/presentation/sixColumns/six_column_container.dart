@@ -16,7 +16,7 @@ class SixColumnsContainer extends StatelessWidget {
               ColumnItem(
                 title: 'Утром',
                 isLeft: false,
-                routeName: 'day_supplications_page',
+                routeName: 'morning_supplications_page',
                 imageName: 'sunrise.jpg',
               ),
               SizedBox(height: 8),

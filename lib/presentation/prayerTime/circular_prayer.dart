@@ -77,7 +77,7 @@ class _CircularPrayerState extends State<CircularPrayer> {
           elevation: 0,
           margin: EdgeInsets.zero,
           shape: AppStyles.bottomCardBorderRadius,
-          color: appColors.prayerTimeSecondCardColor,
+          color: appColors.firstAppColor,
           child: Padding(
             padding: AppStyles.mainPaddingMini,
             child: Text(
