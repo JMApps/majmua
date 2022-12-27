@@ -112,7 +112,7 @@ class _FridayContainerState extends State<FridayContainer> {
                 count: _fridayContentList.length,
                 effect: CustomizableEffect(
                   activeDotDecoration: DotDecoration(
-                    color: appColors.dotColor,
+                    color: appColors.firstAppColor,
                     dotBorder: DotBorder(
                       padding: 3,
                       color: appColors.secondAppColor,

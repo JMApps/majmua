@@ -42,7 +42,7 @@ class _CalculationMethodContainerState
           value: _calculationMethod[context.watch<CountryCoordinatesState>().getCalculationMethodIndex],
           style: TextStyle(
             fontSize: 16,
-            color: appColors.dotColor,
+            color: appColors.firstThirdColor,
           ),
           icon: const Icon(Icons.arrow_drop_down_rounded),
           elevation: 16,

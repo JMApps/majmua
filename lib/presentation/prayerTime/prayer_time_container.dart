@@ -103,7 +103,7 @@ class PrayerTimeContainer extends StatelessWidget {
                     text: DateFormat.Hm().format(countryCoordinatesState.getThirdNightPart),
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: appColors.lastThirdHourColor,
+                      color: appColors.firstThirdColor,
                       fontFamily: 'Nexa',
                     ),
                   ),

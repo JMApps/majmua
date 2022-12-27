@@ -26,7 +26,9 @@ class ColumnItem extends StatelessWidget {
           ? AppStyles.leftCardBorderRadius
           : AppStyles.rightCardBorderRadius,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, routeName);
+        },
         borderRadius:
             isLeft ? AppStyles.leftBorderRadius : AppStyles.rightBorderRadius,
         child: Container(

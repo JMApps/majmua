@@ -63,6 +63,14 @@ extension ColorSchemeS on ColorScheme {
       ? const Color(0xFFFF5722)
       : const Color(0xFFFF9800);
 
+  Color get firstThirdColor => brightness == Brightness.light
+      ? const Color(0xFF3F51B5)
+      : const Color(0xFFFF9800);
+
+  Color get secondThirdColor => brightness == Brightness.light
+      ? const Color(0xFF009688)
+      : const Color(0xFFFF9800);
+
   Color get mainTextColor => brightness == Brightness.light
       ? const Color(0xFF171821)
       : const Color(0xBEFFFFFF);
@@ -71,31 +79,7 @@ extension ColorSchemeS on ColorScheme {
       ? const Color(0xFFFFFFFF)
       : const Color(0xFF232433);
 
-  Color get prayerTimeFirstActiveCardColor => brightness == Brightness.light
-      ? const Color(0xFFFF5722)
-      : const Color(0xFFFF9800);
-
-  Color get prayerTimeSecondActiveCardColor => brightness == Brightness.light
-      ? const Color(0xFFFF8A65)
-      : const Color(0xFFFFB74D);
-
-  Color get prayerTimeFirstCardColor => brightness == Brightness.light
-      ? const Color(0xFF009688)
-      : const Color(0xFF00695C);
-
-  Color get prayerTimeSecondCardColor => brightness == Brightness.light
-      ? const Color(0xFF3F51B5)
-      : const Color(0xFF303F9F);
-
-  Color get lastThirdHourColor => brightness == Brightness.light
-      ? const Color(0xFF3F51B5)
-      : const Color(0xFFFF9800);
-
   Color get weekDaysColor => brightness == Brightness.light
       ? const Color(0xFF009688)
       : const Color(0xFF7986CB);
-
-  Color get dotColor => brightness == Brightness.light
-      ? const Color(0xFF3F51B5)
-      : const Color(0xFFFF9800);
 }
