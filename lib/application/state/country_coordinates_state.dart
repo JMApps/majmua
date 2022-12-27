@@ -56,6 +56,22 @@ class CountryCoordinatesState extends ChangeNotifier {
     );
   }
 
+  int _prayerValueInMinutes({required DateTime prayerTime}) {
+    final DateTime fromZero = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 0);
+    final toPrayer = DateTime(prayerTime.year, prayerTime.month, prayerTime.day, prayerTime.hour, prayerTime.minute);
+    return toPrayer.difference(fromZero).inMinutes;
+  }
+
+  DateTime toPrayerTime(Prayer currentPrayer) {
+    final DateTime toPrayerTime = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, _prayerTime.timeForPrayer(currentPrayer)!.hour, _prayerTime.timeForPrayer(currentPrayer)!.minute);
+    int value = _dateTime.difference(toPrayerTime).inMinutes * 60;
+    int hour, minute;
+    hour = value ~/ 3600;
+    minute = ((value - hour * 3600)) ~/ 60;
+    DateTime result = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, hour, minute);
+    return result;
+  }
+
   PrayerTimes get getPrayerTime => _prayerTime;
 
   String get getCountry => _county;
@@ -94,32 +110,6 @@ class CountryCoordinatesState extends ChangeNotifier {
     );
     _mainSettingsBox.put(AppConstants.keyCalculationIndex, calculationMethodIndex);
     notifyListeners();
-  }
-
-  int _prayerValueInMinutes({required DateTime prayerTime}) {
-    final DateTime fromZero = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 0);
-    final toPrayer = DateTime(prayerTime.year, prayerTime.month, prayerTime.day, prayerTime.hour, prayerTime.minute);
-    return toPrayer.difference(fromZero).inMinutes;
-  }
-
-  DateTime toPrayerTime(Prayer currentPrayer) {
-    DateTime prayerTime = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, _prayerTime.timeForPrayer(currentPrayer)!.hour, _prayerTime.timeForPrayer(currentPrayer)!.minute,);
-    int valueInMinutes = prayerTime.difference(_dateTime).inMinutes * 60;
-    int hour, minute;
-    hour = valueInMinutes ~/ 3600;
-    minute = ((valueInMinutes - hour * 3600)) ~/ 60;
-    DateTime toPayerTime = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, hour, minute);
-    return toPayerTime;
-  }
-
-  DateTime fromPrayerTime(Prayer currentPrayer) {
-    DateTime prayerTime = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, _prayerTime.timeForPrayer(currentPrayer)!.hour, _prayerTime.timeForPrayer(currentPrayer)!.minute,);
-    int valueInMinutes = (_dateTime.difference(prayerTime).inMinutes + 30) * 60;
-    int hour, minute;
-    hour = valueInMinutes ~/ 3600;
-    minute = ((valueInMinutes - hour * 3600)) ~/ 60;
-    DateTime toPayerTime = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, hour, minute);
-    return toPayerTime;
   }
 
   int get getSecondNightValueInMinutes => _prayerValueInMinutes(prayerTime: DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 1));

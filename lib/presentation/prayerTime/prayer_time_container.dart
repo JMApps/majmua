@@ -50,7 +50,6 @@ class PrayerTimeContainer extends StatelessWidget {
                   previousPrayerTimeValue: countryCoordinatesState.getSecondNightValueInMinutes,
                   currentPrayerTimeValue: countryCoordinatesState.getFajrValueInMinutes,
                   toPrayerTime: countryCoordinatesState.toPrayerTime(Prayer.fajr),
-                  fromPrayerTime: countryCoordinatesState.fromPrayerTime(Prayer.fajr),
                 ),
                 CircularPrayer(
                   prayerName: 'Восход',
@@ -58,7 +57,6 @@ class PrayerTimeContainer extends StatelessWidget {
                   previousPrayerTimeValue: countryCoordinatesState.getFajrValueInMinutes,
                   currentPrayerTimeValue: countryCoordinatesState.getSunriseValueInMinutes,
                   toPrayerTime: countryCoordinatesState.toPrayerTime(Prayer.sunrise),
-                  fromPrayerTime: countryCoordinatesState.fromPrayerTime(Prayer.sunrise),
                 ),
                 CircularPrayer(
                   prayerName: 'Зухр',
@@ -66,7 +64,6 @@ class PrayerTimeContainer extends StatelessWidget {
                   previousPrayerTimeValue: countryCoordinatesState.getSunriseValueInMinutes,
                   currentPrayerTimeValue: countryCoordinatesState.getDhuhrValueInMinutes,
                   toPrayerTime: countryCoordinatesState.toPrayerTime(Prayer.dhuhr),
-                  fromPrayerTime: countryCoordinatesState.fromPrayerTime(Prayer.dhuhr),
                 ),
                 CircularPrayer(
                   prayerName: 'Аср',
@@ -74,7 +71,6 @@ class PrayerTimeContainer extends StatelessWidget {
                   previousPrayerTimeValue: countryCoordinatesState.getDhuhrValueInMinutes,
                   currentPrayerTimeValue: countryCoordinatesState.getAsrValueInMinutes,
                   toPrayerTime: countryCoordinatesState.toPrayerTime(Prayer.asr),
-                  fromPrayerTime: countryCoordinatesState.fromPrayerTime(Prayer.asr),
                 ),
                 CircularPrayer(
                   prayerName: 'Магриб',
@@ -82,7 +78,6 @@ class PrayerTimeContainer extends StatelessWidget {
                   previousPrayerTimeValue: countryCoordinatesState.getAsrValueInMinutes,
                   currentPrayerTimeValue: countryCoordinatesState.getMaghribValueInMinutes,
                   toPrayerTime: countryCoordinatesState.toPrayerTime(Prayer.maghrib),
-                  fromPrayerTime: countryCoordinatesState.fromPrayerTime(Prayer.maghrib),
                 ),
                 CircularPrayer(
                   prayerName: 'Иша',
@@ -90,7 +85,6 @@ class PrayerTimeContainer extends StatelessWidget {
                   previousPrayerTimeValue: countryCoordinatesState.getMaghribValueInMinutes,
                   currentPrayerTimeValue: countryCoordinatesState.getIshaValueInMinutes,
                   toPrayerTime: countryCoordinatesState.toPrayerTime(Prayer.isha),
-                  fromPrayerTime: countryCoordinatesState.fromPrayerTime(Prayer.isha),
                 ),
               ],
             ),

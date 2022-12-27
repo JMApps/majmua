@@ -12,7 +12,6 @@ class CircularPrayer extends StatefulWidget {
     required this.previousPrayerTimeValue,
     required this.currentPrayerTimeValue,
     required this.toPrayerTime,
-    required this.fromPrayerTime,
   }) : super(key: key);
 
   final String prayerName;
@@ -20,7 +19,6 @@ class CircularPrayer extends StatefulWidget {
   final int previousPrayerTimeValue;
   final int currentPrayerTimeValue;
   final DateTime toPrayerTime;
-  final DateTime fromPrayerTime;
 
   @override
   State<CircularPrayer> createState() => _CircularPrayerState();
@@ -29,15 +27,15 @@ class CircularPrayer extends StatefulWidget {
 class _CircularPrayerState extends State<CircularPrayer> {
   final RestTimes _restTimes = RestTimes();
   late final bool _isPrayerTime;
-  late final bool _isPastTime;
   late final bool _isRemainingTime;
+  late final bool _isPastTime;
 
   @override
   void initState() {
     int currentTime = _restTimes.getMinuteOfDay;
-    _isPrayerTime = currentTime >= widget.currentPrayerTimeValue - 59 && currentTime <= widget.currentPrayerTimeValue + 30;
-    _isRemainingTime = currentTime >= widget.currentPrayerTimeValue - 59 && currentTime <= widget.currentPrayerTimeValue;
-    _isPastTime = currentTime <= widget.currentPrayerTimeValue + 30;
+    _isPrayerTime = currentTime > widget.currentPrayerTimeValue - 60 && currentTime < widget.currentPrayerTimeValue + 31;
+    _isRemainingTime = currentTime > widget.currentPrayerTimeValue - 60 && currentTime < widget.currentPrayerTimeValue;
+    _isPastTime = currentTime > widget.currentPrayerTimeValue && currentTime < widget.currentPrayerTimeValue + 31;
     super.initState();
   }
 
@@ -50,7 +48,8 @@ class _CircularPrayerState extends State<CircularPrayer> {
           widget.prayerName,
           style: TextStyle(
             fontSize: 12,
-            color: _isPrayerTime ? appColors.thirdAppColor
+            color: _isPrayerTime
+                ? appColors.thirdAppColor
                 : Theme.of(context).colorScheme.mainTextColor,
           ),
         ),
@@ -59,7 +58,8 @@ class _CircularPrayerState extends State<CircularPrayer> {
           elevation: 0,
           margin: EdgeInsets.zero,
           shape: AppStyles.topCardBorderRadius,
-          color: _isPrayerTime ? appColors.thirdAppColor
+          color: _isPrayerTime
+              ? appColors.thirdAppColor
               : appColors.secondAppColor,
           child: Padding(
             padding: AppStyles.mainPaddingMini,
@@ -94,21 +94,21 @@ class _CircularPrayerState extends State<CircularPrayer> {
         Visibility(
           visible: _isPrayerTime && _isRemainingTime,
           child: Text(
-            '-${DateFormat.Hm().format(widget.toPrayerTime).substring(3)}',
+            '-${DateFormat.m().format(widget.toPrayerTime)}',
             style: const TextStyle(
               fontSize: 13,
             ),
           ),
         ),
         Visibility(
-          visible: !_isRemainingTime && _isPrayerTime && _isPastTime,
+          visible: _isPrayerTime && _isPastTime,
           child: Text(
-            DateFormat.Hm().format(widget.fromPrayerTime).substring(3),
+            DateFormat.m().format(widget.toPrayerTime),
             style: const TextStyle(
               fontSize: 13,
             ),
           ),
-        )
+        ),
       ],
     );
   }
