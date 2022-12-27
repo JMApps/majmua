@@ -114,7 +114,7 @@ class CountryCoordinatesState extends ChangeNotifier {
 
   DateTime fromPrayerTime(Prayer currentPrayer) {
     DateTime prayerTime = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, _prayerTime.timeForPrayer(currentPrayer)!.hour, _prayerTime.timeForPrayer(currentPrayer)!.minute,);
-    int valueInMinutes = (prayerTime.difference(_dateTime).inMinutes + 30) * 60;
+    int valueInMinutes = (_dateTime.difference(prayerTime).inMinutes + 30) * 60;
     int hour, minute;
     hour = valueInMinutes ~/ 3600;
     minute = ((valueInMinutes - hour * 3600)) ~/ 60;
