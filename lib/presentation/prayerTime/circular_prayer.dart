@@ -35,9 +35,12 @@ class _CircularPrayerState extends State<CircularPrayer> {
   @override
   void initState() {
     int currentTime = _restTimes.getMinuteOfDay;
-    _isPrayerTime = currentTime > widget.currentPrayerTimeValue - 60 && currentTime < widget.currentPrayerTimeValue + 31;
-    _isRemainingTime = currentTime > widget.currentPrayerTimeValue - 60 && currentTime < widget.currentPrayerTimeValue;
-    _isPastTime = currentTime > widget.currentPrayerTimeValue && currentTime < widget.currentPrayerTimeValue + 31;
+    _isPrayerTime = currentTime >= widget.currentPrayerTimeValue - 59 &&
+        currentTime <= widget.currentPrayerTimeValue + 30;
+    _isRemainingTime = currentTime >= widget.currentPrayerTimeValue - 59 &&
+        currentTime < widget.currentPrayerTimeValue;
+    _isPastTime = currentTime >= widget.currentPrayerTimeValue + 1 &&
+        currentTime <= widget.currentPrayerTimeValue + 30;
     super.initState();
   }
 
@@ -52,7 +55,8 @@ class _CircularPrayerState extends State<CircularPrayer> {
             fontSize: 12,
             color: _isPrayerTime
                 ? appColors.thirdAppColor
-                : Theme.of(context).colorScheme.mainTextColor,
+                : appColors.mainTextColor,
+            fontWeight: _isPrayerTime ? FontWeight.bold : FontWeight.normal,
           ),
         ),
         const SizedBox(height: 4),
@@ -97,17 +101,20 @@ class _CircularPrayerState extends State<CircularPrayer> {
           visible: _isPrayerTime && _isRemainingTime,
           child: Text(
             '-${DateFormat.m().format(widget.fromPrayerTime)}',
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 13,
+              color: appColors.mainTextColor,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),
         Visibility(
-          visible: _isPastTime && _isPastTime,
+          visible: _isPrayerTime && _isPastTime,
           child: Text(
             DateFormat.m().format(widget.toPrayerTime),
             style: const TextStyle(
               fontSize: 13,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),
