@@ -1,16 +1,18 @@
 class SupplicationModel {
   final int id;
-  String? contentArabic;
+  final String contentArabic;
   String? contentTranscription;
   final String contentTranslation;
   final String contentForCopyAndShare;
-  String? nameAudio;
+  final String nameAudio;
+  int? count;
 
   SupplicationModel.fromMap(dynamic object)
-      : id = object['_id'],
-        contentArabic = object['content_arabic'],
-        contentTranscription = object['content_transcription'],
-        contentTranslation = object['content_translation'],
-        contentForCopyAndShare = object['content_for_copy_and_share'],
-        nameAudio = object['name_audio'];
+      : id = object['id'],
+        contentArabic = object['supplication_arabic'],
+        contentTranscription = object['supplication_transcription'],
+        contentTranslation = object['supplication_translation'],
+        contentForCopyAndShare = object['supplication_for_share'],
+        nameAudio = object['name_audio'],
+        count = object['count'];
 }

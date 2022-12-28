@@ -11,9 +11,23 @@ class SupplicationsQuery {
   final SupplicationsDatabaseHelper _supplicationsDatabaseHelper =
       SupplicationsDatabaseHelper();
 
-  Future<List<SupplicationModel>> getAllSupplications() async {
+  Future<List<SupplicationModel>> getAllMorningSupplications() async {
     var dbClient = await _supplicationsDatabaseHelper.db;
     var res = await dbClient.query('Table_of_morning_supplications');
+    List<SupplicationModel>? morningSupplications = res.isNotEmpty ? res.map((c) => SupplicationModel.fromMap(c)).toList() : null;
+    return morningSupplications!;
+  }
+
+  Future<List<SupplicationModel>> getAllEveningSupplications() async {
+    var dbClient = await _supplicationsDatabaseHelper.db;
+    var res = await dbClient.query('Table_of_evening_supplications');
+    List<SupplicationModel>? morningSupplications = res.isNotEmpty ? res.map((c) => SupplicationModel.fromMap(c)).toList() : null;
+    return morningSupplications!;
+  }
+
+  Future<List<SupplicationModel>> getAllNightSupplications() async {
+    var dbClient = await _supplicationsDatabaseHelper.db;
+    var res = await dbClient.query('Table_of_night_supplications');
     List<SupplicationModel>? morningSupplications = res.isNotEmpty ? res.map((c) => SupplicationModel.fromMap(c)).toList() : null;
     return morningSupplications!;
   }

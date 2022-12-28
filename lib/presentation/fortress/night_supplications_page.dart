@@ -4,15 +4,14 @@ import 'package:majmua/presentation/fortress/bottom_smooth_indicator.dart';
 import 'package:majmua/presentation/fortress/bottom_supplication_card.dart';
 import 'package:majmua/presentation/fortress/supplication_item.dart';
 
-class MorningSupplicationsPage extends StatefulWidget {
-  const MorningSupplicationsPage({Key? key}) : super(key: key);
+class NightSupplicationsPage extends StatefulWidget {
+  const NightSupplicationsPage({Key? key}) : super(key: key);
 
   @override
-  State<MorningSupplicationsPage> createState() =>
-      _MorningSupplicationsPageState();
+  State<NightSupplicationsPage> createState() => _NightSupplicationsPageState();
 }
 
-class _MorningSupplicationsPageState extends State<MorningSupplicationsPage> {
+class _NightSupplicationsPageState extends State<NightSupplicationsPage> {
   final PageController _controller = PageController(initialPage: 0);
   final SupplicationsQuery _supplicationsQuery = SupplicationsQuery();
 
@@ -20,10 +19,10 @@ class _MorningSupplicationsPageState extends State<MorningSupplicationsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Утром'),
+        title: const Text('Перед сном'),
       ),
       body: FutureBuilder(
-        future: _supplicationsQuery.getAllMorningSupplications(),
+        future: _supplicationsQuery.getAllNightSupplications(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           return snapshot.hasData
               ? Column(
