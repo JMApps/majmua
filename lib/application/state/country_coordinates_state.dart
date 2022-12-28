@@ -72,6 +72,16 @@ class CountryCoordinatesState extends ChangeNotifier {
     return result;
   }
 
+  DateTime fromPrayerTime(Prayer currentPrayer) {
+    final DateTime toPrayerTime = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, _prayerTime.timeForPrayer(currentPrayer)!.hour, _prayerTime.timeForPrayer(currentPrayer)!.minute);
+    int value = toPrayerTime.difference(_dateTime).inMinutes * 60;
+    int hour, minute;
+    hour = value ~/ 3600;
+    minute = ((value - hour * 3600)) ~/ 60;
+    DateTime result = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, hour, minute);
+    return result;
+  }
+
   PrayerTimes get getPrayerTime => _prayerTime;
 
   String get getCountry => _county;

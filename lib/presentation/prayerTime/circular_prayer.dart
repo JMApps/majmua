@@ -12,6 +12,7 @@ class CircularPrayer extends StatefulWidget {
     required this.previousPrayerTimeValue,
     required this.currentPrayerTimeValue,
     required this.toPrayerTime,
+    required this.fromPrayerTime,
   }) : super(key: key);
 
   final String prayerName;
@@ -19,6 +20,7 @@ class CircularPrayer extends StatefulWidget {
   final int previousPrayerTimeValue;
   final int currentPrayerTimeValue;
   final DateTime toPrayerTime;
+  final DateTime fromPrayerTime;
 
   @override
   State<CircularPrayer> createState() => _CircularPrayerState();
@@ -94,14 +96,14 @@ class _CircularPrayerState extends State<CircularPrayer> {
         Visibility(
           visible: _isPrayerTime && _isRemainingTime,
           child: Text(
-            '-${DateFormat.m().format(widget.toPrayerTime)}',
+            '-${DateFormat.m().format(widget.fromPrayerTime)}',
             style: const TextStyle(
               fontSize: 13,
             ),
           ),
         ),
         Visibility(
-          visible: _isPrayerTime && _isPastTime,
+          visible: _isPastTime && _isPastTime,
           child: Text(
             DateFormat.m().format(widget.toPrayerTime),
             style: const TextStyle(
