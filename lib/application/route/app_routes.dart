@@ -4,6 +4,9 @@ import 'package:majmua/presentation/fortress/morning_supplications_page.dart';
 import 'package:majmua/presentation/fortress/night_supplications_page.dart';
 import 'package:majmua/presentation/pages/page_library.dart';
 import 'package:majmua/presentation/prayerTime/prayer_settings.dart';
+import 'package:majmua/presentation/quran/surah_mulk_page.dart';
+import 'package:majmua/presentation/quran/surah_qahf_page.dart';
+import 'package:majmua/presentation/quran/surah_sajdah_page.dart';
 
 class AppRoutes {
   static Route appGeneratorRoute(RouteSettings routeSettings) {
@@ -27,6 +30,18 @@ class AppRoutes {
       case 'night_supplications_page':
         return MaterialPageRoute(
           builder: (_) => const NightSupplicationsPage(),
+        );
+      case 'surah_qahf_page':
+        return MaterialPageRoute(
+          builder: (_) => const SurahQahfPage(),
+        );
+      case 'surah_sajdah_page':
+        return MaterialPageRoute(
+          builder: (_) => const SurahSajdahPage(),
+        );
+      case 'surah_mulk_page':
+        return MaterialPageRoute(
+          builder: (_) => const SurahMulkPage(),
         );
       default:
         throw Exception(

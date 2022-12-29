@@ -46,7 +46,7 @@ flutter:
     - assets/databases/
     - assets/images/
     - assets/fonts/
-#    - assets/icons/
+    - assets/quran/
 #    - assets/surahs/
   fonts:
     - family: Lato
