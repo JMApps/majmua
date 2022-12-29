@@ -1,10 +1,10 @@
 class RaqaiqModel {
   final int id;
-  final String titleChapter;
+  final String chapterTitle;
   final String chapterContent;
 
   RaqaiqModel.fromMap(dynamic object)
       : id = object['id'],
-        titleChapter = object['title_chapter'],
+        chapterTitle = object['chapter_title'],
         chapterContent = object['chapter_content'];
 }
