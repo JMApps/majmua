@@ -20,16 +20,16 @@ class FridayItem extends StatelessWidget {
       shape: AppStyles.mainCardBorderRadius,
       child: Container(
         alignment: Alignment.center,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           borderRadius: AppStyles.mainBorderRadius,
           image: DecorationImage(
             fit: BoxFit.fitWidth,
             opacity: 0.075,
             colorFilter: ColorFilter.mode(
-              Colors.indigo,
+              appColors.firstAppColor,
               BlendMode.srcATop,
             ),
-            image: AssetImage(
+            image: const AssetImage(
               'assets/images/background_item.png',
             ),
           ),
@@ -48,8 +48,9 @@ class FridayItem extends StatelessWidget {
           ),
           subtitle: Text(
             item.contentSunnah,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 16,
+              color: appColors.mainTextColor,
             ),
             textAlign: TextAlign.center,
           ),

@@ -67,7 +67,7 @@ class _FridayContainerState extends State<FridayContainer> {
       id: 10,
       numberSunnah: 'Сунна 10',
       contentSunnah:
-          'Совершить 4 ракаата, 2 по 2, после джума в мечети или 2 ракаата дома',
+          'Совершить 4 ракаата, (2 по 2), после джума в мечети или 2 ракаата дома',
     ),
     ModelFriday(
       id: 11,
@@ -82,7 +82,7 @@ class _FridayContainerState extends State<FridayContainer> {
     ModelFriday(
       id: 13,
       numberSunnah: 'Сунна 13',
-      contentSunnah: 'Сделать дуа в последний час пятницы\nчас до магриба',
+      contentSunnah: 'Сделать дуа в последний час пятницы\n(час до магриба)',
     ),
   ];
 
