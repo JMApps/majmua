@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:majmua/presentation/fortress/evening_supplications_page.dart';
 import 'package:majmua/presentation/fortress/morning_supplications_page.dart';
 import 'package:majmua/presentation/fortress/night_supplications_page.dart';
+import 'package:majmua/presentation/library/hadeeth/hadeeth_page.dart';
+import 'package:majmua/presentation/library/lessons/lessons_ramadan_page.dart';
+import 'package:majmua/presentation/library/library_page.dart';
+import 'package:majmua/presentation/library/namesOf/names_of_page.dart';
+import 'package:majmua/presentation/library/questions/questions_page.dart';
+import 'package:majmua/presentation/library/raqaiq/raqaiq_page.dart';
 import 'package:majmua/presentation/pages/page_library.dart';
 import 'package:majmua/presentation/prayerTime/prayer_settings.dart';
 import 'package:majmua/presentation/quran/surah_mulk_page.dart';
@@ -47,6 +53,30 @@ class AppRoutes {
       case 'sfq_page':
         return MaterialPageRoute(
           builder: (_) => const SfqPage(),
+        );
+      case 'library_page':
+        return MaterialPageRoute(
+          builder: (_) => const LibraryPage(),
+        );
+      case 'names_of_page':
+        return MaterialPageRoute(
+          builder: (_) => const NamesOfPage(),
+        );
+      case 'questions_page':
+        return MaterialPageRoute(
+          builder: (_) => const QuestionsPage(),
+        );
+      case 'hadeeth_page':
+        return MaterialPageRoute(
+          builder: (_) => const HadeethPage(),
+        );
+      case 'lessons_ramadan_page':
+        return MaterialPageRoute(
+          builder: (_) => const LessonsRamadanPage(),
+        );
+      case 'raqaiq_page':
+        return MaterialPageRoute(
+          builder: (_) => const RaqaiqPage(),
         );
       default:
         throw Exception(
