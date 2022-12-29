@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/pages_scroll_state.dart';
 import 'package:majmua/data/database/local/service/questions_query.dart';
-import 'package:majmua/presentation/library/questions/question_card.dart';
+import 'package:majmua/presentation/library/questions/question_item.dart';
 import 'package:majmua/presentation/library/questions/questions_smooth_indicator.dart';
 import 'package:provider/provider.dart';
 
