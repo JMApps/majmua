@@ -43,6 +43,19 @@ class SupplicationItem extends StatelessWidget {
                   textDirection: TextDirection.rtl,
                 ),
                 const SizedBox(height: 12),
+                item.contentTranscription != null
+                    ? Text(
+                        item.contentTranscription!,
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.grey.shade600,
+                        ),
+                        textDirection: TextDirection.ltr,
+                      )
+                    : const SizedBox(),
+                item.contentTranscription != null
+                    ? const SizedBox(height: 16)
+                    : const SizedBox(),
                 Html(
                   data: item.contentTranslation,
                   style: {
@@ -108,18 +121,21 @@ class SupplicationItem extends StatelessWidget {
                 item.count != null
                     ? Consumer<FortressCounterCounter>(
                         builder: (BuildContext context, fortressState, _) {
-                          return Visibility(
-                            visible: fortressState.getCounterButtonIsShow,
-                            child: FloatingActionButton.large(
-                              elevation: 0,
-                              onPressed: () {
-                                fortressState.decrement();
-                              },
-                              child: Text(
-                                '${fortressState.getCount}',
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
+                          return AnimatedSize(
+                            duration: const Duration(milliseconds: 750),
+                            child: Visibility(
+                              visible: fortressState.getCounterButtonIsShow,
+                              child: FloatingActionButton.large(
+                                elevation: 0,
+                                onPressed: () {
+                                  fortressState.decrement();
+                                },
+                                child: Text(
+                                  '${fortressState.getCount}',
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
