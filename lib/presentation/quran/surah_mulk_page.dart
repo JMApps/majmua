@@ -11,9 +11,9 @@ class SurahMulkPage extends StatefulWidget {
 
 class _SurahMulkPageState extends State<SurahMulkPage> {
   final List<String> _quranPageNames = [
-    'page415',
-    'page416',
-    'page417',
+    'page562',
+    'page563',
+    'page564',
   ];
 
   @override

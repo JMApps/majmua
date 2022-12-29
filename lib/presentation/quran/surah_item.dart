@@ -15,10 +15,12 @@ class SurahItem extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: AppStyles.mainBorderRadius,
         image: DecorationImage(
-          fit: BoxFit.scaleDown,
+          fit: BoxFit.fitWidth,
           colorFilter: ColorFilter.mode(
             appColors.mainTextColor,
-            BlendMode.srcATop,
+            Theme.of(context).brightness == Brightness.light
+                ? BlendMode.dstIn
+                : BlendMode.srcIn,
           ),
           image: AssetImage('assets/quran/$surahPageName.png'),
         ),

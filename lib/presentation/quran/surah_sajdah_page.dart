@@ -11,9 +11,9 @@ class SurahSajdahPage extends StatefulWidget {
 
 class _SurahSajdahPageState extends State<SurahSajdahPage> {
   final List<String> _quranPageNames = [
-    'page562',
-    'page563',
-    'page564',
+    'page415',
+    'page416',
+    'page417',
   ];
 
   @override
