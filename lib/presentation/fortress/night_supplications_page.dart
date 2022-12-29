@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/application/state/fortress_pages_scroll_state.dart';
+import 'package:majmua/application/state/pages_scroll_state.dart';
 import 'package:majmua/data/database/local/service/supplications_query.dart';
 import 'package:majmua/presentation/fortress/bottom_smooth_indicator.dart';
 import 'package:majmua/presentation/fortress/bottom_supplication_card.dart';
@@ -20,8 +20,8 @@ class _NightSupplicationsPageState extends State<NightSupplicationsPage> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<FortressPagesScrollState>(
-          create: (_) => FortressPagesScrollState(),
+        ChangeNotifierProvider<PagesScrollState>(
+          create: (_) => PagesScrollState(),
         ),
       ],
       child: Scaffold(
@@ -32,7 +32,7 @@ class _NightSupplicationsPageState extends State<NightSupplicationsPage> {
           future: _supplicationsQuery.getAllNightSupplications(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             return snapshot.hasData
-                ? Consumer<FortressPagesScrollState>(
+                ? Consumer<PagesScrollState>(
                     builder: (BuildContext context, scrollState, _) {
                       return Column(
                         children: [

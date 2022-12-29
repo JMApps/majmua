@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/application/state/questions_pages_scroll_state.dart';
+import 'package:majmua/application/state/pages_scroll_state.dart';
 import 'package:majmua/data/database/local/service/questions_query.dart';
 import 'package:majmua/presentation/library/questions/question_card.dart';
 import 'package:majmua/presentation/library/questions/questions_smooth_indicator.dart';
@@ -19,15 +19,15 @@ class _QuestionsPageState extends State<QuestionsPage> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<QuestionsPagedScrollState>(
-          create: (_) => QuestionsPagedScrollState(),
+        ChangeNotifierProvider<PagesScrollState>(
+          create: (_) => PagesScrollState(),
         ),
       ],
       child: Scaffold(
         appBar: AppBar(
           title: const Text('200 вопросов'),
         ),
-        body: Consumer<QuestionsPagedScrollState>(
+        body: Consumer<PagesScrollState>(
           builder: (BuildContext context, scrollState, _) {
             return FutureBuilder(
               future: _questionsQuery.getAllQuestions(),

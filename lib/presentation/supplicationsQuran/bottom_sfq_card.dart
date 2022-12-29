@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:majmua/application/state/sfq_pages_scroll_state.dart';
+import 'package:majmua/application/state/pages_scroll_state.dart';
 import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/application/theme/app_themes.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +11,7 @@ class BottomSFQCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
-    return Consumer<SFQPagesScrollState>(
+    return Consumer<PagesScrollState>(
       builder: (BuildContext context, scrollState, _) {
         return Card(
           elevation: 1,

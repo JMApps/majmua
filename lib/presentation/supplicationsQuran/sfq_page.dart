@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/application/state/sfq_pages_scroll_state.dart';
+import 'package:majmua/application/state/pages_scroll_state.dart';
 import 'package:majmua/data/database/local/service/sfq_query.dart';
 import 'package:majmua/presentation/supplicationsQuran/bottom_sfq_card.dart';
 import 'package:majmua/presentation/supplicationsQuran/sfq_item.dart';
@@ -20,8 +20,8 @@ class _SfqPageState extends State<SfqPage> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<SFQPagesScrollState>(
-          create: (_) => SFQPagesScrollState(),
+        ChangeNotifierProvider<PagesScrollState>(
+          create: (_) => PagesScrollState(),
         ),
       ],
       child: Scaffold(
@@ -32,7 +32,7 @@ class _SfqPageState extends State<SfqPage> {
           future: _sfqQuery.getAllSFQ(),
           builder: (BuildContext context, snapshot) {
             return snapshot.hasData
-                ? Consumer<SFQPagesScrollState>(
+                ? Consumer<PagesScrollState>(
                     builder: (BuildContext context, scrollList, _) {
                       return Column(
                         children: [

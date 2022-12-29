@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class QuestionsPagedScrollState extends ChangeNotifier {
+class PagesScrollState extends ChangeNotifier {
   final PageController _pageController = PageController(initialPage: 0);
 
   PageController get getPageController => _pageController;
