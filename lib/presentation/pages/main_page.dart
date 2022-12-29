@@ -8,7 +8,7 @@ import 'package:majmua/presentation/prayerTime/prayer_time_container.dart';
 import 'package:majmua/presentation/restHolidays/rest_holidays.dart';
 import 'package:majmua/presentation/restTime/rest_time_container.dart';
 import 'package:majmua/presentation/sixColumns/six_column_container.dart';
-import 'package:majmua/presentation/supplicationsQuran/supplications_quran_container.dart';
+import 'package:majmua/presentation/supplicationsQuran/sfq_container.dart';
 import 'package:majmua/presentation/whiteDays/white_day_container.dart';
 
 class MainPage extends StatelessWidget {
@@ -41,7 +41,7 @@ class MainPage extends StatelessWidget {
             SixColumnsContainer(),
             SizedBox(height: 4),
             Divider(indent: 16, endIndent: 16),
-            SupplicationQuranContainer(),
+            SFQContainer(),
             Divider(indent: 16, endIndent: 16),
             BooksContainer(),
             Divider(indent: 16, endIndent: 16),

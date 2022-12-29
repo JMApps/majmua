@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/application/theme/app_themes.dart';
 
-class SupplicationQuranContainer extends StatelessWidget {
-  const SupplicationQuranContainer({Key? key}) : super(key: key);
+class SFQContainer extends StatelessWidget {
+  const SFQContainer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +16,15 @@ class SupplicationQuranContainer extends StatelessWidget {
         decoration: const BoxDecoration(
           borderRadius: AppStyles.mainBorderRadius,
           image: DecorationImage(
-            opacity: 0.50,
+            opacity: 0.75,
             fit: BoxFit.cover,
             image: AssetImage('assets/images/supplication.png'),
           ),
         ),
         child: ListTile(
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, 'sfq_page');
+          },
           shape: AppStyles.mainCardBorderRadius,
           visualDensity: const VisualDensity(vertical: -2),
           contentPadding: AppStyles.symmetricHorizontalPadding,
@@ -35,7 +37,7 @@ class SupplicationQuranContainer extends StatelessWidget {
                 Shadow(
                   color: appColors.firstAppColor,
                   blurRadius: 0.5,
-                )
+                ),
               ],
             ),
           ),

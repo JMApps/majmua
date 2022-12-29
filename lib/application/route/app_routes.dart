@@ -7,6 +7,7 @@ import 'package:majmua/presentation/prayerTime/prayer_settings.dart';
 import 'package:majmua/presentation/quran/surah_mulk_page.dart';
 import 'package:majmua/presentation/quran/surah_qahf_page.dart';
 import 'package:majmua/presentation/quran/surah_sajdah_page.dart';
+import 'package:majmua/presentation/supplicationsQuran/sfq_page.dart';
 
 class AppRoutes {
   static Route appGeneratorRoute(RouteSettings routeSettings) {
@@ -42,6 +43,10 @@ class AppRoutes {
       case 'surah_mulk_page':
         return MaterialPageRoute(
           builder: (_) => const SurahMulkPage(),
+        );
+      case 'sfq_page':
+        return MaterialPageRoute(
+          builder: (_) => const SfqPage(),
         );
       default:
         throw Exception(
