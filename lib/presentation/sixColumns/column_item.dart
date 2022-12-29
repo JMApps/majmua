@@ -38,7 +38,9 @@ class ColumnItem extends StatelessWidget {
                 : AppStyles.rightBorderRadius,
             image: DecorationImage(
               fit: BoxFit.fitWidth,
-              opacity: Theme.of(context).brightness == Brightness.light ? 0.75 : 0.25,
+              opacity: Theme.of(context).brightness == Brightness.light
+                  ? 0.50
+                  : 0.25,
               image: AssetImage('assets/images/$imageName'),
             ),
           ),
@@ -50,7 +52,7 @@ class ColumnItem extends StatelessWidget {
               color: appColors.mainTextColor,
               shadows: [
                 Shadow(
-                  color: appColors.firstAppColor,
+                  color: appColors.mainTextColor,
                   blurRadius: 0.5,
                 )
               ],

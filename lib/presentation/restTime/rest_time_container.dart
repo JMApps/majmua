@@ -26,8 +26,14 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
         decoration: BoxDecoration(
           borderRadius: AppStyles.mainBorderRadius,
           image: DecorationImage(
-            opacity: Theme.of(context).brightness == Brightness.light ? 0.150 : 0.150,
-            fit: BoxFit.none,
+            opacity: 0.200,
+            fit: BoxFit.fitWidth,
+            colorFilter: ColorFilter.mode(
+              appColors.mainTextColor,
+              Theme.of(context).brightness == Brightness.light
+                  ? BlendMode.dst
+                  : BlendMode.srcIn,
+            ),
             image: const AssetImage('assets/images/abstract_time.png'),
           ),
         ),
