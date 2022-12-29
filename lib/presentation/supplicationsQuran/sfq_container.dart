@@ -16,7 +16,7 @@ class SFQContainer extends StatelessWidget {
         decoration: const BoxDecoration(
           borderRadius: AppStyles.mainBorderRadius,
           image: DecorationImage(
-            opacity: 0.75,
+            opacity: 0.60,
             fit: BoxFit.cover,
             image: AssetImage('assets/images/supplication.png'),
           ),
