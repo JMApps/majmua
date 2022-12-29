@@ -73,7 +73,7 @@ extension ColorSchemeS on ColorScheme {
 
   Color get mainTextColor => brightness == Brightness.light
       ? const Color(0xFF171821)
-      : const Color(0xBEFFFFFF);
+      : const Color(0xFFFFF8EE);
 
   Color get circleAvatarBackgroundColor => brightness == Brightness.light
       ? const Color(0xFFFFFFFF)

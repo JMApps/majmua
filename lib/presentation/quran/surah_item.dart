@@ -16,6 +16,7 @@ class SurahItem extends StatelessWidget {
         borderRadius: AppStyles.mainBorderRadius,
         image: DecorationImage(
           fit: BoxFit.fitWidth,
+          opacity: Theme.of(context).brightness == Brightness.light ? 1 : 0.65,
           colorFilter: ColorFilter.mode(
             appColors.mainTextColor,
             Theme.of(context).brightness == Brightness.light
