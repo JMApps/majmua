@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/data/database/local/model/names_clarification_of_model.dart';
-import 'package:majmua/presentation/library/namesOf/ayahss_container.dart';
+import 'package:majmua/presentation/library/namesOf/ayahs_container.dart';
 import 'package:majmua/presentation/library/namesOf/names_container.dart';
 
 class NamesContentItem extends StatelessWidget {
@@ -19,13 +19,12 @@ class NamesContentItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoScrollbar(
       child: SingleChildScrollView(
-        padding: AppStyles.mainPadding,
+        padding: const EdgeInsets.only(right: 16, bottom: 16, left: 16),
         child: Column(
           children: [
             NamesContainer(
               clarificationIndex: index,
             ),
-            const SizedBox(height: 16),
             AyahsContainer(
               clarificationIndex: index,
             ),
@@ -33,13 +32,18 @@ class NamesContentItem extends StatelessWidget {
               data: item.contentClarification,
               style: {
                 '#': Style(
-                  padding: EdgeInsets.zero,
+                  padding: const EdgeInsets.only(top: 8),
                   margin: EdgeInsets.zero,
                   fontSize: const FontSize(18),
                 ),
+                'small': Style(
+                  padding: EdgeInsets.zero,
+                  margin: EdgeInsets.zero,
+                  color: Colors.grey,
+                  fontSize: const FontSize(12),
+                ),
               },
             ),
-            const SizedBox(height: 16),
           ],
         ),
       ),

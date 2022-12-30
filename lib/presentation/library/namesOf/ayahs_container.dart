@@ -21,21 +21,21 @@ class _AyahsContainerState extends State<AyahsContainer> {
       future: _namesOfQuery.getContentAyahs(widget.clarificationIndex + 1),
       builder: (BuildContext context, snapshot) {
         return snapshot.hasData
-            ? ListView.builder(
-                shrinkWrap: true,
-                padding: EdgeInsets.zero,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: snapshot.data!.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Column(
-                    children: [
-                      AyahsCardItem(
+            ? Column(
+                children: [
+                  const SizedBox(height: 16),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    padding: EdgeInsets.zero,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return AyahsCardItem(
                         item: snapshot.data![index],
-                      ),
-                      const SizedBox(height: 16),
-                    ],
-                  );
-                },
+                      );
+                    },
+                  ),
+                ],
               )
             : const SizedBox();
       },

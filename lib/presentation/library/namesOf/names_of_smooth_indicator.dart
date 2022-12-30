@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/application/theme/app_themes.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class BottomSmoothIndicator extends StatelessWidget {
-  const BottomSmoothIndicator({
+class NamesOfSmoothIndicator extends StatelessWidget {
+  const NamesOfSmoothIndicator({
     Key? key,
     required this.pageController,
     required this.listLength,
@@ -16,20 +17,20 @@ class BottomSmoothIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
     return Container(
-      padding: const EdgeInsets.all(8.0),
+      padding: AppStyles.mainPaddingMini,
       alignment: Alignment.center,
       child: SmoothPageIndicator(
-        controller: pageController,
-        count: listLength,
         onDotClicked: (index) => pageController.animateToPage(
           index,
           duration: const Duration(milliseconds: 50),
           curve: Curves.bounceIn,
         ),
+        controller: pageController,
+        count: listLength,
         effect: ScrollingDotsEffect(
-          maxVisibleDots: 9,
-          dotWidth: 5,
-          dotHeight: 8,
+          maxVisibleDots: 21,
+          dotWidth: 3,
+          dotHeight: 7,
           dotColor: appColors.firstAppColor,
           activeDotColor: appColors.thirdAppColor,
         ),
