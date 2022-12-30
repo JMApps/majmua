@@ -11,7 +11,7 @@ class QuestionsQuery {
     return allQuestions!;
   }
 
-  Future<List<QuestionModel>> getOneHadeeth(int questionId) async {
+  Future<List<QuestionModel>> getOneQuestion(int questionId) async {
     var dbClient = await _questionsDatabaseHelper.db;
     var res = await dbClient.query('Table_of_questions', where: 'id == $questionId');
     List<QuestionModel>? oneQuestion = res.isNotEmpty ? res.map((c) => QuestionModel.fromMap(c)).toList() : null;
