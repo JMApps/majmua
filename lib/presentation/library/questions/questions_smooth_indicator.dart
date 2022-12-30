@@ -29,7 +29,7 @@ class QuestionsSmoothIndicator extends StatelessWidget {
         count: listLength,
         effect: ScrollingDotsEffect(
           maxVisibleDots: 21,
-          dotWidth: 3,
+          dotWidth: 5,
           dotHeight: 7,
           dotColor: appColors.firstAppColor,
           activeDotColor: appColors.thirdAppColor,
