@@ -100,7 +100,7 @@ class _CircularPrayerState extends State<CircularPrayer> {
         Visibility(
           visible: _isPrayerTime && _isRemainingTime,
           child: Text(
-            '-${DateFormat.m().format(widget.fromPrayerTime)}',
+            '-${DateFormat.m().format(widget.toPrayerTime)}',
             style: TextStyle(
               fontSize: 13,
               color: appColors.mainTextColor,
@@ -111,7 +111,7 @@ class _CircularPrayerState extends State<CircularPrayer> {
         Visibility(
           visible: _isPrayerTime && _isPastTime,
           child: Text(
-            DateFormat.m().format(widget.toPrayerTime),
+            DateFormat.m().format(widget.fromPrayerTime),
             style: const TextStyle(
               fontSize: 13,
               fontWeight: FontWeight.bold,
