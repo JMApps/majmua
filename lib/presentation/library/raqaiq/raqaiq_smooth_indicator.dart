@@ -28,9 +28,9 @@ class RaqaiqSmoothIndicator extends StatelessWidget {
         controller: pageController,
         count: listLength,
         effect: ScrollingDotsEffect(
-          maxVisibleDots: 9,
-          dotWidth: 6,
-          dotHeight: 10,
+          maxVisibleDots: 7,
+          dotWidth: 5,
+          dotHeight: 7,
           dotColor: appColors.firstAppColor,
           activeDotColor: appColors.thirdAppColor,
         ),

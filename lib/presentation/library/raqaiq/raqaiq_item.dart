@@ -44,6 +44,7 @@ class RaqaiqItem extends StatelessWidget {
                 'small': Style(
                   padding: EdgeInsets.zero,
                   margin: EdgeInsets.zero,
+                  color: Colors.grey,
                   fontSize: const FontSize(12),
                   direction: TextDirection.ltr,
                 ),
