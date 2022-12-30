@@ -22,9 +22,9 @@ class AyahsCardItem extends StatelessWidget {
             Text(
               item.ayahArabic,
               style: TextStyle(
-                fontSize: 20,
-                color: appColor.firstAppColor,
-                fontFamily: 'Scheherazade',
+                fontSize: 22,
+                color: appColor.secondAppColor,
+                fontFamily: 'Quran',
               ),
               textAlign: TextAlign.start,
               textDirection: TextDirection.rtl,

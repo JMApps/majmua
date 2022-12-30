@@ -9,14 +9,14 @@ class LibraryContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
     return Card(
-      elevation: 0,
+      elevation: 1,
       shape: AppStyles.mainCardBorderRadius,
       margin: AppStyles.symmetricHorizontalMarginMini,
       child: Container(
         decoration: const BoxDecoration(
           borderRadius: AppStyles.mainBorderRadius,
           image: DecorationImage(
-            opacity: 0.60,
+            opacity: 0.65,
             fit: BoxFit.cover,
             image: AssetImage('assets/images/books.png'),
           ),

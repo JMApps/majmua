@@ -22,9 +22,9 @@ class NamesCardItem extends StatelessWidget {
             Text(
               item.nameArabic,
               style: TextStyle(
-                fontSize: 20,
-                color: appColor.firstAppColor,
-                fontFamily: 'Scheherazade',
+                fontSize: 25,
+                color: appColor.secondAppColor,
+                fontFamily: 'Quran',
               ),
               textAlign: TextAlign.center,
               textDirection: TextDirection.rtl,
