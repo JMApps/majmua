@@ -62,7 +62,7 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
                   borderRadius: AppStyles.mainBorderRadius,
                   side: BorderSide(
                     color: _restTimes.dateTime.weekday == 5
-                        ? appColors.weekDaysColor
+                        ? appColors.thirdAppColor
                         : appColors.weekDaysColor,
                     width: 1,
                   ),
@@ -76,7 +76,7 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
                         style: TextStyle(
                           fontSize: 16,
                           color: _restTimes.dateTime.weekday == 5
-                              ? appColors.weekDaysColor
+                              ? appColors.thirdAppColor
                               : appColors.weekDaysColor,
                         ),
                         textAlign: TextAlign.center,
