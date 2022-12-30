@@ -6,7 +6,7 @@ import 'package:majmua/application/theme/app_themes.dart';
 import 'package:majmua/data/database/local/model/question_model.dart';
 
 class QuestionItem extends StatelessWidget {
-  const  QuestionItem({Key? key, required this.item}) : super(key: key);
+  const QuestionItem({Key? key, required this.item}) : super(key: key);
 
   final QuestionModel item;
 

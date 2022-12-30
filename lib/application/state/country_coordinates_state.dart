@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -6,8 +8,9 @@ import 'package:majmua/data/database/local/model/country_model.dart';
 
 class CountryCoordinatesState extends ChangeNotifier {
   final _mainSettingsBox = Hive.box(AppConstants.keySettingsPrayerTimeBox);
-  final DateTime _dateTime = DateTime.now();
+  DateTime _dateTime = DateTime.now();
   late PrayerTimes _prayerTime;
+  late Timer myTimer;
 
   late String _county;
   late String _city;
@@ -28,7 +31,29 @@ class CountryCoordinatesState extends ChangeNotifier {
     CalculationMethod.turkey,
   ];
 
+  final Stream myStream = Stream.periodic(
+    const Duration(minutes: 1),
+    (int count) {
+      return count;
+    },
+  );
+
   CountryCoordinatesState() {
+    var nextMinute = DateTime(
+      _dateTime.year,
+      _dateTime.month,
+      _dateTime.day,
+      _dateTime.hour,
+      _dateTime.minute + 1,
+    );
+    myTimer = Timer(nextMinute.difference(_dateTime), () {
+      _dateTime = DateTime.now();
+      notifyListeners();
+      myTimer = Timer.periodic(const Duration(minutes: 1), (timer) {
+        _dateTime = DateTime.now();
+        notifyListeners();
+      });
+    });
     _county = _mainSettingsBox.get(AppConstants.keyCountry, defaultValue: 'Saudi Arabia');
     _city = _mainSettingsBox.get(AppConstants.keyCity, defaultValue: 'Mecca');
     _currentLatitude = _mainSettingsBox.get(AppConstants.keyCurrentLatitude, defaultValue: 21.392425120226704);
@@ -40,6 +65,10 @@ class CountryCoordinatesState extends ChangeNotifier {
       currentLongitude: _currentLongitude,
       calculationMethodIndex: _calculationMethodIndex,
     );
+  }
+
+  int get getMinuteOfDay {
+    return _dateTime.difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day)).inMinutes;
   }
 
   initWithNewCoordinates({
@@ -57,13 +86,21 @@ class CountryCoordinatesState extends ChangeNotifier {
   }
 
   int _prayerValueInMinutes({required DateTime prayerTime}) {
-    final DateTime fromZero = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 0);
-    final toPrayer = DateTime(prayerTime.year, prayerTime.month, prayerTime.day, prayerTime.hour, prayerTime.minute);
+    final DateTime fromZero =
+        DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 0);
+    final toPrayer = DateTime(prayerTime.year, prayerTime.month, prayerTime.day,
+        prayerTime.hour, prayerTime.minute);
     return toPrayer.difference(fromZero).inMinutes;
   }
 
   DateTime fromPrayerTime(Prayer currentPrayer) {
-    final DateTime toPrayerTime = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, _prayerTime.timeForPrayer(currentPrayer)!.hour, _prayerTime.timeForPrayer(currentPrayer)!.minute);
+    final DateTime toPrayerTime = DateTime(
+      _dateTime.year,
+      _dateTime.month,
+      _dateTime.day,
+      _prayerTime.timeForPrayer(currentPrayer)!.hour,
+      _prayerTime.timeForPrayer(currentPrayer)!.minute,
+    );
     int value = _dateTime.difference(toPrayerTime).inMinutes * 60;
     int hour, minute;
     hour = value ~/ 3600;
@@ -73,7 +110,13 @@ class CountryCoordinatesState extends ChangeNotifier {
   }
 
   DateTime toPrayerTime(Prayer currentPrayer) {
-    final DateTime toPrayerTime = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, _prayerTime.timeForPrayer(currentPrayer)!.hour, _prayerTime.timeForPrayer(currentPrayer)!.minute);
+    final DateTime toPrayerTime = DateTime(
+      _dateTime.year,
+      _dateTime.month,
+      _dateTime.day,
+      _prayerTime.timeForPrayer(currentPrayer)!.hour,
+      _prayerTime.timeForPrayer(currentPrayer)!.minute,
+    );
     int value = (toPrayerTime.difference(_dateTime).inMinutes + 1) * 60;
     int hour, minute;
     hour = value ~/ 3600;
@@ -115,14 +158,16 @@ class CountryCoordinatesState extends ChangeNotifier {
     _calculationMethodIndex = calculationMethodIndex;
     initWithNewCoordinates(
       currentLatitude: _currentLatitude,
-      currentLongitude:_currentLongitude,
+      currentLongitude: _currentLongitude,
       calculationMethodIndex: calculationMethodIndex,
     );
-    _mainSettingsBox.put(AppConstants.keyCalculationIndex, calculationMethodIndex);
+    _mainSettingsBox.put(
+        AppConstants.keyCalculationIndex, calculationMethodIndex);
     notifyListeners();
   }
 
-  int get getSecondNightValueInMinutes => _prayerValueInMinutes(prayerTime: DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 1));
+  int get getSecondNightValueInMinutes => _prayerValueInMinutes(
+      prayerTime: DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 1));
 
   int get getFajrValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTime.fajr);
 
@@ -158,6 +203,7 @@ class CountryCoordinatesState extends ChangeNotifier {
   @override
   void dispose() {
     _mainSettingsBox.close();
+    myTimer.cancel();
     super.dispose();
   }
 }

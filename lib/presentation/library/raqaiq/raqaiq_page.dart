@@ -34,28 +34,28 @@ class _RaqaiqPageState extends State<RaqaiqPage> {
               builder: (BuildContext context, snapshot) {
                 return snapshot.hasData
                     ? Column(
-                  children: [
-                    Expanded(
-                      child: PageView.builder(
-                        controller: scrollState.getPageController,
-                        itemCount: snapshot.data!.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return RaqaiqItem(
-                            item: snapshot.data![index],
-                          );
-                        },
-                      ),
-                    ),
-                    RaqaiqSmoothIndicator(
-                      pageController: scrollState.getPageController,
-                      listLength: snapshot.data!.length,
-                    ),
-                    const SizedBox(height: 16),
-                  ],
-                )
+                        children: [
+                          Expanded(
+                            child: PageView.builder(
+                              controller: scrollState.getPageController,
+                              itemCount: snapshot.data!.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return RaqaiqItem(
+                                  item: snapshot.data![index],
+                                );
+                              },
+                            ),
+                          ),
+                          RaqaiqSmoothIndicator(
+                            pageController: scrollState.getPageController,
+                            listLength: snapshot.data!.length,
+                          ),
+                          const SizedBox(height: 16),
+                        ],
+                      )
                     : const Center(
-                  child: CircularProgressIndicator.adaptive(),
-                );
+                        child: CircularProgressIndicator.adaptive(),
+                      );
               },
             );
           },

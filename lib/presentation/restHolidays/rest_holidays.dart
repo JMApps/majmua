@@ -70,7 +70,9 @@ class _RestHolidaysContainerState extends State<RestHolidaysContainer> {
                     ? 0.15
                     : 0.05,
                 fit: BoxFit.none,
-                image: const AssetImage('assets/images/adha.jpg'),
+                image: const AssetImage(
+                  'assets/images/adha.jpg',
+                ),
               ),
             ),
             child: ListTile(

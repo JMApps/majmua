@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:majmua/application/state/country_coordinates_state.dart';
 import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/application/theme/app_themes.dart';
-import 'package:majmua/presentation/restTime/rest_times.dart';
+import 'package:provider/provider.dart';
 
-class CircularPrayer extends StatefulWidget {
+class CircularPrayer extends StatelessWidget {
   const CircularPrayer({
     Key? key,
     required this.prayerName,
@@ -23,40 +24,25 @@ class CircularPrayer extends StatefulWidget {
   final DateTime fromPrayerTime;
 
   @override
-  State<CircularPrayer> createState() => _CircularPrayerState();
-}
-
-class _CircularPrayerState extends State<CircularPrayer> {
-  final RestTimes _restTimes = RestTimes();
-  late final bool _isPrayerTime;
-  late final bool _isRemainingTime;
-  late final bool _isPastTime;
-
-  @override
-  void initState() {
-    int currentTime = _restTimes.getMinuteOfDay;
-    _isPrayerTime = currentTime >= widget.currentPrayerTimeValue - 59 &&
-        currentTime <= widget.currentPrayerTimeValue + 30;
-    _isRemainingTime = currentTime >= widget.currentPrayerTimeValue - 59 &&
-        currentTime < widget.currentPrayerTimeValue;
-    _isPastTime = currentTime >= widget.currentPrayerTimeValue + 1 &&
-        currentTime <= widget.currentPrayerTimeValue + 30;
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    int currentTime = context.watch<CountryCoordinatesState>().getMinuteOfDay;
+    bool isPrayerTime = currentTime >= currentPrayerTimeValue - 59 &&
+        currentTime <= currentPrayerTimeValue + 30;
+    bool isRemainingTime = currentTime >= currentPrayerTimeValue - 59 &&
+        currentTime < currentPrayerTimeValue;
+    bool isPastTime = currentTime >= currentPrayerTimeValue + 1 &&
+        currentTime <= currentPrayerTimeValue + 30;
     final appColors = Theme.of(context).colorScheme;
     return Column(
       children: [
         Text(
-          widget.prayerName,
+          prayerName,
           style: TextStyle(
             fontSize: 12,
-            color: _isPrayerTime
+            color: isPrayerTime
                 ? appColors.thirdAppColor
                 : appColors.mainTextColor,
-            fontWeight: _isPrayerTime ? FontWeight.bold : FontWeight.normal,
+            fontWeight: isPrayerTime ? FontWeight.bold : FontWeight.normal,
           ),
         ),
         const SizedBox(height: 4),
@@ -64,13 +50,12 @@ class _CircularPrayerState extends State<CircularPrayer> {
           elevation: 0,
           margin: EdgeInsets.zero,
           shape: AppStyles.topCardBorderRadius,
-          color: _isPrayerTime
-              ? appColors.thirdAppColor
-              : appColors.secondAppColor,
+          color:
+              isPrayerTime ? appColors.thirdAppColor : appColors.secondAppColor,
           child: Padding(
             padding: AppStyles.mainPaddingMini,
             child: Text(
-              DateFormat.Hm().format(widget.prayerTime).substring(0, 2),
+              DateFormat.Hm().format(prayerTime).substring(0, 2),
               style: const TextStyle(
                 fontSize: 16,
                 fontFamily: 'Lato',
@@ -87,7 +72,7 @@ class _CircularPrayerState extends State<CircularPrayer> {
           child: Padding(
             padding: AppStyles.mainPaddingMini,
             child: Text(
-              DateFormat.Hm().format(widget.prayerTime).substring(3),
+              DateFormat.Hm().format(prayerTime).substring(3),
               style: const TextStyle(
                 fontSize: 16,
                 fontFamily: 'Lato',
@@ -97,24 +82,30 @@ class _CircularPrayerState extends State<CircularPrayer> {
           ),
         ),
         const SizedBox(height: 4),
-        Visibility(
-          visible: _isPrayerTime && _isRemainingTime,
-          child: Text(
-            '-${DateFormat.m().format(widget.toPrayerTime)}',
-            style: TextStyle(
-              fontSize: 13,
-              color: appColors.mainTextColor,
-              fontWeight: FontWeight.bold,
+        AnimatedSize(
+          duration: const Duration(milliseconds: 750),
+          child: Visibility(
+            visible: isPrayerTime && isRemainingTime,
+            child: Text(
+              '-${DateFormat.m().format(toPrayerTime)}',
+              style: TextStyle(
+                fontSize: 13,
+                color: appColors.mainTextColor,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
-        Visibility(
-          visible: _isPrayerTime && _isPastTime,
-          child: Text(
-            DateFormat.m().format(widget.fromPrayerTime),
-            style: const TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.bold,
+        AnimatedSize(
+          duration: const Duration(milliseconds: 750),
+          child: Visibility(
+            visible: isPrayerTime && isPastTime,
+            child: Text(
+              DateFormat.m().format(fromPrayerTime),
+              style: const TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),

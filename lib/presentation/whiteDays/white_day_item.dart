@@ -15,7 +15,9 @@ class WhiteDayItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
     return CircleAvatar(
-      backgroundColor: hijriMonthDay == whiteDay ? appColors.thirdAppColor : appColors.firstAppColor,
+      backgroundColor: hijriMonthDay == whiteDay
+          ? appColors.thirdAppColor
+          : appColors.firstAppColor,
       radius: 15,
       child: Text(
         '$whiteDay',

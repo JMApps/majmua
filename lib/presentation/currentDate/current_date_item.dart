@@ -35,7 +35,7 @@ class CurrentDateItem extends StatelessWidget {
         '$currentYear год',
         style: const TextStyle(
           fontSize: 16,
-          fontFamily: 'Lato'
+          fontFamily: 'Lato',
         ),
       ),
       leading: CircleAvatar(

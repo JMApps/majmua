@@ -13,8 +13,7 @@ class FridayContainer extends StatefulWidget {
 }
 
 class _FridayContainerState extends State<FridayContainer> {
-  final PageController _fridayController =
-      PageController(initialPage: 0, viewportFraction: 0.85);
+  final PageController _fridayController = PageController(initialPage: 0, viewportFraction: 0.85);
   final RestTimes _restTimes = RestTimes();
 
   final _fridayContentList = const <ModelFriday>[
@@ -110,6 +109,11 @@ class _FridayContainerState extends State<FridayContainer> {
               SmoothPageIndicator(
                 controller: _fridayController,
                 count: _fridayContentList.length,
+                onDotClicked: (index) => _fridayController.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 50),
+                  curve: Curves.bounceIn,
+                ),
                 effect: CustomizableEffect(
                   activeDotDecoration: DotDecoration(
                     color: appColors.firstAppColor,
