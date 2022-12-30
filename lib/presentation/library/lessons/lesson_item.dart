@@ -53,6 +53,7 @@ class LessonItem extends StatelessWidget {
                   padding: EdgeInsets.zero,
                   margin: EdgeInsets.zero,
                   fontSize: const FontSize(12),
+                  color: Colors.grey,
                   direction: TextDirection.ltr,
                 ),
                 'a': Style(
