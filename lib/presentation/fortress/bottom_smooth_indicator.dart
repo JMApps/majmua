@@ -29,7 +29,7 @@ class BottomSmoothIndicator extends StatelessWidget {
         effect: ScrollingDotsEffect(
           maxVisibleDots: 9,
           dotWidth: 5,
-          dotHeight: 8,
+          dotHeight: 7,
           dotColor: appColors.firstAppColor,
           activeDotColor: appColors.thirdAppColor,
         ),

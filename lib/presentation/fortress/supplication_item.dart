@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:majmua/application/state/fortress_counter_state.dart';
+import 'package:majmua/application/state/fortress_text_state.dart';
 import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/application/theme/app_themes.dart';
 import 'package:majmua/data/database/local/model/supplication_model.dart';
@@ -42,16 +43,30 @@ class SupplicationItem extends StatelessWidget {
                   textAlign: TextAlign.start,
                   textDirection: TextDirection.rtl,
                 ),
-                const SizedBox(height: 12),
                 item.contentTranscription != null
-                    ? Text(
-                        item.contentTranscription!,
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.grey.shade600,
-                        ),
-                        textDirection: TextDirection.ltr,
-                      )
+                    ? Consumer<FortressTextState>(
+                        builder: (BuildContext context, fortressTextState, _) {
+                        return AnimatedSize(
+                          duration: const Duration(milliseconds: 750),
+                          child: Column(
+                            children: [
+                              fortressTextState.getTranscriptionIsShow
+                                  ? const SizedBox(height: 12)
+                                  : const SizedBox(),
+                              fortressTextState.getTranscriptionIsShow
+                                  ? Text(
+                                      item.contentTranscription!,
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.grey.shade600,
+                                      ),
+                                      textDirection: TextDirection.ltr,
+                                    )
+                                  : const SizedBox(),
+                            ],
+                          ),
+                        );
+                      })
                     : const SizedBox(),
                 item.contentTranscription != null
                     ? const SizedBox(height: 16)

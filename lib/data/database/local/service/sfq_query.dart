@@ -7,7 +7,7 @@ class SFQQuery {
   Future<List<SFQModel>> getAllSFQ() async {
     var dbClient = await _sfqDatabaseHelper.db;
     var res = await dbClient.query('Table_of_supplications_from_quran');
-    List<SFQModel>? supplicationsFromQuran = res.isNotEmpty ? res.map((c) => SFQModel.fromMap(c)).toList() : null;
-    return supplicationsFromQuran!;
+    List<SFQModel>? allSFQ = res.isNotEmpty ? res.map((c) => SFQModel.fromMap(c)).toList() : null;
+    return allSFQ!;
   }
 }

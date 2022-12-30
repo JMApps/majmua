@@ -21,10 +21,15 @@ class SFQSmoothIndicator extends StatelessWidget {
       child: SmoothPageIndicator(
         controller: pageController,
         count: listLength,
+        onDotClicked: (index) => pageController.animateToPage(
+          index,
+          duration: const Duration(milliseconds: 50),
+          curve: Curves.bounceIn,
+        ),
         effect: ScrollingDotsEffect(
           maxVisibleDots: 9,
           dotWidth: 5,
-          dotHeight: 8,
+          dotHeight: 7,
           dotColor: appColors.firstAppColor,
           activeDotColor: appColors.thirdAppColor,
         ),
