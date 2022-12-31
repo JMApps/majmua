@@ -1,4 +1,5 @@
-import 'package:flutter_local_notifications/flutter_local_notifications.dart' show AndroidInitializationSettings, AndroidNotificationDetails, DarwinInitializationSettings, DarwinNotificationDetails, FlutterLocalNotificationsPlugin, Importance, InitializationSettings, NotificationDetails, NotificationResponse, Priority, UILocalNotificationDateInterpretation;
+import 'package:flutter_local_notifications/flutter_local_notifications.dart'
+    show AndroidFlutterLocalNotificationsPlugin, AndroidInitializationSettings, AndroidNotificationDetails, DarwinInitializationSettings, DarwinNotificationDetails, FlutterLocalNotificationsPlugin, Importance, InitializationSettings, NotificationDetails, NotificationResponse, Priority, RepeatInterval, UILocalNotificationDateInterpretation;
 import 'package:rxdart/rxdart.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
@@ -13,7 +14,7 @@ class LocalNotificationService {
   Future<void> initialize() async {
     tz.initializeTimeZones();
     const AndroidInitializationSettings androidInitializationSettings =
-        AndroidInitializationSettings('@drawable/ic_launcher.png');
+        AndroidInitializationSettings('drawable/ic_splash');
 
     DarwinInitializationSettings darwinInitializationSettings =
         DarwinInitializationSettings(
@@ -29,6 +30,9 @@ class LocalNotificationService {
 
     await _localNotificationService.initialize(initializationSettings,
         onDidReceiveNotificationResponse: _onDidReceiveNotificationResponse);
+
+    _localNotificationService.resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin>()?.requestPermission();
   }
 
   Future<NotificationDetails> _notificationDetails() async {
@@ -58,6 +62,21 @@ class LocalNotificationService {
   }) async {
     final details = await _notificationDetails();
     await _localNotificationService.show(id, title, body, details);
+  }
+
+  Future<void> showDailyNotification({
+    required int id,
+    required String title,
+    required String body,
+  }) async {
+    final details = await _notificationDetails();
+    await _localNotificationService.periodicallyShow(
+      id,
+      title,
+      body,
+      RepeatInterval.everyMinute,
+      details,
+    );
   }
 
   Future<void> showScheduleNotification({

@@ -4,6 +4,7 @@ import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/application/constants/app_constants.dart';
+import 'package:majmua/application/notifications/local_notification_service.dart';
 import 'package:majmua/data/database/local/model/country_model.dart';
 
 class CountryCoordinatesState extends ChangeNotifier {
@@ -11,6 +12,7 @@ class CountryCoordinatesState extends ChangeNotifier {
   DateTime _dateTime = DateTime.now();
   late PrayerTimes _prayerTime;
   late Timer myTimer;
+  final LocalNotificationService _localNotificationService = LocalNotificationService();
 
   late String _county;
   late String _city;
@@ -39,6 +41,8 @@ class CountryCoordinatesState extends ChangeNotifier {
   );
 
   CountryCoordinatesState() {
+    _localNotificationService.initialize();
+    _localNotificationService.showDailyNotification(id: 14, title: 'Полка мусульманина', body: 'Загляни');
     var nextMinute = DateTime(
       _dateTime.year,
       _dateTime.month,
