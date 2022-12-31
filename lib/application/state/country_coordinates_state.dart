@@ -74,7 +74,6 @@ class CountryCoordinatesState extends ChangeNotifier {
   int get getMinuteOfDay {
     return _dateTime.difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day)).inMinutes;
   }
-
   initWithNewCoordinates({
     required double currentLatitude,
     required double currentLongitude,

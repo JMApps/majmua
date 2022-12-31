@@ -56,7 +56,7 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
               children: [
                 CircleAvatar(
                   backgroundColor: appColors.restTimeCircleAvatarColor,
-                  radius: 40,
+                  radius: 42.5,
                   child: CircularPercent(
                     currentPeriod: 'День',
                     progressPercentColor: const Color(0xFF3F51B5),
@@ -65,7 +65,7 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
                 ),
                 CircleAvatar(
                   backgroundColor: appColors.restTimeCircleAvatarColor,
-                  radius: 40,
+                  radius: 42.5,
                   child: CircularPercent(
                     currentPeriod: 'Неделя',
                     progressPercentColor: const Color(0xFF009688),
@@ -74,7 +74,7 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
                 ),
                 CircleAvatar(
                   backgroundColor: appColors.restTimeCircleAvatarColor,
-                  radius: 40,
+                  radius: 42.5,
                   child: CircularPercent(
                     currentPeriod: 'Месяц',
                     progressPercentColor: const Color(0xFFFF7043),
@@ -83,7 +83,7 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
                 ),
                 CircleAvatar(
                   backgroundColor: appColors.restTimeCircleAvatarColor,
-                  radius: 40,
+                  radius: 42.5,
                   child: CircularPercent(
                     currentPeriod: 'Год',
                     progressPercentColor: const Color(0xFFAB47BC),
