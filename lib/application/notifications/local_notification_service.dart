@@ -74,7 +74,7 @@ class LocalNotificationService {
       id,
       title,
       body,
-      RepeatInterval.everyMinute,
+      RepeatInterval.daily,
       details,
     );
   }
