@@ -141,6 +141,7 @@ class SupplicationItem extends StatelessWidget {
                             child: Visibility(
                               visible: fortressState.getCounterButtonIsShow,
                               child: FloatingActionButton.large(
+                                backgroundColor: appColors.firstAppColor,
                                 elevation: 0,
                                 onPressed: () {
                                   fortressState.decrement();
@@ -150,6 +151,7 @@ class SupplicationItem extends StatelessWidget {
                                   style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
+                                    color: Colors.white,
                                   ),
                                 ),
                               ),

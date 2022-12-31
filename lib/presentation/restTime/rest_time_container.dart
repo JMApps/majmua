@@ -26,7 +26,7 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
         decoration: BoxDecoration(
           borderRadius: AppStyles.mainBorderRadius,
           image: DecorationImage(
-            opacity: 0.200,
+            opacity: Theme.of(context).brightness == Brightness.light ? 0.150 : 0.075,
             fit: BoxFit.fitWidth,
             colorFilter: ColorFilter.mode(
               appColors.mainTextColor,
@@ -55,7 +55,7 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 CircleAvatar(
-                  backgroundColor: appColors.circleAvatarBackgroundColor,
+                  backgroundColor: appColors.restTimeCircleAvatarColor,
                   radius: 40,
                   child: CircularPercent(
                     currentPeriod: 'День',
@@ -64,7 +64,7 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
                   ),
                 ),
                 CircleAvatar(
-                  backgroundColor: appColors.circleAvatarBackgroundColor,
+                  backgroundColor: appColors.restTimeCircleAvatarColor,
                   radius: 40,
                   child: CircularPercent(
                     currentPeriod: 'Неделя',
@@ -73,7 +73,7 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
                   ),
                 ),
                 CircleAvatar(
-                  backgroundColor: appColors.circleAvatarBackgroundColor,
+                  backgroundColor: appColors.restTimeCircleAvatarColor,
                   radius: 40,
                   child: CircularPercent(
                     currentPeriod: 'Месяц',
@@ -82,7 +82,7 @@ class _RestTimeContainerState extends State<RestTimeContainer> {
                   ),
                 ),
                 CircleAvatar(
-                  backgroundColor: appColors.circleAvatarBackgroundColor,
+                  backgroundColor: appColors.restTimeCircleAvatarColor,
                   radius: 40,
                   child: CircularPercent(
                     currentPeriod: 'Год',

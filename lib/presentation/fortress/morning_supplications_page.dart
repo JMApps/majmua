@@ -37,7 +37,7 @@ class _MorningSupplicationsPageState extends State<MorningSupplicationsPage> {
             Consumer<FortressTextState>(
               builder: (BuildContext context, fortressTextState, _) {
                 return Switch(
-                  activeColor: Theme.of(context).colorScheme.thirdAppColor,
+                  activeColor: Theme.of(context).colorScheme.secondAppColor,
                   value: fortressTextState.getTranscriptionIsShow,
                   onChanged: (value) {
                     fortressTextState.setTranscriptionIsShow = value;

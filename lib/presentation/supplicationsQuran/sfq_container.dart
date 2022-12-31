@@ -13,12 +13,12 @@ class SFQContainer extends StatelessWidget {
       shape: AppStyles.mainCardBorderRadius,
       margin: AppStyles.symmetricHorizontalMarginMini,
       child: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           borderRadius: AppStyles.mainBorderRadius,
           image: DecorationImage(
-            opacity: 0.60,
+            opacity: Theme.of(context).brightness == Brightness.light ? 0.75 : 0.100,
             fit: BoxFit.cover,
-            image: AssetImage('assets/images/supplication.png'),
+            image: const AssetImage('assets/images/supplication.png'),
           ),
         ),
         child: ListTile(

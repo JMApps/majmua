@@ -35,9 +35,10 @@ class PrayerTimeContainer extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              icon: const Icon(
+              icon: Icon(
                 Icons.info_outline,
                 size: 20,
+                color: appColors.secondAppColor,
               ),
             ),
             const Divider(indent: 16, endIndent: 16),

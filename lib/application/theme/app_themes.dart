@@ -18,8 +18,8 @@ class AppThemes {
       ),
       titleTextStyle: TextStyle(
         color: Color(0xFFFFFFFF),
-        fontSize: 18,
         fontFamily: 'Nexa',
+        fontSize: 18,
       ),
     ),
     cardColor: const Color(0xFFFFFFFF),
@@ -42,8 +42,8 @@ class AppThemes {
       ),
       titleTextStyle: TextStyle(
         color: Color(0xFFFFFFFF),
-        fontSize: 18,
         fontFamily: 'Nexa',
+        fontSize: 18,
       ),
     ),
     cardColor: const Color(0xFF2C2D33),
@@ -53,33 +53,33 @@ class AppThemes {
 extension ColorSchemeS on ColorScheme {
   Color get firstAppColor => brightness == Brightness.light
       ? const Color(0xFF3F51B5)
-      : const Color(0xFF303F9F);
+      : const Color(0xFF1D65A6);
 
   Color get secondAppColor => brightness == Brightness.light
       ? const Color(0xFF009688)
-      : const Color(0xFF00695C);
+      : const Color(0xFF72A2C0);
 
   Color get thirdAppColor => brightness == Brightness.light
       ? const Color(0xFFFF5722)
-      : const Color(0xFFFF9800);
+      : const Color(0xFFF2A104);
 
   Color get firstThirdColor => brightness == Brightness.light
       ? const Color(0xFF3F51B5)
-      : const Color(0xFFFF9800);
+      : const Color(0xFFF2A104);
 
   Color get secondThirdColor => brightness == Brightness.light
       ? const Color(0xFF009688)
-      : const Color(0xFFFF9800);
+      : const Color(0xFFF2A104);
 
   Color get mainTextColor => brightness == Brightness.light
       ? const Color(0xFF171821)
       : const Color(0xFFFFF8EE);
 
-  Color get circleAvatarBackgroundColor => brightness == Brightness.light
+  Color get restTimeCircleAvatarColor => brightness == Brightness.light
       ? const Color(0xFFFFFFFF)
       : const Color(0xFF232433);
 
   Color get weekDaysColor => brightness == Brightness.light
       ? const Color(0xFF009688)
-      : const Color(0xFF7986CB);
+      : const Color(0xFF72A2C0);
 }

@@ -32,17 +32,21 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CurrentDateItem(
-                    currentMonth: _restTimes.getMonthName,
-                    currentYear: _restTimes.dateTime.year,
-                    currentDay: _restTimes.dateTime.day,
-                    color: appColors.firstAppColor,
+                  Expanded(
+                    child: CurrentDateItem(
+                      currentMonth: _restTimes.getMonthName,
+                      currentYear: _restTimes.dateTime.year,
+                      currentDay: _restTimes.dateTime.day,
+                      color: appColors.firstAppColor,
+                    ),
                   ),
-                  CurrentDateItem(
-                    currentMonth: _restTimes.getMonthHijriName,
-                    currentYear: _restTimes.dateTimeHijri.hYear,
-                    currentDay: _restTimes.dateTimeHijri.hDay,
-                    color: appColors.secondAppColor,
+                  Expanded(
+                    child: CurrentDateItem(
+                      currentMonth: _restTimes.getMonthHijriName,
+                      currentYear: _restTimes.dateTimeHijri.hYear,
+                      currentDay: _restTimes.dateTimeHijri.hDay,
+                      color: appColors.secondAppColor,
+                    ),
                   ),
                 ],
               ),
