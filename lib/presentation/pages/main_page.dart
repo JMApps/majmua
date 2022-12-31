@@ -26,6 +26,7 @@ class MainPage extends StatelessWidget {
               Share.share('Рекомендую скачать приложение "Полка мусульманина":\n\nВерсия для iOS:\nhttps://apps.apple.com/tr/app/полка-мусульманина/id1659190395\n\nВерсия для Android\nhttps://play.google.com/store/apps/details?id=jmapps.project.majmua',
               sharePositionOrigin: const Rect.fromLTWH(0, 0, 10, 10));
             },
+            splashRadius: 20,
             icon: const Icon(
               Icons.ios_share_rounded,
             ),
