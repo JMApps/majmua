@@ -4,12 +4,14 @@ import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/data/database/local/model/country_model.dart';
 import 'package:provider/provider.dart';
 
-class CountyItem extends StatelessWidget {
-  const CountyItem({
+class CountryItem extends StatelessWidget {
+  const CountryItem({
     Key? key,
+    required this.cityIndex,
     required this.countryModelItem,
   }) : super(key: key);
 
+  final int cityIndex;
   final CountryModel countryModelItem;
 
   @override
@@ -17,12 +19,33 @@ class CountyItem extends StatelessWidget {
     return ListTile(
       onTap: () {
         context.read<CountryCoordinatesState>().changeCountry = countryModelItem;
-        Navigator.pop(context);
+        Navigator.of(context).pop();
       },
       visualDensity: const VisualDensity(vertical: -2),
       contentPadding: AppStyles.symmetricHorizontalPadding,
-      title: Text(countryModelItem.city, style: const TextStyle(fontSize: 22,),),
-      subtitle: Text(countryModelItem.country, style: const TextStyle(fontSize: 20,),),
+      leading: CircleAvatar(
+        radius: 15,
+        child: Text(
+          '${cityIndex + 1}',
+          style: const TextStyle(
+            fontSize: 14,
+            color: Colors.white,
+          ),
+        ),
+      ),
+      title: Text(
+        countryModelItem.city,
+        style: const TextStyle(
+          fontSize: 22,
+        ),
+      ),
+      subtitle: Text(
+        countryModelItem.country,
+        style: const TextStyle(
+          fontSize: 20,
+          color: Colors.grey,
+        ),
+      ),
     );
   }
 }

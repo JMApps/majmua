@@ -67,7 +67,7 @@ class RegionSettings extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: 'Широта: ${countryCoordinationState.getLatitude.toStringAsFixed(5)}\n',
+                      text: 'Широта: ${countryCoordinationState.getLatitude.toStringAsFixed(1)}\n',
                       style: TextStyle(
                         color: appColors.mainTextColor,
                         fontSize: 18,
@@ -75,7 +75,7 @@ class RegionSettings extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: 'Долгота: ${countryCoordinationState.getLongitude.toStringAsFixed(5)}',
+                      text: 'Долгота: ${countryCoordinationState.getLongitude.toStringAsFixed(1)}',
                       style: TextStyle(
                         color: appColors.mainTextColor,
                         fontSize: 18,

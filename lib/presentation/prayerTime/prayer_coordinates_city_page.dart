@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/data/database/local/service/coordinates_query.dart';
-import 'package:majmua/presentation/prayerTime/county_item.dart';
+import 'package:majmua/presentation/prayerTime/country_item.dart';
+import 'package:majmua/presentation/prayerTime/search_cities_delegate.dart';
 
 class PrayerCoordinatesCityPage extends StatefulWidget {
   const PrayerCoordinatesCityPage({Key? key}) : super(key: key);
@@ -18,6 +20,19 @@ class _PrayerCoordinatesCityPageState extends State<PrayerCoordinatesCityPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Выбрать город'),
+        actions: [
+          IconButton(
+            icon: const Icon(
+              CupertinoIcons.search,
+            ),
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: SearchCitiesDelegate(),
+              );
+            },
+          ),
+        ],
       ),
       body: FutureBuilder<List>(
         future: _coordinatesQuery.getAllCountries(),
@@ -31,14 +46,17 @@ class _PrayerCoordinatesCityPageState extends State<PrayerCoordinatesCityPage> {
             );
           }
           return snapshot.hasData
-              ? ListView.builder(
-                  itemCount: snapshot.data!.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return CountyItem(
-                      countryModelItem: snapshot.data![index],
-                    );
-                  },
-                )
+              ? CupertinoScrollbar(
+                child: ListView.builder(
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return CountryItem(
+                        cityIndex: index,
+                        countryModelItem: snapshot.data![index],
+                      );
+                    },
+                  ),
+              )
               : const Center(
                   child: CircularProgressIndicator.adaptive(),
                 );
