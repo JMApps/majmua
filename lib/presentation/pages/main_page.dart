@@ -20,32 +20,41 @@ class MainPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(AppStrings.mainAppTitle),
       ),
-      body: SingleChildScrollView(
-        padding: AppStyles.symmetricVerticalPadding,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            RestTimeContainer(),
-            SizedBox(height: 6),
-            Divider(indent: 16, endIndent: 16),
-            PrayerTimeContainer(),
-            SizedBox(height: 4),
-            CurrentDateContainer(),
-            SizedBox(height: 4),
-            Divider(indent: 16, endIndent: 16),
-            FridayContainer(),
-            RestHolidaysContainer(),
-            Divider(indent: 16, endIndent: 16),
-            WhiteDayContainer(),
-            SizedBox(height: 4),
-            SixColumnsContainer(),
-            SizedBox(height: 4),
-            Divider(indent: 16, endIndent: 16),
-            SFQContainer(),
-            Divider(indent: 16, endIndent: 16),
-            LibraryContainer(),
-            Divider(indent: 16, endIndent: 16),
-          ],
+      body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                fit: BoxFit.scaleDown,
+                opacity: 0.075,
+                image: AssetImage(
+                  'assets/images/main_background.png',
+                ))),
+        child: SingleChildScrollView(
+          padding: AppStyles.symmetricVerticalPadding,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              RestTimeContainer(),
+              SizedBox(height: 6),
+              Divider(indent: 16, endIndent: 16),
+              PrayerTimeContainer(),
+              SizedBox(height: 4),
+              CurrentDateContainer(),
+              SizedBox(height: 4),
+              Divider(indent: 16, endIndent: 16),
+              FridayContainer(),
+              RestHolidaysContainer(),
+              Divider(indent: 16, endIndent: 16),
+              WhiteDayContainer(),
+              SizedBox(height: 4),
+              SixColumnsContainer(),
+              SizedBox(height: 4),
+              Divider(indent: 16, endIndent: 16),
+              SFQContainer(),
+              Divider(indent: 16, endIndent: 16),
+              LibraryContainer(),
+              Divider(indent: 16, endIndent: 16),
+            ],
+          ),
         ),
       ),
     );
