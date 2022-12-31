@@ -9,6 +9,7 @@ import 'package:majmua/presentation/library/namesOf/names_of_page.dart';
 import 'package:majmua/presentation/library/questions/questions_page.dart';
 import 'package:majmua/presentation/library/raqaiq/raqaiq_page.dart';
 import 'package:majmua/presentation/pages/page_library.dart';
+import 'package:majmua/presentation/prayerTime/prayer_coordinates_city_page.dart';
 import 'package:majmua/presentation/prayerTime/prayer_settings.dart';
 import 'package:majmua/presentation/quran/surah_mulk_page.dart';
 import 'package:majmua/presentation/quran/surah_qahf_page.dart';
@@ -77,6 +78,10 @@ class AppRoutes {
       case 'raqaiq_page':
         return MaterialPageRoute(
           builder: (_) => const RaqaiqPage(),
+        );
+      case 'prayer_coordinates_city_page':
+        return MaterialPageRoute(
+          builder: (_) => const PrayerCoordinatesCityPage(),
         );
       default:
         throw Exception(

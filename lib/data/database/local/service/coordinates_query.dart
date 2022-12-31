@@ -14,20 +14,20 @@ class CoordinatesQuery {
 
   Future<List<CountryModel>> getAllCountries() async {
     var dbClient = await _defaultCountriesDatabaseHelper.db;
-    var res = await dbClient.query('Table_of_county_coordinates');
-    List<CountryModel>? counties = res.isNotEmpty ? res.map((c) => CountryModel.fromMap(c)).toList() : null;
-    return counties!;
+    var res = await dbClient.query('Table_of_country_coordinates');
+    List<CountryModel>? allCountries = res.isNotEmpty ? res.map((c) => CountryModel.fromMap(c)).toList() : null;
+    return allCountries!;
   }
 
   getCounty(int idCountry) async {
     var dbClient = await _defaultCountriesDatabaseHelper.db;
-    var res = await dbClient.query('Table_of_county_coordinates', where: 'id == $idCountry');
-    List<CountryModel>? counties = res.isNotEmpty ? res.map((c) => CountryModel.fromMap(c)).toList() : null;
-    return counties!;
+    var res = await dbClient.query('Table_of_country_coordinates', where: 'id == $idCountry');
+    List<CountryModel>? oneCountry = res.isNotEmpty ? res.map((c) => CountryModel.fromMap(c)).toList() : null;
+    return oneCountry!;
   }
 
   Future<int> createCounty({
-    required String county,
+    required String country,
     required String city,
     required double latitude,
     required double longitude,
@@ -35,7 +35,7 @@ class CoordinatesQuery {
   }) async {
     var dbClient = await _customCountriesDatabaseHelper.db;
     final Map<String, dynamic> newCounty = {
-      'county': county,
+      'country': country,
       'city': city,
       'latitude': latitude,
       'longitude': longitude,
@@ -50,7 +50,7 @@ class CoordinatesQuery {
 
   Future<int> updateCounty({
     required int idCounty,
-    required String county,
+    required String country,
     required String city,
     required double latitude,
     required double longitude,
@@ -58,7 +58,7 @@ class CoordinatesQuery {
   }) async {
     var dbClient = await _customCountriesDatabaseHelper.db;
     final Map<String, dynamic> updateCounty = {
-      'county': county,
+      'country': country,
       'city': city,
       'latitude': latitude,
       'longitude': longitude,

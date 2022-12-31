@@ -21,8 +21,8 @@ class CountyItem extends StatelessWidget {
       },
       visualDensity: const VisualDensity(vertical: -2),
       contentPadding: AppStyles.symmetricHorizontalPadding,
-      title: Text(countryModelItem.city),
-      subtitle: Text(countryModelItem.country),
+      title: Text(countryModelItem.city, style: const TextStyle(fontSize: 22,),),
+      subtitle: Text(countryModelItem.country, style: const TextStyle(fontSize: 20,),),
     );
   }
 }

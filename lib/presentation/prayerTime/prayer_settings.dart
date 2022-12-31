@@ -3,7 +3,6 @@ import 'package:majmua/application/state/country_coordinates_state.dart';
 import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/application/theme/app_themes.dart';
 import 'package:majmua/presentation/prayerTime/calculation_method_container.dart';
-import 'package:majmua/presentation/prayerTime/select_city.dart';
 import 'package:provider/provider.dart';
 
 class RegionSettings extends StatelessWidget {
@@ -93,11 +92,7 @@ class RegionSettings extends StatelessWidget {
                 padding: AppStyles.symmetricHorizontalPadding,
                 child: MaterialButton(
                   onPressed: () {
-                    showModalBottomSheet(
-                      backgroundColor: Colors.transparent,
-                      context: context,
-                      builder: (_) => SelectCity(),
-                    );
+                    Navigator.pushNamed(context, 'prayer_coordinates_city_page');
                   },
                   shape: AppStyles.mainCardBorderRadius,
                   color: appColors.firstAppColor,
