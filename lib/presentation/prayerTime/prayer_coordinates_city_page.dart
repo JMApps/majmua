@@ -25,6 +25,7 @@ class _PrayerCoordinatesCityPageState extends State<PrayerCoordinatesCityPage> {
             icon: const Icon(
               CupertinoIcons.search,
             ),
+            splashRadius: 20,
             onPressed: () {
               showSearch(
                 context: context,
