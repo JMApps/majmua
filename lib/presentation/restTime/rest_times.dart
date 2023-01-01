@@ -22,17 +22,24 @@ class RestTimes {
 
   int get getMinutesOfMonth => dateTime.difference(DateTime(dateTime.year, dateTime.month).toUtc()).inMinutes;
 
-  int get getDaysOfMonth => dateTime.difference(DateTime(dateTime.year, dateTime.month, 0).toUtc()).inDays;
-
   int get getMinutesOfDay => dateTime.difference(DateTime(dateTime.year, dateTime.month, dateTime.day).toUtc()).inMinutes;
 
   double get getRestYearProgress {
-    return getMinutesOfYear * 24 * 60 / 7568640.0;
+    return getMinutesOfYear * 24 * 60 / 7568640;
+  }
+
+  int _getDaysInMonth(int year, int month) {
+    if (month == DateTime.february) {
+      final bool isLeapYear = (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
+      return isLeapYear ? 29 : 28;
+    }
+    const List<int> daysInMonth = <int>[31, -1, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    return daysInMonth[month - 1];
   }
 
   double get getRestMonthProgress {
     double seasonMonth = 0;
-    switch (getDaysOfMonth) {
+    switch (_getDaysInMonth(dateTime.year, dateTime.month)) {
       case 28:
         seasonMonth = getMinutesOfMonth * 24 * 60 / 580608;
         break;
