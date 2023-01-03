@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/application/state/pages_scroll_state.dart';
+import 'package:majmua/application/constants/app_constants.dart';
+import 'package:majmua/application/state/book_pages_scroll_state.dart';
 import 'package:majmua/data/database/local/service/names_of_query.dart';
 import 'package:majmua/presentation/library/namesOf/names_content_item.dart';
 import 'package:majmua/presentation/library/namesOf/names_of_smooth_indicator.dart';
@@ -19,8 +20,8 @@ class _NamesOfPageState extends State<NamesOfPage> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<PagesScrollState>(
-          create: (_) => PagesScrollState(),
+        ChangeNotifierProvider<BookPagesScrollState>(
+          create: (_) => BookPagesScrollState(keyForSettingsInitialization: AppConstants.keyNamesOfLastPage),
         ),
       ],
       child: Scaffold(
@@ -31,7 +32,7 @@ class _NamesOfPageState extends State<NamesOfPage> {
           future: _namesOfQuery.getAllClarifications(),
           builder: (BuildContext context, snapshot) {
             return snapshot.hasData
-                ? Consumer<PagesScrollState>(
+                ? Consumer<BookPagesScrollState>(
                     builder: (BuildContext context, scrollState, _) {
                       return Column(
                         children: [
@@ -49,6 +50,9 @@ class _NamesOfPageState extends State<NamesOfPage> {
                                   item: snapshot.data![index],
                                   index: index,
                                 );
+                              },
+                              onPageChanged: (page) {
+                                scrollState.changePageForLast(currentPage: page);
                               },
                             ),
                           ),

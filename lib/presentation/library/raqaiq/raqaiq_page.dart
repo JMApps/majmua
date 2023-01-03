@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/application/state/pages_scroll_state.dart';
+import 'package:majmua/application/constants/app_constants.dart';
+import 'package:majmua/application/state/book_pages_scroll_state.dart';
 import 'package:majmua/data/database/local/service/raqaiq_query.dart';
 import 'package:majmua/presentation/library/raqaiq/raqaiq_item.dart';
 import 'package:majmua/presentation/library/raqaiq/raqaiq_smooth_indicator.dart';
@@ -19,15 +20,15 @@ class _RaqaiqPageState extends State<RaqaiqPage> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<PagesScrollState>(
-          create: (_) => PagesScrollState(),
+        ChangeNotifierProvider<BookPagesScrollState>(
+          create: (_) => BookPagesScrollState(keyForSettingsInitialization: AppConstants.keyRaqaiqLastPage),
         ),
       ],
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Ракъаикъ Къуран'),
         ),
-        body: Consumer<PagesScrollState>(
+        body: Consumer<BookPagesScrollState>(
           builder: (BuildContext context, scrollState, _) {
             return FutureBuilder(
               future: _raqaiqQuery.getAllChapters(),
@@ -43,6 +44,9 @@ class _RaqaiqPageState extends State<RaqaiqPage> {
                                 return RaqaiqItem(
                                   item: snapshot.data![index],
                                 );
+                              },
+                              onPageChanged: (page) {
+                                scrollState.changePageForLast(currentPage: page);
                               },
                             ),
                           ),

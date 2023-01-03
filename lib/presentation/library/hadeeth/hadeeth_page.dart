@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/application/state/pages_scroll_state.dart';
+import 'package:majmua/application/constants/app_constants.dart';
+import 'package:majmua/application/state/book_pages_scroll_state.dart';
 import 'package:majmua/data/database/local/service/hadeeth_query.dart';
 import 'package:majmua/presentation/library/hadeeth/hadeeth_item.dart';
 import 'package:majmua/presentation/library/hadeeth/hadeeth_smooth_indicator.dart';
@@ -19,15 +20,15 @@ class _HadeethPageState extends State<HadeethPage> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<PagesScrollState>(
-          create: (_) => PagesScrollState(),
+        ChangeNotifierProvider<BookPagesScrollState>(
+          create: (_) => BookPagesScrollState(keyForSettingsInitialization: AppConstants.keyHadeethLastPage),
         ),
       ],
       child: Scaffold(
         appBar: AppBar(
           title: const Text('40 хадисов'),
         ),
-        body: Consumer<PagesScrollState>(
+        body: Consumer<BookPagesScrollState>(
           builder: (BuildContext context, scrollState, _) {
             return FutureBuilder(
               future: _hadeethQuery.getAllHadeeth(),
@@ -43,6 +44,9 @@ class _HadeethPageState extends State<HadeethPage> {
                                 return HadeethItem(
                                   item: snapshot.data![index],
                                 );
+                              },
+                              onPageChanged: (page) {
+                                scrollState.changePageForLast(currentPage: page);
                               },
                             ),
                           ),
