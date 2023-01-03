@@ -13,10 +13,13 @@ class AppStyles {
   static const mainMargin = EdgeInsets.all(16);
   static const mainMarginMini = EdgeInsets.all(8);
 
-  static const symmetricHorizontalPadding = EdgeInsets.symmetric(horizontal: 16);
-  static const symmetricHorizontalPaddingMini = EdgeInsets.symmetric(horizontal: 8);
+  static const symmetricHorizontalPadding =
+      EdgeInsets.symmetric(horizontal: 16);
+  static const symmetricHorizontalPaddingMini =
+      EdgeInsets.symmetric(horizontal: 8);
   static const symmetricHorizontalMargin = EdgeInsets.symmetric(horizontal: 16);
-  static const symmetricHorizontalMarginMini = EdgeInsets.symmetric(horizontal: 8);
+  static const symmetricHorizontalMarginMini =
+      EdgeInsets.symmetric(horizontal: 8);
 
   static const symmetricVerticalPadding = EdgeInsets.symmetric(vertical: 16);
   static const symmetricVerticalPaddingMini = EdgeInsets.symmetric(vertical: 8);
@@ -79,5 +82,15 @@ class AppStyles {
   static const bottomBorderRadius = BorderRadius.only(
     bottomRight: Radius.circular(25),
     bottomLeft: Radius.circular(25),
+  );
+
+  static const mainBackground = BoxDecoration(
+    image: DecorationImage(
+      fit: BoxFit.scaleDown,
+      opacity: 0.075,
+      image: AssetImage(
+        'assets/images/main_background.png',
+      ),
+    ),
   );
 }

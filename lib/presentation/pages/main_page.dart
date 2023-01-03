@@ -10,7 +10,7 @@ import 'package:majmua/presentation/restTime/rest_time_container.dart';
 import 'package:majmua/presentation/sixColumns/six_column_container.dart';
 import 'package:majmua/presentation/supplicationsQuran/sfq_container.dart';
 import 'package:majmua/presentation/whiteDays/white_day_container.dart';
-import 'package:share_plus/share_plus.dart';
+import 'package:majmua/presentation/widgets/share_app_links_button.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -20,29 +20,12 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(AppStrings.mainAppTitle),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Share.share('Рекомендую скачать приложение "Полка мусульманина":\n\nВерсия для iOS:\nhttps://apps.apple.com/tr/app/полка-мусульманина/id1659190395\n\nВерсия для Android\nhttps://play.google.com/store/apps/details?id=jmapps.project.majmua',
-              sharePositionOrigin: const Rect.fromLTWH(0, 0, 10, 10));
-            },
-            splashRadius: 20,
-            icon: const Icon(
-              Icons.ios_share_rounded,
-            ),
-          ),
+        actions: const [
+          ShareAppLinksButton(),
         ],
       ),
       body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.scaleDown,
-            opacity: 0.075,
-            image: AssetImage(
-              'assets/images/main_background.png',
-            ),
-          ),
-        ),
+        decoration: AppStyles.mainBackground,
         child: SingleChildScrollView(
           padding: AppStyles.symmetricVerticalPadding,
           child: Column(
