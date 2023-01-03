@@ -31,6 +31,7 @@ dependencies:
   rxdart: ^0.27.7
   adhan: ^2.0.0-nullsafety.2
   intl: ^0.18.0
+  flutter_colorpicker: ^1.0.3
 
 dev_dependencies:
   flutter_test:
@@ -47,7 +48,6 @@ flutter:
     - assets/images/
     - assets/fonts/
     - assets/quran/
-#    - assets/surahs/
   fonts:
     - family: Lato
       fonts:
@@ -58,9 +58,6 @@ flutter:
     - family: Scheherazade
       fonts:
         - asset: assets/fonts/scheherazade.ttf
-#    - family: Gilroy
-#      fonts:
-#        - asset: assets/fonts/gilroy_medium.ttf
     - family: Quran
       fonts:
         - asset: assets/fonts/quran_font.ttf
