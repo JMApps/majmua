@@ -24,6 +24,7 @@ class WhiteDayItem extends StatelessWidget {
         style: const TextStyle(
           fontSize: 14,
           color: Colors.white,
+          fontFamily: 'Lato'
         ),
       ),
     );

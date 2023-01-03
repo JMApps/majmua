@@ -45,12 +45,13 @@ class _RestHolidaysContainerState extends State<RestHolidaysContainer> {
               ),
               trailing: CircleAvatar(
                 backgroundColor: appColors.secondAppColor,
-                radius: 17.5,
+                radius: 18,
                 child: Text(
                   _restTimes.getToRamadanDays.toString().substring(1),
                   style: const TextStyle(
                     fontSize: 14,
                     color: Colors.white,
+                    fontFamily: 'Lato',
                   ),
                 ),
               ),
@@ -86,12 +87,13 @@ class _RestHolidaysContainerState extends State<RestHolidaysContainer> {
               ),
               trailing: CircleAvatar(
                 backgroundColor: appColors.firstAppColor,
-                radius: 17.5,
+                radius: 18,
                 child: Text(
                   _restTimes.getToQurbanDays.toString().substring(1),
                   style: const TextStyle(
                     fontSize: 14,
                     color: Colors.white,
+                    fontFamily: 'Lato',
                   ),
                 ),
               ),

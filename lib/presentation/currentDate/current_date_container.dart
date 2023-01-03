@@ -94,22 +94,19 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
                 elevation: 1,
                 margin: EdgeInsets.zero,
                 shape: AppStyles.mainCardBorderRadius,
-                child: SizedBox(
+                child: Container(
+                  padding: const EdgeInsets.all(2),
                   height: 77,
-                  child: Center(
-                    child: Padding(
-                      padding: AppStyles.mainPaddingMini,
-                      child: Text(
-                        _restTimes.getMessageForSaum,
-                        style: TextStyle(
-                          fontSize: _restTimes.dateTime.weekday == 5 ? 50 : 14,
-                          color: _restTimes.dateTime.weekday == 5
-                              ? appColors.thirdAppColor
-                              : appColors.mainTextColor,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
+                  alignment: Alignment.center,
+                  child: Text(
+                    _restTimes.getMessageForSaum,
+                    style: TextStyle(
+                      fontSize: _restTimes.dateTime.weekday == 5 ? 50 : 14,
+                      color: _restTimes.dateTime.weekday == 5
+                          ? appColors.thirdAppColor
+                          : appColors.mainTextColor,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),

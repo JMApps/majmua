@@ -29,8 +29,7 @@ class ColumnItem extends StatelessWidget {
         onTap: () {
           Navigator.pushNamed(context, routeName);
         },
-        borderRadius:
-            isLeft ? AppStyles.leftBorderRadius : AppStyles.rightBorderRadius,
+        borderRadius: isLeft ? AppStyles.leftBorderRadius : AppStyles.rightBorderRadius,
         child: Container(
           decoration: BoxDecoration(
             borderRadius: isLeft
@@ -44,7 +43,7 @@ class ColumnItem extends StatelessWidget {
               image: AssetImage('assets/images/$imageName'),
             ),
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          padding: AppStyles.mainPaddingMini,
           child: Text(
             title,
             style: TextStyle(
