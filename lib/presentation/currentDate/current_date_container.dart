@@ -28,9 +28,8 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
             shape: AppStyles.mainCardBorderRadius,
             child: Container(
               padding: AppStyles.mainPaddingMini,
-              height: 120,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              alignment: Alignment.center,
+              child: Wrap(
                 children: [
                   Expanded(
                     child: CurrentDateItem(
@@ -56,8 +55,8 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
         const SizedBox(width: 8),
         Expanded(
           flex: 2,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+          child: Wrap(
+            runSpacing: 8,
             children: [
               Card(
                 elevation: 0,
@@ -82,6 +81,7 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
                           color: _restTimes.dateTime.weekday == 5
                               ? appColors.thirdAppColor
                               : appColors.firstAppColor,
+                          fontWeight: FontWeight.w600,
                         ),
                         textAlign: TextAlign.center,
                       ),
