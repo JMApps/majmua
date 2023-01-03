@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:majmua/application/state/country_coordinates_state.dart';
 import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/application/theme/app_themes.dart';
+import 'package:majmua/presentation/prayerTime/calculation_madhab_container.dart';
 import 'package:majmua/presentation/prayerTime/calculation_method_container.dart';
 import 'package:provider/provider.dart';
 
@@ -34,7 +35,7 @@ class RegionSettings extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: '${countryCoordinationState.getCountry}, ',
+                      text: countryCoordinationState.getCountry.isNotEmpty ? '${countryCoordinationState.getCountry}, ' : '',
                       style: TextStyle(
                         color: appColors.mainTextColor,
                         fontSize: 18,
@@ -67,7 +68,8 @@ class RegionSettings extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: 'Широта: ${countryCoordinationState.getLatitude.toStringAsFixed(1)}\n',
+                      text:
+                          'Широта: ${countryCoordinationState.getLatitude.toStringAsFixed(1)}\n',
                       style: TextStyle(
                         color: appColors.mainTextColor,
                         fontSize: 18,
@@ -75,7 +77,8 @@ class RegionSettings extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: 'Долгота: ${countryCoordinationState.getLongitude.toStringAsFixed(1)}',
+                      text:
+                          'Долгота: ${countryCoordinationState.getLongitude.toStringAsFixed(1)}',
                       style: TextStyle(
                         color: appColors.mainTextColor,
                         fontSize: 18,
@@ -87,17 +90,55 @@ class RegionSettings extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               const CalculationMethodContainer(),
-              const SizedBox(height: 8),
+              const SizedBox(height: 4),
+              const CalculationMadhabContainer(),
+              const SizedBox(height: 4),
               Padding(
                 padding: AppStyles.symmetricHorizontalPadding,
                 child: MaterialButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, 'prayer_coordinates_city_page');
+                    Navigator.pushNamed(
+                        context, 'prayer_coordinates_city_page');
                   },
                   shape: AppStyles.mainCardBorderRadius,
                   color: appColors.firstAppColor,
                   child: const Text(
                     'Выбрать другой город',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 4),
+              Padding(
+                padding: AppStyles.symmetricHorizontalPadding,
+                child: MaterialButton(
+                  onPressed: () {
+                    Navigator.pushNamed(
+                        context, 'add_prayer_coordinates_city_page');
+                  },
+                  shape: AppStyles.mainCardBorderRadius,
+                  color: appColors.firstAppColor,
+                  child: const Text(
+                    'Добавить свой город',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 4),
+              Padding(
+                padding: AppStyles.symmetricHorizontalPadding,
+                child: MaterialButton(
+                  onPressed: () {},
+                  shape: AppStyles.mainCardBorderRadius,
+                  color: appColors.firstAppColor,
+                  child: const Text(
+                    'Информация',
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.white,

@@ -9,6 +9,7 @@ class AppConstants {
   static const keyCurrentLatitude = 'key_current_latitude';
   static const keyCurrentLongitude = 'key_current_longitude';
   static const keyCalculationIndex = 'key_prayer_params_index';
+  static const keyMadhabIndex = 'key_madhab_params_index';
 
   // Settings
   static const keyNamesOfLastPage = 'key_names_of_last_page';
