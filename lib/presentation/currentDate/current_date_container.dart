@@ -31,21 +31,17 @@ class _CurrentDateContainerState extends State<CurrentDateContainer> {
               alignment: Alignment.center,
               child: Wrap(
                 children: [
-                  Expanded(
-                    child: CurrentDateItem(
-                      currentMonth: _restTimes.getMonthName,
-                      currentYear: _restTimes.dateTime.year,
-                      currentDay: _restTimes.dateTime.day,
-                      color: appColors.firstAppColor,
-                    ),
+                  CurrentDateItem(
+                    currentMonth: _restTimes.getMonthName,
+                    currentYear: _restTimes.dateTime.year,
+                    currentDay: _restTimes.dateTime.day,
+                    color: appColors.firstAppColor,
                   ),
-                  Expanded(
-                    child: CurrentDateItem(
-                      currentMonth: _restTimes.getMonthHijriName,
-                      currentYear: _restTimes.dateTimeHijri.hYear,
-                      currentDay: _restTimes.dateTimeHijri.hDay,
-                      color: appColors.secondAppColor,
-                    ),
+                  CurrentDateItem(
+                    currentMonth: _restTimes.getMonthHijriName,
+                    currentYear: _restTimes.dateTimeHijri.hYear,
+                    currentDay: _restTimes.dateTimeHijri.hDay,
+                    color: appColors.secondAppColor,
                   ),
                 ],
               ),
