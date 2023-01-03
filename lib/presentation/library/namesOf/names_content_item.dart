@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:majmua/application/state/book_settings_state.dart';
 import 'package:majmua/data/database/local/model/names_clarification_of_model.dart';
 import 'package:majmua/presentation/library/namesOf/ayahs_container.dart';
 import 'package:majmua/presentation/library/namesOf/names_container.dart';
+import 'package:provider/provider.dart';
 
 class NamesContentItem extends StatelessWidget {
   const NamesContentItem({
@@ -28,20 +30,24 @@ class NamesContentItem extends StatelessWidget {
             AyahsContainer(
               clarificationIndex: index,
             ),
-            Html(
-              data: item.contentClarification,
-              style: {
-                '#': Style(
-                  padding: const EdgeInsets.only(top: 8),
-                  margin: EdgeInsets.zero,
-                  fontSize: const FontSize(18),
-                ),
-                'small': Style(
-                  padding: EdgeInsets.zero,
-                  margin: EdgeInsets.zero,
-                  color: Colors.grey,
-                  fontSize: const FontSize(12),
-                ),
+            Consumer<BookSettingsState>(
+              builder: (BuildContext context, bookSettingsState, _) {
+                return Html(
+                  data: item.contentClarification,
+                  style: {
+                    '#': Style(
+                      padding: const EdgeInsets.only(top: 8),
+                      margin: EdgeInsets.zero,
+                      fontSize: FontSize(bookSettingsState.getTextSize),
+                    ),
+                    'small': Style(
+                      padding: EdgeInsets.zero,
+                      margin: EdgeInsets.zero,
+                      color: Colors.grey,
+                      fontSize: const FontSize(12),
+                    ),
+                  },
+                );
               },
             ),
           ],

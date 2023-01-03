@@ -1,9 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/constants/app_constants.dart';
 import 'package:majmua/application/state/book_pages_scroll_state.dart';
+import 'package:majmua/application/state/book_settings_state.dart';
 import 'package:majmua/data/database/local/service/names_of_query.dart';
 import 'package:majmua/presentation/library/namesOf/names_content_item.dart';
 import 'package:majmua/presentation/library/namesOf/names_of_smooth_indicator.dart';
+import 'package:majmua/presentation/widgets/main_settings.dart';
 import 'package:provider/provider.dart';
 
 class NamesOfPage extends StatefulWidget {
@@ -21,12 +24,33 @@ class _NamesOfPageState extends State<NamesOfPage> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<BookPagesScrollState>(
-          create: (_) => BookPagesScrollState(keyForSettingsInitialization: AppConstants.keyNamesOfLastPage),
+          create: (_) => BookPagesScrollState(
+              keyForSettingsInitialization: AppConstants.keyNamesOfLastPage),
+        ),
+        ChangeNotifierProvider<BookSettingsState>(
+          create: (_) => BookSettingsState(
+            keyCurrentTextSize: AppConstants.keyTextSizeNamesOf,
+            keyCurrentTextColor: AppConstants.keyTextColorNamesOf,
+          ),
         ),
       ],
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Имена Аллаха'),
+          actions: [
+            IconButton(
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  backgroundColor: Colors.transparent,
+                  builder: (_) => const MainBookSettings(),
+                );
+              },
+              icon: const Icon(
+                CupertinoIcons.settings,
+              ),
+            ),
+          ],
         ),
         body: FutureBuilder(
           future: _namesOfQuery.getAllClarifications(),
