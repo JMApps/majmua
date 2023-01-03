@@ -25,7 +25,7 @@ class RestTimes {
   int get getMinutesOfDay => dateTime.difference(DateTime(dateTime.year, dateTime.month, dateTime.day).toUtc()).inMinutes;
 
   double get getRestYearProgress {
-    return getMinutesOfYear * 24 * 60 / 7568640;
+    return getMinutesOfYear <= 7568640.0 ? getMinutesOfYear * 24 * 60 / 7568640.0 :  getMinutesOfYear * 24 * 60 / 7588937.6;
   }
 
   int _getDaysInMonth(int year, int month) {
