@@ -60,7 +60,7 @@ extension ColorSchemeS on ColorScheme {
       : const Color(0xFF72A2C0);
 
   Color get thirdAppColor => brightness == Brightness.light
-      ? const Color(0xFFFF5722)
+      ? const Color(0xFFEF5350)
       : const Color(0xFFF2A104);
 
   Color get firstThirdColor => brightness == Brightness.light

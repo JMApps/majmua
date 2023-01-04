@@ -93,4 +93,37 @@ class AppStyles {
       ),
     ),
   );
+
+  static mainInputDecoration({
+    required String labelText,
+    required Color hintColor,
+    required Color focusInputColor,
+    required Color errorInputColor,
+  }) =>
+      InputDecoration(
+        alignLabelWithHint: true,
+        floatingLabelAlignment: FloatingLabelAlignment.center,
+        labelText: labelText,
+        hintStyle: TextStyle(
+          fontSize: 16,
+          color: hintColor,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: BorderSide(
+            color: focusInputColor,
+            width: 1,
+          ),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: BorderSide(
+            color: errorInputColor,
+            width: 1,
+          ),
+        ),
+      );
 }
