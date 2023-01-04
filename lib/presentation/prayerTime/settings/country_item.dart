@@ -20,6 +20,7 @@ class CountryItem extends StatelessWidget {
       onTap: () {
         context.read<CountryCoordinatesState>().changeCountry = countryModelItem;
         Navigator.of(context).pop();
+        Navigator.pop(context);
       },
       visualDensity: const VisualDensity(vertical: -2),
       contentPadding: AppStyles.symmetricHorizontalPadding,

@@ -26,7 +26,7 @@ class CustomCountriesDatabaseHelper {
         ? await getExternalStorageDirectory()
         : await getApplicationSupportDirectory();
 
-    String path = join(documentDirectory!.path, 'custom_county_coordinates.db');
+    String path = join(documentDirectory!.path, 'custom_countries.db');
     var exists = await databaseExists(path);
 
     if (!exists) {
@@ -36,7 +36,7 @@ class CustomCountriesDatabaseHelper {
         Exception('Invalid database');
       }
 
-      ByteData data = await rootBundle.load(join('assets/databases', 'custom_county_coordinates.db'));
+      ByteData data = await rootBundle.load(join('assets/databases', 'custom_countries.db'));
       List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
       await File(path).writeAsBytes(bytes, flush: true);
     }

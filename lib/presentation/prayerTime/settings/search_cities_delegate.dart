@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:majmua/application/theme/app_themes.dart';
 import 'package:majmua/data/database/local/model/country_model.dart';
 import 'package:majmua/data/database/local/service/coordinates_query.dart';
-import 'package:majmua/presentation/prayerTime/country_item.dart';
+import 'package:majmua/presentation/prayerTime/settings/country_item.dart';
 
 class SearchCitiesDelegate extends SearchDelegate {
   final CoordinatesQuery _coordinatesQuery = CoordinatesQuery();

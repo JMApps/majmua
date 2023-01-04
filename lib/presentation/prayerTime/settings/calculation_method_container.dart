@@ -50,8 +50,7 @@ class _CalculationMethodContainerState
             height: 2,
           ),
           onChanged: (String? value) {
-            context.read<CountryCoordinatesState>().changeCalculationMethod =
-                _calculationMethod.indexOf(value!);
+            context.read<CountryCoordinatesState>().changeCalculationMethod = _calculationMethod.indexOf(value!);
           },
           items: _calculationMethod.map<DropdownMenuItem<String>>(
             (String value) {

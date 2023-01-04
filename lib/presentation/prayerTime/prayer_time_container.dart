@@ -33,19 +33,20 @@ class PrayerTimeContainer extends StatelessWidget {
                   text: TextSpan(
                     children: [
                       TextSpan(
-                        text: '${countryCoordinatesState.getCountry}${countryCoordinatesState.getCountry.isNotEmpty ? ', ' : ''}${countryCoordinatesState.getCity}',
+                        text:
+                            '${countryCoordinatesState.getCountry}${countryCoordinatesState.getCountry.isNotEmpty ? ', ' : ''}${countryCoordinatesState.getCity}',
                         style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                          color: appColors.mainTextColor,
-                        ),
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                            color: appColors.mainTextColor,
+                            fontFamily: 'Nexa'),
                       ),
                       TextSpan(
                         text: '\n(изменить)',
                         style: TextStyle(
-                          fontSize: 10,
-                          color: appColors.thirdAppColor,
-                        ),
+                            fontSize: 10,
+                            color: appColors.thirdAppColor,
+                            fontFamily: 'Nexa'),
                       ),
                     ],
                   ),
@@ -141,8 +142,7 @@ class PrayerTimeContainer extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: DateFormat.Hm()
-                          .format(countryCoordinatesState.getThirdNightPart),
+                      text: DateFormat.Hm().format(countryCoordinatesState.getThirdNightPart),
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: appColors.secondAppColor,
