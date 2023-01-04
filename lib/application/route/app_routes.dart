@@ -9,9 +9,9 @@ import 'package:majmua/presentation/library/namesOf/names_of_page.dart';
 import 'package:majmua/presentation/library/questions/questions_page.dart';
 import 'package:majmua/presentation/library/raqaiq/raqaiq_page.dart';
 import 'package:majmua/presentation/pages/page_library.dart';
-import 'package:majmua/presentation/prayerTime/add_prayer_coordinates_city_page.dart';
-import 'package:majmua/presentation/prayerTime/prayer_coordinates_city_page.dart';
-import 'package:majmua/presentation/prayerTime/prayer_settings.dart';
+import 'package:majmua/presentation/prayerTime/addCity/add_prayer_coordinates_city_page.dart';
+import 'package:majmua/presentation/prayerTime/settings/prayer_settings.dart';
+import 'package:majmua/presentation/prayerTime/settings/select_coordinates_city_page.dart';
 import 'package:majmua/presentation/quran/surah_mulk_page.dart';
 import 'package:majmua/presentation/quran/surah_qahf_page.dart';
 import 'package:majmua/presentation/quran/surah_sajdah_page.dart';
@@ -80,13 +80,13 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (_) => const RaqaiqPage(),
         );
-      case 'prayer_coordinates_city_page':
+      case 'select_coordinates_city_page':
         return MaterialPageRoute(
-          builder: (_) => const PrayerCoordinatesCityPage(),
+          builder: (_) => const SelectCoordinatesCityPage(),
         );
-      case 'add_prayer_coordinates_city_page':
+      case 'add_coordinates_city_page':
         return MaterialPageRoute(
-          builder: (_) => const AddPrayerCoordinatesCityPage(),
+          builder: (_) => const AddCoordinatesCityPage(),
         );
       default:
         throw Exception(
