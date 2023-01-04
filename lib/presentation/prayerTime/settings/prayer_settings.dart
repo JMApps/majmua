@@ -120,8 +120,7 @@ class RegionSettings extends StatelessWidget {
                     padding: AppStyles.symmetricHorizontalPadding,
                     child: MaterialButton(
                       onPressed: () {
-                        Navigator.pushNamed(
-                            context, 'select_coordinates_city_page');
+                        Navigator.pushNamed(context, 'select_coordinates_city_page');
                       },
                       shape: AppStyles.mainCardBorderRadius,
                       color: appColors.firstAppColor,

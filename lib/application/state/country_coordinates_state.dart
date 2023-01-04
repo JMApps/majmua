@@ -16,8 +16,7 @@ class CountryCoordinatesState extends ChangeNotifier {
   late PrayerTimes _prayerTime;
   late CalculationParameters _prayerParams;
   late Timer _myTimer;
-  final LocalNotificationService _localNotificationService =
-      LocalNotificationService();
+  final LocalNotificationService _localNotificationService = LocalNotificationService();
 
   late String _county;
   late String _city;
@@ -70,17 +69,12 @@ class CountryCoordinatesState extends ChangeNotifier {
         notifyListeners();
       });
     });
-    _county = _mainSettingsBox.get(AppConstants.keyCountry,
-        defaultValue: 'Saudi Arabia');
+    _county = _mainSettingsBox.get(AppConstants.keyCountry, defaultValue: 'Saudi Arabia');
     _city = _mainSettingsBox.get(AppConstants.keyCity, defaultValue: 'Mecca');
-    _currentLatitude = _mainSettingsBox.get(AppConstants.keyCurrentLatitude,
-        defaultValue: 21.392425120226704);
-    _currentLongitude = _mainSettingsBox.get(AppConstants.keyCurrentLongitude,
-        defaultValue: 39.85797038428307);
-    _calculationMethodIndex =
-        _mainSettingsBox.get(AppConstants.keyCalculationIndex, defaultValue: 0);
-    _calculationMadhabIndex =
-        _mainSettingsBox.get(AppConstants.keyMadhabIndex, defaultValue: 0);
+    _currentLatitude = _mainSettingsBox.get(AppConstants.keyCurrentLatitude, defaultValue: 21.392425120226704);
+    _currentLongitude = _mainSettingsBox.get(AppConstants.keyCurrentLongitude, defaultValue: 39.85797038428307);
+    _calculationMethodIndex = _mainSettingsBox.get(AppConstants.keyCalculationIndex, defaultValue: 0);
+    _calculationMadhabIndex = _mainSettingsBox.get(AppConstants.keyMadhabIndex, defaultValue: 0);
 
     initWithNewCoordinates(
       currentLatitude: _currentLatitude,
@@ -91,9 +85,7 @@ class CountryCoordinatesState extends ChangeNotifier {
   }
 
   int get getMinuteOfDay {
-    return _dateTime
-        .difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day))
-        .inMinutes;
+    return _dateTime.difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day)).inMinutes;
   }
 
   DateTime fromPrayerTime(Prayer currentPrayer) {
@@ -108,8 +100,7 @@ class CountryCoordinatesState extends ChangeNotifier {
     int hour, minute;
     hour = value ~/ 3600;
     minute = ((value - hour * 3600)) ~/ 60;
-    DateTime result =
-        DateTime(_dateTime.year, _dateTime.month, _dateTime.day, hour, minute);
+    DateTime result = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, hour, minute);
     return result;
   }
 
@@ -125,8 +116,7 @@ class CountryCoordinatesState extends ChangeNotifier {
     int hour, minute;
     hour = value ~/ 3600;
     minute = ((value - hour * 3600)) ~/ 60;
-    DateTime result =
-        DateTime(_dateTime.year, _dateTime.month, _dateTime.day, hour, minute);
+    DateTime result = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, hour, minute);
     return result;
   }
 
@@ -147,15 +137,15 @@ class CountryCoordinatesState extends ChangeNotifier {
   set changeCountry(CountryModel item) {
     _county = item.country;
     _city = item.city;
-    _currentLatitude = item.latitude;
-    _currentLongitude = item.longitude;
+    _currentLatitude = double.parse(item.latitude);
+    _currentLongitude = double.parse(item.longitude);
     _mainSettingsBox.put(AppConstants.keyCountry, _county);
     _mainSettingsBox.put(AppConstants.keyCity, _city);
     _mainSettingsBox.put(AppConstants.keyCurrentLatitude, _currentLatitude);
     _mainSettingsBox.put(AppConstants.keyCurrentLongitude, _currentLongitude);
     initWithNewCoordinates(
-      currentLatitude: item.latitude,
-      currentLongitude: item.longitude,
+      currentLatitude: double.parse(item.latitude),
+      currentLongitude: double.parse(item.longitude),
       calculationMethodIndex: _calculationMethodIndex,
       calculationMadhabIndex: _calculationMadhabIndex,
     );
@@ -188,8 +178,7 @@ class CountryCoordinatesState extends ChangeNotifier {
       calculationMethodIndex: calculationMethodIndex,
       calculationMadhabIndex: _calculationMadhabIndex,
     );
-    _mainSettingsBox.put(
-        AppConstants.keyCalculationIndex, calculationMethodIndex);
+    _mainSettingsBox.put(AppConstants.keyCalculationIndex, calculationMethodIndex);
     notifyListeners();
   }
 
@@ -206,8 +195,7 @@ class CountryCoordinatesState extends ChangeNotifier {
   }
 
   int get getSecondNightValueInMinutes => _prayerValueInMinutes(
-      prayerTime:
-          DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 1));
+      prayerTime: DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 1));
 
   int get getFajrValueInMinutes =>
       _prayerValueInMinutes(prayerTime: _prayerTime.fajr);
@@ -228,14 +216,12 @@ class CountryCoordinatesState extends ChangeNotifier {
       _prayerValueInMinutes(prayerTime: _prayerTime.isha);
 
   DateTime get getThirdNightPart {
-    double valueThird =
-        ((1440 - getMaghribValueInMinutes + getFajrValueInMinutes) / 3) * 60;
+    double valueThird = ((1440 - getMaghribValueInMinutes + getFajrValueInMinutes) / 3) * 60;
     double value = (getFajrValueInMinutes * 60) - valueThird;
     int hour, minute;
     hour = value ~/ 3600;
     minute = ((value - hour * 3600)) ~/ 60;
-    DateTime result =
-        DateTime(_dateTime.year, _dateTime.month, _dateTime.day, hour, minute);
+    DateTime result = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, hour, minute);
     return result;
   }
 
@@ -244,8 +230,7 @@ class CountryCoordinatesState extends ChangeNotifier {
     int getHour, getMinute;
     getHour = value ~/ 3600;
     getMinute = ((value - getHour * 3600)) ~/ 60;
-    DateTime result = DateTime(
-        _dateTime.year, _dateTime.month, _dateTime.day, getHour, getMinute);
+    DateTime result = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, getHour, getMinute);
     return result;
   }
 
@@ -255,8 +240,7 @@ class CountryCoordinatesState extends ChangeNotifier {
     required int calculationMethodIndex,
     required int calculationMadhabIndex,
   }) {
-    _prayerParams =
-        _calculationParameters[calculationMethodIndex].getParameters();
+    _prayerParams = _calculationParameters[calculationMethodIndex].getParameters();
     _prayerParams.madhab = Madhab.shafi;
     try {
       _prayerTime = PrayerTimes.today(
@@ -280,10 +264,8 @@ class CountryCoordinatesState extends ChangeNotifier {
   }
 
   int _prayerValueInMinutes({required DateTime prayerTime}) {
-    final DateTime fromZero =
-        DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 0);
-    final toPrayer = DateTime(prayerTime.year, prayerTime.month, prayerTime.day,
-        prayerTime.hour, prayerTime.minute);
+    final DateTime fromZero = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 0);
+    final toPrayer = DateTime(prayerTime.year, prayerTime.month, prayerTime.day, prayerTime.hour, prayerTime.minute);
     return toPrayer.difference(fromZero).inMinutes;
   }
 
