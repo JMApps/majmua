@@ -13,13 +13,13 @@ class CalculationMethodContainer extends StatefulWidget {
 
 const List<String> _calculationMethod = [
   'Umm al-Qura',
-  'North America – ISNA',
+  'North America (ISNA)',
   'Dubai',
   'Egyptian',
   'Karachi',
   'Kuwait',
-  'Moon sighting committee',
-  'Muslim world league',
+  'Moon sighting committee (MSC)',
+  'Muslim world league (MWL)',
   'Qatar',
   'Turkey',
 ];

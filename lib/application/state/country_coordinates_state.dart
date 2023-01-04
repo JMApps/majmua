@@ -66,7 +66,7 @@ class CountryCoordinatesState extends ChangeNotifier {
         notifyListeners();
       });
     });
-    _county = _mainSettingsBox.get(AppConstants.keyCountry, defaultValue: 'Saudi Arabia, ');
+    _county = _mainSettingsBox.get(AppConstants.keyCountry, defaultValue: 'Saudi Arabia');
     _city = _mainSettingsBox.get(AppConstants.keyCity, defaultValue: 'Mecca');
     _currentLatitude = _mainSettingsBox.get(AppConstants.keyCurrentLatitude, defaultValue: 21.392425120226704);
     _currentLongitude = _mainSettingsBox.get(AppConstants.keyCurrentLongitude, defaultValue: 39.85797038428307);
@@ -82,9 +82,7 @@ class CountryCoordinatesState extends ChangeNotifier {
   }
 
   int get getMinuteOfDay {
-    return _dateTime
-        .difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day))
-        .inMinutes;
+    return _dateTime.difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day)).inMinutes;
   }
 
   DateTime fromPrayerTime(Prayer currentPrayer) {
@@ -236,8 +234,7 @@ class CountryCoordinatesState extends ChangeNotifier {
         _calculationParameters[calculationMethodIndex].getParameters(),
       );
       _county = '';
-      _city = 'Не удалось вычислить время молитв\n'
-          'Выберите другой город';
+      _city = 'Не удалось вычислить время молитв\nВыберите другой город';
     }
   }
 
