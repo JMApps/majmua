@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/data/database/local/service/coordinates_query.dart';
-import 'package:majmua/presentation/prayerTime/country_item.dart';
-import 'package:majmua/presentation/prayerTime/search_cities_delegate.dart';
+import 'package:majmua/presentation/prayerTime/settings/country_item.dart';
+import 'package:majmua/presentation/prayerTime/settings/search_cities_delegate.dart';
 
-class PrayerCoordinatesCityPage extends StatefulWidget {
-  const PrayerCoordinatesCityPage({Key? key}) : super(key: key);
+class SelectCoordinatesCityPage extends StatefulWidget {
+  const SelectCoordinatesCityPage({Key? key}) : super(key: key);
 
   @override
-  State<PrayerCoordinatesCityPage> createState() =>
-      _PrayerCoordinatesCityPageState();
+  State<SelectCoordinatesCityPage> createState() =>
+      _SelectCoordinatesCityPageState();
 }
 
-class _PrayerCoordinatesCityPageState extends State<PrayerCoordinatesCityPage> {
+class _SelectCoordinatesCityPageState extends State<SelectCoordinatesCityPage> {
   final CoordinatesQuery _coordinatesQuery = CoordinatesQuery();
 
   @override
