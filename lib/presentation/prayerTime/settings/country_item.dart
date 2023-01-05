@@ -25,11 +25,11 @@ class CountryItem extends StatelessWidget {
       visualDensity: const VisualDensity(vertical: -2),
       contentPadding: AppStyles.symmetricHorizontalPadding,
       leading: CircleAvatar(
-        radius: 15,
+        radius: 25,
         child: Text(
-          '${cityIndex + 1}',
+          '${countryModelItem.id}',
           style: const TextStyle(
-            fontSize: 14,
+            fontSize: 12,
             color: Colors.white,
           ),
         ),

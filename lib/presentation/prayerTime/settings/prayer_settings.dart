@@ -5,6 +5,7 @@ import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/application/theme/app_themes.dart';
 import 'package:majmua/presentation/prayerTime/settings/calculation_madhab_container.dart';
 import 'package:majmua/presentation/prayerTime/settings/calculation_method_container.dart';
+import 'package:majmua/presentation/prayerTime/settings/calculation_utc_offset_container.dart';
 import 'package:provider/provider.dart';
 
 class RegionSettings extends StatelessWidget {
@@ -113,6 +114,8 @@ class RegionSettings extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   const CalculationMethodContainer(),
+                  const SizedBox(height: 4),
+                  const CalculationUtcOffsetContainer(),
                   const SizedBox(height: 4),
                   const CalculationMadhabContainer(),
                   const SizedBox(height: 4),
