@@ -272,8 +272,6 @@ class CountryCoordinatesState extends ChangeNotifier {
     required int calculationUtcOffsetIndex,
   }) {
     _prayerParams = _calculationParameters[calculationMethodIndex].getParameters();
-    _prayerParams.madhab = Madhab.shafi;
-    _prayerParams.adjustments.dhuhr = 150;
     try {
       _prayerTime = PrayerTimes.today(
         Coordinates(

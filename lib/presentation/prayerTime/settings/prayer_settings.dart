@@ -117,8 +117,8 @@ class RegionSettings extends StatelessWidget {
                   const SizedBox(height: 4),
                   const CalculationUtcOffsetContainer(),
                   const SizedBox(height: 4),
-                  const CalculationMadhabContainer(),
-                  const SizedBox(height: 4),
+                  // const CalculationMadhabContainer(),
+                  // const SizedBox(height: 4),
                   Padding(
                     padding: AppStyles.symmetricHorizontalPadding,
                     child: MaterialButton(
