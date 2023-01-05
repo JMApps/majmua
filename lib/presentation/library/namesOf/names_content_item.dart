@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:majmua/application/state/book_settings_state.dart';
+import 'package:majmua/application/theme/app_themes.dart';
 import 'package:majmua/data/database/local/model/names_clarification_of_model.dart';
 import 'package:majmua/presentation/library/namesOf/ayahs_container.dart';
 import 'package:majmua/presentation/library/namesOf/names_container.dart';
@@ -19,6 +20,7 @@ class NamesContentItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).colorScheme;
     return CupertinoScrollbar(
       child: SingleChildScrollView(
         padding: const EdgeInsets.only(right: 16, bottom: 16, left: 16),
@@ -39,6 +41,7 @@ class NamesContentItem extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 8),
                       margin: EdgeInsets.zero,
                       fontSize: FontSize(bookSettingsState.getTextSize),
+                      color: appColors.mainTextColor,
                     ),
                     'small': Style(
                       padding: EdgeInsets.zero,

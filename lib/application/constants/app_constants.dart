@@ -19,19 +19,6 @@ class AppConstants {
   static const keyLessonsLastPage = 'key_lessons_last_page';
   static const keyRaqaiqLastPage = 'key_raqaiq_last_page';
 
-  static const keyTextSizeNamesOf = 'key_text_size_names_of';
-  static const keyTextSizeQuestions = 'key_text_size_questions';
-  static const keyTextSizeHadeeth = 'key_text_size_hadeeth';
-  static const keyTextSizeLessons = 'key_text_size_lessons';
-  static const keyTextSizeRaqaiq = 'key_text_size_raqaiq';
-  static const keyTextSizeFortress = 'key_text_size_fortress';
-  static const keyTextSizeSFQ = 'key_text_size_sfq';
-
-  static const keyTextColorNamesOf = 'key_text_color_names_of';
-  static const keyTextColorQuestions = 'key_text_color_questions';
-  static const keyTextColorHadeeth = 'key_text_color_hadeeth';
-  static const keyTextColorLessons = 'key_text_color_lessons';
-  static const keyTextColorRaqaiq = 'key_text_color_raqaiq';
-  static const keyTextColorFortress = 'key_text_color_fortress';
-  static const keyTextColorSFQ = 'key_text_color_sfq';
+  static const keyMainBookTextSize = 'key_main_book_text_size';
+  static const keyMainBookTextColor = 'key_main_book_text_color';
 }

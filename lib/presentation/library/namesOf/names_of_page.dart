@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/constants/app_constants.dart';
 import 'package:majmua/application/state/book_pages_scroll_state.dart';
-import 'package:majmua/application/state/book_settings_state.dart';
 import 'package:majmua/data/database/local/service/names_of_query.dart';
 import 'package:majmua/presentation/library/namesOf/names_content_item.dart';
 import 'package:majmua/presentation/library/namesOf/names_of_smooth_indicator.dart';
@@ -26,12 +25,6 @@ class _NamesOfPageState extends State<NamesOfPage> {
         ChangeNotifierProvider<BookPagesScrollState>(
           create: (_) => BookPagesScrollState(
               keyForSettingsInitialization: AppConstants.keyNamesOfLastPage),
-        ),
-        ChangeNotifierProvider<BookSettingsState>(
-          create: (_) => BookSettingsState(
-            keyCurrentTextSize: AppConstants.keyTextSizeNamesOf,
-            keyCurrentTextColor: AppConstants.keyTextColorNamesOf,
-          ),
         ),
       ],
       child: Scaffold(

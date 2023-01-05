@@ -6,35 +6,33 @@ class BookSettingsState extends ChangeNotifier {
 
   final _mainSettingsBox = Hive.box(AppConstants.keyMainAppSettings);
 
-  final String keyCurrentTextSize;
-  final String keyCurrentTextColor;
-
   late double _textSize;
-  late Color _textColor;
+  // late int _textColor;
 
-  BookSettingsState({required this.keyCurrentTextSize, required this.keyCurrentTextColor}) {
-    _textSize = _mainSettingsBox.get(keyCurrentTextSize, defaultValue: 16.0) ?? 16.0;
-    _textColor = _mainSettingsBox.get(keyCurrentTextColor, defaultValue: Colors.black);
+  BookSettingsState() {
+    _textSize = _mainSettingsBox.get(AppConstants.keyMainBookTextSize, defaultValue: 18.0);
+    // _textColor = _mainSettingsBox.get(AppConstants.keyMainBookTextColor, defaultValue: Colors.black.value);
   }
 
   double get getTextSize => _textSize;
 
-  Color get getTextColor => _textColor;
+  // int get getTextColor => _textColor;
 
   set setChangeTextSize(double textSize) {
     _textSize = textSize;
+    _mainSettingsBox.put(AppConstants.keyMainBookTextSize, _textSize);
     notifyListeners();
   }
 
-  set setChangeTextColor(Color color) {
-    _textColor = color;
-    notifyListeners();
-  }
+  // set setChangeTextColor(int color) {
+  //   _textColor = color;
+  //   _mainSettingsBox.put(AppConstants.keyMainBookTextColor, _textColor);
+  //   notifyListeners();
+  // }
 
   @override
   void dispose() {
-    _mainSettingsBox.put(keyCurrentTextSize, _textSize);
-    _mainSettingsBox.put(keyCurrentTextColor, _textColor);
+    _mainSettingsBox.close();
     super.dispose();
   }
 }

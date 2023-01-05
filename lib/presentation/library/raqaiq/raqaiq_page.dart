@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/constants/app_constants.dart';
 import 'package:majmua/application/state/book_pages_scroll_state.dart';
 import 'package:majmua/data/database/local/service/raqaiq_query.dart';
 import 'package:majmua/presentation/library/raqaiq/raqaiq_item.dart';
 import 'package:majmua/presentation/library/raqaiq/raqaiq_smooth_indicator.dart';
+import 'package:majmua/presentation/widgets/main_settings.dart';
 import 'package:provider/provider.dart';
 
 class RaqaiqPage extends StatefulWidget {
@@ -27,6 +29,20 @@ class _RaqaiqPageState extends State<RaqaiqPage> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Ракъаикъ Къуран'),
+          actions: [
+            IconButton(
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  backgroundColor: Colors.transparent,
+                  builder: (_) => const MainBookSettings(),
+                );
+              },
+              icon: const Icon(
+                CupertinoIcons.settings,
+              ),
+            ),
+          ],
         ),
         body: Consumer<BookPagesScrollState>(
           builder: (BuildContext context, scrollState, _) {
