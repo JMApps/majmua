@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class AppThemes {
   static final lightTheme = ThemeData(
+    brightness: Brightness.light,
     primarySwatch: Colors.indigo,
     scaffoldBackgroundColor: const Color(0xFFE8EAF6),
     fontFamily: 'Nexa',
-    brightness: Brightness.light,
     appBarTheme: const AppBarTheme(
       elevation: 0,
       centerTitle: true,
@@ -26,10 +26,10 @@ class AppThemes {
   );
 
   static final darkTheme = ThemeData(
+    brightness: Brightness.dark,
     primarySwatch: Colors.orange,
     scaffoldBackgroundColor: const Color(0xFF171821),
     fontFamily: 'Nexa',
-    brightness: Brightness.dark,
     appBarTheme: const AppBarTheme(
       elevation: 0,
       centerTitle: true,
@@ -82,4 +82,8 @@ extension ColorSchemeS on ColorScheme {
   Color get weekDaysColor => brightness == Brightness.light
       ? const Color(0xFF009688)
       : const Color(0xFF72A2C0);
+
+  Color get backgroundColorQ => brightness == Brightness.light
+      ? const Color(0xFFFFFDE7)
+      : const Color(0xFF151510);
 }

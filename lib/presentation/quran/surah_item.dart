@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/application/theme/app_themes.dart';
 
 class SurahItem extends StatelessWidget {
@@ -10,20 +9,17 @@ class SurahItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
-    return Container(
-      padding: AppStyles.mainPadding,
-      decoration: BoxDecoration(
-        borderRadius: AppStyles.mainBorderRadius,
-        image: DecorationImage(
-          fit: BoxFit.scaleDown,
-          opacity: Theme.of(context).brightness == Brightness.light ? 1 : 0.65,
-          colorFilter: ColorFilter.mode(
-            appColors.mainTextColor,
-            Theme.of(context).brightness == Brightness.light
-                ? BlendMode.dstIn
-                : BlendMode.srcIn,
-          ),
-          image: AssetImage('assets/quran/$surahPageName.png'),
+    return SingleChildScrollView(
+      padding: EdgeInsets.zero,
+      child: Center(
+        child: Image.asset(
+          'assets/quran/$surahPageName.png',
+          opacity: AlwaysStoppedAnimation(Theme.of(context).brightness == Brightness.light ? 1 : 0.85),
+          colorBlendMode: Theme.of(context).brightness == Brightness.light
+              ? BlendMode.dstIn
+              : BlendMode.srcIn,
+          color: appColors.mainTextColor,
+          fit: BoxFit.fill,
         ),
       ),
     );

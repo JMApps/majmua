@@ -18,6 +18,7 @@ class AppConstants {
   static const keyHadeethLastPage = 'key_hadeeth_last_page';
   static const keyLessonsLastPage = 'key_lessons_last_page';
   static const keyRaqaiqLastPage = 'key_raqaiq_last_page';
+  static const keyJuzAmmaLastPage = 'key_juz_amma_last_page';
 
   static const keyMainBookTextSize = 'key_main_book_text_size';
   static const keyMainBookTextColor = 'key_main_book_text_color';

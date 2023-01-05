@@ -5,6 +5,7 @@ import 'package:majmua/presentation/currentDate/current_date_container.dart';
 import 'package:majmua/presentation/friday/friday_container.dart';
 import 'package:majmua/presentation/library/library_container.dart';
 import 'package:majmua/presentation/prayerTime/prayer_time_container.dart';
+import 'package:majmua/presentation/quran/juz_amma_container.dart';
 import 'package:majmua/presentation/restHolidays/rest_holidays.dart';
 import 'package:majmua/presentation/restTime/rest_time_container.dart';
 import 'package:majmua/presentation/sixColumns/six_column_container.dart';
@@ -46,6 +47,8 @@ class MainPage extends StatelessWidget {
               SizedBox(height: 4),
               SixColumnsContainer(),
               SizedBox(height: 4),
+              Divider(indent: 16, endIndent: 16),
+              JuzAmmaContainer(),
               Divider(indent: 16, endIndent: 16),
               SFQContainer(),
               Divider(indent: 16, endIndent: 16),
