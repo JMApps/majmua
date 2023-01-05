@@ -7,7 +7,9 @@ import 'package:majmua/data/database/local/model/custom_country_model.dart';
 import 'package:provider/provider.dart';
 
 class CardChangeCity extends StatefulWidget {
-  const CardChangeCity({Key? key}) : super(key: key);
+  const CardChangeCity({Key? key, required this.item}) : super(key: key);
+
+  final CustomCountryModel item;
 
   @override
   State<CardChangeCity> createState() => _CardChangeCityState();
@@ -19,10 +21,19 @@ class _CardChangeCityState extends State<CardChangeCity> {
   final _formLatitudeKey = GlobalKey<FormState>();
   final _formLongitudeKey = GlobalKey<FormState>();
 
-  final _countryController = TextEditingController();
-  final _cityController = TextEditingController();
-  final _latitudeController = TextEditingController();
-  final _longitudeController = TextEditingController();
+  late final TextEditingController _countryController;
+  late final TextEditingController _cityController;
+  late final TextEditingController _latitudeController;
+  late final TextEditingController _longitudeController;
+
+  @override
+  void initState() {
+    _countryController = TextEditingController(text: widget.item.country);
+    _cityController = TextEditingController(text: widget.item.city);
+    _latitudeController = TextEditingController(text: widget.item.latitude);
+    _longitudeController = TextEditingController(text: widget.item.longitude);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,14 +55,21 @@ class _CardChangeCityState extends State<CardChangeCity> {
                     controller: _countryController,
                     autofocus: true,
                     autocorrect: false,
+                    textCapitalization: TextCapitalization.sentences,
                     keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.next,
                     textAlign: TextAlign.center,
-                    decoration: AppStyles.mainInputDecoration(
+                    decoration: InputDecoration(
+                      alignLabelWithHint: true,
+                      floatingLabelAlignment: FloatingLabelAlignment.center,
                       labelText: 'Название страны',
-                      hintColor: appColors.firstAppColor,
-                      focusInputColor: appColors.secondAppColor,
-                      errorInputColor: appColors.thirdAppColor,
+                      border: AppStyles.mainTextFieldBorder,
+                      focusedBorder: AppStyles.mainFocusedTextFiledBorder(
+                        focusInputColor: appColors.secondAppColor,
+                      ),
+                      errorBorder: AppStyles.mainErrorTextFiledBorder(
+                        errorInputColor: appColors.thirdAppColor,
+                      ),
                     ),
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -68,14 +86,21 @@ class _CardChangeCityState extends State<CardChangeCity> {
                     controller: _cityController,
                     autofocus: false,
                     autocorrect: false,
+                    textCapitalization: TextCapitalization.sentences,
                     keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.next,
                     textAlign: TextAlign.center,
-                    decoration: AppStyles.mainInputDecoration(
+                    decoration: InputDecoration(
+                      alignLabelWithHint: true,
+                      floatingLabelAlignment: FloatingLabelAlignment.center,
                       labelText: 'Название города',
-                      hintColor: appColors.firstAppColor,
-                      focusInputColor: appColors.secondAppColor,
-                      errorInputColor: appColors.thirdAppColor,
+                      border: AppStyles.mainTextFieldBorder,
+                      focusedBorder: AppStyles.mainFocusedTextFiledBorder(
+                        focusInputColor: appColors.secondAppColor,
+                      ),
+                      errorBorder: AppStyles.mainErrorTextFiledBorder(
+                        errorInputColor: appColors.thirdAppColor,
+                      ),
                     ),
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -98,15 +123,20 @@ class _CardChangeCityState extends State<CardChangeCity> {
                       FilteringTextInputFormatter.allow(RegExp(r'^[0-9.-]+'))
                     ],
                     textAlign: TextAlign.center,
-                    decoration: AppStyles.mainInputDecoration(
+                    decoration: InputDecoration(
+                      alignLabelWithHint: true,
+                      floatingLabelAlignment: FloatingLabelAlignment.center,
                       labelText: 'Широта',
-                      hintColor: appColors.firstAppColor,
-                      focusInputColor: appColors.secondAppColor,
-                      errorInputColor: appColors.thirdAppColor,
+                      border: AppStyles.mainTextFieldBorder,
+                      focusedBorder: AppStyles.mainFocusedTextFiledBorder(
+                        focusInputColor: appColors.secondAppColor,
+                      ),
+                      errorBorder: AppStyles.mainErrorTextFiledBorder(
+                        errorInputColor: appColors.thirdAppColor,
+                      ),
                     ),
                     validator: (value) {
-                      if (value!.isEmpty &&
-                          !RegExp(r'^[0-9.]+').hasMatch(value)) {
+                      if (value!.isEmpty && !RegExp(r'^[0-9.]+').hasMatch(value)) {
                         return 'Введите широту разделив точкой';
                       }
                       return null;
@@ -126,15 +156,20 @@ class _CardChangeCityState extends State<CardChangeCity> {
                       FilteringTextInputFormatter.allow(RegExp(r'^[0-9.-]+'))
                     ],
                     textAlign: TextAlign.center,
-                    decoration: AppStyles.mainInputDecoration(
+                    decoration: InputDecoration(
+                      alignLabelWithHint: true,
+                      floatingLabelAlignment: FloatingLabelAlignment.center,
                       labelText: 'Долгота',
-                      hintColor: appColors.firstAppColor,
-                      focusInputColor: appColors.secondAppColor,
-                      errorInputColor: appColors.thirdAppColor,
+                      border: AppStyles.mainTextFieldBorder,
+                      focusedBorder: AppStyles.mainFocusedTextFiledBorder(
+                        focusInputColor: appColors.secondAppColor,
+                      ),
+                      errorBorder: AppStyles.mainErrorTextFiledBorder(
+                        errorInputColor: appColors.thirdAppColor,
+                      ),
                     ),
                     validator: (value) {
-                      if (value!.isEmpty &&
-                          !RegExp(r'^[0-9.]+').hasMatch(value)) {
+                      if (value!.isEmpty && !RegExp(r'^[0-9.]+').hasMatch(value)) {
                         return 'Введите широту разделив точкой';
                       }
                       return null;
@@ -153,21 +188,40 @@ class _CardChangeCityState extends State<CardChangeCity> {
                         _formCityKey.currentState!.validate() &&
                         _formLatitudeKey.currentState!.validate() &&
                         _formLongitudeKey.currentState!.validate()) {
-                      countryCoordinatesState.createCountry(
-                        item: CustomCountryModel(
+                      if (widget.item.country != _countryController.text ||
+                          widget.item.city != _cityController.text ||
+                          widget.item.latitude != _latitudeController.text ||
+                          widget.item.longitude != _longitudeController.text) {
+                        countryCoordinatesState.updateCountry(
+                          idCountry: widget.item.id,
                           country: _countryController.text,
                           city: _cityController.text,
                           latitude: _latitudeController.text,
                           longitude: _longitudeController.text,
-                        ),
-                      );
-                      Navigator.pop(context);
+                        );
+                        context.read<CountryCoordinatesState>().changeCustomCountry = CustomCountryModel(
+                          id: widget.item.id,
+                          country: _countryController.text,
+                          city: _cityController.text,
+                          latitude: _latitudeController.text,
+                          longitude: _longitudeController.text,
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          AppStyles.snackBar(
+                            'Изменено',
+                            appColors.firstAppColor,
+                          ),
+                        );
+                        Navigator.pop(context);
+                      } else {
+                        Navigator.pop(context);
+                      }
                     }
                   },
                   shape: AppStyles.mainCardBorderRadius,
                   color: appColors.secondAppColor,
                   child: const Text(
-                    'Добавить',
+                    'Изменить',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.white,

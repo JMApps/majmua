@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/data/database/local/service/coordinates_query.dart';
 import 'package:majmua/presentation/prayerTime/settings/country_item.dart';
 import 'package:majmua/presentation/prayerTime/settings/search_cities_delegate.dart';
@@ -48,7 +49,8 @@ class _SelectCoordinatesCityPageState extends State<SelectCoordinatesCityPage> {
           }
           return snapshot.hasData
               ? CupertinoScrollbar(
-                child: ListView.builder(
+                  child: ListView.builder(
+                    padding: AppStyles.symmetricVerticalPaddingMini,
                     itemCount: snapshot.data!.length,
                     itemBuilder: (BuildContext context, int index) {
                       return CountryItem(
@@ -57,7 +59,7 @@ class _SelectCoordinatesCityPageState extends State<SelectCoordinatesCityPage> {
                       );
                     },
                   ),
-              )
+                )
               : const Center(
                   child: CircularProgressIndicator.adaptive(),
                 );

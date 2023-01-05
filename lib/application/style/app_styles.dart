@@ -94,35 +94,39 @@ class AppStyles {
     ),
   );
 
-  static mainInputDecoration({
-    required String labelText,
-    required Color hintColor,
-    required Color focusInputColor,
-    required Color errorInputColor,
-  }) =>
-      InputDecoration(
-        alignLabelWithHint: true,
-        floatingLabelAlignment: FloatingLabelAlignment.center,
-        labelText: labelText,
-        hintStyle: TextStyle(
-          fontSize: 16,
-          color: hintColor,
+  static const mainTextFieldBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.all(
+      Radius.circular(15),
+    ),
+  );
+
+  static mainFocusedTextFiledBorder({required Color focusInputColor}) =>
+      OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide(
+          color: focusInputColor,
+          width: 1,
         ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
+      );
+
+  static mainErrorTextFiledBorder({required Color errorInputColor}) =>
+      OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide(
+          color: errorInputColor,
+          width: 1,
         ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(
-            color: focusInputColor,
-            width: 1,
-          ),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(
-            color: errorInputColor,
-            width: 1,
+      );
+
+  static snackBar(String message, Color backgroundColor) => SnackBar(
+        duration: const Duration(milliseconds: 2250),
+        backgroundColor: backgroundColor,
+        content: Text(
+          message,
+          style: const TextStyle(
+            color: Colors.white,
+            fontFamily: 'Nexa',
+            fontSize: 16,
           ),
         ),
       );

@@ -42,14 +42,17 @@ class CoordinatesQuery {
   }
 
   Future<int> createCounty({
-    required CustomCountryModel item,
+    required String country,
+    required String city,
+    required String latitude,
+    required String longitude,
   }) async {
     var dbClient = await _customCountriesDatabaseHelper.db;
     final Map<String, dynamic> newCounty = {
-      'country': item.country,
-      'city': item.city,
-      'latitude': item.latitude,
-      'longitude': item.longitude,
+      'country': country,
+      'city': city,
+      'latitude': latitude,
+      'longitude': longitude,
     };
     return await dbClient.insert(
       'Table_of_country_coordinates',
@@ -60,14 +63,17 @@ class CoordinatesQuery {
 
   Future<int> updateCounty({
     required int idCountry,
-    required CustomCountryModel item,
+    required String country,
+    required String city,
+    required String latitude,
+    required String longitude,
   }) async {
     var dbClient = await _customCountriesDatabaseHelper.db;
     final Map<String, dynamic> updateCounty = {
-      'country': item.country,
-      'city': item.city,
-      'latitude': item.latitude,
-      'longitude': item.longitude,
+      'country': country,
+      'city': city,
+      'latitude': latitude,
+      'longitude': longitude,
     };
     return await dbClient.update(
       'Table_of_country_coordinates',

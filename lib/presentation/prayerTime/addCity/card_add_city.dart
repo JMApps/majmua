@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:majmua/application/state/country_coordinates_state.dart';
 import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/application/theme/app_themes.dart';
-import 'package:majmua/data/database/local/model/custom_country_model.dart';
 import 'package:provider/provider.dart';
 
 class CardAddCity extends StatefulWidget {
@@ -44,14 +43,21 @@ class _CardAddCityState extends State<CardAddCity> {
                     controller: _countryController,
                     autofocus: true,
                     autocorrect: false,
+                    textCapitalization: TextCapitalization.sentences,
                     keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.next,
                     textAlign: TextAlign.center,
-                    decoration: AppStyles.mainInputDecoration(
+                    decoration: InputDecoration(
+                      alignLabelWithHint: true,
+                      floatingLabelAlignment: FloatingLabelAlignment.center,
                       labelText: 'Название страны',
-                      hintColor: appColors.firstAppColor,
-                      focusInputColor: appColors.secondAppColor,
-                      errorInputColor: appColors.thirdAppColor,
+                      border: AppStyles.mainTextFieldBorder,
+                      focusedBorder: AppStyles.mainFocusedTextFiledBorder(
+                        focusInputColor: appColors.secondAppColor,
+                      ),
+                      errorBorder: AppStyles.mainErrorTextFiledBorder(
+                        errorInputColor: appColors.thirdAppColor,
+                      ),
                     ),
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -68,14 +74,21 @@ class _CardAddCityState extends State<CardAddCity> {
                     controller: _cityController,
                     autofocus: false,
                     autocorrect: false,
+                    textCapitalization: TextCapitalization.sentences,
                     keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.next,
                     textAlign: TextAlign.center,
-                    decoration: AppStyles.mainInputDecoration(
+                    decoration: InputDecoration(
+                      alignLabelWithHint: true,
+                      floatingLabelAlignment: FloatingLabelAlignment.center,
                       labelText: 'Название города',
-                      hintColor: appColors.firstAppColor,
-                      focusInputColor: appColors.secondAppColor,
-                      errorInputColor: appColors.thirdAppColor,
+                      border: AppStyles.mainTextFieldBorder,
+                      focusedBorder: AppStyles.mainFocusedTextFiledBorder(
+                        focusInputColor: appColors.secondAppColor,
+                      ),
+                      errorBorder: AppStyles.mainErrorTextFiledBorder(
+                        errorInputColor: appColors.thirdAppColor,
+                      ),
                     ),
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -98,15 +111,20 @@ class _CardAddCityState extends State<CardAddCity> {
                       FilteringTextInputFormatter.allow(RegExp(r'^[0-9.-]+'))
                     ],
                     textAlign: TextAlign.center,
-                    decoration: AppStyles.mainInputDecoration(
+                    decoration: InputDecoration(
+                      alignLabelWithHint: true,
+                      floatingLabelAlignment: FloatingLabelAlignment.center,
                       labelText: 'Широта',
-                      hintColor: appColors.firstAppColor,
-                      focusInputColor: appColors.secondAppColor,
-                      errorInputColor: appColors.thirdAppColor,
+                      border: AppStyles.mainTextFieldBorder,
+                      focusedBorder: AppStyles.mainFocusedTextFiledBorder(
+                        focusInputColor: appColors.secondAppColor,
+                      ),
+                      errorBorder: AppStyles.mainErrorTextFiledBorder(
+                        errorInputColor: appColors.thirdAppColor,
+                      ),
                     ),
                     validator: (value) {
-                      if (value!.isEmpty &&
-                          !RegExp(r'^[0-9.]+').hasMatch(value)) {
+                      if (value!.isEmpty && !RegExp(r'^[0-9.]+').hasMatch(value)) {
                         return 'Введите широту разделив точкой';
                       }
                       return null;
@@ -126,15 +144,20 @@ class _CardAddCityState extends State<CardAddCity> {
                       FilteringTextInputFormatter.allow(RegExp(r'^[0-9.-]+'))
                     ],
                     textAlign: TextAlign.center,
-                    decoration: AppStyles.mainInputDecoration(
+                    decoration: InputDecoration(
+                      alignLabelWithHint: true,
+                      floatingLabelAlignment: FloatingLabelAlignment.center,
                       labelText: 'Долгота',
-                      hintColor: appColors.firstAppColor,
-                      focusInputColor: appColors.secondAppColor,
-                      errorInputColor: appColors.thirdAppColor,
+                      border: AppStyles.mainTextFieldBorder,
+                      focusedBorder: AppStyles.mainFocusedTextFiledBorder(
+                        focusInputColor: appColors.secondAppColor,
+                      ),
+                      errorBorder: AppStyles.mainErrorTextFiledBorder(
+                        errorInputColor: appColors.thirdAppColor,
+                      ),
                     ),
                     validator: (value) {
-                      if (value!.isEmpty &&
-                          !RegExp(r'^[0-9.]+').hasMatch(value)) {
+                      if (value!.isEmpty && !RegExp(r'^[0-9.]+').hasMatch(value)) {
                         return 'Введите широту разделив точкой';
                       }
                       return null;
@@ -154,11 +177,15 @@ class _CardAddCityState extends State<CardAddCity> {
                         _formLatitudeKey.currentState!.validate() &&
                         _formLongitudeKey.currentState!.validate()) {
                       countryCoordinatesState.createCountry(
-                        item: CustomCountryModel(
-                          country: _countryController.text,
-                          city: _cityController.text,
-                          latitude: _latitudeController.text,
-                          longitude: _longitudeController.text,
+                        country: _countryController.text,
+                        city: _cityController.text,
+                        latitude: _latitudeController.text,
+                        longitude: _longitudeController.text,
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        AppStyles.snackBar(
+                          'Добавлено',
+                          appColors.firstAppColor,
                         ),
                       );
                       Navigator.pop(context);

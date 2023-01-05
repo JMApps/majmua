@@ -125,7 +125,7 @@ class RegionSettings extends StatelessWidget {
                       shape: AppStyles.mainCardBorderRadius,
                       color: appColors.firstAppColor,
                       child: const Text(
-                        'Выбрать другой город',
+                        'Выбрать город',
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.white,
@@ -138,13 +138,12 @@ class RegionSettings extends StatelessWidget {
                     padding: AppStyles.symmetricHorizontalPadding,
                     child: MaterialButton(
                       onPressed: () {
-                        Navigator.pushNamed(
-                            context, 'add_coordinates_city_page');
+                        Navigator.pushNamed(context, 'add_coordinates_city_page');
                       },
                       shape: AppStyles.mainCardBorderRadius,
                       color: appColors.firstAppColor,
                       child: const Text(
-                        'Выбрать свой город',
+                        'Добавить город',
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.white,

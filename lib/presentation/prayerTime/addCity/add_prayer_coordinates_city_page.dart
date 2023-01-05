@@ -6,16 +6,9 @@ import 'package:majmua/presentation/prayerTime/addCity/add_city_item.dart';
 import 'package:majmua/presentation/prayerTime/addCity/fab_add_city.dart';
 import 'package:provider/provider.dart';
 
-class AddCoordinatesCityPage extends StatefulWidget {
+class AddCoordinatesCityPage extends StatelessWidget {
   const AddCoordinatesCityPage({Key? key}) : super(key: key);
 
-  @override
-  State<AddCoordinatesCityPage> createState() =>
-      _AddCoordinatesCityPageState();
-}
-
-class _AddCoordinatesCityPageState
-    extends State<AddCoordinatesCityPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +21,7 @@ class _AddCoordinatesCityPageState
           return snapshot.hasData
               ? CupertinoScrollbar(
                   child: ListView.builder(
+                    padding: AppStyles.symmetricVerticalPaddingMini,
                     itemCount: snapshot.data!.length,
                     itemBuilder: (BuildContext context, int index) {
                       return AddCityItem(
