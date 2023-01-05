@@ -4,9 +4,9 @@ import 'package:majmua/application/theme/app_themes.dart';
 import 'package:provider/provider.dart';
 
 const List<String> _calculationUtcOffset = [
-  'Зимнее - 1',
+  '- 1',
   'По умолчанию',
-  'Летнее + 1',
+  '+ 1',
 ];
 
 class CalculationUtcOffsetContainer extends StatelessWidget {

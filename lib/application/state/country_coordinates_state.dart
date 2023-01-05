@@ -16,8 +16,7 @@ class CountryCoordinatesState extends ChangeNotifier {
   late PrayerTimes _prayerTime;
   late CalculationParameters _prayerParams;
   late Timer _myTimer;
-  final LocalNotificationService _localNotificationService =
-      LocalNotificationService();
+  final LocalNotificationService _localNotificationService = LocalNotificationService();
 
   late String _county;
   late String _city;
@@ -272,13 +271,14 @@ class CountryCoordinatesState extends ChangeNotifier {
     required int calculationUtcOffsetIndex,
   }) {
     _prayerParams = _calculationParameters[calculationMethodIndex].getParameters();
+    _prayerParams.madhab = _calculationMadhab[_calculationMadhabIndex];
     try {
       _prayerTime = PrayerTimes.today(
         Coordinates(
           currentLatitude,
           currentLongitude,
         ),
-        _calculationParameters[calculationMethodIndex].getParameters(),
+        _prayerParams,
         utcOffset: Duration(hours: _calculationUtcOffsetParameters[calculationUtcOffsetIndex]),
       );
     } on ArgumentError {
