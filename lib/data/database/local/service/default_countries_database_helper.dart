@@ -26,7 +26,7 @@ class DefaultCountriesDatabaseHelper {
         ? await getExternalStorageDirectory()
         : await getApplicationSupportDirectory();
 
-    String path = join(documentDirectory!.path, 'country_coordinates.db');
+    String path = join(documentDirectory!.path, 'country_coordinates_2.db');
     var exists = await databaseExists(path);
 
     String toDeleteDB = '${documentDirectory.path}/county_coordinates.db';
@@ -43,7 +43,7 @@ class DefaultCountriesDatabaseHelper {
         Exception('Invalid database');
       }
 
-      ByteData data = await rootBundle.load(join('assets/databases', 'country_coordinates.db'));
+      ByteData data = await rootBundle.load(join('assets/databases', 'country_coordinates_2.db'));
       List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
       await File(path).writeAsBytes(bytes, flush: true);
     }
