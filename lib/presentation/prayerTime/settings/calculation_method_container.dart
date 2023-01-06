@@ -14,6 +14,9 @@ class CalculationMethodContainer extends StatefulWidget {
 const List<String> _calculationMethod = [
   'Umm al-Qura',
   'North America (ISNA)',
+  'Russia',
+  'Tatarstan',
+  'France',
   'Dubai',
   'Egyptian',
   'Karachi',

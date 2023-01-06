@@ -29,6 +29,9 @@ class CountryCoordinatesState extends ChangeNotifier {
   final List<CalculationMethod> _calculationParameters = [
     CalculationMethod.umm_al_qura,
     CalculationMethod.north_america,
+    CalculationMethod.russian,
+    CalculationMethod.tatarstan,
+    CalculationMethod.france,
     CalculationMethod.dubai,
     CalculationMethod.egyptian,
     CalculationMethod.karachi,
