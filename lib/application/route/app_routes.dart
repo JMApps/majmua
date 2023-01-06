@@ -8,6 +8,7 @@ import 'package:majmua/presentation/library/library_page.dart';
 import 'package:majmua/presentation/library/namesOf/names_of_page.dart';
 import 'package:majmua/presentation/library/questions/questions_page.dart';
 import 'package:majmua/presentation/library/raqaiq/raqaiq_page.dart';
+import 'package:majmua/presentation/pages/adhan_information_page.dart';
 import 'package:majmua/presentation/pages/page_library.dart';
 import 'package:majmua/presentation/prayerTime/addCity/add_prayer_coordinates_city_page.dart';
 import 'package:majmua/presentation/prayerTime/settings/prayer_settings.dart';
@@ -92,6 +93,10 @@ class AppRoutes {
       case 'add_coordinates_city_page':
         return MaterialPageRoute(
           builder: (_) => const AddCoordinatesCityPage(),
+        );
+      case 'adhan_information_page':
+        return MaterialPageRoute(
+          builder: (_) => const AdhanInformationPage(),
         );
       default:
         throw Exception(

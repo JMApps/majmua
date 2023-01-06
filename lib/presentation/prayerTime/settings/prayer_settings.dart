@@ -154,11 +154,12 @@ class RegionSettings extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 4),
                   Padding(
                     padding: AppStyles.symmetricHorizontalPadding,
                     child: MaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, 'adhan_information_page');
+                      },
                       shape: AppStyles.mainCardBorderRadius,
                       color: appColors.firstAppColor,
                       child: const Text(
