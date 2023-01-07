@@ -16,9 +16,10 @@ class JuzAmmaContainer extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: AppStyles.mainBorderRadius,
           image: DecorationImage(
-            opacity: Theme.of(context).brightness == Brightness.light ? 0.75 : 0.100,
             fit: BoxFit.cover,
-            image: const AssetImage('assets/images/supplication.png'),
+            opacity:
+                Theme.of(context).brightness == Brightness.light ? 0.25 : 0.100,
+            image: const AssetImage('assets/images/ammajuz.png'),
           ),
         ),
         child: ListTile(
