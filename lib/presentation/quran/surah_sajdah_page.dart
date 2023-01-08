@@ -47,15 +47,15 @@ class _SurahSajdahPageState extends State<SurahSajdahPage> {
                     color: appColors.mainTextColor,
                   ),
                 ),
-                actions: [
-                  IconButton(
-                    onPressed: () {},
-                    splashRadius: 20,
-                    icon: Icon(
-                      CupertinoIcons.globe,
-                      color: appColors.mainTextColor,
-                    ),
-                  ),
+                actions: const [
+                  // IconButton(
+                  //   onPressed: () {},
+                  //   splashRadius: 20,
+                  //   icon: Icon(
+                  //     CupertinoIcons.globe,
+                  //     color: appColors.mainTextColor,
+                  //   ),
+                  // ),
                 ],
               ),
             ];

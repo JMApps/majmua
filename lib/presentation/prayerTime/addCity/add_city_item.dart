@@ -28,7 +28,7 @@ class AddCityItem extends StatelessWidget {
             elevation: 0,
             shape: AppStyles.mainCardBorderRadius,
             margin: AppStyles.mainMargin,
-            child: Padding(
+            child: SingleChildScrollView(
               padding: AppStyles.mainPadding,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
