@@ -88,13 +88,16 @@ class _AdhanInformationPageState extends State<AdhanInformationPage> {
       body: CupertinoScrollbar(
         child: Column(
           children: [
-            const Text(
-              'Метод расчета времени молитв',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+            const Padding(
+              padding: AppStyles.mainPadding,
+              child: Text(
+                'Методы расчета времени молитв, доступные в приложении',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
             Expanded(
               child: ListView.builder(

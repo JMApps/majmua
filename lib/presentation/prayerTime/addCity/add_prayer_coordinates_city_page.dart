@@ -44,7 +44,7 @@ class AddCoordinatesCityPage extends StatelessWidget {
                 );
         },
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: const FabAddCity(),
     );
   }
