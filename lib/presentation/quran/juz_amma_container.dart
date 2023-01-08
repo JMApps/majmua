@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/shims/dart_ui_real.dart';
 import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/application/theme/app_themes.dart';
 
@@ -16,9 +17,8 @@ class JuzAmmaContainer extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: AppStyles.mainBorderRadius,
           image: DecorationImage(
-            fit: BoxFit.cover,
-            opacity:
-                Theme.of(context).brightness == Brightness.light ? 0.25 : 0.100,
+            fit: BoxFit.fitWidth,
+            opacity: Theme.of(context).brightness == Brightness.light ? 0.65 : 0.100,
             image: const AssetImage('assets/images/ammajuz.png'),
           ),
         ),
@@ -28,7 +28,6 @@ class JuzAmmaContainer extends StatelessWidget {
           },
           shape: AppStyles.mainCardBorderRadius,
           visualDensity: const VisualDensity(vertical: -2),
-          contentPadding: AppStyles.symmetricHorizontalPadding,
           title: Text(
             '30 джуз',
             textAlign: TextAlign.center,
@@ -37,7 +36,7 @@ class JuzAmmaContainer extends StatelessWidget {
               shadows: [
                 Shadow(
                   color: appColors.firstAppColor,
-                  blurRadius: 0.5,
+                  blurRadius: 1,
                 ),
               ],
             ),

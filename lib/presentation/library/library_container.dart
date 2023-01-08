@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/shims/dart_ui_real.dart';
 import 'package:majmua/application/style/app_styles.dart';
 import 'package:majmua/application/theme/app_themes.dart';
 
@@ -16,7 +17,8 @@ class LibraryContainer extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: AppStyles.mainBorderRadius,
           image: DecorationImage(
-            opacity: Theme.of(context).brightness == Brightness.light ? 0.75 : 0.100,
+            opacity:
+                Theme.of(context).brightness == Brightness.light ? 0.75 : 0.100,
             fit: BoxFit.cover,
             image: const AssetImage('assets/images/books.png'),
           ),

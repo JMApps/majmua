@@ -38,7 +38,7 @@ class ColumnItem extends StatelessWidget {
             image: DecorationImage(
               fit: BoxFit.fitWidth,
               opacity: Theme.of(context).brightness == Brightness.light
-                  ? 0.75
+                  ? 0.65
                   : 0.100,
               image: AssetImage('assets/images/$imageName'),
             ),
