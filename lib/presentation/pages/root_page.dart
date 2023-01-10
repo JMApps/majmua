@@ -20,6 +20,7 @@ class RootPage extends StatelessWidget {
         title: AppString.appName,
         theme: ThemeData(
           primarySwatch: Colors.indigo,
+          fontFamily: 'Nexa',
         ),
         home: const HomePage(),
       ),

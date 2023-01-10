@@ -33,13 +33,7 @@ class HomePage extends StatelessWidget {
                             Expanded(
                               child: CircularPercentIndicator(
                                 radius: 32.5,
-                                percent: context.watch<RestTimeState>().getRestYearMinutes / 100,
-                              ),
-                            ),
-                            Expanded(
-                              child: CircularPercentIndicator(
-                                radius: 32.5,
-                                percent: context.watch<RestTimeState>().getRestMonthProgress / 100,
+                                percent: context.watch<RestTimeState>().getRestDayProgress / 100,
                               ),
                             ),
                             Expanded(
@@ -51,14 +45,20 @@ class HomePage extends StatelessWidget {
                             Expanded(
                               child: CircularPercentIndicator(
                                 radius: 32.5,
-                                percent: context.watch<RestTimeState>().getRestDayProgress / 100,
+                                percent: context.watch<RestTimeState>().getRestMonthProgress / 100,
+                              ),
+                            ),
+                            Expanded(
+                              child: CircularPercentIndicator(
+                                radius: 32.5,
+                                percent: context.watch<RestTimeState>().getRestYearMinutes / 100,
                               ),
                             ),
                           ],
                         ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

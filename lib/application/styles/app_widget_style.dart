@@ -12,7 +12,8 @@ class AppWidgetStyle {
           title: Text(
             titleName,
             style: const TextStyle(
-              fontSize: 18,
+              fontSize: 14,
+              fontFamily: 'Nexa',
             ),
           ),
           background: Padding(
