@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/rest_time_state.dart';
 import 'package:majmua/application/strings/app_strings.dart';
+import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/presentation/pages/home_page.dart';
 import 'package:provider/provider.dart';
 
@@ -18,10 +19,8 @@ class RootPage extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: AppString.appName,
-        theme: ThemeData(
-          primarySwatch: Colors.indigo,
-          fontFamily: 'Nexa',
-        ),
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
         home: const HomePage(),
       ),
     );
