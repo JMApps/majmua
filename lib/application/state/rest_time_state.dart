@@ -8,7 +8,7 @@ class RestTimeState extends ChangeNotifier {
 
   RestTimeState() {
     _appTimer = Timer(
-      Duration(seconds: (_cdt.second - 59).abs()),
+      Duration(seconds: (_cdt.second - 60).abs()),
       () {
         _cdt = DateTime.now().toUtc();
         notifyListeners();

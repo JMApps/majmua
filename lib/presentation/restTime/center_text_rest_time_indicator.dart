@@ -31,7 +31,7 @@ class CenterTextRestTimeIndicator extends StatelessWidget {
             ),
           ),
           TextSpan(
-            text: '${percent.toStringAsFixed(2)}%\n',
+            text: '-${percent.toStringAsFixed(2)}%\n',
             style: const TextStyle(
               color: AppWidgetColor.grey,
               fontWeight: FontWeight.bold,
@@ -40,7 +40,7 @@ class CenterTextRestTimeIndicator extends StatelessWidget {
             ),
           ),
           TextSpan(
-            text: '-${(percent - 100).toStringAsFixed(2).substring(1)}%',
+            text: '${(percent - 100).toStringAsFixed(2).substring(1)}%',
             style: TextStyle(
               color: color,
               fontWeight: FontWeight.bold,
