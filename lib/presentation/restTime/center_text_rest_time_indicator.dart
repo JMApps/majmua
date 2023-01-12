@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/styles/app_widget_color.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 
 class CenterTextRestTimeIndicator extends StatelessWidget {
@@ -32,7 +33,7 @@ class CenterTextRestTimeIndicator extends StatelessWidget {
           TextSpan(
             text: '${percent.toStringAsFixed(2)}%\n',
             style: const TextStyle(
-              color: Colors.grey,
+              color: AppWidgetColor.grey,
               fontWeight: FontWeight.bold,
               fontFamily: 'Lato',
               fontSize: 13,
