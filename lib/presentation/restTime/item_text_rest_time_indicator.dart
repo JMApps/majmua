@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:majmua/application/styles/app_widget_color.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 
-class CenterTextRestTimeIndicator extends StatelessWidget {
-  const CenterTextRestTimeIndicator({
+class ItemTextRestTimeIndicator extends StatelessWidget {
+  const ItemTextRestTimeIndicator({
     Key? key,
     required this.title,
     required this.color,

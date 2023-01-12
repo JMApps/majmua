@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:majmua/application/other/enums/Season.dart';
 
 class RestTimeState extends ChangeNotifier {
   DateTime _cdt = DateTime.now().toUtc();
@@ -25,11 +26,13 @@ class RestTimeState extends ChangeNotifier {
 
   int get getMinutesOfYear => _cdt.difference(DateTime(_cdt.year)).inMinutes;
 
-  int get getMinutesOfMonth => _cdt.difference(DateTime(_cdt.year, _cdt.month)).inMinutes;
+  int get getMinutesOfMonth =>
+      _cdt.difference(DateTime(_cdt.year, _cdt.month)).inMinutes;
 
-  int get getMinutesOfDay => _cdt.difference(DateTime(_cdt.year, _cdt.month, _cdt.day)).inMinutes;
+  int get getMinutesOfDay =>
+      _cdt.difference(DateTime(_cdt.year, _cdt.month, _cdt.day)).inMinutes;
 
-  double get getRestYearMinutes {
+  double get getRestYearProgress {
     late double restYear;
     if (getMinutesOfYear <= 525600) {
       restYear = getMinutesOfYear * 24 * 60 / 7568640.0;
@@ -65,10 +68,10 @@ class RestTimeState extends ChangeNotifier {
         seasonWeek = getMinutesOfDay * 24 * 60 / 145152;
         break;
       case 2:
-        seasonWeek = (1440 + getMinutesOfDay)* 24 * 60 / 145152;
+        seasonWeek = (1440 + getMinutesOfDay) * 24 * 60 / 145152;
         break;
       case 3:
-        seasonWeek = (2880 + getMinutesOfDay)* 24 * 60 / 145152;
+        seasonWeek = (2880 + getMinutesOfDay) * 24 * 60 / 145152;
         break;
       case 4:
         seasonWeek = (4320 + getMinutesOfDay) * 24 * 60 / 145152;
@@ -77,7 +80,7 @@ class RestTimeState extends ChangeNotifier {
         seasonWeek = (5760 + getMinutesOfDay) * 24 * 60 / 145152;
         break;
       case 6:
-        seasonWeek = (7200 + getMinutesOfDay)* 24 * 60 / 145152;
+        seasonWeek = (7200 + getMinutesOfDay) * 24 * 60 / 145152;
         break;
       case 7:
         seasonWeek = (8640 + getMinutesOfDay) * 24 * 60 / 145152;
@@ -90,12 +93,56 @@ class RestTimeState extends ChangeNotifier {
     return getMinutesOfDay * 24 * 60 / 20736;
   }
 
+  Season get getCurrentSeason {
+    return _getCurrentSeason(_cdt.month);
+  }
+
+  Season _getCurrentSeason(int month) {
+    late Season currentSeason;
+    switch (month) {
+      case 3:
+      case 4:
+      case 5:
+        currentSeason = Season.spring;
+        break;
+      case 6:
+      case 7:
+      case 8:
+        currentSeason = Season.summer;
+        break;
+      case 9:
+      case 10:
+      case 11:
+        currentSeason = Season.fall;
+        break;
+      case 12:
+      case 1:
+      case 2:
+        currentSeason = Season.winter;
+        break;
+    }
+    return currentSeason;
+  }
+
   int _getDaysInMonth(int year, int month) {
     if (month == DateTime.february) {
       final bool isLeapYear = (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
       return isLeapYear ? 29 : 28;
     }
-    const List<int> daysInMonth = <int>[31, -1, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    const List<int> daysInMonth = <int>[
+      31,
+      -1,
+      31,
+      30,
+      31,
+      30,
+      31,
+      31,
+      30,
+      31,
+      30,
+      31
+    ];
     return daysInMonth[month - 1];
   }
 

@@ -1,5 +1,5 @@
 class AppString {
-  static const String appName = 'Полка М';
+  static const String appName = 'Полка мусульманина';
 
   // Rest Time
   static const String appMainSlogan = 'Уходят дни – уходит часть тебя';
@@ -7,4 +7,9 @@ class AppString {
   static const String week = 'Неделя';
   static const String month = 'Месяц';
   static const String year = 'Год';
+
+  static const String winter = 'Зима';
+  static const String spring = 'Весна';
+  static const String summer = 'Лето';
+  static const String fall = 'Осень';
 }

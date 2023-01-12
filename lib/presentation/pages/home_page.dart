@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
-import 'package:majmua/presentation/restTime/card_rest_time_indicators.dart';
+import 'package:majmua/presentation/restTime/main_card_rest_time_indicators.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,7 +18,8 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  CardRestTimeIndicators(),
+                  SizedBox(height: 16),
+                  MainCardRestTimeIndicators(),
                 ],
               ),
             ),

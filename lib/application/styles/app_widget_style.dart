@@ -41,4 +41,14 @@ class AppWidgetStyle {
   static const mainPaddingMini = EdgeInsets.all(8);
   static const mainMargin = EdgeInsets.all(16);
   static const mainMarginMini = EdgeInsets.all(8);
+
+  static const verticalPadding = EdgeInsets.symmetric(vertical: 16);
+  static const verticalPaddingMini = EdgeInsets.symmetric(vertical: 8);
+  static const verticalMargin = EdgeInsets.symmetric(vertical: 16);
+  static const verticalMarginMini = EdgeInsets.symmetric(vertical: 8);
+
+  static const horizontalPadding = EdgeInsets.symmetric(horizontal: 16);
+  static const horizontalPaddingMini = EdgeInsets.symmetric(horizontal: 8);
+  static const horizontalMargin = EdgeInsets.symmetric(horizontal: 16);
+  static const horizontalMarginMini = EdgeInsets.symmetric(horizontal: 8);
 }

@@ -75,9 +75,9 @@ extension ColorSchemeS on ColorScheme {
       ? const Color(0xFF171821)
       : const Color(0xFFFFF8EE);
 
-  Color get restTimeCircleAvatarColor => brightness == Brightness.light
+  Color get restTimeSeasonBackgroundColor => brightness == Brightness.light
       ? const Color(0xFFFFFFFF)
-      : const Color(0xFF232433);
+      : const Color(0xFF2C2D33);
 
   Color get weekDaysColor => brightness == Brightness.light
       ? const Color(0xFF009688)
@@ -85,5 +85,5 @@ extension ColorSchemeS on ColorScheme {
 
   Color get backgroundColorQ => brightness == Brightness.light
       ? const Color(0xFFFFFDE7)
-      : const Color(0xFF151510);
+      : const Color(0xFF171821);
 }
