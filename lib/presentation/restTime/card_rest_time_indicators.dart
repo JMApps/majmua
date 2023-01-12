@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/rest_time_state.dart';
+import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/presentation/restTime/center_text_rest_time_indicator.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -23,45 +24,45 @@ class CardRestTimeIndicators extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   CircularPercentIndicator(
-                    radius: 35,
+                    radius: 37.5,
                     lineWidth: 3.5,
                     progressColor: const Color(0xFF5C6BC0),
                     percent: restTimeState.getRestDayProgress / 100,
                     center: CenterTextRestTimeIndicator(
-                      title: 'День',
+                      title: AppString.day,
                       color: const Color(0xFF5C6BC0),
                       percent: restTimeState.getRestDayProgress,
                     ),
                   ),
                   CircularPercentIndicator(
-                    radius: 35,
+                    radius: 37.5,
                     lineWidth: 3.5,
                     progressColor: const Color(0xFFEF5350),
                     percent: restTimeState.getRestWeekProgress / 100,
                     center: CenterTextRestTimeIndicator(
-                      title: 'Неделя',
+                      title: AppString.week,
                       color: const Color(0xFFEF5350),
                       percent: restTimeState.getRestWeekProgress,
                     ),
                   ),
                   CircularPercentIndicator(
-                    radius: 35,
+                    radius: 37.5,
                     lineWidth: 3.5,
                     progressColor: const Color(0xFFFFA726),
                     percent: restTimeState.getRestMonthProgress / 100,
                     center: CenterTextRestTimeIndicator(
-                      title: 'Месяц',
+                      title: AppString.month,
                       color: const Color(0xFFFFA726),
                       percent: restTimeState.getRestMonthProgress,
                     ),
                   ),
                   CircularPercentIndicator(
-                    radius: 35,
+                    radius: 37.5,
                     lineWidth: 3,
                     progressColor: const Color(0xFF26A69A),
                     percent: restTimeState.getRestYearMinutes / 100,
                     center: CenterTextRestTimeIndicator(
-                      title: 'Год',
+                      title: AppString.year,
                       color: const Color(0xFF26A69A),
                       percent: restTimeState.getRestYearMinutes,
                     ),
