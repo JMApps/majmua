@@ -12,8 +12,15 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.5
+  # State management
   provider: ^6.0.5
+
+  # Times
+  adhan_dart: ^1.0.8
+  intl: ^0.18.0
+
+  # Widgets
+  cupertino_icons: ^1.0.5
   percent_indicator: ^4.2.2
 
 dev_dependencies:

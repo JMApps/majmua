@@ -5,7 +5,7 @@ class AppWidgetStyle {
         pinned: false,
         floating: false,
         expandedHeight: 100,
-        elevation: 0,
+        elevation: 3,
         shape: appBarRectangleBorder,
         centerTitle: true,
         flexibleSpace: FlexibleSpaceBar(
@@ -35,6 +35,48 @@ class AppWidgetStyle {
     borderRadius: BorderRadius.all(
       Radius.circular(20),
     ),
+  );
+
+  static const mainRectangleBorderMini = RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(
+      Radius.circular(12.5),
+    ),
+  );
+
+  static const mainBorderRadius = BorderRadius.all(
+    Radius.circular(20),
+  );
+
+  static const mainBorderRadiusMini = BorderRadius.all(
+    Radius.circular(12.5),
+  );
+
+  static const topRectangleBorder = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      topRight: Radius.circular(25),
+      topLeft: Radius.circular(25),
+    ),
+  );
+
+  static const bottomRectangleBorder = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      bottomRight: Radius.circular(25),
+      bottomLeft: Radius.circular(25),
+    ),
+  );
+
+  static const topAdhanItemPadding = EdgeInsets.only(
+    right: 8,
+    top: 8,
+    left: 8,
+    bottom: 4,
+  );
+
+  static const bottomAdhanItemPadding = EdgeInsets.only(
+    right: 8,
+    top: 4,
+    left: 8,
+    bottom: 8,
   );
 
   static const mainPadding = EdgeInsets.all(16);
