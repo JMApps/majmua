@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
-import 'package:majmua/presentation/currentDateTime/item_card_date_times.dart';
+import 'package:majmua/presentation/currentDateTime/main_card_current_date_times.dart';
 import 'package:majmua/presentation/prayerTime/main_card_adhan_time.dart';
 import 'package:majmua/presentation/restTime/main_card_rest_time_indicators.dart';
 
@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
                   SizedBox(height: 5),
                   Divider(indent: 16, endIndent: 16),
                   SizedBox(height: 4),
-                  ItemCardDateTimes(),
+                  MainCardCurrentDateTimes(),
                 ],
               ),
             ),

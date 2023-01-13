@@ -26,11 +26,9 @@ class RestTimeState extends ChangeNotifier {
 
   int get getMinutesOfYear => _cdt.difference(DateTime(_cdt.year)).inMinutes;
 
-  int get getMinutesOfMonth =>
-      _cdt.difference(DateTime(_cdt.year, _cdt.month)).inMinutes;
+  int get getMinutesOfMonth => _cdt.difference(DateTime(_cdt.year, _cdt.month)).inMinutes;
 
-  int get getMinutesOfDay =>
-      _cdt.difference(DateTime(_cdt.year, _cdt.month, _cdt.day)).inMinutes;
+  int get getMinutesOfDay => _cdt.difference(DateTime(_cdt.year, _cdt.month, _cdt.day)).inMinutes;
 
   double get getRestYearProgress {
     late double restYear;
