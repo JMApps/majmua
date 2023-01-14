@@ -4,23 +4,11 @@ class AppWidgetStyle {
   static mainSliverAppbar(String titleName) => SliverAppBar(
         pinned: false,
         floating: false,
-        expandedHeight: 100,
         elevation: 3,
         shape: appBarRectangleBorder,
         centerTitle: true,
-        flexibleSpace: FlexibleSpaceBar(
-          title: Text(
-            titleName,
-            style: const TextStyle(
-              fontSize: 14,
-              fontFamily: 'Nexa',
-            ),
-          ),
-          background: Padding(
-            padding: mainPadding,
-            child: Image.asset('assets/images/sm_logo.png'),
-          ),
-          centerTitle: true,
+        title: Text(
+          titleName,
         ),
       );
 

@@ -11,32 +11,40 @@ class MainCardCurrentDateTimes extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     return Padding(
       padding: AppWidgetStyle.horizontalPaddingMini,
-      child: Row(
+      child: Column(
         children: [
-          Expanded(
-            flex: 2,
-            child: Card(
-              elevation: 1,
-              shape: AppWidgetStyle.mainRectangleBorder,
-              margin: EdgeInsets.zero,
-              child: Wrap(
-                direction: Axis.horizontal,
-                children: [
-                  ItemYearMonthDay(
+          Row(
+            children: [
+              Expanded(
+                flex: 8,
+                child: Card(
+                  elevation: 1,
+                  shape: AppWidgetStyle.mainRectangleBorder,
+                  margin: EdgeInsets.zero,
+                  child: ItemYearMonthDay(
                     year: 2023,
                     month: 'Январь',
                     day: 13,
                     color: appColors.firstAppColor,
                   ),
-                  ItemYearMonthDay(
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                flex: 11,
+                child: Card(
+                  elevation: 1,
+                  shape: AppWidgetStyle.mainRectangleBorder,
+                  margin: EdgeInsets.zero,
+                  child: ItemYearMonthDay(
                     year: 1444,
                     month: 'Джумада ас-Сани',
                     day: 19,
                     color: appColors.secondAppColor,
                   ),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
         ],
       ),

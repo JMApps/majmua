@@ -29,7 +29,7 @@ class ItemYearMonthDay extends StatelessWidget {
           child: Text(
             '$day',
             style: const TextStyle(
-              fontSize: 13,
+              fontSize: 14,
               fontFamily: 'Lato',
               color: Colors.white,
             ),
@@ -39,11 +39,16 @@ class ItemYearMonthDay extends StatelessWidget {
       title: Text(
         month,
         style: const TextStyle(
-          fontSize: 14,
+          fontSize: 15,
           fontWeight: FontWeight.bold,
         ),
       ),
-      subtitle: Text('$year год'),
+      subtitle: Text(
+        '$year год',
+        style: const TextStyle(
+          fontSize: 14,
+        ),
+      ),
     );
   }
 }

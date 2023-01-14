@@ -19,7 +19,7 @@ class MainCardRestTimeIndicators extends StatelessWidget {
       child: Consumer<RestTimeState>(
         builder: (BuildContext context, restTimeState, _) {
           return Padding(
-            padding: AppWidgetStyle.mainPadding,
+            padding: AppWidgetStyle.mainPaddingMini,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -31,7 +31,7 @@ class MainCardRestTimeIndicators extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 4),
                 Wrap(
                   direction: Axis.horizontal,
                   alignment: WrapAlignment.center,
