@@ -38,9 +38,10 @@ class MainCardAdhanTime extends StatelessWidget {
                         ),
                         textAlign: TextAlign.start,
                       ),
-                      trailing: const Icon(
+                      trailing: Icon(
                         Icons.arrow_forward_ios_rounded,
                         size: 17.5,
+                        color: appColors.mainTextColor,
                       ),
                     ),
                   ),
@@ -49,7 +50,8 @@ class MainCardAdhanTime extends StatelessWidget {
                   shape: AppWidgetStyle.mainRectangleBorder,
                   child: IconButton(
                     onPressed: () {},
-                    visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
+                    visualDensity:
+                    const VisualDensity(horizontal: 0, vertical: -4),
                     splashRadius: 17.5,
                     icon: const Icon(
                       CupertinoIcons.settings,
