@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
+import 'package:majmua/application/themes/app_theme.dart';
 
 class ItemCardAdhanNameTime extends StatelessWidget {
   const ItemCardAdhanNameTime({
@@ -13,6 +14,7 @@ class ItemCardAdhanNameTime extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).colorScheme;
     return Expanded(
       child: Card(
         margin: const EdgeInsets.all(4),
@@ -25,7 +27,7 @@ class ItemCardAdhanNameTime extends StatelessWidget {
                 alignment: Alignment.topRight,
                 child: Icon(
                   Icons.notifications_off_outlined,
-                  color: Colors.red.shade300,
+                  color: appColors.thirdAppColor,
                   size: 17.5,
                 ),
               ),
