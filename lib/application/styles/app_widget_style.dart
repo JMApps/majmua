@@ -1,17 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppWidgetStyle {
-  static mainSliverAppbar(String titleName) => SliverAppBar(
-        pinned: false,
-        floating: false,
-        elevation: 3,
-        shape: appBarRectangleBorder,
-        centerTitle: true,
-        title: Text(
-          titleName,
-        ),
-      );
-
   static const appBarRectangleBorder = RoundedRectangleBorder(
     borderRadius: BorderRadius.only(
       bottomLeft: Radius.elliptical(45, 25),
