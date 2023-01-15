@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/strings/app_strings.dart';
 
 class ItemYearMonthDay extends StatelessWidget {
   const ItemYearMonthDay({
@@ -36,14 +37,14 @@ class ItemYearMonthDay extends StatelessWidget {
       title: Text(
         month,
         style: const TextStyle(
-          fontSize: 15,
+          fontSize: 14,
           fontWeight: FontWeight.bold,
         ),
       ),
       subtitle: Text(
-        '$year год',
+        '$year ${AppString.year.toLowerCase()}',
         style: const TextStyle(
-          fontSize: 14,
+          fontSize: 13,
         ),
       ),
     );

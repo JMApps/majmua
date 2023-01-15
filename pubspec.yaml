@@ -17,6 +17,7 @@ dependencies:
 
   # Times
   adhan_dart: ^1.0.8
+  hijri: ^3.0.0
   intl: ^0.18.0
 
   # Widgets

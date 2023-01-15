@@ -1,10 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:hijri/hijri_calendar.dart';
 import 'package:majmua/application/other/enums/Season.dart';
 
 class RestTimeState extends ChangeNotifier {
   DateTime _cdt = DateTime.now().toUtc();
+  HijriCalendar _chdt = HijriCalendar.now();
   late Timer _appTimer;
 
   RestTimeState() {
@@ -23,6 +25,10 @@ class RestTimeState extends ChangeNotifier {
       },
     );
   }
+
+  DateTime get getCdt => _cdt;
+
+  HijriCalendar get getChdt => _chdt;
 
   int get getMinutesOfYear => _cdt.difference(DateTime(_cdt.year)).inMinutes;
 
@@ -121,6 +127,70 @@ class RestTimeState extends ChangeNotifier {
     }
     return currentSeason;
   }
+
+  final List<String> _monthHijriNames = [
+    'Мухаррам',
+    'Сафар',
+    'Раби\' аль-Авваль',
+    'Раби\' ас-Сани',
+    'Джумада аль-Уля',
+    'Джумада ас-Сани',
+    'Раджаб',
+    'Ша\'бан',
+    'Рамадан',
+    'Шавваль',
+    'Зу-ль-Ка\'да',
+    'Зу-ль-Хиджа'
+  ];
+
+  String get getMonthHijriName => _monthHijriNames[_chdt.hMonth - 1];
+
+  final List<String> _monthNames = [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентабрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь'
+  ];
+
+  String get getMonthName => _monthNames[_cdt.month - 1];
+
+  final List<String> _namesWeekDay = [
+    'Понедельник',
+    'Вторник',
+    'Среда',
+    'Четверг',
+    'Пятница',
+    'Суббота',
+    'Воскресенье',
+  ];
+
+  String get getNameWeekDay => _namesWeekDay[_cdt.weekday - 1];
+
+  int _toRamadanDays() {
+    final int countDays;
+    final hijriRamadanToGregorian = _chdt.hijriToGregorian(_chdt.hYear, 9, 1);
+    countDays = _cdt.difference(DateTime(hijriRamadanToGregorian.year, hijriRamadanToGregorian.month, hijriRamadanToGregorian.day)).inDays;
+    return countDays;
+  }
+
+  int get getToRamadanDays => _toRamadanDays();
+
+  int _toQurbanDays() {
+    final int countDays;
+    final hijriZulHidjaToGregorian = _chdt.hijriToGregorian(_chdt.hYear, 12, 10);
+    countDays = _cdt.difference(DateTime(hijriZulHidjaToGregorian.year, hijriZulHidjaToGregorian.month, hijriZulHidjaToGregorian.day)).inDays;
+    return countDays;
+  }
+
+  int get getToQurbanDays => _toQurbanDays();
 
   int _getDaysInMonth(int year, int month) {
     if (month == DateTime.february) {

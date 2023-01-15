@@ -24,7 +24,7 @@ class ItemHoliday extends StatelessWidget {
           backgroundColor: color,
           child: Center(
             child: Text(
-              '$days',
+              days.toString().substring(1),
               style: const TextStyle(
                 fontSize: 14,
                 fontFamily: 'Lato',
