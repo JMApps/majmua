@@ -18,7 +18,6 @@ class MainCardCurrentDateTimes extends StatelessWidget {
               Expanded(
                 flex: 8,
                 child: Card(
-                  elevation: 1,
                   shape: AppWidgetStyle.mainRectangleBorder,
                   margin: EdgeInsets.zero,
                   child: ItemYearMonthDay(
@@ -33,7 +32,6 @@ class MainCardCurrentDateTimes extends StatelessWidget {
               Expanded(
                 flex: 11,
                 child: Card(
-                  elevation: 1,
                   shape: AppWidgetStyle.mainRectangleBorder,
                   margin: EdgeInsets.zero,
                   child: ItemYearMonthDay(

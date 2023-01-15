@@ -13,7 +13,6 @@ class MainCardRestTimeIndicators extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 1,
       margin: AppWidgetStyle.horizontalMarginMini,
       shape: AppWidgetStyle.mainRectangleBorder,
       child: Consumer<RestTimeState>(

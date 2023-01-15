@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
+import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/presentation/prayerTime/item_card_adhan_name_time.dart';
 
 class MainCardAdhanTime extends StatelessWidget {
@@ -7,8 +9,8 @@ class MainCardAdhanTime extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).colorScheme;
     return Card(
-      elevation: 1,
       margin: AppWidgetStyle.horizontalMarginMini,
       shape: AppWidgetStyle.mainRectangleBorder,
       child: Padding(
@@ -20,7 +22,7 @@ class MainCardAdhanTime extends StatelessWidget {
               children: [
                 Expanded(
                   child: Card(
-                    elevation: 1,
+                    color: appColors.glassOnGlassCardColor,
                     shape: AppWidgetStyle.mainRectangleBorder,
                     child: ListTile(
                       onTap: () {},
@@ -44,14 +46,14 @@ class MainCardAdhanTime extends StatelessWidget {
                   ),
                 ),
                 Card(
-                  elevation: 1,
                   shape: AppWidgetStyle.mainRectangleBorder,
                   child: IconButton(
                     onPressed: () {},
-                    visualDensity:
-                        const VisualDensity(horizontal: 0, vertical: -4),
-                    splashRadius: 15,
-                    icon: const Icon(Icons.settings),
+                    visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
+                    splashRadius: 17.5,
+                    icon: const Icon(
+                      CupertinoIcons.settings,
+                    ),
                   ),
                 ),
               ],
@@ -90,10 +92,10 @@ class MainCardAdhanTime extends StatelessWidget {
                 ),
               ],
             ),
-            const Card(
-              elevation: 1,
+            Card(
+              color: appColors.glassOnGlassCardColor,
               shape: AppWidgetStyle.mainRectangleBorder,
-              child: Padding(
+              child: const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
                   'Последняя треть ночи: 02:34',

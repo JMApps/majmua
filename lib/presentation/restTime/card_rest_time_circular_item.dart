@@ -17,7 +17,6 @@ class CardRestTimeCircularItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
       shape: const CircleBorder(),
       margin: EdgeInsets.zero,
       child: Padding(
