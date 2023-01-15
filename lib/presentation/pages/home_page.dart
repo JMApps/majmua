@@ -4,6 +4,7 @@ import 'package:majmua/presentation/currentDateTime/main_card_current_date_times
 import 'package:majmua/presentation/prayerTime/main_card_adhan_time.dart';
 import 'package:majmua/presentation/restHolidays/main_card_rest_holidays.dart';
 import 'package:majmua/presentation/restTime/main_card_rest_time_indicators.dart';
+import 'package:majmua/presentation/whiteDays/main_card_white_days.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -46,6 +47,8 @@ class HomePage extends StatelessWidget {
                     MainCardCurrentDateTimes(),
                     SizedBox(height: 8),
                     MainCardRestHolidays(),
+                    SizedBox(height: 8),
+                    MainCardWhiteDays(),
                     SizedBox(height: 8),
                   ],
                 ),

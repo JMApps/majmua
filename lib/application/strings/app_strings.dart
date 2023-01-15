@@ -3,6 +3,7 @@ class AppString {
 
   // Rest Time
   static const String appMainSlogan = 'Уходят дни – уходит часть тебя';
+
   static const String day = 'День';
   static const String week = 'Неделя';
   static const String month = 'Месяц';
@@ -15,4 +16,7 @@ class AppString {
 
   static const String restRamadan = 'Осталось дней до Рамадана';
   static const String restZulHidja = 'Осталось дней до Ид аль-Адха';
+
+  static const String toWhiteDays = 'Приблизись белые дни';
+  static const String whiteDays = 'Пост в белые дни';
 }
