@@ -94,6 +94,6 @@ extension ColorSchemeS on ColorScheme {
       : const Color(0xFF171821);
 
   Color get glassOnGlassCardColor => brightness == Brightness.light
-      ? const Color(0x40767680)
+      ? const Color(0x80FFFDE7)
       : const Color(0xBF171821);
 }

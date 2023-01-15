@@ -25,7 +25,7 @@ class _SegmentControlTimeSeasonState extends State<SegmentControlTimeSeason> {
           children: [
             IgnorePointer(
               child: CupertinoSlidingSegmentedControl<Season>(
-                thumbColor: appColors.restTimeSeasonBackgroundColor,
+                thumbColor: appColors.glassOnGlassCardColor,
                 groupValue: restTimeState.getCurrentSeason,
                 children: const <Season, Widget>{
                   Season.spring: ItemSegmentSeasonTime(

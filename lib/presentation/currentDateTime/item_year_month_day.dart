@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/application/styles/app_widget_style.dart';
 
 class ItemYearMonthDay extends StatelessWidget {
   const ItemYearMonthDay({
@@ -18,12 +17,10 @@ class ItemYearMonthDay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      dense: true,
-      contentPadding: AppWidgetStyle.horizontalPaddingMini,
-      visualDensity: const VisualDensity(vertical: -4),
+      visualDensity: const VisualDensity(vertical: -3),
       horizontalTitleGap: 2,
       leading: CircleAvatar(
-        radius: 15,
+        radius: 17.5,
         backgroundColor: color,
         child: Center(
           child: Text(

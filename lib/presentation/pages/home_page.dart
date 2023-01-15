@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/presentation/currentDateTime/main_card_current_date_times.dart';
 import 'package:majmua/presentation/prayerTime/main_card_adhan_time.dart';
+import 'package:majmua/presentation/restHolidays/main_card_rest_holidays.dart';
 import 'package:majmua/presentation/restTime/main_card_rest_time_indicators.dart';
 
 class HomePage extends StatelessWidget {
@@ -44,6 +44,8 @@ class HomePage extends StatelessWidget {
                     MainCardAdhanTime(),
                     SizedBox(height: 8),
                     MainCardCurrentDateTimes(),
+                    SizedBox(height: 8),
+                    MainCardRestHolidays(),
                     SizedBox(height: 8),
                   ],
                 ),
