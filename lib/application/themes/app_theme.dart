@@ -9,7 +9,7 @@ class AppTheme {
     appBarTheme: const AppBarTheme(
       elevation: 0,
       centerTitle: true,
-      backgroundColor: Color(0xFF3F51B5),
+      backgroundColor: Color(0xBF3F51B5),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomRight: Radius.elliptical(35, 20),
@@ -22,7 +22,10 @@ class AppTheme {
         fontSize: 18,
       ),
     ),
-    cardColor: const Color(0xFFFFFFFF),
+    cardTheme: const CardTheme(
+      elevation: 0,
+      color: Color(0x99FFFDE7),
+    ),
   );
 
   static final darkTheme = ThemeData(
@@ -33,7 +36,7 @@ class AppTheme {
     appBarTheme: const AppBarTheme(
       elevation: 0,
       centerTitle: true,
-      backgroundColor: Color(0xFF232433),
+      backgroundColor: Color(0x80232433),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomRight: Radius.elliptical(35, 20),
@@ -46,7 +49,10 @@ class AppTheme {
         fontSize: 18,
       ),
     ),
-    cardColor: const Color(0xFF2C2D33),
+    cardTheme: const CardTheme(
+      elevation: 0,
+      color: Color(0x59171821),
+    ),
   );
 }
 
@@ -86,4 +92,8 @@ extension ColorSchemeS on ColorScheme {
   Color get backgroundColorQ => brightness == Brightness.light
       ? const Color(0xFFFFFDE7)
       : const Color(0xFF171821);
+
+  Color get glassOnGlassCardColor => brightness == Brightness.light
+      ? const Color(0x40767680)
+      : const Color(0xBF171821);
 }
