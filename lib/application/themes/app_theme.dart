@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/styles/app_widget_style.dart';
 
 class AppTheme {
   static final lightTheme = ThemeData(
@@ -19,12 +20,14 @@ class AppTheme {
       titleTextStyle: TextStyle(
         color: Color(0xFFFFFFFF),
         fontFamily: 'Nexa',
-        fontSize: 18,
+        fontSize: 20,
       ),
     ),
     cardTheme: const CardTheme(
       elevation: 0,
       color: Color(0x99FFFDE7),
+      shape: AppWidgetStyle.mainRectangleBorder,
+      margin: EdgeInsets.zero,
     ),
   );
 
@@ -52,6 +55,8 @@ class AppTheme {
     cardTheme: const CardTheme(
       elevation: 0,
       color: Color(0x80171821),
+      shape: AppWidgetStyle.mainRectangleBorder,
+      margin: EdgeInsets.zero,
     ),
   );
 }

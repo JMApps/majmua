@@ -22,8 +22,6 @@ class MainCardCurrentDateTimes extends StatelessWidget {
                   Expanded(
                     flex: 3,
                     child: Card(
-                      shape: AppWidgetStyle.mainRectangleBorder,
-                      margin: EdgeInsets.zero,
                       child: ItemYearMonthDay(
                         year: restTimeState.getCdt.year,
                         month: restTimeState.getMonthName,
@@ -36,8 +34,6 @@ class MainCardCurrentDateTimes extends StatelessWidget {
                   Expanded(
                     flex: 5,
                     child: Card(
-                      shape: AppWidgetStyle.mainRectangleBorder,
-                      margin: EdgeInsets.zero,
                       child: ItemYearMonthDay(
                         year: restTimeState.getChdt.hYear,
                         month: restTimeState.getMonthHijriName,

@@ -14,11 +14,13 @@ class RestTimeState extends ChangeNotifier {
       Duration(seconds: (_cdt.second - 60).abs()),
       () {
         _cdt = DateTime.now().toUtc();
+        _chdt = HijriCalendar.now();
         notifyListeners();
         _appTimer = Timer.periodic(
           const Duration(minutes: 1),
           (_) {
             _cdt = DateTime.now().toUtc();
+            _chdt = HijriCalendar.now();
             notifyListeners();
           },
         );
@@ -197,20 +199,7 @@ class RestTimeState extends ChangeNotifier {
       final bool isLeapYear = (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
       return isLeapYear ? 29 : 28;
     }
-    const List<int> daysInMonth = <int>[
-      31,
-      -1,
-      31,
-      30,
-      31,
-      30,
-      31,
-      31,
-      30,
-      31,
-      30,
-      31
-    ];
+    const List<int> daysInMonth = <int>[31, -1, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     return daysInMonth[month - 1];
   }
 

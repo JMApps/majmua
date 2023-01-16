@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/presentation/prayerTime/item_card_adhan_name_time.dart';
@@ -12,9 +13,8 @@ class MainCardAdhanTime extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     return Card(
       margin: AppWidgetStyle.horizontalMarginMini,
-      shape: AppWidgetStyle.mainRectangleBorder,
       child: Padding(
-        padding: const EdgeInsets.all(4),
+        padding: AppWidgetStyle.mainPaddingMini,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -23,13 +23,11 @@ class MainCardAdhanTime extends StatelessWidget {
                 Expanded(
                   child: Card(
                     color: appColors.glassOnGlassCardColor,
-                    shape: AppWidgetStyle.mainRectangleBorder,
                     child: ListTile(
                       onTap: () {},
                       contentPadding: AppWidgetStyle.horizontalPadding,
                       shape: AppWidgetStyle.mainRectangleBorder,
-                      visualDensity:
-                          const VisualDensity(horizontal: 0, vertical: -4),
+                      visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
                       title: const Text(
                         'Turkey, Izmir',
                         style: TextStyle(
@@ -46,8 +44,8 @@ class MainCardAdhanTime extends StatelessWidget {
                     ),
                   ),
                 ),
+                const SizedBox(width: 8),
                 Card(
-                  shape: AppWidgetStyle.mainRectangleBorder,
                   child: IconButton(
                     onPressed: () {},
                     visualDensity:
@@ -60,47 +58,53 @@ class MainCardAdhanTime extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 ItemCardAdhanNameTime(
-                  prayerName: 'Фаджр',
+                  prayerName: AppString.fajr,
                   prayerColor: Colors.indigo,
                 ),
+                SizedBox(width: 8),
                 ItemCardAdhanNameTime(
-                  prayerName: 'Восход',
+                  prayerName: AppString.sunrise,
                   prayerColor: Colors.red,
                 ),
+                SizedBox(width: 8),
                 ItemCardAdhanNameTime(
-                  prayerName: 'Зухр',
+                  prayerName: AppString.dhuhr,
                   prayerColor: Colors.orange,
                 ),
               ],
             ),
+            const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 ItemCardAdhanNameTime(
-                  prayerName: 'Аср',
+                  prayerName: AppString.asr,
                   prayerColor: Colors.teal,
                 ),
+                SizedBox(width: 8),
                 ItemCardAdhanNameTime(
-                  prayerName: 'Магриб',
+                  prayerName: AppString.maghrib,
                   prayerColor: Colors.brown,
                 ),
+                SizedBox(width: 8),
                 ItemCardAdhanNameTime(
-                  prayerName: 'Иша',
+                  prayerName: AppString.isha,
                   prayerColor: Colors.purple,
                 ),
               ],
             ),
+            const SizedBox(height: 8),
             Card(
               color: appColors.glassOnGlassCardColor,
-              shape: AppWidgetStyle.mainRectangleBorder,
               child: const Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: AppWidgetStyle.mainPaddingMini,
                 child: Text(
-                  'Последняя треть ночи: 02:34',
+                  '${AppString.lastThirdNight} 02:34',
                   textAlign: TextAlign.center,
                 ),
               ),

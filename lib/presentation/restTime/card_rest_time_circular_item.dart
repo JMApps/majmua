@@ -18,7 +18,6 @@ class CardRestTimeCircularItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       shape: const CircleBorder(),
-      margin: EdgeInsets.zero,
       child: Padding(
         padding: const EdgeInsets.all(5),
         child: CircularPercentIndicator(

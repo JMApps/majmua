@@ -17,8 +17,7 @@ class ItemCardAdhanNameTime extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     return Expanded(
       child: Card(
-        margin: const EdgeInsets.all(4),
-        shape: AppWidgetStyle.mainRectangleBorderMini,
+        shape: AppWidgetStyle.mainRectangleBorder,
         child: Padding(
           padding: AppWidgetStyle.mainPaddingMini,
           child: Stack(

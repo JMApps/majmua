@@ -14,7 +14,6 @@ class MainCardRestTimeIndicators extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: AppWidgetStyle.horizontalMarginMini,
-      shape: AppWidgetStyle.mainRectangleBorder,
       child: Consumer<RestTimeState>(
         builder: (BuildContext context, restTimeState, _) {
           return Padding(

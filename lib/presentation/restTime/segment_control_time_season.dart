@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/other/enums/Season.dart';
 import 'package:majmua/application/state/rest_time_state.dart';
+import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/presentation/restTime/item_segment_season_time.dart';
 import 'package:provider/provider.dart';
@@ -29,19 +30,19 @@ class _SegmentControlTimeSeasonState extends State<SegmentControlTimeSeason> {
                 groupValue: restTimeState.getCurrentSeason,
                 children: const <Season, Widget>{
                   Season.spring: ItemSegmentSeasonTime(
-                    seasonName: 'Весна',
+                    seasonName: AppString.spring,
                     imageName: 'pic_winter_small.jpg',
                   ),
                   Season.summer: ItemSegmentSeasonTime(
-                    seasonName: 'Лето',
+                    seasonName: AppString.summer,
                     imageName: 'pic_winter_small.jpg',
                   ),
                   Season.fall: ItemSegmentSeasonTime(
-                    seasonName: 'Осень',
+                    seasonName: AppString.fall,
                     imageName: 'pic_winter_small.jpg',
                   ),
                   Season.winter: ItemSegmentSeasonTime(
-                    seasonName: 'Зима',
+                    seasonName: AppString.winter,
                     imageName: 'pic_winter_small.jpg',
                   ),
                 },
