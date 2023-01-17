@@ -24,6 +24,42 @@ class AppString {
 
   static const String lastThirdNight = 'Последняя треть ночи:';
 
+  // Params
+  static const String params = 'Параметры';
+  static const String selectedCity = 'Выбранный город:';
+  static const String coordinates = 'Координаты:';
+  static const String latitude = 'Широта:';
+
+  static const String calculatePrayerMethod = 'Метод расчёта времени молитв';
+
+  static const List<String> calculationMethodNames = <String>[
+    'Umm al-Qura',
+    'Islamic Society NA (ISNA)',
+    'Russian',
+    'Tatarstan',
+    'France',
+    'Dubai',
+    'Egyptian',
+    'Karachi',
+    'Kuwait',
+    'Moon Sighting Committee (MSC)',
+    'Muslim World League (MWL)',
+    'Qatar',
+    'Turkey',
+    'Singapore',
+  ];
+
+  static const String longitude = 'Долгота:';
+  static const String calculateAsrMethod = 'Метод расчёта молитвы аср';
+  static const String madhabShafi = 'Шафии';
+
+  static const String madhabHanafi = 'Ханафи';
+  static const String dateTimeOffset = 'Часовой пояс';
+  static const String minusHour = '-1';
+  static const String defaultOffset = 'По умолчанию';
+
+  static const String plusHour = '+1';
+
   // Holidays
   static const String restRamadan = 'Осталось дней до Рамадана';
   static const String restZulHidja = 'Осталось дней до Ид аль-Адха';

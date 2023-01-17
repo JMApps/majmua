@@ -83,8 +83,12 @@ extension ColorSchemeS on ColorScheme {
       : const Color(0xD9F2A104);
 
   Color get mainTextColor => brightness == Brightness.light
-      ? const Color(0xD9171821)
+      ? const Color(0xD92D2D2D)
       : const Color(0xFFFFF8EE);
+
+  Color get mainReverse => brightness == Brightness.light
+      ? const Color(0xFFFFFFFF)
+      : const Color(0xFF232433);
 
   Color get backgroundColorQ => brightness == Brightness.light
       ? const Color(0xFFFFFDE7)

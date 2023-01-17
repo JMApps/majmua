@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/other/routes/app_routes.dart';
 import 'package:majmua/application/state/prayer_time_state.dart';
 import 'package:majmua/application/state/rest_time_state.dart';
 import 'package:majmua/application/strings/app_strings.dart';
@@ -23,6 +24,7 @@ class RootPage extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: AppString.appName,
+        onGenerateRoute: AppRoutes.onGeneratorRoute,
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
         home: const HomePage(),

@@ -12,6 +12,10 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Path
+  path_provider: ^2.0.11
+  path: ^1.8.2
+
   # State management
   provider: ^6.0.5
 

@@ -30,12 +30,11 @@ class MainCardAdhanTime extends StatelessWidget {
                         color: appColors.glassOnGlassCardColor,
                         child: ListTile(
                           onTap: () {
-                            prayerTimeState.setCalculationMethod = 3;
+                            Navigator.pushNamed(context, 'select_country_page');
                           },
                           contentPadding: AppWidgetStyle.horizontalPadding,
                           shape: AppWidgetStyle.mainRectangleBorder,
-                          visualDensity:
-                              const VisualDensity(horizontal: 0, vertical: -4),
+                          visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
                           title: const Text(
                             'Turkey, Izmir',
                             style: TextStyle(

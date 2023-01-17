@@ -158,6 +158,10 @@ class PrayerTimeState extends ChangeNotifier {
 
   Coordinates get getCoordinates => _coordinates;
 
+  double get getLatitude => _latitude;
+
+  double get getLongitude => _longitude;
+
   set setTimeOffset(int timeOffsetIndex) {
     _timeOffsetIndex = timeOffsetIndex;
     initPrayerTime(
