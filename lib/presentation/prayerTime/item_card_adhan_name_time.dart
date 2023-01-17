@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 
@@ -7,10 +8,12 @@ class ItemCardAdhanNameTime extends StatelessWidget {
     Key? key,
     required this.prayerName,
     required this.prayerColor,
+    required this.prayerTime,
   }) : super(key: key);
 
   final String prayerName;
   final Color prayerColor;
+  final DateTime prayerTime;
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +40,9 @@ class ItemCardAdhanNameTime extends StatelessWidget {
                 ),
                 contentPadding: EdgeInsets.zero,
                 title: Text(prayerName),
-                subtitle: const Text(
-                  '05:34',
-                  style: TextStyle(
+                subtitle: Text(
+                  DateFormat.Hm().format(prayerTime),
+                  style: const TextStyle(
                     fontFamily: 'Lato',
                   ),
                 ),

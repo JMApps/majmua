@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/state/prayer_time_state.dart';
 import 'package:majmua/application/state/rest_time_state.dart';
 import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/themes/app_theme.dart';
@@ -14,6 +15,9 @@ class RootPage extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (_) => RestTimeState(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => PrayerTimeState(),
         ),
       ],
       child: MaterialApp(
