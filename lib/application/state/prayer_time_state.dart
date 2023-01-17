@@ -2,13 +2,18 @@ import 'dart:async';
 
 import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:majmua/application/strings/app_constants.dart';
 
 class PrayerTimeState extends ChangeNotifier {
   DateTime _cdt = DateTime.now().toUtc();
+  final _mainSettingsBox = Hive.box(AppConstants.keySettingsPrayerTimeBox);
   late Timer _timer;
   late PrayerTimes _prayerTimes;
   late CalculationParameters _prayerParams;
 
+  late String _country;
+  late String _city;
   late int _calculationMethodIndex;
   late int _madhabIndex;
   late double _latitude;
@@ -60,12 +65,14 @@ class PrayerTimeState extends ChangeNotifier {
       },
     );
 
-    _calculationMethodIndex = 1;
-    _madhabIndex = 0;
-    _latitude = 36.200;
-    _longitude = 36.500;
+    _country = _mainSettingsBox.get(AppConstants.keyCountry, defaultValue: 'Saudi Arabia');
+    _city = _mainSettingsBox.get(AppConstants.keyCity, defaultValue: 'Mecca');
+    _calculationMethodIndex = _mainSettingsBox.get(AppConstants.keyCalculationIndex, defaultValue: 1);
+    _madhabIndex = _mainSettingsBox.get(AppConstants.keyMadhabIndex, defaultValue: 0);
+    _latitude = _mainSettingsBox.get(AppConstants.keyCurrentLatitude, defaultValue: 21.392425120226704);
+    _longitude = _mainSettingsBox.get(AppConstants.keyCurrentLongitude, defaultValue: 39.85797038428307);
     _coordinates = Coordinates(_latitude, _longitude);
-    _timeOffsetIndex = 1;
+    _timeOffsetIndex = _mainSettingsBox.get(AppConstants.keyUtcOffsetIndex, defaultValue: 1);
 
     initPrayerTime(
       calculationMethodIndex: _calculationMethodIndex,
@@ -92,6 +99,22 @@ class PrayerTimeState extends ChangeNotifier {
     );
   }
 
+  set setCountry(String newCountry) {
+    _country = newCountry;
+    _mainSettingsBox.put(AppConstants.keyCountry, newCountry);
+    notifyListeners();
+  }
+
+  String get getCountry => _country;
+
+  set setCity(String newCity) {
+    _city = newCity;
+    _mainSettingsBox.put(AppConstants.keyCity, newCity);
+    notifyListeners();
+  }
+
+  String get getCity => _city;
+
   set setCalculationMethod(int newCalculationMethodIndex) {
     _calculationMethodIndex = newCalculationMethodIndex;
     initPrayerTime(
@@ -100,6 +123,7 @@ class PrayerTimeState extends ChangeNotifier {
       coordinates: _coordinates,
       timeOffsetIndex: _timeOffsetIndex,
     );
+    _mainSettingsBox.put(AppConstants.keyCalculationIndex, newCalculationMethodIndex);
     notifyListeners();
   }
 
@@ -113,6 +137,7 @@ class PrayerTimeState extends ChangeNotifier {
       coordinates: _coordinates,
       timeOffsetIndex: _timeOffsetIndex,
     );
+    _mainSettingsBox.put(AppConstants.keyMadhabIndex, newMadhabIndex);
     notifyListeners();
   }
 
@@ -126,6 +151,8 @@ class PrayerTimeState extends ChangeNotifier {
       coordinates: coordinates,
       timeOffsetIndex: _timeOffsetIndex,
     );
+    _mainSettingsBox.put(AppConstants.keyCurrentLatitude, coordinates.latitude);
+    _mainSettingsBox.put(AppConstants.keyCurrentLongitude, coordinates.longitude);
     notifyListeners();
   }
 
@@ -139,6 +166,7 @@ class PrayerTimeState extends ChangeNotifier {
       coordinates: _coordinates,
       timeOffsetIndex: timeOffsetIndex,
     );
+    _mainSettingsBox.put(AppConstants.keyUtcOffsetIndex, timeOffsetIndex);
     notifyListeners();
   }
 
@@ -174,6 +202,7 @@ class PrayerTimeState extends ChangeNotifier {
 
   @override
   void dispose() {
+    _mainSettingsBox.close();
     _timer.cancel();
     super.dispose();
   }
