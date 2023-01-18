@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 
@@ -9,11 +10,13 @@ class ChooseAnotherCityButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final appColor = Theme.of(context).colorScheme;
     return MaterialButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, 'select_another_city_page');
+      },
       shape: AppWidgetStyle.mainRectangleBorderMini,
       color: appColor.firstAppColor,
       child: const Text(
-        'Выбрать другой город',
+        AppString.selectAnotherCity,
         style: TextStyle(
           fontSize: 17,
           color: Colors.white,
