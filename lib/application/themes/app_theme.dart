@@ -4,7 +4,7 @@ import 'package:majmua/application/styles/app_widget_style.dart';
 class AppTheme {
   static final lightTheme = ThemeData(
     brightness: Brightness.light,
-    primarySwatch: Colors.indigo,
+    primarySwatch: Colors.red,
     scaffoldBackgroundColor: const Color(0xFFE8EAF6),
     fontFamily: 'Nexa',
     appBarTheme: const AppBarTheme(
@@ -20,7 +20,7 @@ class AppTheme {
       titleTextStyle: TextStyle(
         color: Color(0xFFFFFFFF),
         fontFamily: 'Nexa',
-        fontSize: 20,
+        fontSize: 18,
       ),
     ),
     cardTheme: const CardTheme(
@@ -28,6 +28,9 @@ class AppTheme {
       color: Color(0x99FFFDE7),
       shape: AppWidgetStyle.mainRectangleBorder,
       margin: EdgeInsets.zero,
+    ),
+    inputDecorationTheme: const InputDecorationTheme(
+      border: InputBorder.none,
     ),
   );
 
@@ -57,6 +60,9 @@ class AppTheme {
       color: Color(0x80171821),
       shape: AppWidgetStyle.mainRectangleBorder,
       margin: EdgeInsets.zero,
+    ),
+    inputDecorationTheme: const InputDecorationTheme(
+      border: InputBorder.none,
     ),
   );
 }
