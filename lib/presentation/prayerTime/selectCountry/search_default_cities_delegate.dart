@@ -5,14 +5,14 @@ import 'package:majmua/data/database/models/default_country_model.dart';
 import 'package:majmua/data/database/queries/default_custom_country_query.dart';
 import 'package:majmua/presentation/prayerTime/selectCountry/item_another_city_delegate.dart';
 
-class SearchCitiesDelegate extends SearchDelegate {
+class SearchDefaultCitiesDelegate extends SearchDelegate {
   final DefaultCustomCountryQuery _defaultCustomCountryQuery =
       DefaultCustomCountryQuery();
 
   List<DefaultCountryModel> cities = [];
   List<DefaultCountryModel> recentCities = [];
 
-  SearchCitiesDelegate({
+  SearchDefaultCitiesDelegate({
     required String hintText,
   }) : super(
           searchFieldLabel: hintText,
