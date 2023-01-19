@@ -3,7 +3,6 @@ import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/presentation/prayerTime/selectCountry/add_city_button.dart';
 import 'package:majmua/presentation/prayerTime/selectCountry/card_selected_city.dart';
-import 'package:majmua/presentation/prayerTime/selectCountry/card_selected_coordinates.dart';
 import 'package:majmua/presentation/prayerTime/selectCountry/choose_another_city_button.dart';
 import 'package:majmua/presentation/prayerTime/selectCountry/drop_down_calculation_method_list.dart';
 import 'package:majmua/presentation/prayerTime/selectCountry/prayer_time_info_button.dart';
@@ -34,7 +33,6 @@ class SelectCountryPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: const [
                   CardSelectedCity(),
-                  CardSelectedCoordinates(),
                   SizedBox(height: 8),
                   Text(
                     AppString.calculatePrayerMethod,

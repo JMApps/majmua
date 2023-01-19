@@ -145,6 +145,8 @@ class PrayerTimeState extends ChangeNotifier {
 
   set setCoordinates(Coordinates coordinates) {
     _coordinates = coordinates;
+    _latitude = coordinates.latitude;
+    _longitude = coordinates.longitude;
     initPrayerTime(
       calculationMethodIndex: _calculationMethodIndex,
       madhabIndex: _madhabIndex,
