@@ -5,7 +5,7 @@ import 'package:hijri/hijri_calendar.dart';
 import 'package:majmua/application/other/enums/Season.dart';
 
 class RestTimeState extends ChangeNotifier {
-  DateTime _cdt = DateTime.now().toUtc();
+  DateTime _cdt = DateTime.now().toLocal();
   HijriCalendar _chdt = HijriCalendar.now();
   late Timer _appTimer;
 
@@ -13,13 +13,13 @@ class RestTimeState extends ChangeNotifier {
     _appTimer = Timer(
       Duration(seconds: (_cdt.second - 60).abs()),
       () {
-        _cdt = DateTime.now().toUtc();
+        _cdt = DateTime.now().toLocal();
         _chdt = HijriCalendar.now();
         notifyListeners();
         _appTimer = Timer.periodic(
           const Duration(minutes: 1),
           (_) {
-            _cdt = DateTime.now().toUtc();
+            _cdt = DateTime.now().toLocal();
             _chdt = HijriCalendar.now();
             notifyListeners();
           },
