@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
-import 'package:majmua/presentation/prayerTime/selectCountry/add_city_button.dart';
-import 'package:majmua/presentation/prayerTime/selectCountry/card_selected_city.dart';
-import 'package:majmua/presentation/prayerTime/selectCountry/choose_another_city_button.dart';
-import 'package:majmua/presentation/prayerTime/selectCountry/drop_down_calculation_method_list.dart';
-import 'package:majmua/presentation/prayerTime/selectCountry/prayer_time_info_button.dart';
-import 'package:majmua/presentation/prayerTime/selectCountry/segment_control_date_time_offset.dart';
-import 'package:majmua/presentation/prayerTime/selectCountry/segment_control_madhab.dart';
+import 'package:majmua/presentation/prayerTime/prayerParams/add_city_button.dart';
+import 'package:majmua/presentation/prayerTime/prayerParams/card_selected_city.dart';
+import 'package:majmua/presentation/prayerTime/prayerParams/choose_another_city_button.dart';
+import 'package:majmua/presentation/prayerTime/prayerParams/drop_down_calculation_method_list.dart';
+import 'package:majmua/presentation/prayerTime/prayerParams/prayer_time_info_button.dart';
+import 'package:majmua/presentation/prayerTime/prayerParams/segment_control_date_time_offset.dart';
+import 'package:majmua/presentation/prayerTime/prayerParams/segment_control_madhab.dart';
 
-class SelectCountryPage extends StatelessWidget {
-  const SelectCountryPage({Key? key}) : super(key: key);
+class PrayerParamsPage extends StatelessWidget {
+  const PrayerParamsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

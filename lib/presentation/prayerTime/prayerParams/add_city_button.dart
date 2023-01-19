@@ -10,7 +10,9 @@ class AddCityButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final appColor = Theme.of(context).colorScheme;
     return MaterialButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, 'add_country_page');
+      },
       shape: AppWidgetStyle.mainRectangleBorderMini,
       color: appColor.firstAppColor,
       child: const Text(
