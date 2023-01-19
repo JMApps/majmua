@@ -60,12 +60,15 @@ class AppString {
   static const String plusHour = '+1';
 
   static const String selectAnotherCity = 'Выбрать другой город';
-  static const String selectCity = 'Выбор города';
-  static const String selectCityErrorLoadData = 'При загрузке данных произошла ошибка.\nПовторите попытку';
+  static const String selectionCity = 'Выбор города';
+  static const String selectCityErrorLoadData = 'При загрузке данных произошла ошибка.\nОчистите данные приложения';
   static const String searchCities = 'Поиск городов';
   static const String searchQueryIsEmpty = 'По вашему запросу ничего не найдно';
+
   static const String addCity = 'Добавить город';
   static const String addingCity = 'Добавление города';
+  static const String listCitiesIsEmpty = 'Вы не добавили ни одного города';
+
   static const String prayerTimeMethodInformation = 'Информация';
   static const String prayerTimeMethodDescription = 'Имеющиеся в приложении методы расчёта времени молитв:';
 
