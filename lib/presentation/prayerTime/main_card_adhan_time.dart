@@ -30,18 +30,35 @@ class MainCardAdhanTime extends StatelessWidget {
                         color: appColors.glassOnGlassCardColor,
                         child: ListTile(
                           onTap: () {
-                            Navigator.pushNamed(context, 'select_country_page');
+                            Navigator.pushNamed(context, 'prayer_params_page');
                           },
                           contentPadding: AppWidgetStyle.horizontalPadding,
                           shape: AppWidgetStyle.mainRectangleBorder,
-                          visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
-                          title: const Text(
-                            'Turkey, Izmir',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
+                          visualDensity:
+                              const VisualDensity(horizontal: 0, vertical: -4),
+                          title: RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: '${prayerTimeState.getCountry}, ',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontFamily: 'Nexa',
+                                    fontWeight: FontWeight.bold,
+                                    color: appColors.firstAppColor,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: prayerTimeState.getCity,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Nexa',
+                                    color: appColors.mainTextColor,
+                                  ),
+                                ),
+                              ],
                             ),
-                            textAlign: TextAlign.start,
                           ),
                           trailing: Icon(
                             Icons.arrow_forward_ios_rounded,
@@ -128,7 +145,8 @@ class MainCardAdhanTime extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: DateFormat.Hm().format(prayerTimeState.getThirdNightPart),
+                            text: DateFormat.Hm()
+                                .format(prayerTimeState.getThirdNightPart),
                             style: TextStyle(
                               fontFamily: 'Lato',
                               color: appColors.secondAppColor,
