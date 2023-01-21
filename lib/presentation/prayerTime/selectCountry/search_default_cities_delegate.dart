@@ -21,8 +21,12 @@ class SearchDefaultCitiesDelegate extends SearchDelegate {
 
   @override
   ThemeData appBarTheme(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    return theme.copyWith();
+    return Theme.of(context).copyWith(
+        inputDecorationTheme: const InputDecorationTheme(
+          border: InputBorder.none,
+          hintStyle: TextStyle(color: Colors.grey),
+        ),
+    );
   }
 
   @override
