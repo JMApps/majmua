@@ -75,7 +75,7 @@ class AppTheme {
     ),
     cardTheme: const CardTheme(
       elevation: 0,
-      color: Color(0x80171821),
+      color: Color(0x99171821),
       shape: AppWidgetStyle.mainRectangleBorder,
       margin: EdgeInsets.zero,
     ),
@@ -126,7 +126,7 @@ extension ColorSchemeS on ColorScheme {
 
   Color get mainTextColor => brightness == Brightness.light
       ? const Color(0xD92D2D2D)
-      : const Color(0xFFFFF8EE);
+      : const Color(0xFFCCCCCC);
 
   Color get mainReverse => brightness == Brightness.light
       ? const Color(0xFFFFFFFF)
@@ -138,5 +138,5 @@ extension ColorSchemeS on ColorScheme {
 
   Color get glassOnGlassCardColor => brightness == Brightness.light
       ? const Color(0x80FFFDE7)
-      : const Color(0xD905071E);
+      : const Color(0x8005071E);
 }

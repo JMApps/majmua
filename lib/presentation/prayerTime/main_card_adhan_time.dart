@@ -70,6 +70,7 @@ class MainCardAdhanTime extends StatelessWidget {
                     ),
                     const SizedBox(width: 8),
                     Card(
+                      color: appColors.glassOnGlassCardColor,
                       child: IconButton(
                         onPressed: () {},
                         visualDensity:

@@ -20,6 +20,7 @@ class ItemCardAdhanNameTime extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     return Expanded(
       child: Card(
+        color: appColors.glassOnGlassCardColor,
         shape: AppWidgetStyle.mainRectangleBorder,
         child: Padding(
           padding: AppWidgetStyle.mainPaddingMini,
