@@ -29,10 +29,11 @@ class AppString {
   static const String selectedCity = 'Выбранный город:';
   static const String coordinates = 'Координаты:';
   static const String latitude = 'Широта:';
+  static const String enterLatitude = 'Введите широту разделив точкой';
 
   static const String calculatePrayerMethod = 'Метод расчёта времени молитв';
 
-  static const List<String> calculationMethodNames = <String>[
+  static const List<String> calculationMethodNames = [
     'Umm al-Qura',
     'Islamic Society NA (ISNA)',
     'Russian',
@@ -50,6 +51,7 @@ class AppString {
   ];
 
   static const String longitude = 'Долгота:';
+  static const String enterLongitude = 'Введите долготу разделив точкой';
   static const String calculateAsrMethod = 'Метод расчёта молитвы аср';
   static const String madhabShafi = 'Шафии';
 
@@ -68,6 +70,22 @@ class AppString {
   static const String addCity = 'Добавить город';
   static const String addingCity = 'Добавление города';
   static const String listCitiesIsEmpty = 'Вы не добавили ни одного города';
+  static const String add = 'Добавить';
+  static const String added = 'Добавлено';
+  static const String countryName = 'Название страны';
+  static const String enterCountryName = 'Введите название страны';
+  static const String cityName = 'Название города';
+  static const String enterCityName = 'Введите название города';
+  static const String change = 'Изменить';
+  static const String changed = 'Изменено';
+  static const String delete = 'Удалить';
+  static const String deleted = 'Удалено';
+  static const String cancel = 'Отмена';
+  static const String canceled = 'Отменено';
+  static const String select = 'Выбрать';
+  static const String selected = 'Выбрано';
+
+  static const String addCountryCoordinatesInformation = 'Чтобы программа могла рассчитать время молитв, вводимые коррдинаты должны быть корректными. Например:\nШирота: 21.3924\nДолгота: 39.8579';
 
   static const String prayerTimeMethodInformation = 'Информация';
   static const String prayerTimeMethodDescription = 'Имеющиеся в приложении методы расчёта времени молитв:';

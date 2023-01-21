@@ -4,9 +4,11 @@ import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/application/strings/app_constants.dart';
+import 'package:majmua/data/database/queries/default_custom_country_query.dart';
 
 class PrayerTimeState extends ChangeNotifier {
-  DateTime _cdt = DateTime.now().toUtc();
+  DateTime _cdt = DateTime.now();
+  final DefaultCustomCountryQuery _defaultCustomCountryQuery = DefaultCustomCountryQuery();
   final _mainSettingsBox = Hive.box(AppConstants.keySettingsPrayerTimeBox);
   late Timer _timer;
   late PrayerTimes _prayerTimes;
@@ -198,6 +200,23 @@ class PrayerTimeState extends ChangeNotifier {
     minute = ((value - hour * 3600)) ~/ 60;
     DateTime result = DateTime(_cdt.year, _cdt.month, _cdt.day, hour, minute);
     return result;
+  }
+
+  DefaultCustomCountryQuery get defaultCustomCountryQuery => _defaultCustomCountryQuery;
+
+  set createCity(Map<String, String> newCity) {
+    _defaultCustomCountryQuery.createCity(newCity: newCity);
+    notifyListeners();
+  }
+
+  updateCity(Map<String, String> updateCity, int idCity) {
+    _defaultCustomCountryQuery.updateCity(updateCity: updateCity, idCity: idCity);
+    notifyListeners();
+  }
+
+  set deleteCity(int idCity) {
+    _defaultCustomCountryQuery.deleteCity(idCity: idCity);
+    notifyListeners();
   }
 
   int _prayerValueInMinutes({required DateTime prayerTime}) {

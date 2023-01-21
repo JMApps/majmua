@@ -30,7 +30,25 @@ class AppTheme {
       margin: EdgeInsets.zero,
     ),
     inputDecorationTheme: const InputDecorationTheme(
-      border: InputBorder.none,
+      alignLabelWithHint: true,
+      floatingLabelAlignment: FloatingLabelAlignment.center,
+      border: OutlineInputBorder(
+        borderRadius: AppWidgetStyle.mainBorderRadiusMini,
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: AppWidgetStyle.mainBorderRadiusMini,
+        borderSide: BorderSide(
+          color: Color(0xD9009688),
+          width: 1,
+        ),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: AppWidgetStyle.mainBorderRadiusMini,
+        borderSide: BorderSide(
+          color: Color(0xD9EF5350),
+          width: 1,
+        ),
+      ),
     ),
   );
 
@@ -62,7 +80,25 @@ class AppTheme {
       margin: EdgeInsets.zero,
     ),
     inputDecorationTheme: const InputDecorationTheme(
-      border: InputBorder.none,
+      alignLabelWithHint: true,
+      floatingLabelAlignment: FloatingLabelAlignment.center,
+      border: OutlineInputBorder(
+        borderRadius: AppWidgetStyle.mainBorderRadiusMini,
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: AppWidgetStyle.mainBorderRadiusMini,
+        borderSide: BorderSide(
+          color: Color(0xD972A2C0),
+          width: 1,
+        ),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: AppWidgetStyle.mainBorderRadiusMini,
+        borderSide: BorderSide(
+          color: Color(0xD9F2A104),
+          width: 1,
+        ),
+      ),
     ),
   );
 }
