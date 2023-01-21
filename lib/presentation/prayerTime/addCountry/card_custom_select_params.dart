@@ -34,8 +34,7 @@ class CardCustomSelectParams extends StatelessWidget {
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.of(context).pop();
-                    context.read<PrayerTimeState>().setCoordinates =
-                        Coordinates(
+                    context.read<PrayerTimeState>().setCoordinates = Coordinates(
                       double.parse(item.latitude).abs(),
                       double.parse(item.longitude).abs(),
                     );
@@ -61,8 +60,8 @@ class CardCustomSelectParams extends StatelessWidget {
                       backgroundColor: Colors.transparent,
                       isScrollControlled: true,
                       context: context,
-                      builder: (_) => AnimatedPadding(
-                        padding: MediaQuery.of(context).viewInsets,
+                      builder: (ctx) => AnimatedPadding(
+                        padding: MediaQuery.of(ctx).viewInsets,
                         duration: const Duration(milliseconds: 250),
                         curve: Curves.decelerate,
                         child: CardChangeCity(item: item),
