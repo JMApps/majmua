@@ -6,9 +6,7 @@ import 'package:sqflite/sqflite.dart' as sql;
 
 class DefaultCustomCountryQuery {
   static final DefaultCustomCountryQuery _instance = DefaultCustomCountryQuery.internal();
-
   factory DefaultCustomCountryQuery() => _instance;
-
   DefaultCustomCountryQuery.internal();
 
   final DefaultCountriesDatabaseHelper _defaultCountriesDatabaseHelper = DefaultCountriesDatabaseHelper();
@@ -35,53 +33,35 @@ class DefaultCustomCountryQuery {
     return allCustomCountries!;
   }
 
-  Future<int> createCounty({
-    required String country,
-    required String city,
-    required String latitude,
-    required String longitude,
+  Future<int> createCity({
+    required Map<String, String> newCity,
   }) async {
     var dbClient = await _customCountriesDatabaseHelper.db;
-    final Map<String, dynamic> newCounty = {
-      'country': country,
-      'city': city,
-      'latitude': latitude,
-      'longitude': longitude,
-    };
     return await dbClient.insert(
       'Table_of_country_coordinates',
-      newCounty,
+      newCity,
       conflictAlgorithm: sql.ConflictAlgorithm.replace,
     );
   }
 
-  Future<int> updateCounty({
-    required int idCountry,
-    required String country,
-    required String city,
-    required String latitude,
-    required String longitude,
+  Future<int> updateCity({
+    required int idCity,
+    required Map<String, dynamic> updateCity,
   }) async {
     var dbClient = await _customCountriesDatabaseHelper.db;
-    final Map<String, dynamic> updateCounty = {
-      'country': country,
-      'city': city,
-      'latitude': latitude,
-      'longitude': longitude,
-    };
     return await dbClient.update(
       'Table_of_country_coordinates',
-      updateCounty,
+      updateCity,
       conflictAlgorithm: sql.ConflictAlgorithm.replace,
-      where: 'id == $idCountry',
+      where: 'id == $idCity',
     );
   }
 
-  Future<int> deleteCounty(int idCounty) async {
+  Future<int> deleteCity({required int idCity}) async {
     var dbClient = await _customCountriesDatabaseHelper.db;
     var res = await dbClient.delete(
       'Table_of_country_coordinates',
-      where: 'id == $idCounty',
+      where: 'id == $idCity',
     );
     return res;
   }
