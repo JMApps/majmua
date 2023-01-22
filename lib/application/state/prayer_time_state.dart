@@ -7,7 +7,7 @@ import 'package:majmua/application/strings/app_constants.dart';
 import 'package:majmua/data/database/queries/default_custom_country_query.dart';
 
 class PrayerTimeState extends ChangeNotifier {
-  DateTime _cdt = DateTime.now();
+  DateTime _cdt = DateTime.now().toLocal();
   final DefaultCustomCountryQuery _defaultCustomCountryQuery = DefaultCustomCountryQuery();
   final _mainSettingsBox = Hive.box(AppConstants.keySettingsPrayerTimeBox);
   late Timer _timer;
@@ -26,9 +26,9 @@ class PrayerTimeState extends ChangeNotifier {
   final List<CalculationMethod> _calculationMethods = [
     CalculationMethod.umm_al_qura,
     CalculationMethod.north_america,
-    CalculationMethod.russian,
-    CalculationMethod.tatarstan,
-    CalculationMethod.france,
+    // CalculationMethod.russia,
+    // CalculationMethod.tatarstan,
+    // CalculationMethod.france,
     CalculationMethod.dubai,
     CalculationMethod.egyptian,
     CalculationMethod.karachi,
@@ -40,10 +40,10 @@ class PrayerTimeState extends ChangeNotifier {
     CalculationMethod.singapore,
   ];
 
-  final List<int> _calculationUtcOffset = [
-    DateTime.now().timeZoneOffset.inHours - 1,
-    DateTime.now().timeZoneOffset.inHours,
-    DateTime.now().timeZoneOffset.inHours + 1,
+  final List<Duration> _calculationUtcOffset = [
+    DateTime.now().timeZoneOffset - const Duration(hours: 1),
+    DateTime.now().timeZoneOffset,
+    DateTime.now().timeZoneOffset + const Duration(hours: 1),
   ];
 
   final List<Madhab> _calculationMadhab = [
@@ -51,16 +51,18 @@ class PrayerTimeState extends ChangeNotifier {
     Madhab.hanafi,
   ];
 
+  int get getMinutesOfDay => _cdt.difference(DateTime(_cdt.year, _cdt.month, _cdt.day)).inMinutes;
+
   PrayerTimeState() {
     _timer = Timer(
       Duration(seconds: (_cdt.second - 60).abs()),
       () {
-        _cdt = DateTime.now().toUtc();
+        _cdt = DateTime.now().toLocal();
         notifyListeners();
         _timer = Timer.periodic(
           const Duration(minutes: 1),
           (_) {
-            _cdt = DateTime.now().toUtc();
+            _cdt = DateTime.now().toLocal();
             notifyListeners();
           },
         );
@@ -94,10 +96,11 @@ class PrayerTimeState extends ChangeNotifier {
   }) {
     _prayerParams = _calculationMethods[calculationMethodIndex].getParameters();
     _prayerParams.madhab = _calculationMadhab[madhabIndex];
-    _prayerTimes = PrayerTimes.today(
+    _prayerTimes = PrayerTimes(
       coordinates,
+      DateComponents(_cdt.year, _cdt.month, _cdt.day),
       _prayerParams,
-      utcOffset: Duration(hours: _calculationUtcOffset[timeOffsetIndex]),
+      utcOffset: _calculationUtcOffset[_timeOffsetIndex]
     );
   }
 
@@ -192,6 +195,26 @@ class PrayerTimeState extends ChangeNotifier {
 
   int get getIshaValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.isha);
 
+  DateTime toPrayerTime(Prayer prayer) {
+    final DateTime toPrayer = DateTime(_cdt.year, _cdt.month, _cdt.day, _prayerTimes.timeForPrayer(prayer)!.hour, _prayerTimes.timeForPrayer(prayer)!.minute);
+    final int timeValue = (toPrayer.difference(_cdt).inMinutes + 1) * 60;
+    int hour, minute;
+    hour = timeValue ~/ 3600;
+    minute = ((timeValue - hour * 3600)) ~/ 60;
+    DateTime result = DateTime(_cdt.year, _cdt.month, _cdt.day, hour, minute);
+    return result;
+  }
+
+  DateTime fromPrayerTime(Prayer prayer) {
+    final DateTime toPrayer = DateTime(_cdt.year, _cdt.month, _cdt.day, _prayerTimes.timeForPrayer(prayer)!.hour, _prayerTimes.timeForPrayer(prayer)!.minute);
+    final int timeValue = (_cdt.difference(toPrayer).inMinutes) * 60;
+    int hour, minute;
+    hour = timeValue ~/ 3600;
+    minute = ((timeValue - hour * 3600)) ~/ 60;
+    DateTime result = DateTime(_cdt.year, _cdt.month, _cdt.day, hour, minute);
+    return result;
+  }
+
   DateTime get getThirdNightPart {
     double thirdValue = (1440 - getIshaValueInMinutes + getFajrValueInMinutes) * 60 / 3;
     double value = (getFajrValueInMinutes * 60) - thirdValue;
@@ -202,7 +225,8 @@ class PrayerTimeState extends ChangeNotifier {
     return result;
   }
 
-  DefaultCustomCountryQuery get defaultCustomCountryQuery => _defaultCustomCountryQuery;
+  DefaultCustomCountryQuery get defaultCustomCountryQuery =>
+      _defaultCustomCountryQuery;
 
   set createCity(Map<String, String> newCity) {
     _defaultCustomCountryQuery.createCity(newCity: newCity);

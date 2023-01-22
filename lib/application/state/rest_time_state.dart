@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hijri/hijri_calendar.dart';
-import 'package:majmua/application/other/enums/Season.dart';
+import 'package:majmua/application/other/enums/season.dart';
 
 class RestTimeState extends ChangeNotifier {
   DateTime _cdt = DateTime.now().toLocal();

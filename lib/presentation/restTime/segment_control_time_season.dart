@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:majmua/application/other/enums/Season.dart';
+import 'package:majmua/application/other/enums/season.dart';
 import 'package:majmua/application/state/rest_time_state.dart';
 import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/themes/app_theme.dart';

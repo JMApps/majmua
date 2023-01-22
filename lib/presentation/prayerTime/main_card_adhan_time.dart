@@ -1,3 +1,4 @@
+import 'package:adhan/adhan.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -89,20 +90,26 @@ class MainCardAdhanTime extends StatelessWidget {
                   children: [
                     ItemCardAdhanNameTime(
                       prayerName: AppString.fajr,
-                      prayerColor: Colors.indigo,
                       prayerTime: prayerTimeState.getPrayerTimes.fajr,
+                      currentPrayerTimeValue: prayerTimeState.getFajrValueInMinutes,
+                      toPrayerTime: prayerTimeState.toPrayerTime(Prayer.fajr),
+                      fromPrayerTime: prayerTimeState.fromPrayerTime(Prayer.fajr),
                     ),
                     const SizedBox(width: 8),
                     ItemCardAdhanNameTime(
                       prayerName: AppString.sunrise,
-                      prayerColor: Colors.red,
                       prayerTime: prayerTimeState.getPrayerTimes.sunrise,
+                      currentPrayerTimeValue: prayerTimeState.getSunriseValueInMinutes,
+                      toPrayerTime: prayerTimeState.toPrayerTime(Prayer.sunrise),
+                      fromPrayerTime: prayerTimeState.fromPrayerTime(Prayer.sunrise),
                     ),
                     const SizedBox(width: 8),
                     ItemCardAdhanNameTime(
                       prayerName: AppString.dhuhr,
-                      prayerColor: Colors.orange,
                       prayerTime: prayerTimeState.getPrayerTimes.dhuhr,
+                      currentPrayerTimeValue: prayerTimeState.getDhuhrValueInMinutes,
+                      toPrayerTime: prayerTimeState.toPrayerTime(Prayer.dhuhr),
+                      fromPrayerTime: prayerTimeState.fromPrayerTime(Prayer.dhuhr),
                     ),
                   ],
                 ),
@@ -112,20 +119,26 @@ class MainCardAdhanTime extends StatelessWidget {
                   children: [
                     ItemCardAdhanNameTime(
                       prayerName: AppString.asr,
-                      prayerColor: Colors.teal,
                       prayerTime: prayerTimeState.getPrayerTimes.asr,
+                      currentPrayerTimeValue: prayerTimeState.getAsrValueInMinutes,
+                      toPrayerTime: prayerTimeState.toPrayerTime(Prayer.asr),
+                      fromPrayerTime: prayerTimeState.fromPrayerTime(Prayer.asr),
                     ),
                     const SizedBox(width: 8),
                     ItemCardAdhanNameTime(
                       prayerName: AppString.maghrib,
-                      prayerColor: Colors.brown,
                       prayerTime: prayerTimeState.getPrayerTimes.maghrib,
+                      currentPrayerTimeValue: prayerTimeState.getMaghribValueInMinutes,
+                      toPrayerTime: prayerTimeState.toPrayerTime(Prayer.maghrib),
+                      fromPrayerTime: prayerTimeState.fromPrayerTime(Prayer.maghrib),
                     ),
                     const SizedBox(width: 8),
                     ItemCardAdhanNameTime(
                       prayerName: AppString.isha,
-                      prayerColor: Colors.purple,
                       prayerTime: prayerTimeState.getPrayerTimes.isha,
+                      currentPrayerTimeValue: prayerTimeState.getIshaValueInMinutes,
+                      toPrayerTime: prayerTimeState.toPrayerTime(Prayer.isha),
+                      fromPrayerTime: prayerTimeState.fromPrayerTime(Prayer.isha),
                     ),
                   ],
                 ),
@@ -146,8 +159,7 @@ class MainCardAdhanTime extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: DateFormat.Hm()
-                                .format(prayerTimeState.getThirdNightPart),
+                            text: DateFormat.Hm().format(prayerTimeState.getThirdNightPart),
                             style: TextStyle(
                               fontFamily: 'Lato',
                               color: appColors.secondAppColor,
