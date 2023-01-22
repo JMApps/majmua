@@ -88,7 +88,7 @@ class AppString {
   static const String addCountryCoordinatesInformation = 'Чтобы программа могла рассчитать время молитв, вводимые коррдинаты должны быть корректными. Например:\nШирота: 21.3924\nДолгота: 39.8579';
 
   static const String prayerTimeMethodInformation = 'Информация';
-  static const String prayerTimeMethodDescription = 'Имеющиеся в приложении методы расчёта времени молитв:';
+  static const String prayerTimeMethodDescription = 'Пожалуйста, уточняйте, какой метод используется в вашей местности и если он доступен в приложении, то выберите его. Разница в несколько минут с местным расписанием не говорит о том, что вычисление неправильное, вы можете отрегулировать минуты вручную в настройках.';
 
   // Holidays
   static const String restRamadan = 'Осталось дней до Рамадана';

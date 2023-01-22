@@ -10,7 +10,9 @@ class PrayerTimeInfoButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final appColor = Theme.of(context).colorScheme;
     return MaterialButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, 'prayer_calculation_method_page');
+      },
       shape: AppWidgetStyle.mainRectangleBorderMini,
       color: appColor.firstAppColor,
       child: const Text(
