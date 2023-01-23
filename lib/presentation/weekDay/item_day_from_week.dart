@@ -22,7 +22,7 @@ class ItemDayFromWeek extends StatelessWidget {
           : dayNumber == weekDay - 1
               ? appColors.secondAppColor
               : appColors.firstAppColor,
-      radius: 17.5,
+      radius: dayNumber == weekDay - 1 ? 20 : 17.5,
       child: Text(
         dayName,
         style: const TextStyle(

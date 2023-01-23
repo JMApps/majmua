@@ -3,6 +3,7 @@ import 'package:majmua/application/state/rest_time_state.dart';
 import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
+import 'package:majmua/presentation/weekDay/card_daily_message.dart';
 import 'package:majmua/presentation/weekDay/item_day_from_week.dart';
 import 'package:provider/provider.dart';
 
@@ -26,48 +27,46 @@ class CardWeekDayState extends State<CardWeekDay> {
               margin: AppWidgetStyle.horizontalPaddingMini,
               child: Padding(
                 padding: AppWidgetStyle.mainPaddingMini,
-                child: Center(
-                  child: Wrap(
-                    spacing: 16,
-                    runAlignment: WrapAlignment.spaceEvenly,
-                    children: [
-                      ItemDayFromWeek(
-                        dayName: AppString.shortNamesWeekDay[0],
-                        dayNumber: 0,
-                        weekDay: restTimeState.getCdt.weekday,
-                      ),
-                      ItemDayFromWeek(
-                        dayName: AppString.shortNamesWeekDay[1],
-                        dayNumber: 1,
-                        weekDay: restTimeState.getCdt.weekday,
-                      ),
-                      ItemDayFromWeek(
-                        dayName: AppString.shortNamesWeekDay[2],
-                        dayNumber: 2,
-                        weekDay: restTimeState.getCdt.weekday,
-                      ),
-                      ItemDayFromWeek(
-                        dayName: AppString.shortNamesWeekDay[3],
-                        dayNumber: 3,
-                        weekDay: restTimeState.getCdt.weekday,
-                      ),
-                      ItemDayFromWeek(
-                        dayName: AppString.shortNamesWeekDay[4],
-                        dayNumber: 4,
-                        weekDay: restTimeState.getCdt.weekday,
-                      ),
-                      ItemDayFromWeek(
-                        dayName: AppString.shortNamesWeekDay[5],
-                        dayNumber: 5,
-                        weekDay: restTimeState.getCdt.weekday,
-                      ),
-                      ItemDayFromWeek(
-                        dayName: AppString.shortNamesWeekDay[6],
-                        dayNumber: 6,
-                        weekDay: restTimeState.getCdt.weekday,
-                      ),
-                    ],
-                  ),
+                child: Wrap(
+                  alignment: WrapAlignment.spaceEvenly,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: [
+                    ItemDayFromWeek(
+                      dayName: AppString.shortNamesWeekDay[0],
+                      dayNumber: 0,
+                      weekDay: restTimeState.getCdt.weekday,
+                    ),
+                    ItemDayFromWeek(
+                      dayName: AppString.shortNamesWeekDay[1],
+                      dayNumber: 1,
+                      weekDay: restTimeState.getCdt.weekday,
+                    ),
+                    ItemDayFromWeek(
+                      dayName: AppString.shortNamesWeekDay[2],
+                      dayNumber: 2,
+                      weekDay: restTimeState.getCdt.weekday,
+                    ),
+                    ItemDayFromWeek(
+                      dayName: AppString.shortNamesWeekDay[3],
+                      dayNumber: 3,
+                      weekDay: restTimeState.getCdt.weekday,
+                    ),
+                    ItemDayFromWeek(
+                      dayName: AppString.shortNamesWeekDay[4],
+                      dayNumber: 4,
+                      weekDay: restTimeState.getCdt.weekday,
+                    ),
+                    ItemDayFromWeek(
+                      dayName: AppString.shortNamesWeekDay[5],
+                      dayNumber: 5,
+                      weekDay: restTimeState.getCdt.weekday,
+                    ),
+                    ItemDayFromWeek(
+                      dayName: AppString.shortNamesWeekDay[6],
+                      dayNumber: 6,
+                      weekDay: restTimeState.getCdt.weekday,
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -75,7 +74,13 @@ class CardWeekDayState extends State<CardWeekDay> {
             Card(
               margin: AppWidgetStyle.horizontalPaddingMini,
               child: ListTile(
-                onTap: () {},
+                onTap: () {
+                  showModalBottomSheet(
+                    context: context,
+                    backgroundColor: Colors.transparent,
+                    builder: (_) => const CardDailyMessage(),
+                  );
+                },
                 shape: AppWidgetStyle.mainRectangleBorder,
                 visualDensity: const VisualDensity(vertical: -4),
                 contentPadding: AppWidgetStyle.horizontalPaddingMini,

@@ -139,6 +139,8 @@ class RestTimeState extends ChangeNotifier {
 
   String get getShortNameWeekDay => AppString.shortNamesWeekDay[_cdt.weekday - 1];
 
+  String get getDailyMessage => AppString.dailyMessages[_cdt.weekday - 1];
+
   int _toRamadanDays() {
     final int countDays;
     final hijriRamadanToGregorian = _chdt.hijriToGregorian(_chdt.hYear, 9, 1);
