@@ -5,7 +5,7 @@ import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 
-class ItemCardAdhanNameTime extends StatefulWidget {
+class ItemCardAdhanNameTime extends StatelessWidget {
   const ItemCardAdhanNameTime({
     Key? key,
     required this.prayerName,
@@ -22,20 +22,11 @@ class ItemCardAdhanNameTime extends StatefulWidget {
   final DateTime fromPrayerTime;
 
   @override
-  State<ItemCardAdhanNameTime> createState() => _ItemCardAdhanNameTimeState();
-}
-
-class _ItemCardAdhanNameTimeState extends State<ItemCardAdhanNameTime> {
-  late bool isPrayerTime;
-  late bool isRemainingTime;
-  late bool isPastTime;
-
-  @override
   Widget build(BuildContext context) {
     final int currentTimeValue = context.watch<PrayerTimeState>().getMinutesOfDay;
-    isPrayerTime = currentTimeValue >= widget.currentPrayerTimeValue - 59 && currentTimeValue <= widget.currentPrayerTimeValue + 30;
-    isRemainingTime = currentTimeValue >= widget.currentPrayerTimeValue - 59 && currentTimeValue < widget.currentPrayerTimeValue;
-    isPastTime = currentTimeValue >= widget.currentPrayerTimeValue + 1 && currentTimeValue <= widget.currentPrayerTimeValue + 30;
+    final bool isPrayerTime = currentTimeValue >= currentPrayerTimeValue - 59 && currentTimeValue <= currentPrayerTimeValue + 30;
+    final bool isRemainingTime = currentTimeValue >= currentPrayerTimeValue - 59 && currentTimeValue < currentPrayerTimeValue;
+    final bool isPastTime = currentTimeValue >= currentPrayerTimeValue + 1 && currentTimeValue <= currentPrayerTimeValue + 30;
     final appColors = Theme.of(context).colorScheme;
     return Expanded(
       child: Card(
@@ -43,12 +34,12 @@ class _ItemCardAdhanNameTimeState extends State<ItemCardAdhanNameTime> {
         shape: RoundedRectangleBorder(
           borderRadius: AppWidgetStyle.mainBorderRadius,
           side: BorderSide(
-            width: isPrayerTime ? 2 : 0,
-            color: isPrayerTime ? appColors.firstAppColor : Colors.transparent,
+            width: 3,
+            color: appColors.firstAppColor.withOpacity(isPrayerTime ? 1 : 0),
           ),
         ),
         child: Container(
-          padding: AppWidgetStyle.mainPaddingMini,
+          padding: const EdgeInsets.all(10),
           height: 75,
           child: Stack(
             alignment: AlignmentDirectional.center,
@@ -58,9 +49,14 @@ class _ItemCardAdhanNameTimeState extends State<ItemCardAdhanNameTime> {
                 child: ListTile(
                   visualDensity: const VisualDensity(vertical: -4),
                   contentPadding: EdgeInsets.zero,
-                  title: Text(widget.prayerName),
+                  title: Text(
+                    prayerName,
+                    style: TextStyle(
+                      fontWeight: isPrayerTime ? FontWeight.bold : FontWeight.normal,
+                    ),
+                  ),
                   subtitle: Text(
-                    DateFormat.Hm().format(widget.prayerTime),
+                    DateFormat.Hm().format(prayerTime),
                     style: const TextStyle(
                       fontFamily: 'Lato',
                     ),
@@ -82,27 +78,34 @@ class _ItemCardAdhanNameTimeState extends State<ItemCardAdhanNameTime> {
               ),
               Align(
                 alignment: Alignment.bottomRight,
-                child: AnimatedSize(
-                  duration: const Duration(milliseconds: 750),
+                child: AnimatedDefaultTextStyle(
+                  duration: const Duration(seconds: 1),
+                  style: TextStyle(
+                    fontSize: isPrayerTime && isPastTime ? 14 : 0,
+                  ),
                   child: Text(
-                    DateFormat.m().format(widget.fromPrayerTime),
-                    style: TextStyle(
+                    DateFormat.m().format(fromPrayerTime),
+                    style: const TextStyle(
                       fontFamily: 'Lato',
-                      fontSize: isPrayerTime && isPastTime ? 14 : 0
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey,
                     ),
                   ),
                 ),
               ),
               Align(
                 alignment: Alignment.bottomRight,
-                child: AnimatedSize(
-                  duration: const Duration(milliseconds: 750),
+                child: AnimatedDefaultTextStyle(
+                  duration: const Duration(seconds: 1),
+                  style: TextStyle(
+                    fontSize: isPrayerTime && isRemainingTime ? 14 : 0,
+                  ),
                   child: Text(
-                    '–${DateFormat.m().format(widget.toPrayerTime)}',
+                    '–${DateFormat.m().format(toPrayerTime)}',
                     style: TextStyle(
                       fontFamily: 'Lato',
                       color: appColors.thirdAppColor,
-                      fontSize: isPrayerTime && isRemainingTime ? 14 : 0,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
