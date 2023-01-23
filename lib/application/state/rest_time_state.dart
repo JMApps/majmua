@@ -3,9 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:majmua/application/other/enums/season.dart';
+import 'package:majmua/application/strings/app_strings.dart';
 
 class RestTimeState extends ChangeNotifier {
-  DateTime _cdt = DateTime.now().toLocal();
+  DateTime _cdt = DateTime.now();
   HijriCalendar _chdt = HijriCalendar.now();
   late Timer _appTimer;
 
@@ -13,13 +14,13 @@ class RestTimeState extends ChangeNotifier {
     _appTimer = Timer(
       Duration(seconds: (_cdt.second - 60).abs()),
       () {
-        _cdt = DateTime.now().toLocal();
+        _cdt = DateTime.now();
         _chdt = HijriCalendar.now();
         notifyListeners();
         _appTimer = Timer.periodic(
           const Duration(minutes: 1),
           (_) {
-            _cdt = DateTime.now().toLocal();
+            _cdt = DateTime.now();
             _chdt = HijriCalendar.now();
             notifyListeners();
           },
@@ -130,51 +131,13 @@ class RestTimeState extends ChangeNotifier {
     return currentSeason;
   }
 
-  final List<String> _monthHijriNames = [
-    'Мухаррам',
-    'Сафар',
-    'Раби\' аль-Авваль',
-    'Раби\' ас-Сани',
-    'Джумада аль-Уля',
-    'Джумада ас-Сани',
-    'Раджаб',
-    'Ша\'бан',
-    'Рамадан',
-    'Шавваль',
-    'Зу-ль-Ка\'да',
-    'Зу-ль-Хиджа'
-  ];
+  String get getMonthHijriName => AppString.monthHijriNames[_chdt.hMonth - 1];
 
-  String get getMonthHijriName => _monthHijriNames[_chdt.hMonth - 1];
+  String get getMonthName => AppString.monthNames[_cdt.month - 1];
 
-  final List<String> _monthNames = [
-    'Январь',
-    'Февраль',
-    'Март',
-    'Апрель',
-    'Май',
-    'Июнь',
-    'Июль',
-    'Август',
-    'Сентабрь',
-    'Октябрь',
-    'Ноябрь',
-    'Декабрь'
-  ];
+  String get getNameWeekDay => AppString.namesWeekDay[_cdt.weekday - 1];
 
-  String get getMonthName => _monthNames[_cdt.month - 1];
-
-  final List<String> _namesWeekDay = [
-    'Понедельник',
-    'Вторник',
-    'Среда',
-    'Четверг',
-    'Пятница',
-    'Суббота',
-    'Воскресенье',
-  ];
-
-  String get getNameWeekDay => _namesWeekDay[_cdt.weekday - 1];
+  String get getShortNameWeekDay => AppString.shortNamesWeekDay[_cdt.weekday - 1];
 
   int _toRamadanDays() {
     final int countDays;
