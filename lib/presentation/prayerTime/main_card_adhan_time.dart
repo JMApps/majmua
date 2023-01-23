@@ -171,6 +171,35 @@ class MainCardAdhanTime extends StatelessWidget {
                     ),
                   ),
                 ),
+                const SizedBox(height: 8),
+                Card(
+                  color: appColors.glassOnGlassCardColor,
+                  child: Padding(
+                    padding: AppWidgetStyle.mainPaddingMini,
+                    child: RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: '${AppString.midnight} ',
+                            style: TextStyle(
+                              fontFamily: 'Nexa',
+                              color: appColors.mainTextColor,
+                            ),
+                          ),
+                          TextSpan(
+                            text: DateFormat.Hm().format(prayerTimeState.getMidnight),
+                            style: TextStyle(
+                              fontFamily: 'Lato',
+                              color: appColors.firstAppColor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ],
             );
           },

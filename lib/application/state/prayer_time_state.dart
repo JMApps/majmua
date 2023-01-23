@@ -100,7 +100,7 @@ class PrayerTimeState extends ChangeNotifier {
       coordinates,
       DateComponents(_cdt.year, _cdt.month, _cdt.day),
       _prayerParams,
-      utcOffset: _calculationUtcOffset[_timeOffsetIndex]
+      utcOffset: _calculationUtcOffset[_timeOffsetIndex],
     );
   }
 
@@ -217,6 +217,16 @@ class PrayerTimeState extends ChangeNotifier {
 
   DateTime get getThirdNightPart {
     double thirdValue = (1440 - getIshaValueInMinutes + getFajrValueInMinutes) * 60 / 3;
+    double value = (getFajrValueInMinutes * 60) - thirdValue;
+    int hour, minute;
+    hour = value ~/ 3600;
+    minute = ((value - hour * 3600)) ~/ 60;
+    DateTime result = DateTime(_cdt.year, _cdt.month, _cdt.day, hour, minute);
+    return result;
+  }
+
+  DateTime get getMidnight {
+    double thirdValue = (1440 - getIshaValueInMinutes + getFajrValueInMinutes) * 60 / 2;
     double value = (getFajrValueInMinutes * 60) - thirdValue;
     int hour, minute;
     hour = value ~/ 3600;
