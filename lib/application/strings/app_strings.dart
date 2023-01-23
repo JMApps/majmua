@@ -23,6 +23,7 @@ class AppString {
   static const String isha = 'Иша';
 
   static const String lastThirdNight = 'Последняя треть ночи:';
+  static const String midnight = 'Полночь:';
 
   // Params
   static const String params = 'Параметры';
@@ -48,6 +49,66 @@ class AppString {
     'Qatar',
     'Turkey',
     'Singapore',
+  ];
+
+  static const List<String> monthHijriNames = [
+    'Мухаррам',
+    'Сафар',
+    'Раби\' аль-Авваль',
+    'Раби\' ас-Сани',
+    'Джумада аль-Уля',
+    'Джумада ас-Сани',
+    'Раджаб',
+    'Ша\'бан',
+    'Рамадан',
+    'Шавваль',
+    'Зу-ль-Ка\'да',
+    'Зу-ль-Хиджа'
+  ];
+
+  static const List<String> monthNames = [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентабрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь'
+  ];
+
+  static const List<String> namesWeekDay = [
+    'Понедельник',
+    'Вторник',
+    'Среда',
+    'Четверг',
+    'Пятница',
+    'Суббота',
+    'Воскресенье',
+  ];
+
+  static const List<String> shortNamesWeekDay = [
+    'Пн',
+    'Вт',
+    'Ср',
+    'Чт',
+    'Пт',
+    'Сб',
+    'Вс',
+  ];
+
+  static const List<String> dailyMessages = [
+    'День желательного поста',
+    'Время Корана',
+    'Завтра день желательного поста',
+    'День желательного поста',
+    'Благословенная пятница',
+    'Время Корана',
+    'Завтра день желательного поста',
   ];
 
   static const String longitude = 'Долгота:';
