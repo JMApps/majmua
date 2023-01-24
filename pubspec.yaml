@@ -27,6 +27,7 @@ dependencies:
   # Widgets
   cupertino_icons: ^1.0.5
   percent_indicator: ^4.2.2
+  smooth_page_indicator: ^1.0.0+2
 
   # Databases
   hive: ^2.2.3
