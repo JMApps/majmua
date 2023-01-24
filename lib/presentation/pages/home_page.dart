@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/presentation/currentDateTime/card_week_day.dart';
+import 'package:majmua/presentation/friday/list_sunnah_friday.dart';
 import 'package:majmua/presentation/prayerTime/main_card_adhan_time.dart';
 import 'package:majmua/presentation/restHolidays/main_card_rest_holidays.dart';
 import 'package:majmua/presentation/restTime/main_card_rest_time_indicators.dart';

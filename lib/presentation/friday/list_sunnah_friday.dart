@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/rest_time_state.dart';
-import 'package:majmua/application/strings/app_strings.dart';
-import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/presentation/friday/friday_item.dart';
 import 'package:majmua/presentation/friday/model_friday.dart';
@@ -97,17 +95,6 @@ class _ListSunnahFridayState extends State<ListSunnahFriday> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const Card(
-                  margin: AppWidgetStyle.horizontalMarginMini,
-                  child: Padding(
-                    padding: AppWidgetStyle.mainPaddingMini,
-                    child: Text(
-                      AppString.inFriday,
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 8),
                 SizedBox(
                   height: 150,
                   child: PageView.builder(

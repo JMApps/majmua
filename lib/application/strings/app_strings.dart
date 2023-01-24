@@ -14,9 +14,6 @@ class AppString {
   static const String summer = 'Лето';
   static const String fall = 'Осень';
 
-  // Friday
-  static const String inFriday = 'В пятницу:';
-
   // Prayers
   static const String fajr = 'Фаджр';
   static const String sunrise = 'Восход';
