@@ -32,7 +32,7 @@ class MainCardRestTimeIndicators extends StatelessWidget {
                 const SizedBox(height: 4),
                 Wrap(
                   direction: Axis.horizontal,
-                  alignment: WrapAlignment.center,
+                  alignment: WrapAlignment.spaceEvenly,
                   spacing: 8,
                   children: [
                     CardRestTimeCircularItem(
