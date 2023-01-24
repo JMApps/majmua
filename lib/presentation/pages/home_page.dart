@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/presentation/currentDateTime/main_card_current_date_times.dart';
+import 'package:majmua/presentation/friday/card_salawat.dart';
 import 'package:majmua/presentation/prayerTime/main_card_adhan_time.dart';
 import 'package:majmua/presentation/restHolidays/main_card_rest_holidays.dart';
 import 'package:majmua/presentation/restTime/main_card_rest_time_indicators.dart';
@@ -37,28 +38,25 @@ class HomePage extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: SingleChildScrollView(
-                child: AnimatedSize(
-                  duration: const Duration(seconds: 1),
-                  curve: Curves.slowMiddle,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      SizedBox(height: 8),
-                      MainCardRestTimeIndicators(),
-                      SizedBox(height: 8),
-                      CardWeekDay(),
-                      SizedBox(height: 8),
-                      MainCardAdhanTime(),
-                      SizedBox(height: 8),
-                      MainCardCurrentDateTimes(),
-                      SizedBox(height: 8),
-                      MainCardRestHolidays(),
-                      SizedBox(height: 8),
-                      MainCardWhiteDays(),
-                      SizedBox(height: 8),
-                    ],
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    SizedBox(height: 8),
+                    MainCardRestTimeIndicators(),
+                    SizedBox(height: 8),
+                    CardWeekDay(),
+                    SizedBox(height: 8),
+                    CardSalawat(),
+                    MainCardAdhanTime(),
+                    SizedBox(height: 8),
+                    MainCardCurrentDateTimes(),
+                    SizedBox(height: 8),
+                    MainCardRestHolidays(),
+                    SizedBox(height: 8),
+                    MainCardWhiteDays(),
+                    SizedBox(height: 8),
+                  ],
                 ),
               ),
             ),

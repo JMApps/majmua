@@ -11,6 +11,7 @@ void main() async {
     ),
   );
   await Hive.initFlutter();
+  await Hive.openBox(AppConstants.keyWeeklySalawatSettings);
   await Hive.openBox(AppConstants.keySettingsPrayerTimeBox);
   await Hive.openBox(AppConstants.keyMainAppSettings);
   runApp(

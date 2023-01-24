@@ -1,4 +1,5 @@
 class AppConstants {
+  static const keyWeeklySalawatSettings = 'key_weekly_salawat_settings';
   static const keySettingsPrayerTimeBox = 'key_settings_prayer_time_box';
   static const keyMainAppSettings = 'key_main_app_settings';
 
@@ -22,4 +23,6 @@ class AppConstants {
 
   static const keyMainBookTextSize = 'key_main_book_text_size';
   static const keyMainBookTextColor = 'key_main_book_text_color';
+
+  static const keySalawatCount = 'key_salawat_count';
 }
