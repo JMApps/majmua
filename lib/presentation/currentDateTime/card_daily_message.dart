@@ -35,7 +35,7 @@ class CardDailyMessage extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Хадис про пост',
+                  '',
                   style: TextStyle(
                     fontSize: 16,
                   ),
