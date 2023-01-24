@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/strings/app_strings.dart';
-import 'package:majmua/presentation/currentDateTime/main_card_current_date_times.dart';
-import 'package:majmua/presentation/friday/card_salawat.dart';
+import 'package:majmua/presentation/currentDateTime/card_week_day.dart';
 import 'package:majmua/presentation/prayerTime/main_card_adhan_time.dart';
 import 'package:majmua/presentation/restHolidays/main_card_rest_holidays.dart';
 import 'package:majmua/presentation/restTime/main_card_rest_time_indicators.dart';
-import 'package:majmua/presentation/weekDay/card_week_day.dart';
 import 'package:majmua/presentation/whiteDays/main_card_white_days.dart';
 
 class HomePage extends StatelessWidget {
@@ -47,10 +45,8 @@ class HomePage extends StatelessWidget {
                     SizedBox(height: 8),
                     CardWeekDay(),
                     SizedBox(height: 8),
-                    CardSalawat(),
+                    ListSunnahFriday(),
                     MainCardAdhanTime(),
-                    SizedBox(height: 8),
-                    MainCardCurrentDateTimes(),
                     SizedBox(height: 8),
                     MainCardRestHolidays(),
                     SizedBox(height: 8),
