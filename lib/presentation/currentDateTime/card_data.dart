@@ -68,7 +68,10 @@ class CardDates extends StatelessWidget {
                         'assets/images/salawat.png',
                         fit: BoxFit.cover,
                         colorBlendMode: BlendMode.srcATop,
-                        color: appColors.firstAppColor,
+                        color:
+                            context.watch<RestTimeState>().getCdt.weekday == 5
+                                ? appColors.thirdAppColor
+                                : appColors.firstAppColor,
                       ),
                     ),
                     SizedBox(

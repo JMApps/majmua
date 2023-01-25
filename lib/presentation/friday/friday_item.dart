@@ -27,7 +27,7 @@ class FridayItem extends StatelessWidget {
               item.numberSunnah,
               style: TextStyle(
                 fontSize: 16,
-                color: appColors.firstThirdColor,
+                color: appColors.thirdAppColor,
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,

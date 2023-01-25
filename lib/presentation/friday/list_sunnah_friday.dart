@@ -90,10 +90,11 @@ class _ListSunnahFridayState extends State<ListSunnahFriday> {
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
     final cdt = context.watch<RestTimeState>().getCdt;
-    return cdt.weekday >= 2 && cdt.weekday <= 5
-        ? AnimatedSize(
-            duration: const Duration(milliseconds: 1250),
-            child: Column(
+    return AnimatedSize(
+      duration: const Duration(milliseconds: 2500),
+      curve: Curves.easeInOutCubic,
+      child: cdt.weekday == 5
+          ? Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SizedBox(
@@ -128,8 +129,8 @@ class _ListSunnahFridayState extends State<ListSunnahFriday> {
                 ),
                 const SizedBox(height: 8),
               ],
-            ),
-          )
-        : const SizedBox();
+            )
+          : const SizedBox(),
+    );
   }
 }
