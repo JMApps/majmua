@@ -92,7 +92,7 @@ class _ListSunnahFridayState extends State<ListSunnahFriday> {
     return AnimatedSize(
       duration: const Duration(milliseconds: 2500),
       curve: Curves.easeInOutCubic,
-      child: context.watch<RestTimeState>().getCdt.weekday == 3
+      child: context.watch<RestTimeState>().getCdt.weekday == 5
           ? Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
