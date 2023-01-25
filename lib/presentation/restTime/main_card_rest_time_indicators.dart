@@ -14,55 +14,53 @@ class MainCardRestTimeIndicators extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: AppWidgetStyle.horizontalMarginMini,
-      child: Consumer<RestTimeState>(
-        builder: (BuildContext context, restTimeState, _) {
-          return Padding(
-            padding: AppWidgetStyle.mainPaddingMini,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const Text(
-                  AppString.appMainSlogan,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 4),
-                Wrap(
-                  direction: Axis.horizontal,
-                  alignment: WrapAlignment.spaceEvenly,
-                  spacing: 8,
-                  children: [
-                    CardRestTimeCircularItem(
-                      seasonName: AppString.day,
-                      progressColor: AppWidgetColor.indigo,
-                      restYearPercent: restTimeState.getRestDayProgress,
-                    ),
-                    CardRestTimeCircularItem(
-                      seasonName: AppString.week,
-                      progressColor: AppWidgetColor.red,
-                      restYearPercent: restTimeState.getRestWeekProgress,
-                    ),
-                    CardRestTimeCircularItem(
-                      seasonName: AppString.month,
-                      progressColor: AppWidgetColor.orange,
-                      restYearPercent: restTimeState.getRestMonthProgress,
-                    ),
-                    CardRestTimeCircularItem(
-                      seasonName: AppString.year,
-                      progressColor: AppWidgetColor.teal,
-                      restYearPercent: restTimeState.getRestYearProgress,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                const SegmentControlTimeSeason(),
-              ],
+      child: Padding(
+        padding: AppWidgetStyle.mainPaddingMini,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Text(
+              AppString.appMainSlogan,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
             ),
-          );
-        },
+            const SizedBox(height: 4),
+            Consumer<RestTimeState>(builder: (BuildContext context, restTimeState, _) {
+              return Wrap(
+                direction: Axis.horizontal,
+                alignment: WrapAlignment.spaceEvenly,
+                spacing: 8,
+                children: [
+                  CardRestTimeCircularItem(
+                    seasonName: AppString.day,
+                    progressColor: AppWidgetColor.indigo,
+                    restYearPercent: restTimeState.getRestDayProgress,
+                  ),
+                  CardRestTimeCircularItem(
+                    seasonName: AppString.week,
+                    progressColor: AppWidgetColor.red,
+                    restYearPercent: restTimeState.getRestWeekProgress,
+                  ),
+                  CardRestTimeCircularItem(
+                    seasonName: AppString.month,
+                    progressColor: AppWidgetColor.orange,
+                    restYearPercent: restTimeState.getRestMonthProgress,
+                  ),
+                  CardRestTimeCircularItem(
+                    seasonName: AppString.year,
+                    progressColor: AppWidgetColor.teal,
+                    restYearPercent: restTimeState.getRestYearProgress,
+                  ),
+                ],
+              );
+            }),
+            const SizedBox(height: 8),
+            const SegmentControlTimeSeason(),
+          ],
+        ),
       ),
     );
   }

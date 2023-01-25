@@ -39,13 +39,13 @@ class ItemCardAdhanNameTime extends StatelessWidget {
           ),
         ),
         child: Container(
-          padding: const EdgeInsets.all(10),
+          padding: AppWidgetStyle.mainPaddingMini,
           height: 75,
           child: Stack(
             alignment: AlignmentDirectional.center,
             children: [
               Align(
-                alignment: Alignment.topLeft,
+                alignment: Alignment.centerLeft,
                 child: ListTile(
                   visualDensity: const VisualDensity(vertical: -4),
                   contentPadding: EdgeInsets.zero,
@@ -86,9 +86,9 @@ class ItemCardAdhanNameTime extends StatelessWidget {
                   child: Text(
                     DateFormat.m().format(fromPrayerTime),
                     style: const TextStyle(
+                      color: Colors.grey,
                       fontFamily: 'Lato',
                       fontWeight: FontWeight.bold,
-                      color: Colors.grey,
                     ),
                   ),
                 ),
@@ -103,8 +103,8 @@ class ItemCardAdhanNameTime extends StatelessWidget {
                   child: Text(
                     '–${DateFormat.m().format(toPrayerTime)}',
                     style: TextStyle(
-                      fontFamily: 'Lato',
                       color: appColors.thirdAppColor,
+                      fontFamily: 'Lato',
                       fontWeight: FontWeight.bold,
                     ),
                   ),

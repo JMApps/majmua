@@ -35,8 +35,7 @@ class MainCardAdhanTime extends StatelessWidget {
                           },
                           contentPadding: AppWidgetStyle.horizontalPadding,
                           shape: AppWidgetStyle.mainRectangleBorder,
-                          visualDensity:
-                              const VisualDensity(horizontal: 0, vertical: -4),
+                          visualDensity: const VisualDensity(vertical: -4),
                           title: RichText(
                             text: TextSpan(
                               children: [
@@ -46,16 +45,16 @@ class MainCardAdhanTime extends StatelessWidget {
                                     fontSize: 15,
                                     fontFamily: 'Nexa',
                                     fontWeight: FontWeight.bold,
-                                    color: appColors.firstAppColor,
+                                    color: appColors.mainTextColor,
                                   ),
                                 ),
                                 TextSpan(
                                   text: prayerTimeState.getCity,
                                   style: TextStyle(
                                     fontSize: 15,
-                                    fontWeight: FontWeight.bold,
                                     fontFamily: 'Nexa',
-                                    color: appColors.mainTextColor,
+                                    fontWeight: FontWeight.bold,
+                                    color: appColors.firstAppColor,
                                   ),
                                 ),
                               ],
@@ -74,8 +73,7 @@ class MainCardAdhanTime extends StatelessWidget {
                       color: appColors.glassOnGlassCardColor,
                       child: IconButton(
                         onPressed: () {},
-                        visualDensity:
-                            const VisualDensity(horizontal: 0, vertical: -4),
+                        visualDensity: const VisualDensity(vertical: -4),
                         splashRadius: 17.5,
                         icon: const Icon(
                           CupertinoIcons.settings,

@@ -12,13 +12,13 @@ class SegmentControlTimeSeason extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
-    return Consumer<RestTimeState>(
-      builder: (BuildContext context, restTimeState, _) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            IgnorePointer(
-              child: CupertinoSlidingSegmentedControl<Season>(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        IgnorePointer(
+          child: Consumer<RestTimeState>(
+            builder: (BuildContext context, restTimeState, _) {
+              return CupertinoSlidingSegmentedControl<Season>(
                 thumbColor: appColors.glassOnGlassCardColor,
                 groupValue: restTimeState.getCurrentSeason,
                 children: const <Season, Widget>{
@@ -28,11 +28,11 @@ class SegmentControlTimeSeason extends StatelessWidget {
                   Season.winter: Text(AppString.winter),
                 },
                 onValueChanged: (Season? value) {},
-              ),
-            ),
-          ],
-        );
-      },
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }

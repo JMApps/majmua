@@ -89,11 +89,10 @@ class _ListSunnahFridayState extends State<ListSunnahFriday> {
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
-    final cdt = context.watch<RestTimeState>().getCdt;
     return AnimatedSize(
       duration: const Duration(milliseconds: 2500),
       curve: Curves.easeInOutCubic,
-      child: cdt.weekday == 5
+      child: context.watch<RestTimeState>().getCdt.weekday == 3
           ? Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [

@@ -37,14 +37,15 @@ class ItemYearMonthDay extends StatelessWidget {
       title: Text(
         month,
         style: const TextStyle(
-          fontSize: 14,
+          fontSize: 15,
           fontWeight: FontWeight.bold,
         ),
       ),
       subtitle: Text(
         '$year ${AppString.year.toLowerCase()}',
         style: const TextStyle(
-          fontSize: 13,
+          fontSize: 14,
+          fontFamily: 'Lato'
         ),
       ),
     );

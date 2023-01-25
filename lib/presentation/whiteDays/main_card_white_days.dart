@@ -17,7 +17,7 @@ class MainCardWhiteDays extends StatelessWidget {
         return AnimatedSize(
           duration: const Duration(milliseconds: 750),
           child: Visibility(
-            visible: restTimeState.getChdt.hDay >= 12 && restTimeState.getChdt.hDay <= 23,
+            visible: restTimeState.getChdt.hDay >= 12 && restTimeState.getChdt.hDay <= 15,
             child: Card(
               margin: AppWidgetStyle.horizontalMarginMini,
               child: Padding(

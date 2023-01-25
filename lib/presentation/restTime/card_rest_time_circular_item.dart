@@ -23,6 +23,7 @@ class CardRestTimeCircularItem extends StatelessWidget {
         child: CircularPercentIndicator(
           radius: 35,
           lineWidth: 3,
+          circularStrokeCap: CircularStrokeCap.round,
           progressColor: progressColor,
           percent: restYearPercent / 100,
           center: ItemTextRestTimeIndicator(

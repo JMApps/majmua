@@ -32,6 +32,7 @@ class CardWeekDay extends StatelessWidget {
               Padding(
                 padding: AppWidgetStyle.horizontalPaddingMini,
                 child: Wrap(
+                  direction: Axis.horizontal,
                   alignment: WrapAlignment.spaceEvenly,
                   crossAxisAlignment: WrapCrossAlignment.center,
                   children: const [
