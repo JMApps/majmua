@@ -76,7 +76,7 @@ class CardWeekDay extends StatelessWidget {
                   shape: AppWidgetStyle.mainRectangleBorder,
                   visualDensity: const VisualDensity(vertical: -4),
                   title: Text(
-                    context.watch<RestTimeState>().getDailyMessage,
+                    context.watch<RestTimeState>().getDailyShortMessage,
                     textAlign: TextAlign.center,
                   ),
                   trailing: Icon(

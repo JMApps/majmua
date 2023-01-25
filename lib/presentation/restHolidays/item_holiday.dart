@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
+import 'package:majmua/application/themes/app_theme.dart';
 
 class ItemHoliday extends StatelessWidget {
   const ItemHoliday({
@@ -15,10 +17,11 @@ class ItemHoliday extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ColorScheme appColors = Theme.of(context).colorScheme;
     return Card(
       shape: AppWidgetStyle.mainRectangleBorder,
       margin: EdgeInsets.zero,
-      child: ListTile(
+      child: CupertinoListTile(
         trailing: CircleAvatar(
           radius: 17.5,
           backgroundColor: color,
@@ -35,8 +38,10 @@ class ItemHoliday extends StatelessWidget {
         ),
         title: Text(
           holidayName,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 15,
+            fontFamily: 'Nexa',
+            color: appColors.mainTextColor,
           ),
         ),
       ),

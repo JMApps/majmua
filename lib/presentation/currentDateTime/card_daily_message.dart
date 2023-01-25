@@ -28,15 +28,15 @@ class CardDailyMessage extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  restTimeState.getDailyMessage,
+                  restTimeState.getDailyShortMessage,
                   style: const TextStyle(
                     fontSize: 16,
                   ),
                 ),
                 const SizedBox(height: 8),
-                const Text(
-                  '',
-                  style: TextStyle(
+                Text(
+                  restTimeState.getDailyMessage,
+                  style: const TextStyle(
                     fontSize: 16,
                   ),
                 ),

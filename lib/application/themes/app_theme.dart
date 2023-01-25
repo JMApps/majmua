@@ -125,7 +125,7 @@ extension ColorSchemeS on ColorScheme {
       : const Color(0xD9F2A104);
 
   Color get mainTextColor => brightness == Brightness.light
-      ? const Color(0xD92D2D2D)
+      ? const Color(0xFF2D2D2D)
       : const Color(0xFFCCCCCC);
 
   Color get mainReverse => brightness == Brightness.light
