@@ -3,6 +3,7 @@ import 'package:majmua/presentation/prayerTime/addCountry/add_country_page.dart'
 import 'package:majmua/presentation/prayerTime/prayerParams/prayer_params_page.dart';
 import 'package:majmua/presentation/prayerTime/calculationInfo/prayer_calculation_method_page.dart';
 import 'package:majmua/presentation/prayerTime/selectCountry/select_another_city_page.dart';
+import 'package:majmua/presentation/settings/app_settings_page.dart';
 
 class AppRoutes {
   static Route onGeneratorRoute(RouteSettings routeSettings) {
@@ -22,6 +23,10 @@ class AppRoutes {
       case 'prayer_calculation_method_page':
         return MaterialPageRoute(
           builder: (_) => const PrayerCalculationMethodPage(),
+        );
+      case 'app_settings_page':
+        return MaterialPageRoute(
+          builder: (_) => const AppSettingsPage(),
         );
       default:
         throw Exception('Invalid route: ${routeSettings.name}');

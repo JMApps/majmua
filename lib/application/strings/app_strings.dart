@@ -167,4 +167,18 @@ class AppString {
 
   static const String toWhiteDays = 'Приблизись белые дни';
   static const String whiteDays = 'Пост в белые дни';
+
+  // Settings
+  static const String settings = 'Настройки';
+  static const String dailyNotif = 'Ежедневные уведомления';
+  static const String firstFastNotif = 'Напомнить про пост в понедельник';
+  static const String secondFastNotif = 'Напомнить про пост в четверг';
+  static const String whiteDaysNotif = 'Напомнить про белые дни';
+
+  static const String notifications = 'Уведомления';
+  static const String prayersNotification = 'Уведомления для молитв';
+  static const String appTheme = 'Тема приложения';
+
+  static const String adaptiveTheme = 'Адаптивная';
+  static const String userTheme = 'Пользовательская';
 }
