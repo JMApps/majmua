@@ -76,7 +76,8 @@ class MainCardAdhanTime extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4),
                         splashRadius: 17.5,
                         icon: const Icon(
-                          CupertinoIcons.settings,
+                          CupertinoIcons.share_up,
+                          size: 20,
                         ),
                       ),
                     ),

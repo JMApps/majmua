@@ -15,18 +15,19 @@ class DropDownCalculationMethodList extends StatelessWidget {
       builder: (BuildContext context, prayerTimeState, _) {
         return Card(
           color: appColor.mainReverse,
-          child: Padding(
-            padding: AppWidgetStyle.horizontalPadding,
+          child: ButtonTheme(
+            alignedDropdown: true,
             child: DropdownButton<String>(
               value: AppString.calculationMethodNames[prayerTimeState.getCalculationIndex],
               borderRadius: AppWidgetStyle.mainBorderRadius,
               elevation: 0,
+              isExpanded: true,
+              alignment: AlignmentDirectional.center,
               style: TextStyle(
                 color: appColor.mainTextColor,
-                fontSize: 16,
+                fontSize: 15,
                 fontFamily: 'Nexa',
               ),
-              isExpanded: false,
               underline: const SizedBox(),
               onChanged: (String? value) {
                 context.read<PrayerTimeState>().setCalculationMethod = AppString.calculationMethodNames.indexOf(value!);
@@ -36,12 +37,9 @@ class DropDownCalculationMethodList extends StatelessWidget {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Center(
-                      child: SizedBox(
-                        width: 250,
-                        child: Text(
-                          value,
-                          textAlign: TextAlign.center,
-                        ),
+                      child: Text(
+                        value,
+                        textAlign: TextAlign.center,
                       ),
                     )
                   );

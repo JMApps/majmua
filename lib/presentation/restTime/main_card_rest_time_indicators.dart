@@ -33,6 +33,7 @@ class MainCardRestTimeIndicators extends StatelessWidget {
                 direction: Axis.horizontal,
                 alignment: WrapAlignment.spaceEvenly,
                 spacing: 8,
+                runSpacing: 8,
                 children: [
                   CardRestTimeCircularItem(
                     seasonName: AppString.day,

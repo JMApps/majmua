@@ -14,7 +14,10 @@ class SegmentControlDateTimeOffset extends StatelessWidget {
           groupValue: prayerTimeState.getTimeOffsetIndex,
           children: const <int, Widget>{
             0: Text(AppString.minusHour),
-            1: Text(AppString.defaultOffset),
+            1: Text(
+              AppString.defaultOffset,
+              textAlign: TextAlign.center,
+            ),
             2: Text(AppString.plusHour),
           },
           onValueChanged: (int? value) {
