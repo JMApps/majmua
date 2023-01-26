@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/presentation/currentDateTime/card_week_day.dart';
@@ -25,14 +26,27 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         body: CustomScrollView(
           slivers: [
-            const SliverAppBar(
+            SliverAppBar(
               elevation: 0,
               centerTitle: true,
               pinned: false,
               floating: false,
-              title: Text(
+              title: const Text(
                 AppString.appName,
               ),
+              actions: [
+                IconButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'app_settings_page');
+                  },
+                  visualDensity: const VisualDensity(vertical: -4),
+                  splashRadius: 17.5,
+                  icon: const Icon(
+                    CupertinoIcons.settings,
+                    size: 25,
+                  ),
+                ),
+              ],
             ),
             SliverToBoxAdapter(
               child: SingleChildScrollView(
