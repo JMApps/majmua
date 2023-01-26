@@ -34,6 +34,8 @@ class CardWeekDay extends StatelessWidget {
                 child: Wrap(
                   direction: Axis.horizontal,
                   alignment: WrapAlignment.spaceEvenly,
+                  runSpacing: 8,
+                  spacing: 8,
                   crossAxisAlignment: WrapCrossAlignment.center,
                   children: const [
                     ItemDayFromWeek(
