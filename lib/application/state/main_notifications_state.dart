@@ -19,7 +19,7 @@ class MainNotificationsSate extends ChangeNotifier {
 
   MainNotificationsSate() {
     _dailyNotification = _notificationSettingsBox.get(
-      AppConstants.keyIshaNotification,
+      AppConstants.keyDailyNotification,
       defaultValue: true,
     );
     _firstFastNotification = _notificationSettingsBox.get(
@@ -55,6 +55,10 @@ class MainNotificationsSate extends ChangeNotifier {
       AppConstants.keyMaghribNotification,
       defaultValue: false,
     );
+    _ishaNotification = _notificationSettingsBox.get(
+      AppConstants.keyIshaNotification,
+      defaultValue: false,
+    );
   }
 
   bool get getDailyNotification => _dailyNotification;
@@ -72,49 +76,59 @@ class MainNotificationsSate extends ChangeNotifier {
   set setDailyNotification(bool value) {
     _notificationSettingsBox.put(AppConstants.keyDailyNotification, value);
     _dailyNotification = value;
+    notifyListeners();
   }
 
   set setFirstFastNotification(bool value) {
     _notificationSettingsBox.put(AppConstants.keyFirstFastNotification, value);
     _firstFastNotification = value;
+    notifyListeners();
   }
   set setSecondFastNotification(bool value) {
     _notificationSettingsBox.put(AppConstants.keySecondFastNotification, value);
     _secondFastNotification = value;
+    notifyListeners();
   }
 
   set setWhiteDaysFastNotification(bool value) {
     _notificationSettingsBox.put(AppConstants.keyWhiteDaysNotification, value);
     _whiteDaysFastNotification = value;
+    notifyListeners();
   }
 
   set setFajrNotification(bool value) {
     _notificationSettingsBox.put(AppConstants.keyFajrNotification, value);
     _fajrNotification = value;
+    notifyListeners();
   }
 
   set setSunriseNotification(bool value) {
     _notificationSettingsBox.put(AppConstants.keySunriseNotification, value);
     _sunriseNotification = value;
+    notifyListeners();
   }
 
   set setDhuhrNotification(bool value) {
     _notificationSettingsBox.put(AppConstants.keyDhuhrNotification, value);
     _dhuhrNotification = value;
+    notifyListeners();
   }
 
   set setAsrNotification(bool value) {
     _notificationSettingsBox.put(AppConstants.keyAsrNotification, value);
     _asrNotification = value;
+    notifyListeners();
   }
 
   set setMaghribNotification(bool value) {
     _notificationSettingsBox.put(AppConstants.keyMaghribNotification, value);
     _maghribNotification = value;
+    notifyListeners();
   }
 
   set setIshaNotification(bool value) {
     _notificationSettingsBox.put(AppConstants.keyIshaNotification, value);
     _ishaNotification = value;
+    notifyListeners();
   }
 }

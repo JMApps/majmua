@@ -181,4 +181,7 @@ class AppString {
 
   static const String adaptiveTheme = 'Адаптивная';
   static const String userTheme = 'Пользовательская';
+
+  static const String display = 'Дисплей';
+  static const String displayOnOff = 'Оставить дисплей включенным';
 }

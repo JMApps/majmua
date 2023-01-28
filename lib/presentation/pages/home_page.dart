@@ -44,6 +44,7 @@ class HomePage extends StatelessWidget {
                   icon: const Icon(
                     CupertinoIcons.settings,
                     size: 25,
+                    color: Colors.white,
                   ),
                 ),
               ],
