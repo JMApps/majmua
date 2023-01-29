@@ -241,8 +241,7 @@ class PrayerTimeState extends ChangeNotifier {
   }
 
   DateTime get getThirdNightPart {
-    double thirdValue =
-        (1440 - getIshaValueInMinutes + getFajrValueInMinutes) * 60 / 3;
+    double thirdValue = (1440 - getIshaValueInMinutes + getFajrValueInMinutes) * 60 / 3;
     double value = (getFajrValueInMinutes * 60) - thirdValue;
     int hour, minute;
     hour = value ~/ 3600;
@@ -252,8 +251,7 @@ class PrayerTimeState extends ChangeNotifier {
   }
 
   DateTime get getMidnight {
-    double thirdValue =
-        (1440 - getIshaValueInMinutes + getFajrValueInMinutes) * 60 / 2;
+    double thirdValue = (1440 - (getIshaValueInMinutes + getFajrValueInMinutes)) * 60 / 2;
     double value = (getFajrValueInMinutes * 60) - thirdValue;
     int hour, minute;
     hour = value ~/ 3600;
@@ -271,8 +269,7 @@ class PrayerTimeState extends ChangeNotifier {
   }
 
   updateCity(Map<String, String> updateCity, int idCity) {
-    _defaultCustomCountryQuery.updateCity(
-        updateCity: updateCity, idCity: idCity);
+    _defaultCustomCountryQuery.updateCity(updateCity: updateCity, idCity: idCity);
     notifyListeners();
   }
 
@@ -281,10 +278,16 @@ class PrayerTimeState extends ChangeNotifier {
     notifyListeners();
   }
 
+  bool get getFridayState {
+    late bool isFriday;
+    isFriday = _cdt.weekday == 4 && getMinutesOfDay > getMaghribValueInMinutes ||
+        _cdt.weekday == 5 && getMinutesOfDay < getMaghribValueInMinutes;
+    return isFriday;
+  }
+
   int _prayerValueInMinutes({required DateTime prayerTime}) {
     final DateTime fromZero = DateTime(_cdt.year, _cdt.month, _cdt.day, 0, 0);
-    final toPrayer = DateTime(prayerTime.year, prayerTime.month, prayerTime.day,
-        prayerTime.hour, prayerTime.minute);
+    final toPrayer = DateTime(prayerTime.year, prayerTime.month, prayerTime.day, prayerTime.hour, prayerTime.minute);
     return toPrayer.difference(fromZero).inMinutes;
   }
 

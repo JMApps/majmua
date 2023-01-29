@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/application/state/rest_time_state.dart';
+import 'package:majmua/application/state/prayer_time_state.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/data/database/models/model_friday.dart';
 import 'package:majmua/presentation/friday/friday_item.dart';
@@ -89,10 +89,11 @@ class _ListSunnahFridayState extends State<ListSunnahFriday> {
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
+    final bool isFriday = context.watch<PrayerTimeState>().getFridayState;
     return AnimatedSize(
       duration: const Duration(milliseconds: 2500),
       curve: Curves.easeInOutCubic,
-      child: context.watch<RestTimeState>().getCdt.weekday == 5
+      child: isFriday
           ? Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
