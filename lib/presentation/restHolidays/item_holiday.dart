@@ -21,7 +21,7 @@ class ItemHoliday extends StatelessWidget {
     return Card(
       shape: AppWidgetStyle.mainRectangleBorder,
       margin: EdgeInsets.zero,
-      child: CupertinoListTile(
+      child: ListTile(
         trailing: CircleAvatar(
           radius: 17.5,
           backgroundColor: color,
