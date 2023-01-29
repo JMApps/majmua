@@ -139,4 +139,20 @@ extension ColorSchemeS on ColorScheme {
   Color get glassOnGlassCardColor => brightness == Brightness.light
       ? const Color(0x80FFFDE7)
       : const Color(0x8005071E);
+
+  Color get springColor => brightness == Brightness.light
+      ? const Color(0xFF00695C)
+      : const Color(0xFF009688);
+
+  Color get summerColor => brightness == Brightness.light
+      ? const Color(0xFFF9A825)
+      : const Color(0xFFFFEB3B);
+
+  Color get fallColor => brightness == Brightness.light
+      ? const Color(0xFFD84315)
+      : const Color(0xFFFF5722);
+
+  Color get winterColor => brightness == Brightness.light
+      ? const Color(0xFF1565C0)
+      : const Color(0xFF2196F3);
 }
