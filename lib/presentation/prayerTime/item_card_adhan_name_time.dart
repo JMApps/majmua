@@ -35,7 +35,11 @@ class ItemCardAdhanNameTime extends StatelessWidget {
           borderRadius: AppWidgetStyle.mainBorderRadius,
           side: BorderSide(
             width: 3,
-            color: appColors.firstAppColor.withOpacity(isPrayerTime ? 1 : 0),
+            color: isPrayerTime && isRemainingTime
+                ? appColors.thirdAppColor
+                : isPrayerTime && isPastTime
+                    ? appColors.firstAppColor
+                    : appColors.firstAppColor.withOpacity(0),
           ),
         ),
         child: Container(
@@ -57,25 +61,26 @@ class ItemCardAdhanNameTime extends StatelessWidget {
                   ),
                   subtitle: Text(
                     DateFormat.Hm().format(prayerTime),
-                    style: const TextStyle(
+                    style: TextStyle(
+                      fontWeight: isPrayerTime ? FontWeight.bold : FontWeight.normal,
                       fontFamily: 'Lato',
                     ),
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.topRight,
-                child: InkWell(
-                  onTap: () {},
-                  radius: 20,
-                  borderRadius: AppWidgetStyle.mainBorderRadius,
-                  child: Icon(
-                    Icons.notifications_off_outlined,
-                    size: 20,
-                    color: appColors.secondThirdColor,
-                  ),
-                ),
-              ),
+              // Align(
+              //   alignment: Alignment.topRight,
+              //   child: InkWell(
+              //     onTap: () {},
+              //     radius: 20,
+              //     borderRadius: AppWidgetStyle.mainBorderRadius,
+              //     child: Icon(
+              //       Icons.notifications_off_outlined,
+              //       size: 20,
+              //       color: appColors.secondThirdColor,
+              //     ),
+              //   ),
+              // ),
               Align(
                 alignment: Alignment.bottomRight,
                 child: AnimatedDefaultTextStyle(
@@ -85,8 +90,8 @@ class ItemCardAdhanNameTime extends StatelessWidget {
                   ),
                   child: Text(
                     DateFormat.m().format(fromPrayerTime),
-                    style: const TextStyle(
-                      color: Colors.grey,
+                    style: TextStyle(
+                      color: appColors.firstAppColor,
                       fontFamily: 'Lato',
                       fontWeight: FontWeight.bold,
                     ),
