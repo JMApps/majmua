@@ -38,22 +38,22 @@ class MainCardRestTimeIndicators extends StatelessWidget {
                   CardRestTimeCircularItem(
                     seasonName: AppString.day,
                     progressColor: AppWidgetColor.indigo,
-                    restYearPercent: restTimeState.getRestDayProgress,
+                    restPercent: restTimeState.getRestDayProgress,
                   ),
                   CardRestTimeCircularItem(
                     seasonName: AppString.week,
                     progressColor: AppWidgetColor.red,
-                    restYearPercent: restTimeState.getRestWeekProgress,
+                    restPercent: restTimeState.getRestWeekProgress,
                   ),
                   CardRestTimeCircularItem(
                     seasonName: AppString.month,
                     progressColor: AppWidgetColor.orange,
-                    restYearPercent: restTimeState.getRestMonthProgress,
+                    restPercent: restTimeState.getRestMonthProgress,
                   ),
                   CardRestTimeCircularItem(
                     seasonName: AppString.year,
                     progressColor: AppWidgetColor.teal,
-                    restYearPercent: restTimeState.getRestYearProgress,
+                    restPercent: restTimeState.getRestYearProgress,
                   ),
                 ],
               );

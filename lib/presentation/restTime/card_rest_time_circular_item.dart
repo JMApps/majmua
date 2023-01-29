@@ -8,12 +8,12 @@ class CardRestTimeCircularItem extends StatelessWidget {
     Key? key,
     required this.seasonName,
     required this.progressColor,
-    required this.restYearPercent,
+    required this.restPercent,
   }) : super(key: key);
 
   final String seasonName;
   final Color progressColor;
-  final double restYearPercent;
+  final double restPercent;
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +28,11 @@ class CardRestTimeCircularItem extends StatelessWidget {
           lineWidth: 3,
           circularStrokeCap: CircularStrokeCap.round,
           progressColor: progressColor,
-          percent: restYearPercent / 100,
+          percent: restPercent <= 100.0 ? restPercent / 100 : 1.0,
           center: ItemTextRestTimeIndicator(
             title: seasonName,
             color: progressColor,
-            percent: restYearPercent,
+            percent: restPercent,
           ),
         ),
       ),

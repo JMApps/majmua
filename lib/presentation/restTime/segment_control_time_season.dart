@@ -14,12 +14,12 @@ class SegmentControlTimeSeason extends StatelessWidget {
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
     return IgnorePointer(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Consumer<RestTimeState>(
-            builder: (BuildContext context, restTimeState, _) {
-              return CupertinoSlidingSegmentedControl<Season>(
+      child: Consumer<RestTimeState>(
+        builder: (BuildContext context, restTimeState, _) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              CupertinoSlidingSegmentedControl<Season>(
                 thumbColor: appColors.glassOnGlassCardColor,
                 groupValue: restTimeState.getCurrentSeason,
                 children: const <Season, Widget>{
@@ -29,16 +29,16 @@ class SegmentControlTimeSeason extends StatelessWidget {
                   Season.winter: Text(AppString.winter),
                 },
                 onValueChanged: (Season? value) {},
-              );
-            },
-          ),
-          const SizedBox(height: 8),
-          LinearPercentIndicator(
-            percent: 0.56,
-            progressColor: Colors.white,
-            barRadius: const Radius.circular(25),
-          ),
-        ],
+              ),
+              const SizedBox(height: 8),
+              LinearPercentIndicator(
+                percent: restTimeState.getRestSeasonProgress  < 100.0 ? restTimeState.getRestSeasonProgress / 100 : 1.0,
+                progressColor: appColors.secondAppColor,
+                barRadius: const Radius.circular(25),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

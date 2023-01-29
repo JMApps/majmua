@@ -9,6 +9,7 @@ class RestTimeState extends ChangeNotifier {
   DateTime _cdt = DateTime.now();
   HijriCalendar _chdt = HijriCalendar.now();
   late Timer _appTimer;
+  late bool _isLeapYear;
 
   RestTimeState() {
     _appTimer = Timer(
@@ -27,6 +28,7 @@ class RestTimeState extends ChangeNotifier {
         );
       },
     );
+    _isLeapYear = (_cdt.year % 4 == 0) && (_cdt.year % 100 != 0) || (_cdt.year % 400 == 0);
   }
 
   DateTime get getCdt => _cdt;
@@ -41,12 +43,58 @@ class RestTimeState extends ChangeNotifier {
 
   double get getRestYearProgress {
     late double restYear;
-    if (getMinutesOfYear <= 525600) {
+    if (!_isLeapYear) {
       restYear = getMinutesOfYear * 24 * 60 / 7568640.0;
     } else {
       restYear = getMinutesOfYear * 24 * 60 / 7589376.0;
     }
     return restYear;
+  }
+
+  double get getRestSeasonProgress {
+    double firstSeasonSum = _isLeapYear ? 1886976.0 : 1866240.0;
+    double secondThirdSeasonSum = 1907712.0;
+    double fourthSeasonSum = 1886976.0;
+    late double season;
+    switch (_cdt.month) {
+      case 12:
+        season = getMinutesOfMonth * 24 * 60 / firstSeasonSum;
+        break;
+      case 1:
+        season = (44640 + getMinutesOfMonth) * 24 * 60 / firstSeasonSum;
+        break;
+      case 2:
+        season = (44640 + 44640 + getMinutesOfMonth) * 24 * 60 / firstSeasonSum;
+        break;
+      case 3:
+        season = getMinutesOfMonth * 24 * 60 / secondThirdSeasonSum;
+        break;
+      case 4:
+        season = (44640 + getMinutesOfMonth) * 24 * 60 / secondThirdSeasonSum;
+        break;
+      case 5:
+        season = (44640 + 43200 + getMinutesOfMonth) * 24 * 60 / secondThirdSeasonSum;
+        break;
+      case 6:
+        season = getMinutesOfMonth * 24 * 60 / secondThirdSeasonSum;
+        break;
+      case 7:
+        season = (43200 + getMinutesOfMonth) * 24 * 60 / secondThirdSeasonSum;
+        break;
+      case 8:
+        season = (43200 + 44640 + getMinutesOfMonth) * 24 * 60 / secondThirdSeasonSum;
+        break;
+      case 9:
+        season = getMinutesOfMonth * 24 * 60 / fourthSeasonSum;
+        break;
+      case 10:
+        season = (43200 + getMinutesOfMonth) * 24 * 60 / fourthSeasonSum;
+        break;
+      case 11:
+        season = (43200 + 44640 + getMinutesOfMonth) * 24 * 60 / fourthSeasonSum;
+        break;
+    }
+    return season;
   }
 
   double get getRestMonthProgress {
@@ -69,28 +117,29 @@ class RestTimeState extends ChangeNotifier {
   }
 
   double get getRestWeekProgress {
+    double weekSum = 145152;
     late double seasonWeek;
     switch (_cdt.weekday) {
       case 1:
-        seasonWeek = getMinutesOfDay * 24 * 60 / 145152;
+        seasonWeek = getMinutesOfDay * 24 * 60 / weekSum;
         break;
       case 2:
-        seasonWeek = (1440 + getMinutesOfDay) * 24 * 60 / 145152;
+        seasonWeek = (1440 + getMinutesOfDay) * 24 * 60 / weekSum;
         break;
       case 3:
-        seasonWeek = (2880 + getMinutesOfDay) * 24 * 60 / 145152;
+        seasonWeek = (2880 + getMinutesOfDay) * 24 * 60 / weekSum;
         break;
       case 4:
-        seasonWeek = (4320 + getMinutesOfDay) * 24 * 60 / 145152;
+        seasonWeek = (4320 + getMinutesOfDay) * 24 * 60 / weekSum;
         break;
       case 5:
-        seasonWeek = (5760 + getMinutesOfDay) * 24 * 60 / 145152;
+        seasonWeek = (5760 + getMinutesOfDay) * 24 * 60 / weekSum;
         break;
       case 6:
-        seasonWeek = (7200 + getMinutesOfDay) * 24 * 60 / 145152;
+        seasonWeek = (7200 + getMinutesOfDay) * 24 * 60 / weekSum;
         break;
       case 7:
-        seasonWeek = (8640 + getMinutesOfDay) * 24 * 60 / 145152;
+        seasonWeek = (8640 + getMinutesOfDay) * 24 * 60 / weekSum;
         break;
     }
     return seasonWeek;
