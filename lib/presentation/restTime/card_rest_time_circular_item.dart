@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/presentation/restTime/item_text_rest_time_indicator.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
@@ -16,8 +17,10 @@ class CardRestTimeCircularItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: const CircleBorder(),
+    final ColorScheme appColors = Theme.of(context).colorScheme;
+    return CircleAvatar(
+      backgroundColor: appColors.glassOnGlassCardColor,
+      radius: 40,
       child: Padding(
         padding: const EdgeInsets.all(5),
         child: CircularPercentIndicator(

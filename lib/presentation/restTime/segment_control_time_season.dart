@@ -4,6 +4,7 @@ import 'package:majmua/application/other/enums/season.dart';
 import 'package:majmua/application/state/rest_time_state.dart';
 import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/themes/app_theme.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:provider/provider.dart';
 
 class SegmentControlTimeSeason extends StatelessWidget {
@@ -12,11 +13,11 @@ class SegmentControlTimeSeason extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        IgnorePointer(
-          child: Consumer<RestTimeState>(
+    return IgnorePointer(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Consumer<RestTimeState>(
             builder: (BuildContext context, restTimeState, _) {
               return CupertinoSlidingSegmentedControl<Season>(
                 thumbColor: appColors.glassOnGlassCardColor,
@@ -31,8 +32,14 @@ class SegmentControlTimeSeason extends StatelessWidget {
               );
             },
           ),
-        ),
-      ],
+          const SizedBox(height: 8),
+          LinearPercentIndicator(
+            percent: 0.56,
+            progressColor: Colors.white,
+            barRadius: const Radius.circular(25),
+          ),
+        ],
+      ),
     );
   }
 }
