@@ -22,6 +22,7 @@ class CardDates extends StatelessWidget {
               child: Consumer<RestTimeState>(
                 builder: (BuildContext context, restTimeState, _) {
                   return Wrap(
+                    spacing: 8,
                     runSpacing: 8,
                     children: [
                       Card(
@@ -54,20 +55,21 @@ class CardDates extends StatelessWidget {
                   direction: Axis.vertical,
                   crossAxisAlignment: WrapCrossAlignment.center,
                   spacing: 8,
+                  runSpacing: 8,
                   children: [
                     IconButton(
                       onPressed: () {
                         weeklySalawatState.changeSalawatCount();
                       },
-                      splashColor: appColors.secondAppColor,
-                      splashRadius: 35,
+                      splashColor: appColors.thirdAppColor,
+                      splashRadius: 45,
                       iconSize: 85,
                       visualDensity: const VisualDensity(vertical: -4),
                       padding: EdgeInsets.zero,
                       icon: Image.asset(
                         'assets/images/salawat.png',
-                        width: 100,
-                        height: 100,
+                        width: 115,
+                        height: 115,
                         fit: BoxFit.cover,
                         colorBlendMode: BlendMode.srcATop,
                         color: context.watch<RestTimeState>().getCdt.weekday == 5

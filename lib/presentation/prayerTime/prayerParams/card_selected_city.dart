@@ -42,7 +42,7 @@ class CardSelectedCity extends StatelessWidget {
                         text: prayerTimeState.getCity,
                         style: TextStyle(
                           fontSize: 18,
-                          color: appColors.firstAppColor,
+                          color: appColors.thirdAppColor,
                           fontFamily: 'Nexa',
                           fontWeight: FontWeight.bold,
                         ),
@@ -82,7 +82,7 @@ class CardSelectedCity extends StatelessWidget {
                             '${prayerTimeState.getLatitude.toStringAsFixed(5)}\n',
                         style: TextStyle(
                           fontSize: 18,
-                          color: appColors.firstAppColor,
+                          color: appColors.thirdAppColor,
                           fontFamily: 'Lato',
                           fontWeight: FontWeight.bold,
                         ),
@@ -99,7 +99,7 @@ class CardSelectedCity extends StatelessWidget {
                         text: prayerTimeState.getLongitude.toStringAsFixed(5),
                         style: TextStyle(
                           fontSize: 18,
-                          color: appColors.firstAppColor,
+                          color: appColors.thirdAppColor,
                           fontFamily: 'Lato',
                           fontWeight: FontWeight.bold,
                         ),
