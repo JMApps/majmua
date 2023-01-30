@@ -18,8 +18,8 @@ class ChooseAnotherCityButton extends StatelessWidget {
       child: const Text(
         AppString.selectAnotherCity,
         style: TextStyle(
-          fontSize: 17,
           color: Colors.white,
+          fontSize: 17,
         ),
       ),
     );

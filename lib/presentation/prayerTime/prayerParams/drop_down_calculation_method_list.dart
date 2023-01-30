@@ -30,7 +30,7 @@ class DropDownCalculationMethodList extends StatelessWidget {
               ),
               underline: const SizedBox(),
               onChanged: (String? value) {
-                context.read<PrayerTimeState>().setCalculationMethod = AppString.calculationMethodNames.indexOf(value!);
+                prayerTimeState.setCalculationMethod = AppString.calculationMethodNames.indexOf(value!);
               },
               items: AppString.calculationMethodNames.map<DropdownMenuItem<String>>(
                 (String value) {

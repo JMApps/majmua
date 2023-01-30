@@ -133,8 +133,7 @@ class _CardAddCityState extends State<CardAddCity> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 8),
-            Consumer<PrayerTimeState>(
-                builder: (BuildContext context, prayerTimeState, _) {
+            Consumer<PrayerTimeState>(builder: (BuildContext context, prayerTimeState, _) {
               return MaterialButton(
                 onPressed: () {
                   Navigator.pop(context);
@@ -157,8 +156,8 @@ class _CardAddCityState extends State<CardAddCity> {
                           AppString.added,
                           style: TextStyle(
                             color: Colors.white,
-                            fontFamily: 'Nexa',
                             fontSize: 16,
+                            fontFamily: 'Nexa',
                           ),
                         ),
                       ),
@@ -170,8 +169,8 @@ class _CardAddCityState extends State<CardAddCity> {
                 child: const Text(
                   AppString.add,
                   style: TextStyle(
-                    fontSize: 16,
                     color: Colors.white,
+                    fontSize: 16,
                   ),
                 ),
               );

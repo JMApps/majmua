@@ -26,11 +26,11 @@ class AppString {
   static const String midnight = 'Полночь:';
 
   // Params
-  static const String params = 'Параметры';
+  static const String params = 'Параметры расчётов';
   static const String selectedCity = 'Выбранный город:';
   static const String coordinates = 'Координаты:';
   static const String latitude = 'Широта:';
-  static const String enterLatitude = 'Введите широту разделив точкой';
+  static const String longitude = 'Долгота:';
 
   static const String calculatePrayerMethod = 'Метод расчёта времени молитв';
 
@@ -50,6 +50,49 @@ class AppString {
     'Turkey',
     'Singapore',
   ];
+
+  static const String calculateAsrMethod = 'Метод расчёта молитвы аср';
+  static const String madhabShafi = 'Шафии';
+  static const String madhabHanafi = 'Ханафи';
+
+  static const String dateTimeOffset = 'Часовой пояс';
+  static const String minusHour = '-1';
+  static const String defaultOffset = 'По умолчанию';
+  static const String plusHour = '+1';
+
+  static const String selectAnotherCity = 'Выбрать другой город';
+  static const String selectionCity = 'Выбор города';
+  static const String selectCityErrorLoadData = 'При загрузке данных произошла ошибка.\nОчистите данные приложения';
+  static const String searchCities = 'Поиск городов';
+  static const String searchQueryIsEmpty = 'По вашему запросу ничего не найдно';
+
+  static const String addCity = 'Добавить город';
+  static const String addingCity = 'Добавление города';
+  static const String listCitiesIsEmpty = 'Вы не добавили ни одного города';
+  static const String add = 'Добавить';
+  static const String added = 'Добавлено';
+  static const String countryName = 'Название страны';
+  static const String enterCountryName = 'Введите название страны';
+  static const String cityName = 'Название города';
+  static const String enterCityName = 'Введите название города';
+  static const String enterLatitude = 'Введите широту разделив точкой';
+  static const String enterLongitude = 'Введите долготу разделив точкой';
+  static const String change = 'Изменить';
+  static const String changed = 'Изменено';
+  static const String delete = 'Удалить';
+  static const String deleted = 'Удалено';
+  static const String cancel = 'Отмена';
+  static const String canceled = 'Отменено';
+  static const String select = 'Выбрать';
+  static const String selected = 'Выбрано';
+
+  static const String addCountryCoordinatesInformation = 'Чтобы программа могла рассчитать время молитв, вводимые коррдинаты должны быть корректными. Например:\nШирота: 21.3924\nДолгота: 39.8579';
+
+  static const String prayerTimeMethodInformation = 'Информация';
+  static const String prayerTimeMethodDescription = 'Пожалуйста, уточняйте, какой метод используется в вашей местности и если он доступен в приложении, то выберите его. Обязательно настраивайте часовой пояс под вашу местность. Разница в несколько минут с местным расписанием не говорит о том, что вычисление неправильное, вы можете отрегулировать минуты вручную в настройках.';
+  static const String qiblaDegrees = 'Направление киблы (beta)';
+  static const String qiblaOn = 'Кибла на';
+
 
   static const List<String> monthHijriNames = [
     'Мухаррам',
@@ -120,46 +163,6 @@ class AppString {
     'Время Корана',
     'Завтра день желательного поста',
   ];
-
-  static const String longitude = 'Долгота:';
-  static const String enterLongitude = 'Введите долготу разделив точкой';
-  static const String calculateAsrMethod = 'Метод расчёта молитвы аср';
-  static const String madhabShafi = 'Шафии';
-
-  static const String madhabHanafi = 'Ханафи';
-  static const String dateTimeOffset = 'Часовой пояс';
-  static const String minusHour = '-1';
-  static const String defaultOffset = 'По умолчанию';
-  static const String plusHour = '+1';
-
-  static const String selectAnotherCity = 'Выбрать другой город';
-  static const String selectionCity = 'Выбор города';
-  static const String selectCityErrorLoadData = 'При загрузке данных произошла ошибка.\nОчистите данные приложения';
-  static const String searchCities = 'Поиск городов';
-  static const String searchQueryIsEmpty = 'По вашему запросу ничего не найдно';
-
-  static const String addCity = 'Добавить город';
-  static const String addingCity = 'Добавление города';
-  static const String listCitiesIsEmpty = 'Вы не добавили ни одного города';
-  static const String add = 'Добавить';
-  static const String added = 'Добавлено';
-  static const String countryName = 'Название страны';
-  static const String enterCountryName = 'Введите название страны';
-  static const String cityName = 'Название города';
-  static const String enterCityName = 'Введите название города';
-  static const String change = 'Изменить';
-  static const String changed = 'Изменено';
-  static const String delete = 'Удалить';
-  static const String deleted = 'Удалено';
-  static const String cancel = 'Отмена';
-  static const String canceled = 'Отменено';
-  static const String select = 'Выбрать';
-  static const String selected = 'Выбрано';
-
-  static const String addCountryCoordinatesInformation = 'Чтобы программа могла рассчитать время молитв, вводимые коррдинаты должны быть корректными. Например:\nШирота: 21.3924\nДолгота: 39.8579';
-
-  static const String prayerTimeMethodInformation = 'Информация';
-  static const String prayerTimeMethodDescription = 'Пожалуйста, уточняйте, какой метод используется в вашей местности и если он доступен в приложении, то выберите его. Обязательно настраивайте часовой пояс под вашу местность. Разница в несколько минут с местным расписанием не говорит о том, что вычисление неправильное, вы можете отрегулировать минуты вручную в настройках.';
 
   // Holidays
   static const String restRamadan = 'Осталось дней до Рамадана';

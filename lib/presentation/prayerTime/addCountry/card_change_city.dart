@@ -152,6 +152,7 @@ class _CardChangeCityState extends State<CardChangeCity> {
               builder: (BuildContext context, prayerTimeState, _) {
                 return MaterialButton(
                   onPressed: () {
+                    Navigator.pop(context);
                     if (_formCountryKey.currentState!.validate() &&
                         _formCityKey.currentState!.validate() &&
                         _formLatitudeKey.currentState!.validate() &&
@@ -176,13 +177,12 @@ class _CardChangeCityState extends State<CardChangeCity> {
                             AppString.changed,
                             style: TextStyle(
                               color: Colors.white,
-                              fontFamily: 'Nexa',
                               fontSize: 16,
+                              fontFamily: 'Nexa',
                             ),
                           ),
                         ),
                       );
-                      Navigator.pop(context);
                     }
                   },
                   color: appColors.thirdAppColor,
@@ -190,8 +190,8 @@ class _CardChangeCityState extends State<CardChangeCity> {
                   child: const Text(
                     AppString.change,
                     style: TextStyle(
-                      fontSize: 16,
                       color: Colors.white,
+                      fontSize: 16,
                     ),
                   ),
                 );

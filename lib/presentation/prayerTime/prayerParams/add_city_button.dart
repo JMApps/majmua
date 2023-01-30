@@ -18,8 +18,8 @@ class AddCityButton extends StatelessWidget {
       child: const Text(
         AppString.addCity,
         style: TextStyle(
-          fontSize: 17,
           color: Colors.white,
+          fontSize: 17,
         ),
       ),
     );

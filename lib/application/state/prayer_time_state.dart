@@ -8,12 +8,13 @@ import 'package:majmua/data/database/queries/default_custom_country_query.dart';
 
 class PrayerTimeState extends ChangeNotifier {
   DateTime _cdt = DateTime.now().toLocal();
-  final DefaultCustomCountryQuery _defaultCustomCountryQuery =
-      DefaultCustomCountryQuery();
+  final DefaultCustomCountryQuery _defaultCustomCountryQuery = DefaultCustomCountryQuery();
   final _mainSettingsBox = Hive.box(AppConstants.keySettingsPrayerTimeBox);
   late Timer _timer;
   late PrayerTimes _prayerTimes;
   late CalculationParameters _prayerParams;
+  late SunnahTimes _sunnahTimes;
+  late Qibla _qibla;
 
   late String _country;
   late String _city;
@@ -27,9 +28,9 @@ class PrayerTimeState extends ChangeNotifier {
   final List<CalculationMethod> _calculationMethods = [
     CalculationMethod.umm_al_qura,
     CalculationMethod.north_america,
-    // CalculationMethod.russia,
-    // CalculationMethod.tatarstan,
-    // CalculationMethod.france,
+    CalculationMethod.russia,
+    CalculationMethod.tatarstan,
+    CalculationMethod.france,
     CalculationMethod.dubai,
     CalculationMethod.egyptian,
     CalculationMethod.karachi,
@@ -52,8 +53,7 @@ class PrayerTimeState extends ChangeNotifier {
     Madhab.hanafi,
   ];
 
-  int get getMinutesOfDay =>
-      _cdt.difference(DateTime(_cdt.year, _cdt.month, _cdt.day)).inMinutes;
+  int get getMinutesOfDay => _cdt.difference(DateTime(_cdt.year, _cdt.month, _cdt.day)).inMinutes;
 
   PrayerTimeState() {
     _timer = Timer(
@@ -71,20 +71,15 @@ class PrayerTimeState extends ChangeNotifier {
       },
     );
 
-    _country = _mainSettingsBox.get(AppConstants.keyCountry,
-        defaultValue: 'Saudi Arabia');
+    _country = _mainSettingsBox.get(AppConstants.keyCountry, defaultValue: 'Saudi Arabia');
     _city = _mainSettingsBox.get(AppConstants.keyCity, defaultValue: 'Mecca');
-    _calculationMethodIndex =
-        _mainSettingsBox.get(AppConstants.keyCalculationIndex, defaultValue: 1);
-    _madhabIndex =
-        _mainSettingsBox.get(AppConstants.keyMadhabIndex, defaultValue: 0);
-    _latitude = _mainSettingsBox.get(AppConstants.keyCurrentLatitude,
-        defaultValue: 21.392425120226704);
-    _longitude = _mainSettingsBox.get(AppConstants.keyCurrentLongitude,
-        defaultValue: 39.85797038428307);
+    _calculationMethodIndex = _mainSettingsBox.get(AppConstants.keyCalculationIndex, defaultValue: 10);
+    _madhabIndex = _mainSettingsBox.get(AppConstants.keyMadhabIndex, defaultValue: 0);
+    _latitude = _mainSettingsBox.get(AppConstants.keyCurrentLatitude, defaultValue: 21.392425120226704);
+    _longitude = _mainSettingsBox.get(AppConstants.keyCurrentLongitude, defaultValue: 39.85797038428307);
     _coordinates = Coordinates(_latitude, _longitude);
-    _timeOffsetIndex =
-        _mainSettingsBox.get(AppConstants.keyUtcOffsetIndex, defaultValue: 1);
+    _timeOffsetIndex = _mainSettingsBox.get(AppConstants.keyUtcOffsetIndex, defaultValue: 1);
+    _qibla = Qibla(_coordinates);
 
     initPrayerTime(
       calculationMethodIndex: _calculationMethodIndex,
@@ -109,6 +104,8 @@ class PrayerTimeState extends ChangeNotifier {
       _prayerParams,
       utcOffset: _calculationUtcOffset[_timeOffsetIndex],
     );
+    _sunnahTimes = SunnahTimes(_prayerTimes);
+    _qibla = Qibla(_coordinates);
   }
 
   set setCountry(String newCountry) {
@@ -135,8 +132,7 @@ class PrayerTimeState extends ChangeNotifier {
       coordinates: _coordinates,
       timeOffsetIndex: _timeOffsetIndex,
     );
-    _mainSettingsBox.put(
-        AppConstants.keyCalculationIndex, newCalculationMethodIndex);
+    _mainSettingsBox.put(AppConstants.keyCalculationIndex, newCalculationMethodIndex);
     notifyListeners();
   }
 
@@ -167,8 +163,7 @@ class PrayerTimeState extends ChangeNotifier {
       timeOffsetIndex: _timeOffsetIndex,
     );
     _mainSettingsBox.put(AppConstants.keyCurrentLatitude, coordinates.latitude);
-    _mainSettingsBox.put(
-        AppConstants.keyCurrentLongitude, coordinates.longitude);
+    _mainSettingsBox.put(AppConstants.keyCurrentLongitude, coordinates.longitude);
     notifyListeners();
   }
 
@@ -192,23 +187,17 @@ class PrayerTimeState extends ChangeNotifier {
 
   int get getTimeOffsetIndex => _timeOffsetIndex;
 
-  int get getFajrValueInMinutes =>
-      _prayerValueInMinutes(prayerTime: _prayerTimes.fajr);
+  int get getFajrValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.fajr);
 
-  int get getSunriseValueInMinutes =>
-      _prayerValueInMinutes(prayerTime: _prayerTimes.sunrise);
+  int get getSunriseValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.sunrise);
 
-  int get getDhuhrValueInMinutes =>
-      _prayerValueInMinutes(prayerTime: _prayerTimes.dhuhr);
+  int get getDhuhrValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.dhuhr);
 
-  int get getAsrValueInMinutes =>
-      _prayerValueInMinutes(prayerTime: _prayerTimes.asr);
+  int get getAsrValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.asr);
 
-  int get getMaghribValueInMinutes =>
-      _prayerValueInMinutes(prayerTime: _prayerTimes.maghrib);
+  int get getMaghribValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.maghrib);
 
-  int get getIshaValueInMinutes =>
-      _prayerValueInMinutes(prayerTime: _prayerTimes.isha);
+  int get getIshaValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.isha);
 
   DateTime toPrayerTime(Prayer prayer) {
     final DateTime toPrayer = DateTime(
@@ -241,27 +230,14 @@ class PrayerTimeState extends ChangeNotifier {
   }
 
   DateTime get getThirdNightPart {
-    double thirdValue = (1440 - getIshaValueInMinutes + getFajrValueInMinutes) * 60 / 3;
-    double value = (getFajrValueInMinutes * 60) - thirdValue;
-    int hour, minute;
-    hour = value ~/ 3600;
-    minute = ((value - hour * 3600)) ~/ 60;
-    DateTime result = DateTime(_cdt.year, _cdt.month, _cdt.day, hour, minute);
-    return result;
+    return _sunnahTimes.lastThirdOfTheNight;
   }
 
   DateTime get getMidnight {
-    double thirdValue = (1440 - (getIshaValueInMinutes + getFajrValueInMinutes)) * 60 / 2;
-    double value = (getFajrValueInMinutes * 60) - thirdValue;
-    int hour, minute;
-    hour = value ~/ 3600;
-    minute = ((value - hour * 3600)) ~/ 60;
-    DateTime result = DateTime(_cdt.year, _cdt.month, _cdt.day, hour, minute);
-    return result;
+    return _sunnahTimes.middleOfTheNight;
   }
 
-  DefaultCustomCountryQuery get defaultCustomCountryQuery =>
-      _defaultCustomCountryQuery;
+  DefaultCustomCountryQuery get defaultCustomCountryQuery => _defaultCustomCountryQuery;
 
   set createCity(Map<String, String> newCity) {
     _defaultCustomCountryQuery.createCity(newCity: newCity);
@@ -283,6 +259,10 @@ class PrayerTimeState extends ChangeNotifier {
     isFriday = _cdt.weekday == 4 && getMinutesOfDay > getMaghribValueInMinutes ||
         _cdt.weekday == 5 && getMinutesOfDay < getMaghribValueInMinutes;
     return isFriday;
+  }
+
+  double get getQiblaCoordinates {
+    return _qibla.direction;
   }
 
   int _prayerValueInMinutes({required DateTime prayerTime}) {

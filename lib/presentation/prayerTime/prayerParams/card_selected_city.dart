@@ -12,105 +12,101 @@ class CardSelectedCity extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     return Card(
       color: appColors.mainReverse,
-      child: Column(
-        children: [
-          ListTile(
-            visualDensity: const VisualDensity(vertical: -4),
-            title: const Text(
-              AppString.selectedCity,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            subtitle: Consumer<PrayerTimeState>(
-              builder: (BuildContext context, prayerTimeState, _) {
-                return RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: '${prayerTimeState.getCountry}, ',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: appColors.mainTextColor,
-                          fontFamily: 'Nexa',
-                        ),
-                      ),
-                      TextSpan(
-                        text: prayerTimeState.getCity,
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: appColors.thirdAppColor,
-                          fontFamily: 'Nexa',
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
-          ),
-          ListTile(
-            visualDensity: const VisualDensity(vertical: -4),
-            title: const Text(
-              AppString.coordinates,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            subtitle: Consumer<PrayerTimeState>(
-              builder: (BuildContext context, prayerTimeState, _) {
-                return RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: '${AppString.latitude} ',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: appColors.mainTextColor,
-                          fontFamily: 'Nexa',
-                        ),
-                      ),
-                      TextSpan(
-                        text:
-                            '${prayerTimeState.getLatitude.toStringAsFixed(5)}\n',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: appColors.thirdAppColor,
-                          fontFamily: 'Lato',
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      TextSpan(
-                        text: '${AppString.longitude} ',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: appColors.mainTextColor,
-                          fontFamily: 'Nexa',
-                        ),
-                      ),
-                      TextSpan(
-                        text: prayerTimeState.getLongitude.toStringAsFixed(5),
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: appColors.thirdAppColor,
-                          fontFamily: 'Lato',
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
+      child: Consumer<PrayerTimeState>(
+          builder: (BuildContext context, prayerTimeState, _) {
+           return Column(
+             children: [
+               ListTile(
+                 visualDensity: const VisualDensity(vertical: -4),
+                 title: const Text(
+                   AppString.selectedCity,
+                   style: TextStyle(
+                     fontWeight: FontWeight.bold,
+                     fontSize: 18,
+                   ),
+                   textAlign: TextAlign.center,
+                 ),
+                 subtitle: RichText(
+                   textAlign: TextAlign.center,
+                   text: TextSpan(
+                     children: [
+                       TextSpan(
+                         text: '${prayerTimeState.getCountry}, ',
+                         style: TextStyle(
+                           color: appColors.mainTextColor,
+                           fontSize: 18,
+                           fontFamily: 'Nexa',
+                         ),
+                       ),
+                       TextSpan(
+                         text: prayerTimeState.getCity,
+                         style: TextStyle(
+                           color: appColors.thirdAppColor,
+                           fontSize: 18,
+                           fontWeight: FontWeight.bold,
+                           fontFamily: 'Nexa',
+                         ),
+                       ),
+                     ],
+                   ),
+                 ),
+               ),
+               ListTile(
+                 visualDensity: const VisualDensity(vertical: -4),
+                 title: const Text(
+                   AppString.coordinates,
+                   style: TextStyle(
+                     fontSize: 18,
+                     fontWeight: FontWeight.bold,
+                   ),
+                   textAlign: TextAlign.center,
+                 ),
+                 subtitle: RichText(
+                   textAlign: TextAlign.center,
+                   text: TextSpan(
+                     children: [
+                       TextSpan(
+                         text: '${AppString.latitude} ',
+                         style: TextStyle(
+                           color: appColors.mainTextColor,
+                           fontSize: 18,
+                           fontFamily: 'Nexa',
+                         ),
+                       ),
+                       TextSpan(
+                         text:
+                         '${prayerTimeState.getLatitude.toStringAsFixed(5)}\n',
+                         style: TextStyle(
+                           color: appColors.thirdAppColor,
+                           fontSize: 18,
+                           fontWeight: FontWeight.bold,
+                           fontFamily: 'Lato',
+                         ),
+                       ),
+                       TextSpan(
+                         text: '${AppString.longitude} ',
+                         style: TextStyle(
+                           color: appColors.mainTextColor,
+                           fontSize: 18,
+                           fontFamily: 'Nexa',
+                         ),
+                       ),
+                       TextSpan(
+                         text: prayerTimeState.getLongitude.toStringAsFixed(5),
+                         style: TextStyle(
+                           color: appColors.thirdAppColor,
+                           fontSize: 18,
+                           fontWeight: FontWeight.bold,
+                           fontFamily: 'Lato',
+                         ),
+                       ),
+                     ],
+                   ),
+                 ),
+               ),
+             ],
+           );
+          }
       ),
     );
   }

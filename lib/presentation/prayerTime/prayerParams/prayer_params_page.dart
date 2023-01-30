@@ -6,6 +6,7 @@ import 'package:majmua/presentation/prayerTime/prayerParams/card_selected_city.d
 import 'package:majmua/presentation/prayerTime/prayerParams/choose_another_city_button.dart';
 import 'package:majmua/presentation/prayerTime/prayerParams/drop_down_calculation_method_list.dart';
 import 'package:majmua/presentation/prayerTime/prayerParams/prayer_time_info_button.dart';
+import 'package:majmua/presentation/prayerTime/prayerParams/qibla_degrees_button.dart';
 import 'package:majmua/presentation/prayerTime/prayerParams/segment_control_date_time_offset.dart';
 import 'package:majmua/presentation/prayerTime/prayerParams/segment_control_madhab.dart';
 
@@ -23,7 +24,7 @@ class PrayerParamsPage extends StatelessWidget {
             elevation: 0,
             centerTitle: true,
             title: Text(
-              AppString.appName,
+              AppString.params,
             ),
           ),
           SliverToBoxAdapter(
@@ -69,6 +70,7 @@ class PrayerParamsPage extends StatelessWidget {
                   SizedBox(height: 16),
                   ChooseAnotherCityButton(),
                   AddCityButton(),
+                  QiblaDegreesButton(),
                   PrayerTimeInfoButton(),
                 ],
               ),

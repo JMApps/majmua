@@ -42,19 +42,19 @@ class MainCardAdhanTime extends StatelessWidget {
                                 TextSpan(
                                   text: '${prayerTimeState.getCountry}, ',
                                   style: TextStyle(
-                                    fontSize: 15,
-                                    fontFamily: 'Nexa',
-                                    fontWeight: FontWeight.bold,
                                     color: appColors.mainTextColor,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Nexa',
                                   ),
                                 ),
                                 TextSpan(
                                   text: prayerTimeState.getCity,
                                   style: TextStyle(
-                                    fontSize: 15,
-                                    fontFamily: 'Nexa',
-                                    fontWeight: FontWeight.bold,
                                     color: appColors.firstAppColor,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Nexa',
                                   ),
                                 ),
                               ],

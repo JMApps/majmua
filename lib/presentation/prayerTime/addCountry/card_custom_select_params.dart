@@ -34,12 +34,14 @@ class CardCustomSelectParams extends StatelessWidget {
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.of(context).pop();
-                    context.read<PrayerTimeState>().setCoordinates = Coordinates(
+                    print('INF = ${double.parse(item.longitude).isInfinite}');
+                    print('NAN = ${double.parse(item.longitude).isNaN}');
+                    prayerTimeState.setCountry = item.country;
+                    prayerTimeState.setCity = item.city;
+                    prayerTimeState.setCoordinates = Coordinates(
                       double.parse(item.latitude).abs(),
                       double.parse(item.longitude).abs(),
                     );
-                    context.read<PrayerTimeState>().setCountry = item.country;
-                    context.read<PrayerTimeState>().setCity = item.city;
                   },
                   shape: AppWidgetStyle.mainRectangleBorder,
                   visualDensity: const VisualDensity(vertical: -4),

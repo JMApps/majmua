@@ -29,35 +29,35 @@ class CardSelectedCoordinates extends StatelessWidget {
                 TextSpan(
                   text: '${AppString.latitude} ',
                   style: TextStyle(
-                    fontSize: 18,
                     color: appColors.mainTextColor,
+                    fontSize: 18,
                     fontFamily: 'Nexa',
                   ),
                 ),
                 TextSpan(
                   text: '${prayerTimeState.getLatitude.toStringAsFixed(5)}\n',
                   style: TextStyle(
-                    fontSize: 18,
                     color: appColors.firstAppColor,
-                    fontFamily: 'Lato',
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
+                    fontFamily: 'Lato',
                   ),
                 ),
                 TextSpan(
                   text: '${AppString.longitude} ',
                   style: TextStyle(
-                    fontSize: 18,
                     color: appColors.mainTextColor,
+                    fontSize: 18,
                     fontFamily: 'Nexa',
                   ),
                 ),
                 TextSpan(
                   text: prayerTimeState.getLongitude.toStringAsFixed(5),
                   style: TextStyle(
-                    fontSize: 18,
                     color: appColors.firstAppColor,
-                    fontFamily: 'Lato',
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
+                    fontFamily: 'Lato',
                   ),
                 ),
               ],
