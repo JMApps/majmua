@@ -141,16 +141,16 @@ extension ColorSchemeS on ColorScheme {
       : const Color(0x8005071E);
 
   Color get springColor => brightness == Brightness.light
+      ? const Color(0xFF558B2F)
+      : const Color(0xFF8BC34A);
+
+  Color get summerColor => brightness == Brightness.light
       ? const Color(0xFF00695C)
       : const Color(0xFF009688);
 
-  Color get summerColor => brightness == Brightness.light
-      ? const Color(0xFFF9A825)
-      : const Color(0xFFFFEB3B);
-
   Color get fallColor => brightness == Brightness.light
-      ? const Color(0xFFD84315)
-      : const Color(0xFFFF5722);
+      ? const Color(0xFFEF6C00)
+      : const Color(0xFFFF9800);
 
   Color get winterColor => brightness == Brightness.light
       ? const Color(0xFF1565C0)

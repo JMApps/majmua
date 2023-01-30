@@ -22,7 +22,7 @@ class CardRestTimeCircularItem extends StatelessWidget {
       backgroundColor: appColors.glassOnGlassCardColor,
       radius: 40,
       child: Padding(
-        padding: const EdgeInsets.all(5),
+        padding: const EdgeInsets.all(4),
         child: CircularPercentIndicator(
           radius: 35,
           lineWidth: 3,

@@ -27,7 +27,7 @@ class MainCardRestTimeIndicators extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: 8),
             Consumer<RestTimeState>(builder: (BuildContext context, restTimeState, _) {
               return Wrap(
                 direction: Axis.horizontal,
