@@ -75,9 +75,9 @@ class PrayerTimeState extends ChangeNotifier {
     _city = _mainSettingsBox.get(AppConstants.keyCity, defaultValue: 'Mecca');
     _calculationMethodIndex = _mainSettingsBox.get(AppConstants.keyCalculationIndex, defaultValue: 10);
     _madhabIndex = _mainSettingsBox.get(AppConstants.keyMadhabIndex, defaultValue: 0);
-    _latitude = _mainSettingsBox.get(AppConstants.keyCurrentLatitude, defaultValue: 21.392425120226704);
-    _longitude = _mainSettingsBox.get(AppConstants.keyCurrentLongitude, defaultValue: 39.85797038428307);
-    _coordinates = Coordinates(_latitude, _longitude);
+    _latitude = _mainSettingsBox.get(AppConstants.keyCurrentLatitude, defaultValue: 21.392425);
+    _longitude = _mainSettingsBox.get(AppConstants.keyCurrentLongitude, defaultValue: 39.857970);
+    _coordinates = Coordinates(_latitude, _longitude, validate: false);
     _timeOffsetIndex = _mainSettingsBox.get(AppConstants.keyUtcOffsetIndex, defaultValue: 1);
     _qibla = Qibla(_coordinates);
 
@@ -200,13 +200,7 @@ class PrayerTimeState extends ChangeNotifier {
   int get getIshaValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.isha);
 
   DateTime toPrayerTime(Prayer prayer) {
-    final DateTime toPrayer = DateTime(
-        _cdt.year,
-        _cdt.month,
-        _cdt.day,
-        _prayerTimes.timeForPrayer(prayer)!.hour,
-        _prayerTimes.timeForPrayer(prayer)!.minute);
-    final int timeValue = (toPrayer.difference(_cdt).inMinutes + 1) * 60;
+    final int timeValue = (_prayerTimes.timeForPrayer(Prayer.asr)!.difference(_cdt).inMinutes + 1) * 60;
     int hour, minute;
     hour = timeValue ~/ 3600;
     minute = ((timeValue - hour * 3600)) ~/ 60;
@@ -215,13 +209,7 @@ class PrayerTimeState extends ChangeNotifier {
   }
 
   DateTime fromPrayerTime(Prayer prayer) {
-    final DateTime toPrayer = DateTime(
-        _cdt.year,
-        _cdt.month,
-        _cdt.day,
-        _prayerTimes.timeForPrayer(prayer)!.hour,
-        _prayerTimes.timeForPrayer(prayer)!.minute);
-    final int timeValue = (_cdt.difference(toPrayer).inMinutes) * 60;
+    final int timeValue = (_cdt.difference(_prayerTimes.timeForPrayer(prayer)!).inMinutes + 1) * 60;
     int hour, minute;
     hour = timeValue ~/ 3600;
     minute = ((timeValue - hour * 3600)) ~/ 60;

@@ -20,12 +20,12 @@ class ItemAnotherCity extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     return ListTile(
       onTap: () {
+        context.read<PrayerTimeState>().setCountry = item.country;
+        context.read<PrayerTimeState>().setCity = item.city;
         context.read<PrayerTimeState>().setCoordinates = Coordinates(
           double.parse(item.latitude).abs(),
           double.parse(item.longitude).abs(),
         );
-        context.read<PrayerTimeState>().setCountry = item.country;
-        context.read<PrayerTimeState>().setCity = item.city;
         Navigator.pop(context);
       },
       visualDensity: const VisualDensity(vertical: -4),

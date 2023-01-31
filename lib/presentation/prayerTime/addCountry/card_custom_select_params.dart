@@ -34,8 +34,6 @@ class CardCustomSelectParams extends StatelessWidget {
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.of(context).pop();
-                    print('INF = ${double.parse(item.longitude).isInfinite}');
-                    print('NAN = ${double.parse(item.longitude).isNaN}');
                     prayerTimeState.setCountry = item.country;
                     prayerTimeState.setCity = item.city;
                     prayerTimeState.setCoordinates = Coordinates(
