@@ -8,6 +8,7 @@ import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/presentation/prayerTime/item_card_adhan_name_time.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 class MainCardAdhanTime extends StatelessWidget {
   const MainCardAdhanTime({Key? key}) : super(key: key);
@@ -72,7 +73,13 @@ class MainCardAdhanTime extends StatelessWidget {
                     Card(
                       color: appColors.glassOnGlassCardColor,
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Share.share(
+                            prayerTimeState.getContentForShare,
+                            sharePositionOrigin:
+                                const Rect.fromLTWH(0, 0, 10, 10 / 2),
+                          );
+                        },
                         visualDensity: const VisualDensity(vertical: -4),
                         splashRadius: 17.5,
                         icon: const Icon(
@@ -90,25 +97,32 @@ class MainCardAdhanTime extends StatelessWidget {
                     ItemCardAdhanNameTime(
                       prayerName: AppString.fajr,
                       prayerTime: prayerTimeState.getPrayerTimes.fajr,
-                      currentPrayerTimeValue: prayerTimeState.getFajrValueInMinutes,
+                      currentPrayerTimeValue:
+                          prayerTimeState.getFajrValueInMinutes,
                       toPrayerTime: prayerTimeState.toPrayerTime(Prayer.fajr),
-                      fromPrayerTime: prayerTimeState.fromPrayerTime(Prayer.fajr),
+                      fromPrayerTime:
+                          prayerTimeState.fromPrayerTime(Prayer.fajr),
                     ),
                     const SizedBox(width: 8),
                     ItemCardAdhanNameTime(
                       prayerName: AppString.sunrise,
                       prayerTime: prayerTimeState.getPrayerTimes.sunrise,
-                      currentPrayerTimeValue: prayerTimeState.getSunriseValueInMinutes,
-                      toPrayerTime: prayerTimeState.toPrayerTime(Prayer.sunrise),
-                      fromPrayerTime: prayerTimeState.fromPrayerTime(Prayer.sunrise),
+                      currentPrayerTimeValue:
+                          prayerTimeState.getSunriseValueInMinutes,
+                      toPrayerTime:
+                          prayerTimeState.toPrayerTime(Prayer.sunrise),
+                      fromPrayerTime:
+                          prayerTimeState.fromPrayerTime(Prayer.sunrise),
                     ),
                     const SizedBox(width: 8),
                     ItemCardAdhanNameTime(
                       prayerName: AppString.dhuhr,
                       prayerTime: prayerTimeState.getPrayerTimes.dhuhr,
-                      currentPrayerTimeValue: prayerTimeState.getDhuhrValueInMinutes,
+                      currentPrayerTimeValue:
+                          prayerTimeState.getDhuhrValueInMinutes,
                       toPrayerTime: prayerTimeState.toPrayerTime(Prayer.dhuhr),
-                      fromPrayerTime: prayerTimeState.fromPrayerTime(Prayer.dhuhr),
+                      fromPrayerTime:
+                          prayerTimeState.fromPrayerTime(Prayer.dhuhr),
                     ),
                   ],
                 ),
@@ -119,25 +133,32 @@ class MainCardAdhanTime extends StatelessWidget {
                     ItemCardAdhanNameTime(
                       prayerName: AppString.asr,
                       prayerTime: prayerTimeState.getPrayerTimes.asr,
-                      currentPrayerTimeValue: prayerTimeState.getAsrValueInMinutes,
+                      currentPrayerTimeValue:
+                          prayerTimeState.getAsrValueInMinutes,
                       toPrayerTime: prayerTimeState.toPrayerTime(Prayer.asr),
-                      fromPrayerTime: prayerTimeState.fromPrayerTime(Prayer.asr),
+                      fromPrayerTime:
+                          prayerTimeState.fromPrayerTime(Prayer.asr),
                     ),
                     const SizedBox(width: 8),
                     ItemCardAdhanNameTime(
                       prayerName: AppString.maghrib,
                       prayerTime: prayerTimeState.getPrayerTimes.maghrib,
-                      currentPrayerTimeValue: prayerTimeState.getMaghribValueInMinutes,
-                      toPrayerTime: prayerTimeState.toPrayerTime(Prayer.maghrib),
-                      fromPrayerTime: prayerTimeState.fromPrayerTime(Prayer.maghrib),
+                      currentPrayerTimeValue:
+                          prayerTimeState.getMaghribValueInMinutes,
+                      toPrayerTime:
+                          prayerTimeState.toPrayerTime(Prayer.maghrib),
+                      fromPrayerTime:
+                          prayerTimeState.fromPrayerTime(Prayer.maghrib),
                     ),
                     const SizedBox(width: 8),
                     ItemCardAdhanNameTime(
                       prayerName: AppString.isha,
                       prayerTime: prayerTimeState.getPrayerTimes.isha,
-                      currentPrayerTimeValue: prayerTimeState.getIshaValueInMinutes,
+                      currentPrayerTimeValue:
+                          prayerTimeState.getIshaValueInMinutes,
                       toPrayerTime: prayerTimeState.toPrayerTime(Prayer.isha),
-                      fromPrayerTime: prayerTimeState.fromPrayerTime(Prayer.isha),
+                      fromPrayerTime:
+                          prayerTimeState.fromPrayerTime(Prayer.isha),
                     ),
                   ],
                 ),
@@ -158,7 +179,8 @@ class MainCardAdhanTime extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: DateFormat.Hm().format(prayerTimeState.getThirdNightPart),
+                            text: DateFormat.Hm()
+                                .format(prayerTimeState.getThirdNightPart),
                             style: TextStyle(
                               fontFamily: 'Lato',
                               color: appColors.secondAppColor,
@@ -187,7 +209,8 @@ class MainCardAdhanTime extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: DateFormat.Hm().format(prayerTimeState.getMidnight),
+                            text: DateFormat.Hm()
+                                .format(prayerTimeState.getMidnight),
                             style: TextStyle(
                               fontFamily: 'Lato',
                               color: appColors.firstAppColor,

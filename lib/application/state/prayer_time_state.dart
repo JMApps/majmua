@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:intl/intl.dart';
 import 'package:majmua/application/strings/app_constants.dart';
 import 'package:majmua/data/database/queries/default_custom_country_query.dart';
 
@@ -251,6 +252,24 @@ class PrayerTimeState extends ChangeNotifier {
 
   double get getQiblaCoordinates {
     return _qibla.direction;
+  }
+
+  String get getContentForShare {
+    late String content;
+    content = '''
+    $getCountry, $getCity
+    
+    Fajr: ${DateFormat.Hm().format(_prayerTimes.fajr)}
+    Sunrise: ${DateFormat.Hm().format(_prayerTimes.sunrise)}
+    Dhuhr: ${DateFormat.Hm().format(_prayerTimes.dhuhr)}
+    Asr: ${DateFormat.Hm().format(_prayerTimes.asr)}
+    Maghrib: ${DateFormat.Hm().format(_prayerTimes.maghrib)}
+    Isha: ${DateFormat.Hm().format(_prayerTimes.isha)}
+    
+    Last third: ${DateFormat.Hm().format(getThirdNightPart)}
+    Midnight: ${DateFormat.Hm().format(getMidnight)}
+    ''';
+    return content;
   }
 
   int _prayerValueInMinutes({required DateTime prayerTime}) {
