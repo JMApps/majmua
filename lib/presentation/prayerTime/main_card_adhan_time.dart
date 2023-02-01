@@ -76,8 +76,7 @@ class MainCardAdhanTime extends StatelessWidget {
                         onPressed: () {
                           Share.share(
                             prayerTimeState.getContentForShare,
-                            sharePositionOrigin:
-                                const Rect.fromLTWH(0, 0, 10, 10 / 2),
+                            sharePositionOrigin: const Rect.fromLTWH(0, 0, 10, 10 / 2),
                           );
                         },
                         visualDensity: const VisualDensity(vertical: -4),

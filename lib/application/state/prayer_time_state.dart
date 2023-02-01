@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:majmua/application/strings/app_constants.dart';
+import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/data/database/queries/default_custom_country_query.dart';
 
 class PrayerTimeState extends ChangeNotifier {
@@ -256,19 +257,20 @@ class PrayerTimeState extends ChangeNotifier {
 
   String get getContentForShare {
     late String content;
-    content = '''
-    $getCountry, $getCity
+    content = '''$getCountry, $getCity
+${_cdt.day}.${_cdt.month}.${_cdt.year}
     
-    Fajr: ${DateFormat.Hm().format(_prayerTimes.fajr)}
-    Sunrise: ${DateFormat.Hm().format(_prayerTimes.sunrise)}
-    Dhuhr: ${DateFormat.Hm().format(_prayerTimes.dhuhr)}
-    Asr: ${DateFormat.Hm().format(_prayerTimes.asr)}
-    Maghrib: ${DateFormat.Hm().format(_prayerTimes.maghrib)}
-    Isha: ${DateFormat.Hm().format(_prayerTimes.isha)}
-    
-    Last third: ${DateFormat.Hm().format(getThirdNightPart)}
-    Midnight: ${DateFormat.Hm().format(getMidnight)}
-    ''';
+${AppString.fajr}: ${DateFormat.Hm().format(_prayerTimes.fajr)}
+${AppString.sunrise}: ${DateFormat.Hm().format(_prayerTimes.sunrise)}
+${AppString.dhuhr}: ${DateFormat.Hm().format(_prayerTimes.dhuhr)}
+${AppString.asr}: ${DateFormat.Hm().format(_prayerTimes.asr)}
+${AppString.maghrib}: ${DateFormat.Hm().format(_prayerTimes.maghrib)}
+${AppString.isha}: ${DateFormat.Hm().format(_prayerTimes.isha)}
+  
+${AppString.lastThirdNight} ${DateFormat.Hm().format(getThirdNightPart)}
+${AppString.midnight} ${DateFormat.Hm().format(getMidnight)}
+${AppString.calculatePrayerMethod}: ${AppString.calculationMethodNames[_calculationMethodIndex]}
+${AppString.dateTimeOffset}: ${_cdt.timeZoneOffset}''';
     return content;
   }
 
