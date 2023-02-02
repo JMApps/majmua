@@ -68,19 +68,19 @@ class ItemCardAdhanNameTime extends StatelessWidget {
                   ),
                 ),
               ),
-              // Align(
-              //   alignment: Alignment.topRight,
-              //   child: InkWell(
-              //     onTap: () {},
-              //     radius: 20,
-              //     borderRadius: AppWidgetStyle.mainBorderRadius,
-              //     child: Icon(
-              //       Icons.notifications_off_outlined,
-              //       size: 20,
-              //       color: appColors.secondThirdColor,
-              //     ),
-              //   ),
-              // ),
+              Align(
+                alignment: Alignment.topRight,
+                child: InkWell(
+                  onTap: () {},
+                  radius: 20,
+                  borderRadius: AppWidgetStyle.mainBorderRadius,
+                  child: Icon(
+                    Icons.info_outline,
+                    size: 20,
+                    color: appColors.secondThirdColor,
+                  ),
+                ),
+              ),
               Align(
                 alignment: Alignment.bottomRight,
                 child: AnimatedDefaultTextStyle(
