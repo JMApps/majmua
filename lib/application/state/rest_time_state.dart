@@ -184,6 +184,8 @@ class RestTimeState extends ChangeNotifier {
 
   String get getMonthName => AppString.monthNames[_cdt.month - 1];
 
+  String get getMonthPictureNames => AppString.monthPictureNames[_cdt.month - 1];
+
   String get getNameWeekDay => AppString.namesWeekDay[_cdt.weekday - 1];
 
   String get getShortNameWeekDay => AppString.shortNamesWeekDay[_cdt.weekday - 1];

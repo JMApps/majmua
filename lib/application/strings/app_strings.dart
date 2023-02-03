@@ -124,6 +124,21 @@ class AppString {
     'Декабрь'
   ];
 
+  static const List<String> monthPictureNames = [
+    'january.png',
+    'february.png',
+    'march.png',
+    'april.png',
+    'may.png',
+    'june.png',
+    'july.png',
+    'august.png',
+    'september.png',
+    'october.png',
+    'november.png',
+    'december.png'
+  ];
+
   static const List<String> namesWeekDay = [
     'Понедельник',
     'Вторник',
