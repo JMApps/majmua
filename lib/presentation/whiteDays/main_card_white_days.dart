@@ -17,42 +17,63 @@ class MainCardWhiteDays extends StatelessWidget {
         return AnimatedSize(
           duration: const Duration(milliseconds: 750),
           child: Visibility(
-            visible: restTimeState.getChdt.hDay >= 12 && restTimeState.getChdt.hDay <= 15,
+            visible: restTimeState.getChdt.hDay >= 12 &&
+                restTimeState.getChdt.hDay <= 15,
             child: Card(
               margin: AppWidgetStyle.horizontalMarginMini,
               child: Padding(
                 padding: AppWidgetStyle.mainPaddingMini,
-                child: Wrap(
-                  alignment: WrapAlignment.spaceAround,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  direction: Axis.horizontal,
-                  spacing: 8,
+                child: Row(
                   children: [
-                    Text(
-                      restTimeState.getChdt.hDay == 12
-                          ? AppString.toWhiteDays
-                          : AppString.whiteDays,
-                      style: const TextStyle(
-                        fontSize: 16,
+                    Expanded(
+                      flex: 3,
+                      child: Text(
+                        restTimeState.getChdt.hDay == 12
+                            ? AppString.toWhiteDays
+                            : AppString.whiteDays,
+                        style: const TextStyle(
+                          fontSize: 16,
+                        ),
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
                       ),
                     ),
-                    ItemWhiteDay(
-                      currentDay: 13,
-                      dayColor: restTimeState.getChdt.hDay == 13
-                          ? appColors.thirdAppColor
-                          : appColors.firstAppColor,
-                    ),
-                    ItemWhiteDay(
-                      currentDay: 14,
-                      dayColor: restTimeState.getChdt.hDay == 14
-                          ? appColors.thirdAppColor
-                          : appColors.firstAppColor,
-                    ),
-                    ItemWhiteDay(
-                      currentDay: 15,
-                      dayColor: restTimeState.getChdt.hDay == 15
-                          ? appColors.thirdAppColor
-                          : appColors.firstAppColor,
+                    const SizedBox(width: 8),
+                    Expanded(
+                      flex: 2,
+                      child: Card(
+                        color: appColors.glassOnGlassCardColor,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Wrap(
+                            alignment: WrapAlignment.spaceAround,
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            direction: Axis.horizontal,
+                            runSpacing: 8,
+                            spacing: 8,
+                            children: [
+                              ItemWhiteDay(
+                                currentDay: 13,
+                                dayColor: restTimeState.getChdt.hDay == 13
+                                    ? appColors.thirdAppColor
+                                    : appColors.firstAppColor,
+                              ),
+                              ItemWhiteDay(
+                                currentDay: 14,
+                                dayColor: restTimeState.getChdt.hDay == 14
+                                    ? appColors.thirdAppColor
+                                    : appColors.firstAppColor,
+                              ),
+                              ItemWhiteDay(
+                                currentDay: 15,
+                                dayColor: restTimeState.getChdt.hDay == 15
+                                    ? appColors.thirdAppColor
+                                    : appColors.firstAppColor,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
