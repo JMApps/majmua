@@ -68,16 +68,60 @@ class ItemCardAdhanNameTime extends StatelessWidget {
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.topRight,
-                child: InkWell(
-                  onTap: () {},
-                  radius: 20,
-                  borderRadius: AppWidgetStyle.mainBorderRadius,
-                  child: Icon(
-                    Icons.info_outline,
-                    size: 20,
-                    color: appColors.secondThirdColor,
+              Visibility(
+                visible: isPrayerTime && isRemainingTime,
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: InkWell(
+                    onTap: () {
+                      print('До молитвы');
+                    },
+                    radius: 25,
+                    borderRadius: AppWidgetStyle.mainBorderRadius,
+                    child: Image.asset(
+                      'assets/icons/dua-hands.png',
+                      width: 22.5,
+                      height: 22.5,
+                      color: appColors.thirdAppColor,
+                    ),
+                  ),
+                ),
+              ),
+              Visibility(
+                visible: !isRemainingTime && !isPastTime && isPrayerTime,
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: InkWell(
+                    onTap: () {
+                      print('Во время азана');
+                    },
+                    radius: 25,
+                    borderRadius: AppWidgetStyle.mainBorderRadius,
+                    child: Image.asset(
+                      'assets/icons/dua-hands.png',
+                      width: 22.5,
+                      height: 22.5,
+                      color: appColors.secondAppColor,
+                    ),
+                  ),
+                ),
+              ),
+              Visibility(
+                visible: isPrayerTime && isPastTime,
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: InkWell(
+                    onTap: () {
+                      print('После молитвы');
+                    },
+                    radius: 25,
+                    borderRadius: AppWidgetStyle.mainBorderRadius,
+                    child: Image.asset(
+                      'assets/icons/dua-hands.png',
+                      width: 22.5,
+                      height: 22.5,
+                      color: appColors.firstAppColor,
+                    ),
                   ),
                 ),
               ),
