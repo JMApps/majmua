@@ -29,42 +29,43 @@ class CardWeekDay extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const SizedBox(height: 8),
-              Padding(
-                padding: AppWidgetStyle.horizontalPaddingMini,
-                child: Wrap(
-                  direction: Axis.horizontal,
-                  alignment: WrapAlignment.spaceEvenly,
-                  runSpacing: 8,
-                  spacing: 8,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: const [
-                    ItemDayFromWeek(
-                      dayNumber: 1,
-                    ),
-                    ItemDayFromWeek(
-                      dayNumber: 2,
-                    ),
-                    ItemDayFromWeek(
-                      dayNumber: 3,
-                    ),
-                    ItemDayFromWeek(
-                      dayNumber: 4,
-                    ),
-                    ItemDayFromWeek(
-                      dayNumber: 5,
-                    ),
-                    ItemDayFromWeek(
-                      dayNumber: 6,
-                    ),
-                    ItemDayFromWeek(
-                      dayNumber: 7,
-                    ),
-                  ],
+              Card(
+                margin: AppWidgetStyle.horizontalMarginMini,
+                child: Padding(
+                  padding: AppWidgetStyle.mainPaddingMini,
+                  child: Wrap(
+                    direction: Axis.horizontal,
+                    alignment: WrapAlignment.spaceEvenly,
+                    runSpacing: 8,
+                    spacing: 8,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    children: const [
+                      ItemDayFromWeek(
+                        dayNumber: 1,
+                      ),
+                      ItemDayFromWeek(
+                        dayNumber: 2,
+                      ),
+                      ItemDayFromWeek(
+                        dayNumber: 3,
+                      ),
+                      ItemDayFromWeek(
+                        dayNumber: 4,
+                      ),
+                      ItemDayFromWeek(
+                        dayNumber: 5,
+                      ),
+                      ItemDayFromWeek(
+                        dayNumber: 6,
+                      ),
+                      ItemDayFromWeek(
+                        dayNumber: 7,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              const SizedBox(height: 8),
               const CardDates(),
-              const SizedBox(height: 8),
               Card(
                 margin: AppWidgetStyle.horizontalMarginMini,
                 color: appColors.glassOnGlassCardColor,

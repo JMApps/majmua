@@ -12,90 +12,93 @@ class CardDates extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
-    return Card(
-      margin: AppWidgetStyle.horizontalMarginMini,
-      child: Padding(
-        padding: AppWidgetStyle.mainPaddingMini,
-        child: Row(
-          children: [
-            Expanded(
-              child: Consumer<RestTimeState>(
-                builder: (BuildContext context, restTimeState, _) {
-                  return Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
-                    children: [
-                      Card(
-                        color: appColors.glassOnGlassCardColor,
-                        child: ItemYearMonthDay(
-                          year: restTimeState.getCdt.year,
-                          month: restTimeState.getMonthName,
-                          day: restTimeState.getCdt.day,
-                          color: appColors.firstAppColor,
-                        ),
-                      ),
-                      Card(
-                        color: appColors.glassOnGlassCardColor,
-                        child: ItemYearMonthDay(
-                          year: restTimeState.getChdt.hYear,
-                          month: restTimeState.getMonthHijriName,
-                          day: restTimeState.getChdt.hDay,
-                          color: appColors.secondAppColor,
-                        ),
-                      ),
-                    ],
-                  );
-                },
-              ),
-            ),
-            const SizedBox(width: 8),
-            Consumer<WeeklySalawatState>(
-              builder: (BuildContext context, weeklySalawatState, _) {
+    return Padding(
+      padding: AppWidgetStyle.mainPaddingMini,
+      child: Row(
+        children: [
+          Expanded(
+            child: Consumer<RestTimeState>(
+              builder: (BuildContext context, restTimeState, _) {
                 return Wrap(
-                  direction: Axis.vertical,
-                  crossAxisAlignment: WrapCrossAlignment.center,
                   spacing: 8,
                   runSpacing: 8,
                   children: [
-                    IconButton(
-                      onPressed: () {
-                        weeklySalawatState.changeSalawatCount();
-                      },
-                      splashColor: appColors.thirdAppColor,
-                      splashRadius: 45,
-                      iconSize: 85,
-                      visualDensity: const VisualDensity(vertical: -4),
-                      padding: EdgeInsets.zero,
-                      icon: Image.asset(
-                        'assets/images/salawat.png',
-                        width: 115,
-                        height: 115,
-                        fit: BoxFit.cover,
-                        colorBlendMode: BlendMode.srcATop,
-                        color: context.watch<RestTimeState>().getCdt.weekday == 5
-                                ? appColors.thirdAppColor
-                                : appColors.firstAppColor,
+                    Card(
+                      color: appColors.glassOnGlassCardColor,
+                      child: ItemYearMonthDay(
+                        year: restTimeState.getCdt.year,
+                        month: restTimeState.getMonthName,
+                        day: restTimeState.getCdt.day,
+                        color: appColors.firstAppColor,
                       ),
                     ),
-                    SizedBox(
-                      width: 75,
-                      child: Text(
-                        '${weeklySalawatState.getSalawatCount}',
-                        style: TextStyle(
-                          fontFamily: 'Lato',
-                          color: appColors.mainTextColor,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        maxLines: 3,
-                        textAlign: TextAlign.center,
+                    Card(
+                      color: appColors.glassOnGlassCardColor,
+                      child: ItemYearMonthDay(
+                        year: restTimeState.getChdt.hYear,
+                        month: restTimeState.getMonthHijriName,
+                        day: restTimeState.getChdt.hDay,
+                        color: appColors.secondAppColor,
                       ),
                     ),
                   ],
                 );
               },
             ),
-          ],
-        ),
+          ),
+          const SizedBox(width: 8),
+          Consumer<WeeklySalawatState>(
+            builder: (BuildContext context, weeklySalawatState, _) {
+              return Card(
+                color: appColors.glassOnGlassCardColor,
+                child: Padding(
+                  padding: AppWidgetStyle.mainPaddingMini,
+                  child: Wrap(
+                    direction: Axis.vertical,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          weeklySalawatState.changeSalawatCount();
+                        },
+                        splashColor: appColors.thirdAppColor,
+                        splashRadius: 45,
+                        iconSize: 85,
+                        visualDensity: const VisualDensity(vertical: -4),
+                        padding: EdgeInsets.zero,
+                        icon: Image.asset(
+                          'assets/images/salawat.png',
+                          width: 115,
+                          height: 115,
+                          fit: BoxFit.cover,
+                          colorBlendMode: BlendMode.srcATop,
+                          color: context.watch<RestTimeState>().getCdt.weekday == 5
+                                  ? appColors.thirdAppColor
+                                  : appColors.firstAppColor,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 75,
+                        child: Text(
+                          '${weeklySalawatState.getSalawatCount}',
+                          style: TextStyle(
+                            fontFamily: 'Lato',
+                            color: appColors.mainTextColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          maxLines: 3,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
+        ],
       ),
     );
   }
