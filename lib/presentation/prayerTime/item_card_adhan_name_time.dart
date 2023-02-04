@@ -43,7 +43,7 @@ class ItemCardAdhanNameTime extends StatelessWidget {
           ),
         ),
         child: Container(
-          padding: AppWidgetStyle.mainPaddingMini,
+          padding: const EdgeInsets.all(10),
           height: 75,
           child: Stack(
             alignment: AlignmentDirectional.center,

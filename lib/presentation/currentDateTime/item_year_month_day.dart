@@ -19,7 +19,7 @@ class ItemYearMonthDay extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       visualDensity: const VisualDensity(vertical: -3),
-      horizontalTitleGap: 2,
+      horizontalTitleGap: 8,
       leading: CircleAvatar(
         radius: 17.5,
         backgroundColor: color,

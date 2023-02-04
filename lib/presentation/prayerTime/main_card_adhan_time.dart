@@ -76,7 +76,8 @@ class MainCardAdhanTime extends StatelessWidget {
                         onPressed: () {
                           Share.share(
                             prayerTimeState.getContentForShare,
-                            sharePositionOrigin: const Rect.fromLTWH(0, 0, 10, 10 / 2),
+                            sharePositionOrigin:
+                                const Rect.fromLTWH(0, 0, 10, 10 / 2),
                           );
                         },
                         visualDensity: const VisualDensity(vertical: -4),
@@ -162,65 +163,73 @@ class MainCardAdhanTime extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 8),
-                Card(
-                  color: appColors.glassOnGlassCardColor,
-                  child: Padding(
-                    padding: AppWidgetStyle.mainPaddingMini,
-                    child: RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: '${AppString.lastThirdNight} ',
-                            style: TextStyle(
-                              fontFamily: 'Nexa',
-                              color: appColors.mainTextColor,
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 0,
+                      child: Card(
+                        color: appColors.glassOnGlassCardColor,
+                        child: Padding(
+                          padding: AppWidgetStyle.mainPaddingMini,
+                          child: RichText(
+                            textAlign: TextAlign.center,
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: '${AppString.midnight} ',
+                                  style: TextStyle(
+                                    fontFamily: 'Nexa',
+                                    color: appColors.mainTextColor,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: DateFormat.Hm().format(prayerTimeState.getMidnight),
+                                  style: TextStyle(
+                                    color: appColors.firstAppColor,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Lato',
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          TextSpan(
-                            text: DateFormat.Hm()
-                                .format(prayerTimeState.getThirdNightPart),
-                            style: TextStyle(
-                              fontFamily: 'Lato',
-                              color: appColors.secondAppColor,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                     ),
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Card(
-                  color: appColors.glassOnGlassCardColor,
-                  child: Padding(
-                    padding: AppWidgetStyle.mainPaddingMini,
-                    child: RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: '${AppString.midnight} ',
-                            style: TextStyle(
-                              fontFamily: 'Nexa',
-                              color: appColors.mainTextColor,
+                    const SizedBox(width: 8),
+                    Expanded(
+                      flex: 1,
+                      child: Card(
+                        color: appColors.glassOnGlassCardColor,
+                        child: Padding(
+                          padding: AppWidgetStyle.mainPaddingMini,
+                          child: RichText(
+                            textAlign: TextAlign.center,
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: '${AppString.lastThirdNight} ',
+                                  style: TextStyle(
+                                    fontFamily: 'Nexa',
+                                    color: appColors.mainTextColor,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: DateFormat.Hm().format(prayerTimeState.getThirdNightPart),
+                                  style: TextStyle(
+                                    color: appColors.secondAppColor,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Lato',
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          TextSpan(
-                            text: DateFormat.Hm()
-                                .format(prayerTimeState.getMidnight),
-                            style: TextStyle(
-                              fontFamily: 'Lato',
-                              color: appColors.firstAppColor,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                     ),
-                  ),
-                ),
+                  ],
+                )
               ],
             );
           },
