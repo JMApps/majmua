@@ -202,7 +202,7 @@ class PrayerTimeState extends ChangeNotifier {
   int get getIshaValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.isha);
 
   DateTime toPrayerTime(Prayer prayer) {
-    final int timeValue = (_prayerTimes.timeForPrayer(Prayer.asr)!.difference(_cdt).inMinutes + 1) * 60;
+    final int timeValue = (_prayerTimes.timeForPrayer(prayer)!.difference(_cdt).inMinutes + 1) * 60;
     int hour, minute;
     hour = timeValue ~/ 3600;
     minute = ((timeValue - hour * 3600)) ~/ 60;
@@ -211,7 +211,7 @@ class PrayerTimeState extends ChangeNotifier {
   }
 
   DateTime fromPrayerTime(Prayer prayer) {
-    final int timeValue = (_cdt.difference(_prayerTimes.timeForPrayer(prayer)!).inMinutes + 1) * 60;
+    final int timeValue = (_cdt.difference(_prayerTimes.timeForPrayer(prayer)!).inMinutes) * 60;
     int hour, minute;
     hour = timeValue ~/ 3600;
     minute = ((timeValue - hour * 3600)) ~/ 60;
