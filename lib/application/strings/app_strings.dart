@@ -22,7 +22,7 @@ class AppString {
   static const String maghrib = 'Магриб';
   static const String isha = 'Иша';
 
-  static const String lastThirdNight = 'Последняя треть ночи:';
+  static const String lastThirdNight = 'Последняя ⅓ ночи:';
   static const String midnight = 'Полночь:';
 
   // Params
@@ -124,21 +124,6 @@ class AppString {
     'Декабрь'
   ];
 
-  static const List<String> monthPictureNames = [
-    'january.png',
-    'february.png',
-    'march.png',
-    'april.png',
-    'may.png',
-    'june.png',
-    'july.png',
-    'august.png',
-    'september.png',
-    'october.png',
-    'november.png',
-    'december.png'
-  ];
-
   static const List<String> namesWeekDay = [
     'Понедельник',
     'Вторник',
@@ -200,8 +185,37 @@ class AppString {
   static const String adaptiveTheme = 'Адаптивная';
   static const String userTheme = 'Пользовательская';
 
-  static const String display = 'Дисплей';
   static const String displayOnOff = 'Оставить дисплей включенным';
+  static const String display = 'Дисплей';
 
   static const String hadeethFastFirst = 'Со слов Абу Хурайры, да будет доволен им Аллах, сообщается, что Посланник Аллаха ﷺ сказал:\n\n«Дела людей представляются Аллаху в понедельник и четверг, и я хочу, чтобы мои дела представлялись в то время, когда я соблюдаю пост»\n\nАт-Тирмизи 747.';
+
+  static const String supplications = 'Азкары';
+  static const String surahs = 'Суры';
+  static const String library = 'Библиотека';
+
+  static const String supplicationAfterPrayer = 'После молитвы';
+  static const String supplicationMorning = 'Утром';
+  static const String supplicationEvening = 'Вечером';
+  static const String supplicationNight = 'Перед сном';
+
+  static const String surahQahf = 'Аль-Кахф';
+  static const String surahSajdah = 'Ас-Саджда';
+  static const String surahMulk = 'Аль-Мульк';
+  static const String juzAmma = 'Джуз \'Амма';
+
+  static const String bookTheNamesOf = 'Толкование прекрасных имён Аллаха';
+  static const String descriptionBookTheNamesOf = 'В свете Корана и Сунны';
+
+  static const String bookQuestions = '200 вопросов';
+  static const String descriptionBookQuestions = 'По вероучению Ислама';
+
+  static const String bookHadeeth = '40 хадисов';
+  static const String descriptionBookHadeeth = 'Имама ан-Навави';
+
+  static const String bookLessonsRamadan = 'Уроки Рамадана';
+  static const String descriptionBookLessonsRamadan = 'Пост и его значение';
+
+  static const String bookRaqaiq = 'Ракъаикъ Къуран';
+  static const String descriptionBookRaqaiq = 'Смягчение сердец Кораном';
 }

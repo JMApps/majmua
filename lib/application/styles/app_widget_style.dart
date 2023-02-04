@@ -20,18 +20,42 @@ class AppWidgetStyle {
     ),
   );
 
+  static const rightBorderRadius = BorderRadius.only(
+    topRight: Radius.circular(25),
+    bottomRight: Radius.circular(25),
+  );
+
   static const mainBorderRadius = BorderRadius.all(
-    Radius.circular(20),
+    Radius.circular(25),
+  );
+
+  static const leftBorderRadius = BorderRadius.only(
+    topLeft: Radius.circular(25),
+    bottomLeft: Radius.circular(25),
   );
 
   static const mainBorderRadiusMini = BorderRadius.all(
     Radius.circular(12.5),
   );
 
+  static const rightRectangleBorder = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      topRight: Radius.circular(25),
+      bottomRight: Radius.circular(25),
+    ),
+  );
+
   static const topRectangleBorder = RoundedRectangleBorder(
     borderRadius: BorderRadius.only(
       topRight: Radius.circular(25),
       topLeft: Radius.circular(25),
+    ),
+  );
+
+  static const leftRectangleBorder = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      topLeft: Radius.circular(25),
+      bottomLeft: Radius.circular(25),
     ),
   );
 
