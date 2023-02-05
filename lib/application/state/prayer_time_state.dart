@@ -201,7 +201,31 @@ class PrayerTimeState extends ChangeNotifier {
 
   int get getIshaValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.isha);
 
-  DateTime toPrayerTime(Prayer prayer) {
+  bool get getIsMorning {
+    final bool isMorning;
+    isMorning = getMinutesOfDay > getFajrValueInMinutes + 30 && getMinutesOfDay < getDhuhrValueInMinutes;
+    return isMorning;
+  }
+
+  bool get getIsDuha {
+    final bool isDuha;
+    isDuha = getMinutesOfDay > getSunriseValueInMinutes + 30 && getMinutesOfDay < getDhuhrValueInMinutes + 15;
+    return isDuha;
+  }
+
+  bool get getIsEvening {
+    final bool isEvening;
+    isEvening = getMinutesOfDay > getAsrValueInMinutes + 30 && getMinutesOfDay < getMaghribValueInMinutes;
+    return isEvening;
+  }
+
+  bool get getIsNight {
+    final bool isNight;
+    isNight = getMinutesOfDay > getIshaValueInMinutes + 30 && getMinutesOfDay < getFajrValueInMinutes;
+    return isNight;
+  }
+
+  DateTime beforePrayerTime(Prayer prayer) {
     final int timeValue = (_prayerTimes.timeForPrayer(prayer)!.difference(_cdt).inMinutes + 1) * 60;
     int hour, minute;
     hour = timeValue ~/ 3600;
@@ -210,7 +234,7 @@ class PrayerTimeState extends ChangeNotifier {
     return result;
   }
 
-  DateTime fromPrayerTime(Prayer prayer) {
+  DateTime afterPrayerTime(Prayer prayer) {
     final int timeValue = (_cdt.difference(_prayerTimes.timeForPrayer(prayer)!).inMinutes) * 60;
     int hour, minute;
     hour = timeValue ~/ 3600;

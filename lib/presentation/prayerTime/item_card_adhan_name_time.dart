@@ -3,30 +3,22 @@ import 'package:intl/intl.dart';
 import 'package:majmua/application/state/prayer_time_state.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
+import 'package:majmua/presentation/prayerTime/prayer_model.dart';
+import 'package:majmua/presentation/prayerTime/prayer_supplications.dart';
 import 'package:provider/provider.dart';
 
 class ItemCardAdhanNameTime extends StatelessWidget {
-  const ItemCardAdhanNameTime({
-    Key? key,
-    required this.prayerName,
-    required this.prayerTime,
-    required this.currentPrayerTimeValue,
-    required this.toPrayerTime,
-    required this.fromPrayerTime,
-  }) : super(key: key);
+  const ItemCardAdhanNameTime({Key? key, required this.prayerModel})
+      : super(key: key);
 
-  final String prayerName;
-  final DateTime prayerTime;
-  final int currentPrayerTimeValue;
-  final DateTime toPrayerTime;
-  final DateTime fromPrayerTime;
+  final PrayerModel prayerModel;
 
   @override
   Widget build(BuildContext context) {
     final int currentTimeValue = context.watch<PrayerTimeState>().getMinutesOfDay;
-    final bool isPrayerTime = currentTimeValue >= currentPrayerTimeValue - 59 && currentTimeValue <= currentPrayerTimeValue + 30;
-    final bool isRemainingTime = currentTimeValue >= currentPrayerTimeValue - 59 && currentTimeValue < currentPrayerTimeValue;
-    final bool isPastTime = currentTimeValue >= currentPrayerTimeValue + 1 && currentTimeValue <= currentPrayerTimeValue + 30;
+    final bool isPrayerTime = currentTimeValue >= prayerModel.currentPrayerTimeValue - 59 && currentTimeValue <= prayerModel.currentPrayerTimeValue + 30;
+    final bool isRemainingTime = currentTimeValue >= prayerModel.currentPrayerTimeValue - 59 && currentTimeValue < prayerModel.currentPrayerTimeValue;
+    final bool isPastTime = currentTimeValue >= prayerModel.currentPrayerTimeValue + 1 && currentTimeValue <= prayerModel.currentPrayerTimeValue + 30;
     final appColors = Theme.of(context).colorScheme;
     return Expanded(
       child: Card(
@@ -39,7 +31,8 @@ class ItemCardAdhanNameTime extends StatelessWidget {
                 ? appColors.thirdAppColor
                 : isPrayerTime && isPastTime
                     ? appColors.firstAppColor
-                    : appColors.secondAppColor.withOpacity(isPrayerTime ? 1 : 0),
+                    : appColors.secondAppColor
+                        .withOpacity(isPrayerTime ? 1 : 0),
           ),
         ),
         child: Container(
@@ -54,76 +47,51 @@ class ItemCardAdhanNameTime extends StatelessWidget {
                   visualDensity: const VisualDensity(vertical: -4),
                   contentPadding: EdgeInsets.zero,
                   title: Text(
-                    prayerName,
+                    prayerModel.prayerName,
                     style: TextStyle(
-                      fontWeight: isPrayerTime ? FontWeight.bold : FontWeight.normal,
+                      fontWeight:
+                          isPrayerTime ? FontWeight.bold : FontWeight.normal,
                     ),
                   ),
                   subtitle: Text(
-                    DateFormat.Hm().format(prayerTime),
+                    DateFormat.Hm().format(prayerModel.prayerTime),
                     style: TextStyle(
-                      fontWeight: isPrayerTime ? FontWeight.bold : FontWeight.normal,
+                      fontWeight:
+                          isPrayerTime ? FontWeight.bold : FontWeight.normal,
                       fontFamily: 'Lato',
                     ),
                   ),
                 ),
               ),
-              Visibility(
-                visible: isPrayerTime && isRemainingTime,
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: InkWell(
-                    onTap: () {
-                      print('До молитвы');
-                    },
-                    radius: 25,
-                    borderRadius: AppWidgetStyle.mainBorderRadius,
-                    child: Image.asset(
-                      'assets/icons/dua-hands.png',
-                      width: 22.5,
-                      height: 22.5,
-                      color: appColors.thirdAppColor,
-                    ),
-                  ),
-                ),
+              PrayerSupplications(
+                showButton: prayerModel.isMorning,
+                routeName: 'routeName',
+                color: appColors.mainTextColor,
+                supplicationsIndex: 1,
               ),
-              Visibility(
-                visible: !isRemainingTime && !isPastTime && isPrayerTime,
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: InkWell(
-                    onTap: () {
-                      print('Во время азана');
-                    },
-                    radius: 25,
-                    borderRadius: AppWidgetStyle.mainBorderRadius,
-                    child: Image.asset(
-                      'assets/icons/dua-hands.png',
-                      width: 22.5,
-                      height: 22.5,
-                      color: appColors.secondAppColor,
-                    ),
-                  ),
-                ),
+              PrayerSupplications(
+                showButton: prayerModel.isDuha,
+                routeName: 'routeName',
+                color: appColors.mainTextColor,
+                supplicationsIndex: 0,
               ),
-              Visibility(
-                visible: isPrayerTime && isPastTime,
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: InkWell(
-                    onTap: () {
-                      print('После молитвы');
-                    },
-                    radius: 25,
-                    borderRadius: AppWidgetStyle.mainBorderRadius,
-                    child: Image.asset(
-                      'assets/icons/dua-hands.png',
-                      width: 22.5,
-                      height: 22.5,
-                      color: appColors.firstAppColor,
-                    ),
-                  ),
-                ),
+              PrayerSupplications(
+                showButton: prayerModel.isEvening,
+                routeName: 'routeName',
+                color: appColors.mainTextColor,
+                supplicationsIndex: 2,
+              ),
+              PrayerSupplications(
+                showButton: prayerModel.isNight,
+                routeName: 'routeName',
+                color: appColors.mainTextColor,
+                supplicationsIndex: 3,
+              ),
+              PrayerSupplications(
+                showButton: isPrayerTime && isPastTime,
+                routeName: 'routeName',
+                color: appColors.firstAppColor,
+                supplicationsIndex: 0,
               ),
               Align(
                 alignment: Alignment.bottomRight,
@@ -133,7 +101,7 @@ class ItemCardAdhanNameTime extends StatelessWidget {
                     fontSize: isPrayerTime && isPastTime ? 14 : 0,
                   ),
                   child: Text(
-                    DateFormat.m().format(fromPrayerTime),
+                    DateFormat.m().format(prayerModel.afterPrayerTime),
                     style: TextStyle(
                       color: appColors.firstAppColor,
                       fontFamily: 'Lato',
@@ -150,7 +118,7 @@ class ItemCardAdhanNameTime extends StatelessWidget {
                     fontSize: isPrayerTime && isRemainingTime ? 14 : 0,
                   ),
                   child: Text(
-                    '–${DateFormat.m().format(toPrayerTime)}',
+                    '–${DateFormat.m().format(prayerModel.beforePrayerTime)}',
                     style: TextStyle(
                       color: appColors.thirdAppColor,
                       fontFamily: 'Lato',

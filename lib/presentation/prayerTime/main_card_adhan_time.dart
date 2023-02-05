@@ -7,6 +7,7 @@ import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/presentation/prayerTime/item_card_adhan_name_time.dart';
+import 'package:majmua/presentation/prayerTime/prayer_model.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -95,34 +96,45 @@ class MainCardAdhanTime extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ItemCardAdhanNameTime(
-                      prayerName: AppString.fajr,
-                      prayerTime: prayerTimeState.getPrayerTimes.fajr,
-                      currentPrayerTimeValue:
-                          prayerTimeState.getFajrValueInMinutes,
-                      toPrayerTime: prayerTimeState.toPrayerTime(Prayer.fajr),
-                      fromPrayerTime:
-                          prayerTimeState.fromPrayerTime(Prayer.fajr),
+                      prayerModel: PrayerModel(
+                        prayerName: AppString.fajr,
+                        prayerTime: prayerTimeState.getPrayerTimes.fajr,
+                        currentPrayerTimeValue: prayerTimeState.getFajrValueInMinutes,
+                        beforePrayerTime: prayerTimeState.beforePrayerTime(Prayer.fajr),
+                        afterPrayerTime: prayerTimeState.afterPrayerTime(Prayer.fajr),
+                        isMorning: prayerTimeState.getIsMorning,
+                        isDuha: prayerTimeState.getIsDuha,
+                        isEvening: prayerTimeState.getIsEvening,
+                        isNight: prayerTimeState.getIsNight,
+                      ),
                     ),
                     const SizedBox(width: 8),
                     ItemCardAdhanNameTime(
-                      prayerName: AppString.sunrise,
-                      prayerTime: prayerTimeState.getPrayerTimes.sunrise,
-                      currentPrayerTimeValue:
-                          prayerTimeState.getSunriseValueInMinutes,
-                      toPrayerTime:
-                          prayerTimeState.toPrayerTime(Prayer.sunrise),
-                      fromPrayerTime:
-                          prayerTimeState.fromPrayerTime(Prayer.sunrise),
+                      prayerModel: PrayerModel(
+                        prayerName: AppString.sunrise,
+                        prayerTime: prayerTimeState.getPrayerTimes.sunrise,
+                        currentPrayerTimeValue: prayerTimeState.getSunriseValueInMinutes,
+                        beforePrayerTime: prayerTimeState.beforePrayerTime(Prayer.sunrise),
+                        afterPrayerTime: prayerTimeState.afterPrayerTime(Prayer.sunrise),
+                        isMorning: prayerTimeState.getIsMorning,
+                        isDuha: prayerTimeState.getIsDuha,
+                        isEvening: prayerTimeState.getIsEvening,
+                        isNight: prayerTimeState.getIsNight,
+                      ),
                     ),
                     const SizedBox(width: 8),
                     ItemCardAdhanNameTime(
-                      prayerName: AppString.dhuhr,
-                      prayerTime: prayerTimeState.getPrayerTimes.dhuhr,
-                      currentPrayerTimeValue:
-                          prayerTimeState.getDhuhrValueInMinutes,
-                      toPrayerTime: prayerTimeState.toPrayerTime(Prayer.dhuhr),
-                      fromPrayerTime:
-                          prayerTimeState.fromPrayerTime(Prayer.dhuhr),
+                      prayerModel: PrayerModel(
+                        prayerName: AppString.dhuhr,
+                        prayerTime: prayerTimeState.getPrayerTimes.dhuhr,
+                        currentPrayerTimeValue: prayerTimeState.getDhuhrValueInMinutes,
+                        beforePrayerTime: prayerTimeState.beforePrayerTime(Prayer.dhuhr),
+                        afterPrayerTime: prayerTimeState.afterPrayerTime(Prayer.dhuhr),
+                        isMorning: prayerTimeState.getIsMorning,
+                        isDuha: prayerTimeState.getIsDuha,
+                        isEvening: prayerTimeState.getIsEvening,
+                        isNight: prayerTimeState.getIsNight,
+                      ),
                     ),
                   ],
                 ),
@@ -131,34 +143,45 @@ class MainCardAdhanTime extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ItemCardAdhanNameTime(
-                      prayerName: AppString.asr,
-                      prayerTime: prayerTimeState.getPrayerTimes.asr,
-                      currentPrayerTimeValue:
-                          prayerTimeState.getAsrValueInMinutes,
-                      toPrayerTime: prayerTimeState.toPrayerTime(Prayer.asr),
-                      fromPrayerTime:
-                          prayerTimeState.fromPrayerTime(Prayer.asr),
+                      prayerModel: PrayerModel(
+                        prayerName: AppString.asr,
+                        prayerTime: prayerTimeState.getPrayerTimes.asr,
+                        currentPrayerTimeValue: prayerTimeState.getAsrValueInMinutes,
+                        beforePrayerTime: prayerTimeState.beforePrayerTime(Prayer.asr),
+                        afterPrayerTime: prayerTimeState.afterPrayerTime(Prayer.asr),
+                        isMorning: prayerTimeState.getIsMorning,
+                        isDuha: prayerTimeState.getIsDuha,
+                        isEvening: prayerTimeState.getIsEvening,
+                        isNight: prayerTimeState.getIsNight,
+                      ),
                     ),
                     const SizedBox(width: 8),
                     ItemCardAdhanNameTime(
-                      prayerName: AppString.maghrib,
-                      prayerTime: prayerTimeState.getPrayerTimes.maghrib,
-                      currentPrayerTimeValue:
-                          prayerTimeState.getMaghribValueInMinutes,
-                      toPrayerTime:
-                          prayerTimeState.toPrayerTime(Prayer.maghrib),
-                      fromPrayerTime:
-                          prayerTimeState.fromPrayerTime(Prayer.maghrib),
+                      prayerModel: PrayerModel(
+                        prayerName: AppString.maghrib,
+                        prayerTime: prayerTimeState.getPrayerTimes.maghrib,
+                        currentPrayerTimeValue: prayerTimeState.getMaghribValueInMinutes,
+                        beforePrayerTime: prayerTimeState.beforePrayerTime(Prayer.maghrib),
+                        afterPrayerTime: prayerTimeState.afterPrayerTime(Prayer.maghrib),
+                        isMorning: prayerTimeState.getIsMorning,
+                        isDuha: prayerTimeState.getIsDuha,
+                        isEvening: prayerTimeState.getIsEvening,
+                        isNight: prayerTimeState.getIsNight,
+                      ),
                     ),
                     const SizedBox(width: 8),
                     ItemCardAdhanNameTime(
-                      prayerName: AppString.isha,
-                      prayerTime: prayerTimeState.getPrayerTimes.isha,
-                      currentPrayerTimeValue:
-                          prayerTimeState.getIshaValueInMinutes,
-                      toPrayerTime: prayerTimeState.toPrayerTime(Prayer.isha),
-                      fromPrayerTime:
-                          prayerTimeState.fromPrayerTime(Prayer.isha),
+                      prayerModel: PrayerModel(
+                        prayerName: AppString.isha,
+                        prayerTime: prayerTimeState.getPrayerTimes.isha,
+                        currentPrayerTimeValue: prayerTimeState.getIshaValueInMinutes,
+                        beforePrayerTime: prayerTimeState.beforePrayerTime(Prayer.isha),
+                        afterPrayerTime: prayerTimeState.afterPrayerTime(Prayer.isha),
+                        isMorning: prayerTimeState.getIsMorning,
+                        isDuha: prayerTimeState.getIsDuha,
+                        isEvening: prayerTimeState.getIsEvening,
+                        isNight: prayerTimeState.getIsNight,
+                      ),
                     ),
                   ],
                 ),
