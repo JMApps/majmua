@@ -26,6 +26,7 @@ class ColumnBooks extends StatelessWidget {
               icon: Icons.looks_one_rounded,
               color: AppWidgetColor.blue,
               route: '',
+              index: 1,
             ),
             Divider(indent: 16, endIndent: 16),
             ItemBookColumn(
@@ -34,6 +35,7 @@ class ColumnBooks extends StatelessWidget {
               icon: Icons.looks_two_rounded,
               color: AppWidgetColor.teal,
               route: '',
+              index: 2,
             ),
             Divider(indent: 16, endIndent: 16),
             ItemBookColumn(
@@ -42,6 +44,7 @@ class ColumnBooks extends StatelessWidget {
               icon: Icons.looks_3_rounded,
               color: AppWidgetColor.darkGrey,
               route: '',
+              index: 3,
             ),
             Divider(indent: 16, endIndent: 16),
             ItemBookColumn(
@@ -50,6 +53,7 @@ class ColumnBooks extends StatelessWidget {
               icon: Icons.looks_4_rounded,
               color: AppWidgetColor.purple,
               route: '',
+              index: 4,
             ),
             Divider(indent: 16, endIndent: 16),
             ItemBookColumn(
@@ -58,6 +62,7 @@ class ColumnBooks extends StatelessWidget {
               icon: Icons.looks_5_rounded,
               color: AppWidgetColor.orange,
               route: '',
+              index: 5,
             ),
           ],
         ),

@@ -10,6 +10,7 @@ class ItemBookColumn extends StatelessWidget {
     required this.icon,
     required this.color,
     required this.route,
+    required this.index,
   }) : super(key: key);
 
   final String title;
@@ -17,6 +18,7 @@ class ItemBookColumn extends StatelessWidget {
   final IconData icon;
   final Color color;
   final String route;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class ItemBookColumn extends StatelessWidget {
     return ListTile(
       onTap: () {},
       shape: AppWidgetStyle.mainRectangleBorder,
+      contentPadding: const EdgeInsets.only(right: 8),
       visualDensity: const VisualDensity(vertical: -4),
       horizontalTitleGap: 8,
       title: Text(title),
@@ -31,6 +34,13 @@ class ItemBookColumn extends StatelessWidget {
       leading: CircleAvatar(
         radius: 25,
         backgroundColor: color,
+        child: Text(
+          '$index',
+          style: const TextStyle(
+            color: Colors.white,
+          ),
+          textAlign: TextAlign.center,
+        ),
       ),
       trailing: Icon(
         Icons.arrow_forward_ios_rounded,
