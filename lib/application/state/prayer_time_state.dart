@@ -221,7 +221,7 @@ class PrayerTimeState extends ChangeNotifier {
 
   bool get getIsNight {
     final bool isNight;
-    isNight = getMinutesOfDay > getIshaValueInMinutes + 30 && getMinutesOfDay < getFajrValueInMinutes;
+    isNight = getMinutesOfDay > getIshaValueInMinutes + 30 && getMinutesOfDay < 1440;
     return isNight;
   }
 
