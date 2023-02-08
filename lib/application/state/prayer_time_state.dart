@@ -209,7 +209,7 @@ class PrayerTimeState extends ChangeNotifier {
 
   bool get getIsDuha {
     final bool isDuha;
-    isDuha = getMinutesOfDay > getSunriseValueInMinutes + 30 && getMinutesOfDay < getDhuhrValueInMinutes + 15;
+    isDuha = getMinutesOfDay > getSunriseValueInMinutes + 30 && getMinutesOfDay < getDhuhrValueInMinutes - 15;
     return isDuha;
   }
 
