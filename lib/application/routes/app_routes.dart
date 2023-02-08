@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/data/database/arguments/supplication_arguments.dart';
 import 'package:majmua/presentation/prayerTime/addCountry/add_country_page.dart';
 import 'package:majmua/presentation/prayerTime/prayerParams/prayer_params_page.dart';
 import 'package:majmua/presentation/prayerTime/calculationInfo/prayer_calculation_method_page.dart';
 import 'package:majmua/presentation/prayerTime/selectCountry/select_another_city_page.dart';
 import 'package:majmua/presentation/settings/app_settings_page.dart';
+import 'package:majmua/presentation/supplications/page/supplications_page.dart';
 
 class AppRoutes {
   static Route onGeneratorRoute(RouteSettings routeSettings) {
@@ -27,6 +29,11 @@ class AppRoutes {
       case 'app_settings_page':
         return MaterialPageRoute(
           builder: (_) => const AppSettingsPage(),
+        );
+      case 'supplications_page':
+        final SupplicationArguments supplicationArguments = routeSettings.arguments as SupplicationArguments;
+        return MaterialPageRoute(
+          builder: (_) => SupplicationsPage(supplicationIndex: supplicationArguments.supplicationIndex),
         );
       default:
         throw Exception('Invalid route: ${routeSettings.name}');

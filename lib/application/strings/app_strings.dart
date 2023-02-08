@@ -219,4 +219,11 @@ class AppString {
 
   static const String bookRaqaiq = 'Ракъаикъ Къуран';
   static const String descriptionBookRaqaiq = 'Смягчение сердец Кораном';
+
+  static const List<String> supplicationNames = [
+    'После молитвы',
+    'Утром',
+    'Вечером',
+    'Перед сном',
+  ];
 }

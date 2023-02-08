@@ -12,6 +12,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Html
+  flutter_html: ^2.2.1
+
   # Clipboard and Share's
   share_plus: ^6.3.0
   clipboard: ^0.1.3
