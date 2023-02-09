@@ -20,7 +20,7 @@ class MainCardWhiteDays extends StatelessWidget {
             visible: restTimeState.getChdt.hDay >= 12 &&
                 restTimeState.getChdt.hDay <= 15,
             child: Card(
-              margin: AppWidgetStyle.horizontalMarginMini,
+              margin: const EdgeInsets.fromLTRB(8, 0, 8, 8),
               child: Padding(
                 padding: AppWidgetStyle.mainPaddingMini,
                 child: Row(

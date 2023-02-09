@@ -20,6 +20,7 @@ class ItemSupplicationColumn extends StatelessWidget {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     return ListTile(
       onTap: () {
+        Navigator.pop(context);
         Navigator.pushNamed(
           context,
           'supplications_page',

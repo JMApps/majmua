@@ -11,7 +11,7 @@ class CardJoinLibrary extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     return Card(
-      margin: AppWidgetStyle.mainMarginMini,
+      margin: AppWidgetStyle.horizontalMarginMini,
       child: InkWell(
         onTap: () {
           showModalBottomSheet(

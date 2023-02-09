@@ -11,6 +11,7 @@ class CardSelectSurahs extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     return Card(
+      margin: EdgeInsets.zero,
       child: InkWell(
         onTap: () {
           showModalBottomSheet(

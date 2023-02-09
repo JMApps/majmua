@@ -66,7 +66,6 @@ class HomePage extends StatelessWidget {
                     MainCardRestHolidays(),
                     SizedBox(height: 8),
                     MainCardWhiteDays(),
-                    SizedBox(height: 8),
                     LastColumns(),
                     SizedBox(height: 16),
                   ],

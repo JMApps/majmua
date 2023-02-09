@@ -27,6 +27,7 @@ class LastColumns extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         const CardSelectSFQ(),
+        const SizedBox(height: 8),
         const CardJoinLibrary(),
       ],
     );

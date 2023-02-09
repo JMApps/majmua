@@ -19,7 +19,6 @@ class ItemHoliday extends StatelessWidget {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     return Card(
       child: Card(
-        shape: AppWidgetStyle.mainRectangleBorder,
         margin: AppWidgetStyle.mainMarginMini,
         color: appColors.glassOnGlassCardColor,
         child: ListTile(
