@@ -226,4 +226,7 @@ class AppString {
     'Вечером',
     'Перед сном',
   ];
+
+  static const String close = 'Закрыть';
+
 }

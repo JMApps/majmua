@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/data/database/models/supplications_model.dart';
+import 'package:majmua/presentation/supplications/page/fab_supplications_count.dart';
 
 class SupplicationItem extends StatelessWidget {
   const SupplicationItem({Key? key, required this.item}) : super(key: key);
@@ -13,14 +16,14 @@ class SupplicationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
     return Card(
-      elevation: 1,
+      color: appColors.mainReverse,
       margin: AppWidgetStyle.mainMarginMini,
-      shape: AppWidgetStyle.mainRectangleBorder,
       child: Center(
         child: SingleChildScrollView(
           padding: AppWidgetStyle.mainPadding,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text(
                 item.supplicationArabic,
@@ -31,6 +34,7 @@ class SupplicationItem extends StatelessWidget {
                 textAlign: TextAlign.start,
                 textDirection: TextDirection.rtl,
               ),
+              const SizedBox(height: 8),
               item.supplicationTranscription != null
                   ? Text(
                       item.supplicationTranscription!,
@@ -42,7 +46,7 @@ class SupplicationItem extends StatelessWidget {
                     )
                   : const SizedBox(),
               item.supplicationTranscription != null
-                  ? const SizedBox(height: 16)
+                  ? const SizedBox(height: 8)
                   : const SizedBox(),
               Html(
                 data: item.supplicationTranslation,
@@ -91,7 +95,7 @@ class SupplicationItem extends StatelessWidget {
                       actions: [
                         CupertinoButton(
                           child: Text(
-                            'Закрыть',
+                            AppString.close,
                             style: TextStyle(
                               color: appColors.thirdAppColor,
                             ),
@@ -106,7 +110,7 @@ class SupplicationItem extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 16),
-              item.count != null ? const SizedBox() : const SizedBox(),
+              item.count != null ? const FabSupplicationsCount() : const SizedBox(),
             ],
           ),
         ),

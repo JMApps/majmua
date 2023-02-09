@@ -31,11 +31,13 @@ dependencies:
   hijri: ^3.0.0
   intl: ^0.18.0
 
-  # Widgets
-  cupertino_icons: ^1.0.5
+  # Indicator's
   percent_indicator: ^4.2.2
   square_percent_indicater: ^0.1.0
   smooth_page_indicator: ^1.0.0+2
+
+  # Cupertino
+  cupertino_icons: ^1.0.5
 
   # Databases
   hive: ^2.2.3
@@ -65,3 +67,9 @@ flutter:
     - family: 'Lato'
       fonts:
       - asset: assets/fonts/lato.ttf
+    - family: 'Quran'
+      fonts:
+      - asset: assets/fonts/quran_font.ttf
+    - family: 'Scheherazade'
+      fonts:
+      - asset: assets/fonts/scheherazade.ttf
