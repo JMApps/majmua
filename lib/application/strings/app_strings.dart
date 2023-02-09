@@ -228,5 +228,7 @@ class AppString {
   ];
 
   static const String close = 'Закрыть';
+  static const String textSize = 'Размер текста';
+  static const String showTranscription = 'Транскрипция';
 
 }

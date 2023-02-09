@@ -4,6 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/application/state/main_notifications_state.dart';
 import 'package:majmua/application/state/prayer_time_state.dart';
 import 'package:majmua/application/state/rest_time_state.dart';
+import 'package:majmua/application/state/text_settings_state.dart';
 import 'package:majmua/application/strings/app_constants.dart';
 import 'package:majmua/presentation/pages/root_page.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +31,9 @@ void main() async {
         ),
         ChangeNotifierProvider<MainNotificationsSate>(
           create: (_) => MainNotificationsSate(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => TextSettingsState(),
         ),
       ],
       child: const RootPage(),

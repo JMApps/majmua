@@ -5,6 +5,7 @@ import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/data/database/queries/supplications_query.dart';
 import 'package:majmua/presentation/supplications/page/supplication_item.dart';
+import 'package:majmua/presentation/supplications/text_settings.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class SupplicationsPage extends StatefulWidget {
@@ -31,7 +32,13 @@ class _SupplicationsPageState extends State<SupplicationsPage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                backgroundColor: Colors.transparent,
+                builder: (_) => const SupplicationSettings(),
+              );
+            },
             visualDensity: const VisualDensity(vertical: -4),
             splashRadius: 17.5,
             icon: const Icon(
@@ -43,8 +50,7 @@ class _SupplicationsPageState extends State<SupplicationsPage> {
         ],
       ),
       body: FutureBuilder<List>(
-        future:
-            _supplicationsQuery.getSupplicationsWhere(widget.supplicationIndex),
+        future: _supplicationsQuery.getSupplicationsWhere(widget.supplicationIndex),
         builder: (BuildContext context, snapshot) {
           if (snapshot.hasError) {
             return Center(
