@@ -38,4 +38,8 @@ class AppConstants {
   static const keyMainBookTextColor = 'key_main_book_text_color';
 
   static const keySalawatCount = 'key_salawat_count';
+
+  // Text's
+  static const keyMainTextSize = 'key_main_text_size';
+  static const keyIsTranscriptionShow = 'key_is_transcription_show';
 }
