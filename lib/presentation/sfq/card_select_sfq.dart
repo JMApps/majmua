@@ -13,7 +13,7 @@ class CardSelectSFQ extends StatelessWidget {
       margin: AppWidgetStyle.horizontalMarginMini,
       child: InkWell(
         onTap: () {
-          // Push named to SFQ page
+          Navigator.pushNamed(context, 'sfq_page');
         },
         borderRadius: AppWidgetStyle.mainBorderRadius,
         child: Card(
