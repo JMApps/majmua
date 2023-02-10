@@ -5,7 +5,7 @@ import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/data/database/queries/supplications_query.dart';
 import 'package:majmua/presentation/supplications/page/supplication_item.dart';
-import 'package:majmua/presentation/supplications/text_settings.dart';
+import 'package:majmua/presentation/supplications/supplications_settings.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class SupplicationsPage extends StatefulWidget {
@@ -85,7 +85,7 @@ class _SupplicationsPageState extends State<SupplicationsPage> {
                           duration: const Duration(milliseconds: 50),
                           curve: Curves.bounceIn,
                         ),
-                        effect: WormEffect(
+                        effect: SlideEffect(
                           spacing: 5,
                           dotHeight: 12,
                           dotWidth: 6,
@@ -105,8 +105,8 @@ class _SupplicationsPageState extends State<SupplicationsPage> {
                             IconButton(
                               onPressed: () {
                                 _supplicationPageController.previousPage(
-                                  duration: const Duration(milliseconds: 50),
-                                  curve: Curves.bounceIn,
+                                  duration: const Duration(milliseconds: 250),
+                                  curve: Curves.easeInOutCubic,
                                 );
                               },
                               splashRadius: 20,
@@ -119,8 +119,8 @@ class _SupplicationsPageState extends State<SupplicationsPage> {
                             IconButton(
                               onPressed: () {
                                 _supplicationPageController.nextPage(
-                                  duration: const Duration(milliseconds: 50),
-                                  curve: Curves.bounceIn,
+                                  duration: const Duration(milliseconds: 250),
+                                  curve: Curves.easeInOutCubic,
                                 );
                               },
                               splashRadius: 20,
