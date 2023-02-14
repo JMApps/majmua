@@ -14,7 +14,7 @@ class ColumnSupplications extends StatelessWidget {
     return Card(
       margin: AppWidgetStyle.mainMargin,
       color: appColors.mainReverse,
-      child: Padding(
+      child: SingleChildScrollView(
         padding: AppWidgetStyle.mainPadding,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
