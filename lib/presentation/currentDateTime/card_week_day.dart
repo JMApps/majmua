@@ -30,6 +30,7 @@ class CardWeekDay extends StatelessWidget {
             children: [
               const SizedBox(height: 8),
               Card(
+                color: appColors.glassOnGlassCardColor,
                 margin: AppWidgetStyle.horizontalMarginMini,
                 child: Padding(
                   padding: AppWidgetStyle.mainPaddingMini,

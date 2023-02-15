@@ -62,7 +62,8 @@ class AppString {
 
   static const String selectAnotherCity = 'Выбрать другой город';
   static const String selectionCity = 'Выбор города';
-  static const String selectCityErrorLoadData = 'При загрузке данных произошла ошибка.\nОчистите данные приложения';
+  static const String selectCityErrorLoadData =
+      'При загрузке данных произошла ошибка.\nОчистите данные приложения';
   static const String searchCities = 'Поиск городов';
   static const String searchQueryIsEmpty = 'По вашему запросу ничего не найдно';
 
@@ -86,13 +87,14 @@ class AppString {
   static const String select = 'Выбрать';
   static const String selected = 'Выбрано';
 
-  static const String addCountryCoordinatesInformation = 'Чтобы программа могла рассчитать время молитв, вводимые коррдинаты должны быть корректными. Например:\nШирота: 21.3924\nДолгота: 39.8579';
+  static const String addCountryCoordinatesInformation =
+      'Чтобы программа могла рассчитать время молитв, вводимые коррдинаты должны быть корректными. Например:\nШирота: 21.3924\nДолгота: 39.8579';
 
   static const String prayerTimeMethodInformation = 'Информация';
-  static const String prayerTimeMethodDescription = 'Пожалуйста, уточняйте, какой метод используется в вашей местности и если он доступен в приложении, то выберите его. Обязательно настраивайте часовой пояс под вашу местность. Разница в несколько минут с местным расписанием не говорит о том, что вычисление неправильное, вы можете отрегулировать минуты вручную в настройках.';
+  static const String prayerTimeMethodDescription =
+      'Пожалуйста, уточняйте, какой метод используется в вашей местности и если он доступен в приложении, то выберите его. Обязательно настраивайте часовой пояс под вашу местность. Разница в несколько минут с местным расписанием не говорит о том, что вычисление неправильное, вы можете отрегулировать минуты вручную в настройках.';
   static const String qiblaDegrees = 'Направление киблы (beta)';
   static const String qiblaOn = 'Кибла на';
-
 
   static const List<String> monthHijriNames = [
     'Мухаррам',
@@ -188,7 +190,8 @@ class AppString {
   static const String displayOnOff = 'Оставить дисплей включенным';
   static const String display = 'Дисплей';
 
-  static const String hadeethFastFirst = 'Со слов Абу Хурайры, да будет доволен им Аллах, сообщается, что Посланник Аллаха ﷺ сказал:\n\n«Дела людей представляются Аллаху в понедельник и четверг, и я хочу, чтобы мои дела представлялись в то время, когда я соблюдаю пост»\n\nАт-Тирмизи 747.';
+  static const String hadeethFastFirst =
+      'Со слов Абу Хурайры, да будет доволен им Аллах, сообщается, что Посланник Аллаха ﷺ сказал:\n\n«Дела людей представляются Аллаху в понедельник и четверг, и я хочу, чтобы мои дела представлялись в то время, когда я соблюдаю пост»\n\nАт-Тирмизи 747.';
 
   static const String supplications = 'Азкары';
   static const String surahs = 'Суры';
@@ -199,11 +202,6 @@ class AppString {
   static const String supplicationMorning = 'Утром';
   static const String supplicationEvening = 'Вечером';
   static const String supplicationNight = 'Перед сном';
-
-  static const String surahQahf = 'Аль-Кахф';
-  static const String surahSajdah = 'Ас-Саджда';
-  static const String surahMulk = 'Аль-Мульк';
-  static const String juzAmma = 'Джуз \'Амма';
 
   static const String bookTheNamesOf = 'Толкование прекрасных имён Аллаха';
   static const String descriptionBookTheNamesOf = 'В свете Корана и Сунны';
@@ -225,6 +223,73 @@ class AppString {
     'Утром',
     'Вечером',
     'Перед сном',
+  ];
+
+  static const List<String> surahNames = [
+    'Аль-Кахф',
+    'Ас-Саджда',
+    'Аль-Мульк',
+    'Джуз \'Амма',
+  ];
+
+  static const List<List> surahsLists = [
+    qahf,
+    sajdah,
+    mulk,
+    juzAmma,
+  ];
+
+  static const List<String> qahf = [
+    'page293',
+    'page294',
+    'page295',
+    'page296',
+    'page297',
+    'page298',
+    'page299',
+    'page300',
+    'page301',
+    'page302',
+    'page303',
+    'page304',
+  ];
+
+  static const List<String> sajdah = [
+    'page415',
+    'page416',
+    'page417',
+  ];
+
+  static const List<String> mulk = [
+    'page562',
+    'page563',
+    'page564',
+  ];
+
+  static const List<String> juzAmma = [
+    'page582',
+    'page583',
+    'page584',
+    'page585',
+    'page586',
+    'page587',
+    'page588',
+    'page589',
+    'page590',
+    'page591',
+    'page592',
+    'page593',
+    'page594',
+    'page595',
+    'page596',
+    'page597',
+    'page598',
+    'page599',
+    'page600',
+    'page601',
+    'page602',
+    'page603',
+    'page604',
   ];
 
   static const String close = 'Закрыть';

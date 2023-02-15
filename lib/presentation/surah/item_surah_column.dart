@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
+import 'package:majmua/data/database/arguments/surah_arguments.dart';
 
 class ItemSurahColumn extends StatelessWidget {
   const ItemSurahColumn({
@@ -18,11 +19,21 @@ class ItemSurahColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     return ListTile(
-      onTap: () {},
+      onTap: () {
+        Navigator.pop(context);
+        Navigator.pushNamed(
+          context,
+          'surah_page',
+          arguments: SurahArguments(surahIndex: columnIndex),
+        );
+      },
       shape: AppWidgetStyle.mainRectangleBorder,
       visualDensity: const VisualDensity(vertical: -4),
       horizontalTitleGap: 0,
-      title: Text(title, textAlign: TextAlign.end,),
+      title: Text(
+        title,
+        textAlign: TextAlign.end,
+      ),
       leading: Icon(
         Icons.arrow_back_ios_rounded,
         size: 17.5,
