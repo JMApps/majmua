@@ -8,9 +8,4 @@ class ModelFriday {
     required this.numberSunnah,
     required this.contentSunnah,
   });
-
-  ModelFriday.fromMap(dynamic object)
-      : id = object['id'],
-        numberSunnah = object['number_sunnah'],
-        contentSunnah = object['content_sunnah'];
 }

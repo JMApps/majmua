@@ -1,28 +1,19 @@
 class DefaultCountryModel {
-  final int id;
-  final String country;
-  final String city;
-  final String? adminName;
-  final String? iso3;
-  final String latitude;
-  final String longitude;
+  late final int id;
+  late final String country;
+  late final String city;
+  late final String? adminName;
+  late final String? iso3;
+  late final String latitude;
+  late final String longitude;
 
-  DefaultCountryModel({
-    required this.id,
-    required this.country,
-    required this.city,
-    required this.adminName,
-    required this.iso3,
-    required this.latitude,
-    required this.longitude,
-  });
-
-  DefaultCountryModel.fromMap(dynamic object)
-      : id = object['id'],
-        country = object['country'],
-        city = object['city'],
-        adminName = object['admin_name'],
-        iso3 = object['iso3'],
-        latitude = object['latitude'],
-        longitude = object['longitude'];
+  DefaultCountryModel.fromMap(Map<String, dynamic> map) {
+    id = map['id'];
+    country = map['country'];
+    city = map['city'];
+    adminName = map['admin_name'];
+    iso3 = map['iso3'];
+    latitude = map['latitude'];
+    longitude = map['longitude'];
+  }
 }

@@ -1,10 +1,11 @@
 class RaqaiqModel {
-  final int id;
-  final String chapterTitle;
-  final String chapterContent;
+  late final int id;
+  late final String chapterTitle;
+  late final String chapterContent;
 
-  RaqaiqModel.fromMap(dynamic object)
-      : id = object['id'],
-        chapterTitle = object['chapter_title'],
-        chapterContent = object['chapter_content'];
+  RaqaiqModel.fromMap(Map<String, dynamic> map) {
+    id = map['id'];
+    chapterTitle = map['chapter_title'];
+    chapterContent = map['chapter_content'];
+  }
 }

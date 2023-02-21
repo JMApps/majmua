@@ -1,12 +1,13 @@
 class NamesAyahsOfModel {
-  final int id;
-  final String ayahArabic;
-  final String ayahTranslation;
-  final String ayahSource;
+  late final int id;
+  late final String ayahArabic;
+  late final String ayahTranslation;
+  late final String ayahSource;
 
-  NamesAyahsOfModel.fromMap(dynamic object)
-      : id = object['id'],
-        ayahArabic = object['ayah_arabic'],
-        ayahTranslation = object['ayah_translation'],
-        ayahSource = object['ayah_source'];
+  NamesAyahsOfModel.fromMap(Map<String, dynamic> map) {
+    id = map['id'];
+    ayahArabic = map['ayah_arabic'];
+    ayahTranslation = map['ayah_translation'];
+    ayahSource = map['ayah_source'];
+  }
 }

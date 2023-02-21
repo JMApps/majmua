@@ -1,12 +1,13 @@
 class NamesClarificationOfModel {
-  final int id;
-  final String namesChapter;
-  final String contentClarification;
-  final String contentClarificationForShare;
+  late final int id;
+  late final String namesChapter;
+  late final String contentClarification;
+  late final String contentClarificationForShare;
 
-  NamesClarificationOfModel.fromMap(dynamic object)
-      : id = object['id'],
-        namesChapter = object['names_chapter'],
-        contentClarification = object['content_clarification'],
-        contentClarificationForShare = object['content_clarification_for_share'];
+  NamesClarificationOfModel.fromMap(Map<String, dynamic> map) {
+    id = map['id'];
+    namesChapter = map['names_chapter'];
+    contentClarification = map['content_clarification'];
+    contentClarificationForShare = map['content_clarification_for_share'];
+  }
 }

@@ -5,14 +5,6 @@ class SFQModel {
   late final String ayahSource;
   late final String nameAudio;
 
-  SFQModel({
-    required this.id,
-    required this.ayahArabic,
-    required this.ayahTranslation,
-    required this.ayahSource,
-    required this.nameAudio,
-  });
-
   SFQModel.fromMap(Map<String, dynamic> map) {
     id = map['id'];
     ayahArabic = map['ayah_arabic'];

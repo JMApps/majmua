@@ -7,16 +7,6 @@ class SupplicationsModel {
   late final String nameAudio;
   late final int? count;
 
-  SupplicationsModel({
-    required this.id,
-    required this.supplicationArabic,
-    this.supplicationTranscription,
-    required this.supplicationTranslation,
-    required this.supplicationForShare,
-    required this.nameAudio,
-    this.count,
-  });
-
   SupplicationsModel.fromMap(Map<String, dynamic> map) {
     id = map['id'];
     supplicationArabic = map['supplication_arabic'];

@@ -1,14 +1,15 @@
 class NamesOfModel {
-  final int id;
-  final String nameArabic;
-  final String nameTranscription;
-  final String nameTranslation;
-  final String nameAudio;
+  late final int id;
+  late final String nameArabic;
+  late final String nameTranscription;
+  late final String nameTranslation;
+  late final String nameAudio;
 
-  NamesOfModel.fromMap(dynamic object)
-      : id = object['id'],
-        nameArabic = object['name_arabic'],
-        nameTranscription = object['name_transcription'],
-        nameTranslation = object['name_translation'],
-        nameAudio = object['name_audio'];
+  NamesOfModel.fromMap(Map<String, dynamic> map) {
+    id = map['id'];
+    nameArabic = map['name_arabic'];
+    nameTranscription = map['name_transcription'];
+    nameTranslation = map['name_translation'];
+    nameAudio = map['name_audio'];
+  }
 }

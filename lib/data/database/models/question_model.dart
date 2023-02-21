@@ -1,12 +1,13 @@
 class QuestionModel {
-  final int id;
-  final String numberQuestion;
-  final String question;
-  final String answerContent;
+  late final int id;
+  late final String numberQuestion;
+  late final String question;
+  late final String answerContent;
 
-  QuestionModel.fromMap(dynamic object)
-      : id = object['id'],
-        numberQuestion = object['number_question'],
-        question = object['question'],
-        answerContent = object['answer_content'];
+  QuestionModel.fromMap(Map<String, dynamic> map) {
+    id = map['id'];
+    numberQuestion = map['number_question'];
+    question = map['question'];
+    answerContent = map['answer_content'];
+  }
 }

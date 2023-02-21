@@ -1,12 +1,13 @@
 class NamesContentOfModel {
-  final int id;
-  final String contentNumber;
-  final String contentTitle;
-  final String content;
+  late final int id;
+  late final String contentNumber;
+  late final String contentTitle;
+  late final String content;
 
-  NamesContentOfModel.fromMap(dynamic object)
-      : id = object['id'],
-        contentNumber = object['content_number'],
-        contentTitle = object['content_title'],
-        content = object['content'];
+  NamesContentOfModel.fromMap(Map<String, dynamic> map) {
+    id = map['id'];
+    contentNumber = map['content_number'];
+    contentTitle = map['content_title'];
+    content = map['content'];
+  }
 }
