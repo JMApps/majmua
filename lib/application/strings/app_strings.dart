@@ -208,6 +208,8 @@ class AppString {
 
   static const String bookQuestions = '200 вопросов';
   static const String descriptionBookQuestions = 'По вероучению Ислама';
+  static const String question = 'Вопрос';
+  static const String answer = 'Ответ';
 
   static const String bookHadeeth = '40 хадисов';
   static const String descriptionBookHadeeth = 'Имама ан-Навави';

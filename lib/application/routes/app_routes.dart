@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/data/database/arguments/supplication_arguments.dart';
 import 'package:majmua/data/database/arguments/surah_arguments.dart';
+import 'package:majmua/presentation/library/hadeeth/hadeeth_page.dart';
+import 'package:majmua/presentation/library/lessons/lessons_ramadan_page.dart';
+import 'package:majmua/presentation/library/namesOf/names_of_page.dart';
+import 'package:majmua/presentation/library/questions/questions_page.dart';
+import 'package:majmua/presentation/library/raqaiq/raqaiq_page.dart';
 import 'package:majmua/presentation/prayerTime/addCountry/add_country_page.dart';
-import 'package:majmua/presentation/prayerTime/prayerParams/prayer_params_page.dart';
 import 'package:majmua/presentation/prayerTime/calculationInfo/prayer_calculation_method_page.dart';
+import 'package:majmua/presentation/prayerTime/prayerParams/prayer_params_page.dart';
 import 'package:majmua/presentation/prayerTime/selectCountry/select_another_city_page.dart';
 import 'package:majmua/presentation/settings/app_settings_page.dart';
 import 'package:majmua/presentation/sfq/page/sfq_page.dart';
@@ -46,6 +51,26 @@ class AppRoutes {
         final SurahArguments surahArguments = routeSettings.arguments as SurahArguments;
         return MaterialPageRoute(
           builder: (_) => SurahPage(surahIndex: surahArguments.surahIndex,),
+        );
+      case 'book_hadeeth_page':
+        return MaterialPageRoute(
+          builder: (_) => const HadeethPage(),
+        );
+      case 'book_lessons_ramadan_page':
+        return MaterialPageRoute(
+          builder: (_) => const LessonsRamadanPage(),
+        );
+      case 'book_the_names_of_page':
+        return MaterialPageRoute(
+          builder: (_) => const NamesOfPage(),
+        );
+      case 'book_questions_page':
+        return MaterialPageRoute(
+          builder: (_) => const QuestionsPage(),
+        );
+      case 'book_raqaiq_page':
+        return MaterialPageRoute(
+          builder: (_) => const RaqaiqPage(),
         );
       default:
         throw Exception('Invalid route: ${routeSettings.name}');

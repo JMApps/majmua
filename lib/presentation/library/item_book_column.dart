@@ -24,7 +24,10 @@ class ItemBookColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     return ListTile(
-      onTap: () {},
+      onTap: () {
+        Navigator.pop(context);
+        Navigator.pushNamed(context, route);
+      },
       shape: AppWidgetStyle.mainRectangleBorder,
       contentPadding: const EdgeInsets.only(right: 8),
       visualDensity: const VisualDensity(vertical: -4),
