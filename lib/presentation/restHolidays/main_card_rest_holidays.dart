@@ -12,27 +12,30 @@ class MainCardRestHolidays extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appColor = Theme.of(context).colorScheme;
-    return Padding(
-      padding: AppWidgetStyle.horizontalPaddingMini,
-      child: Consumer<RestTimeState>(
-        builder: (BuildContext context, restTimeState, _) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              ItemHoliday(
-                holidayName: AppString.restRamadan,
-                days: restTimeState.getToRamadanDays,
-                color: appColor.firstAppColor,
-              ),
-              const SizedBox(height: 8),
-              ItemHoliday(
-                holidayName: AppString.restZulHidja,
-                days: restTimeState.getToQurbanDays,
-                color: appColor.secondAppColor,
-              ),
-            ],
-          );
-        },
+    return Card(
+      margin: AppWidgetStyle.horizontalMarginMini,
+      child: Padding(
+        padding: AppWidgetStyle.verticalPaddingMini,
+        child: Consumer<RestTimeState>(
+          builder: (BuildContext context, restTimeState, _) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                ItemHoliday(
+                  holidayName: AppString.restRamadan,
+                  days: restTimeState.getToRamadanDays,
+                  color: appColor.firstAppColor,
+                ),
+                const SizedBox(height: 8),
+                ItemHoliday(
+                  holidayName: AppString.restZulHidja,
+                  days: restTimeState.getToQurbanDays,
+                  color: appColor.secondAppColor,
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

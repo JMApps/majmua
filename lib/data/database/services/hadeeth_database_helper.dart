@@ -29,7 +29,7 @@ class HadeethDatabaseHelper {
     String path = join(documentDirectory!.path, 'hadeeth.db');
     var exists = await databaseExists(path);
 
-    // String toDeleteDB = '${documentDirectory.path}/county_coordinates.db';
+    // String toDeleteDB = '${documentDirectory.path}/hadeeth.db';
     // var delDB = await databaseExists(toDeleteDB);
 
     // if (delDB) {

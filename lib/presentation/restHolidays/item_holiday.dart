@@ -18,32 +18,29 @@ class ItemHoliday extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     return Card(
-      child: Card(
-        margin: AppWidgetStyle.mainMarginMini,
-        color: appColors.glassOnGlassCardColor,
-        child: ListTile(
-          visualDensity: const VisualDensity(vertical: -2),
-          trailing: CircleAvatar(
-            radius: 17.5,
-            backgroundColor: color,
-            child: Center(
-              child: Text(
-                days.toString().substring(1),
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontFamily: 'Lato',
-                  color: Colors.white,
-                ),
+      margin: AppWidgetStyle.horizontalMarginMini,
+      child: ListTile(
+        visualDensity: const VisualDensity(vertical: -2),
+        trailing: CircleAvatar(
+          radius: 17.5,
+          backgroundColor: color,
+          child: Center(
+            child: Text(
+              days.toString().substring(1),
+              style: const TextStyle(
+                fontSize: 14,
+                fontFamily: 'Lato',
+                color: Colors.white,
               ),
             ),
           ),
-          title: Text(
-            holidayName,
-            style: TextStyle(
-              fontSize: 15,
-              fontFamily: 'Nexa',
-              color: appColors.mainTextColor,
-            ),
+        ),
+        title: Text(
+          holidayName,
+          style: TextStyle(
+            fontSize: 15,
+            fontFamily: 'Nexa',
+            color: appColors.mainTextColor,
           ),
         ),
       ),

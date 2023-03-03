@@ -18,8 +18,8 @@ class CardDailyMessage extends StatelessWidget {
         padding: AppWidgetStyle.mainPadding,
         child: Consumer<RestTimeState>(
           builder: (BuildContext context, restTimeState, _) {
-            return const Text(
-              AppString.hadeethFastFirst,
+            return Text(
+              AppString.dailyTexts[context.watch<RestTimeState>().getCdt.weekday - 1],
               textAlign: TextAlign.center,
             );
           },
