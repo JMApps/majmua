@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
+import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/presentation/surah/column_surahs.dart';
 
 class CardSelectSurahs extends StatelessWidget {
@@ -8,8 +9,10 @@ class CardSelectSurahs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ColorScheme appColors = Theme.of(context).colorScheme;
     return Card(
       margin: EdgeInsets.zero,
+      color: appColors.glassOnGlassCardColor,
       child: InkWell(
         onTap: () {
           showModalBottomSheet(

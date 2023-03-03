@@ -19,6 +19,7 @@ class ItemHoliday extends StatelessWidget {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     return Card(
       margin: AppWidgetStyle.horizontalMarginMini,
+      color: appColors.glassOnGlassCardColor,
       child: ListTile(
         visualDensity: const VisualDensity(vertical: -2),
         trailing: CircleAvatar(
