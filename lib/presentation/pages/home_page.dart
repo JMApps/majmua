@@ -19,8 +19,8 @@ class HomePage extends StatelessWidget {
         color: Colors.transparent,
         image: DecorationImage(
           fit: BoxFit.cover,
-          opacity: Theme.of(context).brightness == Brightness.light ? 0.75 : 0.25,
-          image: const AssetImage('assets/images/main_background.jpeg'),
+          opacity: Theme.of(context).brightness == Brightness.light ? 1 : 0.25,
+          image: const AssetImage('assets/images/main_background_glassmorph.png'),
         ),
       ),
       child: Scaffold(

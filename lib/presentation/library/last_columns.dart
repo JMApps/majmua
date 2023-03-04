@@ -18,16 +18,29 @@ class LastColumns extends StatelessWidget {
           Padding(
             padding: AppWidgetStyle.verticalPaddingMini,
             child: Row(
-              children: const [
-                SizedBox(width: 8),
-                Expanded(
+              children: [
+                const SizedBox(width: 8),
+                const Expanded(
                   child: CardSelectSupplications(),
                 ),
-                SizedBox(width: 8),
-                Expanded(
+                const SizedBox(width: 8),
+                Card(
+                  child: IconButton(
+                    onPressed: () {},
+                    splashRadius: 25,
+                    icon: Image.asset(
+                      'assets/icons/dua-hands.png',
+                      width: 22.5,
+                      height: 22.5,
+                      color: Colors.teal,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                const Expanded(
                   child: CardSelectSurahs(),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
               ],
             ),
           ),
