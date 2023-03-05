@@ -229,6 +229,7 @@ class AppString {
     'Утром',
     'Вечером',
     'Перед сном',
+    'Истихара',
   ];
 
   static const List<String> surahNames = [

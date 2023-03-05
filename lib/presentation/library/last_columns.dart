@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
+import 'package:majmua/application/themes/app_theme.dart';
+import 'package:majmua/data/database/arguments/supplication_arguments.dart';
 import 'package:majmua/presentation/library/card_join_library.dart';
 import 'package:majmua/presentation/sfq/card_select_sfq.dart';
 import 'package:majmua/presentation/supplications/card_select_supplications.dart';
@@ -10,6 +12,7 @@ class LastColumns extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ColorScheme appColors = Theme.of(context).colorScheme;
     return Card(
       margin: AppWidgetStyle.horizontalMarginMini,
       child: Column(
@@ -25,14 +28,23 @@ class LastColumns extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 Card(
+                  color: appColors.glassOnGlassCardColor,
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        'supplications_page',
+                        arguments: const SupplicationArguments(
+                          supplicationIndex: 4,
+                        ),
+                      );
+                    },
                     splashRadius: 25,
                     icon: Image.asset(
                       'assets/icons/dua-hands.png',
                       width: 22.5,
                       height: 22.5,
-                      color: Colors.teal,
+                      color: appColors.secondAppColor,
                     ),
                   ),
                 ),
