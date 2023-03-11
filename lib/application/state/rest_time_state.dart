@@ -188,7 +188,7 @@ class RestTimeState extends ChangeNotifier {
 
   String get getShortNameWeekDay => AppString.shortNamesWeekDay[_cdt.weekday - 1];
 
-  String get getDailyShortMessage => AppString.dailyShortMessages[_cdt.weekday - 1];
+  String get getDailyShortMessage => AppString.dailyMessages[_cdt.weekday - 1];
 
   String get getDailyMessage => AppString.dailyMessages[_cdt.weekday - 1];
 
