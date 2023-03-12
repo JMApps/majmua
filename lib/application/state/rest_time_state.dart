@@ -192,9 +192,21 @@ class RestTimeState extends ChangeNotifier {
 
   String get getDailyMessage => AppString.dailyMessages[_cdt.weekday - 1];
 
+  bool _isRamadan() {
+    return _chdt.hMonth == 9 ? true : false;
+  }
+
+  bool get getIsRamadan => _isRamadan();
+
+  int _ramadanDay() {
+    return _chdt.hDay;
+  }
+
+  int get getRamadanDay => _ramadanDay();
+
   int _toRamadanDays() {
     final int countDays;
-    final hijriRamadanToGregorian = _chdt.hijriToGregorian(_chdt.hYear, 9, 1);
+    final DateTime hijriRamadanToGregorian = _chdt.hijriToGregorian(_chdt.hYear, 9, 1);
     countDays = _cdt.difference(DateTime(hijriRamadanToGregorian.year, hijriRamadanToGregorian.month, hijriRamadanToGregorian.day)).inDays;
     return countDays;
   }

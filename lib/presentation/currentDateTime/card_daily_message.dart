@@ -19,7 +19,11 @@ class CardDailyMessage extends StatelessWidget {
         child: Consumer<RestTimeState>(
           builder: (BuildContext context, restTimeState, _) {
             return Text(
-              AppString.dailyTexts[context.watch<RestTimeState>().getCdt.weekday - 1],
+              AppString.dailyTexts[
+                  context.watch<RestTimeState>().getCdt.weekday - 1],
+              style: const TextStyle(
+                fontSize: 18,
+              ),
               textAlign: TextAlign.center,
             );
           },
