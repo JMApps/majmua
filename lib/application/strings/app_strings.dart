@@ -91,6 +91,7 @@ class AppString {
   static const String prayerTimeMethodInformation = 'Информация';
   static const String prayerTimeMethodDescription = 'Пожалуйста, уточняйте, какой метод используется в вашей местности и если он доступен в приложении, то выберите его. Обязательно настраивайте часовой пояс под вашу местность. Разница в несколько минут с местным расписанием не говорит о том, что вычисление неправильное, вы можете отрегулировать минуты вручную в настройках.';
   static const String qiblaDegrees = 'Направление киблы (beta)';
+  static const String adjustmentMinutes = 'Корректирвка минут';
   static const String qiblaOn = 'Кибла на';
 
   static const List<String> monthHijriNames = [

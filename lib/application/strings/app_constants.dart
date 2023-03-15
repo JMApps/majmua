@@ -14,6 +14,14 @@ class AppConstants {
   static const keyMadhabIndex = 'key_madhab_params_index';
   static const keyUtcOffsetIndex = 'key_utc_offset_index';
 
+  // Prayer adjustments
+  static const keyFajrAdjustment = 'key_fajr_adjustment';
+  static const keySunriseAdjustment = 'key_sunrise_adjustment';
+  static const keyDhuhrAdjustment = 'key_dhuhr_adjustment';
+  static const keyAsrAdjustment = 'key_asr_adjustment';
+  static const keyMaghribAdjustment = 'key_maghrib_adjustment';
+  static const keyIshaAdjustment = 'key_isha_adjustment';
+
   // Notifications
   static const keyFajrNotification = 'key_fajr_notification';
   static const keySunriseNotification = 'key_sunrise_notification';

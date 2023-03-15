@@ -7,6 +7,7 @@ import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/presentation/prayerTime/item_card_adhan_name_time.dart';
+import 'package:majmua/presentation/prayerTime/prayerParams/change_minutes_button.dart';
 import 'package:majmua/presentation/prayerTime/prayer_model.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -70,6 +71,8 @@ class MainCardAdhanTime extends StatelessWidget {
                         ),
                       ),
                     ),
+                    const SizedBox(width: 8),
+                    const AdjustmentMinutesButton(),
                     const SizedBox(width: 8),
                     Card(
                       color: appColors.glassOnGlassCardColor,
@@ -246,7 +249,7 @@ class MainCardAdhanTime extends StatelessWidget {
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             );
           },

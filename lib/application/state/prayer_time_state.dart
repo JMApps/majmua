@@ -17,6 +17,12 @@ class PrayerTimeState extends ChangeNotifier {
   late CalculationParameters _prayerParams;
   late SunnahTimes _sunnahTimes;
   late Qibla _qibla;
+  late int _fajrAdjustment;
+  late int _sunriseAdjustment;
+  late int _dhuhrAdjustment;
+  late int _asrAdjustment;
+  late int _maghribAdjustment;
+  late int _ishaAdjustment;
 
   late String _country;
   late String _city;
@@ -77,6 +83,12 @@ class PrayerTimeState extends ChangeNotifier {
     _city = _mainSettingsBox.get(AppConstants.keyCity, defaultValue: 'Mecca');
     _calculationMethodIndex = _mainSettingsBox.get(AppConstants.keyCalculationIndex, defaultValue: 10);
     _madhabIndex = _mainSettingsBox.get(AppConstants.keyMadhabIndex, defaultValue: 0);
+    _fajrAdjustment = _mainSettingsBox.get(AppConstants.keyFajrAdjustment, defaultValue: 0);
+    _sunriseAdjustment = _mainSettingsBox.get(AppConstants.keySunriseAdjustment, defaultValue: 0);
+    _dhuhrAdjustment = _mainSettingsBox.get(AppConstants.keyDhuhrAdjustment, defaultValue: 0);
+    _asrAdjustment = _mainSettingsBox.get(AppConstants.keyAsrAdjustment, defaultValue: 0);
+    _maghribAdjustment = _mainSettingsBox.get(AppConstants.keyMaghribAdjustment, defaultValue: 0);
+    _ishaAdjustment = _mainSettingsBox.get(AppConstants.keyIshaAdjustment, defaultValue: 0);
     _latitude = _mainSettingsBox.get(AppConstants.keyCurrentLatitude, defaultValue: 21.392425);
     _longitude = _mainSettingsBox.get(AppConstants.keyCurrentLongitude, defaultValue: 39.857970);
     _coordinates = Coordinates(_latitude, _longitude, validate: false);
@@ -101,6 +113,12 @@ class PrayerTimeState extends ChangeNotifier {
   }) {
     _prayerParams = _calculationMethods[calculationMethodIndex].getParameters();
     _prayerParams.madhab = _calculationMadhab[madhabIndex];
+    _prayerParams.adjustments.fajr = _fajrAdjustment;
+    _prayerParams.adjustments.sunrise = _sunriseAdjustment;
+    _prayerParams.adjustments.dhuhr = _dhuhrAdjustment;
+    _prayerParams.adjustments.asr = _asrAdjustment;
+    _prayerParams.adjustments.maghrib = _maghribAdjustment;
+    _prayerParams.adjustments.isha = _ishaAdjustment;
     _prayerTimes = PrayerTimes.today(
       coordinates,
       _prayerParams,
@@ -108,6 +126,90 @@ class PrayerTimeState extends ChangeNotifier {
     );
     _sunnahTimes = SunnahTimes(_prayerTimes);
     _qibla = Qibla(_coordinates);
+  }
+
+  int get getFajrAdjustment => _fajrAdjustment;
+
+  int get getSunriseAdjustment => _sunriseAdjustment;
+
+  int get getDhuhrAdjustment => _dhuhrAdjustment;
+
+  int get getAsrAdjustment => _asrAdjustment;
+
+  int get getMaghribAdjustment => _maghribAdjustment;
+
+  int get getIshaAdjustment => _ishaAdjustment;
+
+  set setFajrAdjustment(int value) {
+    _fajrAdjustment = value;
+    initPrayerTime(
+      calculationMethodIndex: _calculationMethodIndex,
+      madhabIndex: _madhabIndex,
+      coordinates: _coordinates,
+      timeOffsetIndex: _timeOffsetIndex,
+    );
+    _mainSettingsBox.put(AppConstants.keyFajrAdjustment, _fajrAdjustment);
+  notifyListeners();
+  }
+
+  set setSunriseAdjustment(int value) {
+    _sunriseAdjustment = value;
+    initPrayerTime(
+      calculationMethodIndex: _calculationMethodIndex,
+      madhabIndex: _madhabIndex,
+      coordinates: _coordinates,
+      timeOffsetIndex: _timeOffsetIndex,
+    );
+    _mainSettingsBox.put(AppConstants.keySunriseAdjustment, _sunriseAdjustment);
+  notifyListeners();
+  }
+
+  set setDhuhrAdjustment(int value) {
+    _dhuhrAdjustment = value;
+    initPrayerTime(
+      calculationMethodIndex: _calculationMethodIndex,
+      madhabIndex: _madhabIndex,
+      coordinates: _coordinates,
+      timeOffsetIndex: _timeOffsetIndex,
+    );
+    _mainSettingsBox.put(AppConstants.keyDhuhrAdjustment, _dhuhrAdjustment);
+  notifyListeners();
+  }
+
+  set setAsrAdjustment(int value) {
+    _asrAdjustment = value;
+    initPrayerTime(
+      calculationMethodIndex: _calculationMethodIndex,
+      madhabIndex: _madhabIndex,
+      coordinates: _coordinates,
+      timeOffsetIndex: _timeOffsetIndex,
+    );
+    _mainSettingsBox.put(AppConstants.keyAsrAdjustment, _asrAdjustment);
+  notifyListeners();
+  }
+
+  set setMaghribAdjustment(int value) {
+    _maghribAdjustment = value;
+    initPrayerTime(
+      calculationMethodIndex: _calculationMethodIndex,
+      madhabIndex: _madhabIndex,
+      coordinates: _coordinates,
+      timeOffsetIndex: _timeOffsetIndex,
+    );
+    _mainSettingsBox.put(AppConstants.keyMaghribAdjustment, _maghribAdjustment);
+  notifyListeners();
+  }
+
+  set setIshaAdjustment(int value) {
+    _ishaAdjustment = value;
+    initPrayerTime(
+      calculationMethodIndex: _calculationMethodIndex,
+      madhabIndex: _madhabIndex,
+      coordinates: _coordinates,
+      timeOffsetIndex: _timeOffsetIndex,
+    );
+    _mainSettingsBox.put(AppConstants.keyIshaAdjustment, _ishaAdjustment);
+  notifyListeners();
   }
 
   set setCountry(String newCountry) {
