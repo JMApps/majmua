@@ -21,11 +21,17 @@ class MainCardRestHolidays extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                ItemHoliday(
-                  holidayName: AppString.restRamadan,
-                  days: restTimeState.getToRamadanDays,
-                  color: appColor.firstAppColor,
-                ),
+                restTimeState.getIsRamadan
+                    ? ItemHoliday(
+                        holidayName: AppString.ramadan,
+                        days: restTimeState.getRamadanDay,
+                        color: appColor.firstAppColor,
+                      )
+                    : ItemHoliday(
+                        holidayName: AppString.restRamadan,
+                        days: restTimeState.getToRamadanDays,
+                        color: appColor.firstAppColor,
+                      ),
                 const SizedBox(height: 8),
                 ItemHoliday(
                   holidayName: AppString.restZulHidja,

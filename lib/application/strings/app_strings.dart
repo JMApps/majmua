@@ -165,6 +165,7 @@ class AppString {
 
   // Holidays
   static const String restRamadan = 'Осталось дней до Рамадана';
+  static const String ramadan = 'Благословенный Рамадан';
   static const String restZulHidja = 'Осталось дней до Ид аль-Адха';
 
   static const String toWhiteDays = 'Приблизись белые дни';
