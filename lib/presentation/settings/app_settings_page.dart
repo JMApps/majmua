@@ -192,16 +192,20 @@ class AppSettingsPage extends StatelessWidget {
                                 activeColor: appColors.thirdAppColor,
                                 visualDensity: const VisualDensity(vertical: -4),
                                 title: const Text(AppString.adaptiveTheme),
-                                value: true,
-                                onChanged: (bool? value) {},
+                                value: notificationState.getIsAdaptiveTheme,
+                                onChanged: (bool? value) {
+                                  notificationState.setAdaptiveTheme = value!;
+                                },
                               ),
                               const Divider(indent: 16, endIndent: 16),
                               SwitchListTile.adaptive(
                                 activeColor: appColors.thirdAppColor,
                                 visualDensity: const VisualDensity(vertical: -4),
                                 title: const Text(AppString.userTheme),
-                                value: false,
-                                onChanged: (bool? value) {},
+                                value: notificationState.getIsUserTheme,
+                                onChanged: !notificationState.getIsAdaptiveTheme ? (bool? value) {
+                                  notificationState.setUserTheme = value!;
+                                } : null,
                               ),
                             ],
                           ),
@@ -228,8 +232,10 @@ class AppSettingsPage extends StatelessWidget {
                                 activeColor: appColors.thirdAppColor,
                                 visualDensity: const VisualDensity(vertical: -4),
                                 title: const Text(AppString.displayOnOff),
-                                value: true,
-                                onChanged: (bool? value) {},
+                                value: notificationState.getIsWakeLock,
+                                onChanged: (bool? value) {
+                                  notificationState.setWakeLockTheme = value!;
+                                },
                               ),
                             ],
                           ),

@@ -47,6 +47,10 @@ class AppConstants {
 
   static const keySalawatCount = 'key_salawat_count';
 
+  static const keyAdaptiveTheme = 'key_adaptive_theme';
+  static const keyUserTheme = 'key_user_theme';
+  static const keyWakeLock = 'key_wake_lock';
+
   // Text's
   static const keyMainTextSize = 'key_main_text_size';
   static const keyIsTranscriptionShow = 'key_is_transcription_show';
