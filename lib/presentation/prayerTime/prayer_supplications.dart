@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
+import 'package:majmua/data/database/arguments/supplication_arguments.dart';
 
 class PrayerSupplications extends StatelessWidget {
   const PrayerSupplications({
@@ -23,7 +24,13 @@ class PrayerSupplications extends StatelessWidget {
         alignment: Alignment.topRight,
         child: InkWell(
           onTap: () {
-            // Push named
+            Navigator.pushNamed(
+              context,
+              routeName,
+              arguments: SupplicationArguments(
+                supplicationIndex: supplicationsIndex,
+              ),
+            );
           },
           splashColor: color.withOpacity(0.5),
           radius: 25,
