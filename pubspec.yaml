@@ -42,7 +42,10 @@ dependencies:
   # Databases
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  sqflite: ^2.2.5
+  sqflite: ^2.2.6
+
+  # System
+  wakelock: ^0.6.2
 
 dev_dependencies:
   flutter_test:
