@@ -11,7 +11,7 @@ class MainCardRestHolidays extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appColor = Theme.of(context).colorScheme;
+    final appColors = Theme.of(context).colorScheme;
     return Card(
       margin: AppWidgetStyle.horizontalMarginMini,
       child: Padding(
@@ -22,21 +22,61 @@ class MainCardRestHolidays extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 restTimeState.getIsRamadan
-                    ? ItemHoliday(
-                        holidayName: AppString.ramadan,
-                        days: restTimeState.getRamadanDay,
-                        color: appColor.firstAppColor,
-                      )
+                    ? Card(
+            margin: AppWidgetStyle.horizontalMarginMini,
+              color: appColors.glassOnGlassCardColor,
+              child: ListTile(
+                visualDensity: const VisualDensity(vertical: -2),
+                trailing: CircleAvatar(
+                  radius: 17.5,
+                  backgroundColor: appColors.firstAppColor,
+                  child: Center(
+                    child: Text(
+                      restTimeState.getRamadanDay.toString(),
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontFamily: 'Lato',
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                title: Text(
+                  AppString.ramadan,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontFamily: 'Nexa',
+                    color: appColors.mainTextColor,
+                  ),
+                ),
+              ),
+            )
                     : ItemHoliday(
                         holidayName: AppString.restRamadan,
                         days: restTimeState.getToRamadanDays,
-                        color: appColor.firstAppColor,
+                        color: appColors.firstAppColor,
                       ),
                 const SizedBox(height: 8),
+                restTimeState.getIsQurban ? Card(
+                  margin: AppWidgetStyle.horizontalMarginMini,
+                  color: appColors.glassOnGlassCardColor,
+                  child: ListTile(
+                    visualDensity: const VisualDensity(vertical: -2),
+                    title: Text(
+                      AppString.qurban,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontFamily: 'Nexa',
+                        color: appColors.mainTextColor,
+                      ),
+                      textAlign: restTimeState.getIsQurban ? TextAlign.center : TextAlign.start,
+                    ),
+                  ),
+                ) :
                 ItemHoliday(
                   holidayName: AppString.restZulHidja,
                   days: restTimeState.getToQurbanDays,
-                  color: appColor.secondAppColor,
+                  color: appColors.secondAppColor,
                 ),
               ],
             );

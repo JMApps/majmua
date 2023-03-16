@@ -206,18 +206,24 @@ class RestTimeState extends ChangeNotifier {
 
   int _toRamadanDays() {
     final int countDays;
-    final DateTime hijriRamadanToGregorian = _chdt.hijriToGregorian(_chdt.hYear, 9, 1);
+    final DateTime hijriRamadanToGregorian = _chdt.hMonth < 9  ? _chdt.hijriToGregorian(_chdt.hYear, 9, 1) : _chdt.hijriToGregorian(_chdt.hYear + 1, 9, 1);
     countDays = _cdt.difference(DateTime(hijriRamadanToGregorian.year, hijriRamadanToGregorian.month, hijriRamadanToGregorian.day)).inDays;
-    return countDays;
+    return countDays - 1;
   }
 
   int get getToRamadanDays => _toRamadanDays();
 
+  bool _isQurban() {
+    return _chdt.hMonth == 12 && _chdt.hDay == 10 ? true : false;
+  }
+
+  bool get getIsQurban => _isQurban();
+
   int _toQurbanDays() {
     final int countDays;
-    final hijriZulHidjaToGregorian = _chdt.hijriToGregorian(_chdt.hYear, 12, 10);
+    final hijriZulHidjaToGregorian = _chdt.hMonth == 12 && _chdt.hDay > 10 ? _chdt.hijriToGregorian(_chdt.hYear + 1, 12, 10) : _chdt.hijriToGregorian(_chdt.hYear, 12, 10);
     countDays = _cdt.difference(DateTime(hijriZulHidjaToGregorian.year, hijriZulHidjaToGregorian.month, hijriZulHidjaToGregorian.day)).inDays;
-    return countDays;
+    return countDays - 1;
   }
 
   int get getToQurbanDays => _toQurbanDays();
