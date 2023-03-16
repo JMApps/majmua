@@ -6,13 +6,11 @@ class PrayerSupplications extends StatelessWidget {
   const PrayerSupplications({
     Key? key,
     required this.showButton,
-    required this.routeName,
     required this.color,
     required this.supplicationsIndex,
   }) : super(key: key);
 
   final bool showButton;
-  final String routeName;
   final Color color;
   final int supplicationsIndex;
 
@@ -26,7 +24,7 @@ class PrayerSupplications extends StatelessWidget {
           onTap: () {
             Navigator.pushNamed(
               context,
-              routeName,
+              'supplications_page',
               arguments: SupplicationArguments(
                 supplicationIndex: supplicationsIndex,
               ),
