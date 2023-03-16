@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:majmua/application/state/prayer_time_state.dart';
+import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/presentation/prayerTime/prayer_model.dart';
@@ -49,15 +50,13 @@ class ItemCardAdhanNameTime extends StatelessWidget {
                   title: Text(
                     prayerModel.prayerName,
                     style: TextStyle(
-                      fontWeight:
-                          isPrayerTime ? FontWeight.bold : FontWeight.normal,
+                      fontWeight: isPrayerTime ? FontWeight.bold : FontWeight.normal,
                     ),
                   ),
                   subtitle: Text(
                     DateFormat.Hm().format(prayerModel.prayerTime),
                     style: TextStyle(
-                      fontWeight:
-                          isPrayerTime ? FontWeight.bold : FontWeight.normal,
+                      fontWeight: isPrayerTime ? FontWeight.bold : FontWeight.normal,
                       fontFamily: 'Lato',
                     ),
                   ),
@@ -65,25 +64,21 @@ class ItemCardAdhanNameTime extends StatelessWidget {
               ),
               PrayerSupplications(
                 showButton: prayerModel.isMorning,
-                routeName: 'supplications_page',
                 color: appColors.mainTextColor,
                 supplicationsIndex: 1,
               ),
               PrayerSupplications(
                 showButton: prayerModel.isEvening,
-                routeName: 'supplications_page',
                 color: appColors.mainTextColor,
                 supplicationsIndex: 2,
               ),
               PrayerSupplications(
                 showButton: prayerModel.isNight,
-                routeName: 'supplications_page',
                 color: appColors.mainTextColor,
                 supplicationsIndex: 3,
               ),
               PrayerSupplications(
-                showButton: isPrayerTime && isPastTime,
-                routeName: 'supplications_page',
+                showButton: isPrayerTime && isPastTime && prayerModel.prayerName != AppString.sunrise,
                 color: appColors.firstAppColor,
                 supplicationsIndex: 0,
               ),

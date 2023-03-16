@@ -305,19 +305,13 @@ class PrayerTimeState extends ChangeNotifier {
 
   bool get getIsMorning {
     final bool isMorning;
-    isMorning = getMinutesOfDay > getFajrValueInMinutes + 30 && getMinutesOfDay < getDhuhrValueInMinutes;
+    isMorning = getMinutesOfDay > getFajrValueInMinutes + 30 && getMinutesOfDay < getDhuhrValueInMinutes + 15;
     return isMorning;
-  }
-
-  bool get getIsDuha {
-    final bool isDuha;
-    isDuha = getMinutesOfDay > getSunriseValueInMinutes + 30 && getMinutesOfDay < getDhuhrValueInMinutes - 15;
-    return isDuha;
   }
 
   bool get getIsEvening {
     final bool isEvening;
-    isEvening = getMinutesOfDay > getAsrValueInMinutes + 30 && getMinutesOfDay < getMaghribValueInMinutes;
+    isEvening = getMinutesOfDay > getAsrValueInMinutes + 30 && getMinutesOfDay < getMaghribValueInMinutes + 5;
     return isEvening;
   }
 
