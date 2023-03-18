@@ -32,8 +32,7 @@ class ItemCardAdhanNameTime extends StatelessWidget {
                 ? appColors.thirdAppColor
                 : isPrayerTime && isPastTime
                     ? appColors.firstAppColor
-                    : appColors.secondAppColor
-                        .withOpacity(isPrayerTime ? 1 : 0),
+                    : appColors.secondAppColor.withOpacity(isPrayerTime ? 1 : 0),
           ),
         ),
         child: Container(

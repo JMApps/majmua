@@ -38,7 +38,7 @@ class LessonItem extends StatelessWidget {
                   item.titleChapter,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize,
-                    color: appColors.firstAppColor,
+                    color: appColors.thirdAppColor,
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,

@@ -29,7 +29,7 @@ class RaqaiqItem extends StatelessWidget {
                   item.chapterTitle,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize,
-                    color: appColors.firstAppColor,
+                    color: appColors.thirdAppColor,
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,

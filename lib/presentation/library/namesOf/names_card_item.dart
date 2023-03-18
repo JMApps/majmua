@@ -26,7 +26,7 @@ class NamesCardItem extends StatelessWidget {
                   item.nameArabic,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize + 5,
-                    color: appColor.secondAppColor,
+                    color: appColor.thirdAppColor,
                     fontFamily: 'Quran',
                   ),
                   textAlign: TextAlign.center,

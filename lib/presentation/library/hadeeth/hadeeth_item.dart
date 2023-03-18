@@ -37,7 +37,7 @@ class HadeethItem extends StatelessWidget {
                   item.titleHadeeth,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize,
-                    color: appColors.firstAppColor,
+                    color: appColors.thirdAppColor,
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,

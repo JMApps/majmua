@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/presentation/prayerTime/prayerParams/add_city_button.dart';
+import 'package:majmua/presentation/prayerTime/prayerParams/adjustment_minutes_button.dart';
 import 'package:majmua/presentation/prayerTime/prayerParams/card_selected_city.dart';
 import 'package:majmua/presentation/prayerTime/prayerParams/choose_another_city_button.dart';
 import 'package:majmua/presentation/prayerTime/prayerParams/drop_down_calculation_method_list.dart';
@@ -68,6 +69,7 @@ class PrayerParamsPage extends StatelessWidget {
                   SegmentControlDateTimeOffset(),
                   SizedBox(height: 16),
                   ChooseAnotherCityButton(),
+                  AdjustmentMinutesButton(),
                   AddCityButton(),
                   //QiblaDegreesButton(),
                   PrayerTimeInfoButton(),

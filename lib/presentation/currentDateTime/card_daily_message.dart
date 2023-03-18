@@ -14,20 +14,19 @@ class CardDailyMessage extends StatelessWidget {
     return Card(
       margin: AppWidgetStyle.mainMargin,
       color: appColors.mainReverse,
-      child: Padding(
-        padding: AppWidgetStyle.mainPadding,
-        child: Consumer<RestTimeState>(
-          builder: (BuildContext context, restTimeState, _) {
-            return Text(
-              AppString.dailyTexts[
-                  context.watch<RestTimeState>().getCdt.weekday - 1],
+      child: Consumer<RestTimeState>(
+        builder: (BuildContext context, restTimeState, _) {
+          return SingleChildScrollView(
+            padding: AppWidgetStyle.mainPadding,
+            child: Text(
+              AppString.dailyTexts[context.watch<RestTimeState>().getCdt.weekday - 1],
               style: const TextStyle(
                 fontSize: 18,
               ),
               textAlign: TextAlign.center,
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }

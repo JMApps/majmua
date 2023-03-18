@@ -41,7 +41,7 @@ class QuestionItem extends StatelessWidget {
                       padding: EdgeInsets.zero,
                       margin: EdgeInsets.zero,
                       fontSize: FontSize(bookSettingsState.getFontSize),
-                      color: appColors.firstAppColor,
+                      color: appColors.thirdAppColor,
                       textAlign: TextAlign.center,
                       fontWeight: FontWeight.bold,
                     ),

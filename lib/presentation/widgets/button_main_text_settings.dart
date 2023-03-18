@@ -15,6 +15,7 @@ class ButtonMainTextSettings extends StatelessWidget {
           builder: (_) => const MainTextSettings(),
         );
       },
+      splashRadius: 20,
       icon: const Icon(
         CupertinoIcons.settings,
       ),
