@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/application/strings/app_constants.dart';
 
@@ -12,6 +13,7 @@ class WeeklySalawatState extends ChangeNotifier {
 
   changeSalawatCount() {
     _salawatCount++;
+    HapticFeedback.lightImpact();
     _salawatSettingsBox.put(AppConstants.keySalawatCount, _salawatCount);
     notifyListeners();
   }

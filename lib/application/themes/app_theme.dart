@@ -25,7 +25,7 @@ class AppTheme {
     ),
     cardTheme: const CardTheme(
       elevation: 0,
-      color: Color(0xE6FFF5E5),
+      color: Color(0xE6FFFFFF),
       shape: AppWidgetStyle.mainRectangleBorder,
       margin: EdgeInsets.zero,
     ),
