@@ -53,8 +53,7 @@ class _ListSunnahFridayState extends State<ListSunnahFriday> {
     ModelFriday(
       id: 8,
       numberSunnah: 'Запрещено (харам)',
-      contentSunnah:
-          'Перешагивать через других, если только иначе не добраться до нужного места',
+      contentSunnah: 'Перешагивать через других, если иначе не добраться до нужного места',
     ),
     ModelFriday(
       id: 9,

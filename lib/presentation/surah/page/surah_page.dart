@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
@@ -36,7 +35,7 @@ class _SurahPageState extends State<SurahPage> {
               AppString.surahNames[widget.surahIndex],
               style: TextStyle(color: appColors.mainTextColor),
             ),
-            actions: [
+            // actions: [
               // IconButton(
               //   onPressed: () {},
               //   splashRadius: 20,
@@ -45,7 +44,7 @@ class _SurahPageState extends State<SurahPage> {
               //     color: appColors.mainTextColor,
               //   ),
               // ),
-            ],
+            // ],
           ),
           body: PageView.builder(
             reverse: true,

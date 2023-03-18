@@ -61,7 +61,7 @@ class _LessonsRamadanPageState extends State<LessonsRamadanPage> {
                             pageController: scrollState.getPageController,
                             listLength: snapshot.data!.length,
                           ),
-                          const SizedBox(height: 16),
+                          const SizedBox(height: 8),
                         ],
                       )
                     : const Center(

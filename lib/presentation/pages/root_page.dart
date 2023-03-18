@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/other/default_scroll_behavior.dart';
 import 'package:majmua/application/routes/app_routes.dart';
 import 'package:majmua/application/state/main_notifications_state.dart';
 import 'package:majmua/application/strings/app_strings.dart';
@@ -13,6 +14,12 @@ class RootPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final notificationState = context.watch<MainNotificationsSate>();
     return MaterialApp(
+      builder: (context, child) {
+        return ScrollConfiguration(
+          behavior: DefaultScrollBehavior(),
+          child: child!,
+        );
+      },
       debugShowCheckedModeBanner: false,
       title: AppString.appName,
       onGenerateRoute: AppRoutes.onGeneratorRoute,
