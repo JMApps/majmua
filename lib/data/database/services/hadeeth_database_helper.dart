@@ -26,15 +26,15 @@ class HadeethDatabaseHelper {
         ? await getExternalStorageDirectory()
         : await getApplicationSupportDirectory();
 
-    String path = join(documentDirectory!.path, 'hadeeth.db');
+    String path = join(documentDirectory!.path, 'hadeeth_2.db');
     var exists = await databaseExists(path);
 
-    // String toDeleteDB = '${documentDirectory.path}/hadeeth.db';
-    // var delDB = await databaseExists(toDeleteDB);
+    String toDeleteDB = '${documentDirectory.path}/hadeeth.db';
+    var delDB = await databaseExists(toDeleteDB);
 
-    // if (delDB) {
-    //   await deleteDatabase(toDeleteDB);
-    // }
+    if (delDB) {
+      await deleteDatabase(toDeleteDB);
+    }
 
     if (!exists) {
       try {
@@ -43,7 +43,7 @@ class HadeethDatabaseHelper {
         Exception('Invalid database');
       }
 
-      ByteData data = await rootBundle.load(join('assets/databases', 'hadeeth.db'));
+      ByteData data = await rootBundle.load(join('assets/databases', 'hadeeth_2.db'));
       List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
       await File(path).writeAsBytes(bytes, flush: true);
     }
