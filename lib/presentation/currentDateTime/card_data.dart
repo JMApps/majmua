@@ -76,7 +76,7 @@ class CardDates extends StatelessWidget {
                           colorBlendMode: BlendMode.srcATop,
                           color: context.watch<RestTimeState>().getCdt.weekday == 5
                                   ? appColors.thirdAppColor
-                                  : appColors.firstAppColor,
+                                  : appColors.secondAppColor,
                         ),
                       ),
                       SizedBox(

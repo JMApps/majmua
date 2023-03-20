@@ -34,9 +34,11 @@ class DefaultCountriesDatabaseHelper {
     String toDeleteDB2 = '${documentDirectory.path}/county_coordinates_2.db';
     bool delDB2 = await databaseExists(toDeleteDB2);
 
-    if (delDB || delDB2) {
+    if (delDB) {
       await deleteDatabase(toDeleteDB);
+    } else if (delDB2) {
       await deleteDatabase(toDeleteDB2);
+
     }
 
     if (!exists) {

@@ -7,6 +7,7 @@ class PrayerModel {
   final DateTime _beforePrayerTime;
   final DateTime _afterPrayerTime;
   final bool _isMorning;
+  final bool _isDuha;
   final bool _isEvening;
   final bool _isNight;
 
@@ -17,6 +18,7 @@ class PrayerModel {
     required DateTime beforePrayerTime,
     required DateTime afterPrayerTime,
     required bool isMorning,
+    required bool isDuha,
     required bool isEvening,
     required bool isNight,
   })  : _prayerName = prayerName,
@@ -25,11 +27,16 @@ class PrayerModel {
         _beforePrayerTime = beforePrayerTime,
         _afterPrayerTime = afterPrayerTime,
         _isMorning = isMorning,
+        _isDuha = isDuha,
         _isEvening = isEvening,
         _isNight = isNight;
 
   bool get isMorning {
     return _prayerName == AppString.fajr && _isMorning;
+  }
+
+  bool get isDuha {
+    return _prayerName == AppString.sunrise && _isDuha;
   }
 
   bool get isEvening {

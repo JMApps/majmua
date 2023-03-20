@@ -9,6 +9,7 @@ class AdjustmentMinutesButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final appColor = Theme.of(context).colorScheme;
     return Card(
+      color: appColor.glassOnGlassCardColor,
       child: IconButton(
         onPressed: () {
           showModalBottomSheet(
