@@ -17,7 +17,7 @@ class MainCardWhiteDays extends StatelessWidget {
         return AnimatedSize(
           duration: const Duration(milliseconds: 750),
           child: Visibility(
-            visible: restTimeState.getChdt.hDay >= 12 &&
+            visible: !restTimeState.getIsRamadan && restTimeState.getChdt.hDay >= 12 &&
                 restTimeState.getChdt.hDay <= 15,
             child: Card(
               margin: const EdgeInsets.fromLTRB(8, 0, 8, 8),

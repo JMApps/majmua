@@ -53,7 +53,7 @@ class _ListSunnahFridayState extends State<ListSunnahFriday> {
     ModelFriday(
       id: 8,
       numberSunnah: 'Запрещено (харам)',
-      contentSunnah: 'Перешагивать через других, если иначе не добраться до нужного места',
+      contentSunnah: 'Перешагивать через других, кроме тех случаев, когда иначе невозможно добраться до нужного места',
     ),
     ModelFriday(
       id: 9,
@@ -63,8 +63,7 @@ class _ListSunnahFridayState extends State<ListSunnahFriday> {
     ModelFriday(
       id: 10,
       numberSunnah: 'Желательно',
-      contentSunnah:
-          'Совершить 4 ракаата, (2 по 2), после джума в мечети или 2 ракаата дома',
+      contentSunnah: 'Совершить 4 ракаата, (2 по 2), после джума в мечети или 2 ракаата дома',
     ),
     ModelFriday(
       id: 11,
