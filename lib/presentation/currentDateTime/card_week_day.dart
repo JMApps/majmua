@@ -3,9 +3,10 @@ import 'package:majmua/application/state/rest_time_state.dart';
 import 'package:majmua/application/state/weekly_salawat_state.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
-import 'package:majmua/presentation/currentDateTime/card_daily_message.dart';
+import 'package:majmua/presentation/currentDateTime/card_daily_ramadan.dart';
 import 'package:majmua/presentation/currentDateTime/card_data.dart';
 import 'package:majmua/presentation/currentDateTime/item_day_from_week.dart';
+import 'package:majmua/presentation/currentDateTime/card_daily_messages.dart';
 import 'package:provider/provider.dart';
 
 class CardWeekDay extends StatelessWidget {
@@ -67,30 +68,7 @@ class CardWeekDay extends StatelessWidget {
                 ),
               ),
               const CardDates(),
-              Card(
-                margin: AppWidgetStyle.horizontalMarginMini,
-                color: appColors.glassOnGlassCardColor,
-                child: ListTile(
-                  onTap: () {
-                    showModalBottomSheet(
-                      context: context,
-                      backgroundColor: Colors.transparent,
-                      builder: (_) => const CardDailyMessage(),
-                    );
-                  },
-                  shape: AppWidgetStyle.mainRectangleBorder,
-                  visualDensity: const VisualDensity(vertical: -4),
-                  title: Text(
-                    context.watch<RestTimeState>().getDailyShortMessage,
-                    textAlign: TextAlign.center,
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios_sharp,
-                    size: 20,
-                    color: appColors.mainTextColor,
-                  ),
-                ),
-              ),
+              context.watch<RestTimeState>().getIsRamadan ? const CardDailyRamadan() : const CardDailyMessages(),
               const SizedBox(height: 8),
             ],
           ),

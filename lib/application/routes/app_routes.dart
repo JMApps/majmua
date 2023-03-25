@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/data/database/arguments/lessons_ramadan_arguments.dart';
 import 'package:majmua/data/database/arguments/supplication_arguments.dart';
 import 'package:majmua/data/database/arguments/surah_arguments.dart';
 import 'package:majmua/presentation/library/hadeeth/hadeeth_page.dart';
 import 'package:majmua/presentation/library/lessons/lessons_ramadan_page.dart';
+import 'package:majmua/presentation/library/lessons/lessons_ramadan_select_page.dart';
 import 'package:majmua/presentation/library/namesOf/names_of_page.dart';
 import 'package:majmua/presentation/library/questions/questions_page.dart';
 import 'package:majmua/presentation/library/raqaiq/raqaiq_page.dart';
@@ -59,6 +61,11 @@ class AppRoutes {
       case 'book_lessons_ramadan_page':
         return MaterialPageRoute(
           builder: (_) => const LessonsRamadanPage(),
+        );
+      case 'book_lessons_ramadan_select_page':
+        final LessonsRamadanArguments lessonsRamadanArguments = routeSettings.arguments as LessonsRamadanArguments;
+        return MaterialPageRoute(
+          builder: (_) => LessonsRamadanSelectPage(selectPage: lessonsRamadanArguments.selectPage),
         );
       case 'book_the_names_of_page':
         return MaterialPageRoute(
