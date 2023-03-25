@@ -25,7 +25,7 @@ class LessonItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const Divider(indent: 16, endIndent: 16),
-                Text(
+                SelectableText(
                   item.numberChapter,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize,
@@ -34,7 +34,7 @@ class LessonItem extends StatelessWidget {
                 ),
                 const Divider(indent: 16, endIndent: 16),
                 const SizedBox(height: 8),
-                Text(
+                SelectableText(
                   item.titleChapter,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize,
@@ -45,7 +45,7 @@ class LessonItem extends StatelessWidget {
                 ),
                 const Divider(indent: 16, endIndent: 16),
                 const SizedBox(height: 8),
-                Html(
+                SelectableHtml(
                   data: item.contentChapter,
                   style: {
                     '#': Style(
@@ -65,7 +65,7 @@ class LessonItem extends StatelessWidget {
                       padding: EdgeInsets.zero,
                       margin: EdgeInsets.zero,
                       fontSize: const FontSize(18),
-                      color: appColors.firstAppColor,
+                      color: appColors.thirdAppColor,
                     ),
                   },
                   onLinkTap: (String? url, RenderContext rendContext,
@@ -74,7 +74,7 @@ class LessonItem extends StatelessWidget {
                       backgroundColor: Colors.transparent,
                       context: context,
                       builder: (BuildContext context) => CupertinoActionSheet(
-                        message: Html(
+                        message: SelectableHtml(
                           data: url,
                           style: {
                             '#': Style(

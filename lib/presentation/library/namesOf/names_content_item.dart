@@ -35,7 +35,7 @@ class NamesContentItem extends StatelessWidget {
             ),
             Consumer<TextSettingsState>(
               builder: (BuildContext context, bookSettingsState, _) {
-                return Html(
+                return SelectableHtml(
                   data: item.contentClarification,
                   style: {
                     '#': Style(

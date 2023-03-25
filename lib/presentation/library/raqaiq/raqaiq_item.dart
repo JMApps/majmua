@@ -25,7 +25,7 @@ class RaqaiqItem extends StatelessWidget {
               children: [
                 const Divider(indent: 16, endIndent: 16),
                 const SizedBox(height: 8),
-                Text(
+                SelectableText(
                   item.chapterTitle,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize,
@@ -36,7 +36,7 @@ class RaqaiqItem extends StatelessWidget {
                 ),
                 const Divider(indent: 16, endIndent: 16),
                 const SizedBox(height: 8),
-                Html(
+                SelectableHtml(
                   data: item.chapterContent,
                   style: {
                     '#': Style(

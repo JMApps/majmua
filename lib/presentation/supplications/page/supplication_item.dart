@@ -46,6 +46,10 @@ class SupplicationItem extends StatelessWidget {
                       textDirection: TextDirection.rtl,
                     ),
                     const SizedBox(height: 8),
+                    item.count != null
+                        ? const FabSupplicationsCount()
+                        : const SizedBox(),
+                    const SizedBox(height: 8),
                     AnimatedSize(
                       duration: const Duration(milliseconds: 750),
                       child: item.supplicationTranscription != null
@@ -128,10 +132,6 @@ class SupplicationItem extends StatelessWidget {
                         );
                       },
                     ),
-                    const SizedBox(height: 16),
-                    item.count != null
-                        ? const FabSupplicationsCount()
-                        : const SizedBox(),
                   ],
                 );
               },

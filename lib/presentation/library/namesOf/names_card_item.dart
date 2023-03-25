@@ -22,7 +22,7 @@ class NamesCardItem extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
+                SelectableText(
                   item.nameArabic,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize + 5,
@@ -32,7 +32,7 @@ class NamesCardItem extends StatelessWidget {
                   textAlign: TextAlign.center,
                   textDirection: TextDirection.rtl,
                 ),
-                Text(
+                SelectableText(
                   item.nameTranslation,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize,
@@ -41,7 +41,7 @@ class NamesCardItem extends StatelessWidget {
                   textAlign: TextAlign.center,
                   textDirection: TextDirection.ltr,
                 ),
-                Text(
+                SelectableText(
                   item.nameTranscription,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize,

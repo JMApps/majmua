@@ -25,7 +25,7 @@ class QuestionItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const Divider(indent: 16, endIndent: 16),
-                Text(
+                SelectableText(
                   '${AppString.question} ${item.id}',
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize,
@@ -34,7 +34,7 @@ class QuestionItem extends StatelessWidget {
                 ),
                 const Divider(indent: 16, endIndent: 16),
                 const SizedBox(height: 8),
-                Html(
+                SelectableHtml(
                   data: item.question,
                   style: {
                     '#': Style(
@@ -106,7 +106,7 @@ class QuestionItem extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const Divider(indent: 16, endIndent: 16),
-                Html(
+                SelectableHtml(
                   data: item.answerContent,
                   style: {
                     '#': Style(

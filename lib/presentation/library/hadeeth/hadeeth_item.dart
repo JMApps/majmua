@@ -24,7 +24,7 @@ class HadeethItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const Divider(indent: 16, endIndent: 16),
-                Text(
+                SelectableText(
                   item.numberHadeeth,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize,
@@ -33,7 +33,7 @@ class HadeethItem extends StatelessWidget {
                 ),
                 const Divider(indent: 16, endIndent: 16),
                 const SizedBox(height: 8),
-                Text(
+                SelectableText(
                   item.titleHadeeth,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize,
@@ -44,7 +44,7 @@ class HadeethItem extends StatelessWidget {
                 ),
                 const Divider(indent: 16, endIndent: 16),
                 const SizedBox(height: 8),
-                Html(
+                SelectableHtml(
                   data: item.hadeethArabic,
                   style: {
                     '#': Style(
@@ -67,7 +67,7 @@ class HadeethItem extends StatelessWidget {
                 ),
                 const Divider(indent: 16, endIndent: 16),
                 const SizedBox(height: 8),
-                Html(
+                SelectableHtml(
                   data: item.hadeethTranslation,
                   style: {
                     '#': Style(

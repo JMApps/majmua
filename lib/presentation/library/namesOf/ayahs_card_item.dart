@@ -22,7 +22,7 @@ class AyahsCardItem extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
+                SelectableText(
                   item.ayahArabic,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize + 4,
@@ -32,7 +32,7 @@ class AyahsCardItem extends StatelessWidget {
                   textAlign: TextAlign.start,
                   textDirection: TextDirection.rtl,
                 ),
-                Text(
+                SelectableText(
                   item.ayahTranslation,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize,
@@ -40,7 +40,7 @@ class AyahsCardItem extends StatelessWidget {
                   textAlign: TextAlign.start,
                   textDirection: TextDirection.ltr,
                 ),
-                Text(
+                SelectableText(
                   item.ayahSource,
                   style: const TextStyle(
                     fontSize: 14,
