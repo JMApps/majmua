@@ -36,7 +36,7 @@ class SupplicationItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
+                    SelectableText(
                       item.supplicationArabic,
                       style: TextStyle(
                         fontSize: settingsState.getFontSize + 3.0,
@@ -54,7 +54,7 @@ class SupplicationItem extends StatelessWidget {
                       duration: const Duration(milliseconds: 750),
                       child: item.supplicationTranscription != null
                           ? settingsState.getIsTranscription
-                              ? Text(
+                              ? SelectableText(
                                   item.supplicationTranscription!,
                                   style: TextStyle(
                                     fontSize: settingsState.getFontSize,
@@ -70,7 +70,7 @@ class SupplicationItem extends StatelessWidget {
                             ? const SizedBox(height: 8)
                             : const SizedBox()
                         : const SizedBox(),
-                    Html(
+                    SelectableHtml(
                       data: item.supplicationTranslation,
                       style: {
                         '#': Style(
@@ -101,7 +101,7 @@ class SupplicationItem extends StatelessWidget {
                           context: context,
                           builder: (BuildContext context) =>
                               CupertinoActionSheet(
-                            message: Html(
+                            message: SelectableHtml(
                               data: url,
                               style: {
                                 '#': Style(
