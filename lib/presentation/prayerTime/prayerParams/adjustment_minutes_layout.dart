@@ -22,82 +22,88 @@ class AdjustmentMinutesLayout extends StatelessWidget {
     return Consumer<PrayerTimeState>(
       builder: (context, prayerTimeState, _) {
         return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            FloatingActionButton.small(
-              onPressed: () {
-                switch (prayerName) {
-                  case AppString.fajr:
-                    prayerTimeState.setFajrAdjustment =
-                        prayerTimeState.getFajrAdjustment - 1;
-                    break;
-                  case AppString.sunrise:
-                    prayerTimeState.setSunriseAdjustment =
-                        prayerTimeState.getSunriseAdjustment - 1;
-                    break;
-                  case AppString.dhuhr:
-                    prayerTimeState.setDhuhrAdjustment =
-                        prayerTimeState.getDhuhrAdjustment - 1;
-                    break;
-                  case AppString.asr:
-                    prayerTimeState.setAsrAdjustment =
-                        prayerTimeState.getAsrAdjustment - 1;
-                    break;
-                  case AppString.maghrib:
-                    prayerTimeState.setMaghribAdjustment =
-                        prayerTimeState.getMaghribAdjustment - 1;
-                    break;
-                  case AppString.isha:
-                    prayerTimeState.setIshaAdjustment =
-                        prayerTimeState.getIshaAdjustment - 1;
-                    break;
-                }
-              },
-              shape: AppWidgetStyle.mainRectangleBorderMini,
-              elevation: 0,
-              backgroundColor: appColors.thirdAppColor,
-              child: const Icon(Icons.remove),
-            ),
-            Text(
-              '$prayerName\n${DateFormat.Hm().format(prayerTime)}',
-              style: const TextStyle(
-                fontSize: 16,
+            Expanded(
+              child: FloatingActionButton.small(
+                onPressed: () {
+                  switch (prayerName) {
+                    case AppString.fajr:
+                      prayerTimeState.setFajrAdjustment =
+                          prayerTimeState.getFajrAdjustment - 1;
+                      break;
+                    case AppString.sunrise:
+                      prayerTimeState.setSunriseAdjustment =
+                          prayerTimeState.getSunriseAdjustment - 1;
+                      break;
+                    case AppString.dhuhr:
+                      prayerTimeState.setDhuhrAdjustment =
+                          prayerTimeState.getDhuhrAdjustment - 1;
+                      break;
+                    case AppString.asr:
+                      prayerTimeState.setAsrAdjustment =
+                          prayerTimeState.getAsrAdjustment - 1;
+                      break;
+                    case AppString.maghrib:
+                      prayerTimeState.setMaghribAdjustment =
+                          prayerTimeState.getMaghribAdjustment - 1;
+                      break;
+                    case AppString.isha:
+                      prayerTimeState.setIshaAdjustment =
+                          prayerTimeState.getIshaAdjustment - 1;
+                      break;
+                  }
+                },
+                shape: AppWidgetStyle.mainRectangleBorderMini,
+                elevation: 0,
+                backgroundColor: appColors.thirdAppColor,
+                child: const Icon(Icons.remove),
               ),
-              textAlign: TextAlign.center,
             ),
-            FloatingActionButton.small(
-              onPressed: () {
-                switch (prayerName) {
-                  case AppString.fajr:
-                    prayerTimeState.setFajrAdjustment =
-                        prayerTimeState.getFajrAdjustment + 1;
-                    break;
-                  case AppString.sunrise:
-                    prayerTimeState.setSunriseAdjustment =
-                        prayerTimeState.getSunriseAdjustment + 1;
-                    break;
-                  case AppString.dhuhr:
-                    prayerTimeState.setDhuhrAdjustment =
-                        prayerTimeState.getDhuhrAdjustment + 1;
-                    break;
-                  case AppString.asr:
-                    prayerTimeState.setAsrAdjustment =
-                        prayerTimeState.getAsrAdjustment + 1;
-                    break;
-                  case AppString.maghrib:
-                    prayerTimeState.setMaghribAdjustment =
-                        prayerTimeState.getMaghribAdjustment + 1;
-                    break;
-                  case AppString.isha:
-                    prayerTimeState.setIshaAdjustment =
-                        prayerTimeState.getIshaAdjustment + 1;
-                    break;
-                }
-              },
-              shape: AppWidgetStyle.mainRectangleBorderMini,
-              elevation: 0,
-              backgroundColor: appColors.secondAppColor,
-              child: const Icon(Icons.add),
+            Expanded(
+              flex: 4,
+              child: Text(
+                '$prayerName\n${DateFormat.Hm().format(prayerTime)}',
+                style: const TextStyle(
+                  fontSize: 16,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Expanded(
+              child: FloatingActionButton.small(
+                onPressed: () {
+                  switch (prayerName) {
+                    case AppString.fajr:
+                      prayerTimeState.setFajrAdjustment =
+                          prayerTimeState.getFajrAdjustment + 1;
+                      break;
+                    case AppString.sunrise:
+                      prayerTimeState.setSunriseAdjustment =
+                          prayerTimeState.getSunriseAdjustment + 1;
+                      break;
+                    case AppString.dhuhr:
+                      prayerTimeState.setDhuhrAdjustment =
+                          prayerTimeState.getDhuhrAdjustment + 1;
+                      break;
+                    case AppString.asr:
+                      prayerTimeState.setAsrAdjustment =
+                          prayerTimeState.getAsrAdjustment + 1;
+                      break;
+                    case AppString.maghrib:
+                      prayerTimeState.setMaghribAdjustment =
+                          prayerTimeState.getMaghribAdjustment + 1;
+                      break;
+                    case AppString.isha:
+                      prayerTimeState.setIshaAdjustment =
+                          prayerTimeState.getIshaAdjustment + 1;
+                      break;
+                  }
+                },
+                shape: AppWidgetStyle.mainRectangleBorderMini,
+                elevation: 0,
+                backgroundColor: appColors.secondAppColor,
+                child: const Icon(Icons.add),
+              ),
             ),
           ],
         );

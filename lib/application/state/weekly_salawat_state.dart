@@ -18,6 +18,13 @@ class WeeklySalawatState extends ChangeNotifier {
     notifyListeners();
   }
 
+  resetSalawatCount() {
+    _salawatCount = 0;
+    HapticFeedback.mediumImpact();
+    _salawatSettingsBox.put(AppConstants.keySalawatCount, _salawatCount);
+    notifyListeners();
+  }
+
   int get getSalawatCount => _salawatCount;
 
   @override

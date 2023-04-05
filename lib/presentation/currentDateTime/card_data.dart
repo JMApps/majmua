@@ -59,19 +59,18 @@ class CardDates extends StatelessWidget {
                     spacing: 8,
                     runSpacing: 8,
                     children: [
-                      IconButton(
-                        onPressed: () {
+                      InkWell(
+                        onTap: () {
                           weeklySalawatState.changeSalawatCount();
                         },
-                        splashColor: appColors.thirdAppColor,
-                        splashRadius: 45,
-                        iconSize: 85,
-                        visualDensity: const VisualDensity(vertical: -4),
-                        padding: EdgeInsets.zero,
-                        icon: Image.asset(
+                        onLongPress: () {
+                          weeklySalawatState.resetSalawatCount();
+                        },
+                        borderRadius: AppWidgetStyle.mainBorderRadius,
+                        child: Image.asset(
                           'assets/images/salawat.png',
-                          width: 115,
-                          height: 115,
+                          width: 90,
+                          height: 90,
                           fit: BoxFit.cover,
                           colorBlendMode: BlendMode.srcATop,
                           color: context.watch<RestTimeState>().getCdt.weekday == 5
