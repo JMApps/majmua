@@ -18,7 +18,6 @@ class CounterVerticalColumn extends StatelessWidget {
           children: [
             Card(
               elevation: 3,
-              color: appColors.glassOnGlassCardColor,
               margin: AppWidgetStyle.horizontalMargin,
               child: Container(
                 height: 200,
