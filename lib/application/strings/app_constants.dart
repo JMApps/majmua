@@ -58,6 +58,7 @@ class AppConstants {
 
   // Counter
   static const keyCounterValue = 'key_counter_value';
+  static const keyCounterAllValue = 'key_counter_all_value';
   static const keyCounterVibrate = 'key_counter_vibrate';
   static const keyCounterClick = 'key_counter_click';
 }

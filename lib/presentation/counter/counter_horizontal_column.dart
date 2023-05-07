@@ -79,6 +79,17 @@ class CounterHorizontalColumn extends StatelessWidget {
                     ),
                   ],
                 ),
+                const SizedBox(height: 16),
+                Container(
+                  padding: AppWidgetStyle.horizontalPaddingMini,
+                  child: Text(
+                    counter.getCountAllValue.toString(),
+                    style: const TextStyle(
+                      fontSize: 12,
+                    ),
+                    textAlign: TextAlign.end,
+                  ),
+                ),
               ],
             ),
             const SizedBox(width: 32),

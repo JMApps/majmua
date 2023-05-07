@@ -84,7 +84,9 @@ class CounterVerticalColumn extends StatelessWidget {
                   icon: Icon(
                     Icons.vibration,
                     size: 40,
-                    color: counter.getIsVibrate ? appColors.thirdAppColor : Colors.grey,
+                    color: counter.getIsVibrate
+                        ? appColors.thirdAppColor
+                        : Colors.grey,
                   ),
                 ),
                 const SizedBox(width: 16),
@@ -108,12 +110,25 @@ class CounterVerticalColumn extends StatelessWidget {
                   icon: Icon(
                     Icons.volume_up_outlined,
                     size: 40,
-                    color: counter.getIsClick ? appColors.thirdAppColor : Colors.grey,
+                    color: counter.getIsClick
+                        ? appColors.thirdAppColor
+                        : Colors.grey,
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 16),
+            Container(
+              width: double.infinity,
+              padding: AppWidgetStyle.horizontalPaddingMini,
+              child: Text(
+                counter.getCountAllValue.toString(),
+                style: const TextStyle(
+                  fontSize: 12,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
           ],
         );
       },

@@ -8,9 +8,14 @@ class CounterState extends ChangeNotifier {
 
   CounterState() {
     _countValue = _counterValueBox.get(AppConstants.keyCounterValue, defaultValue: 0);
+    _countAllValue = _counterValueBox.get(AppConstants.keyCounterAllValue, defaultValue: 0);
     _isVibrate = _counterValueBox.get(AppConstants.keyCounterVibrate, defaultValue: true);
     _isClick = _counterValueBox.get(AppConstants.keyCounterClick, defaultValue: true);
   }
+
+  int _countAllValue = 0;
+
+  int get getCountAllValue => _countAllValue;
 
   int _countValue = 0;
 
@@ -26,6 +31,7 @@ class CounterState extends ChangeNotifier {
 
   increment() {
     _countValue++;
+    _countAllValue++;
     if (_isVibrate) {
       HapticFeedback.lightImpact();
     }
@@ -33,6 +39,7 @@ class CounterState extends ChangeNotifier {
       SystemSound.play(SystemSoundType.click);
     }
     _counterValueBox.put(AppConstants.keyCounterValue, _countValue);
+    _counterValueBox.put(AppConstants.keyCounterAllValue, _countAllValue);
     notifyListeners();
   }
 
