@@ -38,6 +38,18 @@ class HomePage extends StatelessWidget {
               actions: [
                 IconButton(
                   onPressed: () {
+                    Navigator.pushNamed(context, 'app_counter_page');
+                  },
+                  visualDensity: const VisualDensity(vertical: -4),
+                  splashRadius: 17.5,
+                  icon: const Icon(
+                    CupertinoIcons.goforward_plus,
+                    size: 25,
+                    color: Colors.white,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {
                     Navigator.pushNamed(context, 'app_settings_page');
                   },
                   visualDensity: const VisualDensity(vertical: -4),

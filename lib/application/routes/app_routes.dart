@@ -8,6 +8,7 @@ import 'package:majmua/presentation/library/lessons/lessons_ramadan_select_page.
 import 'package:majmua/presentation/library/namesOf/names_of_page.dart';
 import 'package:majmua/presentation/library/questions/questions_page.dart';
 import 'package:majmua/presentation/library/raqaiq/raqaiq_page.dart';
+import 'package:majmua/presentation/counter/app_counter_page.dart';
 import 'package:majmua/presentation/prayerTime/addCountry/add_country_page.dart';
 import 'package:majmua/presentation/prayerTime/calculationInfo/prayer_calculation_method_page.dart';
 import 'package:majmua/presentation/prayerTime/prayerParams/prayer_params_page.dart';
@@ -39,6 +40,10 @@ class AppRoutes {
       case 'app_settings_page':
         return MaterialPageRoute(
           builder: (_) => const AppSettingsPage(),
+        );
+      case 'app_counter_page':
+        return MaterialPageRoute(
+          builder: (_) => const AppCounterPage(),
         );
       case 'supplications_page':
         final SupplicationArguments supplicationArguments = routeSettings.arguments as SupplicationArguments;

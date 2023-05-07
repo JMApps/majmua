@@ -20,6 +20,7 @@ void main() async {
   await Hive.openBox(AppConstants.keySettingsPrayerTimeBox);
   await Hive.openBox(AppConstants.keyMainAppSettings);
   await Hive.openBox(AppConstants.keyMainNotificationsSettings);
+  await Hive.openBox(AppConstants.keyMainCounter);
   runApp(
     MultiProvider(
       providers: [

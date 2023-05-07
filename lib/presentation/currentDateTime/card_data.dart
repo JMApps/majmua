@@ -78,18 +78,15 @@ class CardDates extends StatelessWidget {
                                   : appColors.secondAppColor,
                         ),
                       ),
-                      SizedBox(
-                        width: 75,
-                        child: Text(
-                          '${weeklySalawatState.getSalawatCount}',
-                          style: TextStyle(
-                            fontFamily: 'Lato',
-                            color: appColors.mainTextColor,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          maxLines: 3,
-                          textAlign: TextAlign.center,
+                      Text(
+                        '${weeklySalawatState.getSalawatCount}',
+                        style: TextStyle(
+                          fontFamily: 'Lato',
+                          color: appColors.mainTextColor,
+                          fontWeight: FontWeight.bold,
                         ),
+                        maxLines: 3,
+                        textAlign: TextAlign.center,
                       ),
                     ],
                   ),

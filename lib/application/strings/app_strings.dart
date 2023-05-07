@@ -190,6 +190,9 @@ class AppString {
   static const String displayOnOff = 'Оставить дисплей включенным';
   static const String display = 'Дисплей';
 
+  // Counter
+  static const String counter = 'Счётчик';
+
   static const String supplications = 'Азкары';
   static const String surahs = 'Суры';
   static const String sfq = 'Мольбы из Корана';

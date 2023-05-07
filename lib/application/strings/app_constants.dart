@@ -3,6 +3,7 @@ class AppConstants {
   static const keySettingsPrayerTimeBox = 'key_settings_prayer_time_box';
   static const keyMainAppSettings = 'key_main_app_settings';
   static const keyMainNotificationsSettings = 'key_main_notifications_settings';
+  static const keyMainCounter = 'key_main_counter';
 
   // Prayer time
   static const keyCountryId = 'key_country_id';
@@ -54,4 +55,9 @@ class AppConstants {
   // Text's
   static const keyMainTextSize = 'key_main_text_size';
   static const keyIsTranscriptionShow = 'key_is_transcription_show';
+
+  // Counter
+  static const keyCounterValue = 'key_counter_value';
+  static const keyCounterVibrate = 'key_counter_vibrate';
+  static const keyCounterClick = 'key_counter_click';
 }
