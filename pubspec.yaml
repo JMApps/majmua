@@ -77,3 +77,6 @@ flutter:
     - family: 'Scheherazade'
       fonts:
       - asset: assets/fonts/scheherazade.ttf
+    - family: 'Digital'
+      fonts:
+        - asset: assets/fonts/digital.ttf
