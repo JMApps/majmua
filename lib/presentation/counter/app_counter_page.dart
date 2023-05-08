@@ -20,13 +20,9 @@ class AppCounterPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text(AppString.counter),
         ),
-        body: Center(
-          child: SingleChildScrollView(
-            child: MediaQuery.of(context).orientation == Orientation.portrait
-                ? const CounterVerticalColumn()
-                : const CounterHorizontalColumn(),
-          ),
-        ),
+        body: MediaQuery.of(context).orientation == Orientation.portrait
+            ? const CounterVerticalColumn()
+            : const CounterHorizontalColumn(),
       ),
     );
   }

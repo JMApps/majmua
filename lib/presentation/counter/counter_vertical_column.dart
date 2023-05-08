@@ -1,6 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/counter_state.dart';
-import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -13,65 +13,33 @@ class CounterVerticalColumn extends StatelessWidget {
     return Consumer<CounterState>(
       builder: (context, counter, _) {
         return Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Card(
-              elevation: 3,
-              margin: AppWidgetStyle.horizontalMargin,
-              child: Container(
-                height: 200,
-                width: double.infinity,
-                padding: AppWidgetStyle.mainPaddingMini,
-                child: Center(
-                  child: Text(
-                    counter.getCountValue.toString(),
-                    style: const TextStyle(
-                      fontSize: 65,
-                      fontFamily: 'Lato',
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
+            const SizedBox(height: 48),
+            Text(
+              counter.getCountValue.toString(),
+              style: const TextStyle(
+                fontSize: 100,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Lato',
+              ),
+              textAlign: TextAlign.center,
+            ),
+            Expanded(
+              child: IconButton(
+                onPressed: () {
+                  counter.increment();
+                },
+                splashRadius: 175,
+                splashColor: appColors.thirdAppColor,
+                icon: Icon(
+                  CupertinoIcons.circle_fill,
+                  size: 350,
+                  color: appColors.secondAppColor,
                 ),
               ),
             ),
-            const SizedBox(height: 32),
-            InkWell(
-              onTap: () {
-                counter.increment();
-              },
-              onLongPress: () {
-                counter.reset();
-              },
-              borderRadius: BorderRadius.circular(250),
-              child: Container(
-                constraints: const BoxConstraints(
-                  minWidth: 300,
-                  minHeight: 300,
-                  maxWidth: 300,
-                  maxHeight: 300,
-                ),
-                decoration: BoxDecoration(
-                  color: appColors.thirdAppColor.withOpacity(0.25),
-                  borderRadius: BorderRadius.circular(250),
-                  boxShadow: [
-                    BoxShadow(
-                      blurStyle: BlurStyle.inner,
-                      offset: const Offset(5, 5),
-                      color: appColors.thirdAppColor.withOpacity(
-                        0.25,
-                      ),
-                    ),
-                  ],
-                ),
-                child: Icon(
-                  Icons.radio_button_checked,
-                  color: appColors.thirdAppColor,
-                  size: 250,
-                ),
-              ),
-            ),
-            const SizedBox(height: 32),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -84,7 +52,7 @@ class CounterVerticalColumn extends StatelessWidget {
                     Icons.vibration,
                     size: 40,
                     color: counter.getIsVibrate
-                        ? appColors.thirdAppColor
+                        ? appColors.firstAppColor
                         : Colors.grey,
                   ),
                 ),
@@ -97,7 +65,7 @@ class CounterVerticalColumn extends StatelessWidget {
                   icon: Icon(
                     Icons.replay,
                     size: 40,
-                    color: appColors.thirdAppColor,
+                    color: appColors.firstAppColor,
                   ),
                 ),
                 const SizedBox(width: 16),
@@ -110,24 +78,18 @@ class CounterVerticalColumn extends StatelessWidget {
                     Icons.volume_up_outlined,
                     size: 40,
                     color: counter.getIsClick
-                        ? appColors.thirdAppColor
+                        ? appColors.firstAppColor
                         : Colors.grey,
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 16),
-            Container(
-              width: double.infinity,
-              padding: AppWidgetStyle.horizontalPaddingMini,
-              child: Text(
-                counter.getCountAllValue.toString(),
-                style: const TextStyle(
-                  fontSize: 12,
-                ),
-                textAlign: TextAlign.center,
-              ),
+            Text(
+              counter.getCountAllValue.toString(),
+              textAlign: TextAlign.center,
             ),
+            const SizedBox(height: 32),
           ],
         );
       },
