@@ -90,9 +90,11 @@ class AppString {
 
   static const String prayerTimeMethodInformation = 'Информация';
   static const String prayerTimeMethodDescription = 'Пожалуйста, уточняйте, какой метод используется в вашей местности и если он доступен в приложении, то выберите его. Обязательно настраивайте часовой пояс под вашу местность. Разница в несколько минут с местным расписанием не говорит о том, что вычисление неправильное, вы можете отрегулировать минуты вручную в настройках.';
-  static const String qiblaDegrees = 'Направление киблы (beta)';
-  static const String adjustmentMinutes = 'Корректирвка минут';
+  static const String qiblaDegrees = 'Направление киблы';
+  static const String qiblaInfo = 'Так как мы стремимся избегать запроса любых разрешений в наших приложениях, доступа к вашему компасу у приложения нет. Но вам предоставлен градус направления к Кибле согласно тому городу, который выбран в настройках. Вы можете воспользоваться любым компасом и сверив градус направления указаный выше определить направление к Кибле.';
+  static const String adjustmentMinutes = 'Корректировка минут';
   static const String qiblaOn = 'Кибла на';
+  static const String sharePrayerDayTimes = 'Поделиться расписанием';
 
   static const List<String> monthHijriNames = [
     'Мухаррам',
