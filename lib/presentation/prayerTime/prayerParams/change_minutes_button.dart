@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/presentation/prayerTime/prayerParams/adjustment_minutes.dart';
 
@@ -11,6 +12,7 @@ class AdjustmentMinutesButton extends StatelessWidget {
     return Card(
       color: appColor.glassOnGlassCardColor,
       child: IconButton(
+        tooltip: AppString.adjustmentMinutes,
         onPressed: () {
           showModalBottomSheet(
             context: context,

@@ -24,7 +24,7 @@ class AdjustmentMinutesLayout extends StatelessWidget {
         return Row(
           children: [
             Expanded(
-              child: FloatingActionButton.small(
+              child: FloatingActionButton(
                 onPressed: () {
                   switch (prayerName) {
                     case AppString.fajr:
@@ -70,7 +70,7 @@ class AdjustmentMinutesLayout extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: FloatingActionButton.small(
+              child: FloatingActionButton(
                 onPressed: () {
                   switch (prayerName) {
                     case AppString.fajr:

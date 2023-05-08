@@ -36,6 +36,7 @@ class HomePage extends StatelessWidget {
                 AppString.appName,
               ),
               leading: IconButton(
+                tooltip: AppString.counter,
                 onPressed: () {
                   Navigator.pushNamed(context, 'app_counter_page');
                 },

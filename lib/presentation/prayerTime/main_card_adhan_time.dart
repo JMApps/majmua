@@ -77,6 +77,7 @@ class MainCardAdhanTime extends StatelessWidget {
                     Card(
                       color: appColors.glassOnGlassCardColor,
                       child: IconButton(
+                        tooltip: AppString.sharePrayerDayTimes,
                         onPressed: () {
                           Share.share(
                             prayerTimeState.getContentForShare,

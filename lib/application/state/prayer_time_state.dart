@@ -396,7 +396,7 @@ ${AppString.isha}: ${DateFormat.Hm().format(_prayerTimes.isha)}
 ${AppString.lastThirdNight} ${DateFormat.Hm().format(getThirdNightPart)}
 ${AppString.midnight} ${DateFormat.Hm().format(getMidnight)}
 ${AppString.calculatePrayerMethod}: ${AppString.calculationMethodNames[_calculationMethodIndex]}
-${AppString.dateTimeOffset}: ${_cdt.timeZoneOffset}''';
+${AppString.dateTimeOffset}: ${_cdt.timeZoneName}''';
     return content;
   }
 
