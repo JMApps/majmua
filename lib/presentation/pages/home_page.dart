@@ -32,15 +32,29 @@ class HomePage extends StatelessWidget {
               centerTitle: true,
               pinned: false,
               floating: false,
-              title: const Text(
-                AppString.appName,
+              title: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text(
+                    AppString.appName,
+                  ),
+                  IconButton(
+                    onPressed: null,
+                    splashRadius: 17.5,
+                    icon: Icon(
+                      CupertinoIcons.checkmark_seal_fill,
+                      size: 25,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ],
               ),
               leading: IconButton(
                 tooltip: AppString.counter,
                 onPressed: () {
                   Navigator.pushNamed(context, 'app_counter_page');
                 },
-                visualDensity: const VisualDensity(vertical: -4),
                 splashRadius: 17.5,
                 icon: const Icon(
                   CupertinoIcons.goforward_plus,
@@ -53,7 +67,6 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamed(context, 'app_settings_page');
                   },
-                  visualDensity: const VisualDensity(vertical: -4),
                   splashRadius: 17.5,
                   icon: const Icon(
                     CupertinoIcons.settings,

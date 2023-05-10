@@ -56,7 +56,6 @@ class CardDates extends StatelessWidget {
                   child: Wrap(
                     direction: Axis.vertical,
                     crossAxisAlignment: WrapCrossAlignment.center,
-                    spacing: 8,
                     runSpacing: 8,
                     children: [
                       InkWell(
@@ -66,18 +65,21 @@ class CardDates extends StatelessWidget {
                         onLongPress: () {
                           weeklySalawatState.resetSalawatCount();
                         },
-                        borderRadius: AppWidgetStyle.mainBorderRadius,
+                        borderRadius: BorderRadius.circular(150),
+                        splashColor: appColors.thirdAppColor,
                         child: Image.asset(
                           'assets/images/salawat.png',
                           width: 90,
                           height: 90,
                           fit: BoxFit.cover,
                           colorBlendMode: BlendMode.srcATop,
-                          color: context.watch<RestTimeState>().getCdt.weekday == 5
+                          color:
+                              context.watch<RestTimeState>().getCdt.weekday == 5
                                   ? appColors.thirdAppColor
                                   : appColors.secondAppColor,
                         ),
                       ),
+                      const SizedBox(height: 4),
                       Text(
                         '${weeklySalawatState.getSalawatCount}',
                         style: TextStyle(
