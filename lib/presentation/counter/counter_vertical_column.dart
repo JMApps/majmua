@@ -16,14 +16,20 @@ class CounterVerticalColumn extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(height: 48),
-            Text(
-              counter.getCountValue.toString(),
-              style: const TextStyle(
-                fontSize: 100,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Lato',
+            Visibility(
+              visible: counter.getIsCountValueShow,
+              maintainSize: true,
+              maintainState: true,
+              maintainAnimation: true,
+              child: Text(
+                counter.getCountValue.toString(),
+                style: const TextStyle(
+                  fontSize: 100,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Lato',
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
             Expanded(
               child: IconButton(
@@ -82,12 +88,32 @@ class CounterVerticalColumn extends StatelessWidget {
                         : Colors.grey,
                   ),
                 ),
+                const SizedBox(width: 16),
+                IconButton(
+                  onPressed: () {
+                    counter.isCountShow();
+                  },
+                  splashRadius: 1,
+                  icon: Icon(
+                    Icons.remove_red_eye,
+                    size: 40,
+                    color: counter.getIsCountValueShow
+                        ? appColors.firstAppColor
+                        : Colors.grey,
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 16),
-            Text(
-              counter.getCountAllValue.toString(),
-              textAlign: TextAlign.center,
+            Visibility(
+              visible: counter.getIsCountValueShow,
+              maintainSize: true,
+              maintainState: true,
+              maintainAnimation: true,
+              child: Text(
+                counter.getCountAllValue.toString(),
+                textAlign: TextAlign.center,
+              ),
             ),
             const SizedBox(height: 32),
           ],
