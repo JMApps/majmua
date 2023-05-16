@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/counter_state.dart';
+import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
+import 'package:majmua/presentation/counter/drop_down_counter_values_list.dart';
 import 'package:provider/provider.dart';
 
 class CounterVerticalColumn extends StatelessWidget {
@@ -32,16 +36,20 @@ class CounterVerticalColumn extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: IconButton(
-                onPressed: () {
-                  counter.increment();
-                },
-                splashRadius: 175,
+              child: InkWell(
+                onTap: () {},
+                borderRadius: BorderRadius.circular(250),
                 splashColor: appColors.thirdAppColor,
-                icon: Icon(
-                  CupertinoIcons.circle_fill,
-                  size: 350,
-                  color: appColors.secondAppColor,
+                child: Container(
+                  alignment: Alignment.center,
+                  margin: AppWidgetStyle.mainMargin,
+                  decoration: BoxDecoration(
+                      color: appColors.secondAppColor, shape: BoxShape.circle),
+                  child: const Icon(
+                    CupertinoIcons.circle_grid_hex,
+                    color: Colors.white,
+                    size: 200,
+                  ),
                 ),
               ),
             ),
@@ -62,7 +70,6 @@ class CounterVerticalColumn extends StatelessWidget {
                         : Colors.grey,
                   ),
                 ),
-                const SizedBox(width: 16),
                 IconButton(
                   onPressed: () {
                     counter.reset();
@@ -74,21 +81,21 @@ class CounterVerticalColumn extends StatelessWidget {
                     color: appColors.firstAppColor,
                   ),
                 ),
-                const SizedBox(width: 16),
-                IconButton(
-                  onPressed: () {
-                    counter.clickMode();
-                  },
-                  splashRadius: 1,
-                  icon: Icon(
-                    Icons.volume_up_outlined,
-                    size: 40,
-                    color: counter.getIsClick
-                        ? appColors.firstAppColor
-                        : Colors.grey,
-                  ),
-                ),
-                const SizedBox(width: 16),
+                Platform.isIOS
+                    ? IconButton(
+                        onPressed: () {
+                          counter.clickMode();
+                        },
+                        splashRadius: 1,
+                        icon: Icon(
+                          Icons.volume_up_outlined,
+                          size: 40,
+                          color: counter.getIsClick
+                              ? appColors.firstAppColor
+                              : Colors.grey,
+                        ),
+                      )
+                    : const SizedBox(),
                 IconButton(
                   onPressed: () {
                     counter.isCountShow();
@@ -105,13 +112,18 @@ class CounterVerticalColumn extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
+            const Padding(
+              padding: AppWidgetStyle.horizontalPadding,
+              child: DropDownCounterValuesList(),
+            ),
+            const SizedBox(height: 16),
             Visibility(
               visible: counter.getIsCountValueShow,
               maintainSize: true,
               maintainState: true,
               maintainAnimation: true,
               child: Text(
-                counter.getCountAllValue.toString(),
+                'Общее количество: ${counter.getCountAllValue.toString()}',
                 textAlign: TextAlign.center,
               ),
             ),

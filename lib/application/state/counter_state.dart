@@ -2,23 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/application/strings/app_constants.dart';
-import 'package:vibration/vibration.dart';
 
 class CounterState extends ChangeNotifier {
   final Box _counterValueBox = Hive.box(AppConstants.keyMainCounter);
 
   CounterState() {
-    _countValue =
-        _counterValueBox.get(AppConstants.keyCounterValue, defaultValue: 0);
-    _countAllValue =
-        _counterValueBox.get(AppConstants.keyCounterAllValue, defaultValue: 0);
-    _isVibrate = _counterValueBox.get(AppConstants.keyCounterVibrate,
-        defaultValue: true);
-    _isClick =
-        _counterValueBox.get(AppConstants.keyCounterClick, defaultValue: true);
-    _isCountValueShow = _counterValueBox.get(AppConstants.keyCountValueShow,
-        defaultValue: true);
+    _countValue = _counterValueBox.get(AppConstants.keyCounterValue, defaultValue: 0);
+    _countAllValue = _counterValueBox.get(AppConstants.keyCounterAllValue, defaultValue: 0);
+    _isVibrate = _counterValueBox.get(AppConstants.keyCounterVibrate, defaultValue: true);
+    _isClick = _counterValueBox.get(AppConstants.keyCounterClick, defaultValue: true);
+    _isCountValueShow = _counterValueBox.get(AppConstants.keyCountValueShow, defaultValue: true);
   }
+
+  int _countValueListIndex = 0;
+
+  int get getCountValueListIndex => _countValueListIndex;
 
   int _countAllValue = 0;
 
@@ -40,15 +38,16 @@ class CounterState extends ChangeNotifier {
 
   bool get getIsCountValueShow => _isCountValueShow;
 
+  changeCountValueIndex(int countValueIndex) {
+    _countValueListIndex = countValueIndex;
+    notifyListeners();
+  }
+
   increment() async {
     _countValue++;
     _countAllValue++;
     if (_isVibrate) {
-      if (await Vibration.hasAmplitudeControl() != null) {
-        HapticFeedback.lightImpact();
-      } else {
-        Vibration.vibrate(duration: 150);
-      }
+      HapticFeedback.lightImpact();
     }
     if (_isClick) {
       SystemSound.play(SystemSoundType.click);

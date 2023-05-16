@@ -21,14 +21,20 @@ class CounterHorizontalColumn extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    counter.getCountValue.toString(),
-                    style: const TextStyle(
-                      fontSize: 100,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Lato',
+                  Visibility(
+                    visible: counter.getIsCountValueShow,
+                    maintainSize: true,
+                    maintainState: true,
+                    maintainAnimation: true,
+                    child: Text(
+                      counter.getCountValue.toString(),
+                      style: const TextStyle(
+                        fontSize: 100,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Lato',
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 16),
                   Row(
@@ -47,7 +53,6 @@ class CounterHorizontalColumn extends StatelessWidget {
                               : Colors.grey,
                         ),
                       ),
-                      const SizedBox(width: 16),
                       IconButton(
                         onPressed: () {
                           counter.reset();
@@ -59,7 +64,6 @@ class CounterHorizontalColumn extends StatelessWidget {
                           color: appColors.firstAppColor,
                         ),
                       ),
-                      const SizedBox(width: 16),
                       IconButton(
                         onPressed: () {
                           counter.clickMode();
@@ -73,12 +77,31 @@ class CounterHorizontalColumn extends StatelessWidget {
                               : Colors.grey,
                         ),
                       ),
+                      IconButton(
+                        onPressed: () {
+                          counter.isCountShow();
+                        },
+                        splashRadius: 1,
+                        icon: Icon(
+                          Icons.remove_red_eye,
+                          size: 40,
+                          color: counter.getIsCountValueShow
+                              ? appColors.firstAppColor
+                              : Colors.grey,
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 16),
-                  Text(
-                    counter.getCountAllValue.toString(),
-                    textAlign: TextAlign.center,
+                  Visibility(
+                    visible: counter.getIsCountValueShow,
+                    maintainSize: true,
+                    maintainState: true,
+                    maintainAnimation: true,
+                    child: Text(
+                      counter.getCountAllValue.toString(),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ],
               ),
@@ -92,7 +115,7 @@ class CounterHorizontalColumn extends StatelessWidget {
                 splashRadius: 175,
                 splashColor: appColors.thirdAppColor,
                 icon: Icon(
-                  CupertinoIcons.circle_fill,
+                  CupertinoIcons.asterisk_circle_fill,
                   size: 350,
                   color: appColors.secondAppColor,
                 ),

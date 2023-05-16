@@ -51,6 +51,12 @@ class AppString {
     'Singapore',
   ];
 
+  static const List<String> counterValuesList = [
+    '-:-:-',
+    '100',
+    '33',
+  ];
+
   static const String calculateAsrMethod = 'Метод расчёта молитвы аср';
   static const String madhabShafi = 'Шафии';
   static const String madhabHanafi = 'Ханафи';
