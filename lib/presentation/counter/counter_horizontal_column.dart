@@ -1,6 +1,8 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/counter_state.dart';
+import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -16,108 +18,156 @@ class CounterHorizontalColumn extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
-              flex: 3,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Visibility(
-                    visible: counter.getIsCountValueShow,
-                    maintainSize: true,
-                    maintainState: true,
-                    maintainAnimation: true,
-                    child: Text(
-                      counter.getCountValue.toString(),
-                      style: const TextStyle(
-                        fontSize: 100,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Lato',
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          counter.vibrateMode();
-                        },
-                        splashRadius: 1,
-                        icon: Icon(
-                          Icons.vibration,
-                          size: 40,
-                          color: counter.getIsVibrate
-                              ? appColors.firstAppColor
-                              : Colors.grey,
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          counter.reset();
-                        },
-                        splashRadius: 1,
-                        icon: Icon(
-                          Icons.replay,
-                          size: 40,
-                          color: appColors.firstAppColor,
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          counter.clickMode();
-                        },
-                        splashRadius: 1,
-                        icon: Icon(
-                          Icons.volume_up_outlined,
-                          size: 40,
-                          color: counter.getIsClick
-                              ? appColors.firstAppColor
-                              : Colors.grey,
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          counter.isCountShow();
-                        },
-                        splashRadius: 1,
-                        icon: Icon(
-                          Icons.remove_red_eye,
-                          size: 40,
-                          color: counter.getIsCountValueShow
-                              ? appColors.firstAppColor
-                              : Colors.grey,
-                        ),
-                      ),
-                    ],
-                  ),
                   const SizedBox(height: 16),
                   Visibility(
                     visible: counter.getIsCountValueShow,
                     maintainSize: true,
                     maintainState: true,
                     maintainAnimation: true,
+                    child: Card(
+                      elevation: 1,
+                      color: appColors.glassOnGlassCardColor,
+                      margin: AppWidgetStyle.horizontalMargin,
+                      child: Padding(
+                        padding: AppWidgetStyle.mainPaddingMini,
+                        child: Text(
+                          counter.getCountValue.toString(),
+                          style: TextStyle(
+                            fontSize: 75,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Lato',
+                            color: appColors.firstAppColor,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Card(
+                    elevation: 1,
+                    margin: AppWidgetStyle.horizontalMargin,
+                    child: Padding(
+                      padding: AppWidgetStyle.mainPaddingMini,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: appColors.glassOnGlassCardColor,
+                            child: IconButton(
+                              onPressed: () {
+                                counter.vibrateMode();
+                              },
+                              splashRadius: 25,
+                              icon: Icon(
+                                Icons.vibration,
+                                color: counter.getIsVibrate
+                                    ? appColors.firstAppColor
+                                    : Colors.grey,
+                              ),
+                            ),
+                          ),
+                          Platform.isIOS
+                              ? CircleAvatar(
+                                  backgroundColor:
+                                      appColors.glassOnGlassCardColor,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      counter.clickMode();
+                                    },
+                                    splashRadius: 25,
+                                    icon: Icon(
+                                      Icons.volume_up_outlined,
+                                      color: counter.getIsClick
+                                          ? appColors.firstAppColor
+                                          : Colors.grey,
+                                    ),
+                                  ),
+                                )
+                              : const SizedBox(),
+                          CircleAvatar(
+                            backgroundColor: appColors.glassOnGlassCardColor,
+                            child: IconButton(
+                              onPressed: () {
+                                counter.isCountShow();
+                              },
+                              splashRadius: 25,
+                              icon: Icon(
+                                Icons.remove_red_eye,
+                                color: counter.getIsCountValueShow
+                                    ? appColors.firstAppColor
+                                    : Colors.grey,
+                              ),
+                            ),
+                          ),
+                          CircleAvatar(
+                            backgroundColor: appColors.glassOnGlassCardColor,
+                            child: IconButton(
+                              onPressed: () {
+                                counter.reset();
+                              },
+                              splashRadius: 25,
+                              icon: Icon(
+                                Icons.replay,
+                                color: appColors.firstAppColor,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  // const SizedBox(height: 16),
+                  // const Padding(
+                  //   padding: AppWidgetStyle.horizontalPadding,
+                  //   child: DropDownCounterValuesList(),
+                  // ),
+                  const SizedBox(height: 16),
+                  Visibility(
+                    visible: counter.getIsCountValueShow,
+                    maintainSize: true,
+                    maintainState: true,
+                    maintainAnimation: true,
                     child: Text(
-                      counter.getCountAllValue.toString(),
+                      'Общее количество: ${counter.getCountAllValue.toString()}',
                       textAlign: TextAlign.center,
                     ),
                   ),
+                  const SizedBox(height: 16),
                 ],
               ),
             ),
             Expanded(
-              flex: 3,
-              child: IconButton(
-                onPressed: () {
-                  counter.increment();
-                },
-                splashRadius: 175,
-                splashColor: appColors.thirdAppColor,
-                icon: Icon(
-                  CupertinoIcons.asterisk_circle_fill,
-                  size: 350,
-                  color: appColors.secondAppColor,
+              child: Padding(
+                padding: AppWidgetStyle.mainPadding,
+                child: Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: appColors.counterButtonColor,
+                    boxShadow: [
+                      BoxShadow(
+                        color: appColors.thirdAppColor,
+                        blurRadius: 16,
+                        spreadRadius: 2.5,
+                      ),
+                    ],
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      counter.increment();
+                    },
+                    splashRadius: 175,
+                    splashColor: appColors.thirdAppColor,
+                    icon: Icon(
+                      Icons.touch_app_outlined,
+                      size: 200,
+                      color: Colors.white.withOpacity(0.85),
+                    ),
+                  ),
                 ),
               ),
             ),

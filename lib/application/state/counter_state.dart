@@ -7,11 +7,16 @@ class CounterState extends ChangeNotifier {
   final Box _counterValueBox = Hive.box(AppConstants.keyMainCounter);
 
   CounterState() {
-    _countValue = _counterValueBox.get(AppConstants.keyCounterValue, defaultValue: 0);
-    _countAllValue = _counterValueBox.get(AppConstants.keyCounterAllValue, defaultValue: 0);
-    _isVibrate = _counterValueBox.get(AppConstants.keyCounterVibrate, defaultValue: true);
-    _isClick = _counterValueBox.get(AppConstants.keyCounterClick, defaultValue: true);
-    _isCountValueShow = _counterValueBox.get(AppConstants.keyCountValueShow, defaultValue: true);
+    _countValue =
+        _counterValueBox.get(AppConstants.keyCounterValue, defaultValue: 0);
+    _countAllValue =
+        _counterValueBox.get(AppConstants.keyCounterAllValue, defaultValue: 0);
+    _isVibrate = _counterValueBox.get(AppConstants.keyCounterVibrate,
+        defaultValue: true);
+    _isClick =
+        _counterValueBox.get(AppConstants.keyCounterClick, defaultValue: true);
+    _isCountValueShow = _counterValueBox.get(AppConstants.keyCountValueShow,
+        defaultValue: true);
   }
 
   int _countValueListIndex = 0;

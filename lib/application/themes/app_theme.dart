@@ -155,4 +155,8 @@ extension ColorSchemeS on ColorScheme {
   Color get winterColor => brightness == Brightness.light
       ? const Color(0xFF1565C0)
       : const Color(0xFF2196F3);
+
+  Color get counterButtonColor => brightness == Brightness.light
+      ? const Color(0xD9009688)
+      : const Color(0xFF12448A);
 }

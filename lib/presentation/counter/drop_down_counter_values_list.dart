@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/counter_state.dart';
-import 'package:majmua/application/state/prayer_time_state.dart';
 import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
@@ -13,7 +12,8 @@ class DropDownCounterValuesList extends StatelessWidget {
   Widget build(BuildContext context) {
     final appColor = Theme.of(context).colorScheme;
     return Card(
-      color: appColor.mainReverse,
+      color: appColor.glassOnGlassCardColor,
+      elevation: 1,
       child: ButtonTheme(
         alignedDropdown: true,
         child: DropdownButton<String>(
