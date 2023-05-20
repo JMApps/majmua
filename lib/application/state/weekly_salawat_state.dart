@@ -13,14 +13,14 @@ class WeeklySalawatState extends ChangeNotifier {
 
   changeSalawatCount() {
     _salawatCount++;
-    HapticFeedback.lightImpact();
+    HapticFeedback.mediumImpact();
     _salawatSettingsBox.put(AppConstants.keySalawatCount, _salawatCount);
     notifyListeners();
   }
 
   resetSalawatCount() {
     _salawatCount = 0;
-    HapticFeedback.mediumImpact();
+    HapticFeedback.vibrate();
     _salawatSettingsBox.put(AppConstants.keySalawatCount, _salawatCount);
     notifyListeners();
   }

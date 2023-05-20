@@ -59,16 +59,18 @@ class CounterHorizontalColumn extends StatelessWidget {
                           CircleAvatar(
                             backgroundColor: appColors.glassOnGlassCardColor,
                             child: IconButton(
-                              onPressed: Platform.isIOS ? () {
-                                counter.clickMode();
-                              } : null,
+                              onPressed: Platform.isIOS
+                                  ? () {
+                                      counter.clickMode();
+                                    }
+                                  : null,
                               disabledColor: Colors.grey,
+                              color: counter.getIsClick
+                                  ? appColors.firstAppColor
+                                  : Colors.grey,
                               splashRadius: 25,
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.volume_up_outlined,
-                                color: counter.getIsClick
-                                    ? appColors.firstAppColor
-                                    : Colors.grey,
                               ),
                             ),
                           ),
@@ -141,16 +143,17 @@ class CounterHorizontalColumn extends StatelessWidget {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 0),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 32, horizontal: 0),
                 child: Container(
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: appColors.counterButtonColor,
                     boxShadow: [
                       BoxShadow(
-                        color: appColors.thirdAppColor,
-                        blurRadius: 16,
-                        spreadRadius: 2.5,
+                        color: appColors.secondAppColor,
+                        blurRadius: 32,
+                        spreadRadius: 5.5,
                       ),
                     ],
                   ),

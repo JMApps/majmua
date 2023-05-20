@@ -64,12 +64,18 @@ class CounterState extends ChangeNotifier {
 
   vibrateMode() {
     _isVibrate = !_isVibrate;
+    if (_isVibrate) {
+      HapticFeedback.mediumImpact();
+    }
     _counterValueBox.put(AppConstants.keyCounterVibrate, _isVibrate);
     notifyListeners();
   }
 
   clickMode() {
     _isClick = !_isClick;
+    if (_isClick) {
+      SystemSound.play(SystemSoundType.click);
+    }
     _counterValueBox.put(AppConstants.keyCounterClick, _isClick);
     notifyListeners();
   }

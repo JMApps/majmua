@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/counter_state.dart';
 import 'package:majmua/application/strings/app_strings.dart';
@@ -46,19 +47,16 @@ class CounterVerticalColumn extends StatelessWidget {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 32,
-                  vertical: 0,
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: Container(
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: appColors.counterButtonColor,
                     boxShadow: [
                       BoxShadow(
-                        color: appColors.thirdAppColor,
-                        blurRadius: 16,
-                        spreadRadius: 2.5,
+                        color: appColors.secondAppColor,
+                        blurRadius: 32,
+                        spreadRadius: 5.5,
                       ),
                     ],
                   ),
@@ -69,9 +67,9 @@ class CounterVerticalColumn extends StatelessWidget {
                     splashRadius: 175,
                     splashColor: appColors.thirdAppColor,
                     icon: Icon(
-                      Icons.touch_app_outlined,
+                      CupertinoIcons.smallcircle_circle_fill,
                       size: 250,
-                      color: Colors.white.withOpacity(0.85),
+                      color: Colors.white.withOpacity(0.50),
                     ),
                   ),
                 ),
@@ -95,12 +93,12 @@ class CounterVerticalColumn extends StatelessWidget {
                               }
                             : null,
                         splashRadius: 25,
+                        color: counter.getIsClick
+                            ? appColors.firstAppColor
+                            : Colors.grey,
                         disabledColor: Colors.grey,
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.volume_up_outlined,
-                          color: counter.getIsClick
-                              ? appColors.firstAppColor
-                              : Colors.grey,
                         ),
                       ),
                     ),
