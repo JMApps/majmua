@@ -88,7 +88,6 @@ class CardWeekDay extends StatelessWidget {
                       visualDensity: const VisualDensity(vertical: -4),
                       icon: Icon(
                         CupertinoIcons.number_circle_fill,
-                        size: 25,
                         color: appColors.thirdAppColor,
                       ),
                     ),

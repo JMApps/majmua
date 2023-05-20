@@ -46,7 +46,6 @@ dependencies:
 
   # System
   wakelock: ^0.6.2
-  vibration: ^1.7.7
 
 dev_dependencies:
   flutter_test:

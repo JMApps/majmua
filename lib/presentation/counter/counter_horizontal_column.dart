@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/counter_state.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
@@ -164,9 +165,9 @@ class CounterHorizontalColumn extends StatelessWidget {
                     splashRadius: 150,
                     splashColor: appColors.thirdAppColor,
                     icon: Icon(
-                      Icons.touch_app_outlined,
+                      CupertinoIcons.number,
                       size: 200,
-                      color: Colors.white.withOpacity(0.85),
+                      color: Colors.white.withOpacity(0.5),
                     ),
                   ),
                 ),

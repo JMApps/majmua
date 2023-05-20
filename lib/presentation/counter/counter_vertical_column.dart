@@ -67,9 +67,9 @@ class CounterVerticalColumn extends StatelessWidget {
                     splashRadius: 175,
                     splashColor: appColors.thirdAppColor,
                     icon: Icon(
-                      CupertinoIcons.smallcircle_circle_fill,
+                      CupertinoIcons.number,
                       size: 250,
-                      color: Colors.white.withOpacity(0.50),
+                      color: Colors.white.withOpacity(0.5),
                     ),
                   ),
                 ),
