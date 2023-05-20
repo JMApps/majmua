@@ -52,7 +52,7 @@ class CounterState extends ChangeNotifier {
     _countValue++;
     _countAllValue++;
     if (_isVibrate) {
-      HapticFeedback.lightImpact();
+      HapticFeedback.mediumImpact();
     }
     if (_isClick) {
       SystemSound.play(SystemSoundType.click);

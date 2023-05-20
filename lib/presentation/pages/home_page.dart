@@ -35,6 +35,7 @@ class HomePage extends StatelessWidget {
               title: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
                 children: const [
                   Text(
                     AppString.appName,
@@ -49,18 +50,6 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ],
-              ),
-              leading: IconButton(
-                tooltip: AppString.counter,
-                onPressed: () {
-                  Navigator.pushNamed(context, 'app_counter_page');
-                },
-                splashRadius: 17.5,
-                icon: const Icon(
-                  CupertinoIcons.goforward_plus,
-                  size: 25,
-                  color: Colors.white,
-                ),
               ),
               actions: [
                 IconButton(

@@ -1,12 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/rest_time_state.dart';
 import 'package:majmua/application/state/weekly_salawat_state.dart';
+import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
+import 'package:majmua/presentation/currentDateTime/card_daily_messages.dart';
 import 'package:majmua/presentation/currentDateTime/card_daily_ramadan.dart';
 import 'package:majmua/presentation/currentDateTime/card_data.dart';
 import 'package:majmua/presentation/currentDateTime/item_day_from_week.dart';
-import 'package:majmua/presentation/currentDateTime/card_daily_messages.dart';
 import 'package:provider/provider.dart';
 
 class CardWeekDay extends StatelessWidget {
@@ -68,7 +70,32 @@ class CardWeekDay extends StatelessWidget {
                 ),
               ),
               const CardDates(),
-              context.watch<RestTimeState>().getIsRamadan ? const CardDailyRamadan() : const CardDailyMessages(),
+              Row(
+                children: [
+                  Expanded(
+                    child: context.watch<RestTimeState>().getIsRamadan
+                        ? const CardDailyRamadan()
+                        : const CardDailyMessages(),
+                  ),
+                  Card(
+                    color: appColors.glassOnGlassCardColor,
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, 'app_counter_page');
+                      },
+                      tooltip: AppString.counter,
+                      splashRadius: 17.5,
+                      visualDensity: const VisualDensity(vertical: -4),
+                      icon: Icon(
+                        CupertinoIcons.arrow_counterclockwise_circle,
+                        size: 25,
+                        color: appColors.thirdAppColor,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                ],
+              ),
               const SizedBox(height: 8),
             ],
           ),

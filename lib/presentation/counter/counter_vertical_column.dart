@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/counter_state.dart';
+import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:provider/provider.dart';
@@ -16,8 +17,9 @@ class CounterVerticalColumn extends StatelessWidget {
       builder: (context, counter, _) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 16),
+            const SizedBox(height: 32),
             Visibility(
               visible: counter.getIsCountValueShow,
               maintainSize: true,
@@ -42,10 +44,12 @@ class CounterVerticalColumn extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 16),
             Expanded(
               child: Padding(
-                padding: AppWidgetStyle.mainPadding,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 32,
+                  vertical: 0,
+                ),
                 child: Container(
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
@@ -62,7 +66,7 @@ class CounterVerticalColumn extends StatelessWidget {
                     onPressed: () {
                       counter.increment();
                     },
-                    splashRadius: 200,
+                    splashRadius: 175,
                     splashColor: appColors.thirdAppColor,
                     icon: Icon(
                       Icons.touch_app_outlined,
@@ -85,6 +89,24 @@ class CounterVerticalColumn extends StatelessWidget {
                     CircleAvatar(
                       backgroundColor: appColors.glassOnGlassCardColor,
                       child: IconButton(
+                        onPressed: Platform.isIOS
+                            ? () {
+                                counter.clickMode();
+                              }
+                            : null,
+                        splashRadius: 25,
+                        disabledColor: Colors.grey,
+                        icon: Icon(
+                          Icons.volume_up_outlined,
+                          color: counter.getIsClick
+                              ? appColors.firstAppColor
+                              : Colors.grey,
+                        ),
+                      ),
+                    ),
+                    CircleAvatar(
+                      backgroundColor: appColors.glassOnGlassCardColor,
+                      child: IconButton(
                         onPressed: () {
                           counter.vibrateMode();
                         },
@@ -97,23 +119,6 @@ class CounterVerticalColumn extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Platform.isIOS
-                        ? CircleAvatar(
-                            backgroundColor: appColors.glassOnGlassCardColor,
-                            child: IconButton(
-                              onPressed: () {
-                                counter.clickMode();
-                              },
-                              splashRadius: 25,
-                              icon: Icon(
-                                Icons.volume_up_outlined,
-                                color: counter.getIsClick
-                                    ? appColors.firstAppColor
-                                    : Colors.grey,
-                              ),
-                            ),
-                          )
-                        : const SizedBox(),
                     CircleAvatar(
                       backgroundColor: appColors.glassOnGlassCardColor,
                       child: IconButton(
@@ -158,7 +163,7 @@ class CounterVerticalColumn extends StatelessWidget {
               maintainState: true,
               maintainAnimation: true,
               child: Text(
-                'Общее количество: ${counter.getCountAllValue.toString()}',
+                '${AppString.allNumbers} ${counter.getCountAllValue.toString()}',
                 textAlign: TextAlign.center,
               ),
             ),
