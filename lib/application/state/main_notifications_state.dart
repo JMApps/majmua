@@ -1,7 +1,7 @@
+import 'package:flu_wake_lock/flu_wake_lock.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/application/strings/app_constants.dart';
-import 'package:wakelock/wakelock.dart';
 
 class MainNotificationsSate extends ChangeNotifier {
   final _notificationSettingsBox = Hive.box(AppConstants.keyMainNotificationsSettings);
@@ -88,7 +88,7 @@ class MainNotificationsSate extends ChangeNotifier {
       defaultValue: true,
     );
 
-    _isWakeLock ? Wakelock.enable() : Wakelock.disable();
+    _isWakeLock ? FluWakeLock().enable() : FluWakeLock().disable();
   }
 
   bool get getDailyNotification => _dailyNotification;

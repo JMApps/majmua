@@ -44,20 +44,18 @@ class HadeethItem extends StatelessWidget {
                 ),
                 const Divider(indent: 16, endIndent: 16),
                 const SizedBox(height: 8),
-                SelectableHtml(
+                Html(
                   data: item.hadeethArabic,
                   style: {
                     '#': Style(
-                      padding: EdgeInsets.zero,
-                      margin: EdgeInsets.zero,
+                      padding: HtmlPaddings.zero,
+                      margin: Margins.zero,
                       fontSize: FontSize(bookSettingsState.getFontSize + 2),
                       direction: TextDirection.rtl,
                       lineHeight: const LineHeight(2),
                       fontFamily: 'Scheherazade',
                     ),
                     'small': Style(
-                      padding: EdgeInsets.zero,
-                      margin: EdgeInsets.zero,
                       fontSize: FontSize(bookSettingsState.getFontSize - 6),
                       direction: TextDirection.rtl,
                       lineHeight: const LineHeight(2),
@@ -67,18 +65,16 @@ class HadeethItem extends StatelessWidget {
                 ),
                 const Divider(indent: 16, endIndent: 16),
                 const SizedBox(height: 8),
-                SelectableHtml(
+                Html(
                   data: item.hadeethTranslation,
                   style: {
                     '#': Style(
-                      padding: EdgeInsets.zero,
-                      margin: EdgeInsets.zero,
+                      padding: HtmlPaddings.zero,
+                      margin: Margins.zero,
                       fontSize: FontSize(bookSettingsState.getFontSize),
                       direction: TextDirection.ltr,
                     ),
                     'small': Style(
-                      padding: EdgeInsets.zero,
-                      margin: EdgeInsets.zero,
                       fontSize: FontSize(bookSettingsState.getFontSize - 6),
                       direction: TextDirection.ltr,
                     ),

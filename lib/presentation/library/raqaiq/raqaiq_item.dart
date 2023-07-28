@@ -36,26 +36,22 @@ class RaqaiqItem extends StatelessWidget {
                 ),
                 const Divider(indent: 16, endIndent: 16),
                 const SizedBox(height: 8),
-                SelectableHtml(
+                Html(
                   data: item.chapterContent,
                   style: {
                     '#': Style(
-                      padding: EdgeInsets.zero,
-                      margin: EdgeInsets.zero,
+                      padding: HtmlPaddings.zero,
+                      margin: Margins.zero,
                       fontSize: FontSize(bookSettingsState.getFontSize),
                       direction: TextDirection.ltr,
                     ),
                     'small': Style(
-                      padding: EdgeInsets.zero,
-                      margin: EdgeInsets.zero,
                       color: Colors.grey,
                       fontSize: FontSize(bookSettingsState.getFontSize - 6),
                       direction: TextDirection.ltr,
                     ),
                     'a': Style(
-                      padding: EdgeInsets.zero,
-                      margin: EdgeInsets.zero,
-                      fontSize: const FontSize(18),
+                      fontSize: FontSize(18),
                       color: appColors.firstAppColor,
                     ),
                   },

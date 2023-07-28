@@ -34,31 +34,26 @@ class QuestionItem extends StatelessWidget {
                 ),
                 const Divider(indent: 16, endIndent: 16),
                 const SizedBox(height: 8),
-                SelectableHtml(
+                Html(
                   data: item.question,
                   style: {
                     '#': Style(
-                      padding: EdgeInsets.zero,
-                      margin: EdgeInsets.zero,
+                      padding: HtmlPaddings.zero,
+                      margin: Margins.zero,
                       fontSize: FontSize(bookSettingsState.getFontSize),
                       color: appColors.thirdAppColor,
                       textAlign: TextAlign.center,
                       fontWeight: FontWeight.bold,
                     ),
                     'small': Style(
-                      padding: EdgeInsets.zero,
-                      margin: EdgeInsets.zero,
                       fontSize: FontSize(bookSettingsState.getFontSize - 6),
                     ),
                     'a': Style(
-                      padding: EdgeInsets.zero,
-                      margin: EdgeInsets.zero,
                       fontSize: FontSize(bookSettingsState.getFontSize),
                       color: appColors.thirdAppColor,
                     ),
                   },
-                  onLinkTap: (String? url, RenderContext rendContext,
-                      Map<String, String> attributes, element) {
+                  onLinkTap: (String? url, _, __) {
                     showModalBottomSheet(
                       backgroundColor: Colors.transparent,
                       context: context,
@@ -67,15 +62,13 @@ class QuestionItem extends StatelessWidget {
                           data: url,
                           style: {
                             '#': Style(
-                              padding: EdgeInsets.zero,
-                              margin: EdgeInsets.zero,
-                              fontSize: const FontSize(18),
+                              padding: HtmlPaddings.zero,
+                              margin: Margins.zero,
+                              fontSize: FontSize(18),
                             ),
                             'small': Style(
-                              padding: EdgeInsets.zero,
-                              margin: EdgeInsets.zero,
                               color: Colors.grey,
-                              fontSize: const FontSize(12),
+                              fontSize: FontSize(12),
                             ),
                           },
                         ),
@@ -106,28 +99,23 @@ class QuestionItem extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const Divider(indent: 16, endIndent: 16),
-                SelectableHtml(
+                Html(
                   data: item.answerContent,
                   style: {
                     '#': Style(
-                      padding: EdgeInsets.zero,
-                      margin: EdgeInsets.zero,
+                      padding: HtmlPaddings.zero,
+                      margin: Margins.zero,
                       fontSize: FontSize(bookSettingsState.getFontSize),
                     ),
                     'small': Style(
-                      padding: EdgeInsets.zero,
-                      margin: EdgeInsets.zero,
                       fontSize: FontSize(bookSettingsState.getFontSize - 6),
                     ),
                     'a': Style(
-                      padding: EdgeInsets.zero,
-                      margin: EdgeInsets.zero,
-                      fontSize: const FontSize(18),
+                      fontSize: FontSize(18),
                       color: appColors.thirdAppColor,
                     ),
                   },
-                  onLinkTap: (String? url, RenderContext rendContext,
-                      Map<String, String> attributes, element) {
+                  onLinkTap: (String? url, _, __) {
                     showModalBottomSheet(
                       backgroundColor: Colors.transparent,
                       context: context,
@@ -136,15 +124,13 @@ class QuestionItem extends StatelessWidget {
                           data: url,
                           style: {
                             '#': Style(
-                              padding: EdgeInsets.zero,
-                              margin: EdgeInsets.zero,
-                              fontSize: const FontSize(18),
+                              padding: HtmlPaddings.zero,
+                              margin: Margins.zero,
+                              fontSize: FontSize(18),
                             ),
                             'small': Style(
-                              padding: EdgeInsets.zero,
-                              margin: EdgeInsets.zero,
                               color: Colors.grey,
-                              fontSize: const FontSize(12),
+                              fontSize: FontSize(12),
                             ),
                           },
                         ),

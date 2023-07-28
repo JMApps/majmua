@@ -45,48 +45,41 @@ class LessonItem extends StatelessWidget {
                 ),
                 const Divider(indent: 16, endIndent: 16),
                 const SizedBox(height: 8),
-                SelectableHtml(
+                Html(
                   data: item.contentChapter,
                   style: {
                     '#': Style(
-                      padding: EdgeInsets.zero,
-                      margin: EdgeInsets.zero,
+                      padding: HtmlPaddings.zero,
+                      margin: Margins.zero,
                       fontSize: FontSize(bookSettingsState.getFontSize),
                       direction: TextDirection.ltr,
                     ),
                     'small': Style(
-                      padding: EdgeInsets.zero,
-                      margin: EdgeInsets.zero,
                       fontSize: FontSize(bookSettingsState.getFontSize - 6),
                       color: Colors.grey,
                       direction: TextDirection.ltr,
                     ),
                     'a': Style(
-                      padding: EdgeInsets.zero,
-                      margin: EdgeInsets.zero,
-                      fontSize: const FontSize(18),
+                      fontSize: FontSize(18),
                       color: appColors.thirdAppColor,
                     ),
                   },
-                  onLinkTap: (String? url, RenderContext rendContext,
-                      Map<String, String> attributes, element) {
+                  onLinkTap: (String? url, _, __) {
                     showModalBottomSheet(
                       backgroundColor: Colors.transparent,
                       context: context,
                       builder: (BuildContext context) => CupertinoActionSheet(
-                        message: SelectableHtml(
+                        message: Html(
                           data: url,
                           style: {
                             '#': Style(
-                              padding: EdgeInsets.zero,
-                              margin: EdgeInsets.zero,
-                              fontSize: const FontSize(18),
+                              padding: HtmlPaddings.zero,
+                              margin: Margins.zero,
+                              fontSize: FontSize(18),
                             ),
                             'small': Style(
-                              padding: EdgeInsets.zero,
-                              margin: EdgeInsets.zero,
                               color: Colors.grey,
-                              fontSize: const FontSize(12),
+                              fontSize: FontSize(12),
                             ),
                           },
                         ),

@@ -35,7 +35,7 @@ class NamesContentItem extends StatelessWidget {
             ),
             Consumer<TextSettingsState>(
               builder: (BuildContext context, bookSettingsState, _) {
-                return SelectableHtml(
+                return Html(
                   data: item.contentClarification,
                   style: {
                     '#': Style(
@@ -43,10 +43,8 @@ class NamesContentItem extends StatelessWidget {
                       color: appColors.mainTextColor,
                     ),
                     'small': Style(
-                      padding: EdgeInsets.zero,
-                      margin: EdgeInsets.zero,
                       color: Colors.grey,
-                      fontSize: const FontSize(12),
+                      fontSize: FontSize(12),
                     ),
                   },
                 );

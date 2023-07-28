@@ -70,48 +70,43 @@ class SupplicationItem extends StatelessWidget {
                             ? const SizedBox(height: 8)
                             : const SizedBox()
                         : const SizedBox(),
-                    SelectableHtml(
+                    Html(
                       data: item.supplicationTranslation,
                       style: {
                         '#': Style(
-                          padding: EdgeInsets.zero,
-                          margin: EdgeInsets.zero,
+                          padding: HtmlPaddings.zero,
+                          margin: Margins.zero,
                           fontSize: FontSize(settingsState.getFontSize),
                           textAlign: TextAlign.start,
                           direction: TextDirection.ltr,
                           fontFamily: 'Nexa',
                         ),
                         'small': Style(
-                          padding: EdgeInsets.zero,
-                          margin: EdgeInsets.zero,
-                          fontSize: const FontSize(12),
+                          fontSize: FontSize(12),
                         ),
                         'a': Style(
-                          padding: EdgeInsets.zero,
-                          margin: EdgeInsets.zero,
                           color: appColors.thirdAppColor,
-                          fontSize: const FontSize(18),
+                          fontSize: FontSize(18),
                           fontFamily: 'Lato',
                         ),
                       },
-                      onLinkTap: (String? url, RenderContext rendContext,
-                          Map<String, String> attributes, element) {
+                      onLinkTap: (String? url, _, __) {
                         showModalBottomSheet(
                           backgroundColor: Colors.transparent,
                           context: context,
                           builder: (BuildContext context) =>
                               CupertinoActionSheet(
-                            message: SelectableHtml(
+                            message: Html(
                               data: url,
                               style: {
                                 '#': Style(
-                                  padding: EdgeInsets.zero,
-                                  margin: EdgeInsets.zero,
+                                  padding: HtmlPaddings.zero,
+                                  margin: Margins.zero,
                                   fontSize: FontSize(settingsState.getFontSize),
                                 ),
                                 'small': Style(
                                   color: Colors.grey,
-                                  fontSize: const FontSize(12),
+                                  fontSize: FontSize(12),
                                 ),
                               },
                             ),
