@@ -7,7 +7,7 @@ import 'package:timezone/timezone.dart';
 
 class AppNotificationService {
   static final AppNotificationService _localNoticeService =
-  AppNotificationService._internal();
+      AppNotificationService._internal();
 
   factory AppNotificationService() {
     return _localNoticeService;
@@ -27,10 +27,10 @@ class AppNotificationService {
   static const ishaNotificationID = 854;
 
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
-  FlutterLocalNotificationsPlugin();
+      FlutterLocalNotificationsPlugin();
 
   static const AndroidNotificationDetails androidFastNotificationDetails =
-  AndroidNotificationDetails(
+      AndroidNotificationDetails(
     'Daily fast notification channel ID',
     'Notifications',
     channelDescription: 'Daily fast notifications',
@@ -39,31 +39,40 @@ class AppNotificationService {
   );
 
   static const DarwinNotificationDetails iOSFastNotificationDetails =
-  DarwinNotificationDetails();
+      DarwinNotificationDetails();
 
   static const AndroidNotificationDetails androidPrayerNotificationDetails =
-  AndroidNotificationDetails(
+      AndroidNotificationDetails(
     'Daily prayer notification channel ID',
     'Notifications',
     channelDescription: 'Daily prayer notifications',
-    importance: Importance.max,
+    importance: Importance.high,
     priority: Priority.max,
+    playSound: true,
+    sound: RawResourceAndroidNotificationSound('adhan'),
   );
 
   static const DarwinNotificationDetails iOSPrayerNotificationDetails =
-  DarwinNotificationDetails();
+      DarwinNotificationDetails(
+    presentSound: true,
+    sound: 'adhan.caf',
+  );
 
   Future<void> setupNotification() async {
     if (Platform.isAndroid) {
       _flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()?.requestPermission();
     }
 
-    const AndroidInitializationSettings androidInitializationSettings = AndroidInitializationSettings('@drawable/sm_logo');
+    const AndroidInitializationSettings androidInitializationSettings =
+        AndroidInitializationSettings('@drawable/sm_logo');
 
-    const DarwinInitializationSettings iOSInitializationSettings = DarwinInitializationSettings();
+    const DarwinInitializationSettings iOSInitializationSettings =
+        DarwinInitializationSettings(
+          requestSoundPermission: true
+        );
 
     const InitializationSettings initializationSettings =
-    InitializationSettings(
+        InitializationSettings(
       android: androidInitializationSettings,
       iOS: iOSInitializationSettings,
     );
@@ -89,8 +98,10 @@ class AppNotificationService {
   //   );
   // }
 
-  Future<void> zonedScheduleNotification(int hour, int minute, String title, String body, int id) async {
-    TZDateTime tzDateNotification = tz.TZDateTime.from(DateTime(2023, 12, 31, hour, minute), tz.local);
+  Future<void> zonedScheduleNotification(
+      int hour, int minute, String title, String body, int id) async {
+    TZDateTime tzDateNotification =
+        tz.TZDateTime.from(DateTime(2023, 12, 31, hour, minute), tz.local);
     await _flutterLocalNotificationsPlugin.zonedSchedule(
       id,
       title,
@@ -101,7 +112,8 @@ class AppNotificationService {
         iOS: iOSPrayerNotificationDetails,
       ),
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-      uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
+      uiLocalNotificationDateInterpretation:
+          UILocalNotificationDateInterpretation.absoluteTime,
       matchDateTimeComponents: DateTimeComponents.time,
     );
   }

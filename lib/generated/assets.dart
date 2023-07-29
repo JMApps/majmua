@@ -2,7 +2,6 @@
 class Assets {
   Assets._();
 
-  static const String audiosAdhan = 'assets/audios/adhan.mp3';
   static const String databasesCountryCoordinates3 = 'assets/databases/country_coordinates_3.db';
   static const String databasesCustomCountries = 'assets/databases/custom_countries.db';
   static const String databasesHadeeth2 = 'assets/databases/hadeeth_2.db';
