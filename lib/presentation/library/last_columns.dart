@@ -3,6 +3,7 @@ import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/data/database/arguments/supplication_arguments.dart';
 import 'package:majmua/presentation/library/card_join_library.dart';
+import 'package:majmua/presentation/library/item_names_of.dart';
 import 'package:majmua/presentation/sfq/card_select_sfq.dart';
 import 'package:majmua/presentation/supplications/card_select_supplications.dart';
 import 'package:majmua/presentation/surah/card_select_surahs.dart';
@@ -56,6 +57,8 @@ class LastColumns extends StatelessWidget {
               ],
             ),
           ),
+          const ItemNamesOf(),
+          const SizedBox(height: 8),
           const CardSelectSFQ(),
           const SizedBox(height: 8),
           const CardJoinLibrary(),

@@ -16,10 +16,10 @@ class PrayerParamsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: CustomScrollView(
         slivers: [
-          const SliverAppBar(
+          SliverAppBar(
             pinned: false,
             floating: false,
             elevation: 0,
@@ -33,7 +33,7 @@ class PrayerParamsPage extends StatelessWidget {
               padding: AppWidgetStyle.mainPadding,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: const [
+                children: [
                   CardSelectedCity(),
                   SizedBox(height: 8),
                   Text(
@@ -70,8 +70,8 @@ class PrayerParamsPage extends StatelessWidget {
                   SegmentControlDateTimeOffset(),
                   SizedBox(height: 16),
                   ChooseAnotherCityButton(),
-                  AdjustmentMinutesButton(),
                   AddCityButton(),
+                  AdjustmentMinutesButton(),
                   QiblaDegreesButton(),
                   PrayerTimeInfoButton(),
                 ],

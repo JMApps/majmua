@@ -4,6 +4,7 @@ import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/presentation/currentDateTime/card_week_day.dart';
 import 'package:majmua/presentation/friday/list_sunnah_friday.dart';
 import 'package:majmua/presentation/library/last_columns.dart';
+import 'package:majmua/presentation/other/gems_counter_card.dart';
 import 'package:majmua/presentation/prayerTime/main_card_adhan_time.dart';
 import 'package:majmua/presentation/restHolidays/main_card_rest_holidays.dart';
 import 'package:majmua/presentation/restTime/main_card_rest_time_indicators.dart';
@@ -32,11 +33,11 @@ class HomePage extends StatelessWidget {
               centerTitle: true,
               pinned: false,
               floating: false,
-              title: Row(
+              title: const Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
-                children: const [
+                children: [
                   Text(
                     AppString.appName,
                   ),
@@ -65,11 +66,11 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: const [
+                  children: [
                     SizedBox(height: 8),
                     MainCardRestTimeIndicators(),
                     SizedBox(height: 8),
@@ -79,6 +80,8 @@ class HomePage extends StatelessWidget {
                     SizedBox(height: 8),
                     ListSunnahFriday(),
                     MainCardRestHolidays(),
+                    SizedBox(height: 8),
+                    GemsCounterCard(),
                     SizedBox(height: 8),
                     MainCardWhiteDays(),
                     LastColumns(),

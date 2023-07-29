@@ -409,7 +409,6 @@ ${AppString.dateTimeOffset}: ${_cdt.timeZoneName}''';
   @override
   void dispose() {
     _mainSettingsBox.close();
-    _timer.cancel();
     super.dispose();
   }
 }

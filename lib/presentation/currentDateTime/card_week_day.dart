@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/rest_time_state.dart';
 import 'package:majmua/application/state/weekly_salawat_state.dart';
-import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/presentation/currentDateTime/card_daily_messages.dart';
@@ -35,7 +33,7 @@ class CardWeekDay extends StatelessWidget {
               Card(
                 color: appColors.glassOnGlassCardColor,
                 margin: AppWidgetStyle.horizontalMarginMini,
-                child: Padding(
+                child: const Padding(
                   padding: AppWidgetStyle.mainPaddingMini,
                   child: Wrap(
                     direction: Axis.horizontal,
@@ -43,7 +41,7 @@ class CardWeekDay extends StatelessWidget {
                     runSpacing: 8,
                     spacing: 8,
                     crossAxisAlignment: WrapCrossAlignment.center,
-                    children: const [
+                    children: [
                       ItemDayFromWeek(
                         dayNumber: 1,
                       ),
@@ -77,22 +75,21 @@ class CardWeekDay extends StatelessWidget {
                         ? const CardDailyRamadan()
                         : const CardDailyMessages(),
                   ),
-                  Card(
-                    color: appColors.glassOnGlassCardColor,
-                    child: IconButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, 'app_counter_page');
-                      },
-                      tooltip: AppString.counter,
-                      splashRadius: 17.5,
-                      visualDensity: const VisualDensity(vertical: -4),
-                      icon: Icon(
-                        CupertinoIcons.number_circle_fill,
-                        color: appColors.thirdAppColor,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 8),
+                  // Card(
+                  //   color: appColors.glassOnGlassCardColor,
+                  //   child: IconButton(
+                  //     onPressed: () {
+                  //       Navigator.pushNamed(context, 'app_counter_page');
+                  //     },
+                  //     tooltip: AppString.counter,
+                  //     splashRadius: 17.5,
+                  //     visualDensity: const VisualDensity(vertical: -4),
+                  //     icon: Icon(
+                  //       CupertinoIcons.number_circle_fill,
+                  //       color: appColors.thirdAppColor,
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
               const SizedBox(height: 8),

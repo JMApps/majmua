@@ -22,7 +22,7 @@ class MainCardRestTimeIndicators extends StatelessWidget {
             const Text(
               AppString.appMainSlogan,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
