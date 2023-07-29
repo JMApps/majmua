@@ -11,16 +11,11 @@ class AppTheme {
       elevation: 0,
       centerTitle: true,
       backgroundColor: Color(0xBF3F51B5),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          bottomRight: Radius.elliptical(35, 20),
-          bottomLeft: Radius.elliptical(35, 20),
-        ),
-      ),
+      shape: AppWidgetStyle.appBarRectangleBorder,
       titleTextStyle: TextStyle(
         color: Color(0xFFFFFFFF),
         fontFamily: 'Nexa',
-        fontSize: 18,
+        fontSize: 20,
       ),
     ),
     cardTheme: const CardTheme(
@@ -61,16 +56,11 @@ class AppTheme {
       elevation: 0,
       centerTitle: true,
       backgroundColor: Color(0x80232433),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          bottomRight: Radius.elliptical(35, 20),
-          bottomLeft: Radius.elliptical(35, 20),
-        ),
-      ),
+      shape: AppWidgetStyle.appBarRectangleBorder,
       titleTextStyle: TextStyle(
         color: Color(0xFFFFFFFF),
         fontFamily: 'Nexa',
-        fontSize: 18,
+        fontSize: 20,
       ),
     ),
     cardTheme: const CardTheme(

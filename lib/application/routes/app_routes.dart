@@ -8,7 +8,9 @@ import 'package:majmua/presentation/library/lessons/lessons_ramadan_select_page.
 import 'package:majmua/presentation/library/namesOf/names_of_page.dart';
 import 'package:majmua/presentation/library/questions/questions_page.dart';
 import 'package:majmua/presentation/library/raqaiq/raqaiq_page.dart';
-import 'package:majmua/presentation/counter/app_counter_page.dart';
+import 'package:majmua/presentation/names/only_names_of_page.dart';
+import 'package:majmua/presentation/other/counter/app_counter_page.dart';
+import 'package:majmua/presentation/other/gems/gems_tafiri_page.dart';
 import 'package:majmua/presentation/prayerTime/addCountry/add_country_page.dart';
 import 'package:majmua/presentation/prayerTime/calculationInfo/prayer_calculation_method_page.dart';
 import 'package:majmua/presentation/prayerTime/prayerParams/prayer_params_page.dart';
@@ -45,10 +47,18 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (_) => const AppCounterPage(),
         );
+      case 'gems_tafiri_page':
+        return MaterialPageRoute(
+          builder: (_) => const GemsTarifiPage(),
+        );
       case 'supplications_page':
         final SupplicationArguments supplicationArguments = routeSettings.arguments as SupplicationArguments;
         return MaterialPageRoute(
           builder: (_) => SupplicationsPage(supplicationIndex: supplicationArguments.supplicationIndex),
+        );
+      case 'only_names_of_page':
+        return MaterialPageRoute(
+          builder: (_) => const OnlyNamesOfPage(),
         );
       case 'sfq_page':
         return MaterialPageRoute(

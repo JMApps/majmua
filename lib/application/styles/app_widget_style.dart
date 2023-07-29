@@ -14,6 +14,12 @@ class AppWidgetStyle {
     ),
   );
 
+  static const mainRectangleBorderLarge = RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(
+      Radius.circular(50),
+    ),
+  );
+
   static const mainRectangleBorderMini = RoundedRectangleBorder(
     borderRadius: BorderRadius.all(
       Radius.circular(12.5),
