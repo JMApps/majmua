@@ -33,6 +33,7 @@ class CounterHorizontalColumn extends StatelessWidget {
                       elevation: 1,
                       color: appColors.glassOnGlassCardColor,
                       margin: AppWidgetStyle.horizontalMargin,
+                      shape: AppWidgetStyle.mainRectangleBorderLarge,
                       child: Padding(
                         padding: AppWidgetStyle.mainPaddingMini,
                         child: Text(
@@ -122,11 +123,6 @@ class CounterHorizontalColumn extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // const SizedBox(height: 16),
-                  // const Padding(
-                  //   padding: AppWidgetStyle.horizontalPadding,
-                  //   child: DropDownCounterValuesList(),
-                  // ),
                   const SizedBox(height: 16),
                   Visibility(
                     visible: counter.getIsCountValueShow,
@@ -153,8 +149,8 @@ class CounterHorizontalColumn extends StatelessWidget {
                     boxShadow: [
                       BoxShadow(
                         color: appColors.secondAppColor,
-                        blurRadius: 32,
-                        spreadRadius: 5.5,
+                        blurRadius: 16,
+                        spreadRadius: 2.5,
                       ),
                     ],
                   ),

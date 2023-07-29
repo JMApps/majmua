@@ -1,3 +1,4 @@
+
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
@@ -30,6 +31,7 @@ class CounterVerticalColumn extends StatelessWidget {
                 elevation: 1,
                 color: appColors.glassOnGlassCardColor,
                 margin: AppWidgetStyle.horizontalMargin,
+                shape: AppWidgetStyle.mainRectangleBorderLarge,
                 child: Padding(
                   padding: AppWidgetStyle.mainPaddingMini,
                   child: Text(
@@ -55,8 +57,8 @@ class CounterVerticalColumn extends StatelessWidget {
                     boxShadow: [
                       BoxShadow(
                         color: appColors.secondAppColor,
-                        blurRadius: 32,
-                        spreadRadius: 5.5,
+                        blurRadius: 16,
+                        spreadRadius: 2.5,
                       ),
                     ],
                   ),
@@ -84,7 +86,7 @@ class CounterVerticalColumn extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    CircleAvatar(
+                    Platform.isIOS ? CircleAvatar(
                       backgroundColor: appColors.glassOnGlassCardColor,
                       child: IconButton(
                         onPressed: Platform.isIOS
@@ -101,7 +103,7 @@ class CounterVerticalColumn extends StatelessWidget {
                           Icons.volume_up_outlined,
                         ),
                       ),
-                    ),
+                    ) : const SizedBox(),
                     CircleAvatar(
                       backgroundColor: appColors.glassOnGlassCardColor,
                       child: IconButton(
