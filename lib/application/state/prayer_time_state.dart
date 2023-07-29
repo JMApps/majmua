@@ -12,7 +12,7 @@ class PrayerTimeState extends ChangeNotifier {
   DateTime _cdt = DateTime.now().toLocal();
   final DefaultCustomCountryQuery _defaultCustomCountryQuery = DefaultCustomCountryQuery();
   final _mainSettingsBox = Hive.box(AppConstants.keySettingsPrayerTimeBox);
-  late Timer _timer;
+  Timer? timer;
   late PrayerTimes _prayerTimes;
   late CalculationParameters _prayerParams;
   late SunnahTimes _sunnahTimes;
@@ -64,12 +64,12 @@ class PrayerTimeState extends ChangeNotifier {
   int get getMinutesOfDay => _cdt.difference(DateTime(_cdt.year, _cdt.month, _cdt.day)).inMinutes;
 
   PrayerTimeState() {
-    _timer = Timer(
+    timer = Timer(
       Duration(seconds: (_cdt.second - 60).abs()),
       () {
         _cdt = DateTime.now().toLocal();
         notifyListeners();
-        _timer = Timer.periodic(
+        timer = Timer.periodic(
           const Duration(minutes: 1),
           (_) {
             _cdt = DateTime.now().toLocal();

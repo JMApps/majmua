@@ -43,8 +43,8 @@ class LastColumns extends StatelessWidget {
                     splashRadius: 25,
                     icon: Image.asset(
                       'assets/icons/dua-hands.png',
-                      width: 22.5,
-                      height: 22.5,
+                      width: 35,
+                      height: 35,
                       color: appColors.secondAppColor,
                     ),
                   ),

@@ -2,6 +2,7 @@
 class Assets {
   Assets._();
 
+  static const String audiosAdhan = 'assets/audios/adhan.mp3';
   static const String databasesCountryCoordinates3 = 'assets/databases/country_coordinates_3.db';
   static const String databasesCustomCountries = 'assets/databases/custom_countries.db';
   static const String databasesHadeeth2 = 'assets/databases/hadeeth_2.db';
@@ -9,8 +10,8 @@ class Assets {
   static const String databasesNamesOf = 'assets/databases/names_of.db';
   static const String databasesQuestions2 = 'assets/databases/questions_2.db';
   static const String databasesRaqaiq = 'assets/databases/raqaiq.db';
-  static const String databasesSupplications3 = 'assets/databases/supplications_3.db';
-  static const String databasesSupplicationsFromQuran3 = 'assets/databases/supplications_from_quran_3.db';
+  static const String databasesSupplications4 = 'assets/databases/supplications_4.db';
+  static const String databasesSupplicationsFromQuran4 = 'assets/databases/supplications_from_quran_4.db';
   static const String fontsDigital = 'assets/fonts/digital.ttf';
   static const String fontsHafs = 'assets/fonts/hafs.ttf';
   static const String fontsLato = 'assets/fonts/lato.ttf';

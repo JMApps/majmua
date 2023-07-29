@@ -67,6 +67,7 @@ flutter:
     - assets/databases/
     - assets/icons/
     - assets/quran/
+    - assets/audios/
 
   fonts:
     - family: 'Nexa'
