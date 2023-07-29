@@ -1,8 +1,8 @@
 class AppConstants {
+  static const keyMainSettings = 'key_main_settings';
   static const keyWeeklySalawatSettings = 'key_weekly_salawat_settings';
   static const keySettingsPrayerTimeBox = 'key_settings_prayer_time_box';
   static const keyMainAppSettings = 'key_main_app_settings';
-  static const keyMainNotificationsSettings = 'key_main_notifications_settings';
   static const keyMainCounter = 'key_main_counter';
 
   // Prayer time
@@ -24,16 +24,16 @@ class AppConstants {
   static const keyIshaAdjustment = 'key_isha_adjustment';
 
   // Notifications
+  static const keyFastMondayNotification = 'key_fast_monday_notification';
+  static const keyFastThursdayNotification = 'key_fast_thursday_notification';
+  static const keyFastWhiteDaysNotification = 'key_fast_white_days_notification';
+
   static const keyFajrNotification = 'key_fajr_notification';
   static const keySunriseNotification = 'key_sunrise_notification';
   static const keyDhuhrNotification = 'key_dhuhr_notification';
   static const keyAsrNotification = 'key_asr_notification';
   static const keyMaghribNotification = 'key_maghrib_notification';
   static const keyIshaNotification = 'key_isha_notification';
-  static const keyDailyNotification = 'key_daily_notification';
-  static const keyFirstFastNotification = 'key_first_fast_notification';
-  static const keySecondFastNotification = 'key_second_fast_notification';
-  static const keyWhiteDaysNotification = 'key_white_days_notification';
 
   // Settings
   static const keyNamesOfLastPage = 'key_names_of_last_page';

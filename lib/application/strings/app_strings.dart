@@ -53,8 +53,8 @@ class AppString {
 
   static const List<String> counterValuesList = [
     '-:-:-',
+    '99',
     '100',
-    '33',
   ];
 
   static const String calculateAsrMethod = 'Метод расчёта молитвы аср';
@@ -66,7 +66,7 @@ class AppString {
   static const String defaultOffset = 'По умолчанию';
   static const String plusHour = '+1';
 
-  static const String selectAnotherCity = 'Выбрать другой город';
+  static const String selectAnotherCity = 'Выбрать город';
   static const String selectionCity = 'Выбор города';
   static const String selectCityErrorLoadData = 'При загрузке данных произошла ошибка.\nОчистите данные приложения';
   static const String searchCities = 'Поиск городов';
@@ -341,4 +341,9 @@ class AppString {
   static const String close = 'Закрыть';
   static const String textSize = 'Размер текста';
   static const String showTranscription = 'Транскрипция';
+  static const String gemsTarifi = 'Жемчужины Тарифи';
+  static const String namesOf = 'Имена Аллаха';
+  static const String copy = 'Копировать';
+  static const String copied = 'Скопировано';
+  static const String share = 'Поделиться';
 }

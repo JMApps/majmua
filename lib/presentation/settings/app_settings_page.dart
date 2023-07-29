@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/application/state/main_notifications_state.dart';
+import 'package:majmua/application/state/main_settings_state.dart';
 import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
@@ -17,8 +17,7 @@ class AppSettingsPage extends StatelessWidget {
           const SliverAppBar(
             elevation: 0,
             centerTitle: true,
-            pinned: false,
-            floating: false,
+            floating: true,
             title: Text(
               AppString.settings,
             ),
@@ -26,21 +25,21 @@ class AppSettingsPage extends StatelessWidget {
           SliverToBoxAdapter(
             child: Padding(
               padding: AppWidgetStyle.verticalPadding,
-              child: Consumer<MainNotificationsSate>(
+              child: Consumer<MainSettingsState>(
                 builder: (BuildContext context, notificationState, _) {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      // const Padding(
-                      //   padding: AppWidgetStyle.horizontalPadding,
-                      //   child: Text(
-                      //     AppString.notifications,
-                      //     style: TextStyle(
-                      //       fontSize: 22,
-                      //       fontWeight: FontWeight.bold,
-                      //     ),
-                      //   ),
-                      // ),
+                      const Padding(
+                        padding: AppWidgetStyle.horizontalPadding,
+                        child: Text(
+                          AppString.notifications,
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                       // Card(
                       //   margin: AppWidgetStyle.mainMargin,
                       //   color: appColors.mainReverse,
@@ -51,20 +50,10 @@ class AppSettingsPage extends StatelessWidget {
                       //         SwitchListTile.adaptive(
                       //           activeColor: appColors.thirdAppColor,
                       //           visualDensity: const VisualDensity(vertical: -4),
-                      //           title: const Text(AppString.dailyNotif),
-                      //           value: notificationState.getDailyNotification,
-                      //           onChanged: (bool? value) {
-                      //             notificationState.setDailyNotification = value!;
-                      //           },
-                      //         ),
-                      //         const Divider(indent: 16, endIndent: 16),
-                      //         SwitchListTile.adaptive(
-                      //           activeColor: appColors.thirdAppColor,
-                      //           visualDensity: const VisualDensity(vertical: -4),
                       //           title: const Text(AppString.firstFastNotif),
-                      //           value: notificationState.getFirstFastNotification,
+                      //           value: notificationState.getFastMondayNotification,
                       //           onChanged: (bool? value) {
-                      //             notificationState.setFirstFastNotification = value!;
+                      //             notificationState.setFastMondayNotification = value!;
                       //           },
                       //         ),
                       //         const Divider(indent: 16, endIndent: 16),
@@ -72,9 +61,9 @@ class AppSettingsPage extends StatelessWidget {
                       //           activeColor: appColors.thirdAppColor,
                       //           visualDensity: const VisualDensity(vertical: -4),
                       //           title: const Text(AppString.secondFastNotif),
-                      //           value: notificationState.getSecondFastNotification,
+                      //           value: notificationState.getFastThursdayNotification,
                       //           onChanged: (bool? value) {
-                      //             notificationState.setSecondFastNotification = value!;
+                      //             notificationState.setFastThursdayNotification = value!;
                       //           },
                       //         ),
                       //         const Divider(indent: 16, endIndent: 16),
@@ -82,9 +71,9 @@ class AppSettingsPage extends StatelessWidget {
                       //           activeColor: appColors.thirdAppColor,
                       //           visualDensity: const VisualDensity(vertical: -4),
                       //           title: const Text(AppString.whiteDaysNotif),
-                      //           value: notificationState.getWhiteDaysFastNotification,
+                      //           value: notificationState.getFastWhiteDaysNotification,
                       //           onChanged: (bool? value) {
-                      //             notificationState.setWhiteDaysFastNotification = value!;
+                      //             notificationState.setFastWhiteDaysNotification = value!;
                       //           },
                       //         ),
                       //       ],
@@ -101,76 +90,76 @@ class AppSettingsPage extends StatelessWidget {
                       //     ),
                       //   ),
                       // ),
-                      // Card(
-                      //   margin: AppWidgetStyle.mainMargin,
-                      //   color: appColors.mainReverse,
-                      //   child: Padding(
-                      //     padding: AppWidgetStyle.verticalPadding,
-                      //     child: Wrap(
-                      //       children: [
-                      //         SwitchListTile.adaptive(
-                      //           activeColor: appColors.thirdAppColor,
-                      //           visualDensity: const VisualDensity(vertical: -4),
-                      //           title: const Text(AppString.fajr),
-                      //           value: notificationState.getFajrNotification,
-                      //           onChanged: (bool? value) {
-                      //             notificationState.setFajrNotification = value!;
-                      //           },
-                      //         ),
-                      //         const Divider(indent: 16, endIndent: 16),
-                      //         SwitchListTile.adaptive(
-                      //           activeColor: appColors.thirdAppColor,
-                      //           visualDensity: const VisualDensity(vertical: -4),
-                      //           title: const Text(AppString.sunrise),
-                      //           value: notificationState.getSunriseNotification,
-                      //           onChanged: (bool? value) {
-                      //             notificationState.setSunriseNotification = value!;
-                      //           },
-                      //         ),
-                      //         const Divider(indent: 16, endIndent: 16),
-                      //         SwitchListTile.adaptive(
-                      //           activeColor: appColors.thirdAppColor,
-                      //           visualDensity: const VisualDensity(vertical: -4),
-                      //           title: const Text(AppString.dhuhr),
-                      //           value: notificationState.getDhuhrNotification,
-                      //           onChanged: (bool? value) {
-                      //             notificationState.setDhuhrNotification = value!;
-                      //           },
-                      //         ),
-                      //         const Divider(indent: 16, endIndent: 16),
-                      //         SwitchListTile.adaptive(
-                      //           activeColor: appColors.thirdAppColor,
-                      //           visualDensity: const VisualDensity(vertical: -4),
-                      //           title: const Text(AppString.asr),
-                      //           value: notificationState.getAsrNotification,
-                      //           onChanged: (bool? value) {
-                      //             notificationState.setAsrNotification = value!;
-                      //           },
-                      //         ),
-                      //         const Divider(indent: 16, endIndent: 16),
-                      //         SwitchListTile.adaptive(
-                      //           activeColor: appColors.thirdAppColor,
-                      //           visualDensity: const VisualDensity(vertical: -4),
-                      //           title: const Text(AppString.maghrib),
-                      //           value: notificationState.getMaghribNotification,
-                      //           onChanged: (bool? value) {
-                      //             notificationState.setMaghribNotification = value!;
-                      //           },
-                      //         ),
-                      //         const Divider(indent: 16, endIndent: 16),
-                      //         SwitchListTile.adaptive(
-                      //           activeColor: appColors.thirdAppColor,
-                      //           visualDensity: const VisualDensity(vertical: -4),
-                      //           title: const Text(AppString.isha),
-                      //           value: notificationState.getIshaNotification,
-                      //           onChanged: (bool? value) {
-                      //             notificationState.setIshaNotification = value!;
-                      //           },
-                      //         ),
-                      //       ],
-                      //     ),
-                      //   ),
-                      // ),
+                      Card(
+                        margin: AppWidgetStyle.mainMargin,
+                        color: appColors.mainReverse,
+                        child: Padding(
+                          padding: AppWidgetStyle.verticalPadding,
+                          child: Wrap(
+                            children: [
+                              SwitchListTile.adaptive(
+                                activeColor: appColors.thirdAppColor,
+                                visualDensity: const VisualDensity(vertical: -4),
+                                title: const Text(AppString.fajr),
+                                value: notificationState.getFajrNotification,
+                                onChanged: (bool? value) {
+                                  notificationState.setFajrNotification = value!;
+                                },
+                              ),
+                              const Divider(indent: 16, endIndent: 16),
+                              SwitchListTile.adaptive(
+                                activeColor: appColors.thirdAppColor,
+                                visualDensity: const VisualDensity(vertical: -4),
+                                title: const Text(AppString.sunrise),
+                                value: notificationState.getSunriseNotification,
+                                onChanged: (bool? value) {
+                                  notificationState.setSunriseNotification = value!;
+                                },
+                              ),
+                              const Divider(indent: 16, endIndent: 16),
+                              SwitchListTile.adaptive(
+                                activeColor: appColors.thirdAppColor,
+                                visualDensity: const VisualDensity(vertical: -4),
+                                title: const Text(AppString.dhuhr),
+                                value: notificationState.getDhuhrNotification,
+                                onChanged: (bool? value) {
+                                  notificationState.setDhuhrNotification = value!;
+                                },
+                              ),
+                              const Divider(indent: 16, endIndent: 16),
+                              SwitchListTile.adaptive(
+                                activeColor: appColors.thirdAppColor,
+                                visualDensity: const VisualDensity(vertical: -4),
+                                title: const Text(AppString.asr),
+                                value: notificationState.getAsrNotification,
+                                onChanged: (bool? value) {
+                                  notificationState.setAsrNotification = value!;
+                                },
+                              ),
+                              const Divider(indent: 16, endIndent: 16),
+                              SwitchListTile.adaptive(
+                                activeColor: appColors.thirdAppColor,
+                                visualDensity: const VisualDensity(vertical: -4),
+                                title: const Text(AppString.maghrib),
+                                value: notificationState.getMaghribNotification,
+                                onChanged: (bool? value) {
+                                  notificationState.setMaghribNotification = value!;
+                                },
+                              ),
+                              const Divider(indent: 16, endIndent: 16),
+                              SwitchListTile.adaptive(
+                                activeColor: appColors.thirdAppColor,
+                                visualDensity: const VisualDensity(vertical: -4),
+                                title: const Text(AppString.isha),
+                                value: notificationState.getIshaNotification,
+                                onChanged: (bool? value) {
+                                  notificationState.setIshaNotification = value!;
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                       const Padding(
                         padding: AppWidgetStyle.horizontalPadding,
                         child: Text(
