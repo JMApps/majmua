@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/strings/app_strings.dart';
@@ -112,6 +114,21 @@ class _SfqPageState extends State<SfqPage> {
                               color: appColors.secondAppColor,
                               icon: const Icon(
                                 Icons.arrow_back_ios_new_rounded,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                int randomCIndex =
+                                Random().nextInt(snapshot.data!.length);
+                                _sfqPageController.animateToPage(
+                                  randomCIndex,
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.slowMiddle,
+                                );
+                              },
+                              splashRadius: 20,
+                              icon: const Icon(
+                                CupertinoIcons.arrow_2_squarepath,
                               ),
                             ),
                             IconButton(

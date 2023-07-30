@@ -17,7 +17,7 @@ class CopyShareCard extends StatelessWidget {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     return Card(
       margin: AppWidgetStyle.mainMargin,
-      color: appColors.backgroundColorQ,
+      color: appColors.defaultCardColor,
       child: Padding(
         padding: AppWidgetStyle.mainPaddingMini,
         child: Column(

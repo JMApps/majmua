@@ -50,7 +50,8 @@ class _SupplicationsPageState extends State<SupplicationsPage> {
         ],
       ),
       body: FutureBuilder<List>(
-        future: _supplicationsQuery.getSupplicationsWhere(widget.supplicationIndex),
+        future:
+            _supplicationsQuery.getSupplicationsWhere(widget.supplicationIndex),
         builder: (BuildContext context, snapshot) {
           if (snapshot.hasError) {
             return Center(
@@ -80,7 +81,8 @@ class _SupplicationsPageState extends State<SupplicationsPage> {
                       child: SmoothPageIndicator(
                         controller: _supplicationPageController,
                         count: snapshot.data!.length,
-                        onDotClicked: (index) => _supplicationPageController.animateToPage(
+                        onDotClicked: (index) =>
+                            _supplicationPageController.animateToPage(
                           index,
                           duration: const Duration(milliseconds: 50),
                           curve: Curves.bounceIn,

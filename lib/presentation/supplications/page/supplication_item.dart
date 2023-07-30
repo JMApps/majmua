@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:majmua/application/state/supplications_counter_state.dart';
 import 'package:majmua/application/state/text_settings_state.dart';
-import 'package:majmua/application/strings/app_strings.dart';
 import 'package:majmua/application/styles/app_widget_style.dart';
 import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/data/database/models/supplications_model.dart';
 import 'package:majmua/presentation/supplications/page/fab_supplications_count.dart';
+import 'package:majmua/presentation/widgets/copy_share_card.dart';
 import 'package:provider/provider.dart';
 
 class SupplicationItem extends StatelessWidget {
@@ -86,7 +86,7 @@ class SupplicationItem extends StatelessWidget {
                         ),
                         'a': Style(
                           color: appColors.thirdAppColor,
-                          fontSize: FontSize(18),
+                          fontSize: FontSize(16),
                           fontFamily: 'Lato',
                         ),
                       },
@@ -94,38 +94,43 @@ class SupplicationItem extends StatelessWidget {
                         showModalBottomSheet(
                           backgroundColor: Colors.transparent,
                           context: context,
-                          builder: (BuildContext context) =>
-                              CupertinoActionSheet(
-                            message: Html(
-                              data: url,
-                              style: {
-                                '#': Style(
-                                  padding: HtmlPaddings.zero,
-                                  margin: Margins.zero,
-                                  fontSize: FontSize(settingsState.getFontSize),
-                                ),
-                                'small': Style(
-                                  color: Colors.grey,
-                                  fontSize: FontSize(12),
-                                ),
-                              },
-                            ),
-                            actions: [
-                              CupertinoButton(
-                                child: Text(
-                                  AppString.close,
-                                  style: TextStyle(
-                                    color: appColors.thirdAppColor,
+                          isScrollControlled: true,
+                          builder: (BuildContext context) => Card(
+                            margin: AppWidgetStyle.mainMargin,
+                            color: appColors.defaultCardColor,
+                            child: SingleChildScrollView(
+                              padding: AppWidgetStyle.mainPadding,
+                              child: Html(
+                                data: url,
+                                style: {
+                                  '#': Style(
+                                    padding: HtmlPaddings.zero,
+                                    margin: Margins.zero,
+                                    fontSize: FontSize(18),
                                   ),
-                                ),
-                                onPressed: () {
-                                  Navigator.of(context).pop();
+                                  'small': Style(
+                                    color: Colors.grey,
+                                    fontSize: FontSize(12),
+                                  ),
                                 },
                               ),
-                            ],
+                            ),
                           ),
                         );
                       },
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        showModalBottomSheet(
+                          context: context,
+                          backgroundColor: Colors.transparent,
+                          isScrollControlled: true,
+                          builder: (_) => CopyShareCard(
+                            content: _contentForCopyAndShare(),
+                          ),
+                        );
+                      },
+                      icon: const Icon(CupertinoIcons.share),
                     ),
                   ],
                 );
@@ -135,5 +140,11 @@ class SupplicationItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String _contentForCopyAndShare() {
+    return '${item.supplicationArabic}\n\n'
+        '${item.supplicationTranscription != null ? '${item.supplicationTranscription}\n\n' : ''}'
+        '${item.supplicationForShare}';
   }
 }
