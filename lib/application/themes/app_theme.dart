@@ -10,7 +10,7 @@ class AppTheme {
     appBarTheme: const AppBarTheme(
       elevation: 0,
       centerTitle: true,
-      backgroundColor: Color(0xBF3F51B5),
+      backgroundColor: Color(0xD93F51B5),
       shape: AppWidgetStyle.appBarRectangleBorder,
       titleTextStyle: TextStyle(
         color: Color(0xFFFFFFFF),

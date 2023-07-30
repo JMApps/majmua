@@ -14,12 +14,12 @@ class ColumnSupplications extends StatelessWidget {
     return Card(
       margin: AppWidgetStyle.mainMargin,
       color: appColors.mainReverse,
-      child: SingleChildScrollView(
+      child: const SingleChildScrollView(
         padding: AppWidgetStyle.mainPadding,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.min,
-          children: const [
+          children: [
             ItemSupplicationColumn(
               title: AppString.supplicationAfterPrayer,
               icon: CupertinoIcons.hand_raised,
