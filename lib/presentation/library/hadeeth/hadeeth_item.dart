@@ -20,67 +20,71 @@ class HadeethItem extends StatelessWidget {
         padding: AppWidgetStyle.mainPadding,
         child: Consumer<TextSettingsState>(
           builder: (BuildContext context, bookSettingsState, _) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const Divider(indent: 16, endIndent: 16),
-                SelectableText(
-                  item.numberHadeeth,
-                  style: TextStyle(
-                    fontSize: bookSettingsState.getFontSize,
+            return SelectableRegion(
+              focusNode: FocusNode(),
+              selectionControls: materialTextSelectionControls,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const Divider(indent: 16, endIndent: 16),
+                  Text(
+                    item.numberHadeeth,
+                    style: TextStyle(
+                      fontSize: bookSettingsState.getFontSize,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-                const Divider(indent: 16, endIndent: 16),
-                const SizedBox(height: 8),
-                SelectableText(
-                  item.titleHadeeth,
-                  style: TextStyle(
-                    fontSize: bookSettingsState.getFontSize,
-                    color: appColors.thirdAppColor,
-                    fontWeight: FontWeight.bold,
+                  const Divider(indent: 16, endIndent: 16),
+                  const SizedBox(height: 8),
+                  Text(
+                    item.titleHadeeth,
+                    style: TextStyle(
+                      fontSize: bookSettingsState.getFontSize,
+                      color: appColors.thirdAppColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-                const Divider(indent: 16, endIndent: 16),
-                const SizedBox(height: 8),
-                Html(
-                  data: item.hadeethArabic,
-                  style: {
-                    '#': Style(
-                      padding: HtmlPaddings.zero,
-                      margin: Margins.zero,
-                      fontSize: FontSize(bookSettingsState.getFontSize + 2),
-                      direction: TextDirection.rtl,
-                      lineHeight: const LineHeight(2),
-                      fontFamily: 'Scheherazade',
-                    ),
-                    'small': Style(
-                      fontSize: FontSize(bookSettingsState.getFontSize - 6),
-                      direction: TextDirection.rtl,
-                      lineHeight: const LineHeight(2),
-                      fontFamily: 'Scheherazade',
-                    ),
-                  },
-                ),
-                const Divider(indent: 16, endIndent: 16),
-                const SizedBox(height: 8),
-                Html(
-                  data: item.hadeethTranslation,
-                  style: {
-                    '#': Style(
-                      padding: HtmlPaddings.zero,
-                      margin: Margins.zero,
-                      fontSize: FontSize(bookSettingsState.getFontSize),
-                      direction: TextDirection.ltr,
-                    ),
-                    'small': Style(
-                      fontSize: FontSize(bookSettingsState.getFontSize - 6),
-                      direction: TextDirection.ltr,
-                    ),
-                  },
-                ),
-              ],
+                  const Divider(indent: 16, endIndent: 16),
+                  const SizedBox(height: 8),
+                  Html(
+                    data: item.hadeethArabic,
+                    style: {
+                      '#': Style(
+                        padding: HtmlPaddings.zero,
+                        margin: Margins.zero,
+                        fontSize: FontSize(bookSettingsState.getFontSize + 2),
+                        direction: TextDirection.rtl,
+                        lineHeight: const LineHeight(2),
+                        fontFamily: 'Scheherazade',
+                      ),
+                      'small': Style(
+                        fontSize: FontSize(bookSettingsState.getFontSize - 6),
+                        direction: TextDirection.rtl,
+                        lineHeight: const LineHeight(2),
+                        fontFamily: 'Scheherazade',
+                      ),
+                    },
+                  ),
+                  const Divider(indent: 16, endIndent: 16),
+                  const SizedBox(height: 8),
+                  Html(
+                    data: item.hadeethTranslation,
+                    style: {
+                      '#': Style(
+                        padding: HtmlPaddings.zero,
+                        margin: Margins.zero,
+                        fontSize: FontSize(bookSettingsState.getFontSize),
+                        direction: TextDirection.ltr,
+                      ),
+                      'small': Style(
+                        fontSize: FontSize(bookSettingsState.getFontSize - 6),
+                        direction: TextDirection.ltr,
+                      ),
+                    },
+                  ),
+                ],
+              ),
             );
           },
         ),

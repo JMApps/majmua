@@ -20,43 +20,47 @@ class RaqaiqItem extends StatelessWidget {
         padding: AppWidgetStyle.mainPadding,
         child: Consumer<TextSettingsState>(
           builder: (BuildContext context, bookSettingsState, _) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const Divider(indent: 16, endIndent: 16),
-                const SizedBox(height: 8),
-                SelectableText(
-                  item.chapterTitle,
-                  style: TextStyle(
-                    fontSize: bookSettingsState.getFontSize,
-                    color: appColors.thirdAppColor,
-                    fontWeight: FontWeight.bold,
+            return SelectableRegion(
+              focusNode: FocusNode(),
+              selectionControls: materialTextSelectionControls,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const Divider(indent: 16, endIndent: 16),
+                  const SizedBox(height: 8),
+                  Text(
+                    item.chapterTitle,
+                    style: TextStyle(
+                      fontSize: bookSettingsState.getFontSize,
+                      color: appColors.thirdAppColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-                const Divider(indent: 16, endIndent: 16),
-                const SizedBox(height: 8),
-                Html(
-                  data: item.chapterContent,
-                  style: {
-                    '#': Style(
-                      padding: HtmlPaddings.zero,
-                      margin: Margins.zero,
-                      fontSize: FontSize(bookSettingsState.getFontSize),
-                      direction: TextDirection.ltr,
-                    ),
-                    'small': Style(
-                      color: Colors.grey,
-                      fontSize: FontSize(bookSettingsState.getFontSize - 6),
-                      direction: TextDirection.ltr,
-                    ),
-                    'a': Style(
-                      fontSize: FontSize(18),
-                      color: appColors.firstAppColor,
-                    ),
-                  },
-                ),
-              ],
+                  const Divider(indent: 16, endIndent: 16),
+                  const SizedBox(height: 8),
+                  Html(
+                    data: item.chapterContent,
+                    style: {
+                      '#': Style(
+                        padding: HtmlPaddings.zero,
+                        margin: Margins.zero,
+                        fontSize: FontSize(bookSettingsState.getFontSize),
+                        direction: TextDirection.ltr,
+                      ),
+                      'small': Style(
+                        color: Colors.grey,
+                        fontSize: FontSize(bookSettingsState.getFontSize - 6),
+                        direction: TextDirection.ltr,
+                      ),
+                      'a': Style(
+                        fontSize: FontSize(18),
+                        color: appColors.firstAppColor,
+                      ),
+                    },
+                  ),
+                ],
+              ),
             );
           },
         ),

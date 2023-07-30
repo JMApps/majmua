@@ -15,6 +15,7 @@ class AyahsCardItem extends StatelessWidget {
     final ColorScheme appColor = Theme.of(context).colorScheme;
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
+      color: appColor.glassOnGlassCardColor,
       child: Padding(
         padding: AppWidgetStyle.mainPadding,
         child: Consumer<TextSettingsState>(
@@ -22,7 +23,7 @@ class AyahsCardItem extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SelectableText(
+                Text(
                   item.ayahArabic,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize + 4,
@@ -32,7 +33,7 @@ class AyahsCardItem extends StatelessWidget {
                   textAlign: TextAlign.start,
                   textDirection: TextDirection.rtl,
                 ),
-                SelectableText(
+                Text(
                   item.ayahTranslation,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize,
@@ -40,7 +41,7 @@ class AyahsCardItem extends StatelessWidget {
                   textAlign: TextAlign.start,
                   textDirection: TextDirection.ltr,
                 ),
-                SelectableText(
+                Text(
                   item.ayahSource,
                   style: const TextStyle(
                     fontSize: 14,

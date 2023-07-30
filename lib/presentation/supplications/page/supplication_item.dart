@@ -8,6 +8,7 @@ import 'package:majmua/application/themes/app_theme.dart';
 import 'package:majmua/data/database/models/supplications_model.dart';
 import 'package:majmua/presentation/supplications/page/fab_supplications_count.dart';
 import 'package:majmua/presentation/widgets/copy_share_card.dart';
+import 'package:majmua/presentation/widgets/for_footnote_html_text.dart';
 import 'package:provider/provider.dart';
 
 class SupplicationItem extends StatelessWidget {
@@ -95,26 +96,9 @@ class SupplicationItem extends StatelessWidget {
                           backgroundColor: Colors.transparent,
                           context: context,
                           isScrollControlled: true,
-                          builder: (BuildContext context) => Card(
-                            margin: AppWidgetStyle.mainMargin,
-                            color: appColors.defaultCardColor,
-                            child: SingleChildScrollView(
-                              padding: AppWidgetStyle.mainPadding,
-                              child: Html(
-                                data: url,
-                                style: {
-                                  '#': Style(
-                                    padding: HtmlPaddings.zero,
-                                    margin: Margins.zero,
-                                    fontSize: FontSize(18),
-                                  ),
-                                  'small': Style(
-                                    color: Colors.grey,
-                                    fontSize: FontSize(12),
-                                  ),
-                                },
-                              ),
-                            ),
+                          builder: (BuildContext context) =>
+                              ForFootnoteHtmlText(
+                            footnoteContent: url!,
                           ),
                         );
                       },

@@ -15,6 +15,7 @@ class NamesCardItem extends StatelessWidget {
     final ColorScheme appColor = Theme.of(context).colorScheme;
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
+      color: appColor.glassOnGlassCardColor,
       child: Padding(
         padding: AppWidgetStyle.mainPaddingMini,
         child: Consumer<TextSettingsState>(
@@ -22,7 +23,7 @@ class NamesCardItem extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SelectableText(
+                Text(
                   item.nameArabic,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize + 5,
@@ -32,7 +33,7 @@ class NamesCardItem extends StatelessWidget {
                   textAlign: TextAlign.center,
                   textDirection: TextDirection.rtl,
                 ),
-                SelectableText(
+                Text(
                   item.nameTranslation,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize,
@@ -41,7 +42,7 @@ class NamesCardItem extends StatelessWidget {
                   textAlign: TextAlign.center,
                   textDirection: TextDirection.ltr,
                 ),
-                SelectableText(
+                Text(
                   item.nameTranscription,
                   style: TextStyle(
                     fontSize: bookSettingsState.getFontSize,

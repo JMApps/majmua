@@ -41,32 +41,36 @@ class _NamesOfPageState extends State<NamesOfPage> {
             return snapshot.hasData
                 ? Consumer<BookPagesScrollState>(
                     builder: (BuildContext context, scrollState, _) {
-                      return Column(
-                        children: [
-                          const SizedBox(height: 4),
-                          NamesOfSmoothIndicator(
-                            pageController: scrollState.getPageController,
-                            listLength: snapshot.data!.length,
-                          ),
-                          const SizedBox(height: 2),
-                          Expanded(
-                            child: PageView.builder(
-                              controller: scrollState.getPageController,
-                              itemCount: snapshot.data!.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return NamesContentItem(
-                                  item: snapshot.data![index],
-                                  index: index,
-                                );
-                              },
-                              onPageChanged: (page) {
-                                scrollState.changePageForLast(
-                                  currentPage: page,
-                                );
-                              },
+                      return SelectableRegion(
+                        focusNode: FocusNode(),
+                        selectionControls: materialTextSelectionControls,
+                        child: Column(
+                          children: [
+                            const SizedBox(height: 4),
+                            NamesOfSmoothIndicator(
+                              pageController: scrollState.getPageController,
+                              listLength: snapshot.data!.length,
                             ),
-                          ),
-                        ],
+                            const SizedBox(height: 2),
+                            Expanded(
+                              child: PageView.builder(
+                                controller: scrollState.getPageController,
+                                itemCount: snapshot.data!.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return NamesContentItem(
+                                    item: snapshot.data![index],
+                                    index: index,
+                                  );
+                                },
+                                onPageChanged: (page) {
+                                  scrollState.changePageForLast(
+                                    currentPage: page,
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
                       );
                     },
                   )
