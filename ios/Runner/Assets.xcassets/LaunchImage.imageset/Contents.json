@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "sm_logo_splash_512 2.png",
+      "filename" : "sm_logo_512 1.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "sm_logo_splash_512.png",
+      "filename" : "sm_logo_512.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "sm_logo_splash_512 1.png",
+      "filename" : "sm_logo_512 2.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

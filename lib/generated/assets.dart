@@ -4,6 +4,7 @@ class Assets {
 
   static const String databasesCountryCoordinates3 = 'assets/databases/country_coordinates_3.db';
   static const String databasesCustomCountries = 'assets/databases/custom_countries.db';
+  static const String databasesGemsDb = 'assets/databases/gems_db.db';
   static const String databasesHadeeth2 = 'assets/databases/hadeeth_2.db';
   static const String databasesLessonsRamadan = 'assets/databases/lessons_ramadan.db';
   static const String databasesNamesOf = 'assets/databases/names_of.db';
