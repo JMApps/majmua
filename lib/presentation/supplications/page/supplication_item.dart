@@ -33,90 +33,94 @@ class SupplicationItem extends StatelessWidget {
             padding: AppWidgetStyle.mainPadding,
             child: Consumer<TextSettingsState>(
               builder: (context, settingsState, _) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SelectableText(
-                      item.supplicationArabic,
-                      style: TextStyle(
-                        fontSize: settingsState.getFontSize + 3.0,
-                        fontFamily: 'Scheherazade',
+                return SelectableRegion(
+                  focusNode: FocusNode(),
+                  selectionControls: materialTextSelectionControls,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        item.supplicationArabic,
+                        style: TextStyle(
+                          fontSize: settingsState.getFontSize + 3.0,
+                          fontFamily: 'Scheherazade',
+                        ),
+                        textAlign: TextAlign.start,
+                        textDirection: TextDirection.rtl,
                       ),
-                      textAlign: TextAlign.start,
-                      textDirection: TextDirection.rtl,
-                    ),
-                    const SizedBox(height: 8),
-                    item.count != null
-                        ? const FabSupplicationsCount()
-                        : const SizedBox(),
-                    const SizedBox(height: 8),
-                    AnimatedSize(
-                      duration: const Duration(milliseconds: 750),
-                      child: item.supplicationTranscription != null
+                      const SizedBox(height: 8),
+                      item.count != null
+                          ? const FabSupplicationsCount()
+                          : const SizedBox(),
+                      const SizedBox(height: 8),
+                      AnimatedSize(
+                        duration: const Duration(milliseconds: 750),
+                        child: item.supplicationTranscription != null
+                            ? settingsState.getIsTranscription
+                                ? Text(
+                                    item.supplicationTranscription!,
+                                    style: TextStyle(
+                                      fontSize: settingsState.getFontSize,
+                                      color: Colors.grey.shade600,
+                                    ),
+                                    textDirection: TextDirection.ltr,
+                                  )
+                                : const SizedBox()
+                            : const SizedBox(),
+                      ),
+                      item.supplicationTranscription != null
                           ? settingsState.getIsTranscription
-                              ? SelectableText(
-                                  item.supplicationTranscription!,
-                                  style: TextStyle(
-                                    fontSize: settingsState.getFontSize,
-                                    color: Colors.grey.shade600,
-                                  ),
-                                  textDirection: TextDirection.ltr,
-                                )
+                              ? const SizedBox(height: 8)
                               : const SizedBox()
                           : const SizedBox(),
-                    ),
-                    item.supplicationTranscription != null
-                        ? settingsState.getIsTranscription
-                            ? const SizedBox(height: 8)
-                            : const SizedBox()
-                        : const SizedBox(),
-                    Html(
-                      data: item.supplicationTranslation,
-                      style: {
-                        '#': Style(
-                          padding: HtmlPaddings.zero,
-                          margin: Margins.zero,
-                          fontSize: FontSize(settingsState.getFontSize),
-                          textAlign: TextAlign.start,
-                          direction: TextDirection.ltr,
-                          fontFamily: 'Nexa',
-                        ),
-                        'small': Style(
-                          fontSize: FontSize(12),
-                        ),
-                        'a': Style(
-                          color: appColors.thirdAppColor,
-                          fontSize: FontSize(16),
-                          fontFamily: 'Lato',
-                        ),
-                      },
-                      onLinkTap: (String? url, _, __) {
-                        showModalBottomSheet(
-                          backgroundColor: Colors.transparent,
-                          context: context,
-                          isScrollControlled: true,
-                          builder: (BuildContext context) =>
-                              ForFootnoteHtmlText(
-                            footnoteContent: url!,
+                      Html(
+                        data: item.supplicationTranslation,
+                        style: {
+                          '#': Style(
+                            padding: HtmlPaddings.zero,
+                            margin: Margins.zero,
+                            fontSize: FontSize(settingsState.getFontSize),
+                            textAlign: TextAlign.start,
+                            direction: TextDirection.ltr,
+                            fontFamily: 'Nexa',
                           ),
-                        );
-                      },
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        showModalBottomSheet(
-                          context: context,
-                          backgroundColor: Colors.transparent,
-                          isScrollControlled: true,
-                          builder: (_) => CopyShareCard(
-                            content: _contentForCopyAndShare(),
+                          'small': Style(
+                            fontSize: FontSize(12),
                           ),
-                        );
-                      },
-                      icon: const Icon(CupertinoIcons.share),
-                    ),
-                  ],
+                          'a': Style(
+                            color: appColors.thirdAppColor,
+                            fontSize: FontSize(16),
+                            fontFamily: 'Lato',
+                          ),
+                        },
+                        onLinkTap: (String? url, _, __) {
+                          showModalBottomSheet(
+                            backgroundColor: Colors.transparent,
+                            context: context,
+                            isScrollControlled: true,
+                            builder: (BuildContext context) =>
+                                ForFootnoteHtmlText(
+                              footnoteContent: url!,
+                            ),
+                          );
+                        },
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            backgroundColor: Colors.transparent,
+                            isScrollControlled: true,
+                            builder: (_) => CopyShareCard(
+                              content: _contentForCopyAndShare(),
+                            ),
+                          );
+                        },
+                        icon: const Icon(CupertinoIcons.share),
+                      ),
+                    ],
+                  ),
                 );
               },
             ),
