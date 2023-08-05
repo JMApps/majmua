@@ -78,6 +78,3 @@ flutter:
     - family: 'Scheherazade'
       fonts:
       - asset: assets/fonts/scheherazade.ttf
-    - family: 'Hafs'
-      fonts:
-        - asset: assets/fonts/hafs.ttf

@@ -12,7 +12,6 @@ class Assets {
   static const String databasesRaqaiq = 'assets/databases/raqaiq.db';
   static const String databasesSupplications5 = 'assets/databases/supplications_5.db';
   static const String databasesSupplicationsFromQuran4 = 'assets/databases/supplications_from_quran_4.db';
-  static const String fontsHafs = 'assets/fonts/hafs.ttf';
   static const String fontsLato = 'assets/fonts/lato.ttf';
   static const String fontsNexaReqular = 'assets/fonts/nexa_reqular.ttf';
   static const String fontsScheherazade = 'assets/fonts/scheherazade.ttf';
