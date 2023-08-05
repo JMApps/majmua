@@ -117,7 +117,6 @@ class AppSettingsPage extends StatelessWidget {
                           padding: AppWidgetStyle.verticalPadding,
                           child: Wrap(
                             children: [
-                              const Divider(indent: 16, endIndent: 16),
                               SwitchListTile.adaptive(
                                 activeColor: appColors.thirdAppColor,
                                 visualDensity: const VisualDensity(vertical: -4),

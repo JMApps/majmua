@@ -83,7 +83,10 @@ class AppNotificationService {
     );
 
     tz.initializeTimeZones();
-    _flutterLocalNotificationsPlugin.initialize(initializationSettings);
+
+    await _flutterLocalNotificationsPlugin.initialize(
+      initializationSettings,
+    );
   }
 
   Future<void> dailyPrayerNotifications({required int hour, required int minute, required String title, required String body, required int id}) async {
