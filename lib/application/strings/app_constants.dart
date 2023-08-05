@@ -35,6 +35,9 @@ class AppConstants {
   static const keyMaghribNotification = 'key_maghrib_notification';
   static const keyIshaNotification = 'key_isha_notification';
 
+  static const keyMorningSupplicationsNotification = 'key_morning_supplications_notification';
+  static const keyEveningSupplicationsNotification = 'key_evening_supplications_notification';
+
   // Settings
   static const keyNamesOfLastPage = 'key_names_of_last_page';
   static const keyQuestionsLastPage = 'key_questions_last_page';

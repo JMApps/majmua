@@ -17,6 +17,9 @@ class MainSettingsState extends ChangeNotifier {
   bool _maghribNotification = true;
   bool _ishaNotification = true;
 
+  bool _morningSupplicationsNotification = true;
+  bool _eveningSupplicationsNotification = true;
+
   bool _isAdaptiveTheme = true;
   bool _isUserTheme = false;
   bool _isWakeLock = true;
@@ -67,6 +70,16 @@ class MainSettingsState extends ChangeNotifier {
       defaultValue: true,
     );
 
+    _morningSupplicationsNotification = _mainSettingsBox.get(
+      AppConstants.keyMorningSupplicationsNotification,
+      defaultValue: true,
+    );
+
+    _eveningSupplicationsNotification = _mainSettingsBox.get(
+      AppConstants.keyEveningSupplicationsNotification,
+      defaultValue: true,
+    );
+
     _isAdaptiveTheme = _mainSettingsBox.get(
       AppConstants.keyAdaptiveTheme,
       defaultValue: true,
@@ -103,6 +116,11 @@ class MainSettingsState extends ChangeNotifier {
   bool get getMaghribNotification => _maghribNotification;
 
   bool get getIshaNotification => _ishaNotification;
+
+
+  bool get getMorningNSupplicationsNotification => _morningSupplicationsNotification;
+
+  bool get getEveningSupplicationsNotification => _eveningSupplicationsNotification;
 
 
   bool get getIsAdaptiveTheme => _isAdaptiveTheme;
@@ -162,6 +180,18 @@ class MainSettingsState extends ChangeNotifier {
   set setIshaNotification(bool value) {
     _mainSettingsBox.put(AppConstants.keyIshaNotification, value);
     _ishaNotification = value;
+    notifyListeners();
+  }
+
+  set setMorningSupplicationsNotification(bool value) {
+    _mainSettingsBox.put(AppConstants.keyMorningSupplicationsNotification, value);
+    _morningSupplicationsNotification = value;
+    notifyListeners();
+  }
+
+  set setEveningSupplicationsNotification(bool value) {
+    _mainSettingsBox.put(AppConstants.keyEveningSupplicationsNotification, value);
+    _eveningSupplicationsNotification = value;
     notifyListeners();
   }
 

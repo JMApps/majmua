@@ -17,71 +17,117 @@ class RootPage extends StatelessWidget {
     final MainSettingsState mainSettings = context.watch<MainSettingsState>();
     final PrayerTimeState pt = context.watch<PrayerTimeState>();
     final AppNotificationService notification = AppNotificationService();
+    DateTime now = DateTime.now();
+    int daysUntilNextSunday = DateTime.sunday - now.weekday;
+    if (daysUntilNextSunday <= 0) {
+      daysUntilNextSunday += 7;
+    }
+    int daysUntilNextWednesday = DateTime.wednesday - now.weekday;
+    if (daysUntilNextWednesday <= 0) {
+      daysUntilNextWednesday += 7;
+    }
     if (mainSettings.getFajrNotification) {
-      notification.zonedScheduleNotification(
-        pt.getPrayerTimes.fajr.hour,
-        pt.getPrayerTimes.fajr.minute,
-        AppString.appName,
-        AppString.fajr,
-        AppNotificationService.fajrNotificationID,
+      notification.dailyPrayerNotifications(
+        hour: pt.getPrayerTimes.fajr.hour,
+        minute: pt.getPrayerTimes.fajr.minute,
+        title: AppString.appName,
+        body: AppString.fajr,
+        id: AppNotificationService.fajrNotificationID,
       );
     } else {
       notification.cancelNotificationWithId(AppNotificationService.fajrNotificationID);
     }
     if (mainSettings.getSunriseNotification) {
-      notification.zonedScheduleNotification(
-        pt.getPrayerTimes.sunrise.hour,
-        pt.getPrayerTimes.sunrise.minute,
-        AppString.appName,
-        AppString.sunrise,
-        AppNotificationService.sunriseNotificationID,
+      notification.dailyPrayerNotifications(
+        hour: pt.getPrayerTimes.sunrise.hour,
+        minute: pt.getPrayerTimes.sunrise.minute,
+        title: AppString.appName,
+        body: AppString.sunrise,
+        id: AppNotificationService.sunriseNotificationID,
       );
     } else {
       notification.cancelNotificationWithId(AppNotificationService.sunriseNotificationID);
     }
     if (mainSettings.getDhuhrNotification) {
-      notification.zonedScheduleNotification(
-        pt.getPrayerTimes.dhuhr.hour,
-        pt.getPrayerTimes.dhuhr.minute,
-        AppString.appName,
-        AppString.dhuhr,
-        AppNotificationService.dhuhrNotificationID,
+      notification.dailyPrayerNotifications(
+        hour: pt.getPrayerTimes.dhuhr.hour,
+        minute: pt.getPrayerTimes.dhuhr.minute,
+        title: AppString.appName,
+        body: AppString.dhuhr,
+        id: AppNotificationService.dhuhrNotificationID,
       );
     } else {
       notification.cancelNotificationWithId(AppNotificationService.dhuhrNotificationID);
     }
     if (mainSettings.getAsrNotification) {
-      notification.zonedScheduleNotification(
-        pt.getPrayerTimes.asr.hour,
-        pt.getPrayerTimes.asr.minute,
-        AppString.appName,
-        AppString.asr,
-        AppNotificationService.asrNotificationID,
+      notification.dailyPrayerNotifications(
+        hour: pt.getPrayerTimes.asr.hour,
+        minute: pt.getPrayerTimes.asr.minute,
+        title: AppString.appName,
+        body: AppString.asr,
+        id: AppNotificationService.asrNotificationID,
       );
     } else {
       notification.cancelNotificationWithId(AppNotificationService.asrNotificationID);
     }
     if (mainSettings.getMaghribNotification) {
-      notification.zonedScheduleNotification(
-        pt.getPrayerTimes.maghrib.hour,
-        pt.getPrayerTimes.maghrib.minute,
-        AppString.appName,
-        AppString.maghrib,
-        AppNotificationService.maghribNotificationID,
+      notification.dailyPrayerNotifications(
+        hour: pt.getPrayerTimes.maghrib.hour,
+        minute: pt.getPrayerTimes.maghrib.minute,
+        title: AppString.appName,
+        body: AppString.maghrib,
+        id: AppNotificationService.maghribNotificationID,
       );
     } else {
-      notification.cancelNotificationWithId(AppNotificationService.maghribNotificationID);
+      notification.cancelNotificationWithId(
+          AppNotificationService.maghribNotificationID);
     }
     if (mainSettings.getIshaNotification) {
-      notification.zonedScheduleNotification(
-        pt.getPrayerTimes.isha.hour,
-        pt.getPrayerTimes.isha.minute,
-        AppString.appName,
-        AppString.isha,
-        AppNotificationService.ishaNotificationID,
+      notification.dailyPrayerNotifications(
+        hour: pt.getPrayerTimes.isha.hour,
+        minute: pt.getPrayerTimes.isha.minute,
+        title: AppString.appName,
+        body: AppString.isha,
+        id: AppNotificationService.ishaNotificationID,
       );
     } else {
       notification.cancelNotificationWithId(AppNotificationService.ishaNotificationID);
+    }
+    if (mainSettings.getMorningNSupplicationsNotification) {
+      notification.dailyAdhkarNotifications(
+        hour: pt.getPrayerTimes.fajr.add(const Duration(minutes: 30)).hour,
+        minute: pt.getPrayerTimes.fajr.add(const Duration(minutes: 30)).minute,
+        body: AppString.morningNotificationDescription,
+        id: AppNotificationService.morningSupplicationsNotificationID,
+      );
+    } else {
+      notification.cancelNotificationWithId(AppNotificationService.morningSupplicationsNotificationID);
+    }
+    if (mainSettings.getEveningSupplicationsNotification) {
+      notification.dailyAdhkarNotifications(
+        hour: pt.getPrayerTimes.asr.add(const Duration(minutes: 30)).hour,
+        minute: pt.getPrayerTimes.asr.add(const Duration(minutes: 30)).minute,
+        body: AppString.eveningNotificationDescription,
+        id: AppNotificationService.eveningSupplicationsNotificationID,
+      );
+    } else {
+      notification.cancelNotificationWithId(AppNotificationService.eveningSupplicationsNotificationID);
+    }
+    if (mainSettings.getFastMondayNotification) {
+      notification.forWeeklyFast(
+        id: AppNotificationService.fastMondayNotificationID,
+        nextWeekFastDay: DateTime(now.year, now.month, now.day, 20, 0).add(Duration(days: daysUntilNextSunday)),
+      );
+    } else {
+      notification.cancelNotificationWithId(AppNotificationService.fastMondayNotificationID);
+    }
+    if (mainSettings.getFastThursdayNotification) {
+      notification.forWeeklyFast(
+        id: AppNotificationService.fastThursdayNotificationID,
+        nextWeekFastDay: DateTime(now.year, now.month, now.day, 20, 0).add(Duration(days: daysUntilNextWednesday)),
+      );
+    } else {
+      notification.cancelNotificationWithId(AppNotificationService.fastThursdayNotificationID);
     }
     return MaterialApp(
       builder: (context, child) {

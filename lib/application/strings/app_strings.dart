@@ -184,9 +184,9 @@ class AppString {
   // Settings
   static const String settings = 'Настройки';
   static const String dailyNotif = 'Ежедневные уведомления';
-  static const String firstFastNotif = 'Напомнить про пост в понедельник';
-  static const String secondFastNotif = 'Напомнить про пост в четверг';
-  static const String whiteDaysNotif = 'Напомнить про белые дни';
+  static const String firstFastNotif = 'Пост в понедельник';
+  static const String secondFastNotif = 'Пост в четверг';
+  static const String whiteDaysNotif = 'Белые дни';
 
   static const String notifications = 'Уведомления';
   static const String prayersNotification = 'Уведомления для молитв';
@@ -346,4 +346,10 @@ class AppString {
   static const String copy = 'Копировать';
   static const String copied = 'Скопировано';
   static const String share = 'Поделиться';
+  static const String morningNotification = 'Утренние азкары';
+  static const String morningNotificationDescription = 'Время утренних азкаров';
+  static const String eveningNotification = 'Вечерние азкары';
+  static const String eveningNotificationDescription = 'Время вечерних азкаров';
+  static const String reminder = 'Напоминание';
+  static const String fastTomorrow = 'Завтра день желательного поста';
 }

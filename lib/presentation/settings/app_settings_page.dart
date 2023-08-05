@@ -40,56 +40,6 @@ class AppSettingsPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      // Card(
-                      //   margin: AppWidgetStyle.mainMargin,
-                      //   color: appColors.mainReverse,
-                      //   child: Padding(
-                      //     padding: AppWidgetStyle.verticalPadding,
-                      //     child: Wrap(
-                      //       children: [
-                      //         SwitchListTile.adaptive(
-                      //           activeColor: appColors.thirdAppColor,
-                      //           visualDensity: const VisualDensity(vertical: -4),
-                      //           title: const Text(AppString.firstFastNotif),
-                      //           value: notificationState.getFastMondayNotification,
-                      //           onChanged: (bool? value) {
-                      //             notificationState.setFastMondayNotification = value!;
-                      //           },
-                      //         ),
-                      //         const Divider(indent: 16, endIndent: 16),
-                      //         SwitchListTile.adaptive(
-                      //           activeColor: appColors.thirdAppColor,
-                      //           visualDensity: const VisualDensity(vertical: -4),
-                      //           title: const Text(AppString.secondFastNotif),
-                      //           value: notificationState.getFastThursdayNotification,
-                      //           onChanged: (bool? value) {
-                      //             notificationState.setFastThursdayNotification = value!;
-                      //           },
-                      //         ),
-                      //         const Divider(indent: 16, endIndent: 16),
-                      //         SwitchListTile.adaptive(
-                      //           activeColor: appColors.thirdAppColor,
-                      //           visualDensity: const VisualDensity(vertical: -4),
-                      //           title: const Text(AppString.whiteDaysNotif),
-                      //           value: notificationState.getFastWhiteDaysNotification,
-                      //           onChanged: (bool? value) {
-                      //             notificationState.setFastWhiteDaysNotification = value!;
-                      //           },
-                      //         ),
-                      //       ],
-                      //     ),
-                      //   ),
-                      // ),
-                      // const Padding(
-                      //   padding: AppWidgetStyle.horizontalPadding,
-                      //   child: Text(
-                      //     AppString.prayersNotification,
-                      //     style: TextStyle(
-                      //       fontSize: 22,
-                      //       fontWeight: FontWeight.bold,
-                      //     ),
-                      //   ),
-                      // ),
                       Card(
                         margin: AppWidgetStyle.mainMargin,
                         color: appColors.mainReverse,
@@ -160,6 +110,79 @@ class AppSettingsPage extends StatelessWidget {
                           ),
                         ),
                       ),
+                      Card(
+                        margin: AppWidgetStyle.horizontalMargin,
+                        color: appColors.mainReverse,
+                        child: Padding(
+                          padding: AppWidgetStyle.verticalPadding,
+                          child: Wrap(
+                            children: [
+                              const Divider(indent: 16, endIndent: 16),
+                              SwitchListTile.adaptive(
+                                activeColor: appColors.thirdAppColor,
+                                visualDensity: const VisualDensity(vertical: -4),
+                                title: const Text(AppString.morningNotification),
+                                value: notificationState.getMorningNSupplicationsNotification,
+                                onChanged: (bool? value) {
+                                  notificationState.setMorningSupplicationsNotification = value!;
+                                },
+                              ),
+                              const Divider(indent: 16, endIndent: 16),
+                              SwitchListTile.adaptive(
+                                activeColor: appColors.thirdAppColor,
+                                visualDensity: const VisualDensity(vertical: -4),
+                                title: const Text(AppString.eveningNotification),
+                                value: notificationState.getEveningSupplicationsNotification,
+                                onChanged: (bool? value) {
+                                  notificationState.setEveningSupplicationsNotification = value!;
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Card(
+                        margin: AppWidgetStyle.horizontalMargin,
+                        color: appColors.mainReverse,
+                        child: Padding(
+                          padding: AppWidgetStyle.verticalPadding,
+                          child: Wrap(
+                            children: [
+                              SwitchListTile.adaptive(
+                                activeColor: appColors.thirdAppColor,
+                                visualDensity: const VisualDensity(vertical: -4),
+                                title: const Text(AppString.firstFastNotif),
+                                value: notificationState.getFastMondayNotification,
+                                onChanged: (bool? value) {
+                                  notificationState.setFastMondayNotification = value!;
+                                },
+                              ),
+                              const Divider(indent: 16, endIndent: 16),
+                              SwitchListTile.adaptive(
+                                activeColor: appColors.thirdAppColor,
+                                visualDensity: const VisualDensity(vertical: -4),
+                                title: const Text(AppString.secondFastNotif),
+                                value: notificationState.getFastThursdayNotification,
+                                onChanged: (bool? value) {
+                                  notificationState.setFastThursdayNotification = value!;
+                                },
+                              ),
+                              // const Divider(indent: 16, endIndent: 16),
+                              // SwitchListTile.adaptive(
+                              //   activeColor: appColors.thirdAppColor,
+                              //   visualDensity: const VisualDensity(vertical: -4),
+                              //   title: const Text(AppString.whiteDaysNotif),
+                              //   value: notificationState.getFastWhiteDaysNotification,
+                              //   onChanged: (bool? value) {
+                              //     notificationState.setFastWhiteDaysNotification = value!;
+                              //   },
+                              // ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
                       const Padding(
                         padding: AppWidgetStyle.horizontalPadding,
                         child: Text(

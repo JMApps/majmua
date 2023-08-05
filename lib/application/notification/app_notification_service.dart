@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:majmua/application/strings/app_strings.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/timezone.dart';
@@ -26,23 +27,13 @@ class AppNotificationService {
   static const maghribNotificationID = 563;
   static const ishaNotificationID = 854;
 
+  static const morningSupplicationsNotificationID = 579;
+  static const eveningSupplicationsNotificationID = 311;
+
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
-  static const AndroidNotificationDetails androidFastNotificationDetails =
-      AndroidNotificationDetails(
-    'Daily fast notification channel ID',
-    'Notifications',
-    channelDescription: 'Daily fast notifications',
-    importance: Importance.max,
-    priority: Priority.max,
-  );
-
-  static const DarwinNotificationDetails iOSFastNotificationDetails =
-      DarwinNotificationDetails();
-
-  static const AndroidNotificationDetails androidPrayerNotificationDetails =
-      AndroidNotificationDetails(
+  static const AndroidNotificationDetails androidPrayerNotificationDetails = AndroidNotificationDetails(
     'Daily prayer notification channel ID',
     'Notifications',
     channelDescription: 'Daily prayer notifications',
@@ -52,27 +43,41 @@ class AppNotificationService {
     sound: RawResourceAndroidNotificationSound('adhan'),
   );
 
-  static const DarwinNotificationDetails iOSPrayerNotificationDetails =
-      DarwinNotificationDetails(
+  static const DarwinNotificationDetails iOSPrayerNotificationDetails = DarwinNotificationDetails(
     presentSound: true,
     sound: 'adhan.caf',
   );
+
+  static const AndroidNotificationDetails androidAdhkarNotificationDetails = AndroidNotificationDetails(
+    'Daily adhkar notification channel ID',
+    'Notifications',
+    channelDescription: 'Daily adhkar notifications',
+    importance: Importance.max,
+    priority: Priority.max,
+  );
+
+  static const DarwinNotificationDetails iOSAdhkarNotificationDetails = DarwinNotificationDetails();
+
+  static const AndroidNotificationDetails androidFastNotificationDetails = AndroidNotificationDetails(
+    'Weekly fast notification channel ID',
+    'Notifications',
+    channelDescription: 'Weekly fast notifications',
+    importance: Importance.max,
+    priority: Priority.max,
+  );
+
+  static const DarwinNotificationDetails iOSFastNotificationDetails = DarwinNotificationDetails();
 
   Future<void> setupNotification() async {
     if (Platform.isAndroid) {
       _flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()?.requestPermission();
     }
 
-    const AndroidInitializationSettings androidInitializationSettings =
-        AndroidInitializationSettings('@drawable/sm_logo');
+    const AndroidInitializationSettings androidInitializationSettings = AndroidInitializationSettings('@drawable/sm_logo');
 
-    const DarwinInitializationSettings iOSInitializationSettings =
-        DarwinInitializationSettings(
-          requestSoundPermission: true
-        );
+    const DarwinInitializationSettings iOSInitializationSettings = DarwinInitializationSettings(requestSoundPermission: true);
 
-    const InitializationSettings initializationSettings =
-        InitializationSettings(
+    const InitializationSettings initializationSettings = InitializationSettings(
       android: androidInitializationSettings,
       iOS: iOSInitializationSettings,
     );
@@ -81,27 +86,8 @@ class AppNotificationService {
     _flutterLocalNotificationsPlugin.initialize(initializationSettings);
   }
 
-  // Future<void> morningZonedScheduleNotification(DateTime date, String title, String body, int id) async {
-  //   var tzDateNotification = tz.TZDateTime.from(date, tz.local);
-  //   await _flutterLocalNotificationsPlugin.zonedSchedule(
-  //     id,
-  //     title,
-  //     body,
-  //     tzDateNotification,
-  //     const NotificationDetails(
-  //       android: androidMorningNotificationDetails,
-  //       iOS: iOSMorningNotificationDetails,
-  //     ),
-  //     androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-  //     uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
-  //     matchDateTimeComponents: DateTimeComponents.time,
-  //   );
-  // }
-
-  Future<void> zonedScheduleNotification(
-      int hour, int minute, String title, String body, int id) async {
-    TZDateTime tzDateNotification =
-        tz.TZDateTime.from(DateTime(2023, 12, 31, hour, minute), tz.local);
+  Future<void> dailyPrayerNotifications({required int hour, required int minute, required String title, required String body, required int id}) async {
+    TZDateTime tzDateNotification = tz.TZDateTime.from(DateTime(2023, 12, 31, hour, minute), tz.local);
     await _flutterLocalNotificationsPlugin.zonedSchedule(
       id,
       title,
@@ -112,9 +98,41 @@ class AppNotificationService {
         iOS: iOSPrayerNotificationDetails,
       ),
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
       matchDateTimeComponents: DateTimeComponents.time,
+      uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
+    );
+  }
+
+  Future<void> dailyAdhkarNotifications({required int hour, required int minute, required String body, required int id}) async {
+    TZDateTime tzDateNotification = tz.TZDateTime.from(DateTime(2023, 12, 31, hour, minute), tz.local);
+    await _flutterLocalNotificationsPlugin.zonedSchedule(
+      id,
+      AppString.reminder,
+      body,
+      tzDateNotification,
+      const NotificationDetails(
+        android: androidAdhkarNotificationDetails,
+        iOS: iOSAdhkarNotificationDetails,
+      ),
+      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+      matchDateTimeComponents: DateTimeComponents.time,
+      uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
+    );
+  }
+
+  Future<void> forWeeklyFast({required int id, required DateTime nextWeekFastDay}) async {
+    TZDateTime tzDateNotification = tz.TZDateTime.from(nextWeekFastDay, tz.local);
+    await _flutterLocalNotificationsPlugin.zonedSchedule(
+      id,
+      AppString.reminder,
+      AppString.fastTomorrow,
+      tzDateNotification,
+      const NotificationDetails(
+        android: androidFastNotificationDetails,
+        iOS: iOSFastNotificationDetails,
+      ),
+      uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
+      matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
     );
   }
 
