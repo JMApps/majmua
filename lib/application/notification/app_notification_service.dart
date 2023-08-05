@@ -37,6 +37,7 @@ class AppNotificationService {
     'Daily prayer notification channel ID',
     'Notifications',
     channelDescription: 'Daily prayer notifications',
+    icon: '@drawable/sm_logo',
     importance: Importance.high,
     priority: Priority.max,
     playSound: true,
@@ -52,6 +53,7 @@ class AppNotificationService {
     'Daily adhkar notification channel ID',
     'Notifications',
     channelDescription: 'Daily adhkar notifications',
+    icon: '@drawable/sm_logo',
     importance: Importance.max,
     priority: Priority.max,
   );
@@ -62,6 +64,7 @@ class AppNotificationService {
     'Weekly fast notification channel ID',
     'Notifications',
     channelDescription: 'Weekly fast notifications',
+    icon: '@drawable/sm_logo',
     importance: Importance.max,
     priority: Priority.max,
   );
