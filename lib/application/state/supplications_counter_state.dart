@@ -15,7 +15,7 @@ class SupplicationsCounterState extends ChangeNotifier {
   get decrement {
     if (_count > 1) {
       _count--;
-      HapticFeedback.lightImpact();
+      HapticFeedback.mediumImpact();
       notifyListeners();
     } else {
       _counterButtonIsShow = false;

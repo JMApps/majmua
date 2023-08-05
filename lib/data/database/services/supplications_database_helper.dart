@@ -26,16 +26,18 @@ class SupplicationsDatabaseHelper {
         ? await getExternalStorageDirectory()
         : await getApplicationSupportDirectory();
 
-    String path = join(documentDirectory!.path, 'supplications_4.db');
+    String path = join(documentDirectory!.path, 'supplications_5.db');
     var exists = await databaseExists(path);
 
     String toDeleteDB = '${documentDirectory.path}/supplications.db';
     String toDeleteDB2 = '${documentDirectory.path}/supplications_2.db';
     String toDeleteDB3 = '${documentDirectory.path}/supplications_3.db';
+    String toDeleteDB4 = '${documentDirectory.path}/supplications_4.db';
 
     var delDB = await databaseExists(toDeleteDB);
     var delDB2 = await databaseExists(toDeleteDB2);
     var delDB3 = await databaseExists(toDeleteDB2);
+    var delDB4 = await databaseExists(toDeleteDB4);
 
     if (delDB) {
       await deleteDatabase(toDeleteDB);
@@ -43,6 +45,8 @@ class SupplicationsDatabaseHelper {
       await deleteDatabase(toDeleteDB2);
     } else if (delDB3) {
       await deleteDatabase(toDeleteDB3);
+    } else if (delDB4) {
+      await deleteDatabase(toDeleteDB4);
     }
 
     if (!exists) {
@@ -52,7 +56,7 @@ class SupplicationsDatabaseHelper {
         Exception('Invalid database');
       }
 
-      ByteData data = await rootBundle.load(join('assets/databases', 'supplications_4.db'));
+      ByteData data = await rootBundle.load(join('assets/databases', 'supplications_5.db'));
       List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
       await File(path).writeAsBytes(bytes, flush: true);
     }

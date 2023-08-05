@@ -21,7 +21,7 @@ class CardDailyMessage extends StatelessWidget {
             child: Text(
               AppString.dailyTexts[context.watch<RestTimeState>().getCdt.weekday - 1],
               style: const TextStyle(
-                fontSize: 18,
+                fontSize: 20,
               ),
               textAlign: TextAlign.center,
             ),

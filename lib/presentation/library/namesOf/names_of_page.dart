@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/application/state/book_pages_scroll_state.dart';
 import 'package:majmua/application/strings/app_constants.dart';
@@ -43,7 +46,7 @@ class _NamesOfPageState extends State<NamesOfPage> {
                     builder: (BuildContext context, scrollState, _) {
                       return SelectableRegion(
                         focusNode: FocusNode(),
-                        selectionControls: materialTextSelectionControls,
+                        selectionControls: Platform.isIOS ? cupertinoTextSelectionControls : materialTextSelectionControls,
                         child: Column(
                           children: [
                             const SizedBox(height: 4),

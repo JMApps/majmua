@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:majmua/application/state/prayer_time_state.dart';
@@ -64,10 +63,12 @@ class ItemCardAdhanNameTime extends StatelessWidget {
               ),
               Visibility(
                 visible: prayerModel.isDuha,
-                child: const Align(
+                child: Align(
                   alignment: Alignment.topRight,
-                  child: Icon(
-                    CupertinoIcons.sunrise,
+                  child: Image.asset(
+                    'assets/icons/sunrise.png',
+                    width: 30,
+                    height: 30,
                   ),
                 ),
               ),

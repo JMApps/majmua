@@ -10,15 +10,14 @@ class Assets {
   static const String databasesNamesOf = 'assets/databases/names_of.db';
   static const String databasesQuestions2 = 'assets/databases/questions_2.db';
   static const String databasesRaqaiq = 'assets/databases/raqaiq.db';
-  static const String databasesSupplications4 = 'assets/databases/supplications_4.db';
+  static const String databasesSupplications5 = 'assets/databases/supplications_5.db';
   static const String databasesSupplicationsFromQuran4 = 'assets/databases/supplications_from_quran_4.db';
-  static const String fontsDigital = 'assets/fonts/digital.ttf';
   static const String fontsHafs = 'assets/fonts/hafs.ttf';
   static const String fontsLato = 'assets/fonts/lato.ttf';
   static const String fontsNexaReqular = 'assets/fonts/nexa_reqular.ttf';
-  static const String fontsQuranFont = 'assets/fonts/quran_font.ttf';
   static const String fontsScheherazade = 'assets/fonts/scheherazade.ttf';
   static const String iconsDuaHands = 'assets/icons/dua-hands.png';
+  static const String iconsSunrise = 'assets/icons/sunrise.png';
   static const String imagesApril = 'assets/images/april.png';
   static const String imagesAugust = 'assets/images/august.png';
   static const String imagesCadrant = 'assets/images/cadrant.png';

@@ -405,10 +405,4 @@ ${AppString.dateTimeOffset}: ${_cdt.timeZoneName}''';
     final toPrayer = DateTime(prayerTime.year, prayerTime.month, prayerTime.day, prayerTime.hour, prayerTime.minute);
     return toPrayer.difference(fromZero).inMinutes;
   }
-
-  @override
-  void dispose() {
-    _mainSettingsBox.close();
-    super.dispose();
-  }
 }

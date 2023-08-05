@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -24,7 +26,7 @@ class QuestionItem extends StatelessWidget {
           builder: (BuildContext context, bookSettingsState, _) {
             return SelectableRegion(
               focusNode: FocusNode(),
-              selectionControls: materialTextSelectionControls,
+              selectionControls: Platform.isIOS ? cupertinoTextSelectionControls : materialTextSelectionControls,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
