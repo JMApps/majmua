@@ -16,7 +16,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter_html: ^3.0.0-beta.2
   percent_indicator: ^4.2.3
-  square_percent_indicater: ^0.1.0
+  square_progress_indicator: ^0.0.7
   smooth_page_indicator: ^1.1.0
 
   # Databases

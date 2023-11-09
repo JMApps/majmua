@@ -477,14 +477,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.5.0+1"
-  square_percent_indicater:
+  square_progress_indicator:
     dependency: "direct main"
     description:
-      name: square_percent_indicater
-      sha256: "203bf46f100d21ea04b36ccf3f6438424e95b6ee5f65461c81b6061fbcb41968"
+      name: square_progress_indicator
+      sha256: "10f62bbb759dd07c9879711f965ba35e9b1810d7fd6c1e5152cb517ae89245fa"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.0"
+    version: "0.0.7"
   stack_trace:
     dependency: transitive
     description:
