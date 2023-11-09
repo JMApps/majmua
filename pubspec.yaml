@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   # Design
   cupertino_icons: ^1.0.6
@@ -49,9 +51,22 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   flutter_lints: ^3.0.1
 
 flutter:
-
   uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/fonts/
+
+  fonts:
+    - family: 'Nexa'
+      fonts:
+        - asset: assets/fonts/nexa_regular.ttf
+    - family: 'Roboto'
+      fonts:
+        - asset: assets/fonts/roboto_regular.ttf
+    - family: 'Gilroy'
+      fonts:
+        - asset: assets/fonts/gilroy_regular.ttf
