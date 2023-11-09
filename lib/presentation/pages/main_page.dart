@@ -29,7 +29,9 @@ class MainPage extends StatelessWidget {
           title: Text(appLocale!.appName),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/notifications_page');
+              },
               splashRadius: 20,
               icon: const Icon(CupertinoIcons.bell),
             ),
