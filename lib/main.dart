@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/core/strings/app_constraints.dart';
 import 'package:majmua/presentation/pages/root_page.dart';
+import 'package:majmua/presentation/state/main_app_state.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +21,13 @@ void main() async {
   await Hive.initFlutter();
   await Hive.openBox(AppConstraints.keyMainSettingBox);
   runApp(
-    const RootPage(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => MainAppState(),
+        ),
+      ],
+      child: const RootPage(),
+    ),
   );
 }

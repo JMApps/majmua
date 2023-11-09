@@ -65,4 +65,10 @@ class AppStyles {
       topRight: Radius.elliptical(35, 25),
     ),
   );
+
+  static const backgroundPictureNames = <String>[
+    'first_background.jpg',
+    'second_background.jpg',
+    'third_background.jpg',
+  ];
 }
