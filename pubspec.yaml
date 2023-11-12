@@ -47,7 +47,6 @@ dependencies:
 
   # Notifications
   flutter_local_notifications: ^16.1.0
-  syncfusion_flutter_gauges: ^23.1.44
 
 dev_dependencies:
   flutter_test:
