@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/styles/app_styles.dart';
+import 'package:majmua/presentation/lists/main_widgets_list.dart';
 import 'package:majmua/presentation/state/main_app_state.dart';
 import 'package:provider/provider.dart';
 
@@ -24,20 +25,32 @@ class MainPage extends StatelessWidget {
         ),
       ),
       child: Scaffold(
+        extendBodyBehindAppBar: true,
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          title: Text(appLocale!.appName),
-          actions: [
-            IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/notifications_page');
-              },
-              splashRadius: 20,
-              icon: const Icon(CupertinoIcons.bell),
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              title: Text(appLocale!.appName),
+              elevation: 0,
+              centerTitle: true,
+              pinned: false,
+              floating: false,
+              actions: [
+                IconButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/notifications_page');
+                  },
+                  tooltip: appLocale.notifications,
+                  splashRadius: 20,
+                  icon: const Icon(CupertinoIcons.bell),
+                ),
+              ],
+            ),
+            const SliverToBoxAdapter(
+              child: MainWidgetsList(),
             ),
           ],
         ),
-        body: Container(),
       ),
     );
   }

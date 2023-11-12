@@ -6,6 +6,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/core/strings/app_constraints.dart';
 import 'package:majmua/presentation/pages/root_page.dart';
 import 'package:majmua/presentation/state/main_app_state.dart';
+import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -25,6 +26,9 @@ void main() async {
       providers: [
         ChangeNotifierProvider(
           create: (_) => MainAppState(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => RestTimeState(),
         ),
       ],
       child: const RootPage(),
