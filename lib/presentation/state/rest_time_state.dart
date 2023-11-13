@@ -70,25 +70,24 @@ class RestTimeState extends ChangeNotifier {
   }
 
   double getElapsedSeasonPercentage(Season targetSeason) {
-    final DateTime currentDateTime = DateTime.now();
     final DateTime startOfSeason;
     switch (targetSeason) {
       case Season.spring:
-        startOfSeason = DateTime(currentDateTime.year, 3, 1, 0, 0, 0);
+        startOfSeason = DateTime(_currentDateTime.year, 3, 1, 0, 0, 0);
         break;
       case Season.summer:
-        startOfSeason = DateTime(currentDateTime.year, 6, 1, 0, 0, 0);
+        startOfSeason = DateTime(_currentDateTime.year, 6, 1, 0, 0, 0);
         break;
       case Season.fall:
-        startOfSeason = DateTime(currentDateTime.year, 9, 1, 0, 0, 0);
+        startOfSeason = DateTime(_currentDateTime.year, 9, 1, 0, 0, 0);
         break;
       case Season.winter:
-        startOfSeason = DateTime(currentDateTime.year, 12, 1, 0, 0, 0);
+        startOfSeason = DateTime(_currentDateTime.year, 12, 1, 0, 0, 0);
         break;
     }
 
-    final elapsedMinutes = currentDateTime.difference(startOfSeason).inMinutes;
-    final totalMinutesInSeason = isLeapYear(currentDateTime.year) ? 366 * 24 * 60 : 365 * 24 * 60;
+    final elapsedMinutes = _currentDateTime.difference(startOfSeason).inMinutes;
+    final totalMinutesInSeason = isLeapYear(_currentDateTime.year) ? 366 * 24 * 60 : 365 * 24 * 60;
 
     final elapsedSeasonPercentage = 1.0 - (elapsedMinutes / totalMinutesInSeason);
     return elapsedSeasonPercentage;
