@@ -20,7 +20,6 @@ class SeasonSegmentsSliding extends StatelessWidget {
       child: Consumer<RestTimeState>(
         builder: (BuildContext context, RestTimeState timeState, _) {
           return CupertinoSlidingSegmentedControl(
-            backgroundColor: appColors.cardColor,
             padding: AppStyles.mainMardingMicro,
             thumbColor: appColors.glass,
             groupValue: timeState.getCurrentSeason,

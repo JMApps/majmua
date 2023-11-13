@@ -13,32 +13,28 @@ class TimeCircleRow extends StatelessWidget {
     final AppLocalizations? appLocale = AppLocalizations.of(context);
     return Consumer<RestTimeState>(
       builder: (BuildContext context, RestTimeState timeState, _) {
-        final elapsedDayPercentage = timeState.getElapsedTimePercentage();
-        final elapsedWeekPercentage = timeState.getElapsedWeekPercentage();
-        final elapsedMonthPercentage = timeState.getElapsedMonthPercentage();
-        final elapsedYearPercentage = timeState.getElapsedYearPercentage();
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             TimePercent(
               time: appLocale!.day,
               timeColor: CustomColors.indigo,
-              percent: elapsedDayPercentage / 100,
+              percent: timeState.getElapsedTimePercentage() / 100,
             ),
             TimePercent(
               time: appLocale.week,
               timeColor: CustomColors.red,
-              percent: elapsedWeekPercentage / 100,
+              percent: timeState.getElapsedWeekPercentage() / 100,
             ),
             TimePercent(
               time: appLocale.month,
               timeColor: CustomColors.orange,
-              percent: elapsedMonthPercentage / 100,
+              percent: timeState.getElapsedMonthPercentage() / 100,
             ),
             TimePercent(
               time: appLocale.year,
               timeColor: CustomColors.teal,
-              percent: elapsedYearPercentage / 100,
+              percent: timeState.getElapsedYearPercentage() / 100,
             ),
           ],
         );
