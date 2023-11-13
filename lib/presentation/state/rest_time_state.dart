@@ -70,31 +70,45 @@ class RestTimeState extends ChangeNotifier {
   }
 
   double getElapsedSeasonPercentage(Season targetSeason) {
-    final DateTime startOfSeason;
-    switch (targetSeason) {
+    int startMonth;
+    int endMonth;
+
+    switch(targetSeason) {
       case Season.spring:
-        startOfSeason = DateTime(_currentDateTime.year, 3, 1, 0, 0, 0);
+        startMonth = 3;
+        endMonth = 5;
         break;
       case Season.summer:
-        startOfSeason = DateTime(_currentDateTime.year, 6, 1, 0, 0, 0);
+        startMonth = 6;
+        endMonth = 8;
         break;
       case Season.fall:
-        startOfSeason = DateTime(_currentDateTime.year, 9, 1, 0, 0, 0);
+        startMonth = 9;
+        endMonth = 11;
         break;
       case Season.winter:
-        startOfSeason = DateTime(_currentDateTime.year, 12, 1, 0, 0, 0);
+        startMonth = 12;
+        endMonth = 2;
         break;
     }
 
-    final elapsedMinutes = _currentDateTime.difference(startOfSeason).inMinutes;
-    final totalMinutesInSeason = isLeapYear(_currentDateTime.year) ? 366 * 24 * 60 : 365 * 24 * 60;
+    DateTime startOfSeason = DateTime(_currentDateTime.year, startMonth, 1);
+    DateTime endOfSeason = DateTime(_currentDateTime.year, endMonth, daysInMonth(_currentDateTime.year, endMonth));
 
-    final elapsedSeasonPercentage = 1.0 - (elapsedMinutes / totalMinutesInSeason);
-    return elapsedSeasonPercentage;
+    final elapsed = _currentDateTime.difference(startOfSeason).inMilliseconds;
+    final total = endOfSeason.difference(startOfSeason).inMilliseconds;
+
+    return (elapsed / total);
   }
 
-  String formatPercentage(double percentage) {
-    return (percentage * 100).toStringAsFixed(2);
+  int daysInMonth(int year, int month) {
+    if (month == 2) {
+      return isLeapYear(year) ? 29 : 28;
+    } else if (month == 4 || month == 6 || month == 9 || month == 11) {
+      return 30;
+    } else {
+      return 31;
+    }
   }
 
   bool isLeapYear(int year) {
