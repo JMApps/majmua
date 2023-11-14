@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/styles/app_styles.dart';
+import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/lists/main_widgets_list.dart';
 import 'package:majmua/presentation/state/main_app_state.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +31,7 @@ class MainPage extends StatelessWidget {
         body: CustomScrollView(
           slivers: [
             SliverAppBar(
+              backgroundColor: appTheme.colorScheme.primaryColor,
               title: Text(appLocale!.appName),
               elevation: 0,
               centerTitle: true,

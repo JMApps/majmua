@@ -60,6 +60,7 @@ flutter:
   assets:
     - assets/fonts/
     - assets/pictures/
+    - assets/icons/
 
   fonts:
     - family: 'Nexa'

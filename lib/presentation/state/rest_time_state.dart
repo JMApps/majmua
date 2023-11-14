@@ -4,7 +4,9 @@ import 'package:majmua/core/enums/season.dart';
 class RestTimeState extends ChangeNotifier {
   final DateTime _currentDateTime = DateTime.now();
 
-  double getElapsedTimePercentage() {
+  DateTime get currentDateTime => _currentDateTime;
+
+  double getElapsedDayPercentage() {
     final startOfDay = DateTime(_currentDateTime.year, _currentDateTime.month, _currentDateTime.day, 0, 0, 0);
     final elapsedTime = _currentDateTime.difference(startOfDay);
     final totalMinutesInDay = const Duration(hours: 24).inMinutes;
