@@ -60,13 +60,13 @@ extension ColorSchemeS on ColorScheme {
       ? const Color(0xFFFF9800)
       : const Color(0xBFF57C00);
 
-Color get fortiaryColor => brightness == Brightness.light
+Color get quaternaryColor => brightness == Brightness.light
       ? const Color(0xFFF44336)
       : const Color(0xBFD32F2F);
 
   Color get glass => brightness == Brightness.light
       ? const Color(0xE6FFFFFF)
-      : const Color(0xE621222F);
+      : const Color(0xE60D0F1C);
 
   Color get springColor => brightness == Brightness.light
       ? const Color(0xFF43A047)
