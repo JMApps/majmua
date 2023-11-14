@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/styles/custom_colors.dart';
+import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/restTimeSeasons/time_percent.dart';
 import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +11,7 @@ class TimeCircleRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations? appLocale = AppLocalizations.of(context);
+    final ColorScheme appColors = Theme.of(context).colorScheme;
     return Consumer<RestTimeState>(
       builder: (BuildContext context, RestTimeState timeState, _) {
         return Row(
@@ -18,22 +19,22 @@ class TimeCircleRow extends StatelessWidget {
           children: [
             TimePercent(
               time: appLocale!.day,
-              timeColor: CustomColors.indigo,
-              percent: timeState.getElapsedTimePercentage() / 100,
+              timeColor: appColors.primaryColor,
+              percent: timeState.getElapsedDayPercentage() / 100,
             ),
             TimePercent(
               time: appLocale.week,
-              timeColor: CustomColors.red,
+              timeColor: appColors.fortiaryColor,
               percent: timeState.getElapsedWeekPercentage() / 100,
             ),
             TimePercent(
               time: appLocale.month,
-              timeColor: CustomColors.orange,
+              timeColor: appColors.tertiaryColor,
               percent: timeState.getElapsedMonthPercentage() / 100,
             ),
             TimePercent(
               time: appLocale.year,
-              timeColor: CustomColors.teal,
+              timeColor: appColors.secondaryColor,
               percent: timeState.getElapsedYearPercentage() / 100,
             ),
           ],
