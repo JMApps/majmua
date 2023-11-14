@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:hijri/hijri_calendar.dart';
 import 'package:majmua/core/enums/season.dart';
 
 class RestTimeState extends ChangeNotifier {
   final DateTime _currentDateTime = DateTime.now();
 
+  final HijriCalendar _currentHijriTime = HijriCalendar.now();
+
   DateTime get currentDateTime => _currentDateTime;
+
+  HijriCalendar get currentHijriTime => _currentHijriTime;
+
+  bool get isRamadan => _currentHijriTime.hMonth == 9;
+
+  bool get isWhiteDays => _currentHijriTime.hDay >= 12 && _currentHijriTime.hDay <= 15;
+
+  bool get isNineDays => _currentHijriTime.hMonth == 11 && _currentHijriTime.hDay >= 1 && _currentHijriTime.hDay <= 9;
 
   double getElapsedDayPercentage() {
     final startOfDay = DateTime(_currentDateTime.year, _currentDateTime.month, _currentDateTime.day, 0, 0, 0);
@@ -28,6 +39,20 @@ class RestTimeState extends ChangeNotifier {
     final totalMinutesInMonth = DateTime(_currentDateTime.year, _currentDateTime.month + 1, 0).day * 24 * 60;
     final elapsedMonthPercentage = (elapsedMinutes / totalMinutesInMonth) * 100.0;
     return elapsedMonthPercentage;
+  }
+
+  double getElapsedHijriMonthPercentage() {
+    final startOfMonth = HijriCalendar()
+      ..hYear = _currentHijriTime.hYear
+      ..hMonth = _currentHijriTime.hMonth
+      ..hDay = 1;
+
+    final elapsedDays = _currentHijriTime.hDay - 1;
+
+    final totalDaysInMonth = startOfMonth.hDay;
+
+    final elapsedHijriMonthPercentage = (elapsedDays / totalDaysInMonth) * 100.0;
+    return elapsedHijriMonthPercentage;
   }
 
   double getElapsedYearPercentage() {
