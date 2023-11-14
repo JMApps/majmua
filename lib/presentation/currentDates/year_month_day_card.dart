@@ -23,7 +23,7 @@ class YearMonthDayCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final mediaQuery = MediaQuery.of(context).size.width;
-    final circleWidgetSize = mediaQuery * 0.175;
+    final circleWidgetSize = mediaQuery * 0.15;
     return Card(
       margin: EdgeInsets.zero,
       color: appColors.glass,
@@ -32,15 +32,16 @@ class YearMonthDayCard extends StatelessWidget {
         height: circleWidgetSize,
         value: monthPercent,
         borderRadius: 20,
-        startPosition: StartPosition.leftCenter,
+        startPosition: StartPosition.bottomCenter,
         strokeCap: StrokeCap.round,
         clockwise: true,
         color: dateColor,
         emptyStrokeColor: dateColor.withOpacity(0.25),
-        strokeWidth: 2,
+        strokeWidth: 1.5,
         emptyStrokeWidth: 0.75,
         strokeAlign: SquareStrokeAlign.center,
         child: ListTile(
+          visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
           leading: CircleAvatar(
             backgroundColor: dateColor,
             child: Text(

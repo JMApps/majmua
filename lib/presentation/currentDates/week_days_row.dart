@@ -25,7 +25,7 @@ class WeekDaysRow extends StatelessWidget {
         height: circleWidgetSize,
         value: timeState.getElapsedWeekPercentage() / 100,
         borderRadius: 20,
-        startPosition: StartPosition.leftCenter,
+        startPosition: StartPosition.bottomCenter,
         strokeCap: StrokeCap.round,
         clockwise: true,
         color: appColors.secondaryColor,
