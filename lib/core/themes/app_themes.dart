@@ -20,7 +20,7 @@ class AppThemes {
     cardTheme: const CardTheme(
       shape: AppStyles.mainShape,
       elevation: 0,
-      color: Color(0xCCE8EAF6),
+      color: Color(0xD9E8EAF6),
     ),
   );
 
@@ -42,7 +42,7 @@ class AppThemes {
     cardTheme: const CardTheme(
       shape: AppStyles.mainShape,
       elevation: 0,
-      color: Color(0xCC171821),
+      color: Color(0xD9171821),
     ),
   );
 }

@@ -33,24 +33,29 @@ class MainCurrentDatesCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           YearMonthDayCard(
-                            monthPercent: timeState.getElapsedMonthPercentage() / 100,
+                            monthPercent:
+                                timeState.getElapsedMonthPercentage() / 100,
                             day: timeState.currentDateTime.day,
                             month: AppStyles.getMonthName(
                               locale: appLocale!.localeName,
                               number: timeState.currentDateTime.month,
                             ),
-                            year: '${timeState.currentDateTime.year} ${appLocale.year.toLowerCase()}',
+                            year:
+                                '${timeState.currentDateTime.year} ${appLocale.year.toLowerCase()}',
                             dateColor: appColors.primaryColor,
                           ),
                           const SizedBox(height: 8),
                           YearMonthDayCard(
-                            monthPercent: timeState.getElapsedHijriMonthPercentage() / 100,
+                            monthPercent:
+                                timeState.getElapsedHijriMonthPercentage() /
+                                    100,
                             day: timeState.currentHijriTime.hDay,
                             month: AppStyles.getHijriMonthName(
                               locale: appLocale.localeName,
                               number: timeState.currentHijriTime.hMonth,
                             ),
-                            year: '${timeState.currentHijriTime.hYear} ${appLocale.year.toLowerCase()}',
+                            year:
+                                '${timeState.currentHijriTime.hYear} ${appLocale.year.toLowerCase()}',
                             dateColor: appColors.secondaryColor,
                           ),
                         ],
@@ -69,8 +74,12 @@ class MainCurrentDatesCard extends StatelessWidget {
                               borderRadius: AppStyles.mainBorderRadiusBig,
                               child: CircleAvatar(
                                 backgroundColor: Colors.transparent,
-                                backgroundImage: const AssetImage('assets/pictures/salawat.png'),
-                                radius: mediaQuery.orientation == Orientation.portrait ? circleWidgetSize / 2.3 : circleWidgetSize / 1.9,
+                                backgroundImage: const AssetImage(
+                                    'assets/pictures/salawat.png'),
+                                radius: mediaQuery.orientation ==
+                                        Orientation.portrait
+                                    ? circleWidgetSize / 2.5
+                                    : circleWidgetSize / 1.95,
                               ),
                             ),
                             const SizedBox(height: 4),
@@ -93,6 +102,25 @@ class MainCurrentDatesCard extends StatelessWidget {
                       ),
                     ),
                   ],
+                ),
+                const SizedBox(height: 8),
+                ListTile(
+                  onTap: () {},
+                  tileColor: appColors.glass,
+                  shape: AppStyles.mainShape,
+                  visualDensity: const VisualDensity(vertical: -2),
+                  title: const Text(
+                    'Ежедневные напоминания',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontFamily: 'Nexa',
+                    ),
+                  ),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    color: appColors.primaryColor,
+                    size: 20,
+                  ),
                 ),
               ],
             );
