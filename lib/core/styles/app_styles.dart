@@ -71,4 +71,143 @@ class AppStyles {
     'second_background.jpg',
     'third_background.jpg',
   ];
+
+  static const Map<String, Map<String, Map<int, String>>> _localNames = {
+    'ru': {
+      'month_names': ruMonthNames,
+      'hijri_month_names': ruHijriMonthNames,
+      'long_wd_names': ruLongWdNames,
+      'short_wd_names': ruShortWdNames,
+    },
+    'en': {
+      'month_names': enMonthNames,
+      'hijri_month_names': enHijriMonthNames,
+      'long_wd_names': enLongWdNames,
+      'short_wd_names': enShortWdNames,
+    },
+  };
+
+  static const Map<int, String> enMonthNames = {
+    1: 'January',
+    2: 'February',
+    3: 'March',
+    4: 'April',
+    5: 'May',
+    6: 'June',
+    7: 'July',
+    8: 'August',
+    9: 'September',
+    10: 'October',
+    11: 'November',
+    12: 'December'
+  };
+
+  static const Map<int, String> enHijriMonthNames = {
+    1: 'Muharram',
+    2: 'Safar',
+    3: 'Rabi\' Al-Awwal',
+    4: 'Rabi\' Al-Thani',
+    5: 'Jumada Al-Awwal',
+    6: 'Jumada Al-Thani',
+    7: 'Rajab',
+    8: 'Sha\'aban',
+    9: 'Ramadan',
+    10: 'Shawwal',
+    11: 'Dhu Al-Qi\'dah',
+    12: 'Dhu Al-Hijjah'
+  };
+
+  static const Map<int, String> enLongWdNames = {
+    1: "Monday",
+    2: "Tuesday",
+    3: "Wednesday",
+    4: "Thursday",
+    5: "Friday",
+    6: "Saturday",
+    7: "Sunday"
+  };
+
+  static const Map<int, String> enShortWdNames = {
+    1: "Mon",
+    2: "Tue",
+    3: "Wed",
+    4: "Thu",
+    5: "Fri",
+    6: "Sat",
+    7: "Sun"
+  };
+
+  static const Map<int, String> ruMonthNames = {
+    1: 'Январь',
+    2: 'Февраль',
+    3: 'Март',
+    4: 'Апрель',
+    5: 'Май',
+    6: 'Июнь',
+    7: 'Июль',
+    8: 'Август',
+    9: 'Сентябрь',
+    10: 'Октябрь',
+    11: 'Ноябрь',
+    12: 'Декабрь'
+  };
+
+  static const Map<int, String> ruHijriMonthNames = {
+    1: 'Мухаррам',
+    2: 'Сафар',
+    3: 'Раби\' аль-Авваль',
+    4: 'Раби\' ас-Сани',
+    5: 'Джумада аль-Авваль',
+    6: 'Джумада ас-Сани',
+    7: 'Раджаб',
+    8: 'Ша\'бан',
+    9: 'Рамадан',
+    10: 'Шавваль',
+    11: 'Зу-ль-Ка\'да',
+    12: 'Зу-ль-Хиджжа'
+  };
+
+  static const Map<int, String> ruLongWdNames = {
+    1: "Понедельник",
+    2: "Вторник",
+    3: "Среда",
+    4: "Четверг",
+    5: "Пятница",
+    6: "Суббота",
+    7: "Воскресенье"
+  };
+
+  static const Map<int, String> ruShortWdNames = {
+    1: "Пн",
+    2: "Вт",
+    3: "Ср",
+    4: "Чт",
+    5: "Пт",
+    6: "Сб",
+    7: "Вс"
+  };
+
+  static const int monIndex = 1;
+  static const int tueIndex = 2;
+  static const int wedIndex = 3;
+  static const int thuIndex = 4;
+  static const int friIndex = 5;
+  static const int satIndex = 6;
+  static const int sunIndex = 7;
+
+  static String getMonthName({required String locale, required int number}) {
+    return _localNames[locale]!['month_names']![number]!;
+  }
+
+  static String getHijriMonthName({required String locale, required int number}) {
+    return _localNames[locale]!['hijri_month_names']![number]!;
+  }
+
+  static String getLongWdName({required String locale, required int number}) {
+    return _localNames[locale]!['long_wd_names']![number]!;
+  }
+
+  static String getShortWdName({required String locale, required int number}) {
+    return _localNames[locale]!['short_wd_names']![number]!;
+  }
 }
