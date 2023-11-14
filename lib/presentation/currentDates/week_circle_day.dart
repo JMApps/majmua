@@ -22,13 +22,13 @@ class WeekCircleDay extends StatelessWidget {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final RestTimeState timeState = Provider.of<RestTimeState>(context);
     final bool isCurrentDay = dayIndex == timeState.currentDateTime.weekday;
-    final bool isDjumaDay = dayIndex == 5;
+    final bool isFriday = dayIndex == 5;
     return Container(
       width: circleWidgetSize,
       height: circleWidgetSize,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: isCurrentDay ? isDjumaDay ? appColors.fortiaryColor : appColors.secondaryColor : appColors.primaryColor,
+        color: isCurrentDay ? isFriday ? appColors.quaternaryColor : appColors.secondaryColor : appColors.primaryColor,
       ),
       child: isCurrentDay
           ? CircularPercentIndicator(

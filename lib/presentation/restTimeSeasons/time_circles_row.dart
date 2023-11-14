@@ -24,7 +24,7 @@ class TimeCircleRow extends StatelessWidget {
             ),
             TimePercent(
               time: appLocale.week,
-              timeColor: appColors.fortiaryColor,
+              timeColor: appColors.quaternaryColor,
               percent: timeState.getElapsedWeekPercentage() / 100,
             ),
             TimePercent(
