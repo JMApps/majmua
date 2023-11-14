@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/core/styles/app_styles.dart';
-import 'package:majmua/core/styles/custom_colors.dart';
 
 class AppThemes {
   static ThemeData lightTheme = ThemeData(
     colorScheme: ColorScheme.fromSeed(
       brightness: Brightness.light,
-      seedColor: CustomColors.indigo,
-      secondary: CustomColors.orange,
-      tertiary: CustomColors.teal,
+      seedColor: const Color(0xFF3F51B5),
     ),
     fontFamily: 'Next',
     appBarTheme: const AppBarTheme(
@@ -23,16 +20,14 @@ class AppThemes {
     cardTheme: const CardTheme(
       shape: AppStyles.mainShape,
       elevation: 0,
-      color: CustomColors.cardLightColor,
+      color: Color(0xCCE8EAF6),
     ),
   );
 
   static ThemeData darkTheme = ThemeData(
     colorScheme: ColorScheme.fromSeed(
       brightness: Brightness.dark,
-      seedColor: CustomColors.indigo,
-      secondary: CustomColors.orange,
-      tertiary: CustomColors.teal,
+      seedColor: const Color(0xD93F51B5),
     ),
     fontFamily: 'Next',
     appBarTheme: const AppBarTheme(
@@ -47,15 +42,27 @@ class AppThemes {
     cardTheme: const CardTheme(
       shape: AppStyles.mainShape,
       elevation: 0,
-      color: CustomColors.cardDarkColor,
+      color: Color(0xCC171821),
     ),
   );
 }
 
 extension ColorSchemeS on ColorScheme {
-  Color get cardColor => brightness == Brightness.light
-      ? CustomColors.cardLightColor
-      : CustomColors.cardDarkColor;
+  Color get primaryColor => brightness == Brightness.light
+      ? const Color(0xFF3F51B5)
+      : const Color(0xBF303F9F);
+
+  Color get secondaryColor => brightness == Brightness.light
+      ? const Color(0xFF009688)
+      : const Color(0xBF00796B);
+
+  Color get tertiaryColor => brightness == Brightness.light
+      ? const Color(0xFFFF9800)
+      : const Color(0xBFF57C00);
+
+Color get fortiaryColor => brightness == Brightness.light
+      ? const Color(0xFFF44336)
+      : const Color(0xBFD32F2F);
 
   Color get glass => brightness == Brightness.light
       ? const Color(0xE6FFFFFF)
