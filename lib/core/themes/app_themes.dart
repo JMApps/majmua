@@ -22,6 +22,10 @@ class AppThemes {
       elevation: 0,
       color: Color(0xD9E8EAF6),
     ),
+    bottomSheetTheme: const BottomSheetThemeData(
+      showDragHandle: true,
+      dragHandleSize: Size(64, 3),
+    ),
   );
 
   static ThemeData darkTheme = ThemeData(

@@ -31,7 +31,7 @@ class WeekDaysRow extends StatelessWidget {
         color: appColors.secondaryColor,
         emptyStrokeColor: appColors.secondaryColor.withOpacity(0.25),
         strokeWidth: 1.5,
-        emptyStrokeWidth: 0.75,
+        emptyStrokeWidth: 1.5,
         strokeAlign: SquareStrokeAlign.center,
         child: Padding(
           padding: AppStyles.mainMardingMini,

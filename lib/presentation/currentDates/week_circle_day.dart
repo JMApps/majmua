@@ -33,7 +33,7 @@ class WeekCircleDay extends StatelessWidget {
       child: isCurrentDay
           ? CircularPercentIndicator(
               radius: circleWidgetSize * 0.45,
-              lineWidth: 1.75,
+              lineWidth: 1.5,
               circularStrokeCap: CircularStrokeCap.round,
               progressColor: appColors.primaryColor,
               backgroundColor: Colors.white70,

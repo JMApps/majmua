@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/currentDates/week_days_row.dart';
+import 'package:majmua/presentation/currentDates/weekly_messages.dart';
 import 'package:majmua/presentation/currentDates/year_month_day_card.dart';
 import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:provider/provider.dart';
@@ -33,29 +34,24 @@ class MainCurrentDatesCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           YearMonthDayCard(
-                            monthPercent:
-                                timeState.getElapsedMonthPercentage() / 100,
+                            monthPercent: timeState.getElapsedMonthPercentage() / 100,
                             day: timeState.currentDateTime.day,
                             month: AppStyles.getMonthName(
                               locale: appLocale!.localeName,
                               number: timeState.currentDateTime.month,
                             ),
-                            year:
-                                '${timeState.currentDateTime.year} ${appLocale.year.toLowerCase()}',
+                            year: '${timeState.currentDateTime.year} ${appLocale.year.toLowerCase()}',
                             dateColor: appColors.primaryColor,
                           ),
                           const SizedBox(height: 8),
                           YearMonthDayCard(
-                            monthPercent:
-                                timeState.getElapsedHijriMonthPercentage() /
-                                    100,
+                            monthPercent: timeState.getElapsedLunarMonthPercentage() / 100,
                             day: timeState.currentHijriTime.hDay,
                             month: AppStyles.getHijriMonthName(
                               locale: appLocale.localeName,
                               number: timeState.currentHijriTime.hMonth,
                             ),
-                            year:
-                                '${timeState.currentHijriTime.hYear} ${appLocale.year.toLowerCase()}',
+                            year: '${timeState.currentHijriTime.hYear} ${appLocale.year.toLowerCase()}',
                             dateColor: appColors.secondaryColor,
                           ),
                         ],
@@ -74,10 +70,8 @@ class MainCurrentDatesCard extends StatelessWidget {
                               borderRadius: AppStyles.mainBorderRadiusBig,
                               child: CircleAvatar(
                                 backgroundColor: Colors.transparent,
-                                backgroundImage: const AssetImage(
-                                    'assets/pictures/salawat.png'),
-                                radius: mediaQuery.orientation ==
-                                        Orientation.portrait
+                                backgroundImage: const AssetImage('assets/pictures/salawat.png'),
+                                radius: mediaQuery.orientation == Orientation.portrait
                                     ? circleWidgetSize / 2.5
                                     : circleWidgetSize / 1.95,
                               ),
@@ -86,13 +80,23 @@ class MainCurrentDatesCard extends StatelessWidget {
                             Card(
                               margin: EdgeInsets.zero,
                               color: appColors.primaryColor.withOpacity(0.15),
-                              child: const Padding(
-                                padding: AppStyles.mainMardingMicro,
-                                child: Text(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: AppStyles.mainBorderRadius,
+                                side: BorderSide(
+                                  width: 1,
+                                  color: appColors.secondaryColor
+                                ),
+                              ),
+                              child: SizedBox(
+                                width: circleWidgetSize / 1.2,
+                                child: const Text(
                                   '0',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
+                                    fontFamily: 'Nexa',
                                   ),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.center,
                                 ),
                               ),
@@ -105,13 +109,29 @@ class MainCurrentDatesCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      backgroundColor: Colors.transparent,
+                      builder: (context) {
+                        return WeeklyMessages(
+                          dailyMessage: AppStyles.getLongDaily(
+                            locale: appLocale.localeName,
+                            number: timeState.currentDateTime.weekday,
+                          ),
+                        );
+                      },
+                    );
+                  },
                   tileColor: appColors.glass,
                   shape: AppStyles.mainShape,
                   visualDensity: const VisualDensity(vertical: -2),
-                  title: const Text(
-                    'Ежедневные напоминания',
-                    style: TextStyle(
+                  title: Text(
+                    AppStyles.getShortDaily(
+                      locale: appLocale.localeName,
+                      number: timeState.currentDateTime.weekday,
+                    ),
+                    style: const TextStyle(
                       fontSize: 15,
                       fontFamily: 'Nexa',
                     ),
