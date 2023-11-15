@@ -36,7 +36,7 @@ class YearMonthDayCard extends StatelessWidget {
         color: dateColor,
         emptyStrokeColor: dateColor.withOpacity(0.25),
         strokeWidth: 1.5,
-        emptyStrokeWidth: 0.75,
+        emptyStrokeWidth: 1.5,
         strokeAlign: SquareStrokeAlign.center,
         child: ListTile(
           visualDensity: const VisualDensity(vertical: -4, horizontal: -4),

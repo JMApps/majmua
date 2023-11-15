@@ -41,18 +41,16 @@ class RestTimeState extends ChangeNotifier {
     return elapsedMonthPercentage;
   }
 
-  double getElapsedHijriMonthPercentage() {
-    final startOfMonth = HijriCalendar()
-      ..hYear = _currentHijriTime.hYear
-      ..hMonth = _currentHijriTime.hMonth
-      ..hDay = 1;
-
-    final elapsedDays = _currentHijriTime.hDay - 1;
-
-    final totalDaysInMonth = startOfMonth.hDay;
-
-    final elapsedHijriMonthPercentage = (elapsedDays / totalDaysInMonth) * 100.0;
-    return elapsedHijriMonthPercentage;
+  double getElapsedLunarMonthPercentage() {
+    HijriCalendar startOfMonth = HijriCalendar.fromDate(_currentDateTime);
+    startOfMonth.hDay = 1;
+    int elapsedMinutes = _currentDateTime.difference(_currentHijriTime.hijriToGregorian(startOfMonth.hYear, startOfMonth.hMonth, startOfMonth.hDay)).inMinutes;
+    HijriCalendar startOfNextMonth = HijriCalendar.fromDate(_currentDateTime);
+    startOfNextMonth.hMonth += 1;
+    startOfNextMonth.hDay = 1;
+    int totalMinutesInMonth = _currentHijriTime.hijriToGregorian(startOfNextMonth.hYear, startOfNextMonth.hMonth, startOfNextMonth.hDay).difference(_currentHijriTime.hijriToGregorian(startOfMonth.hYear, startOfMonth.hMonth, startOfMonth.hDay)).inMinutes;
+    double elapsedMonthPercentage = (elapsedMinutes / totalMinutesInMonth) * 100.0;
+    return elapsedMonthPercentage;
   }
 
   double getElapsedYearPercentage() {
