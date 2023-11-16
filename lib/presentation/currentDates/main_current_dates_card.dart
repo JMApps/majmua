@@ -54,29 +54,24 @@ class MainCurrentDatesCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           YearMonthDayCard(
-                            monthPercent:
-                                timeState.getElapsedMonthPercentage() / 100,
+                            monthPercent: timeState.getElapsedMonthPercentage() / 100,
                             day: timeState.currentDateTime.day,
                             month: AppStyles.getMonthName(
                               locale: appLocale!.localeName,
                               number: timeState.currentDateTime.month,
                             ),
-                            year:
-                                '${timeState.currentDateTime.year} ${appLocale.year.toLowerCase()}',
+                            year: '${timeState.currentDateTime.year} ${appLocale.year.toLowerCase()}',
                             dateColor: appColors.primaryColor,
                           ),
                           const SizedBox(height: 8),
                           YearMonthDayCard(
-                            monthPercent:
-                                timeState.getElapsedLunarMonthPercentage() /
-                                    100,
+                            monthPercent: timeState.getElapsedLunarMonthPercentage() / 100,
                             day: timeState.currentHijriTime.hDay,
                             month: AppStyles.getHijriMonthName(
                               locale: appLocale.localeName,
                               number: timeState.currentHijriTime.hMonth,
                             ),
-                            year:
-                                '${timeState.currentHijriTime.hYear} ${appLocale.year.toLowerCase()}',
+                            year: '${timeState.currentHijriTime.hYear} ${appLocale.year.toLowerCase()}',
                             dateColor: appColors.secondaryColor,
                           ),
                         ],
