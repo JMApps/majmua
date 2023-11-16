@@ -24,7 +24,9 @@ class AppThemes {
     ),
     bottomSheetTheme: const BottomSheetThemeData(
       showDragHandle: true,
+      backgroundColor: Color(0xD9E8EAF6),
       dragHandleSize: Size(64, 3),
+      shape: AppStyles.mainShape,
     ),
   );
 
@@ -47,6 +49,12 @@ class AppThemes {
       shape: AppStyles.mainShape,
       elevation: 0,
       color: Color(0xD9171821),
+    ),
+    bottomSheetTheme: const BottomSheetThemeData(
+      showDragHandle: true,
+      backgroundColor: Color(0xD9171821),
+      dragHandleSize: Size(64, 3),
+      shape: AppStyles.mainShape,
     ),
   );
 }

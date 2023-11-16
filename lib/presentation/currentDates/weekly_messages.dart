@@ -13,9 +13,10 @@ class WeeklyMessages extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.zero,
+      color: Colors.transparent,
       child: Container(
         width: double.infinity,
-        padding: AppStyles.mainMarding,
+        padding: AppStyles.mardingWithoutTop,
         child: Text(
           dailyMessage,
           style: const TextStyle(

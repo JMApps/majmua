@@ -23,9 +23,9 @@ class MainPercentSeasonsCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Card(
-                  shape: AppStyles.mainShapeMini,
-                  color: appColors.glass,
                   margin: EdgeInsets.zero,
+                  color: appColors.glass,
+                  shape: AppStyles.mainShapeMini,
                   child: Padding(
                     padding: AppStyles.mainMardingMicro,
                     child: Text(

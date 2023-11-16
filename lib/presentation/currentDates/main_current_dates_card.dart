@@ -112,7 +112,6 @@ class MainCurrentDatesCard extends StatelessWidget {
                   onTap: () {
                     showModalBottomSheet(
                       context: context,
-                      backgroundColor: Colors.transparent,
                       builder: (context) {
                         return WeeklyMessages(
                           dailyMessage: AppStyles.getLongDaily(

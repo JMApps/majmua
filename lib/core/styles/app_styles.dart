@@ -34,6 +34,12 @@ class AppStyles {
   static const mardingOnlyBottomMini = EdgeInsets.only(bottom: 8);
   static const mardingOnlyBottomMicro = EdgeInsets.only(bottom: 4);
 
+  // Padding/Margin – Without
+  static const mardingWithoutTop = EdgeInsets.only(left: 16, bottom: 16, right: 16);
+  static const mardingWithoutTopMini = EdgeInsets.only(left: 8, bottom: 8, right: 8);
+  static const mardingWithoutBottom = EdgeInsets.only(left: 16, top: 16, right: 16);
+  static const mardingWithoutBottomMini = EdgeInsets.only(left: 8, top: 8, right: 8);
+
   // Share/BorderRadius – Main
   static const mainShapeBig = RoundedRectangleBorder(
     borderRadius: BorderRadius.all(Radius.circular(30)),
