@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/currentDates/friday_sunnahs_tile.dart';
+import 'package:majmua/presentation/currentDates/main_white_days_card.dart';
 import 'package:majmua/presentation/currentDates/week_days_row.dart';
 import 'package:majmua/presentation/currentDates/weekly_messages.dart';
 import 'package:majmua/presentation/currentDates/year_month_day_card.dart';
@@ -28,8 +29,24 @@ class MainCurrentDatesCard extends StatelessWidget {
               children: [
                 const WeekDaysRow(),
                 const SizedBox(height: 8),
-                const FridaySunnahsTile(),
-                const SizedBox(height: 8),
+                AnimatedSize(
+                  duration: const Duration(milliseconds: 750),
+                  child: Visibility(
+                    // TODO
+                    // Add from maghrib time
+                    visible: timeState.currentDateTime.weekday == 5,
+                    child: const FridaySunnahsTile(),
+                  ),
+                ),
+                AnimatedSize(
+                  duration: const Duration(milliseconds: 750),
+                  child: Visibility(
+                    // TODO
+                    // Add from maghrib time
+                    visible: timeState.currentDateTime.weekday == 5,
+                    child: const SizedBox(height: 8),
+                  ),
+                ),
                 Row(
                   children: [
                     Expanded(
@@ -37,24 +54,29 @@ class MainCurrentDatesCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           YearMonthDayCard(
-                            monthPercent: timeState.getElapsedMonthPercentage() / 100,
+                            monthPercent:
+                                timeState.getElapsedMonthPercentage() / 100,
                             day: timeState.currentDateTime.day,
                             month: AppStyles.getMonthName(
                               locale: appLocale!.localeName,
                               number: timeState.currentDateTime.month,
                             ),
-                            year: '${timeState.currentDateTime.year} ${appLocale.year.toLowerCase()}',
+                            year:
+                                '${timeState.currentDateTime.year} ${appLocale.year.toLowerCase()}',
                             dateColor: appColors.primaryColor,
                           ),
                           const SizedBox(height: 8),
                           YearMonthDayCard(
-                            monthPercent: timeState.getElapsedLunarMonthPercentage() / 100,
+                            monthPercent:
+                                timeState.getElapsedLunarMonthPercentage() /
+                                    100,
                             day: timeState.currentHijriTime.hDay,
                             month: AppStyles.getHijriMonthName(
                               locale: appLocale.localeName,
                               number: timeState.currentHijriTime.hMonth,
                             ),
-                            year: '${timeState.currentHijriTime.hYear} ${appLocale.year.toLowerCase()}',
+                            year:
+                                '${timeState.currentHijriTime.hYear} ${appLocale.year.toLowerCase()}',
                             dateColor: appColors.secondaryColor,
                           ),
                         ],
@@ -73,8 +95,10 @@ class MainCurrentDatesCard extends StatelessWidget {
                               borderRadius: AppStyles.mainBorderRadiusBig,
                               child: CircleAvatar(
                                 backgroundColor: Colors.transparent,
-                                backgroundImage: const AssetImage('assets/pictures/salawat.png'),
-                                radius: mediaQuery.orientation == Orientation.portrait
+                                backgroundImage: const AssetImage(
+                                    'assets/pictures/salawat.png'),
+                                radius: mediaQuery.orientation ==
+                                        Orientation.portrait
                                     ? circleWidgetSize / 2.35
                                     : circleWidgetSize / 1.95,
                               ),
@@ -86,9 +110,7 @@ class MainCurrentDatesCard extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                 borderRadius: AppStyles.mainBorderRadius,
                                 side: BorderSide(
-                                  width: 1,
-                                  color: appColors.secondaryColor
-                                ),
+                                    width: 1, color: appColors.secondaryColor),
                               ),
                               child: SizedBox(
                                 width: circleWidgetSize / 1.2,
@@ -109,6 +131,20 @@ class MainCurrentDatesCard extends StatelessWidget {
                       ),
                     ),
                   ],
+                ),
+                AnimatedSize(
+                  duration: const Duration(milliseconds: 750),
+                  child: Visibility(
+                    visible: timeState.isWhiteDays,
+                    child: const SizedBox(height: 8),
+                  ),
+                ),
+                AnimatedSize(
+                  duration: const Duration(milliseconds: 750),
+                  child: Visibility(
+                    visible: timeState.isWhiteDays,
+                    child: const MainWhiteDaysCard(),
+                  ),
                 ),
                 const SizedBox(height: 8),
                 ListTile(
