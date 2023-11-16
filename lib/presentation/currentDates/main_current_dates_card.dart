@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
+import 'package:majmua/presentation/currentDates/friday_sunnahs_tile.dart';
 import 'package:majmua/presentation/currentDates/week_days_row.dart';
 import 'package:majmua/presentation/currentDates/weekly_messages.dart';
 import 'package:majmua/presentation/currentDates/year_month_day_card.dart';
@@ -26,6 +27,8 @@ class MainCurrentDatesCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const WeekDaysRow(),
+                const SizedBox(height: 8),
+                const FridaySunnahsTile(),
                 const SizedBox(height: 8),
                 Row(
                   children: [
@@ -72,7 +75,7 @@ class MainCurrentDatesCard extends StatelessWidget {
                                 backgroundColor: Colors.transparent,
                                 backgroundImage: const AssetImage('assets/pictures/salawat.png'),
                                 radius: mediaQuery.orientation == Orientation.portrait
-                                    ? circleWidgetSize / 2.5
+                                    ? circleWidgetSize / 2.35
                                     : circleWidgetSize / 1.95,
                               ),
                             ),
@@ -131,7 +134,6 @@ class MainCurrentDatesCard extends StatelessWidget {
                       number: timeState.currentDateTime.weekday,
                     ),
                     style: const TextStyle(
-                      fontSize: 15,
                       fontFamily: 'Nexa',
                     ),
                   ),
