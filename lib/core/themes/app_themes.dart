@@ -28,6 +28,9 @@ class AppThemes {
       dragHandleSize: Size(64, 3),
       shape: AppStyles.mainShape,
     ),
+    listTileTheme: const ListTileThemeData(
+      shape: AppStyles.mainShape,
+    ),
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -54,6 +57,9 @@ class AppThemes {
       showDragHandle: true,
       backgroundColor: Color(0xD9171821),
       dragHandleSize: Size(64, 3),
+      shape: AppStyles.mainShape,
+    ),
+    listTileTheme: const ListTileThemeData(
       shape: AppStyles.mainShape,
     ),
   );

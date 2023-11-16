@@ -124,7 +124,7 @@ class AppStyles {
     9: 'Рамадан',
     10: 'Шавваль',
     11: 'Зу-ль-Ка\'да',
-    12: 'Зу-ль-Хиджжа'
+    12: 'Зу-ль-Хиджа'
   };
 
   static const Map<int, String> ruLongWdNames = {
