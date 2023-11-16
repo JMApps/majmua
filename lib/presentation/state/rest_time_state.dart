@@ -13,9 +13,31 @@ class RestTimeState extends ChangeNotifier {
 
   bool get isRamadan => _currentHijriTime.hMonth == 9;
 
+  bool get holidaysRamadan => _currentHijriTime.hMonth == 10 && _currentHijriTime.hDay >= 1 && _currentHijriTime.hDay <= 3;
+
+  bool get isNineDays => _currentHijriTime.hMonth == 12 && _currentHijriTime.hDay >= 1 && _currentHijriTime.hDay <= 9;
+
+  bool get holidaysHijjah => _currentHijriTime.hMonth == 12 && _currentHijriTime.hDay >= 10 && _currentHijriTime.hDay <= 13;
+
   bool get isWhiteDays => _currentHijriTime.hDay >= 12 && _currentHijriTime.hDay <= 15;
 
-  bool get isNineDays => _currentHijriTime.hMonth == 11 && _currentHijriTime.hDay >= 1 && _currentHijriTime.hDay <= 9;
+  int _toRamadanDays() {
+    final int countDays;
+    final DateTime hijriRamadanToGregorian = _currentHijriTime.hMonth < 9  ? _currentHijriTime.hijriToGregorian(_currentHijriTime.hYear, 9, 1) : _currentHijriTime.hijriToGregorian(_currentHijriTime.hYear + 1, 9, 1);
+    countDays = _currentDateTime.difference(DateTime(hijriRamadanToGregorian.year, hijriRamadanToGregorian.month, hijriRamadanToGregorian.day)).inDays;
+    return countDays - 1;
+  }
+
+  int get getToRamadanDays => _toRamadanDays();
+
+  int _toHijjahDays() {
+    final int countDays;
+    final hijriZulHijjahToGregorian = _currentHijriTime.hMonth == 12 && _currentHijriTime.hDay >= 1 ? _currentHijriTime.hijriToGregorian(_currentHijriTime.hYear + 1, 12, 10) : _currentHijriTime.hijriToGregorian(_currentHijriTime.hYear, 12, 10);
+    countDays = _currentDateTime.difference(DateTime(hijriZulHijjahToGregorian.year, hijriZulHijjahToGregorian.month, hijriZulHijjahToGregorian.day)).inDays;
+    return countDays - 1;
+  }
+
+  int get getToHijjahDays => _toHijjahDays();
 
   double getElapsedDayPercentage() {
     final startOfDay = DateTime(_currentDateTime.year, _currentDateTime.month, _currentDateTime.day, 0, 0, 0);
