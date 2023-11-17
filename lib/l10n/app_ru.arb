@@ -17,6 +17,16 @@
   "fall": "Осень",
   "winter": "Зима",
 
+  "fajr": "Фаджр",
+  "rise": "Рассвет",
+  "dhuhr": "Зухр",
+  "asr": "'Аср",
+  "maghrib": "Магриб",
+  "isha": "'Иша",
+
+  "midnight": "Полночь: ",
+  "thirdPart": "Последняя ⅓ ночи: ",
+
   "fridaySunnahs": "Пятничные Суннаны",
 
   "daysLeftUntilRamadan": "Дней до Рамадана",
