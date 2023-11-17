@@ -18,7 +18,6 @@ class FridaySunnahsTile extends StatelessWidget {
           builder: (context) => Container(),
         );
       },
-      visualDensity: const VisualDensity(vertical: -2),
       shape: RoundedRectangleBorder(
         borderRadius: AppStyles.mainBorderRadius,
         side: BorderSide(

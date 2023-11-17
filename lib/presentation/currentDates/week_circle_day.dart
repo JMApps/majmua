@@ -28,7 +28,11 @@ class WeekCircleDay extends StatelessWidget {
       height: circleWidgetSize,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: isCurrentDay ? isFriday ? appColors.quaternaryColor : appColors.secondaryColor : appColors.primaryColor,
+        color: isCurrentDay
+            ? isFriday
+                ? appColors.quaternaryColor
+                : appColors.secondaryColor
+            : appColors.primaryColor,
       ),
       child: isCurrentDay
           ? CircularPercentIndicator(

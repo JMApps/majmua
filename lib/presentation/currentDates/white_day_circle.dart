@@ -22,9 +22,9 @@ class WhiteDayCircle extends StatelessWidget {
       child: Text(
         dayIndex.toString(),
         style: const TextStyle(
+          color: Colors.white,
           fontFamily: 'Nexa',
           fontWeight: FontWeight.bold,
-          color: Colors.white,
         ),
       ),
     );

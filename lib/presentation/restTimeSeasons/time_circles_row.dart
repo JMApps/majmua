@@ -20,22 +20,22 @@ class TimeCircleRow extends StatelessWidget {
             TimePercent(
               time: appLocale!.day,
               timeColor: appColors.primaryColor,
-              percent: timeState.getElapsedDayPercentage() / 100,
+              percent: timeState.getElapsedDayPercentage(),
             ),
             TimePercent(
               time: appLocale.week,
               timeColor: appColors.quaternaryColor,
-              percent: timeState.getElapsedWeekPercentage() / 100,
+              percent: timeState.getElapsedWeekPercentage(),
             ),
             TimePercent(
               time: appLocale.month,
               timeColor: appColors.tertiaryColor,
-              percent: timeState.getElapsedMonthPercentage() / 100,
+              percent: timeState.getElapsedMonthPercentage(),
             ),
             TimePercent(
               time: appLocale.year,
               timeColor: appColors.secondaryColor,
-              percent: timeState.getElapsedYearPercentage() / 100,
+              percent: timeState.getElapsedYearPercentage(),
             ),
           ],
         );

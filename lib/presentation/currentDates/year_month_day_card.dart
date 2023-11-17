@@ -55,7 +55,6 @@ class YearMonthDayCard extends StatelessWidget {
             month,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
-              fontFamily: 'Nexa',
             ),
           ),
           subtitle: Text(

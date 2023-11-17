@@ -91,7 +91,8 @@ class MainCurrentDatesCard extends StatelessWidget {
                               child: CircleAvatar(
                                 backgroundColor: Colors.transparent,
                                 backgroundImage: const AssetImage(
-                                    'assets/pictures/salawat.png'),
+                                  'assets/pictures/salawat.png',
+                                ),
                                 radius: mediaQuery.orientation ==
                                         Orientation.portrait
                                     ? circleWidgetSize / 2.35
@@ -105,7 +106,9 @@ class MainCurrentDatesCard extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                 borderRadius: AppStyles.mainBorderRadius,
                                 side: BorderSide(
-                                    width: 1, color: appColors.secondaryColor),
+                                  width: 1,
+                                  color: appColors.secondaryColor,
+                                ),
                               ),
                               child: SizedBox(
                                 width: circleWidgetSize / 1.2,

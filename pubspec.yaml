@@ -20,6 +20,7 @@ dependencies:
   percent_indicator: ^4.2.3
   square_progress_indicator: ^0.0.7
   smooth_page_indicator: ^1.1.0
+  sleek_circular_slider: ^2.0.1
 
   # Databases
   sqflite: ^2.3.0

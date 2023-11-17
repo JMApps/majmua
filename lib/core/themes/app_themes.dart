@@ -30,6 +30,16 @@ class AppThemes {
     ),
     listTileTheme: const ListTileThemeData(
       shape: AppStyles.mainShape,
+      titleTextStyle: TextStyle(
+        fontFamily: 'Nexa',
+        fontSize: 15,
+        color: Colors.black,
+      ),
+      subtitleTextStyle: TextStyle(
+        fontFamily: 'Nexa',
+        fontSize: 14,
+        color: Colors.black,
+      ),
     ),
   );
 
@@ -61,6 +71,16 @@ class AppThemes {
     ),
     listTileTheme: const ListTileThemeData(
       shape: AppStyles.mainShape,
+      titleTextStyle: TextStyle(
+        fontFamily: 'Nexa',
+        fontSize: 15,
+        color: Colors.white,
+      ),
+      subtitleTextStyle: TextStyle(
+        fontFamily: 'Nexa',
+        fontSize: 14,
+        color: Colors.white,
+      ),
     ),
   );
 }
