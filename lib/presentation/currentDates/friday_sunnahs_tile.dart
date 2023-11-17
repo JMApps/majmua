@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 
 class FridaySunnahsTile extends StatelessWidget {
@@ -18,19 +17,12 @@ class FridaySunnahsTile extends StatelessWidget {
           builder: (context) => Container(),
         );
       },
-      shape: RoundedRectangleBorder(
-        borderRadius: AppStyles.mainBorderRadius,
-        side: BorderSide(
-          width: 1.5,
-          color: appColors.quaternaryColor,
-        ),
-      ),
       title: Text(appLocale!.fridaySunnahs),
       tileColor: appColors.glass,
       trailing: Icon(
         Icons.arrow_forward_ios_rounded,
         size: 20,
-        color: appColors.primaryColor,
+        color: appColors.quaternaryColor,
       ),
     );
   }

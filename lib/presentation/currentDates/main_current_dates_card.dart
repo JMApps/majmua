@@ -88,15 +88,15 @@ class MainCurrentDatesCard extends StatelessWidget {
                             InkWell(
                               onTap: () {},
                               borderRadius: AppStyles.mainBorderRadiusBig,
-                              child: CircleAvatar(
-                                backgroundColor: Colors.transparent,
-                                backgroundImage: const AssetImage(
-                                  'assets/pictures/salawat.png',
-                                ),
-                                radius: mediaQuery.orientation ==
+                              child: Image.asset(
+                                'assets/pictures/salawat.png',
+                                width: mediaQuery.orientation ==
                                         Orientation.portrait
-                                    ? circleWidgetSize / 2.35
-                                    : circleWidgetSize / 1.95,
+                                    ? circleWidgetSize / 1.15
+                                    : circleWidgetSize / 0.96,
+                                color: timeState.currentDateTime.weekday != 5
+                                    ? appColors.primaryColor
+                                    : appColors.quaternaryColor,
                               ),
                             ),
                             const SizedBox(height: 4),
