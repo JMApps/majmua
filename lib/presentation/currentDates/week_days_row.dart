@@ -14,6 +14,7 @@ class WeekDaysRow extends StatelessWidget {
     return Card(
       margin: EdgeInsets.zero,
       color: appColors.glass,
+      shape: AppStyles.topShapeMini,
       child: Padding(
         padding: AppStyles.mainMardingMini,
         child: Row(

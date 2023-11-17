@@ -17,6 +17,7 @@ class MainWhiteDaysCard extends StatelessWidget {
     return Card(
       margin: EdgeInsets.zero,
       color: appColors.glass,
+      shape: AppStyles.mainShapeMicro,
       child: ListTile(
         visualDensity: const VisualDensity(horizontal: -4),
         title: Text(

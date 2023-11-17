@@ -81,6 +81,7 @@ class MainCurrentDatesCard extends StatelessWidget {
                     Card(
                       margin: EdgeInsets.zero,
                       color: appColors.glass,
+                      shape: AppStyles.mainShapeMicro,
                       child: Padding(
                         padding: AppStyles.mainMardingMini,
                         child: Column(
@@ -149,6 +150,7 @@ class MainCurrentDatesCard extends StatelessWidget {
                   onTap: () {
                     showModalBottomSheet(
                       context: context,
+                      backgroundColor: appColors.surface,
                       builder: (context) {
                         return WeeklyMessages(
                           dailyMessage: AppStyles.getLongDaily(
@@ -160,7 +162,7 @@ class MainCurrentDatesCard extends StatelessWidget {
                     );
                   },
                   tileColor: appColors.glass,
-                  shape: AppStyles.mainShape,
+                  shape: AppStyles.bottomShapeMini,
                   visualDensity: const VisualDensity(vertical: -2),
                   title: Text(
                     AppStyles.getShortDaily(

@@ -50,7 +50,65 @@ class AppStyles {
   );
 
   static const mainShapeMini = RoundedRectangleBorder(
-    borderRadius: BorderRadius.all(Radius.circular(10)),
+    borderRadius: BorderRadius.all(Radius.circular(15)),
+  );
+
+  static const mainShapeMicro = RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(Radius.circular(7.5)),
+  );
+
+  static const topShapeMini = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      topLeft: Radius.circular(15),
+      bottomLeft: Radius.circular(8.5),
+      topRight: Radius.circular(15),
+      bottomRight: Radius.circular(8.5),
+    ),
+  );
+
+  static const leftTopShapeMini = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      topLeft: Radius.circular(15),
+      bottomLeft: Radius.circular(8.5),
+      topRight: Radius.circular(8.5),
+      bottomRight: Radius.circular(8.5),
+    ),
+  );
+
+  static const rightTopShapeMini = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      topLeft: Radius.circular(8.5),
+      bottomLeft: Radius.circular(8.5),
+      topRight: Radius.circular(15),
+      bottomRight: Radius.circular(8.5),
+    ),
+  );
+
+  static const leftBottomShapeMini = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      topLeft: Radius.circular(8.5),
+      bottomLeft: Radius.circular(15),
+      topRight: Radius.circular(8.5),
+      bottomRight: Radius.circular(8.5),
+    ),
+  );
+
+  static const rightBottomShapeMini = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      topLeft: Radius.circular(8.5),
+      bottomLeft: Radius.circular(8.5),
+      topRight: Radius.circular(8.5),
+      bottomRight: Radius.circular(15),
+    ),
+  );
+
+  static const bottomShapeMini = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      topLeft: Radius.circular(8.5),
+      bottomLeft: Radius.circular(15),
+      topRight: Radius.circular(8.5),
+      bottomRight: Radius.circular(15),
+    ),
   );
 
   static const mainBorderRadiusBig = BorderRadius.all(Radius.circular(30));

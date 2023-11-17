@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:square_progress_indicator/square_progress_indicator.dart';
 
@@ -26,10 +27,11 @@ class YearMonthDayCard extends StatelessWidget {
     return Card(
       margin: EdgeInsets.zero,
       color: appColors.glass,
+      shape: AppStyles.mainShapeMicro,
       child: SquareProgressIndicator(
         height: circleWidgetSize,
         value: monthPercent,
-        borderRadius: 20,
+        borderRadius: 8.5,
         startPosition: StartPosition.bottomCenter,
         strokeCap: StrokeCap.round,
         clockwise: true,

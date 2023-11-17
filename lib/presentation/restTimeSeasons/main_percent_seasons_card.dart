@@ -25,7 +25,7 @@ class MainPercentSeasonsCard extends StatelessWidget {
                 Card(
                   margin: EdgeInsets.zero,
                   color: appColors.glass,
-                  shape: AppStyles.mainShapeMini,
+                  shape: AppStyles.topShapeMini,
                   child: Padding(
                     padding: AppStyles.mainMardingMicro,
                     child: Text(

@@ -23,6 +23,7 @@ class RestHolidaysCard extends StatelessWidget {
               children: [
                 ListTile(
                   tileColor: appColors.glass,
+                  shape: AppStyles.topShapeMini,
                   title: Text(
                     !timeState.isRamadan
                         ? !timeState.holidaysRamadan
@@ -51,6 +52,7 @@ class RestHolidaysCard extends StatelessWidget {
                 const SizedBox(height: 8),
                 ListTile(
                   tileColor: appColors.glass,
+                  shape: AppStyles.bottomShapeMini,
                   title: Text(
                     !timeState.isNineDays
                         ? !timeState.holidaysHijjah

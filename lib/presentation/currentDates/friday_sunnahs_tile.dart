@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 
 class FridaySunnahsTile extends StatelessWidget {
@@ -19,6 +20,7 @@ class FridaySunnahsTile extends StatelessWidget {
       },
       title: Text(appLocale!.fridaySunnahs),
       tileColor: appColors.glass,
+      shape: AppStyles.mainShapeMicro,
       trailing: Icon(
         Icons.arrow_forward_ios_rounded,
         size: 20,
