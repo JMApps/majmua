@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/core/strings/app_constraints.dart';
 import 'package:majmua/presentation/pages/root_page.dart';
+import 'package:majmua/presentation/state/adhan_time_state.dart';
 import 'package:majmua/presentation/state/main_app_state.dart';
 import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +21,8 @@ void main() async {
     );
   }
   await Hive.initFlutter();
-  await Hive.openBox(AppConstraints.keyMainSettingBox);
+  await Hive.openBox(AppConstraints.keyMainAppSettings);
+  await Hive.openBox(AppConstraints.keySettingsPrayerTimeBox);
   runApp(
     MultiProvider(
       providers: [
@@ -29,6 +31,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (_) => RestTimeState(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => AdhanTimeState(),
         ),
       ],
       child: const RootPage(),
