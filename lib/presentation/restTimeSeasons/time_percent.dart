@@ -58,9 +58,9 @@ class TimePercent extends StatelessWidget {
                 ),
               ),
               customWidths: CustomSliderWidths(
-                progressBarWidth: 5,
-                trackWidth: 5,
-                handlerSize: 2,
+                progressBarWidth: 3,
+                trackWidth: 3,
+                handlerSize: 1,
               ),
               customColors: CustomSliderColors(
                 hideShadow: true,
