@@ -1,3 +1,4 @@
+import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 
 class AppStyles {
@@ -327,4 +328,32 @@ class AppStyles {
   static String getLongDaily({required String locale, required int number}) {
     return _localNames[locale]!['daily_long']![number]!;
   }
+
+  static const List<CalculationMethod> prayerCalculationMethods = [
+    CalculationMethod.umm_al_qura,
+    CalculationMethod.north_america,
+    CalculationMethod.russia,
+    CalculationMethod.tatarstan,
+    CalculationMethod.france,
+    CalculationMethod.dubai,
+    CalculationMethod.egyptian,
+    CalculationMethod.karachi,
+    CalculationMethod.kuwait,
+    CalculationMethod.moon_sighting_committee,
+    CalculationMethod.muslim_world_league,
+    CalculationMethod.qatar,
+    CalculationMethod.turkey,
+    CalculationMethod.singapore,
+  ];
+
+  static final List<Duration> calculationUtcOffset = [
+    DateTime.now().timeZoneOffset - const Duration(hours: 1),
+    DateTime.now().timeZoneOffset,
+    DateTime.now().timeZoneOffset + const Duration(hours: 1),
+  ];
+
+  static const List<Madhab> calculationMadhab = [
+    Madhab.shafi,
+    Madhab.hanafi,
+  ];
 }
