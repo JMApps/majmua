@@ -32,7 +32,7 @@ class YearMonthDayCard extends StatelessWidget {
         height: circleWidgetSize,
         value: monthPercent,
         borderRadius: 8.5,
-        startPosition: StartPosition.bottomCenter,
+        startPosition: StartPosition.topCenter,
         strokeCap: StrokeCap.round,
         clockwise: true,
         color: dateColor,
