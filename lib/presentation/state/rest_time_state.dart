@@ -1,9 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:majmua/core/enums/season.dart';
 
 class RestTimeState extends ChangeNotifier {
-  final DateTime _currentDateTime = DateTime.now();
+  DateTime _currentDateTime = DateTime.now();
+  Timer? timer;
 
   final HijriCalendar _currentHijriTime = HijriCalendar.now();
 
@@ -20,6 +23,23 @@ class RestTimeState extends ChangeNotifier {
   bool get holidaysHijjah => _currentHijriTime.hMonth == 12 && _currentHijriTime.hDay >= 10 && _currentHijriTime.hDay <= 13;
 
   bool get isWhiteDays => _currentHijriTime.hDay >= 12 && _currentHijriTime.hDay <= 15;
+
+  RestTimeState() {
+    timer = Timer(
+      Duration(seconds: (_currentDateTime.second - 60).abs()),
+          () {
+            _currentDateTime = DateTime.now();
+        notifyListeners();
+        timer = Timer.periodic(
+          const Duration(minutes: 1),
+              (_) {
+                _currentDateTime = DateTime.now();
+            notifyListeners();
+          },
+        );
+      },
+    );
+  }
 
   int _toRamadanDays() {
     final int countDays;

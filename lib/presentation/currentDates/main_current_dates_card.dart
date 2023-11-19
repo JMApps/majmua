@@ -7,6 +7,7 @@ import 'package:majmua/presentation/currentDates/main_white_days_card.dart';
 import 'package:majmua/presentation/currentDates/week_days_row.dart';
 import 'package:majmua/presentation/currentDates/weekly_messages.dart';
 import 'package:majmua/presentation/currentDates/year_month_day_card.dart';
+import 'package:majmua/presentation/state/adhan_time_state.dart';
 import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:provider/provider.dart';
 
@@ -19,6 +20,7 @@ class MainCurrentDatesCard extends StatelessWidget {
     final AppLocalizations? appLocale = AppLocalizations.of(context);
     final MediaQueryData mediaQuery = MediaQuery.of(context);
     final double circleWidgetSize = mediaQuery.size.width * 0.25;
+    final AdhanTimeState adhanTimeState = Provider.of<AdhanTimeState>(context);
     return Card(
       child: Padding(
         padding: AppStyles.mainMardingMini,
@@ -32,18 +34,24 @@ class MainCurrentDatesCard extends StatelessWidget {
                 AnimatedSize(
                   duration: const Duration(milliseconds: 750),
                   child: Visibility(
-                    // TODO
-                    // Add from maghrib time
-                    visible: timeState.currentDateTime.weekday == 5,
+                    visible: timeState.currentDateTime.weekday >= 4 &&
+                        adhanTimeState.getMinutesOfDay >=
+                            adhanTimeState.getMaghribValueInMinutes &&
+                        timeState.currentDateTime.weekday <= 5 &&
+                        adhanTimeState.getMinutesOfDay <=
+                            adhanTimeState.getMaghribValueInMinutes,
                     child: const FridaySunnahsTile(),
                   ),
                 ),
                 AnimatedSize(
                   duration: const Duration(milliseconds: 750),
                   child: Visibility(
-                    // TODO
-                    // Add from maghrib time
-                    visible: timeState.currentDateTime.weekday == 5,
+                    visible: timeState.currentDateTime.weekday >= 4 &&
+                        adhanTimeState.getMinutesOfDay >=
+                            adhanTimeState.getMaghribValueInMinutes &&
+                        timeState.currentDateTime.weekday <= 5 &&
+                        adhanTimeState.getMinutesOfDay <=
+                            adhanTimeState.getMaghribValueInMinutes,
                     child: const SizedBox(height: 8),
                   ),
                 ),
@@ -54,24 +62,29 @@ class MainCurrentDatesCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           YearMonthDayCard(
-                            monthPercent: timeState.getElapsedMonthPercentage() / 100,
+                            monthPercent:
+                                timeState.getElapsedMonthPercentage() / 100,
                             day: timeState.currentDateTime.day,
                             month: AppStyles.getMonthName(
                               locale: appLocale!.localeName,
                               number: timeState.currentDateTime.month,
                             ),
-                            year: '${timeState.currentDateTime.year} ${appLocale.year.toLowerCase()}',
+                            year:
+                                '${timeState.currentDateTime.year} ${appLocale.year.toLowerCase()}',
                             dateColor: appColors.primaryColor,
                           ),
                           const SizedBox(height: 8),
                           YearMonthDayCard(
-                            monthPercent: timeState.getElapsedLunarMonthPercentage() / 100,
+                            monthPercent:
+                                timeState.getElapsedLunarMonthPercentage() /
+                                    100,
                             day: timeState.currentHijriTime.hDay,
                             month: AppStyles.getHijriMonthName(
                               locale: appLocale.localeName,
                               number: timeState.currentHijriTime.hMonth,
                             ),
-                            year: '${timeState.currentHijriTime.hYear} ${appLocale.year.toLowerCase()}',
+                            year:
+                                '${timeState.currentHijriTime.hYear} ${appLocale.year.toLowerCase()}',
                             dateColor: appColors.secondaryColor,
                           ),
                         ],
