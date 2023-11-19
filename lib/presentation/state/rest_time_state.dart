@@ -41,6 +41,10 @@ class RestTimeState extends ChangeNotifier {
     );
   }
 
+  void changeNotifiers() {
+    notifyListeners();
+  }
+
   int _toRamadanDays() {
     final int countDays;
     final DateTime hijriRamadanToGregorian = _currentHijriTime.hMonth < 9  ? _currentHijriTime.hijriToGregorian(_currentHijriTime.hYear, 9, 1) : _currentHijriTime.hijriToGregorian(_currentHijriTime.hYear + 1, 9, 1);

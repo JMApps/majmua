@@ -4,11 +4,40 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/lists/main_widgets_list.dart';
+import 'package:majmua/presentation/state/adhan_time_state.dart';
 import 'package:majmua/presentation/state/main_app_state.dart';
+import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:provider/provider.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   const MainPage({super.key});
+
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+
+    if (state == AppLifecycleState.resumed) {
+      context.read<RestTimeState>().changeNotifiers();
+      context.read<AdhanTimeState>().changeNotifiers();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
