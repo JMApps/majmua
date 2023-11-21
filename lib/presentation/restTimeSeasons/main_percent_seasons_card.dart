@@ -33,7 +33,7 @@ class MainPercentSeasonsCard extends StatelessWidget {
                     child: Text(
                       appLocale!.appSlogan,
                       style: TextStyle(
-                        fontSize: screenWidth * 0.045,
+                        fontSize: screenWidth * 0.040,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Nexa',
                       ),
@@ -41,9 +41,9 @@ class MainPercentSeasonsCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: screenWidth * 0.020),
                 const TimeCircleRow(),
-                const SizedBox(height: 8),
+                SizedBox(height: screenWidth * 0.020),
                 const SeasonSegmentsSliding(),
               ],
             );

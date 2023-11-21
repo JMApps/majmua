@@ -40,8 +40,9 @@ class TimePercent extends StatelessWidget {
           infoProperties: InfoProperties(
             topLabelText: time,
             topLabelStyle: TextStyle(
-              fontSize: screenWidth * 0.027,
               color: appColors.onSurface,
+              fontSize: screenWidth * 0.032,
+              fontFamily: 'Nexa',
               fontWeight: FontWeight.bold,
             ),
             modifier: percentageModifier,
@@ -70,7 +71,7 @@ class TimePercent extends StatelessWidget {
           ),
           size: screenWidth * 0.22,
           spinnerMode: false,
-          animationEnabled: false,
+          animationEnabled: true,
         ),
       ),
     );

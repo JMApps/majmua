@@ -20,7 +20,7 @@ class SeasonPercent extends StatelessWidget {
     final double screenWidth = mediaQuery.size.width;
     return SquareProgressIndicator(
       width: double.infinity,
-      height: screenWidth * 0.07,
+      height: screenWidth * 0.066,
       value: percent,
       borderRadius: 6,
       startPosition: StartPosition.topCenter,

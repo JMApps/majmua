@@ -34,7 +34,7 @@ class MainCurrentDatesCard extends StatelessWidget {
                 AnimatedSize(
                   duration: const Duration(milliseconds: 750),
                   child: Visibility(
-                    visible: timeState.currentDateTime.weekday >= 2 &&
+                    visible: timeState.currentDateTime.weekday >= 4 &&
                         adhanTimeState.getMinutesOfDay >= adhanTimeState.getMaghribValueInMinutes &&
                         timeState.currentDateTime.weekday <= 5 &&
                         adhanTimeState.getMinutesOfDay <= adhanTimeState.getMaghribValueInMinutes,
