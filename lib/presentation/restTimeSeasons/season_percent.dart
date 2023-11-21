@@ -16,9 +16,11 @@ class SeasonPercent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final MediaQueryData mediaQuery = MediaQuery.of(context);
+    final double screenWidth = mediaQuery.size.width;
     return SquareProgressIndicator(
       width: double.infinity,
-      height: 27.5,
+      height: screenWidth * 0.07,
       value: percent,
       borderRadius: 6,
       startPosition: StartPosition.topCenter,
@@ -26,8 +28,8 @@ class SeasonPercent extends StatelessWidget {
       clockwise: true,
       color: seasonColor,
       emptyStrokeColor: seasonColor.withOpacity(0.25),
-      strokeWidth: 2.5,
-      emptyStrokeWidth: 2.5,
+      strokeWidth: screenWidth * 0.005,
+      emptyStrokeWidth: screenWidth * 0.005,
       strokeAlign: SquareStrokeAlign.center,
       child: SeasonNameText(
         seasonName: season,

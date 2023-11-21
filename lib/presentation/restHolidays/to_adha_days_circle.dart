@@ -13,24 +13,24 @@ class ToAdhaDaysCircle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MediaQueryData mediaQuery = MediaQuery.of(context);
     final ColorScheme appColors = Theme.of(context).colorScheme;
-    final double circleWidgetSize = mediaQuery.size.width * 0.25;
+    final MediaQueryData mediaQuery = MediaQuery.of(context);
+    final double screenWidth = mediaQuery.size.width;
     final RestTimeState timeState = Provider.of<RestTimeState>(context);
     return Flexible(
       child: CircleAvatar(
-        radius: circleWidgetSize / 6.5,
+        radius: screenWidth * 0.04,
         backgroundColor: timeState.currentHijriTime.hDay == dayNumber
             ? appColors.quaternaryColor
             : appColors.primaryColor,
         child: Center(
           child: Text(
             dayNumber.toString(),
-            style: const TextStyle(
-              fontSize: 15,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: screenWidth * 0.04,
               fontFamily: 'Nexa',
               fontWeight: FontWeight.bold,
-              color: Colors.white,
             ),
           ),
         ),

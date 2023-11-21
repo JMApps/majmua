@@ -14,15 +14,19 @@ class WhiteDayCircle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
+    final MediaQueryData mediaQuery = MediaQuery.of(context);
+    final double screenWidth = mediaQuery.size.width;
     final RestTimeState timeState = Provider.of<RestTimeState>(context);
     return CircleAvatar(
+      radius: screenWidth * 0.045,
       backgroundColor: dayIndex == timeState.currentHijriTime.hDay
           ? appColors.secondaryColor
           : appColors.primaryColor,
       child: Text(
         dayIndex.toString(),
-        style: const TextStyle(
+        style: TextStyle(
           color: Colors.white,
+          fontSize: screenWidth * 0.040,
           fontFamily: 'Nexa',
           fontWeight: FontWeight.bold,
         ),

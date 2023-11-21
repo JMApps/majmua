@@ -13,34 +13,32 @@ class MainWhiteDaysCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
+    final MediaQueryData mediaQuery = MediaQuery.of(context);
+    final double screenWidth = mediaQuery.size.width;
     final RestTimeState timeState = Provider.of<RestTimeState>(context);
     return Card(
       margin: EdgeInsets.zero,
       color: appColors.glass,
       shape: AppStyles.mainShapeMicro,
-      child: ListTile(
-        visualDensity: const VisualDensity(horizontal: -4),
-        title: Text(
-          timeState.currentHijriTime.hDay == 12
-              ? appLocale!.nearWhiteDays
-              : appLocale!.whiteDays,
-          textAlign: TextAlign.center,
-        ),
-        trailing: const Padding(
-          padding: AppStyles.mainMardingMicro,
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              SizedBox(width: 8),
-              WhiteDayCircle(dayIndex: 13),
-              SizedBox(width: 8),
-              WhiteDayCircle(dayIndex: 14),
-              SizedBox(width: 8),
-              WhiteDayCircle(dayIndex: 15),
-              SizedBox(width: 8),
-            ],
-          ),
+      child: Padding(
+        padding: AppStyles.mainMardingMini,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text(
+              timeState.currentHijriTime.hDay == 12
+                  ? appLocale!.nearWhiteDays
+                  : appLocale!.whiteDays,
+              style: TextStyle(
+                fontSize: screenWidth * 0.04,
+                fontFamily: 'Nexa',
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const WhiteDayCircle(dayIndex: 13),
+            const WhiteDayCircle(dayIndex: 14),
+            const WhiteDayCircle(dayIndex: 15),
+          ],
         ),
       ),
     );

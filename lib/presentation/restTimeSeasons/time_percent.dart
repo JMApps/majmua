@@ -22,56 +22,55 @@ class TimePercent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    final circleAvatarWidth = mediaQuery.size.width * 0.21;
+    final MediaQueryData mediaQuery = MediaQuery.of(context);
+    final double screenWidth = mediaQuery.size.width;
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final String pastTime = '${(percent - 100).toStringAsFixed(2)}%';
-    return SizedBox(
-      width: circleAvatarWidth,
-      height: circleAvatarWidth,
-      child: CircleAvatar(
-        backgroundColor: appColors.glass,
-        child: Padding(
-          padding: AppStyles.mainMardingMicro,
-          child: SleekCircularSlider(
-            initialValue: percent,
-            appearance: CircularSliderAppearance(
-              infoProperties: InfoProperties(
-                topLabelText: time,
-                topLabelStyle: TextStyle(
-                  fontSize: 11,
-                  color: appColors.onSurface,
-                  fontWeight: FontWeight.bold,
-                ),
-                modifier: percentageModifier,
-                mainLabelStyle: TextStyle(
-                  fontSize: 12,
-                  color: timeColor,
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.bold,
-                ),
-                bottomLabelText: pastTime,
-                bottomLabelStyle: const TextStyle(
-                  fontSize: 10,
-                  color: Colors.grey,
-                  fontFamily: 'Roboto',
-                ),
-              ),
-              customWidths: CustomSliderWidths(
-                progressBarWidth: 3,
-                trackWidth: 3,
-                handlerSize: 1,
-              ),
-              customColors: CustomSliderColors(
-                hideShadow: true,
-                progressBarColor: timeColor,
-                trackColor: timeColor.withOpacity(0.15),
-              ),
-              size: circleAvatarWidth,
-              spinnerMode: false,
-              animationEnabled: false,
+    return Container(
+      width: screenWidth * 0.22,
+      height: screenWidth * 0.22,
+      padding: AppStyles.mainMardingMicro,
+      decoration: BoxDecoration(
+        color: appColors.glass,
+        shape: BoxShape.circle
+      ),
+      child: SleekCircularSlider(
+        initialValue: percent,
+        appearance: CircularSliderAppearance(
+          infoProperties: InfoProperties(
+            topLabelText: time,
+            topLabelStyle: TextStyle(
+              fontSize: screenWidth * 0.027,
+              color: appColors.onSurface,
+              fontWeight: FontWeight.bold,
+            ),
+            modifier: percentageModifier,
+            mainLabelStyle: TextStyle(
+              fontSize: screenWidth * 0.03,
+              color: timeColor,
+              fontFamily: 'Roboto',
+              fontWeight: FontWeight.bold,
+            ),
+            bottomLabelText: pastTime,
+            bottomLabelStyle: TextStyle(
+              fontSize: screenWidth * 0.025,
+              color: Colors.grey,
+              fontFamily: 'Roboto',
             ),
           ),
+          customWidths: CustomSliderWidths(
+            progressBarWidth: screenWidth * 0.009,
+            trackWidth: screenWidth * 0.009,
+            handlerSize: screenWidth * 0.003,
+          ),
+          customColors: CustomSliderColors(
+            hideShadow: true,
+            progressBarColor: timeColor,
+            trackColor: timeColor.withOpacity(0.15),
+          ),
+          size: screenWidth * 0.22,
+          spinnerMode: false,
+          animationEnabled: false,
         ),
       ),
     );

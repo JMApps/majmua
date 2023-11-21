@@ -22,14 +22,14 @@ class YearMonthDayCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
-    final mediaQuery = MediaQuery.of(context).size.width;
-    final circleWidgetSize = mediaQuery * 0.15;
+    final MediaQueryData mediaQuery = MediaQuery.of(context);
+    final double screenWidth = mediaQuery.size.width;
     return Card(
       margin: EdgeInsets.zero,
       color: appColors.glass,
       shape: AppStyles.mainShapeMicro,
       child: SquareProgressIndicator(
-        height: circleWidgetSize,
+        height: screenWidth * 0.155,
         value: monthPercent,
         borderRadius: 8.5,
         startPosition: StartPosition.topCenter,
@@ -37,34 +37,54 @@ class YearMonthDayCard extends StatelessWidget {
         clockwise: true,
         color: dateColor,
         emptyStrokeColor: dateColor.withOpacity(0.25),
-        strokeWidth: 1.5,
-        emptyStrokeWidth: 1.5,
+        strokeWidth: screenWidth * 0.005,
+        emptyStrokeWidth: screenWidth * 0.005,
         strokeAlign: SquareStrokeAlign.center,
-        child: ListTile(
-          visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-          leading: CircleAvatar(
-            backgroundColor: dateColor,
-            child: Text(
-              '$day',
-              style: const TextStyle(
-                color: Colors.white,
-                fontFamily: 'Nexa',
-                fontWeight: FontWeight.bold,
+        child: Row(
+          children: [
+            const SizedBox(width: 8),
+            CircleAvatar(
+              radius: screenWidth * 0.045,
+              backgroundColor: dateColor,
+              child: Text(
+                '$day',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: screenWidth * 0.04,
+                  fontFamily: 'Nexa',
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
-          title: Text(
-            month,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
+            const SizedBox(width: 8),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Flexible(
+                    child: Text(
+                      month,
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.039,
+                        fontFamily: 'Nexa',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Flexible(
+                    child: Text(
+                      year,
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.039,
+                        fontFamily: 'Nexa',
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          subtitle: Text(
-            year,
-            style: const TextStyle(
-              fontFamily: 'Nexa',
-            ),
-          ),
+          ],
         ),
       ),
     );

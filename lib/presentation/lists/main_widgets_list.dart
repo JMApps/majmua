@@ -11,6 +11,7 @@ class MainWidgetsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
+      physics: ClampingScrollPhysics(),
       padding: AppStyles.mainMardingMicro,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

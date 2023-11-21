@@ -10,10 +10,12 @@ class SeasonNameText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final MediaQueryData mediaQuery = MediaQuery.of(context);
+    final double screenWidth = mediaQuery.size.width;
     return Text(
       seasonName,
-      style: const TextStyle(
-        fontSize: 12.5,
+      style: TextStyle(
+        fontSize: screenWidth * 0.035,
         fontFamily: 'Nexa',
       ),
     );

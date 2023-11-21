@@ -34,8 +34,8 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
     super.didChangeAppLifecycleState(state);
 
     if (state == AppLifecycleState.resumed) {
-      context.read<RestTimeState>().changeNotifiers();
-      context.read<AdhanTimeState>().changeNotifiers();
+      Provider.of<RestTimeState>(context, listen: false).changeNotifiers();
+      Provider.of<AdhanTimeState>(context, listen: false).changeNotifiers();
     }
   }
 
@@ -51,11 +51,10 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
             'assets/pictures/${AppStyles.backgroundPictureNames[mainAppState.getBackgroundPictureIndex]}',
           ),
           fit: BoxFit.cover,
-          opacity: appTheme.brightness == Brightness.light ? 1 : 0.15,
+          opacity: appTheme.brightness == Brightness.light ? 1 : 0.25,
         ),
       ),
       child: Scaffold(
-        extendBodyBehindAppBar: true,
         backgroundColor: Colors.transparent,
         body: CustomScrollView(
           slivers: [
@@ -65,7 +64,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
               elevation: 0,
               centerTitle: true,
               pinned: false,
-              floating: false,
+              floating: true,
               actions: [
                 IconButton(
                   onPressed: () {

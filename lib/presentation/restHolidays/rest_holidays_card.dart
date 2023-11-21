@@ -13,6 +13,8 @@ class RestHolidaysCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
+    final MediaQueryData mediaQuery = MediaQuery.of(context);
+    final double screenWidth = mediaQuery.size.width;
     return Card(
       child: Padding(
         padding: AppStyles.mainMardingMini,
@@ -21,60 +23,96 @@ class RestHolidaysCard extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                ListTile(
-                  tileColor: appColors.glass,
+                Card(
+                  margin: EdgeInsets.zero,
+                  color: appColors.glass,
                   shape: AppStyles.topShapeMini,
-                  title: Text(
-                    !timeState.isRamadan
-                        ? !timeState.holidaysRamadan
-                            ? appLocale!.daysLeftUntilRamadan
-                            : appLocale!.happyRamadan
-                        : appLocale!.blessedRamadan,
-                    textAlign: timeState.holidaysRamadan
-                        ? TextAlign.center
-                        : TextAlign.start,
-                  ),
-                  trailing: CircleAvatar(
-                    radius: 22.5,
-                    backgroundColor: appColors.primaryColor,
-                    child: Text(
-                      !timeState.isRamadan
-                          ? timeState.getToRamadanDays.toString().substring(1)
-                          : timeState.currentHijriTime.hDay.toString(),
-                      style: const TextStyle(
-                        fontFamily: 'Nexa',
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  child: Padding(
+                    padding: AppStyles.mainMardingMini,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            !timeState.isRamadan
+                                ? !timeState.holidaysRamadan
+                                    ? appLocale!.daysLeftUntilRamadan
+                                    : appLocale!.happyRamadan
+                                : appLocale!.blessedRamadan,
+                            style: TextStyle(
+                              fontSize: screenWidth * 0.04,
+                              fontFamily: 'Nexa',
+                            ),
+                            textAlign: timeState.holidaysRamadan
+                                ? TextAlign.center
+                                : TextAlign.start,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        CircleAvatar(
+                          radius: screenWidth * 0.05,
+                          backgroundColor: appColors.primaryColor,
+                          child: Text(
+                            !timeState.isRamadan
+                                ? timeState.getToRamadanDays
+                                    .toString()
+                                    .substring(1)
+                                : timeState.currentHijriTime.hDay.toString(),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: screenWidth * 0.04,
+                              fontFamily: 'Nexa',
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
                 const SizedBox(height: 8),
-                ListTile(
-                  tileColor: appColors.glass,
+                Card(
+                  margin: EdgeInsets.zero,
+                  color: appColors.glass,
                   shape: AppStyles.bottomShapeMini,
-                  title: Text(
-                    !timeState.isNineDays
-                        ? !timeState.holidaysHijjah
-                            ? appLocale.daysLeftUntilAdha
-                            : appLocale.happyHijjah
-                        : appLocale.nineHijjah,
-                    textAlign: timeState.holidaysHijjah
-                        ? TextAlign.center
-                        : TextAlign.start,
-                  ),
-                  trailing: CircleAvatar(
-                    radius: 22.5,
-                    backgroundColor: appColors.secondaryColor,
-                    child: Text(
-                      !timeState.isNineDays
-                          ? timeState.getToHijjahDays.toString().substring(1)
-                          : timeState.currentHijriTime.hDay.toString(),
-                      style: const TextStyle(
-                        fontFamily: 'Nexa',
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  child: Padding(
+                    padding: AppStyles.mainMardingMini,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            !timeState.isNineDays
+                                ? !timeState.holidaysHijjah
+                                    ? appLocale.daysLeftUntilAdha
+                                    : appLocale.happyHijjah
+                                : appLocale.nineHijjah,
+                            style: TextStyle(
+                              fontSize: screenWidth * 0.04,
+                              fontFamily: 'Nexa',
+                            ),
+                            textAlign: timeState.holidaysHijjah
+                                ? TextAlign.center
+                                : TextAlign.start,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        CircleAvatar(
+                          radius: screenWidth * 0.05,
+                          backgroundColor: appColors.secondaryColor,
+                          child: Text(
+                            !timeState.isNineDays
+                                ? timeState.getToHijjahDays
+                                    .toString()
+                                    .substring(1)
+                                : timeState.currentHijriTime.hDay.toString(),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: screenWidth * 0.04,
+                              fontFamily: 'Nexa',
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

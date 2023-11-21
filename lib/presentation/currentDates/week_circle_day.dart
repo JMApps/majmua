@@ -17,15 +17,16 @@ class WeekCircleDay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context).size.width;
-    final circleWidgetSize = mediaQuery * 0.1;
+
     final ColorScheme appColors = Theme.of(context).colorScheme;
+    final MediaQueryData mediaQuery = MediaQuery.of(context);
+    final double screenWidth = mediaQuery.size.width;
     final RestTimeState timeState = Provider.of<RestTimeState>(context);
     final bool isCurrentDay = dayIndex == timeState.currentDateTime.weekday;
     final bool isFriday = dayIndex == 5;
     return Container(
-      width: circleWidgetSize,
-      height: circleWidgetSize,
+      width: isCurrentDay ? screenWidth * 0.11 : screenWidth * 0.09,
+      height: isCurrentDay ? screenWidth * 0.11 : screenWidth * 0.09,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: isCurrentDay
@@ -36,16 +37,16 @@ class WeekCircleDay extends StatelessWidget {
       ),
       child: isCurrentDay
           ? CircularPercentIndicator(
-              radius: circleWidgetSize * 0.45,
-              lineWidth: 1.5,
+              radius: isCurrentDay ? screenWidth * 0.05 : screenWidth * 0.04,
+              lineWidth: screenWidth * 0.006,
               circularStrokeCap: CircularStrokeCap.round,
               progressColor: appColors.primaryColor,
               backgroundColor: Colors.white70,
               percent: timeState.getElapsedDayPercentage() / 100,
               center: Text(
                 dayName,
-                style: const TextStyle(
-                  fontSize: 14,
+                style: TextStyle(
+                  fontSize: screenWidth * 0.040,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
@@ -55,8 +56,8 @@ class WeekCircleDay extends StatelessWidget {
           : Center(
               child: Text(
                 dayName,
-                style: const TextStyle(
-                  fontSize: 14,
+                style: TextStyle(
+                  fontSize: screenWidth * 0.035,
                   color: Colors.white,
                 ),
                 textAlign: TextAlign.center,

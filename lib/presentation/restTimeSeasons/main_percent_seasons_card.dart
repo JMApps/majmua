@@ -14,6 +14,8 @@ class MainPercentSeasonsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
+    final MediaQueryData mediaQuery = MediaQuery.of(context);
+    final double screenWidth = mediaQuery.size.width;
     return Card(
       child: Padding(
         padding: AppStyles.mainMardingMini,
@@ -30,8 +32,8 @@ class MainPercentSeasonsCard extends StatelessWidget {
                     padding: AppStyles.mainMardingMicro,
                     child: Text(
                       appLocale!.appSlogan,
-                      style: const TextStyle(
-                        fontSize: 16,
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.045,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Nexa',
                       ),
