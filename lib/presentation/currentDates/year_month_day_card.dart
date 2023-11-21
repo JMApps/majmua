@@ -42,7 +42,7 @@ class YearMonthDayCard extends StatelessWidget {
         strokeAlign: SquareStrokeAlign.center,
         child: Row(
           children: [
-            const SizedBox(width: 8),
+            SizedBox(width: screenWidth * 0.02),
             CircleAvatar(
               radius: screenWidth * 0.045,
               backgroundColor: dateColor,
@@ -56,7 +56,7 @@ class YearMonthDayCard extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(width: 8),
+            SizedBox(width: screenWidth * 0.02),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

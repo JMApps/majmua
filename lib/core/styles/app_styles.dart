@@ -135,6 +135,9 @@ class AppStyles {
     'first_background.jpg',
     'second_background.jpg',
     'third_background.jpg',
+    'fourth_background.jpg',
+    'fifth_background.jpg',
+    'sixth_background.jpg'
   ];
 
   static const Map<String, Map<String, Map<int, String>>> _localNames = {

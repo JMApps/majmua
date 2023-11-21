@@ -46,8 +46,9 @@ class WeekCircleDay extends StatelessWidget {
               center: Text(
                 dayName,
                 style: TextStyle(
-                  fontSize: screenWidth * 0.040,
                   color: Colors.white,
+                  fontSize: screenWidth * 0.040,
+                  fontFamily: 'Nexa',
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
@@ -57,8 +58,9 @@ class WeekCircleDay extends StatelessWidget {
               child: Text(
                 dayName,
                 style: TextStyle(
-                  fontSize: screenWidth * 0.035,
                   color: Colors.white,
+                  fontFamily: 'Nexa',
+                  fontSize: screenWidth * 0.035,
                 ),
                 textAlign: TextAlign.center,
               ),

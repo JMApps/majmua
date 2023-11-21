@@ -47,15 +47,13 @@ class RestHolidaysCard extends StatelessWidget {
                                 : TextAlign.start,
                           ),
                         ),
-                        const SizedBox(width: 8),
+                        SizedBox(width: screenWidth * 0.02),
                         CircleAvatar(
                           radius: screenWidth * 0.05,
                           backgroundColor: appColors.primaryColor,
                           child: Text(
                             !timeState.isRamadan
-                                ? timeState.getToRamadanDays
-                                    .toString()
-                                    .substring(1)
+                                ? timeState.getToRamadanDays.toString().substring(1)
                                 : timeState.currentHijriTime.hDay.toString(),
                             style: TextStyle(
                               color: Colors.white,
@@ -100,9 +98,7 @@ class RestHolidaysCard extends StatelessWidget {
                           backgroundColor: appColors.secondaryColor,
                           child: Text(
                             !timeState.isNineDays
-                                ? timeState.getToHijjahDays
-                                    .toString()
-                                    .substring(1)
+                                ? timeState.getToHijjahDays.toString().substring(1)
                                 : timeState.currentHijriTime.hDay.toString(),
                             style: TextStyle(
                               color: Colors.white,

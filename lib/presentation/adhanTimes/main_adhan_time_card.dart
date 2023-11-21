@@ -188,6 +188,7 @@ class MainAdhanTimeCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Card(
                       margin: EdgeInsets.zero,
@@ -211,9 +212,9 @@ class MainAdhanTimeCard extends StatelessWidget {
                                 text: DateFormat.Hm().format(adhanTimeState.getMidnight),
                                 style: TextStyle(
                                   color: appColors.primaryColor,
-                                  fontSize: screenWidth * 0.04,
+                                  fontSize: screenWidth * 0.038,
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: 'Roboto',
+                                  fontFamily: 'Nexa',
                                 ),
                               ),
                             ],
@@ -246,9 +247,9 @@ class MainAdhanTimeCard extends StatelessWidget {
                                   text: DateFormat.Hm().format(adhanTimeState.getThirdNightPart),
                                   style: TextStyle(
                                     color: appColors.secondaryColor,
-                                    fontSize: screenWidth * 0.04,
+                                    fontSize: screenWidth * 0.038,
                                     fontWeight: FontWeight.bold,
-                                    fontFamily: 'Roboto',
+                                    fontFamily: 'Nexa',
                                   ),
                                 ),
                               ],
