@@ -88,7 +88,7 @@ class AppThemes {
 extension ColorSchemeS on ColorScheme {
   Color get primaryColor => brightness == Brightness.light
       ? const Color(0xFF3F51B5)
-      : const Color(0xBF303F9F);
+      : const Color(0xFF3949AB);
 
   Color get secondaryColor => brightness == Brightness.light
       ? const Color(0xFF009688)

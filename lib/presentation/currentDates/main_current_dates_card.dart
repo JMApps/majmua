@@ -100,7 +100,7 @@ class MainCurrentDatesCard extends StatelessWidget {
                                     ? screenWidth * 0.23
                                     : screenWidth * 0.24,
                                 color: timeState.currentDateTime.weekday != 5
-                                    ? appColors.primaryColor
+                                    ? appColors.primary
                                     : appColors.quaternaryColor,
                               ),
                             ),
