@@ -3,11 +3,13 @@ import 'package:majmua/core/styles/app_styles.dart';
 
 class AppThemes {
   static ThemeData lightTheme = ThemeData(
+    fontFamily: 'Nexa',
+    useMaterial3: false,
+    scaffoldBackgroundColor: const Color(0xFFE8EAF6),
     colorScheme: ColorScheme.fromSeed(
       brightness: Brightness.light,
       seedColor: const Color(0xFF3F51B5),
     ),
-    fontFamily: 'Next',
     appBarTheme: const AppBarTheme(
       shape: AppStyles.bottomShape,
       centerTitle: true,
@@ -44,11 +46,13 @@ class AppThemes {
   );
 
   static ThemeData darkTheme = ThemeData(
+    fontFamily: 'Nexa',
+    useMaterial3: false,
+    scaffoldBackgroundColor: const Color(0xD9171821),
     colorScheme: ColorScheme.fromSeed(
       brightness: Brightness.dark,
       seedColor: const Color(0xD93F51B5),
     ),
-    fontFamily: 'Next',
     appBarTheme: const AppBarTheme(
       shape: AppStyles.bottomShape,
       centerTitle: true,
@@ -92,7 +96,7 @@ extension ColorSchemeS on ColorScheme {
 
   Color get secondaryColor => brightness == Brightness.light
       ? const Color(0xFF009688)
-      : const Color(0xBF00796B);
+      : const Color(0xFF00897B);
 
   Color get tertiaryColor => brightness == Brightness.light
       ? const Color(0xFFFF9800)
