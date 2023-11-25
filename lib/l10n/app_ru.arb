@@ -25,6 +25,10 @@
   "isha": "'Иша",
 
   "adhanParams": "Параметры",
+  "selectedCity": "Выбранный город:",
+  "coordinates": "Координаты",
+  "latitude": "Долгота: ",
+  "longitude": "Широта: ",
 
   "midnight": "Полночь: ",
   "thirdPart": "Последняя ⅓ ночи: ",
