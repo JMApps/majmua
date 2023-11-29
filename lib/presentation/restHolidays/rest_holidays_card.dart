@@ -40,7 +40,6 @@ class RestHolidaysCard extends StatelessWidget {
                                 : appLocale!.blessedRamadan,
                             style: TextStyle(
                               fontSize: screenWidth * 0.04,
-                              fontFamily: 'Nexa',
                             ),
                             textAlign: timeState.holidaysRamadan
                                 ? TextAlign.center
@@ -58,7 +57,7 @@ class RestHolidaysCard extends StatelessWidget {
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: screenWidth * 0.04,
-                              fontFamily: 'Nexa',
+                              fontFamily: 'Helvetica Neue',
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -85,7 +84,6 @@ class RestHolidaysCard extends StatelessWidget {
                                 : appLocale.nineHijjah,
                             style: TextStyle(
                               fontSize: screenWidth * 0.04,
-                              fontFamily: 'Nexa',
                             ),
                             textAlign: timeState.holidaysHijjah
                                 ? TextAlign.center
@@ -103,7 +101,7 @@ class RestHolidaysCard extends StatelessWidget {
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: screenWidth * 0.04,
-                              fontFamily: 'Nexa',
+                              fontFamily: 'Helvetica Neue',
                               fontWeight: FontWeight.bold,
                             ),
                           ),

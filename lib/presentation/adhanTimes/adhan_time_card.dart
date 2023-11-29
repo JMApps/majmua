@@ -56,7 +56,6 @@ class AdhanTimeCard extends StatelessWidget {
                       prayerModel.prayerName,
                       style: TextStyle(
                         fontSize: screenWidth * 0.04,
-                        fontFamily: 'Nexa',
                         color: appColors.onSurface.withOpacity(0.75),
                         fontWeight: isRemainingTime || isPrayer || isPastTime ? FontWeight.bold : FontWeight.normal,
                       ),
@@ -67,7 +66,7 @@ class AdhanTimeCard extends StatelessWidget {
                         DateFormat.Hm().format(prayerModel.prayerTime),
                         style: TextStyle(
                           fontSize: screenWidth * 0.04,
-                          fontFamily: 'Nexa',
+                          fontFamily: 'Helvetica Neue',
                           fontWeight: FontWeight.bold,
                         ),
                         textAlign: TextAlign.start,
@@ -133,7 +132,7 @@ class AdhanTimeCard extends StatelessWidget {
                         '–${DateFormat.m().format(prayerModel.beforePrayerTime)}',
                         style: TextStyle(
                           fontSize: screenWidth * 0.04,
-                          fontFamily: 'Nexa',
+                          fontFamily: 'Helvetica Neue',
                           fontWeight: FontWeight.bold,
                           color: appColors.error,
                         ),
@@ -148,7 +147,7 @@ class AdhanTimeCard extends StatelessWidget {
                         DateFormat.m().format(prayerModel.afterPrayerTime),
                         style: TextStyle(
                           fontSize: screenWidth * 0.035,
-                          fontFamily: 'Nexa',
+                          fontFamily: 'Helvetica Neue',
                           fontWeight: FontWeight.bold,
                           color: appColors.primaryColor,
                         ),

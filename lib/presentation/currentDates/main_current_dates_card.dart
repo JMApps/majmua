@@ -120,8 +120,8 @@ class MainCurrentDatesCard extends StatelessWidget {
                                 child: Text(
                                   '0',
                                   style: TextStyle(
-                                    fontSize: screenWidth * 0.035,
-                                    fontFamily: 'Nexa',
+                                    fontSize: screenWidth * 0.04,
+                                    fontFamily: 'Helvetica Neue',
                                     fontWeight: FontWeight.bold,
                                   ),
                                   maxLines: 1,

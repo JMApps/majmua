@@ -42,21 +42,20 @@ class TimePercent extends StatelessWidget {
             topLabelStyle: TextStyle(
               color: appColors.onSurface,
               fontSize: screenWidth * 0.032,
-              fontFamily: 'Nexa',
               fontWeight: FontWeight.bold,
             ),
             modifier: percentageModifier,
             mainLabelStyle: TextStyle(
               fontSize: screenWidth * 0.03,
               color: timeColor,
-              fontFamily: 'Roboto',
+              fontFamily: 'Helvetica Neue',
               fontWeight: FontWeight.bold,
             ),
             bottomLabelText: pastTime,
             bottomLabelStyle: TextStyle(
               fontSize: screenWidth * 0.025,
               color: Colors.grey,
-              fontFamily: 'Roboto',
+              fontFamily: 'Helvetica Neue',
             ),
           ),
           customWidths: CustomSliderWidths(

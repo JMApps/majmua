@@ -31,7 +31,6 @@ class MainWhiteDaysCard extends StatelessWidget {
                   : appLocale!.whiteDays,
               style: TextStyle(
                 fontSize: screenWidth * 0.04,
-                fontFamily: 'Nexa',
               ),
               textAlign: TextAlign.center,
             ),

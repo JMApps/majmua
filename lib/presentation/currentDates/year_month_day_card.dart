@@ -51,7 +51,7 @@ class YearMonthDayCard extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: screenWidth * 0.04,
-                  fontFamily: 'Nexa',
+                  fontFamily: 'Helvetica Neue',
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -67,7 +67,6 @@ class YearMonthDayCard extends StatelessWidget {
                       month,
                       style: TextStyle(
                         fontSize: screenWidth * 0.039,
-                        fontFamily: 'Nexa',
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -77,7 +76,7 @@ class YearMonthDayCard extends StatelessWidget {
                       year,
                       style: TextStyle(
                         fontSize: screenWidth * 0.039,
-                        fontFamily: 'Nexa',
+                        fontFamily: 'Helvetica Neue',
                       ),
                     ),
                   ),
