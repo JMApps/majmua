@@ -59,6 +59,7 @@ flutter:
   generate: true
 
   assets:
+    - assets/databases/
     - assets/fonts/
     - assets/pictures/
     - assets/icons/
@@ -73,6 +74,6 @@ flutter:
     - family: 'Gilroy'
       fonts:
         - asset: assets/fonts/gilroy_regular.ttf
-    - family: 'Helvetica Neue'
+    - family: 'Bitter'
       fonts:
-        - asset: assets/fonts/helvetica_neue.ttf
+        - asset: assets/fonts/bitter_medium.ttf
