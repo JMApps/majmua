@@ -32,7 +32,7 @@ class WeekCircleDay extends StatelessWidget {
         color: isCurrentDay
             ? isFriday
                 ? appColors.quaternaryColor
-                : appColors.tertiaryColor
+                : appColors.secterColor
             : appColors.primaryColor,
       ),
       child: isCurrentDay
@@ -40,7 +40,7 @@ class WeekCircleDay extends StatelessWidget {
               radius: isCurrentDay ? screenWidth * 0.05 : screenWidth * 0.04,
               lineWidth: screenWidth * 0.006,
               circularStrokeCap: CircularStrokeCap.round,
-              progressColor: appColors.primary,
+              progressColor: appColors.inverseSurface,
               backgroundColor: appColors.glass,
               percent: timeState.getElapsedDayPercentage() / 100,
               center: Text(

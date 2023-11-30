@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
-import 'package:majmua/core/strings/app_constraints.dart';
+import 'package:majmua/core/routes/route_names.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/adhanTimes/adhan_time_card.dart';
@@ -34,7 +34,7 @@ class MainAdhanTimeCard extends StatelessWidget {
                     Expanded(
                       child: ListTile(
                         onTap: () {
-                          Navigator.pushNamed(context, AppConstraints.adhanParamsPageRouteName);
+                          Navigator.pushNamed(context, RouteNames.adhanParamsPage);
                         },
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         tileColor: appColors.glass,
