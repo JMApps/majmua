@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:majmua/core/routes/route_names.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/lists/main_widgets_list.dart';
@@ -68,7 +69,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
               actions: [
                 IconButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/notifications_page');
+                    Navigator.pushNamed(context, RouteNames.notificationParamsPage);
                   },
                   tooltip: appLocale.notifications,
                   splashRadius: 20,

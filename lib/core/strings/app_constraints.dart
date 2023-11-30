@@ -65,8 +65,4 @@ class AppConstraints {
   static const keyCounterVibrate = 'key_counter_vibrate';
   static const keyCounterClick = 'key_counter_click';
   static const keyCountValueShow = 'key_count_value_show';
-
-  // Route names
-  static const notificationsPageRouteName = '/notifications_page';
-  static const adhanParamsPageRouteName = '/adhan_params_page';
 }

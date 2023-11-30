@@ -36,6 +36,12 @@
   "timeOffset": "Часовой пояс",
   "defaultOffset": "По умолчанию",
 
+  "selectCity": "Выбрать город",
+  "addCity": "Добавить свой город",
+  "prayerTimeAdjustment": "Корректировка минут",
+  "qublaDirection": "Направление Киблы",
+  "information": "Информация",
+
   "midnight": "Полночь: ",
   "thirdPart": "Последняя ⅓ ночи: ",
 

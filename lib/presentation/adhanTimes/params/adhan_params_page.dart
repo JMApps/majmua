@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:majmua/core/routes/route_names.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/adhanTimes/params/ars_time_madhab.dart';
 import 'package:majmua/presentation/adhanTimes/params/calculation_methods.dart';
 import 'package:majmua/presentation/adhanTimes/params/city_coordinates.dart';
+import 'package:majmua/presentation/adhanTimes/params/param_button.dart';
 import 'package:majmua/presentation/adhanTimes/params/time_offset_params.dart';
 import 'package:majmua/presentation/widgets/description_params_text.dart';
 
@@ -48,6 +50,27 @@ class AdhanParamsPage extends StatelessWidget {
                     DescriptionParamsText(text: appLocale.timeOffset),
                     const SizedBox(height: 8),
                     const TimeOffsetParams(),
+                    const SizedBox(height: 8),
+                    ParamButton(
+                      description: appLocale.selectCity,
+                      routeName: RouteNames.selectCityPage,
+                    ),
+                    ParamButton(
+                      description: appLocale.addCity,
+                      routeName: RouteNames.addCityPage,
+                    ),
+                    ParamButton(
+                      description: appLocale.prayerTimeAdjustment,
+                      routeName: RouteNames.prayerTimeAdjustmentPage,
+                    ),
+                    ParamButton(
+                      description: appLocale.qublaDirection,
+                      routeName: RouteNames.qublaDirectionPage,
+                    ),
+                    ParamButton(
+                      description: appLocale.information,
+                      routeName: RouteNames.informationPage,
+                    ),
                     const SizedBox(height: 8),
                   ],
                 ),
