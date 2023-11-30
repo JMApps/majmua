@@ -98,6 +98,10 @@ extension ColorSchemeS on ColorScheme {
       ? const Color(0xFF009688)
       : const Color(0xFF00897B);
 
+  Color get secterColor => brightness == Brightness.light
+      ? const Color(0xFF009688)
+      : const Color(0xBFF57C00);
+
   Color get tertiaryColor => brightness == Brightness.light
       ? const Color(0xFFFF9800)
       : const Color(0xBFF57C00);

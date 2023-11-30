@@ -89,7 +89,7 @@ class AdhanTimeCard extends StatelessWidget {
                         child: Icon(
                           Icons.mosque,
                           size: screenWidth * 0.04,
-                          color: appColors.secondaryColor,
+                          color: appColors.secterColor,
                         ),
                       ),
                     ),
@@ -104,7 +104,7 @@ class AdhanTimeCard extends StatelessWidget {
                         child: Icon(
                           CupertinoIcons.sunrise,
                           size: screenWidth * 0.05,
-                          color: appColors.secondaryColor,
+                          color: appColors.secterColor,
                         ),
                       ),
                     ),
@@ -112,17 +112,17 @@ class AdhanTimeCard extends StatelessWidget {
                   SupplicationIsShow(
                     isShow: prayerModel.isMorning && prayerModel.prayerIndex == Prayer.fajr,
                     supplicationsId: 26,
-                    iconColor: appColors.secondaryColor,
+                    iconColor: appColors.secterColor,
                   ),
                   SupplicationIsShow(
                     isShow: prayerModel.isEvening && prayerModel.prayerIndex == Prayer.asr,
                     supplicationsId: 27,
-                    iconColor: appColors.secondaryColor,
+                    iconColor: appColors.secterColor,
                   ),
                   SupplicationIsShow(
                     isShow: prayerModel.isNight && prayerModel.prayerIndex == Prayer.isha,
                     supplicationsId: 28,
-                    iconColor: appColors.secondaryColor,
+                    iconColor: appColors.secterColor,
                   ),
                   Visibility(
                     visible: isRemainingTime,
