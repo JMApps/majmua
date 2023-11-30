@@ -37,10 +37,16 @@
   "defaultOffset": "По умолчанию",
 
   "selectCity": "Выбрать город",
+  "searchByCitiesAndCountries": "Поиск по городам и странам...",
   "addCity": "Добавить свой город",
   "prayerTimeAdjustment": "Корректировка минут",
   "qublaDirection": "Направление Киблы",
   "information": "Информация",
+
+  "startSearch": "Начните поиск...",
+  "queryIsEmpty": "По вашему запросу ничего не найдено",
+  "select": "Выбрать",
+  "cancel": "Отмена",
 
   "midnight": "Полночь: ",
   "thirdPart": "Последняя ⅓ ночи: ",
