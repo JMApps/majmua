@@ -284,9 +284,9 @@ class AppStyles {
     2: "Second daily message",
     3: "Third daily message",
     4: "Fourth daily message",
-    5: "Fiveth daily message",
-    6: "Sextinth daily message",
-    7: "Seventinth daily message"
+    5: "Fifth daily message",
+    6: "Sixth daily message",
+    7: "Seventh daily message"
   };
 
   static const Map<int, String> enDailyLongMessages = {
@@ -294,9 +294,9 @@ class AppStyles {
     2: "Second big daily message",
     3: "Third big daily message",
     4: "Fourth big daily message",
-    5: "Fiveth big daily message",
-    6: "Sextinth big daily message",
-    7: "Seventinth big daily message"
+    5: "Fifth big daily message",
+    6: "Sixth big daily message",
+    7: "Seventh big daily message"
   };
 
   static const int monIndex = 1;
@@ -347,6 +347,23 @@ class AppStyles {
     CalculationMethod.qatar,
     CalculationMethod.turkey,
     CalculationMethod.singapore,
+  ];
+
+  static const List<String> prayerCalculationNames = [
+    'Umm al-Qura',
+    'North America (ISNA)',
+    'Russia',
+    'Tatarstan',
+    'France',
+    'Dubai',
+    'Egyptian',
+    'Karachi',
+    'Kuwait',
+    'Moon sighting committee (MSC)',
+    'Muslim world league (MWL)',
+    'Qatar',
+    'Turkey',
+    'Singapore',
   ];
 
   static final List<Duration> calculationUtcOffset = [

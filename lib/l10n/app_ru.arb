@@ -29,6 +29,12 @@
   "coordinates": "Координаты",
   "latitude": "Долгота: ",
   "longitude": "Широта: ",
+  "calculationMethod": "Метод расчёта времени молитв",
+  "asrMadhabMethod": "Метод расчёта молитвы аср",
+  "shafii": "Шафии",
+  "hanafi": "Ханафи",
+  "timeOffset": "Часовой пояс",
+  "defaultOffset": "По умолчанию",
 
   "midnight": "Полночь: ",
   "thirdPart": "Последняя ⅓ ночи: ",
