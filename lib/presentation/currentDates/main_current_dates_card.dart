@@ -118,11 +118,12 @@ class MainCurrentDatesCard extends StatelessWidget {
                               child: SizedBox(
                                 width: screenWidth * 0.22,
                                 child: Text(
-                                  '0',
+                                  '1223312',
                                   style: TextStyle(
                                     fontSize: screenWidth * 0.04,
-                                    fontFamily: 'Helvetica Neue',
+                                    fontFamily: 'Bitter',
                                     fontWeight: FontWeight.bold,
+                                    letterSpacing: 1
                                   ),
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,

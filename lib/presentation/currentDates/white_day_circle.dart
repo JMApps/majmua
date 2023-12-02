@@ -27,7 +27,7 @@ class WhiteDayCircle extends StatelessWidget {
         style: TextStyle(
           color: Colors.white,
           fontSize: screenWidth * 0.040,
-          fontFamily: 'Helvetica Neue',
+          fontFamily: 'Bitter',
           fontWeight: FontWeight.bold,
         ),
       ),

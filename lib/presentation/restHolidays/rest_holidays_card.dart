@@ -57,7 +57,7 @@ class RestHolidaysCard extends StatelessWidget {
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: screenWidth * 0.04,
-                              fontFamily: 'Helvetica Neue',
+                              fontFamily: 'Bitter',
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -101,7 +101,7 @@ class RestHolidaysCard extends StatelessWidget {
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: screenWidth * 0.04,
-                              fontFamily: 'Helvetica Neue',
+                              fontFamily: 'Bitter',
                               fontWeight: FontWeight.bold,
                             ),
                           ),
