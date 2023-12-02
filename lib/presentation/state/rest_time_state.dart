@@ -64,15 +64,15 @@ class RestTimeState extends ChangeNotifier {
   int get getToHijjahDays => _toHijjahDays();
 
   double getElapsedDayPercentage() {
-    final startOfDay = DateTime(_currentDateTime.year, _currentDateTime.month, _currentDateTime.day, 0, 0, 0);
-    final elapsedTime = _currentDateTime.difference(startOfDay);
+    final startOfDay = DateTime(_currentDateTime.year, _currentDateTime.month, _currentDateTime.day);
+    final elapsedTime = _currentDateTime.difference(startOfDay).inMinutes;
     final totalMinutesInDay = const Duration(hours: 24).inMinutes;
-    final elapsedTimePercentage = (elapsedTime.inMinutes / totalMinutesInDay) * 100.0;
+    final elapsedTimePercentage = (elapsedTime / totalMinutesInDay) * 100.0;
     return elapsedTimePercentage;
   }
 
   double getElapsedWeekPercentage() {
-    final startOfWeek = DateTime(_currentDateTime.year, _currentDateTime.month, _currentDateTime.day - _currentDateTime.weekday + 1, 0, 0, 0);
+    final startOfWeek = DateTime(_currentDateTime.year, _currentDateTime.month, _currentDateTime.day - _currentDateTime.weekday + 1);
     final elapsedMinutes = _currentDateTime.difference(startOfWeek).inMinutes;
     final totalMinutesInWeek = const Duration(days: 7).inMinutes;
     final elapsedWeekPercentage = (elapsedMinutes / totalMinutesInWeek) * 100.0;
@@ -82,7 +82,7 @@ class RestTimeState extends ChangeNotifier {
   double getElapsedMonthPercentage() {
     final startOfMonth = DateTime(_currentDateTime.year, _currentDateTime.month, 1, 0, 0, 0);
     final elapsedMinutes = _currentDateTime.difference(startOfMonth).inMinutes;
-    final totalMinutesInMonth = DateTime(_currentDateTime.year, _currentDateTime.month + 1, 0).day * 24 * 60;
+    final totalMinutesInMonth = Duration(days: daysInMonth(_currentDateTime.year, _currentDateTime.month)).inMinutes;
     final elapsedMonthPercentage = (elapsedMinutes / totalMinutesInMonth) * 100.0;
     return elapsedMonthPercentage;
   }
@@ -100,10 +100,9 @@ class RestTimeState extends ChangeNotifier {
   }
 
   double getElapsedYearPercentage() {
-    final startOfYear = DateTime(_currentDateTime.year, 1, 1, 0, 0, 0);
+    final startOfYear = DateTime(_currentDateTime.year);
     final elapsedMinutes = _currentDateTime.difference(startOfYear).inMinutes;
     final totalMinutesInYear = isLeapYear(_currentDateTime.year) ? 366 * 24 * 60 : 365 * 24 * 60;
-
     final elapsedYearPercentage = (elapsedMinutes / totalMinutesInYear) * 100.0;
     return elapsedYearPercentage;
   }
@@ -139,36 +138,37 @@ class RestTimeState extends ChangeNotifier {
     return currentSeason;
   }
 
-  double getElapsedSeasonPercentage(Season targetSeason) {
-    int startMonth;
-    int endMonth;
+  double getElapsedSeasonPercentage(Season currentSeason) {
 
-    switch(targetSeason) {
+    final int startSeasonMonth;
+    final int endSeasonMonth;
+
+    switch(currentSeason) {
       case Season.spring:
-        startMonth = 3;
-        endMonth = 5;
+        startSeasonMonth = 3;
+        endSeasonMonth = 5;
         break;
       case Season.summer:
-        startMonth = 6;
-        endMonth = 8;
+        startSeasonMonth = 6;
+        endSeasonMonth = 8;
         break;
       case Season.fall:
-        startMonth = 9;
-        endMonth = 11;
+        startSeasonMonth = 9;
+        endSeasonMonth = 11;
         break;
       case Season.winter:
-        startMonth = 12;
-        endMonth = 2;
+        startSeasonMonth = 12;
+        endSeasonMonth = 2;
         break;
     }
 
-    DateTime startOfSeason = DateTime(_currentDateTime.year, startMonth, 1);
-    DateTime endOfSeason = DateTime(_currentDateTime.year, endMonth, daysInMonth(_currentDateTime.year, endMonth));
+    final startOfSeason = DateTime(_currentDateTime.year, startSeasonMonth, 1);
+    final elapsedTime = _currentDateTime.difference(startOfSeason).inMinutes;
+    final endOfSeason = DateTime(_currentDateTime.year + 1, endSeasonMonth + 1, 0);
+    final totalSeasonTime = endOfSeason.difference(startOfSeason).inMinutes;
 
-    final elapsed = _currentDateTime.difference(startOfSeason).inMilliseconds;
-    final total = endOfSeason.difference(startOfSeason).inMilliseconds;
-
-    return (elapsed / total);
+    final elapsedTimePercentage = (elapsedTime / totalSeasonTime);
+    return elapsedTimePercentage;
   }
 
   int daysInMonth(int year, int month) {
