@@ -18,7 +18,6 @@ class InfoDataText extends StatelessWidget {
           infoText,
           style: const TextStyle(
             fontSize: 18,
-            fontWeight: FontWeight.bold,
           ),
           textAlign: TextAlign.center,
         ),

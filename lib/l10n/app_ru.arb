@@ -37,8 +37,10 @@
   "defaultOffset": "По умолчанию",
 
   "selectCity": "Выбрать город",
+  "addCity": "Добавить город",
+  "customCitiesIsEmpty": "Вы не добавили ни одного города",
   "searchByCitiesAndCountries": "Поиск по городам и странам...",
-  "addCity": "Добавить свой город",
+  "addMyCity": "Добавить свой город",
   "prayerTimeAdjustment": "Корректировка минут",
   "qublaDirection": "Направление Киблы",
   "information": "Информация",

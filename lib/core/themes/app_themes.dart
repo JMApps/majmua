@@ -12,6 +12,7 @@ class AppThemes {
     ),
     appBarTheme: const AppBarTheme(
       shape: AppStyles.bottomShape,
+      backgroundColor: Color(0xFF3F51B5),
       centerTitle: true,
       elevation: 0,
       titleTextStyle: TextStyle(
@@ -55,6 +56,7 @@ class AppThemes {
     ),
     appBarTheme: const AppBarTheme(
       shape: AppStyles.bottomShape,
+      backgroundColor: Color(0xD93F51B5),
       centerTitle: true,
       elevation: 0,
       titleTextStyle: TextStyle(
@@ -106,7 +108,7 @@ extension ColorSchemeS on ColorScheme {
       ? const Color(0xFFFF9800)
       : const Color(0xBFF57C00);
 
-Color get quaternaryColor => brightness == Brightness.light
+  Color get quaternaryColor => brightness == Brightness.light
       ? const Color(0xFFF44336)
       : const Color(0xBFD32F2F);
 
