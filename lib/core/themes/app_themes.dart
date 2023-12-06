@@ -25,6 +25,17 @@ class AppThemes {
       elevation: 0,
       color: Color(0xD9E8EAF6),
     ),
+    inputDecorationTheme: const InputDecorationTheme(
+      contentPadding: AppStyles.mardingHorizontal,
+      alignLabelWithHint: true,
+      floatingLabelAlignment: FloatingLabelAlignment.center,
+      border: OutlineInputBorder(
+        borderRadius: AppStyles.mainBorderRadius,
+        borderSide: BorderSide(
+          width: 0.5,
+        ),
+      ),
+    ),
     bottomSheetTheme: const BottomSheetThemeData(
       showDragHandle: true,
       backgroundColor: Color(0xD9E8EAF6),
@@ -69,6 +80,17 @@ class AppThemes {
       elevation: 0,
       color: Color(0xD9171821),
     ),
+    inputDecorationTheme: const InputDecorationTheme(
+      contentPadding: AppStyles.mardingHorizontal,
+      alignLabelWithHint: true,
+      floatingLabelAlignment: FloatingLabelAlignment.center,
+      border: OutlineInputBorder(
+        borderRadius: AppStyles.mainBorderRadius,
+        borderSide: BorderSide(
+          width: 0.5,
+        ),
+      ),
+    ),
     bottomSheetTheme: const BottomSheetThemeData(
       showDragHandle: true,
       backgroundColor: Color(0xD9171821),
@@ -109,7 +131,7 @@ extension ColorSchemeS on ColorScheme {
       : const Color(0xBFF57C00);
 
   Color get quaternaryColor => brightness == Brightness.light
-      ? const Color(0xFFF44336)
+      ? const Color(0xFFEF5350)
       : const Color(0xBFD32F2F);
 
   Color get glass => brightness == Brightness.light

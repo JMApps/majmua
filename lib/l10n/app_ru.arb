@@ -2,9 +2,7 @@
   "@@locale": "ru",
 
   "appName": "Полка мусульманина",
-
   "notifications": "Уведомления",
-
   "appSlogan": "Уходят дни – уходит часть тебя",
 
   "day": "День",
@@ -27,8 +25,8 @@
   "adhanParams": "Параметры",
   "selectedCity": "Выбранный город:",
   "coordinates": "Координаты",
-  "latitude": "Долгота: ",
-  "longitude": "Широта: ",
+  "latitude": "Широта: ",
+  "longitude": "Долгота: ",
   "calculationMethod": "Метод расчёта времени молитв",
   "asrMadhabMethod": "Метод расчёта молитвы аср",
   "shafii": "Шафии",
@@ -38,6 +36,18 @@
 
   "selectCity": "Выбрать город",
   "addCity": "Добавить город",
+  "country": "Страна",
+  "countryName": "Саудовская Аравия",
+  "inputCountryName": "Введите название страны",
+  "city": "Город",
+  "cityName": "Мекка",
+  "cityAdded": "Город добавлен",
+  "cityChanged": "Город изменён",
+  "cityDeleted": "Город удалён",
+  "inputCityName": "Введите название города",
+  "inputLatitude": "Введите широту",
+  "inputLongitude": "Введите долготу",
+  "addCityInformation": "Вводите корректные данные, например:",
   "customCitiesIsEmpty": "Вы не добавили ни одного города",
   "searchByCitiesAndCountries": "Поиск по городам и странам...",
   "addMyCity": "Добавить свой город",
@@ -47,6 +57,10 @@
 
   "startSearch": "Начните поиск...",
   "queryIsEmpty": "По вашему запросу ничего не найдено",
+
+  "add": "Добавить",
+  "change": "Изменить",
+  "delete": "Удалить",
   "select": "Выбрать",
   "cancel": "Отмена",
 
