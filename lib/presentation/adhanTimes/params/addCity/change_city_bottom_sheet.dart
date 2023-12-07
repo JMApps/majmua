@@ -3,9 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/data/repositories/custom_cities_data_repository.dart';
 import 'package:majmua/domain/entities/custom_city_entity.dart';
-import 'package:majmua/domain/usecases/custom_cities_use_case.dart';
+import 'package:majmua/presentation/state/custom_cities_state.dart';
 import 'package:majmua/presentation/state/input_add_city_state.dart';
 import 'package:majmua/presentation/widgets/params_desc_rich_text.dart';
 import 'package:provider/provider.dart';
@@ -14,9 +13,11 @@ class ChangeCityBottomSheet extends StatefulWidget {
   const ChangeCityBottomSheet({
     super.key,
     required this.model,
+    required this.customCitiesState,
   });
 
   final CustomCityEntity model;
+  final CustomCitiesState customCitiesState;
 
   @override
   State<ChangeCityBottomSheet> createState() => _ChangeCityBottomSheetState();
@@ -38,8 +39,6 @@ class _ChangeCityBottomSheetState extends State<ChangeCityBottomSheet> {
   final FocusNode _focusLatitude = FocusNode();
   final FocusNode _focusLongitude = FocusNode();
 
-  late final CustomCitiesUseCase _citiesUseCase;
-
   @override
   void initState() {
     super.initState();
@@ -47,7 +46,6 @@ class _ChangeCityBottomSheetState extends State<ChangeCityBottomSheet> {
     _cityController = TextEditingController(text: widget.model.city);
     _latitudeController = TextEditingController(text: widget.model.latitude);
     _longitudeController = TextEditingController(text: widget.model.longitude);
-    _citiesUseCase = CustomCitiesUseCase(CustomCitiesDataRepository());
   }
 
   bool checkForEmpty() {
@@ -243,7 +241,7 @@ class _ChangeCityBottomSheetState extends State<ChangeCityBottomSheet> {
                               ),
                             ),
                           );
-                          _citiesUseCase.fetchChangeCity(
+                          widget.customCitiesState.changeCustomCity(
                             model: newCityModel,
                           );
                         } else {

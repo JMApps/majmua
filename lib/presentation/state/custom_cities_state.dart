@@ -20,7 +20,7 @@ class CustomCitiesState extends ChangeNotifier {
   }
 
   Future<int> changeCustomCity({required CustomCityEntity model}) async {
-    final int changeCity = await _customCitiesUseCase.fetchAddCity(model: model);
+    final int changeCity = await _customCitiesUseCase.fetchChangeCity(model: model);
     notifyListeners();
     return changeCity;
   }

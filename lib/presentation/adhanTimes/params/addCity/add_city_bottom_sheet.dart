@@ -3,15 +3,19 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/data/repositories/custom_cities_data_repository.dart';
 import 'package:majmua/domain/entities/custom_city_entity.dart';
-import 'package:majmua/domain/usecases/custom_cities_use_case.dart';
+import 'package:majmua/presentation/state/custom_cities_state.dart';
 import 'package:majmua/presentation/state/input_add_city_state.dart';
 import 'package:majmua/presentation/widgets/params_desc_rich_text.dart';
 import 'package:provider/provider.dart';
 
 class AddCityBottomSheet extends StatefulWidget {
-  const AddCityBottomSheet({super.key});
+  const AddCityBottomSheet({
+    super.key,
+    required this.state,
+  });
+
+  final CustomCitiesState state;
 
   @override
   State<AddCityBottomSheet> createState() => _AddCityBottomSheetState();
@@ -32,14 +36,6 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
   final FocusNode _focusCity = FocusNode();
   final FocusNode _focusLatitude = FocusNode();
   final FocusNode _focusLongitude = FocusNode();
-
-  late final CustomCitiesUseCase _citiesUseCase;
-
-  @override
-  void initState() {
-    super.initState();
-    _citiesUseCase = CustomCitiesUseCase(CustomCitiesDataRepository());
-  }
 
   bool checkForEmpty() {
     return _countryController.text.trim().isNotEmpty &&
@@ -85,7 +81,9 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       labelText: appLocale!.inputCountryName,
-                      errorText: inputState.getInputCountry ? appLocale.inputCountryName : null,
+                      errorText: inputState.getInputCountry
+                          ? appLocale.inputCountryName
+                          : null,
                     ),
                     onChanged: (String country) {
                       inputState.setInputCountry = country;
@@ -112,7 +110,9 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       labelText: appLocale.inputCityName,
-                      errorText: inputState.getInputCity ? appLocale.inputCityName : null,
+                      errorText: inputState.getInputCity
+                          ? appLocale.inputCityName
+                          : null,
                     ),
                     onChanged: (String city) {
                       inputState.setInputCity = city;
@@ -141,13 +141,16 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       labelText: appLocale.inputLatitude,
-                      errorText: inputState.getInputLatitude ? appLocale.inputLatitude : null,
+                      errorText: inputState.getInputLatitude
+                          ? appLocale.inputLatitude
+                          : null,
                     ),
                     onChanged: (String latitude) {
                       inputState.setInputLatitude = latitude;
                     },
                     validator: (value) {
-                      if (value!.isEmpty && !RegExp(r'^[0-9.]+').hasMatch(value)) {
+                      if (value!.isEmpty &&
+                          !RegExp(r'^[0-9.]+').hasMatch(value)) {
                         return appLocale.inputLatitude;
                       }
                       return null;
@@ -176,8 +179,7 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
                       inputState.setInputLongitude = longitude;
                     },
                     validator: (value) {
-                      if (value!.isEmpty &&
-                          !RegExp(r'^[0-9.]+').hasMatch(value)) {
+                      if (value!.isEmpty && !RegExp(r'^[0-9.]+').hasMatch(value)) {
                         return appLocale.inputLongitude;
                       }
                       return null;
@@ -223,7 +225,7 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
                             ),
                           ),
                         );
-                        _citiesUseCase.fetchAddCity(
+                        widget.state.addCustomCity(
                           model: CustomCityEntity(
                             id: 0,
                             country: _countryController.text.trim(),
@@ -248,7 +250,8 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
                     }
                   },
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(appColors.quaternaryColor),
+                    backgroundColor:
+                        MaterialStateProperty.all(appColors.quaternaryColor),
                   ),
                   child: Text(
                     appLocale.add,

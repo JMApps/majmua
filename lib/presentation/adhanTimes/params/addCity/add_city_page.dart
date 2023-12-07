@@ -45,23 +45,27 @@ class AddCityPage extends StatelessWidget {
           ],
         ),
         body: const CustomCitiesList(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            showModalBottomSheet(
-              context: context,
-              backgroundColor: appColors.surface,
-              builder: (context) => AnimatedPadding(
-                padding: MediaQuery.of(context).viewInsets,
-                duration: const Duration(milliseconds: 250),
-                curve: Curves.decelerate,
-                child: const AddCityBottomSheet(),
-              ),
+        floatingActionButton: Consumer<CustomCitiesState>(
+          builder: (BuildContext context, CustomCitiesState state, _) {
+            return FloatingActionButton(
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  backgroundColor: appColors.surface,
+                  builder: (context) => AnimatedPadding(
+                    padding: MediaQuery.of(context).viewInsets,
+                    duration: const Duration(milliseconds: 250),
+                    curve: Curves.decelerate,
+                    child: AddCityBottomSheet(state: state),
+                  ),
+                );
+              },
+              backgroundColor: appColors.quaternaryColor,
+              shape: AppStyles.mainShape,
+              elevation: 0,
+              child: const Icon(Icons.add),
             );
           },
-          backgroundColor: appColors.quaternaryColor,
-          shape: AppStyles.mainShape,
-          elevation: 0,
-          child: const Icon(Icons.add),
         ),
       ),
     );
