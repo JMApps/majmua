@@ -12,4 +12,11 @@ class CustomCityEntity {
     required this.latitude,
     required this.longitude,
   });
+
+  bool equals(CustomCityEntity other) {
+    return country.trim() == other.country.trim() &&
+        city == other.city &&
+        latitude == other.latitude &&
+        longitude == other.longitude;
+  }
 }

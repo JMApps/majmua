@@ -10,23 +10,28 @@ import 'package:majmua/presentation/state/input_add_city_state.dart';
 import 'package:majmua/presentation/widgets/params_desc_rich_text.dart';
 import 'package:provider/provider.dart';
 
-class AddCityBottomSheet extends StatefulWidget {
-  const AddCityBottomSheet({super.key});
+class ChangeCityBottomSheet extends StatefulWidget {
+  const ChangeCityBottomSheet({
+    super.key,
+    required this.model,
+  });
+
+  final CustomCityEntity model;
 
   @override
-  State<AddCityBottomSheet> createState() => _AddCityBottomSheetState();
+  State<ChangeCityBottomSheet> createState() => _ChangeCityBottomSheetState();
 }
 
-class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
+class _ChangeCityBottomSheetState extends State<ChangeCityBottomSheet> {
   final _formCountryKey = GlobalKey<FormState>();
   final _formCityKey = GlobalKey<FormState>();
   final _formLatitudeKey = GlobalKey<FormState>();
   final _formLongitudeKey = GlobalKey<FormState>();
 
-  final _countryController = TextEditingController();
-  final _cityController = TextEditingController();
-  final _latitudeController = TextEditingController();
-  final _longitudeController = TextEditingController();
+  late final TextEditingController _countryController;
+  late final TextEditingController _cityController;
+  late final TextEditingController _latitudeController;
+  late final TextEditingController _longitudeController;
 
   final FocusNode _focusCountry = FocusNode();
   final FocusNode _focusCity = FocusNode();
@@ -38,6 +43,10 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
   @override
   void initState() {
     super.initState();
+    _countryController = TextEditingController(text: widget.model.country);
+    _cityController = TextEditingController(text: widget.model.city);
+    _latitudeController = TextEditingController(text: widget.model.latitude);
+    _longitudeController = TextEditingController(text: widget.model.longitude);
     _citiesUseCase = CustomCitiesUseCase(CustomCitiesDataRepository());
   }
 
@@ -85,7 +94,9 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       labelText: appLocale!.inputCountryName,
-                      errorText: inputState.getInputCountry ? appLocale.inputCountryName : null,
+                      errorText: inputState.getInputCountry
+                          ? appLocale.inputCountryName
+                          : null,
                     ),
                     onChanged: (String country) {
                       inputState.setInputCountry = country;
@@ -141,7 +152,9 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       labelText: appLocale.inputLatitude,
-                      errorText: inputState.getInputLatitude ? appLocale.inputLatitude : null,
+                      errorText: inputState.getInputLatitude
+                          ? appLocale.inputLatitude
+                          : null,
                     ),
                     onChanged: (String latitude) {
                       inputState.setInputLatitude = latitude;
@@ -208,30 +221,34 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
                   onPressed: () {
                     if (checkForEmpty()) {
                       if (checkForValidate()) {
-                        Navigator.pop(context);
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            backgroundColor: appColors.quaternaryColor,
-                            duration: const Duration(milliseconds: 1750),
-                            content: Text(
-                              appLocale.cityAdded,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontFamily: 'Nexa',
+                        final newCityModel = CustomCityEntity(
+                          id: widget.model.id,
+                          country: _countryController.text.trim(),
+                          city: _cityController.text.trim(),
+                          latitude: _latitudeController.text.trim(),
+                          longitude: _longitudeController.text.trim(),
+                        );
+                        if (!widget.model.equals(newCityModel)) {
+                          Navigator.pop(context);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              backgroundColor: appColors.quaternaryColor,
+                              duration: const Duration(milliseconds: 1750),
+                              content: Text(
+                                appLocale.cityChanged,
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  fontFamily: 'Nexa',
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                        _citiesUseCase.fetchAddCity(
-                          model: CustomCityEntity(
-                            id: 0,
-                            country: _countryController.text.trim(),
-                            city: _cityController.text.trim(),
-                            latitude: _latitudeController.text.trim(),
-                            longitude: _longitudeController.text.trim(),
-                          ),
-                        );
+                          );
+                          _citiesUseCase.fetchChangeCity(
+                            model: newCityModel,
+                          );
+                        } else {
+                          Navigator.pop(context);
+                        }
                       }
                     } else if (_countryController.text.trim().isEmpty) {
                       inputState.setInputCountry = '';
@@ -251,7 +268,7 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
                     backgroundColor: MaterialStateProperty.all(appColors.quaternaryColor),
                   ),
                   child: Text(
-                    appLocale.add,
+                    appLocale.change,
                     style: TextStyle(
                       fontSize: 16,
                       color: appColors.surface,

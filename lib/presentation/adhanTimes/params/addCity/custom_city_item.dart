@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/domain/entities/custom_city_entity.dart';
+import 'package:majmua/presentation/adhanTimes/params/addCity/change_city_bottom_sheet.dart';
 
 class CustomCityItem extends StatelessWidget {
   const CustomCityItem({
@@ -27,7 +28,7 @@ class CustomCityItem extends StatelessWidget {
           showModalBottomSheet(
             context: context,
             backgroundColor: appColors.surface,
-            builder: (context) => Container(
+            builder: (context) => Padding(
               padding: AppStyles.mardingHorizontal,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -47,8 +48,17 @@ class CustomCityItem extends StatelessWidget {
                   ),
                   FilledButton.tonal(
                     onPressed: () {
-                      // TODO Set city params
                       Navigator.pop(context);
+                      showModalBottomSheet(
+                        context: context,
+                        backgroundColor: appColors.surface,
+                        builder: (context) => AnimatedPadding(
+                          padding: MediaQuery.of(context).viewInsets,
+                          duration: const Duration(milliseconds: 250),
+                          curve: Curves.decelerate,
+                          child: ChangeCityBottomSheet(model: cityModel),
+                        ),
+                      );
                     },
                     child: Text(
                       appLocale.change,
@@ -59,8 +69,44 @@ class CustomCityItem extends StatelessWidget {
                   ),
                   FilledButton.tonal(
                     onPressed: () {
-                      // TODO Set city params
                       Navigator.pop(context);
+                      showModalBottomSheet(
+                        context: context,
+                        backgroundColor: appColors.surface,
+                        builder: (context) => Padding(
+                          padding: AppStyles.mardingHorizontal,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              FilledButton.tonal(
+                                onPressed: () {
+                                  // Delete city
+                                  Navigator.pop(context);
+                                },
+                                child: Text(
+                                  appLocale.delete,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                              FilledButton.tonal(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text(
+                                  appLocale.cancel,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 16),
+                            ],
+                          ),
+                        ),
+                      );
                     },
                     child: Text(
                       appLocale.delete,
