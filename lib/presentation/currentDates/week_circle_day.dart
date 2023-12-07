@@ -17,7 +17,6 @@ class WeekCircleDay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final MediaQueryData mediaQuery = MediaQuery.of(context);
     final double screenWidth = mediaQuery.size.width;
@@ -32,16 +31,16 @@ class WeekCircleDay extends StatelessWidget {
         color: isCurrentDay
             ? isFriday
                 ? appColors.quaternaryColor
-                : appColors.secterColor
+                : appColors.secondaryColor
             : appColors.primaryColor,
       ),
       child: isCurrentDay
           ? CircularPercentIndicator(
               radius: isCurrentDay ? screenWidth * 0.05 : screenWidth * 0.04,
-              lineWidth: screenWidth * 0.006,
+              lineWidth: screenWidth * 0.004,
               circularStrokeCap: CircularStrokeCap.round,
-              progressColor: appColors.inverseSurface,
-              backgroundColor: appColors.glass,
+              progressColor: appColors.primaryColor,
+              backgroundColor: Colors.white,
               percent: timeState.getElapsedDayPercentage() / 100,
               center: Text(
                 dayName,
