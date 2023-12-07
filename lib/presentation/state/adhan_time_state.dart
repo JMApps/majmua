@@ -24,15 +24,12 @@ class AdhanTimeState extends ChangeNotifier {
 
   AdhanTimeState() {
     timer = Timer(
-      Duration(seconds: (_dateTime.second - 60).abs()),
-          () {
-        _dateTime = DateTime.now().toLocal();
-        notifyListeners();
+      Duration(seconds: (_dateTime.second - 60).abs()), () {
+        _updateDateTime();
         timer = Timer.periodic(
           const Duration(minutes: 1),
               (_) {
-            _dateTime = DateTime.now().toLocal();
-            notifyListeners();
+            _updateDateTime();
           },
         );
       },
@@ -46,18 +43,24 @@ class AdhanTimeState extends ChangeNotifier {
       _mainSettingsBox.get(AppConstraints.keyMaghribAdjustment, defaultValue: 0),
       _mainSettingsBox.get(AppConstraints.keyIshaAdjustment, defaultValue: 0),
     );
+
     _prayerParamsModel = PrayerParamsModel(
-      _mainSettingsBox.get(AppConstraints.keyCountry, defaultValue: 'Saudi Arabia'),
-      _mainSettingsBox.get(AppConstraints.keyCity, defaultValue: 'Mecca'),
-      _mainSettingsBox.get(AppConstraints.keyCurrentLatitude, defaultValue: 36.20760),
-      _mainSettingsBox.get(AppConstraints.keyCurrentLongitude, defaultValue: 36.51920),
-      _mainSettingsBox.get(AppConstraints.keyCalculationIndex, defaultValue: 10),
-      _mainSettingsBox.get(AppConstraints.keyUtcOffsetIndex, defaultValue: 1),
-      _mainSettingsBox.get(AppConstraints.keyMadhabIndex, defaultValue: 0),
+      country: _mainSettingsBox.get(AppConstraints.keyCountry, defaultValue: 'Saudi Arabia'),
+      city: _mainSettingsBox.get(AppConstraints.keyCity, defaultValue: 'Mecca'),
+      latitude: _mainSettingsBox.get(AppConstraints.keyCurrentLatitude, defaultValue: 36.20760),
+      longitude: _mainSettingsBox.get(AppConstraints.keyCurrentLongitude, defaultValue: 36.51920),
+      calculationMethodIndex: _mainSettingsBox.get(AppConstraints.keyCalculationIndex, defaultValue: 10),
+      timeOffsetIndex: _mainSettingsBox.get(AppConstraints.keyUtcOffsetIndex, defaultValue: 1),
+      madhabIndex: _mainSettingsBox.get(AppConstraints.keyMadhabIndex, defaultValue: 0),
     );
 
     setPrayerAdjustments = _prayerAdjustmentsModel;
     initPrayerTime = _prayerParamsModel;
+  }
+
+  void _updateDateTime() {
+    _dateTime = DateTime.now().toLocal();
+    notifyListeners();
   }
 
   void changeNotifiers() {
@@ -99,7 +102,6 @@ class AdhanTimeState extends ChangeNotifier {
   set setPrayerParams(PrayerParamsModel paramsModel) {
     _mainSettingsBox.put(AppConstraints.keyCountry, paramsModel.country);
     _mainSettingsBox.put(AppConstraints.keyCity, paramsModel.city);
-
     _mainSettingsBox.put(AppConstraints.keyCurrentLatitude, paramsModel.latitude);
     _mainSettingsBox.put(AppConstraints.keyCurrentLongitude, paramsModel.longitude);
     _mainSettingsBox.put(AppConstraints.keyCalculationIndex, paramsModel.calculationMethodIndex);
@@ -192,6 +194,14 @@ class AdhanTimeState extends ChangeNotifier {
     final bool isNight;
     isNight = getMinutesOfDay > (getIshaValueInMinutes + 30) && getMinutesOfDay < getMidnightValueInMinutes;
     return isNight;
+  }
+
+  bool get getIsFriday {
+    final bool isFriday;
+    bool firstCheck = _dateTime.weekday == 4 && getMinutesOfDay >= getMaghribValueInMinutes;
+    bool secondCheck = _dateTime.weekday == 5 && getMinutesOfDay <= getMaghribValueInMinutes;
+    isFriday = firstCheck || secondCheck;
+    return isFriday;
   }
 
   // Before/After prayer times
