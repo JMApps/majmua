@@ -77,18 +77,86 @@ class MainAdhanTimeCard extends StatelessWidget {
                     Card(
                       margin: EdgeInsets.zero,
                       color: appColors.glass,
+                      shape: AppStyles.mainShapeMicro,
+                      child: SizedBox(
+                        width: mediaQuery.orientation == Orientation.portrait
+                            ? screenWidth * 0.1
+                            : screenWidth * 0.07,
+                        height: mediaQuery.orientation == Orientation.portrait
+                            ? screenWidth * 0.1
+                            : screenWidth * 0.07,
+                        child: IconButton(
+                          onPressed: () {
+                            showModalBottomSheet(
+                              context: context,
+                              backgroundColor: appColors.surface,
+                              builder: (_) => Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  Container(
+                                    margin: AppStyles.mainMardingMini,
+                                    padding: AppStyles.mainMardingMini,
+                                    decoration: BoxDecoration(
+                                      color: appColors.primaryContainer,
+                                      borderRadius: AppStyles.mainBorderRadiusMini,
+                                    ),
+                                    child: Text('${appLocale!.qiblaOn} ${adhanTimeState.getQiblaDirection.toStringAsFixed(1)}°',
+                                      style: const TextStyle(
+                                        fontSize: 35,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: AppStyles.mainMarding,
+                                    child: Text(
+                                      appLocale.qiblaInformation,
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                          splashRadius: 20,
+                          visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
+                          icon: Image.asset(
+                            'assets/icons/kaaba.png',
+                            width: screenWidth * 0.05,
+                            height: screenWidth * 0.05,
+                            color: appColors.onSurface,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Card(
+                      margin: EdgeInsets.zero,
+                      color: appColors.glass,
                       shape: AppStyles.rightTopShapeMini,
                       child: SizedBox(
-                        width: mediaQuery.orientation == Orientation.portrait ? screenWidth * 0.1 : screenWidth * 0.07,
-                        height: mediaQuery.orientation == Orientation.portrait ? screenWidth * 0.1 : screenWidth * 0.07,
+                        width: mediaQuery.orientation == Orientation.portrait
+                            ? screenWidth * 0.1
+                            : screenWidth * 0.07,
+                        height: mediaQuery.orientation == Orientation.portrait
+                            ? screenWidth * 0.1
+                            : screenWidth * 0.07,
                         child: IconButton(
                           onPressed: () {},
                           splashRadius: 20,
                           visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                          icon: Icon(CupertinoIcons.share, size: screenWidth * 0.05,),
+                          icon: Icon(
+                            CupertinoIcons.share,
+                            size: screenWidth * 0.05,
+                          ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
                 const SizedBox(height: 8),
