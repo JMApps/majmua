@@ -129,7 +129,7 @@ class MainAdhanTimeCard extends StatelessWidget {
                             'assets/icons/kaaba.png',
                             width: screenWidth * 0.05,
                             height: screenWidth * 0.05,
-                            color: appColors.onSurface,
+                            color: appColors.primaryColor,
                           ),
                         ),
                       ),

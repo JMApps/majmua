@@ -10,6 +10,7 @@ import 'package:majmua/presentation/adhanTimes/params/city_coordinates.dart';
 import 'package:majmua/presentation/adhanTimes/params/param_button.dart';
 import 'package:majmua/presentation/adhanTimes/params/time_offset_params.dart';
 import 'package:majmua/presentation/widgets/description_params_text.dart';
+import 'package:majmua/presentation/widgets/user_back_button.dart';
 
 class AdhanParamsPage extends StatelessWidget {
   const AdhanParamsPage({super.key});
@@ -22,6 +23,7 @@ class AdhanParamsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: appColors.primaryColor,
         title: Text(appLocale!.adhanParams),
+        leading: const UserBackButton(),
       ),
       body: CupertinoScrollbar(
         child: SingleChildScrollView(
@@ -56,16 +58,12 @@ class AdhanParamsPage extends StatelessWidget {
                       routeName: RouteNames.selectCityPage,
                     ),
                     ParamButton(
-                      description: appLocale.addCity,
+                      description: appLocale.addMyCity,
                       routeName: RouteNames.addCityPage,
                     ),
                     ParamButton(
                       description: appLocale.prayerTimeAdjustment,
                       routeName: RouteNames.prayerTimeAdjustmentPage,
-                    ),
-                    ParamButton(
-                      description: appLocale.qublaDirection,
-                      routeName: RouteNames.qublaDirectionPage,
                     ),
                     ParamButton(
                       description: appLocale.information,

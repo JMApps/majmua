@@ -19,7 +19,7 @@ class TimeOffsetParams extends StatelessWidget {
           groupValue: prayerTimeState.timeOffsetIndex,
           children: <int, Widget>{
             0: const Text('-1'),
-            1: Text(appLocale!.defaultOffset),
+            1: Text(appLocale!.defaultVal),
             2: const Text('+1'),
           },
           onValueChanged: (int? value) {

@@ -7,7 +7,7 @@ class PrayerParamsModel {
   late int timeOffsetIndex;
   late int madhabIndex;
 
-  PrayerParamsModel([
+  PrayerParamsModel({
     this.country = 'Saudi Arabia',
     this.city = 'Mecca',
     this.latitude = 21.392425,
@@ -15,5 +15,5 @@ class PrayerParamsModel {
     this.calculationMethodIndex = 10,
     this.timeOffsetIndex = 1,
     this.madhabIndex = 0,
-  ]);
+  });
 }
