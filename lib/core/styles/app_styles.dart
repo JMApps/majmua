@@ -115,6 +115,7 @@ class AppStyles {
   static const mainBorderRadiusBig = BorderRadius.all(Radius.circular(30));
   static const mainBorderRadius = BorderRadius.all(Radius.circular(20));
   static const mainBorderRadiusMini = BorderRadius.all(Radius.circular(10));
+  static const mainBorderRadiusMicro = BorderRadius.all(Radius.circular(7.5));
 
   // Share/BorderRadius – Only
   static const bottomShape = RoundedRectangleBorder(

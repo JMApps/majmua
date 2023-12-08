@@ -19,9 +19,8 @@ class AdhanTimeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
     final ColorScheme appColors = Theme.of(context).colorScheme;
-    final MediaQueryData mediaQuery = MediaQuery.of(context);
-    final double screenWidth = mediaQuery.size.width;
     final currentTimeValue = context.watch<AdhanTimeState>().getMinutesOfDay;
     final bool isRemainingTime = currentTimeValue >= prayerModel.currentPrayerTime - 59 && currentTimeValue < prayerModel.currentPrayerTime - 1;
     final bool isPastTime = currentTimeValue >= prayerModel.currentPrayerTime + 2 && currentTimeValue <= prayerModel.currentPrayerTime + 30;
@@ -35,9 +34,9 @@ class AdhanTimeCard extends StatelessWidget {
           side: BorderSide(
             width: 2,
             color: isRemainingTime
-                ? appColors.error
+                ? appColors.quaternaryColor
                 : isPastTime
-                ? appColors.primaryColor
+                ? appColors.primary
                 : appColors.secondaryColor.withOpacity(isPrayer ? 1 : 0),
           ),
         ),
@@ -56,7 +55,7 @@ class AdhanTimeCard extends StatelessWidget {
                       prayerModel.prayerName,
                       style: TextStyle(
                         fontSize: screenWidth * 0.04,
-                        color: appColors.onSurface.withOpacity(0.75),
+                        color: appColors.onSurface.withOpacity(0.85),
                         fontWeight: isRemainingTime || isPrayer || isPastTime ? FontWeight.bold : FontWeight.normal,
                       ),
                       textAlign: TextAlign.start,
@@ -65,9 +64,9 @@ class AdhanTimeCard extends StatelessWidget {
                       child: Text(
                         DateFormat.Hm().format(prayerModel.prayerTime),
                         style: TextStyle(
-                          fontSize: screenWidth * 0.04,
-                          fontFamily: 'Bitter',
+                          fontSize: screenWidth * 0.045,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'Bitter',
                           letterSpacing: 1
                         ),
                         textAlign: TextAlign.start,
@@ -85,12 +84,14 @@ class AdhanTimeCard extends StatelessWidget {
                     child: AnimatedSize(
                       duration: const Duration(seconds: 1),
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          // Adhan time supplication
+                        },
                         borderRadius: AppStyles.mainBorderRadius,
                         child: Icon(
                           Icons.mosque,
                           size: screenWidth * 0.04,
-                          color: appColors.secterColor,
+                          color: appColors.secondaryColor,
                         ),
                       ),
                     ),
@@ -100,7 +101,9 @@ class AdhanTimeCard extends StatelessWidget {
                     child: AnimatedSize(
                       duration: const Duration(seconds: 1),
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          // Duha time supplication
+                        },
                         borderRadius: AppStyles.mainBorderRadius,
                         child: Icon(
                           CupertinoIcons.sunrise,
@@ -133,9 +136,9 @@ class AdhanTimeCard extends StatelessWidget {
                         '–${DateFormat.m().format(prayerModel.beforePrayerTime)}',
                         style: TextStyle(
                           fontSize: screenWidth * 0.035,
-                          fontFamily: 'Bitter',
+                          color: appColors.quaternaryColor,
                           fontWeight: FontWeight.bold,
-                          color: appColors.error,
+                          fontFamily: 'Bitter',
                           letterSpacing: 0.50,
                         ),
                       ),
@@ -149,9 +152,9 @@ class AdhanTimeCard extends StatelessWidget {
                         DateFormat.m().format(prayerModel.afterPrayerTime),
                         style: TextStyle(
                           fontSize: screenWidth * 0.035,
-                          fontFamily: 'Bitter',
+                          color: appColors.primary,
                           fontWeight: FontWeight.bold,
-                          color: appColors.primaryColor,
+                          fontFamily: 'Bitter',
                           letterSpacing: 0.50,
                         ),
                       ),
@@ -160,7 +163,7 @@ class AdhanTimeCard extends StatelessWidget {
                   SupplicationIsShow(
                     isShow: isPastTime && prayerModel.prayerIndex != Prayer.sunrise,
                     supplicationsId: 25,
-                    iconColor: appColors.primaryColor,
+                    iconColor: appColors.primary,
                   ),
                 ],
               ),

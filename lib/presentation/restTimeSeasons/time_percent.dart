@@ -22,8 +22,7 @@ class TimePercent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MediaQueryData mediaQuery = MediaQuery.of(context);
-    final double screenWidth = mediaQuery.size.width;
+    final double screenWidth = MediaQuery.of(context).size.width;
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final String pastTime = '${(percent - 100).toStringAsFixed(2)}%';
     return Container(

@@ -116,23 +116,23 @@ class AppThemes {
 extension ColorSchemeS on ColorScheme {
   Color get primaryColor => brightness == Brightness.light
       ? const Color(0xFF3F51B5)
-      : const Color(0xFF3949AB);
+      : const Color(0xFF5C6BC0);
 
   Color get secondaryColor => brightness == Brightness.light
-      ? const Color(0xFF009688)
-      : const Color(0xFF00897B);
-
-  Color get secterColor => brightness == Brightness.light
-      ? const Color(0xFF009688)
-      : const Color(0xBFF57C00);
+      ? const Color(0xFF00796B)
+      : const Color(0xFF26A69A);
 
   Color get tertiaryColor => brightness == Brightness.light
-      ? const Color(0xFFFF9800)
-      : const Color(0xBFF57C00);
+      ? const Color(0xFFF57C00)
+      : const Color(0xFFFFB74D);
 
   Color get quaternaryColor => brightness == Brightness.light
-      ? const Color(0xFFEF5350)
-      : const Color(0xBFD32F2F);
+      ? const Color(0xFFF44336)
+      : const Color(0xFFD32F2F);
+
+  Color get secterColor => brightness == Brightness.light
+      ? const Color(0xFF00796B)
+      : const Color(0xFFFFB74D);
 
   Color get glass => brightness == Brightness.light
       ? const Color(0xE6FFFFFF)
@@ -151,6 +151,6 @@ extension ColorSchemeS on ColorScheme {
       : const Color(0xD9E65100);
 
   Color get winterColor => brightness == Brightness.light
-      ? const Color(0xFF1E88E5)
-      : const Color(0xD90D47A1);
+      ? const Color(0xFF1976D2)
+      : const Color(0xFF42A5F5);
 }

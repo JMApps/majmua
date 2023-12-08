@@ -18,8 +18,7 @@ class WeekCircleDay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
-    final MediaQueryData mediaQuery = MediaQuery.of(context);
-    final double screenWidth = mediaQuery.size.width;
+    final double screenWidth = MediaQuery.of(context).size.width;
     final RestTimeState timeState = Provider.of<RestTimeState>(context);
     final bool isCurrentDay = dayIndex == timeState.currentDateTime.weekday;
     final bool isFriday = dayIndex == 5;
@@ -37,18 +36,18 @@ class WeekCircleDay extends StatelessWidget {
       child: isCurrentDay
           ? CircularPercentIndicator(
               radius: isCurrentDay ? screenWidth * 0.05 : screenWidth * 0.04,
-              lineWidth: screenWidth * 0.004,
+              lineWidth: screenWidth * 0.0035,
               circularStrokeCap: CircularStrokeCap.round,
-              progressColor: appColors.primaryColor,
+              progressColor: Colors.indigo,
               backgroundColor: Colors.white,
               percent: timeState.getElapsedDayPercentage() / 100,
               center: Text(
                 dayName,
                 style: TextStyle(
+                  fontSize: screenWidth * 0.035,
                   color: Colors.white,
-                  fontSize: screenWidth * 0.040,
-                  fontFamily: 'Nexa',
                   fontWeight: FontWeight.bold,
+                  fontFamily: 'Nexa',
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -57,9 +56,9 @@ class WeekCircleDay extends StatelessWidget {
               child: Text(
                 dayName,
                 style: TextStyle(
+                  fontSize: screenWidth * 0.035,
                   color: Colors.white,
                   fontFamily: 'Nexa',
-                  fontSize: screenWidth * 0.035,
                 ),
                 textAlign: TextAlign.center,
               ),

@@ -16,10 +16,10 @@ class MainCurrentDatesCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme appColors = Theme.of(context).colorScheme;
-    final AppLocalizations? appLocale = AppLocalizations.of(context);
     final MediaQueryData mediaQuery = MediaQuery.of(context);
     final double screenWidth = mediaQuery.size.width;
+    final ColorScheme appColors = Theme.of(context).colorScheme;
+    final AppLocalizations? appLocale = AppLocalizations.of(context);
     final AdhanTimeState adhanTimeState = Provider.of<AdhanTimeState>(context);
     return Card(
       child: Padding(
@@ -89,8 +89,7 @@ class MainCurrentDatesCard extends StatelessWidget {
                               borderRadius: AppStyles.mainBorderRadiusBig,
                               child: Image.asset(
                                 'assets/pictures/salawat.png',
-                                width: mediaQuery.orientation ==
-                                        Orientation.portrait
+                                width: mediaQuery.orientation == Orientation.portrait
                                     ? screenWidth * 0.23
                                     : screenWidth * 0.24,
                                 color: timeState.currentDateTime.weekday != 5
@@ -112,7 +111,7 @@ class MainCurrentDatesCard extends StatelessWidget {
                               child: SizedBox(
                                 width: screenWidth * 0.22,
                                 child: Text(
-                                  '1223312',
+                                  '653',
                                   style: TextStyle(
                                     fontSize: screenWidth * 0.04,
                                     fontFamily: 'Bitter',

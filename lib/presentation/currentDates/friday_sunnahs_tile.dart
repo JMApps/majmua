@@ -12,24 +12,33 @@ class FridaySunnahsTile extends StatelessWidget {
     final AppLocalizations? appLocale = AppLocalizations.of(context);
     final MediaQueryData mediaQuery = MediaQuery.of(context);
     final double screenWidth = mediaQuery.size.width;
-    return ListTile(
-      onTap: () {
-        showModalBottomSheet(
-          context: context,
-          backgroundColor: appColors.surface,
-          builder: (context) => Container(),
-        );
-      },
-      title: Text(
-        appLocale!.fridaySunnahs,
-        style: TextStyle(fontSize: screenWidth * 0.04),
+    return Card(
+      margin: EdgeInsets.zero,
+      color: appColors.glass,
+      shape: RoundedRectangleBorder(
+        borderRadius: AppStyles.mainBorderRadiusMicro,
+        side: BorderSide(
+          width: 2,
+          color: appColors.quaternaryColor,
+        )
       ),
-      tileColor: appColors.glass,
-      shape: AppStyles.mainShapeMicro,
-      trailing: Icon(
-        Icons.arrow_forward_ios_rounded,
-        size: screenWidth * 0.05,
-        color: appColors.quaternaryColor,
+      child: ListTile(
+        onTap: () {
+          showModalBottomSheet(
+            context: context,
+            backgroundColor: appColors.surface,
+            builder: (context) => Container(),
+          );
+        },
+        title: Text(
+          appLocale!.fridaySunnahs,
+          style: TextStyle(fontSize: screenWidth * 0.04),
+        ),
+        trailing: Icon(
+          Icons.arrow_forward_ios_rounded,
+          size: screenWidth * 0.05,
+          color: appColors.quaternaryColor,
+        ),
       ),
     );
   }

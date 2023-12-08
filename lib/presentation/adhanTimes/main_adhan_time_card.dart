@@ -8,6 +8,8 @@ import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/adhanTimes/adhan_time_card.dart';
 import 'package:majmua/presentation/adhanTimes/models/prayer_model.dart';
+import 'package:majmua/presentation/adhanTimes/models/prayer_params_model.dart';
+import 'package:majmua/presentation/adhanTimes/params/qibla_direction.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
 import 'package:provider/provider.dart';
 
@@ -48,8 +50,8 @@ class MainAdhanTimeCard extends StatelessWidget {
                               TextSpan(
                                 text: '${adhanTimeState.country}, ',
                                 style: TextStyle(
-                                  color: appColors.onSurface,
                                   fontSize: screenWidth * 0.04,
+                                  color: appColors.onSurface,
                                   fontFamily: 'Nexa',
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -57,8 +59,8 @@ class MainAdhanTimeCard extends StatelessWidget {
                               TextSpan(
                                 text: adhanTimeState.city,
                                 style: TextStyle(
-                                  color: appColors.primaryColor,
                                   fontSize: screenWidth * 0.04,
+                                  color: appColors.primary,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: 'Nexa',
                                 ),
@@ -69,7 +71,7 @@ class MainAdhanTimeCard extends StatelessWidget {
                         trailing: Icon(
                           Icons.arrow_forward_ios_rounded,
                           size: screenWidth * 0.05,
-                          color: appColors.primaryColor,
+                          color: appColors.primary,
                         ),
                       ),
                     ),
@@ -89,37 +91,14 @@ class MainAdhanTimeCard extends StatelessWidget {
                           onPressed: () {
                             showModalBottomSheet(
                               context: context,
+                              isScrollControlled: true,
                               backgroundColor: appColors.surface,
-                              builder: (_) => Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  Container(
-                                    margin: AppStyles.mainMardingMini,
-                                    padding: AppStyles.mainMardingMini,
-                                    decoration: BoxDecoration(
-                                      color: appColors.primaryContainer,
-                                      borderRadius: AppStyles.mainBorderRadiusMini,
-                                    ),
-                                    child: Text('${appLocale!.qiblaOn} ${adhanTimeState.getQiblaDirection.toStringAsFixed(1)}°',
-                                      style: const TextStyle(
-                                        fontSize: 35,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: AppStyles.mainMarding,
-                                    child: Text(
-                                      appLocale.qiblaInformation,
-                                      style: const TextStyle(
-                                        fontSize: 16,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                ],
+                              builder: (_) => SingleChildScrollView(
+                                child: QiblaDirection(
+                                  // Set country params from provider
+                                  prayerParamsModel: PrayerParamsModel(),
+                                  qiblaDirection: adhanTimeState.getQiblaDirection,
+                                ),
                               ),
                             );
                           },
@@ -129,7 +108,7 @@ class MainAdhanTimeCard extends StatelessWidget {
                             'assets/icons/kaaba.png',
                             width: screenWidth * 0.05,
                             height: screenWidth * 0.05,
-                            color: appColors.primaryColor,
+                            color: appColors.primary,
                           ),
                         ),
                       ),
@@ -152,6 +131,7 @@ class MainAdhanTimeCard extends StatelessWidget {
                           visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                           icon: Icon(
                             CupertinoIcons.share,
+                            color: appColors.secondary,
                             size: screenWidth * 0.05,
                           ),
                         ),
@@ -274,19 +254,19 @@ class MainAdhanTimeCard extends StatelessWidget {
                               TextSpan(
                                 text: appLocale.midnight,
                                 style: TextStyle(
-                                  fontFamily: 'Nexa',
                                   fontSize: screenWidth * 0.04,
                                   color: appColors.onSurface,
+                                  fontFamily: 'Nexa',
                                 ),
                               ),
                               TextSpan(
                                 text: DateFormat.Hm().format(adhanTimeState.getMidnight),
                                 style: TextStyle(
-                                  color: appColors.primaryColor,
                                   fontSize: screenWidth * 0.038,
+                                  color: appColors.primary,
                                   fontWeight: FontWeight.bold,
-                                  letterSpacing: 1,
                                   fontFamily: 'Bitter',
+                                  letterSpacing: 1,
                                 ),
                               ),
                             ],
@@ -310,19 +290,19 @@ class MainAdhanTimeCard extends StatelessWidget {
                                 TextSpan(
                                   text: appLocale.thirdPart,
                                   style: TextStyle(
-                                    color: appColors.onSurface,
                                     fontSize: screenWidth * 0.04,
+                                    color: appColors.onSurface,
                                     fontFamily: 'Nexa',
                                   ),
                                 ),
                                 TextSpan(
                                   text: DateFormat.Hm().format(adhanTimeState.getThirdNightPart),
                                   style: TextStyle(
-                                    color: appColors.secondaryColor,
                                     fontSize: screenWidth * 0.038,
+                                    color: appColors.secondaryColor,
                                     fontWeight: FontWeight.bold,
-                                    letterSpacing: 1,
                                     fontFamily: 'Bitter',
+                                    letterSpacing: 1,
                                   ),
                                 ),
                               ],
