@@ -1,5 +1,6 @@
 import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
+import 'package:majmua/data/models/adhan_information_model.dart';
 
 class AppStyles {
   // Padding/Margin – Main
@@ -376,5 +377,78 @@ class AppStyles {
   static const List<Madhab> calculationMadhab = [
     Madhab.shafi,
     Madhab.hanafi,
+  ];
+
+  static final List<AdhanInformationModel> calculationMethodInfo = [
+    const AdhanInformationModel(
+      convention: 'Umm al-Qura',
+      fajrAngle: '18.5',
+      ishaAngle: '90 min.',
+    ),
+    const AdhanInformationModel(
+      convention: 'Islamic Society North America (ISNA)',
+      fajrAngle: '15.0',
+      ishaAngle: '15.0',
+    ),
+    const AdhanInformationModel(
+      convention: 'Russia',
+      fajrAngle: '16.0',
+      ishaAngle: '15.0',
+    ),
+    const AdhanInformationModel(
+      convention: 'Tatarstan',
+      fajrAngle: '18.0',
+      ishaAngle: '15.0',
+    ),
+    const AdhanInformationModel(
+      convention: 'France',
+      fajrAngle: '12.0',
+      ishaAngle: '12.0',
+    ),
+    const AdhanInformationModel(
+      convention: 'Dubai',
+      fajrAngle: '18.2',
+      ishaAngle: '18.2',
+    ),
+    const AdhanInformationModel(
+      convention: 'Egyptian',
+      fajrAngle: '19.5',
+      ishaAngle: '17.5',
+    ),
+    const AdhanInformationModel(
+      convention: 'Karachi',
+      fajrAngle: '18.0',
+      ishaAngle: '18.0',
+    ),
+    const AdhanInformationModel(
+      convention: 'Kuwait',
+      fajrAngle: '18.0',
+      ishaAngle: '17.5',
+    ),
+    const AdhanInformationModel(
+      convention: 'Moon Sighting Committee (MSC)',
+      fajrAngle: '18.0',
+      ishaAngle: '18.0',
+    ),
+    const AdhanInformationModel(
+      convention: 'Muslim World League (MWL)',
+      fajrAngle: '18.0',
+      ishaAngle: '17.0',
+    ),
+    const AdhanInformationModel(
+      convention: 'Qatar',
+      fajrAngle: '18.0',
+      ishaAngle: '90 min.',
+    ),
+    const AdhanInformationModel(
+      convention: 'Turkey',
+      fajrAngle: '18.0',
+      ishaAngle: '17.0',
+    ),
+    const AdhanInformationModel(
+      convention: 'Singapore',
+      fajrAngle: '18.0',
+      ishaAngle: '17.0',
+    ),
   ];
 }

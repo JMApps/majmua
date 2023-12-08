@@ -60,7 +60,7 @@ class AppThemes {
   static ThemeData darkTheme = ThemeData(
     fontFamily: 'Nexa',
     useMaterial3: false,
-    scaffoldBackgroundColor: const Color(0xD9171821),
+    scaffoldBackgroundColor: const Color(0xFF171821),
     colorScheme: ColorScheme.fromSeed(
       brightness: Brightness.dark,
       seedColor: const Color(0xD93F51B5),
