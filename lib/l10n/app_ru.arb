@@ -34,6 +34,7 @@
   "timeOffset": "Часовой пояс",
 
   "selectCity": "Выбрать город",
+  "selectOtherCity": "Выбрать другой город",
   "addCity": "Добавить город",
   "country": "Страна",
   "countryName": "Саудовская Аравия",
