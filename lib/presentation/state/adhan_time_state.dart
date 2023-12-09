@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/core/strings/app_constraints.dart';
 import 'package:majmua/core/styles/app_styles.dart';
-import 'package:majmua/presentation/adhanTimes/models/prayer_adjustments_model.dart';
-import 'package:majmua/presentation/adhanTimes/models/prayer_params_model.dart';
 
 class AdhanTimeState extends ChangeNotifier {
   final _mainSettingsBox = Hive.box(AppConstraints.keySettingsPrayerTimeBox);
@@ -19,8 +17,20 @@ class AdhanTimeState extends ChangeNotifier {
   late SunnahTimes _sunnahTimes;
   late Qibla _qibla;
 
-  late final PrayerAdjustmentsModel _prayerAdjustmentsModel;
-  late final PrayerParamsModel _prayerParamsModel;
+  int _fajrAdjustment = 0;
+  int _sunriseAdjustment = 0;
+  int _dhuhrAdjustment = 0;
+  int _asrAdjustment = 0;
+  int _maghribAdjustment = 0;
+  int _ishaAdjustment = 0;
+
+  String _country = AppConstraints.defCountry;
+  String _city = AppConstraints.defCity;
+  double _latitude = AppConstraints.defLatitude;
+  double _longitude = AppConstraints.defLongitude;
+  int _calculationMethodIndex = AppConstraints.defCalculationIndex;
+  int _timeOffsetIndex = AppConstraints.defUtcOffsetIndex;
+  int _madhabIndex = AppConstraints.defMadhabIndex;
 
   AdhanTimeState() {
     timer = Timer(
@@ -35,27 +45,22 @@ class AdhanTimeState extends ChangeNotifier {
       },
     );
 
-    _prayerAdjustmentsModel = PrayerAdjustmentsModel(
-      _mainSettingsBox.get(AppConstraints.keyFajrAdjustment, defaultValue: 0),
-      _mainSettingsBox.get(AppConstraints.keySunriseAdjustment, defaultValue: 0),
-      _mainSettingsBox.get(AppConstraints.keyDhuhrAdjustment, defaultValue: 0),
-      _mainSettingsBox.get(AppConstraints.keyAsrAdjustment, defaultValue: 0),
-      _mainSettingsBox.get(AppConstraints.keyMaghribAdjustment, defaultValue: 0),
-      _mainSettingsBox.get(AppConstraints.keyIshaAdjustment, defaultValue: 0),
-    );
+    _fajrAdjustment = _mainSettingsBox.get(AppConstraints.keyFajrAdjustment, defaultValue: 0);
+    _sunriseAdjustment = _mainSettingsBox.get(AppConstraints.keySunriseAdjustment, defaultValue: 0);
+    _dhuhrAdjustment = _mainSettingsBox.get(AppConstraints.keyDhuhrAdjustment, defaultValue: 0);
+    _asrAdjustment = _mainSettingsBox.get(AppConstraints.keyAsrAdjustment, defaultValue: 0);
+    _maghribAdjustment = _mainSettingsBox.get(AppConstraints.keyMaghribAdjustment, defaultValue: 0);
+    _ishaAdjustment = _mainSettingsBox.get(AppConstraints.keyIshaAdjustment, defaultValue: 0);
 
-    _prayerParamsModel = PrayerParamsModel(
-      country: _mainSettingsBox.get(AppConstraints.keyCountry, defaultValue: 'Saudi Arabia'),
-      city: _mainSettingsBox.get(AppConstraints.keyCity, defaultValue: 'Mecca'),
-      latitude: _mainSettingsBox.get(AppConstraints.keyCurrentLatitude, defaultValue: 36.20760),
-      longitude: _mainSettingsBox.get(AppConstraints.keyCurrentLongitude, defaultValue: 36.51920),
-      calculationMethodIndex: _mainSettingsBox.get(AppConstraints.keyCalculationIndex, defaultValue: 10),
-      timeOffsetIndex: _mainSettingsBox.get(AppConstraints.keyUtcOffsetIndex, defaultValue: 1),
-      madhabIndex: _mainSettingsBox.get(AppConstraints.keyMadhabIndex, defaultValue: 0),
-    );
+    _country = _mainSettingsBox.get(AppConstraints.keyCountry, defaultValue: AppConstraints.defCountry);
+    _city = _mainSettingsBox.get(AppConstraints.keyCity, defaultValue: AppConstraints.defCity);
+    _latitude = _mainSettingsBox.get(AppConstraints.keyCurrentLatitude, defaultValue: AppConstraints.defLatitude);
+    _longitude = _mainSettingsBox.get(AppConstraints.keyCurrentLongitude, defaultValue: AppConstraints.defLongitude);
+    _calculationMethodIndex = _mainSettingsBox.get(AppConstraints.keyCalculationIndex, defaultValue: AppConstraints.defCalculationIndex);
+    _timeOffsetIndex = _mainSettingsBox.get(AppConstraints.keyUtcOffsetIndex, defaultValue: AppConstraints.defUtcOffsetIndex);
+    _madhabIndex = _mainSettingsBox.get(AppConstraints.keyMadhabIndex, defaultValue: AppConstraints.defMadhabIndex);
 
-    setPrayerAdjustments = _prayerAdjustmentsModel;
-    initPrayerTime = _prayerParamsModel;
+    initPrayerTime();
   }
 
   void _updateDateTime() {
@@ -68,17 +73,19 @@ class AdhanTimeState extends ChangeNotifier {
   }
 
   // Init prayer params
-  set initPrayerTime(PrayerParamsModel paramsModel) {
-    _coordinates = Coordinates(paramsModel.latitude, paramsModel.longitude);
-    _prayerParams = AppStyles.prayerCalculationMethods[paramsModel.calculationMethodIndex].getParameters();
-    _prayerParams.madhab = AppStyles.calculationMadhab[paramsModel.madhabIndex];
+  initPrayerTime() {
+    _coordinates = Coordinates(_latitude, _longitude);
+    _prayerParams = AppStyles.prayerCalculationMethods[_calculationMethodIndex].getParameters();
+    _prayerParams.madhab = AppStyles.calculationMadhab[_madhabIndex];
 
-    _prayerParams.adjustments.fajr = _prayerAdjustmentsModel.fajrAdjustment;
-    _prayerParams.adjustments.sunrise = _prayerAdjustmentsModel.sunriseAdjustment;
-    _prayerParams.adjustments.dhuhr = _prayerAdjustmentsModel.dhuhrAdjustment;
-    _prayerParams.adjustments.asr = _prayerAdjustmentsModel.asrAdjustment;
-    _prayerParams.adjustments.maghrib = _prayerAdjustmentsModel.maghribAdjustment;
-    _prayerParams.adjustments.isha = _prayerAdjustmentsModel.ishaAdjustment;
+    _prayerParams.adjustments.fajr = _fajrAdjustment;
+    _prayerParams.adjustments.sunrise = _sunriseAdjustment;
+    _prayerParams.adjustments.dhuhr = _dhuhrAdjustment;
+    _prayerParams.adjustments.asr = _asrAdjustment;
+    _prayerParams.adjustments.maghrib = _maghribAdjustment;
+    _prayerParams.adjustments.isha = _ishaAdjustment;
+
+    _prayerParams.highLatitudeRule = HighLatitudeRule.seventh_of_the_night;
 
     _prayerTimes = PrayerTimes.today(
       _coordinates,
@@ -88,7 +95,6 @@ class AdhanTimeState extends ChangeNotifier {
 
     _sunnahTimes = SunnahTimes(_prayerTimes);
     _qibla = Qibla(_coordinates);
-    _prayerParams.highLatitudeRule = HighLatitudeRule.seventh_of_the_night;
     notifyListeners();
   }
 
@@ -98,43 +104,99 @@ class AdhanTimeState extends ChangeNotifier {
   // Day minutes value
   int get getMinutesOfDay => _dateTime.difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day)).inMinutes;
 
-  // Set prayer params
-  set setPrayerParams(PrayerParamsModel paramsModel) {
-    _mainSettingsBox.put(AppConstraints.keyCountry, paramsModel.country);
-    _mainSettingsBox.put(AppConstraints.keyCity, paramsModel.city);
-    _mainSettingsBox.put(AppConstraints.keyCurrentLatitude, paramsModel.latitude);
-    _mainSettingsBox.put(AppConstraints.keyCurrentLongitude, paramsModel.longitude);
-    _mainSettingsBox.put(AppConstraints.keyCalculationIndex, paramsModel.calculationMethodIndex);
-    _mainSettingsBox.put(AppConstraints.keyUtcOffsetIndex, paramsModel.timeOffsetIndex);
-    _mainSettingsBox.put(AppConstraints.keyMadhabIndex, paramsModel.madhabIndex);
-    notifyListeners();
-  }
-
-  // Set prayer adjustments
-  set setPrayerAdjustments(PrayerAdjustmentsModel adjustmentsModel) {
-    _mainSettingsBox.put(AppConstraints.keyFajrAdjustment, adjustmentsModel.fajrAdjustment);
-    _mainSettingsBox.put(AppConstraints.keySunriseAdjustment, adjustmentsModel.sunriseAdjustment);
-    _mainSettingsBox.put(AppConstraints.keyDhuhrAdjustment, adjustmentsModel.dhuhrAdjustment);
-    _mainSettingsBox.put(AppConstraints.keyAsrAdjustment, adjustmentsModel.asrAdjustment);
-    _mainSettingsBox.put(AppConstraints.keyMaghribAdjustment, adjustmentsModel.maghribAdjustment);
-    _mainSettingsBox.put(AppConstraints.keyIshaAdjustment, adjustmentsModel.ishaAdjustment);
-    notifyListeners();
-  }
-
   // Prayer param getters
-  String get country => _prayerParamsModel.country;
+  String get country => _country;
 
-  String get city => _prayerParamsModel.city;
+  set setCountry(String country) {
+    _country = country;
+    _mainSettingsBox.put(AppConstraints.keyCountry, country);
+    notifyListeners();
+  }
 
-  double get latitude => _prayerParamsModel.latitude;
+  String get city => _city;
 
-  double get longitude => _prayerParamsModel.longitude;
+  set setCity(String city) {
+    _city = city;
+    _mainSettingsBox.put(AppConstraints.keyCity, city);
+  }
 
-  int get calculationMethodIndex => _prayerParamsModel.calculationMethodIndex;
+  double get latitude => _latitude;
 
-  int get timeOffsetIndex => _prayerParamsModel.timeOffsetIndex;
+  set setLatitude(double latitude) {
+    _latitude = latitude;
+    _mainSettingsBox.put(AppConstraints.keyCurrentLatitude, latitude);
+  }
 
-  int get madhabIndex => _prayerParamsModel.madhabIndex;
+  double get longitude => _longitude;
+
+  set setLongitude(double longitude) {
+    _longitude = longitude;
+    _mainSettingsBox.put(AppConstraints.keyCurrentLongitude, longitude);
+  }
+
+  int get calculationMethodIndex => _calculationMethodIndex;
+
+  set setCalculationIndex(int index) {
+    _calculationMethodIndex = index;
+    _mainSettingsBox.put(AppConstraints.keyCalculationIndex, index);
+  }
+
+  int get timeOffsetIndex => _timeOffsetIndex;
+
+  set setTimeOffsetIndex(int index) {
+    _timeOffsetIndex = index;
+    _mainSettingsBox.put(AppConstraints.keyUtcOffsetIndex, index);
+  }
+
+  int get madhabIndex => _madhabIndex;
+
+  set setMadhabIndex(int index) {
+    _madhabIndex = index;
+    _mainSettingsBox.put(AppConstraints.keyMadhabIndex, index);
+  }
+
+  // Prayer adjustment params
+  int get fajrAdjustment => _fajrAdjustment;
+
+  set setFajrAdjustment(int adjustment) {
+    _fajrAdjustment = adjustment;
+    _mainSettingsBox.put(AppConstraints.keyFajrAdjustment, adjustment);
+  }
+
+  int get sunriseAdjustment => _sunriseAdjustment;
+
+  set setSunriseAdjustment(int adjustment) {
+    _sunriseAdjustment = adjustment;
+    _mainSettingsBox.put(AppConstraints.keySunriseAdjustment, adjustment);
+  }
+
+  int get dhuhrAdjustment => _dhuhrAdjustment;
+
+  set setDhuhrAdjustment(int adjustment) {
+    _dhuhrAdjustment = adjustment;
+    _mainSettingsBox.put(AppConstraints.keyDhuhrAdjustment, adjustment);
+  }
+
+  int get asrAdjustment => _asrAdjustment;
+
+  set setAsrAdjustment(int adjustment) {
+    _asrAdjustment = adjustment;
+    _mainSettingsBox.put(AppConstraints.keyAsrAdjustment, adjustment);
+  }
+
+  int get maghribAdjustment => _maghribAdjustment;
+
+  set setMaghribAdjustment(int adjustment) {
+    _maghribAdjustment = adjustment;
+    _mainSettingsBox.put(AppConstraints.keyMaghribAdjustment, adjustment);
+  }
+
+  int get ishaAdjustment => _ishaAdjustment;
+
+  set setIshaAdjustment(int adjustment) {
+    _ishaAdjustment = adjustment;
+    _mainSettingsBox.put(AppConstraints.keyIshaAdjustment, adjustment);
+  }
 
   // Prayers value in minutes
   int get getFajrValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.fajr);

@@ -23,7 +23,7 @@ class TimeOffsetParams extends StatelessWidget {
             2: const Text('+1'),
           },
           onValueChanged: (int? value) {
-            // TODO Set time offset index
+            prayerTimeState.setTimeOffsetIndex = value!;
           },
         );
       },

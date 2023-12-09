@@ -8,10 +8,10 @@ import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/adhanTimes/adhan_time_card.dart';
 import 'package:majmua/presentation/adhanTimes/models/prayer_model.dart';
-import 'package:majmua/presentation/adhanTimes/models/prayer_params_model.dart';
 import 'package:majmua/presentation/adhanTimes/params/qibla_direction.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 class MainAdhanTimeCard extends StatelessWidget {
   const MainAdhanTimeCard({super.key});
@@ -96,7 +96,6 @@ class MainAdhanTimeCard extends StatelessWidget {
                               builder: (_) => SingleChildScrollView(
                                 child: QiblaDirection(
                                   // Set country params from provider
-                                  prayerParamsModel: PrayerParamsModel(),
                                   qiblaDirection: adhanTimeState.getQiblaDirection,
                                 ),
                               ),
@@ -126,7 +125,9 @@ class MainAdhanTimeCard extends StatelessWidget {
                             ? screenWidth * 0.1
                             : screenWidth * 0.07,
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Share.share('text');
+                          },
                           splashRadius: 20,
                           visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                           icon: Icon(

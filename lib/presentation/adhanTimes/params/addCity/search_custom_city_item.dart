@@ -3,9 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/domain/entities/custom_city_entity.dart';
-import 'package:majmua/presentation/adhanTimes/params/addCity/change_city_bottom_sheet.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
-import 'package:majmua/presentation/state/custom_cities_state.dart';
 import 'package:provider/provider.dart';
 
 class SearchCustomCityItem extends StatelessWidget {

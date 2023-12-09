@@ -5,7 +5,7 @@ import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/data/repositories/cities_data_repository.dart';
 import 'package:majmua/domain/entities/city_entity.dart';
 import 'package:majmua/domain/usecases/cities_use_case.dart';
-import 'package:majmua/presentation/adhanTimes/params/selectCity/city_item.dart';
+import 'package:majmua/presentation/adhanTimes/params/selectCity/search_city_item.dart';
 import 'package:majmua/presentation/widgets/info_data_text.dart';
 
 class SearchCitiesBuilder extends StatefulWidget {
@@ -51,7 +51,7 @@ class _SearchCitiesBuilderState extends State<SearchCitiesBuilder> {
                 itemCount: _recentCities.length,
                 itemBuilder: (BuildContext context, int index) {
                   final CityEntity model = _recentCities[index];
-                  return CityItem(
+                  return SearchCityItem(
                     cityModel: model,
                     index: index,
                   );

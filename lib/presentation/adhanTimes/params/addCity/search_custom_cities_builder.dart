@@ -5,7 +5,7 @@ import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/data/repositories/custom_cities_data_repository.dart';
 import 'package:majmua/domain/entities/custom_city_entity.dart';
 import 'package:majmua/domain/usecases/custom_cities_use_case.dart';
-import 'package:majmua/presentation/adhanTimes/params/addCity/custom_city_item.dart';
+import 'package:majmua/presentation/adhanTimes/params/addCity/search_custom_city_item.dart';
 import 'package:majmua/presentation/widgets/info_data_text.dart';
 
 class SearchCustomCitiesBuilder extends StatefulWidget {
@@ -53,7 +53,7 @@ class _SearchCustomCitiesBuilderState extends State<SearchCustomCitiesBuilder> {
                 itemCount: _recentCustomCities.length,
                 itemBuilder: (BuildContext context, int index) {
                   final CustomCityEntity model = _recentCustomCities[index];
-                  return CustomCityItem(
+                  return SearchCustomCityItem(
                     cityModel: model,
                     index: index,
                   );
