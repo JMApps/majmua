@@ -22,7 +22,7 @@ class AsrTimeMadhab extends StatelessWidget {
             1: Text(appLocale.hanafi),
           },
           onValueChanged: (int? value) {
-            // TODO Set madhab index
+            prayerTimeState.setMadhabIndex = value!;
           },
         );
       },
