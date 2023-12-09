@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/adhanTimes/models/prayer_params_model.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
 import 'package:provider/provider.dart';
 
@@ -33,9 +32,7 @@ class CalculationMethods extends StatelessWidget {
               ),
               underline: const SizedBox(),
               onChanged: (String? value) {
-                prayerTimeState.setPrayerParams = PrayerParamsModel(
-                    calculationMethodIndex: AppStyles.prayerCalculationNames.indexOf(value!)
-                );
+                prayerTimeState.setCalculationIndex = AppStyles.prayerCalculationNames.indexOf(value!);
               },
               items: AppStyles.prayerCalculationNames.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
