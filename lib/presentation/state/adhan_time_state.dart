@@ -57,8 +57,8 @@ class AdhanTimeState extends ChangeNotifier {
     _latitude = _mainSettingsBox.get(AppConstraints.keyCurrentLatitude, defaultValue: AppConstraints.defLatitude);
     _longitude = _mainSettingsBox.get(AppConstraints.keyCurrentLongitude, defaultValue: AppConstraints.defLongitude);
     _calculationMethodIndex = _mainSettingsBox.get(AppConstraints.keyCalculationIndex, defaultValue: AppConstraints.defCalculationIndex);
-    _timeOffsetIndex = _mainSettingsBox.get(AppConstraints.keyUtcOffsetIndex, defaultValue: AppConstraints.defUtcOffsetIndex);
     _madhabIndex = _mainSettingsBox.get(AppConstraints.keyMadhabIndex, defaultValue: AppConstraints.defMadhabIndex);
+    _timeOffsetIndex = _mainSettingsBox.get(AppConstraints.keyUtcOffsetIndex, defaultValue: AppConstraints.defUtcOffsetIndex);
 
     initPrayerTime();
   }
@@ -84,8 +84,6 @@ class AdhanTimeState extends ChangeNotifier {
     _prayerParams.adjustments.asr = _asrAdjustment;
     _prayerParams.adjustments.maghrib = _maghribAdjustment;
     _prayerParams.adjustments.isha = _ishaAdjustment;
-
-    _prayerParams.highLatitudeRule = HighLatitudeRule.seventh_of_the_night;
 
     _prayerTimes = PrayerTimes.today(
       _coordinates,
@@ -141,18 +139,18 @@ class AdhanTimeState extends ChangeNotifier {
     _mainSettingsBox.put(AppConstraints.keyCalculationIndex, index);
   }
 
-  int get timeOffsetIndex => _timeOffsetIndex;
-
-  set setTimeOffsetIndex(int index) {
-    _timeOffsetIndex = index;
-    _mainSettingsBox.put(AppConstraints.keyUtcOffsetIndex, index);
-  }
-
   int get madhabIndex => _madhabIndex;
 
   set setMadhabIndex(int index) {
     _madhabIndex = index;
     _mainSettingsBox.put(AppConstraints.keyMadhabIndex, index);
+  }
+
+  int get timeOffsetIndex => _timeOffsetIndex;
+
+  set setTimeOffsetIndex(int index) {
+    _timeOffsetIndex = index;
+    _mainSettingsBox.put(AppConstraints.keyUtcOffsetIndex, index);
   }
 
   // Prayer adjustment params

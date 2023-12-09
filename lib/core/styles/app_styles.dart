@@ -313,8 +313,7 @@ class AppStyles {
     return _localNames[locale]!['month_names']![number]!;
   }
 
-  static String getHijriMonthName(
-      {required String locale, required int number}) {
+  static String getHijriMonthName({required String locale, required int number}) {
     return _localNames[locale]!['hijri_month_names']![number]!;
   }
 
@@ -368,15 +367,15 @@ class AppStyles {
     'Singapore',
   ];
 
+  static const List<Madhab> calculationMadhab = [
+    Madhab.shafi,
+    Madhab.hanafi,
+  ];
+
   static final List<Duration> calculationUtcOffset = [
     DateTime.now().timeZoneOffset - const Duration(hours: 1),
     DateTime.now().timeZoneOffset,
     DateTime.now().timeZoneOffset + const Duration(hours: 1),
-  ];
-
-  static const List<Madhab> calculationMadhab = [
-    Madhab.shafi,
-    Madhab.hanafi,
   ];
 
   static final List<AdhanInformationModel> calculationMethodInfo = [
