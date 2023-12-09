@@ -23,8 +23,8 @@ class WeekCircleDay extends StatelessWidget {
     final bool isCurrentDay = dayIndex == timeState.currentDateTime.weekday;
     final bool isFriday = dayIndex == 5;
     return Container(
-      width: isCurrentDay ? screenWidth * 0.11 : screenWidth * 0.09,
-      height: isCurrentDay ? screenWidth * 0.11 : screenWidth * 0.09,
+      width: isCurrentDay ? screenWidth * 0.112 : screenWidth * 0.095,
+      height: isCurrentDay ? screenWidth * 0.112 : screenWidth * 0.095,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: isCurrentDay
@@ -36,7 +36,7 @@ class WeekCircleDay extends StatelessWidget {
       child: isCurrentDay
           ? CircularPercentIndicator(
               radius: isCurrentDay ? screenWidth * 0.05 : screenWidth * 0.04,
-              lineWidth: screenWidth * 0.0035,
+              lineWidth: screenWidth * 0.005,
               circularStrokeCap: CircularStrokeCap.round,
               progressColor: Colors.indigo,
               backgroundColor: Colors.white,
@@ -51,7 +51,7 @@ class WeekCircleDay extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-            )
+          )
           : Center(
               child: Text(
                 dayName,
