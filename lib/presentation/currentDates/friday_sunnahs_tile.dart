@@ -27,11 +27,12 @@ class _FridaySunnahsTileState extends State<FridaySunnahsTile> {
       margin: EdgeInsets.zero,
       color: appColors.glass,
       shape: RoundedRectangleBorder(
-          borderRadius: AppStyles.mainBorderRadiusMicro,
-          side: BorderSide(
-            width: 2,
-            color: appColors.quaternaryColor,
-          )),
+        borderRadius: AppStyles.mainBorderRadiusMicro,
+        side: BorderSide(
+          width: 2,
+          color: appColors.quaternaryColor,
+        ),
+      ),
       child: ListTile(
         onTap: () {
           showModalBottomSheet(
@@ -51,7 +52,7 @@ class _FridaySunnahsTileState extends State<FridaySunnahsTile> {
                         itemBuilder: (BuildContext context, int index) {
                           final ModelFriday model = AppStrings.getFridaySunnahList(locale: appLocale.localeName)[index];
                           return Card(
-                            margin: AppStyles.mainMardingMicro,
+                            margin: AppStyles.mardingWithoutTopMini,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -75,7 +76,6 @@ class _FridaySunnahsTileState extends State<FridaySunnahsTile> {
                                     model.contentSunnah,
                                     style: TextStyle(
                                       fontSize: screenWidth * 0.04,
-                                      fontWeight: FontWeight.bold,
                                     ),
                                     textAlign: TextAlign.center,
                                   ),

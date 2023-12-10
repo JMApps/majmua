@@ -13,8 +13,7 @@ class MainWhiteDaysCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
-    final MediaQueryData mediaQuery = MediaQuery.of(context);
-    final double screenWidth = mediaQuery.size.width;
+    final double screenWidth = MediaQuery.of(context).size.width;
     final RestTimeState timeState = Provider.of<RestTimeState>(context);
     return Card(
       margin: EdgeInsets.zero,
@@ -25,18 +24,27 @@ class MainWhiteDaysCard extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text(
-              timeState.currentHijriTime.hDay == 12
-                  ? appLocale!.nearWhiteDays
-                  : appLocale!.whiteDays,
-              style: TextStyle(
-                fontSize: screenWidth * 0.04,
+            Expanded(
+              flex: 3,
+              child: Text(
+                timeState.currentHijriTime.hDay == 12
+                    ? appLocale!.nearWhiteDays
+                    : appLocale!.whiteDays,
+                style: TextStyle(
+                  fontSize: screenWidth * 0.04,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
-            const WhiteDayCircle(dayIndex: 13),
-            const WhiteDayCircle(dayIndex: 14),
-            const WhiteDayCircle(dayIndex: 15),
+            const Flexible(
+              child: WhiteDayCircle(dayIndex: 13),
+            ),
+            const Flexible(
+              child: WhiteDayCircle(dayIndex: 14),
+            ),
+            const Flexible(
+              child: WhiteDayCircle(dayIndex: 15),
+            ),
           ],
         ),
       ),

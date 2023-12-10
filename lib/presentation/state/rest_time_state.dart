@@ -26,14 +26,13 @@ class RestTimeState extends ChangeNotifier {
 
   RestTimeState() {
     timer = Timer(
-      Duration(seconds: (_currentDateTime.second - 60).abs()),
-          () {
-            _currentDateTime = DateTime.now();
+      Duration(seconds: (_currentDateTime.second - 60).abs()), () {
+        _currentDateTime = DateTime.now();
         notifyListeners();
         timer = Timer.periodic(
           const Duration(minutes: 1),
               (_) {
-                _currentDateTime = DateTime.now();
+            _currentDateTime = DateTime.now();
             notifyListeners();
           },
         );

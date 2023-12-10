@@ -134,14 +134,14 @@ class MainCurrentDatesCard extends StatelessWidget {
                 AnimatedSize(
                   duration: const Duration(milliseconds: 750),
                   child: Visibility(
-                    visible: timeState.isWhiteDays,
+                    visible: !timeState.isWhiteDays,
                     child: const SizedBox(height: 8),
                   ),
                 ),
                 AnimatedSize(
                   duration: const Duration(milliseconds: 750),
                   child: Visibility(
-                    visible: timeState.isWhiteDays,
+                    visible: !timeState.isWhiteDays,
                     child: const MainWhiteDaysCard(),
                   ),
                 ),

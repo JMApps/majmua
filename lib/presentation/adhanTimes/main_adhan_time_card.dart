@@ -126,7 +126,7 @@ class MainAdhanTimeCard extends StatelessWidget {
                             : screenWidth * 0.07,
                         child: IconButton(
                           onPressed: () {
-                            Share.share('text');
+                            Share.share('');
                           },
                           splashRadius: 20,
                           visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
