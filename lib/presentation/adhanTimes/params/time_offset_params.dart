@@ -13,17 +13,18 @@ class TimeOffsetParams extends StatelessWidget {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
     return Consumer<AdhanTimeState>(
-      builder: (BuildContext context, prayerTimeState, _) {
+      builder: (BuildContext context, AdhanTimeState adhanTimeState, _) {
         return CupertinoSlidingSegmentedControl<int>(
           thumbColor: appColors.glass,
-          groupValue: prayerTimeState.timeOffsetIndex,
+          groupValue: adhanTimeState.timeOffsetIndex,
           children: <int, Widget>{
             0: const Text('-1'),
             1: Text(appLocale!.defaultVal),
             2: const Text('+1'),
           },
           onValueChanged: (int? value) {
-            prayerTimeState.setTimeOffsetIndex = value!;
+            adhanTimeState.setTimeOffsetIndex = value!;
+            adhanTimeState.initPrayerTime();
           },
         );
       },

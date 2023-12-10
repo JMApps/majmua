@@ -11,7 +11,7 @@ class CalculationMethods extends StatelessWidget {
   Widget build(BuildContext context) {
     final appColor = Theme.of(context).colorScheme;
     return Consumer<AdhanTimeState>(
-      builder: (BuildContext context, prayerTimeState, _) {
+      builder: (BuildContext context, AdhanTimeState adhanTimeState, _) {
         return Card(
           margin: EdgeInsets.zero,
           shape: AppStyles.mainShapeMini,
@@ -19,7 +19,7 @@ class CalculationMethods extends StatelessWidget {
           child: ButtonTheme(
             alignedDropdown: true,
             child: DropdownButton<String>(
-              value: AppStyles.prayerCalculationNames[prayerTimeState.calculationMethodIndex],
+              value: AppStyles.prayerCalculationNames[adhanTimeState.calculationMethodIndex],
               borderRadius: AppStyles.mainBorderRadiusMini,
               elevation: 0,
               isExpanded: true,
@@ -32,7 +32,8 @@ class CalculationMethods extends StatelessWidget {
               ),
               underline: const SizedBox(),
               onChanged: (String? value) {
-                prayerTimeState.setCalculationIndex = AppStyles.prayerCalculationNames.indexOf(value!);
+                adhanTimeState.setCalculationIndex = AppStyles.prayerCalculationNames.indexOf(value!);
+                adhanTimeState.initPrayerTime();
               },
               items: AppStyles.prayerCalculationNames.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(

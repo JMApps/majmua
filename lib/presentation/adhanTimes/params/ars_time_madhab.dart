@@ -13,16 +13,17 @@ class AsrTimeMadhab extends StatelessWidget {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
     return Consumer<AdhanTimeState>(
-      builder: (BuildContext context, prayerTimeState, _) {
+      builder: (BuildContext context, AdhanTimeState adhanTimeState, _) {
         return CupertinoSlidingSegmentedControl<int>(
           thumbColor: appColors.glass,
-          groupValue: prayerTimeState.madhabIndex,
+          groupValue: adhanTimeState.madhabIndex,
           children: <int, Widget>{
             0: Text(appLocale!.shafii),
             1: Text(appLocale.hanafi),
           },
           onValueChanged: (int? value) {
-            prayerTimeState.setMadhabIndex = value!;
+            adhanTimeState.setMadhabIndex = value!;
+            adhanTimeState.initPrayerTime();
           },
         );
       },

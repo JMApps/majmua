@@ -51,6 +51,7 @@ class AddCityPage extends StatelessWidget {
               onPressed: () {
                 showModalBottomSheet(
                   context: context,
+                  isScrollControlled: true,
                   backgroundColor: appColors.surface,
                   builder: (context) => AnimatedPadding(
                     padding: MediaQuery.of(context).viewInsets,
