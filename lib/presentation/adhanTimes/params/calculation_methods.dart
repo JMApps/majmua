@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/core/strings/app_strings.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
@@ -19,7 +20,7 @@ class CalculationMethods extends StatelessWidget {
           child: ButtonTheme(
             alignedDropdown: true,
             child: DropdownButton<String>(
-              value: AppStyles.prayerCalculationNames[adhanTimeState.calculationMethodIndex],
+              value: AppStrings.prayerCalculationNames[adhanTimeState.calculationMethodIndex],
               borderRadius: AppStyles.mainBorderRadiusMini,
               elevation: 0,
               isExpanded: true,
@@ -32,10 +33,10 @@ class CalculationMethods extends StatelessWidget {
               ),
               underline: const SizedBox(),
               onChanged: (String? value) {
-                adhanTimeState.setCalculationIndex = AppStyles.prayerCalculationNames.indexOf(value!);
+                adhanTimeState.setCalculationIndex = AppStrings.prayerCalculationNames.indexOf(value!);
                 adhanTimeState.initPrayerTime();
               },
-              items: AppStyles.prayerCalculationNames.map<DropdownMenuItem<String>>((String value) {
+              items: AppStrings.prayerCalculationNames.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                       value: value,
                       child: Center(

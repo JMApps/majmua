@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:majmua/core/strings/app_strings.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/data/models/adhan_information_model.dart';
@@ -59,10 +60,10 @@ class CalculationInfoPage extends StatelessWidget {
           Expanded(
             child: CupertinoScrollbar(
               child: ListView.builder(
-                itemCount: AppStyles.calculationMethodInfo.length,
+                itemCount: AppStrings.calculationMethodInfo.length,
                 itemBuilder: (BuildContext context, int index) {
                   final AdhanInformationModel item =
-                      AppStyles.calculationMethodInfo[index];
+                  AppStrings.calculationMethodInfo[index];
                   return ItemCalculationPrayerTime(item: item);
                 },
               ),

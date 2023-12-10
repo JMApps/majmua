@@ -1,7 +1,4 @@
-import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
-import 'package:majmua/data/models/adhan_information_model.dart';
-import 'package:majmua/data/models/model_friday.dart';
 
 class AppStyles {
   // Padding/Margin – Main

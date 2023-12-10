@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/routes/route_names.dart';
-import 'package:majmua/core/styles/app_styles.dart';
+import 'package:majmua/core/strings/app_strings.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/lists/main_widgets_list.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
@@ -49,7 +49,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-            'assets/pictures/${AppStyles.backgroundPictureNames[mainAppState.getBackgroundPictureIndex]}',
+            'assets/pictures/${AppStrings.backgroundPictureNames[mainAppState.getBackgroundPictureIndex]}',
           ),
           fit: BoxFit.cover,
           opacity: appTheme.brightness == Brightness.light ? 1 : 0.25,

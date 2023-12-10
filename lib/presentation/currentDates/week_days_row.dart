@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:majmua/core/strings/app_strings.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/currentDates/week_circle_day.dart';
@@ -21,53 +22,53 @@ class WeekDaysRow extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             WeekCircleDay(
-              dayName: AppStyles.getShortWdName(
+              dayName: AppStrings.getShortWdName(
                 locale: appLocale!.localeName,
-                number: AppStyles.monIndex,
+                number: AppStrings.monIndex,
               ),
-              dayIndex: AppStyles.monIndex,
+              dayIndex: AppStrings.monIndex,
             ),
             WeekCircleDay(
-              dayName: AppStyles.getShortWdName(
+              dayName: AppStrings.getShortWdName(
                 locale: appLocale.localeName,
-                number: AppStyles.tueIndex,
+                number: AppStrings.tueIndex,
               ),
-              dayIndex: AppStyles.tueIndex,
+              dayIndex: AppStrings.tueIndex,
             ),
             WeekCircleDay(
-              dayName: AppStyles.getShortWdName(
+              dayName: AppStrings.getShortWdName(
                 locale: appLocale.localeName,
-                number: AppStyles.wedIndex,
+                number: AppStrings.wedIndex,
               ),
-              dayIndex: AppStyles.wedIndex,
+              dayIndex: AppStrings.wedIndex,
             ),
             WeekCircleDay(
-              dayName: AppStyles.getShortWdName(
+              dayName: AppStrings.getShortWdName(
                 locale: appLocale.localeName,
-                number: AppStyles.thuIndex,
+                number: AppStrings.thuIndex,
               ),
-              dayIndex: AppStyles.thuIndex,
+              dayIndex: AppStrings.thuIndex,
             ),
             WeekCircleDay(
-              dayName: AppStyles.getShortWdName(
+              dayName: AppStrings.getShortWdName(
                 locale: appLocale.localeName,
-                number: AppStyles.friIndex,
+                number: AppStrings.friIndex,
               ),
-              dayIndex: AppStyles.friIndex,
+              dayIndex: AppStrings.friIndex,
             ),
             WeekCircleDay(
-              dayName: AppStyles.getShortWdName(
+              dayName: AppStrings.getShortWdName(
                 locale: appLocale.localeName,
-                number: AppStyles.satIndex,
+                number: AppStrings.satIndex,
               ),
-              dayIndex: AppStyles.satIndex,
+              dayIndex: AppStrings.satIndex,
             ),
             WeekCircleDay(
-              dayName: AppStyles.getShortWdName(
+              dayName: AppStrings.getShortWdName(
                 locale: appLocale.localeName,
-                number: AppStyles.sunIndex,
+                number: AppStrings.sunIndex,
               ),
-              dayIndex: AppStyles.sunIndex,
+              dayIndex: AppStrings.sunIndex,
             ),
           ],
         ),

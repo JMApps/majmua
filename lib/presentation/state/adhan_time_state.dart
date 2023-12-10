@@ -4,7 +4,7 @@ import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/core/strings/app_constraints.dart';
-import 'package:majmua/core/styles/app_styles.dart';
+import 'package:majmua/core/strings/app_strings.dart';
 
 class AdhanTimeState extends ChangeNotifier {
   final _mainSettingsBox = Hive.box(AppConstraints.keySettingsPrayerTimeBox);
@@ -75,8 +75,8 @@ class AdhanTimeState extends ChangeNotifier {
   // Init prayer params
   initPrayerTime() {
     _coordinates = Coordinates(_latitude, _longitude);
-    _prayerParams = AppStyles.prayerCalculationMethods[_calculationMethodIndex].getParameters();
-    _prayerParams.madhab = AppStyles.calculationMadhab[_madhabIndex];
+    _prayerParams = AppStrings.prayerCalculationMethods[_calculationMethodIndex].getParameters();
+    _prayerParams.madhab = AppStrings.calculationMadhab[_madhabIndex];
 
     _prayerParams.adjustments.fajr = _fajrAdjustment;
     _prayerParams.adjustments.sunrise = _sunriseAdjustment;
@@ -88,7 +88,7 @@ class AdhanTimeState extends ChangeNotifier {
     _prayerTimes = PrayerTimes.today(
       _coordinates,
       _prayerParams,
-      utcOffset: AppStyles.calculationUtcOffset[timeOffsetIndex],
+      utcOffset: AppStrings.calculationUtcOffset[timeOffsetIndex],
     );
 
     _sunnahTimes = SunnahTimes(_prayerTimes);

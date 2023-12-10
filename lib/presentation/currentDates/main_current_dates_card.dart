@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:majmua/core/strings/app_strings.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/currentDates/friday_sunnahs_tile.dart';
@@ -34,14 +35,14 @@ class MainCurrentDatesCard extends StatelessWidget {
                 AnimatedSize(
                   duration: const Duration(milliseconds: 750),
                   child: Visibility(
-                    visible: adhanTimeState.getIsFriday,
+                    visible: !adhanTimeState.getIsFriday,
                     child: const FridaySunnahsTile(),
                   ),
                 ),
                 AnimatedSize(
                   duration: const Duration(milliseconds: 750),
                   child: Visibility(
-                    visible: adhanTimeState.getIsFriday,
+                    visible: !adhanTimeState.getIsFriday,
                     child: const SizedBox(height: 8),
                   ),
                 ),
@@ -54,7 +55,7 @@ class MainCurrentDatesCard extends StatelessWidget {
                           YearMonthDayCard(
                             monthPercent: timeState.getElapsedMonthPercentage() / 100,
                             day: timeState.currentDateTime.day,
-                            month: AppStyles.getMonthName(
+                            month: AppStrings.getMonthName(
                               locale: appLocale!.localeName,
                               number: timeState.currentDateTime.month,
                             ),
@@ -65,7 +66,7 @@ class MainCurrentDatesCard extends StatelessWidget {
                           YearMonthDayCard(
                             monthPercent: timeState.getElapsedLunarMonthPercentage() / 100,
                             day: timeState.currentHijriTime.hDay,
-                            month: AppStyles.getHijriMonthName(
+                            month: AppStrings.getHijriMonthName(
                               locale: appLocale.localeName,
                               number: timeState.currentHijriTime.hMonth,
                             ),
@@ -102,7 +103,7 @@ class MainCurrentDatesCard extends StatelessWidget {
                               margin: EdgeInsets.zero,
                               color: appColors.primaryColor.withOpacity(0.15),
                               shape: RoundedRectangleBorder(
-                                borderRadius: AppStyles.mainBorderRadius,
+                                borderRadius: AppStyles.mainBorderRadiusMicro,
                                 side: BorderSide(
                                   width: screenWidth * 0.003,
                                   color: appColors.secondaryColor,
@@ -152,7 +153,7 @@ class MainCurrentDatesCard extends StatelessWidget {
                       backgroundColor: appColors.surface,
                       builder: (context) {
                         return WeeklyMessages(
-                          dailyMessage: AppStyles.getLongDaily(
+                          dailyMessage: AppStrings.getLongDaily(
                             locale: appLocale.localeName,
                             number: timeState.currentDateTime.weekday,
                           ),
@@ -164,7 +165,7 @@ class MainCurrentDatesCard extends StatelessWidget {
                   shape: AppStyles.bottomShapeMini,
                   visualDensity: const VisualDensity(vertical: -2),
                   title: Text(
-                    AppStyles.getShortDaily(
+                    AppStrings.getShortDaily(
                       locale: appLocale.localeName,
                       number: timeState.currentDateTime.weekday,
                     ),
