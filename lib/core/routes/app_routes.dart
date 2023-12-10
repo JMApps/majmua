@@ -5,6 +5,7 @@ import 'package:majmua/presentation/adhanTimes/params/adhan_params_page.dart';
 import 'package:majmua/presentation/adhanTimes/params/adjustmentTime/adjustment_time_page.dart';
 import 'package:majmua/presentation/adhanTimes/params/calculation_info_page.dart';
 import 'package:majmua/presentation/adhanTimes/params/selectCity/select_city_page.dart';
+import 'package:majmua/presentation/counter/app_counter_page.dart';
 import 'package:majmua/presentation/pages/notification_settings_page.dart';
 
 class AppRoutes {
@@ -33,6 +34,10 @@ class AppRoutes {
       case RouteNames.informationPage:
         return MaterialPageRoute(
           builder: (_) => const CalculationInfoPage(),
+        );
+      case RouteNames.appCounterPage:
+        return MaterialPageRoute(
+          builder: (_) => const AppCounterPage(),
         );
       default:
         throw Exception('Invalid route ${routeSettings.name}');
