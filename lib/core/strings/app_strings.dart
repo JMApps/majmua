@@ -177,6 +177,29 @@ class AppStrings {
     },
   };
 
+  static const Map<String, Map<String, List<String>>> _counterValues = {
+    'ru': {
+      'counter_values': _ruCounterValues,
+    },
+    'en': {
+      'counter_values': _enCounterValues,
+    },
+  };
+
+  static const List<String> _enCounterValues = [
+    'Free',
+    'لَا إِلَهَ إلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
+    'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ',
+    'أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ',
+  ];
+
+  static const List<String> _ruCounterValues = [
+    'Без ограничений',
+    'لَا إِلَهَ إلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
+    'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ',
+    'أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ',
+  ];
+
   static const Map<int, String> ruMonthNames = {
     1: 'Январь',
     2: 'Февраль',
@@ -324,6 +347,10 @@ class AppStrings {
   static const int friIndex = 5;
   static const int satIndex = 6;
   static const int sunIndex = 7;
+
+  static List<String> getCounterValues({required String locale}) {
+    return _counterValues[locale]!['counter_values']!;
+  }
 
   static List<ModelFriday> getFridaySunnahList({required String locale}) {
     return _fridaySunnahList[locale]!['friday_content_list']!;

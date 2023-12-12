@@ -21,8 +21,11 @@ void main() async {
     );
   }
   await Hive.initFlutter();
+  await Hive.openBox(AppConstraints.keyMainSettings);
   await Hive.openBox(AppConstraints.keyMainAppSettings);
+  await Hive.openBox(AppConstraints.keyWeeklySalawatSettings);
   await Hive.openBox(AppConstraints.keySettingsPrayerTimeBox);
+  await Hive.openBox(AppConstraints.keyMainCounter);
   runApp(
     MultiProvider(
       providers: [

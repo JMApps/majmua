@@ -21,6 +21,7 @@ dependencies:
   square_progress_indicator: ^0.0.7
   smooth_page_indicator: ^1.1.0
   sleek_circular_slider: ^2.0.1
+  step_progress_indicator: ^1.0.2
 
   # Databases
   sqflite: ^2.3.0
@@ -45,6 +46,7 @@ dependencies:
 
   # System
   wakelock_plus: ^1.1.4
+  vibration: ^1.8.4
 
   # Notifications
   flutter_local_notifications: ^16.2.0
