@@ -79,3 +79,6 @@ flutter:
     - family: 'Bitter'
       fonts:
         - asset: assets/fonts/bitter_medium.ttf
+    - family: 'Naskh Arabic'
+      fonts:
+        - asset: assets/fonts/naskh_arabic.ttf
