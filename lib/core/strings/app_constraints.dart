@@ -62,6 +62,9 @@ class AppConstraints {
   // Counter
   static const String keyCounterValue = 'key_counter_value';
   static const String keyCounterAllValue = 'key_counter_all_value';
+  static const String keyCounterFirstValue = 'key_counter_first_value';
+  static const String keyCounterSecondValue = 'key_counter_second_value';
+  static const String keyCounterThirdValue = 'key_counter_third_value';
   static const String keyCounterVibrate = 'key_counter_vibrate';
   static const String keyCounterClick = 'key_counter_click';
   static const String keyCountValueShow = 'key_count_value_show';
