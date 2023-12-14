@@ -8,6 +8,7 @@ import 'package:majmua/presentation/pages/root_page.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
 import 'package:majmua/presentation/state/main_app_state.dart';
 import 'package:majmua/presentation/state/rest_time_state.dart';
+import 'package:majmua/presentation/state/salawat_counter_state.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -33,10 +34,13 @@ void main() async {
           create: (_) => MainAppState(),
         ),
         ChangeNotifierProvider(
+          create: (_) => AdhanTimeState(),
+        ),
+        ChangeNotifierProvider(
           create: (_) => RestTimeState(),
         ),
         ChangeNotifierProvider(
-          create: (_) => AdhanTimeState(),
+          create: (_) => SalawatCounterState(),
         ),
       ],
       child: const RootPage(),

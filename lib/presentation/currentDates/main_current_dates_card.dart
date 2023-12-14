@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:majmua/core/routes/route_names.dart';
 import 'package:majmua/core/strings/app_strings.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
@@ -10,6 +12,7 @@ import 'package:majmua/presentation/currentDates/weekly_messages.dart';
 import 'package:majmua/presentation/currentDates/year_month_day_card.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
 import 'package:majmua/presentation/state/rest_time_state.dart';
+import 'package:majmua/presentation/state/salawat_counter_state.dart';
 import 'package:provider/provider.dart';
 
 class MainCurrentDatesCard extends StatelessWidget {
@@ -53,24 +56,29 @@ class MainCurrentDatesCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           YearMonthDayCard(
-                            monthPercent: timeState.getElapsedMonthPercentage() / 100,
+                            monthPercent:
+                                timeState.getElapsedMonthPercentage() / 100,
                             day: timeState.currentDateTime.day,
                             month: AppStrings.getMonthName(
                               locale: appLocale!.localeName,
                               number: timeState.currentDateTime.month,
                             ),
-                            year: '${timeState.currentDateTime.year} ${appLocale.year.toLowerCase()}',
+                            year:
+                                '${timeState.currentDateTime.year} ${appLocale.year.toLowerCase()}',
                             dateColor: appColors.primaryColor,
                           ),
                           const SizedBox(height: 8),
                           YearMonthDayCard(
-                            monthPercent: timeState.getElapsedLunarMonthPercentage() / 100,
+                            monthPercent:
+                                timeState.getElapsedLunarMonthPercentage() /
+                                    100,
                             day: timeState.currentHijriTime.hDay,
                             month: AppStrings.getHijriMonthName(
                               locale: appLocale.localeName,
                               number: timeState.currentHijriTime.hMonth,
                             ),
-                            year: '${timeState.currentHijriTime.hYear} ${appLocale.year.toLowerCase()}',
+                            year:
+                                '${timeState.currentHijriTime.hYear} ${appLocale.year.toLowerCase()}',
                             dateColor: appColors.secondaryColor,
                           ),
                         ],
@@ -86,7 +94,12 @@ class MainCurrentDatesCard extends StatelessWidget {
                         child: Column(
                           children: [
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Provider.of<SalawatCounterState>(context, listen: false).changeSalawatCount;
+                              },
+                              onLongPress: () {
+                                Provider.of<SalawatCounterState>(context, listen: false).resetSalawatCount;
+                              },
                               borderRadius: AppStyles.mainBorderRadiusBig,
                               child: Image.asset(
                                 'assets/pictures/salawat.png',
@@ -112,12 +125,12 @@ class MainCurrentDatesCard extends StatelessWidget {
                               child: SizedBox(
                                 width: screenWidth * 0.22,
                                 child: Text(
-                                  '653',
+                                  context.watch<SalawatCounterState>().getSalawatCount.toString(),
                                   style: TextStyle(
                                     fontSize: screenWidth * 0.04,
                                     fontFamily: 'Bitter',
                                     fontWeight: FontWeight.bold,
-                                    letterSpacing: 1
+                                    letterSpacing: 1,
                                   ),
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
@@ -146,39 +159,68 @@ class MainCurrentDatesCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 8),
-                ListTile(
-                  onTap: () {
-                    showModalBottomSheet(
-                      context: context,
-                      backgroundColor: appColors.surface,
-                      builder: (context) {
-                        return WeeklyMessages(
-                          dailyMessage: AppStrings.getLongDaily(
-                            locale: appLocale.localeName,
-                            number: timeState.currentDateTime.weekday,
+                Row(
+                  children: [
+                    Flexible(
+                      child: ListTile(
+                        onTap: () {
+                          showModalBottomSheet(
+                            context: context,
+                            isScrollControlled: true,
+                            backgroundColor: appColors.surface,
+                            builder: (context) {
+                              return WeeklyMessages(
+                                dailyMessage: AppStrings.getLongDaily(
+                                  locale: appLocale.localeName,
+                                  number: timeState.currentDateTime.weekday,
+                                ),
+                              );
+                            },
+                          );
+                        },
+                        tileColor: appColors.glass,
+                        shape: AppStyles.leftBottomShapeMini,
+                        visualDensity: const VisualDensity(vertical: -2),
+                        title: Text(
+                          appLocale.reminder,
+                          style: TextStyle(
+                            fontSize: screenWidth * 0.04,
                           ),
-                        );
-                      },
-                    );
-                  },
-                  tileColor: appColors.glass,
-                  shape: AppStyles.bottomShapeMini,
-                  visualDensity: const VisualDensity(vertical: -2),
-                  title: Text(
-                    AppStrings.getShortDaily(
-                      locale: appLocale.localeName,
-                      number: timeState.currentDateTime.weekday,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        trailing: Icon(
+                          CupertinoIcons.checkmark_circle,
+                          color: appColors.secondaryColor,
+                          size: screenWidth * 0.05,
+                        ),
+                      ),
                     ),
-                    style: TextStyle(
-                      fontSize: screenWidth * 0.04,
-                      fontFamily: 'Nexa',
+                    const SizedBox(width: 8),
+                    Flexible(
+                      child: ListTile(
+                        onTap: () {
+                          Navigator.pushNamed(context, RouteNames.appCounterPage);
+                        },
+                        tileColor: appColors.glass,
+                        shape: AppStyles.rightBottomShapeMini,
+                        visualDensity: const VisualDensity(vertical: -2),
+                        title: Text(
+                          appLocale.counter,
+                          style: TextStyle(
+                            fontSize: screenWidth * 0.04,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        trailing: Icon(
+                          CupertinoIcons.asterisk_circle,
+                          color: appColors.secondaryColor,
+                          size: screenWidth * 0.05,
+                        ),
+                      ),
                     ),
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    color: appColors.primaryColor,
-                    size: screenWidth * 0.05,
-                  ),
+                  ],
                 ),
               ],
             );
