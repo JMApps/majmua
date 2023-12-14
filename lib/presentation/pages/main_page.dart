@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/core/routes/route_names.dart';
 import 'package:majmua/core/strings/app_strings.dart';
 import 'package:majmua/core/themes/app_themes.dart';
@@ -27,6 +28,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
+    Hive.close();
     super.dispose();
   }
 

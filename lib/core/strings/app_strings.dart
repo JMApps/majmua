@@ -164,7 +164,6 @@ class AppStrings {
       'hijri_month_names': ruHijriMonthNames,
       'long_wd_names': ruLongWdNames,
       'short_wd_names': ruShortWdNames,
-      'daily_short': ruDailyShortMessages,
       'daily_long': ruDailyLongMessages
     },
     'en': {
@@ -172,7 +171,6 @@ class AppStrings {
       'hijri_month_names': enHijriMonthNames,
       'long_wd_names': enLongWdNames,
       'short_wd_names': enShortWdNames,
-      'daily_short': enDailyShortMessages,
       'daily_long': enDailyLongMessages
     },
   };
@@ -250,16 +248,6 @@ class AppStrings {
     7: "Вс"
   };
 
-  static const Map<int, String> ruDailyShortMessages = {
-    1: "Первое напоминание",
-    2: "Второе напоминание",
-    3: "Третье напоминание",
-    4: "Четвертое напоминание",
-    5: "Пятое напоминание",
-    6: "Шестое напоминание",
-    7: "Седьмое напоминание"
-  };
-
   static const Map<int, String> ruDailyLongMessages = {
     1: "Первое большое напоминание",
     2: "Второе большое напоминание",
@@ -320,16 +308,6 @@ class AppStrings {
     7: "Sun"
   };
 
-  static const Map<int, String> enDailyShortMessages = {
-    1: "First daily message",
-    2: "Second daily message",
-    3: "Third daily message",
-    4: "Fourth daily message",
-    5: "Fifth daily message",
-    6: "Sixth daily message",
-    7: "Seventh daily message"
-  };
-
   static const Map<int, String> enDailyLongMessages = {
     1: "First big daily message",
     2: "Second big daily message",
@@ -370,10 +348,6 @@ class AppStrings {
 
   static String getShortWdName({required String locale, required int number}) {
     return _localNames[locale]!['short_wd_names']![number]!;
-  }
-
-  static String getShortDaily({required String locale, required int number}) {
-    return _localNames[locale]!['daily_short']![number]!;
   }
 
   static String getLongDaily({required String locale, required int number}) {

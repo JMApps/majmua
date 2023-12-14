@@ -17,13 +17,15 @@ class WeeklyMessages extends StatelessWidget {
       child: Container(
         width: double.infinity,
         padding: AppStyles.mardingWithoutTop,
-        child: Text(
-          dailyMessage,
-          style: const TextStyle(
-            fontSize: 16,
-            fontFamily: 'Nexa',
+        child: SingleChildScrollView(
+          child: Text(
+            dailyMessage,
+            style: const TextStyle(
+              fontSize: 16,
+              fontFamily: 'Nexa',
+            ),
+            textAlign: TextAlign.center,
           ),
-          textAlign: TextAlign.center,
         ),
       ),
     );
