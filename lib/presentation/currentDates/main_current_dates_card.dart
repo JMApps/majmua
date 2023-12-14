@@ -182,7 +182,7 @@ class MainCurrentDatesCard extends StatelessWidget {
                         shape: AppStyles.leftBottomShapeMini,
                         visualDensity: const VisualDensity(vertical: -2),
                         title: Text(
-                          appLocale.reminder,
+                          appLocale.ayahDay,
                           style: TextStyle(
                             fontSize: screenWidth * 0.04,
                           ),

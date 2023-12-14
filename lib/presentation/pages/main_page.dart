@@ -79,13 +79,6 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
                   icon: const Icon(CupertinoIcons.bell),
                 ),
               ],
-              leading: IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, RouteNames.appCounterPage);
-                },
-                splashRadius: 20,
-                icon: const Icon(Icons.ac_unit),
-              ),
             ),
             const SliverToBoxAdapter(
               child: MainWidgetsList(),
