@@ -8,7 +8,6 @@ import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/currentDates/friday_sunnahs_tile.dart';
 import 'package:majmua/presentation/currentDates/main_white_days_card.dart';
 import 'package:majmua/presentation/currentDates/week_days_row.dart';
-import 'package:majmua/presentation/currentDates/weekly_messages.dart';
 import 'package:majmua/presentation/currentDates/year_month_day_card.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
 import 'package:majmua/presentation/state/rest_time_state.dart';
@@ -56,29 +55,24 @@ class MainCurrentDatesCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           YearMonthDayCard(
-                            monthPercent:
-                                timeState.getElapsedMonthPercentage() / 100,
+                            monthPercent: timeState.getElapsedMonthPercentage() / 100,
                             day: timeState.currentDateTime.day,
                             month: AppStrings.getMonthName(
                               locale: appLocale!.localeName,
                               number: timeState.currentDateTime.month,
                             ),
-                            year:
-                                '${timeState.currentDateTime.year} ${appLocale.year.toLowerCase()}',
+                            year: '${timeState.currentDateTime.year} ${appLocale.year.toLowerCase()}',
                             dateColor: appColors.primaryColor,
                           ),
                           const SizedBox(height: 8),
                           YearMonthDayCard(
-                            monthPercent:
-                                timeState.getElapsedLunarMonthPercentage() /
-                                    100,
+                            monthPercent: timeState.getElapsedLunarMonthPercentage() / 100,
                             day: timeState.currentHijriTime.hDay,
                             month: AppStrings.getHijriMonthName(
                               locale: appLocale.localeName,
                               number: timeState.currentHijriTime.hMonth,
                             ),
-                            year:
-                                '${timeState.currentHijriTime.hYear} ${appLocale.year.toLowerCase()}',
+                            year: '${timeState.currentHijriTime.hYear} ${appLocale.year.toLowerCase()}',
                             dateColor: appColors.secondaryColor,
                           ),
                         ],
@@ -161,49 +155,49 @@ class MainCurrentDatesCard extends StatelessWidget {
                 const SizedBox(height: 8),
                 Row(
                   children: [
-                    Flexible(
-                      child: ListTile(
-                        onTap: () {
-                          showModalBottomSheet(
-                            context: context,
-                            isScrollControlled: true,
-                            backgroundColor: appColors.surface,
-                            builder: (context) {
-                              return WeeklyMessages(
-                                dailyMessage: AppStrings.getLongDaily(
-                                  locale: appLocale.localeName,
-                                  number: timeState.currentDateTime.weekday,
-                                ),
-                              );
-                            },
-                          );
-                        },
-                        tileColor: appColors.glass,
-                        shape: AppStyles.leftBottomShapeMini,
-                        visualDensity: const VisualDensity(vertical: -2),
-                        title: Text(
-                          appLocale.ayahDay,
-                          style: TextStyle(
-                            fontSize: screenWidth * 0.04,
-                          ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        trailing: Icon(
-                          CupertinoIcons.checkmark_circle,
-                          color: appColors.secondaryColor,
-                          size: screenWidth * 0.05,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 8),
+                    // Flexible(
+                    //   child: ListTile(
+                    //     onTap: () {
+                    //       showModalBottomSheet(
+                    //         context: context,
+                    //         isScrollControlled: true,
+                    //         backgroundColor: appColors.surface,
+                    //         builder: (context) {
+                    //           return WeeklyMessages(
+                    //             dailyMessage: AppStrings.getLongDaily(
+                    //               locale: appLocale.localeName,
+                    //               number: timeState.currentDateTime.weekday,
+                    //             ),
+                    //           );
+                    //         },
+                    //       );
+                    //     },
+                    //     tileColor: appColors.glass,
+                    //     shape: AppStyles.leftBottomShapeMini,
+                    //     visualDensity: const VisualDensity(vertical: -2),
+                    //     title: Text(
+                    //       appLocale.ayahDay,
+                    //       style: TextStyle(
+                    //         fontSize: screenWidth * 0.04,
+                    //       ),
+                    //       maxLines: 1,
+                    //       overflow: TextOverflow.ellipsis,
+                    //     ),
+                    //     trailing: Icon(
+                    //       CupertinoIcons.checkmark_circle,
+                    //       color: appColors.secondaryColor,
+                    //       size: screenWidth * 0.05,
+                    //     ),
+                    //   ),
+                    // ),
+                    // const SizedBox(width: 8),
                     Flexible(
                       child: ListTile(
                         onTap: () {
                           Navigator.pushNamed(context, RouteNames.appCounterPage);
                         },
                         tileColor: appColors.glass,
-                        shape: AppStyles.rightBottomShapeMini,
+                        shape: AppStyles.bottomShapeMini,
                         visualDensity: const VisualDensity(vertical: -2),
                         title: Text(
                           appLocale.counter,

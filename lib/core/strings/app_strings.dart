@@ -3,6 +3,14 @@ import 'package:majmua/data/models/adhan_information_model.dart';
 import 'package:majmua/data/models/model_friday.dart';
 
 class AppStrings {
+  static const backgroundPictureNames = <String>[
+    'first_background.jpg',
+    'second_background.jpg',
+    'third_background.jpg',
+    'fourth_background.jpg',
+    'fifth_background.jpg',
+    'sixth_background.jpg'
+  ];
 
   static const _ruFridayContentList = <ModelFriday>[
     ModelFriday(
@@ -140,50 +148,6 @@ class AppStrings {
     ),
   ];
 
-  static const Map<String, Map<String, List<ModelFriday>>> _fridaySunnahList = {
-    'ru': {
-      'friday_content_list': _ruFridayContentList,
-    },
-    'en': {
-      'friday_content_list': _enFridayContentList,
-    },
-  };
-
-  static const backgroundPictureNames = <String>[
-    'first_background.jpg',
-    'second_background.jpg',
-    'third_background.jpg',
-    'fourth_background.jpg',
-    'fifth_background.jpg',
-    'sixth_background.jpg'
-  ];
-
-  static const Map<String, Map<String, Map<int, String>>> _localNames = {
-    'ru': {
-      'month_names': ruMonthNames,
-      'hijri_month_names': ruHijriMonthNames,
-      'long_wd_names': ruLongWdNames,
-      'short_wd_names': ruShortWdNames,
-      'daily_long': ruDailyLongMessages
-    },
-    'en': {
-      'month_names': enMonthNames,
-      'hijri_month_names': enHijriMonthNames,
-      'long_wd_names': enLongWdNames,
-      'short_wd_names': enShortWdNames,
-      'daily_long': enDailyLongMessages
-    },
-  };
-
-  static const Map<String, Map<String, List<String>>> _counterValues = {
-    'ru': {
-      'counter_values': _ruCounterValues,
-    },
-    'en': {
-      'counter_values': _enCounterValues,
-    },
-  };
-
   static const List<String> _enCounterValues = [
     'Free',
     'لَا إِلَهَ إلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
@@ -198,7 +162,35 @@ class AppStrings {
     'أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ',
   ];
 
-  static const Map<int, String> ruMonthNames = {
+  static const Map<String, Map<String, List<dynamic>>> _localLists = {
+    'ru': {
+      'friday_content_list': _ruFridayContentList,
+      'counter_values': _ruCounterValues,
+    },
+    'en': {
+      'friday_content_list': _enFridayContentList,
+      'counter_values': _enCounterValues,
+    },
+  };
+
+  static const Map<String, Map<String, Map<int, String>>> _localNames = {
+    'ru': {
+      'month_names': _ruMonthNames,
+      'hijri_month_names': _ruHijriMonthNames,
+      'long_wd_names': _ruLongWdNames,
+      'short_wd_names': _ruShortWdNames,
+      'daily_long': _ruDailyLongMessages
+    },
+    'en': {
+      'month_names': _enMonthNames,
+      'hijri_month_names': _enHijriMonthNames,
+      'long_wd_names': _enLongWdNames,
+      'short_wd_names': _enShortWdNames,
+      'daily_long': _enDailyLongMessages
+    },
+  };
+
+  static const Map<int, String> _ruMonthNames = {
     1: 'Январь',
     2: 'Февраль',
     3: 'Март',
@@ -213,52 +205,7 @@ class AppStrings {
     12: 'Декабрь'
   };
 
-  static const Map<int, String> ruHijriMonthNames = {
-    1: 'Мухаррам',
-    2: 'Сафар',
-    3: 'Раби\' аль-Авваль',
-    4: 'Раби\' ас-Сани',
-    5: 'Джумада аль-Авваль',
-    6: 'Джумада ас-Сани',
-    7: 'Раджаб',
-    8: 'Ша\'бан',
-    9: 'Рамадан',
-    10: 'Шавваль',
-    11: 'Зу-ль-Ка\'да',
-    12: 'Зу-ль-Хиджа'
-  };
-
-  static const Map<int, String> ruLongWdNames = {
-    1: "Понедельник",
-    2: "Вторник",
-    3: "Среда",
-    4: "Четверг",
-    5: "Пятница",
-    6: "Суббота",
-    7: "Воскресенье"
-  };
-
-  static const Map<int, String> ruShortWdNames = {
-    1: "Пн",
-    2: "Вт",
-    3: "Ср",
-    4: "Чт",
-    5: "Пт",
-    6: "Сб",
-    7: "Вс"
-  };
-
-  static const Map<int, String> ruDailyLongMessages = {
-    1: "Первое большое напоминание",
-    2: "Второе большое напоминание",
-    3: "Третье большое напоминание",
-    4: "Четвертое большое напоминание",
-    5: "Пятое большое напоминание",
-    6: "Шестое большое напоминание",
-    7: "Седьмое большое напоминание"
-  };
-
-  static const Map<int, String> enMonthNames = {
+  static const Map<int, String> _enMonthNames = {
     1: 'January',
     2: 'February',
     3: 'March',
@@ -273,12 +220,27 @@ class AppStrings {
     12: 'December'
   };
 
-  static const Map<int, String> enHijriMonthNames = {
+  static const Map<int, String> _ruHijriMonthNames = {
+    1: 'Мухаррам',
+    2: 'Сафар',
+    3: 'Раби\' аль-Авваль',
+    4: 'Раби\' ас-Сани',
+    5: 'Джумада аль-Уля',
+    6: 'Джумада ас-Сани',
+    7: 'Раджаб',
+    8: 'Ша\'бан',
+    9: 'Рамадан',
+    10: 'Шавваль',
+    11: 'Зу-ль-Ка\'да',
+    12: 'Зу-ль-Хиджа'
+  };
+
+  static const Map<int, String> _enHijriMonthNames = {
     1: 'Muharram',
     2: 'Safar',
     3: 'Rabi\' Al-Awwal',
     4: 'Rabi\' Al-Thani',
-    5: 'Jumada Al-Awwal',
+    5: 'Jumada Al-Ula',
     6: 'Jumada Al-Thani',
     7: 'Rajab',
     8: 'Sha\'aban',
@@ -288,34 +250,64 @@ class AppStrings {
     12: 'Dhu Al-Hijjah'
   };
 
-  static const Map<int, String> enLongWdNames = {
-    1: "Monday",
-    2: "Tuesday",
-    3: "Wednesday",
-    4: "Thursday",
-    5: "Friday",
-    6: "Saturday",
-    7: "Sunday"
+  static const Map<int, String> _ruLongWdNames = {
+    monIndex: "Понедельник",
+    tueIndex: "Вторник",
+    wedIndex: "Среда",
+    thuIndex: "Четверг",
+    friIndex: "Пятница",
+    satIndex: "Суббота",
+    sunIndex: "Воскресенье"
   };
 
-  static const Map<int, String> enShortWdNames = {
-    1: "Mon",
-    2: "Tue",
-    3: "Wed",
-    4: "Thu",
-    5: "Fri",
-    6: "Sat",
-    7: "Sun"
+  static const Map<int, String> _enLongWdNames = {
+    monIndex: "Monday",
+    tueIndex: "Tuesday",
+    wedIndex: "Wednesday",
+    thuIndex: "Thursday",
+    friIndex: "Friday",
+    satIndex: "Saturday",
+    sunIndex: "Sunday"
   };
 
-  static const Map<int, String> enDailyLongMessages = {
-    1: "First big daily message",
-    2: "Second big daily message",
-    3: "Third big daily message",
-    4: "Fourth big daily message",
-    5: "Fifth big daily message",
-    6: "Sixth big daily message",
-    7: "Seventh big daily message"
+  static const Map<int, String> _ruShortWdNames = {
+    monIndex: "Пн",
+    tueIndex: "Вт",
+    wedIndex: "Ср",
+    thuIndex: "Чт",
+    friIndex: "Пт",
+    satIndex: "Сб",
+    sunIndex: "Вс"
+  };
+
+  static const Map<int, String> _enShortWdNames = {
+    monIndex: "Mon",
+    tueIndex: "Tue",
+    wedIndex: "Wed",
+    thuIndex: "Thu",
+    friIndex: "Fri",
+    satIndex: "Sat",
+    sunIndex: "Sun"
+  };
+
+  static const Map<int, String> _ruDailyLongMessages = {
+    monIndex: "Первое большое напоминание",
+    tueIndex: "Второе большое напоминание",
+    wedIndex: "Третье большое напоминание",
+    thuIndex: "Четвертое большое напоминание",
+    friIndex: "Пятое большое напоминание",
+    satIndex: "Шестое большое напоминание",
+    sunIndex: "Седьмое большое напоминание"
+  };
+
+  static const Map<int, String> _enDailyLongMessages = {
+    monIndex: "First big daily message",
+    tueIndex: "Second big daily message",
+    wedIndex: "Third big daily message",
+    thuIndex: "Fourth big daily message",
+    friIndex: "Fifth big daily message",
+    satIndex: "Sixth big daily message",
+    sunIndex: "Seventh big daily message"
   };
 
   static const int monIndex = 1;
@@ -326,12 +318,12 @@ class AppStrings {
   static const int satIndex = 6;
   static const int sunIndex = 7;
 
-  static List<String> getCounterValues({required String locale}) {
-    return _counterValues[locale]!['counter_values']!;
+  static List<dynamic> getCounterValues({required String locale}) {
+    return _localLists[locale]!['counter_values']!;
   }
 
-  static List<ModelFriday> getFridaySunnahList({required String locale}) {
-    return _fridaySunnahList[locale]!['friday_content_list']!;
+  static List<dynamic> getFridaySunnahList({required String locale}) {
+    return _localLists[locale]!['friday_content_list']!;
   }
 
   static String getMonthName({required String locale, required int number}) {

@@ -35,34 +35,36 @@ class AppCounterPage extends StatelessWidget {
             duration: const Duration(milliseconds: 500),
             child: Consumer<AppCounterState>(
               builder: (BuildContext context, AppCounterState appCounterState, _) {
-                return mediaQuery.orientation == Orientation.portrait ? const Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Expanded(
-                      child: CounterButton(),
-                    ),
-                    // ignore: prefer_const_constructors
-                    CounterValuesDropbutton(),
-                    TotalCountText(),
-                  ],
-                ) : const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(width: 16),
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                return mediaQuery.orientation == Orientation.portrait
+                    ? const Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
+                          Expanded(
+                            child: CounterButton(),
+                          ),
+                          // ignore: prefer_const_constructors
                           CounterValuesDropbutton(),
                           TotalCountText(),
                         ],
-                      ),
-                    ),
-                    SizedBox(width: 16),
-                    CounterButton(),
-                    SizedBox(width: 16),
-                  ],
-                );
+                      )
+                    : const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(width: 16),
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                CounterValuesDropbutton(),
+                                TotalCountText(),
+                              ],
+                            ),
+                          ),
+                          SizedBox(width: 16),
+                          CounterButton(),
+                          SizedBox(width: 16),
+                        ],
+                      );
               },
             ),
           ),

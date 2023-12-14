@@ -28,7 +28,7 @@ class _FridaySunnahsTileState extends State<FridaySunnahsTile> {
       shape: RoundedRectangleBorder(
         borderRadius: AppStyles.mainBorderRadiusMicro,
         side: BorderSide(
-          width: 2,
+          width: 1.5,
           color: appColors.quaternaryColor,
         ),
       ),
@@ -102,6 +102,7 @@ class _FridaySunnahsTileState extends State<FridaySunnahsTile> {
             ),
           );
         },
+        shape: AppStyles.mainShapeMicro,
         title: Text(
           appLocale!.fridaySunnahs,
           style: TextStyle(fontSize: screenWidth * 0.04),

@@ -116,19 +116,19 @@ class AppThemes {
 extension ColorSchemeS on ColorScheme {
   Color get primaryColor => brightness == Brightness.light
       ? const Color(0xFF3F51B5)
-      : const Color(0xFF5C6BC0);
+      : const Color(0xD95C6BC0);
 
   Color get secondaryColor => brightness == Brightness.light
-      ? const Color(0xFF00796B)
-      : const Color(0xFF26A69A);
+      ? const Color(0xFF009688)
+      : const Color(0xBF26A69A);
 
   Color get tertiaryColor => brightness == Brightness.light
       ? const Color(0xFFF57C00)
       : const Color(0xFFFFB74D);
 
   Color get quaternaryColor => brightness == Brightness.light
-      ? const Color(0xFFF44336)
-      : const Color(0xFFD32F2F);
+      ? const Color(0xFFEF5350)
+      : const Color(0xD9D32F2F);
 
   Color get secterColor => brightness == Brightness.light
       ? const Color(0xFF00796B)

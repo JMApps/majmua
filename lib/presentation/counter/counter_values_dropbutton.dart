@@ -39,7 +39,7 @@ class CounterValuesDropbutton extends StatelessWidget {
                 onChanged: (String? value) {
                   appCounterState.setCountValuesIndex = AppStrings.getCounterValues(locale: appLocale.localeName).indexOf(value!);
                 },
-                items: AppStrings.getCounterValues(locale: appLocale.localeName).map<DropdownMenuItem<String>>((String value) {
+                items: AppStrings.getCounterValues(locale: appLocale.localeName).map<DropdownMenuItem<String>>((dynamic value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Center(

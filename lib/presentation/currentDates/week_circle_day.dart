@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/state/rest_time_state.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
+import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 class WeekCircleDay extends StatelessWidget {
   const WeekCircleDay({
@@ -34,24 +35,40 @@ class WeekCircleDay extends StatelessWidget {
             : appColors.primaryColor,
       ),
       child: isCurrentDay
-          ? CircularPercentIndicator(
-              radius: isCurrentDay ? screenWidth * 0.05 : screenWidth * 0.04,
-              lineWidth: screenWidth * 0.005,
-              circularStrokeCap: CircularStrokeCap.round,
-              progressColor: Colors.indigo,
-              backgroundColor: Colors.white,
-              percent: timeState.getElapsedDayPercentage() / 100,
-              center: Text(
-                dayName,
-                style: TextStyle(
-                  fontSize: screenWidth * 0.035,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Nexa',
+          ? Padding(
+              padding: AppStyles.mainMardingMicro,
+              child: SleekCircularSlider(
+                initialValue: timeState.getElapsedDayPercentage(),
+                appearance: CircularSliderAppearance(
+                  infoProperties: InfoProperties(
+                    modifier: null,
+                    topLabelText: dayName,
+                    topLabelStyle: TextStyle(
+                      fontSize: screenWidth * 0.035,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    mainLabelStyle: const TextStyle(
+                      fontSize: 0,
+                    ),
+                  ),
+                  customWidths: CustomSliderWidths(
+                    progressBarWidth: screenWidth * 0.006,
+                    trackWidth: screenWidth * 0.004,
+                    handlerSize: screenWidth * 0.003,
+                  ),
+                  customColors: CustomSliderColors(
+                    hideShadow: true,
+                    dotColor: appColors.surface,
+                    progressBarColor: appColors.primary,
+                    trackColor: appColors.inversePrimary.withOpacity(0.5),
+                  ),
+                  size: screenWidth * 0.22,
+                  spinnerMode: false,
+                  animationEnabled: true,
                 ),
-                textAlign: TextAlign.center,
               ),
-          )
+            )
           : Center(
               child: Text(
                 dayName,
