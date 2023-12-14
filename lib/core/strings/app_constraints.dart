@@ -77,5 +77,4 @@ class AppConstraints {
   static const int defCalculationIndex = 10;
   static const int defUtcOffsetIndex = 1;
   static const int defMadhabIndex = 0;
-  static const int defHighLatitudeIndex = 0;
 }

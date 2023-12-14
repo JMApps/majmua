@@ -240,7 +240,7 @@ class AppStrings {
     2: 'Safar',
     3: 'Rabi\' Al-Awwal',
     4: 'Rabi\' Al-Thani',
-    5: 'Jumada Al-Ula',
+    5: 'Jumada Al-Awwal',
     6: 'Jumada Al-Thani',
     7: 'Rajab',
     8: 'Sha\'aban',
