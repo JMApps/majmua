@@ -4,7 +4,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/core/routes/route_names.dart';
 import 'package:majmua/core/strings/app_strings.dart';
-import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/lists/main_widgets_list.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
 import 'package:majmua/presentation/state/main_app_state.dart';
@@ -44,8 +43,8 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations? appLocale = AppLocalizations.of(context);
     final ThemeData appTheme = Theme.of(context);
+    final AppLocalizations? appLocale = AppLocalizations.of(context);
     final MainAppState mainAppState = Provider.of<MainAppState>(context);
     return Container(
       decoration: BoxDecoration(
@@ -62,7 +61,6 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
         body: CustomScrollView(
           slivers: [
             SliverAppBar(
-              backgroundColor: appTheme.colorScheme.primaryColor,
               title: Text(appLocale!.appName),
               elevation: 0,
               centerTitle: true,

@@ -58,10 +58,11 @@ class CounterButton extends StatelessWidget {
                         ? appCounterState.getCurrentCountValue.toString()
                         : '',
                     style: TextStyle(
-                      color: appColors.primary,
                       fontSize: isPortrait ? screenWidth * 0.115 : screenWidth * 0.2,
+                      color: appColors.primary,
                       fontFamily: 'Bitter',
                       fontWeight: FontWeight.bold,
+                      letterSpacing: 2.5,
                     ),
                   ),
                 ),

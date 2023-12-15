@@ -33,8 +33,9 @@ class TotalCountText extends StatelessWidget {
                       : '',
                   style: TextStyle(
                     color: appColors.secondaryColor,
-                    fontWeight: FontWeight.bold,
                     fontFamily: 'Bitter',
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 0.5
                   ),
                 ),
               ],

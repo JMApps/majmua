@@ -21,7 +21,7 @@ class AppThemes {
       ),
     ),
     cardTheme: const CardTheme(
-      shape: AppStyles.mainShape,
+      shape: AppStyles.mainShapeMini,
       elevation: 0,
       color: Color(0xD9E8EAF6),
     ),
@@ -76,7 +76,7 @@ class AppThemes {
       ),
     ),
     cardTheme: const CardTheme(
-      shape: AppStyles.mainShape,
+      shape: AppStyles.mainShapeMini,
       elevation: 0,
       color: Color(0xD9171821),
     ),

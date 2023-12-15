@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:provider/provider.dart';
