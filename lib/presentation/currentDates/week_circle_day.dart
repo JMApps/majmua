@@ -36,7 +36,7 @@ class WeekCircleDay extends StatelessWidget {
       ),
       child: isCurrentDay
           ? Padding(
-              padding: AppStyles.mainMardingMicro,
+              padding: const EdgeInsets.all(1.5),
               child: SleekCircularSlider(
                 initialValue: timeState.getElapsedDayPercentage(),
                 appearance: CircularSliderAppearance(
@@ -65,6 +65,8 @@ class WeekCircleDay extends StatelessWidget {
                   ),
                   size: screenWidth * 0.22,
                   spinnerMode: false,
+                  startAngle: 270,
+                  angleRange: 360,
                   animationEnabled: true,
                 ),
               ),

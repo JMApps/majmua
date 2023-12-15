@@ -22,12 +22,12 @@ class AdjustmentTimePage extends StatelessWidget {
           body: SingleChildScrollView(
             padding: AppStyles.mainMardingMini,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   margin: AppStyles.mardingVerticalMini,
-                  padding: AppStyles.mainMarding,
+                  padding: AppStyles.mainMardingMini,
                   decoration: BoxDecoration(
                     color: appColors.primaryContainer,
                     borderRadius: AppStyles.mainBorderRadiusMini,
@@ -89,7 +89,7 @@ class AdjustmentTimePage extends StatelessWidget {
               adhanTimeState.initPrayerTime();
             },
             elevation: 0,
-            height: 50,
+            height: 60,
             color: appColors.quaternaryColor,
             shape: AppStyles.mainShapeMini,
             child: Text(

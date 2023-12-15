@@ -128,7 +128,7 @@ extension ColorSchemeS on ColorScheme {
 
   Color get quaternaryColor => brightness == Brightness.light
       ? const Color(0xFFEF5350)
-      : const Color(0xD9D32F2F);
+      : const Color(0xBFD32F2F);
 
   Color get secterColor => brightness == Brightness.light
       ? const Color(0xFF00796B)

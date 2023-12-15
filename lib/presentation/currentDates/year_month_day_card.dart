@@ -22,16 +22,15 @@ class YearMonthDayCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
-    final MediaQueryData mediaQuery = MediaQuery.of(context);
-    final double screenWidth = mediaQuery.size.width;
+    final double screenWidth = MediaQuery.of(context).size.width;
     return Card(
       margin: EdgeInsets.zero,
       color: appColors.glass,
       shape: AppStyles.mainShapeMicro,
       child: SquareProgressIndicator(
-        height: screenWidth * 0.155,
+        height: screenWidth * 0.16,
         value: monthPercent,
-        borderRadius: 8.5,
+        borderRadius: 7.5,
         startPosition: StartPosition.topCenter,
         strokeCap: StrokeCap.round,
         clockwise: true,

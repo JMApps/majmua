@@ -7,7 +7,7 @@ import 'package:majmua/core/strings/app_constraints.dart';
 import 'package:majmua/core/strings/app_strings.dart';
 
 class AdhanTimeState extends ChangeNotifier {
-  final _mainSettingsBox = Hive.box(AppConstraints.keySettingsPrayerTimeBox);
+  final Box _mainSettingsBox = Hive.box(AppConstraints.keySettingsPrayerTimeBox);
   DateTime _dateTime = DateTime.now().toLocal();
   Timer? timer;
 
@@ -108,7 +108,6 @@ class AdhanTimeState extends ChangeNotifier {
   set setCountry(String country) {
     _country = country;
     _mainSettingsBox.put(AppConstraints.keyCountry, country);
-    notifyListeners();
   }
 
   String get city => _city;

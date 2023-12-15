@@ -46,7 +46,7 @@ class AddCityPage extends StatelessWidget {
         ),
         body: const CustomCitiesList(),
         floatingActionButton: Consumer<CustomCitiesState>(
-          builder: (BuildContext context, CustomCitiesState state, _) {
+          builder: (BuildContext context, CustomCitiesState customCitiesState, _) {
             return FloatingActionButton(
               onPressed: () {
                 showModalBottomSheet(
@@ -57,7 +57,7 @@ class AddCityPage extends StatelessWidget {
                     padding: MediaQuery.of(context).viewInsets,
                     duration: const Duration(milliseconds: 250),
                     curve: Curves.decelerate,
-                    child: AddCityBottomSheet(state: state),
+                    child: AddCityBottomSheet(state: customCitiesState),
                   ),
                 );
               },

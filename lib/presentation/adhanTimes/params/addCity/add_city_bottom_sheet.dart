@@ -133,8 +133,8 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
                     controller: _latitudeController,
                     autofocus: false,
                     autocorrect: false,
-                    keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.next,
+                    keyboardType: TextInputType.number,
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(RegExp(r'^[0-9.-]+'))
                     ],
@@ -149,8 +149,7 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
                       inputState.setInputLatitude = latitude;
                     },
                     validator: (value) {
-                      if (value!.isEmpty &&
-                          !RegExp(r'^[0-9.]+').hasMatch(value)) {
+                      if (value!.isEmpty && !RegExp(r'^[0-9.]+').hasMatch(value)) {
                         return appLocale.inputLatitude;
                       }
                       return null;
@@ -165,8 +164,8 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
                     controller: _longitudeController,
                     autofocus: false,
                     autocorrect: false,
-                    keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.done,
+                    keyboardType: TextInputType.text,
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(RegExp(r'^[0-9.-]+'))
                     ],

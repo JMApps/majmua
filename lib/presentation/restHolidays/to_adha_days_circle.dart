@@ -14,8 +14,7 @@ class ToAdhaDaysCircle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
-    final MediaQueryData mediaQuery = MediaQuery.of(context);
-    final double screenWidth = mediaQuery.size.width;
+    final double screenWidth = MediaQuery.of(context).size.width;
     final RestTimeState timeState = Provider.of<RestTimeState>(context);
     return Flexible(
       child: CircleAvatar(
@@ -27,9 +26,8 @@ class ToAdhaDaysCircle extends StatelessWidget {
           child: Text(
             dayNumber.toString(),
             style: TextStyle(
-              color: Colors.white,
               fontSize: screenWidth * 0.04,
-              fontFamily: 'Nexa',
+              color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
           ),

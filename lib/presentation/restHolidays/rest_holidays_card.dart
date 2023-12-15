@@ -13,8 +13,7 @@ class RestHolidaysCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
-    final MediaQueryData mediaQuery = MediaQuery.of(context);
-    final double screenWidth = mediaQuery.size.width;
+    final double screenWidth = MediaQuery.of(context).size.width;
     return Card(
       child: Padding(
         padding: AppStyles.mainMardingMini,
@@ -22,6 +21,7 @@ class RestHolidaysCard extends StatelessWidget {
           builder: (BuildContext context, RestTimeState timeState, _) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Card(
                   margin: EdgeInsets.zero,
@@ -55,8 +55,8 @@ class RestHolidaysCard extends StatelessWidget {
                                 ? timeState.getToRamadanDays.toString().substring(1)
                                 : timeState.currentHijriTime.hDay.toString(),
                             style: TextStyle(
-                              color: Colors.white,
                               fontSize: screenWidth * 0.04,
+                              color: Colors.white,
                               fontFamily: 'Bitter',
                               fontWeight: FontWeight.bold,
                             ),
@@ -70,7 +70,7 @@ class RestHolidaysCard extends StatelessWidget {
                 Card(
                   margin: EdgeInsets.zero,
                   color: appColors.glass,
-                  shape: AppStyles.bottomShapeMini,
+                  shape: !timeState.isNineDays ? AppStyles.bottomShapeMini : AppStyles.mainShapeMicro,
                   child: Padding(
                     padding: AppStyles.mainMardingMini,
                     child: Row(
@@ -99,8 +99,8 @@ class RestHolidaysCard extends StatelessWidget {
                                 ? timeState.getToHijjahDays.toString().substring(1)
                                 : timeState.currentHijriTime.hDay.toString(),
                             style: TextStyle(
-                              color: Colors.white,
                               fontSize: screenWidth * 0.04,
+                              color: Colors.white,
                               fontFamily: 'Bitter',
                               fontWeight: FontWeight.bold,
                             ),
@@ -119,6 +119,7 @@ class RestHolidaysCard extends StatelessWidget {
                   child: Card(
                     margin: EdgeInsets.zero,
                     color: appColors.glass,
+                    shape: AppStyles.bottomShapeMini,
                     child: Padding(
                       padding: AppStyles.mainMardingMini,
                       child: Row(

@@ -25,8 +25,8 @@ class ParamButton extends StatelessWidget {
       child: Text(
         description,
         style: const TextStyle(
-          color: Colors.white,
           fontSize: 16,
+          color: Colors.white,
         ),
       ),
     );

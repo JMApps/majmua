@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class InputAddCityState extends ChangeNotifier {
-
   bool _inputCountry = false;
 
   bool get getInputCountry => _inputCountry;

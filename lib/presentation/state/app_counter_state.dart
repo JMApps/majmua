@@ -112,6 +112,7 @@ class AppCounterState extends ChangeNotifier {
       _countDecrement(count: _thirdCounts, key: AppConstraints.keyCounterThirdValue);
       _onChangeTotalCountValue();
     } else {
+      _isClick = false;
       HapticFeedback.vibrate();
     }
     notifyListeners();

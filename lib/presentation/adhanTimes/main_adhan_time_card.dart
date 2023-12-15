@@ -22,6 +22,7 @@ class MainAdhanTimeCard extends StatelessWidget {
     final AppLocalizations? appLocale = AppLocalizations.of(context);
     final MediaQueryData mediaQuery = MediaQuery.of(context);
     final double screenWidth = mediaQuery.size.width;
+    final bool isPortrait = mediaQuery.orientation == Orientation.portrait;
     return Card(
       child: Padding(
         padding: AppStyles.mainMardingMini,
@@ -81,12 +82,8 @@ class MainAdhanTimeCard extends StatelessWidget {
                       color: appColors.glass,
                       shape: AppStyles.mainShapeMicro,
                       child: SizedBox(
-                        width: mediaQuery.orientation == Orientation.portrait
-                            ? screenWidth * 0.1
-                            : screenWidth * 0.07,
-                        height: mediaQuery.orientation == Orientation.portrait
-                            ? screenWidth * 0.1
-                            : screenWidth * 0.07,
+                        width: isPortrait ? screenWidth * 0.1 : screenWidth * 0.07,
+                        height: isPortrait ? screenWidth * 0.1 : screenWidth * 0.07,
                         child: IconButton(
                           onPressed: () {
                             showModalBottomSheet(
@@ -95,7 +92,6 @@ class MainAdhanTimeCard extends StatelessWidget {
                               backgroundColor: appColors.surface,
                               builder: (_) => SingleChildScrollView(
                                 child: QiblaDirection(
-                                  // Set country params from provider
                                   qiblaDirection: adhanTimeState.getQiblaDirection,
                                 ),
                               ),
@@ -118,12 +114,8 @@ class MainAdhanTimeCard extends StatelessWidget {
                       color: appColors.glass,
                       shape: AppStyles.rightTopShapeMini,
                       child: SizedBox(
-                        width: mediaQuery.orientation == Orientation.portrait
-                            ? screenWidth * 0.1
-                            : screenWidth * 0.07,
-                        height: mediaQuery.orientation == Orientation.portrait
-                            ? screenWidth * 0.1
-                            : screenWidth * 0.07,
+                        width: isPortrait ? screenWidth * 0.1 : screenWidth * 0.07,
+                        height: isPortrait ? screenWidth * 0.1 : screenWidth * 0.07,
                         child: IconButton(
                           onPressed: () {
                             Share.share('');
@@ -151,10 +143,6 @@ class MainAdhanTimeCard extends StatelessWidget {
                         prayerTime: adhanTimeState.getPrayerTimes.fajr,
                         beforePrayerTime: adhanTimeState.beforePrayerTime(Prayer.fajr),
                         afterPrayerTime: adhanTimeState.afterPrayerTime(Prayer.fajr),
-                        isMorning: adhanTimeState.getIsMorning,
-                        isDuha: adhanTimeState.getIsDuha,
-                        isEvening: adhanTimeState.getIsEvening,
-                        isNight: adhanTimeState.getIsNight,
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -166,10 +154,6 @@ class MainAdhanTimeCard extends StatelessWidget {
                         prayerTime: adhanTimeState.getPrayerTimes.sunrise,
                         beforePrayerTime: adhanTimeState.beforePrayerTime(Prayer.sunrise),
                         afterPrayerTime: adhanTimeState.afterPrayerTime(Prayer.sunrise),
-                        isMorning: adhanTimeState.getIsMorning,
-                        isDuha: adhanTimeState.getIsDuha,
-                        isEvening: adhanTimeState.getIsEvening,
-                        isNight: adhanTimeState.getIsNight,
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -181,10 +165,6 @@ class MainAdhanTimeCard extends StatelessWidget {
                         prayerTime: adhanTimeState.getPrayerTimes.dhuhr,
                         beforePrayerTime: adhanTimeState.beforePrayerTime(Prayer.dhuhr),
                         afterPrayerTime: adhanTimeState.afterPrayerTime(Prayer.dhuhr),
-                        isMorning: adhanTimeState.getIsMorning,
-                        isDuha: adhanTimeState.getIsDuha,
-                        isEvening: adhanTimeState.getIsEvening,
-                        isNight: adhanTimeState.getIsNight,
                       ),
                     ),
                   ],
@@ -200,10 +180,6 @@ class MainAdhanTimeCard extends StatelessWidget {
                         prayerTime: adhanTimeState.getPrayerTimes.asr,
                         beforePrayerTime: adhanTimeState.beforePrayerTime(Prayer.asr),
                         afterPrayerTime: adhanTimeState.afterPrayerTime(Prayer.asr),
-                        isMorning: adhanTimeState.getIsMorning,
-                        isDuha: adhanTimeState.getIsDuha,
-                        isEvening: adhanTimeState.getIsEvening,
-                        isNight: adhanTimeState.getIsNight,
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -215,10 +191,6 @@ class MainAdhanTimeCard extends StatelessWidget {
                         prayerTime: adhanTimeState.getPrayerTimes.maghrib,
                         beforePrayerTime: adhanTimeState.beforePrayerTime(Prayer.maghrib),
                         afterPrayerTime: adhanTimeState.afterPrayerTime(Prayer.maghrib),
-                        isMorning: adhanTimeState.getIsMorning,
-                        isDuha: adhanTimeState.getIsDuha,
-                        isEvening: adhanTimeState.getIsEvening,
-                        isNight: adhanTimeState.getIsNight,
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -230,10 +202,6 @@ class MainAdhanTimeCard extends StatelessWidget {
                         prayerTime: adhanTimeState.getPrayerTimes.isha,
                         beforePrayerTime: adhanTimeState.beforePrayerTime(Prayer.isha),
                         afterPrayerTime: adhanTimeState.afterPrayerTime(Prayer.isha),
-                        isMorning: adhanTimeState.getIsMorning,
-                        isDuha: adhanTimeState.getIsDuha,
-                        isEvening: adhanTimeState.getIsEvening,
-                        isNight: adhanTimeState.getIsNight,
                       ),
                     ),
                   ],
@@ -267,7 +235,7 @@ class MainAdhanTimeCard extends StatelessWidget {
                                   color: appColors.primary,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: 'Bitter',
-                                  letterSpacing: 1,
+                                  letterSpacing: 0.5,
                                 ),
                               ),
                             ],
@@ -301,9 +269,9 @@ class MainAdhanTimeCard extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: screenWidth * 0.038,
                                     color: appColors.secondaryColor,
-                                    fontWeight: FontWeight.bold,
                                     fontFamily: 'Bitter',
-                                    letterSpacing: 1,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 0.5,
                                   ),
                                 ),
                               ],

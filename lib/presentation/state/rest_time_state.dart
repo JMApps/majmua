@@ -20,7 +20,7 @@ class RestTimeState extends ChangeNotifier {
 
   bool get isNineDays => _currentHijriTime.hMonth == 12 && _currentHijriTime.hDay >= 1 && _currentHijriTime.hDay <= 9;
 
-  bool get holidaysHijjah => _currentHijriTime.hMonth == 12 && _currentHijriTime.hDay >= 10 && _currentHijriTime.hDay <= 13;
+  bool get holidaysHijjah => _currentHijriTime.hMonth == 12 && _currentHijriTime.hDay >= 10 && _currentHijriTime.hDay <= 12;
 
   bool get isWhiteDays => _currentHijriTime.hDay >= 12 && _currentHijriTime.hDay <= 15;
 

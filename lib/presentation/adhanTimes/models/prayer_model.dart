@@ -7,10 +7,6 @@ class PrayerModel {
   final DateTime prayerTime;
   final DateTime beforePrayerTime;
   final DateTime afterPrayerTime;
-  final bool isMorning;
-  final bool isDuha;
-  final bool isEvening;
-  final bool isNight;
 
   PrayerModel({
     required this.prayerName,
@@ -19,9 +15,5 @@ class PrayerModel {
     required this.prayerTime,
     required this.beforePrayerTime,
     required this.afterPrayerTime,
-    required this.isMorning,
-    required this.isDuha,
-    required this.isEvening,
-    required this.isNight,
   });
 }

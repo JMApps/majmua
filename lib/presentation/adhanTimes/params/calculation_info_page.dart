@@ -40,26 +40,28 @@ class CalculationInfoPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Container(
-            padding: AppStyles.mainMardingMini,
-            margin: AppStyles.mainMardingMini,
-            decoration: BoxDecoration(
-              color: appColors.primaryContainer,
-              borderRadius: AppStyles.mainBorderRadiusMini,
-            ),
-            child: Text(
-              appLocale.calculationMethodsInApp,
-              style: const TextStyle(
-                fontSize: 16,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              padding: AppStyles.mainMardingMini,
+              margin: AppStyles.mainMardingMini,
+              decoration: BoxDecoration(
+                color: appColors.primaryContainer,
+                borderRadius: AppStyles.mainBorderRadiusMini,
               ),
-              textAlign: TextAlign.center,
+              child: Text(
+                appLocale.calculationMethodsInApp,
+                style: const TextStyle(
+                  fontSize: 16,
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
-          ),
-          Expanded(
-            child: CupertinoScrollbar(
+            CupertinoScrollbar(
               child: ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
                 itemCount: AppStrings.calculationMethodInfo.length,
                 itemBuilder: (BuildContext context, int index) {
                   final AdhanInformationModel item =
@@ -68,8 +70,8 @@ class CalculationInfoPage extends StatelessWidget {
                 },
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

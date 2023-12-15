@@ -34,8 +34,9 @@ class CityItem extends StatelessWidget {
                 builder: (context) => Container(
                   padding: AppStyles.mardingHorizontal,
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       FilledButton.tonal(
                         onPressed: () {

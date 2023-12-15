@@ -49,8 +49,8 @@ class CityCoordinates extends StatelessWidget {
                       TextSpan(
                         text: adhanTimeState.city,
                         style: TextStyle(
-                          color: appColors.quaternaryColor,
                           fontSize: 18,
+                          color: appColors.quaternaryColor,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Nexa',
                         ),
@@ -58,9 +58,9 @@ class CityCoordinates extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Text(
-                  'Координаты',
-                  style: TextStyle(
+                Text(
+                  appLocale.coordinates,
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
@@ -75,18 +75,18 @@ class CityCoordinates extends StatelessWidget {
                       TextSpan(
                         text: appLocale.latitude,
                         style: TextStyle(
-                          color: appColors.onSurface,
                           fontSize: 18,
+                          color: appColors.onSurface,
                           fontFamily: 'Nexa',
                         ),
                       ),
                       TextSpan(
                         text: adhanTimeState.latitude.toString(),
                         style: TextStyle(
-                          color: appColors.quaternaryColor,
                           fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                          color: appColors.quaternaryColor,
                           fontFamily: 'Nexa',
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ],
@@ -101,18 +101,18 @@ class CityCoordinates extends StatelessWidget {
                       TextSpan(
                         text: appLocale.longitude,
                         style: TextStyle(
-                          color: appColors.onSurface,
                           fontSize: 18,
+                          color: appColors.onSurface,
                           fontFamily: 'Nexa',
                         ),
                       ),
                       TextSpan(
                         text: adhanTimeState.longitude.toString(),
                         style: TextStyle(
-                          color: appColors.quaternaryColor,
                           fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                          color: appColors.quaternaryColor,
                           fontFamily: 'Nexa',
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ],

@@ -20,8 +20,8 @@ class CustomCityItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations? appLocale = AppLocalizations.of(context);
     final ColorScheme appColors = Theme.of(context).colorScheme;
+    final AppLocalizations? appLocale = AppLocalizations.of(context);
     final Color itemOddColor = appColors.primaryColor.withOpacity(0.05);
     final Color itemEvenColor = appColors.primaryColor.withOpacity(0.15);
     return Consumer<CustomCitiesState>(
@@ -105,9 +105,8 @@ class CustomCityItem extends StatelessWidget {
                                               content: Text(
                                                 appLocale.cityDeleted,
                                                 style: const TextStyle(
-                                                  color: Colors.white,
                                                   fontSize: 18,
-                                                  fontFamily: 'Nexa',
+                                                  color: Colors.white,
                                                 ),
                                               ),
                                             ),

@@ -22,7 +22,6 @@ class SelectOtherCityButton extends StatelessWidget {
         appLocale!.selectOtherCity,
         style: const TextStyle(
           fontSize: 16,
-          fontFamily: 'Nexa',
         ),
       ),
     );

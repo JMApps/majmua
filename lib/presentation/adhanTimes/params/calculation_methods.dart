@@ -10,25 +10,25 @@ class CalculationMethods extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appColor = Theme.of(context).colorScheme;
+    final ColorScheme appColors = Theme.of(context).colorScheme;
     return Consumer<AdhanTimeState>(
       builder: (BuildContext context, AdhanTimeState adhanTimeState, _) {
         return Card(
           margin: EdgeInsets.zero,
           shape: AppStyles.mainShapeMini,
-          color: appColor.glass,
+          color: appColors.glass,
           child: ButtonTheme(
             alignedDropdown: true,
             child: DropdownButton<String>(
-              value: AppStrings.prayerCalculationNames[adhanTimeState.calculationMethodIndex],
-              borderRadius: AppStyles.mainBorderRadiusMini,
               elevation: 0,
               isExpanded: true,
+              value: AppStrings.prayerCalculationNames[adhanTimeState.calculationMethodIndex],
+              borderRadius: AppStyles.mainBorderRadiusMini,
               alignment: AlignmentDirectional.center,
-              dropdownColor: appColor.surface,
+              dropdownColor: appColors.surface,
               style: TextStyle(
                 fontSize: 16,
-                color: appColor.inverseSurface,
+                color: appColors.inverseSurface,
                 fontFamily: 'Nexa',
               ),
               underline: const SizedBox(),
@@ -42,6 +42,12 @@ class CalculationMethods extends StatelessWidget {
                       child: Center(
                         child: Text(
                           value,
+                          style: TextStyle(
+                            color: value == AppStrings.prayerCalculationNames[adhanTimeState.calculationMethodIndex]
+                                ? appColors.quaternaryColor
+                                : appColors.inverseSurface,
+                            fontWeight: FontWeight.bold,
+                          ),
                           textAlign: TextAlign.center,
                         ),
                       )

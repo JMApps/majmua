@@ -4,9 +4,7 @@ import 'package:majmua/domain/entities/custom_city_entity.dart';
 import 'package:majmua/domain/usecases/custom_cities_use_case.dart';
 
 class CustomCitiesState extends ChangeNotifier {
-  final CustomCitiesUseCase _customCitiesUseCase = CustomCitiesUseCase(
-    CustomCitiesDataRepository(),
-  );
+  final CustomCitiesUseCase _customCitiesUseCase = CustomCitiesUseCase(CustomCitiesDataRepository(),);
 
   Future<List<CustomCityEntity>> getAllCustomCities() async {
     final List<CustomCityEntity> allCustomCities = await _customCitiesUseCase.fetchAllCustomCities();

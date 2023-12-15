@@ -25,7 +25,7 @@ class MainWhiteDaysCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Expanded(
-              flex: 3,
+              flex: 4,
               child: Text(
                 timeState.currentHijriTime.hDay == 12
                     ? appLocale!.nearWhiteDays
@@ -33,18 +33,38 @@ class MainWhiteDaysCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: screenWidth * 0.04,
                 ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
               ),
             ),
-            const Flexible(
-              child: WhiteDayCircle(dayIndex: 13),
-            ),
-            const Flexible(
-              child: WhiteDayCircle(dayIndex: 14),
-            ),
-            const Flexible(
-              child: WhiteDayCircle(dayIndex: 15),
-            ),
+            const Expanded(
+              flex: 3,
+              child: Card(
+                margin: EdgeInsets.zero,
+                child: Padding(
+                  padding: AppStyles.mainMardingMicro,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(width: 8),
+                      Flexible(
+                        child: WhiteDayCircle(dayIndex: 13),
+                      ),
+                      SizedBox(width: 8),
+                      Flexible(
+                        child: WhiteDayCircle(dayIndex: 14),
+                      ),
+                      SizedBox(width: 8),
+                      Flexible(
+                        child: WhiteDayCircle(dayIndex: 15),
+                      ),
+                      SizedBox(width: 8),
+                    ],
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),

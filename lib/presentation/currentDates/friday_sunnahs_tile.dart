@@ -20,8 +20,7 @@ class _FridaySunnahsTileState extends State<FridaySunnahsTile> {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
-    final MediaQueryData mediaQuery = MediaQuery.of(context);
-    final double screenWidth = mediaQuery.size.width;
+    final double screenWidth = MediaQuery.of(context).size.width;
     return Card(
       margin: EdgeInsets.zero,
       color: appColors.glass,
@@ -41,6 +40,7 @@ class _FridaySunnahsTileState extends State<FridaySunnahsTile> {
             builder: (context) => SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   SizedBox(
                     height: screenWidth * 0.95,
@@ -56,9 +56,10 @@ class _FridaySunnahsTileState extends State<FridaySunnahsTile> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.asset(
-                                'assets/icons/december.png',
-                                height: screenWidth * 0.60,
-                                width: screenWidth * 0.60,
+                                'assets/icons/friday_icon_${index + 1}.png',
+                                height: screenWidth * 0.30,
+                                width: screenWidth * 0.30,
+                                color:appColors.secondaryColor,
                               ),
                               ListTile(
                                 title: Text(
@@ -86,14 +87,16 @@ class _FridaySunnahsTileState extends State<FridaySunnahsTile> {
                   ),
                   Padding(
                     padding: AppStyles.mardingWithoutTop,
-                    child: SmoothPageIndicator(
-                      controller: _pageFridaySunnahController,
-                      count: 13,
-                      effect: ScrollingDotsEffect(
-                        dotWidth: 14,
-                        dotHeight: 7,
-                        activeDotColor: appColors.primary,
-                        dotColor: appColors.primary.withOpacity(0.25),
+                    child: Center(
+                      child: SmoothPageIndicator(
+                        controller: _pageFridaySunnahController,
+                        count: 13,
+                        effect: ScrollingDotsEffect(
+                          dotWidth: 14,
+                          dotHeight: 5,
+                          activeDotColor: appColors.primary,
+                          dotColor: appColors.primary.withOpacity(0.25),
+                        ),
                       ),
                     ),
                   ),

@@ -19,12 +19,13 @@ class AdhanTimeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
     final ColorScheme appColors = Theme.of(context).colorScheme;
-    final currentTimeValue = context.watch<AdhanTimeState>().getMinutesOfDay;
+    final AdhanTimeState adhanTimeState = Provider.of<AdhanTimeState>(context);
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final int currentTimeValue = adhanTimeState.getMinutesOfDay;
     final bool isRemainingTime = currentTimeValue >= prayerModel.currentPrayerTime - 59 && currentTimeValue < prayerModel.currentPrayerTime - 1;
-    final bool isPastTime = currentTimeValue >= prayerModel.currentPrayerTime + 2 && currentTimeValue <= prayerModel.currentPrayerTime + 30;
-    final bool isPrayer = currentTimeValue >= prayerModel.currentPrayerTime - 1 && currentTimeValue <= prayerModel.currentPrayerTime + 1;
+    final bool isPastTime = currentTimeValue >= prayerModel.currentPrayerTime + 4 && currentTimeValue <= prayerModel.currentPrayerTime + 30;
+    final bool isPrayer = currentTimeValue >= prayerModel.currentPrayerTime - 1 && currentTimeValue <= prayerModel.currentPrayerTime + 3;
     return Flexible(
       child: Card(
         margin: EdgeInsets.zero,
@@ -41,12 +42,13 @@ class AdhanTimeCard extends StatelessWidget {
           ),
         ),
         child: Container(
-          height: screenWidth * 0.18,
           width: double.infinity,
+          height: screenWidth * 0.175,
           padding: AppStyles.mainMardingMini,
           child: Row(
             children: [
               Expanded(
+                flex: 2,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -59,15 +61,17 @@ class AdhanTimeCard extends StatelessWidget {
                         fontWeight: isRemainingTime || isPrayer || isPastTime ? FontWeight.bold : FontWeight.normal,
                       ),
                       textAlign: TextAlign.start,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                     Expanded(
                       child: Text(
                         DateFormat.Hm().format(prayerModel.prayerTime),
                         style: TextStyle(
-                          fontSize: screenWidth * 0.045,
-                          fontWeight: FontWeight.bold,
+                          fontSize: screenWidth * 0.0425,
                           fontFamily: 'Bitter',
-                          letterSpacing: 1
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 0.5,
                         ),
                         textAlign: TextAlign.start,
                       ),
@@ -75,97 +79,108 @@ class AdhanTimeCard extends StatelessWidget {
                   ],
                 ),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Visibility(
-                    visible: isRemainingTime,
-                    child: AnimatedSize(
-                      duration: const Duration(seconds: 1),
-                      child: Text(
-                        '–${DateFormat.m().format(prayerModel.beforePrayerTime)}',
-                        style: TextStyle(
-                          fontSize: screenWidth * 0.035,
-                          color: appColors.quaternaryColor,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Bitter',
-                          letterSpacing: 0.50,
+              Expanded(
+                flex: 1,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Visibility(
+                      visible: isRemainingTime,
+                      child: Flexible(
+                        child: AnimatedSize(
+                          duration: const Duration(seconds: 1),
+                          child: Text(
+                            '–${DateFormat.m().format(prayerModel.beforePrayerTime)}',
+                            style: TextStyle(
+                              fontSize: screenWidth * 0.035,
+                              color: appColors.quaternaryColor,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Bitter',
+                              letterSpacing: 0.5,
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Visibility(
-                    visible: isPastTime,
-                    child: AnimatedSize(
-                      duration: const Duration(seconds: 1),
-                      child: Text(
-                        DateFormat.m().format(prayerModel.afterPrayerTime),
-                        style: TextStyle(
-                          fontSize: screenWidth * 0.035,
-                          color: appColors.primary,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Bitter',
-                          letterSpacing: 0.50,
+                    Visibility(
+                      visible: isPastTime,
+                      child: Flexible(
+                        child: AnimatedSize(
+                          duration: const Duration(seconds: 1),
+                          child: Text(
+                            DateFormat.m().format(prayerModel.afterPrayerTime),
+                            style: TextStyle(
+                              fontSize: screenWidth * 0.035,
+                              color: appColors.primary,
+                              fontFamily: 'Bitter',
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 0.5,
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SupplicationIsShow(
-                    isShow: prayerModel.isMorning && prayerModel.prayerIndex == Prayer.fajr,
-                    supplicationsId: 26,
-                    iconColor: appColors.secterColor,
-                  ),
-                  SupplicationIsShow(
-                    isShow: prayerModel.isEvening && prayerModel.prayerIndex == Prayer.asr,
-                    supplicationsId: 27,
-                    iconColor: appColors.secterColor,
-                  ),
-                  SupplicationIsShow(
-                    isShow: prayerModel.isNight && prayerModel.prayerIndex == Prayer.isha,
-                    supplicationsId: 28,
-                    iconColor: appColors.secterColor,
-                  ),
-                  SupplicationIsShow(
-                    isShow: isPastTime && prayerModel.prayerIndex != Prayer.sunrise,
-                    supplicationsId: 25,
-                    iconColor: appColors.primary,
-                  ),
-                  Visibility(
-                    visible: isPrayer && prayerModel.prayerIndex != Prayer.sunrise,
-                    child: AnimatedSize(
-                      duration: const Duration(seconds: 1),
-                      child: InkWell(
-                        onTap: () {
-                          // Adhan time supplication
-                        },
-                        borderRadius: AppStyles.mainBorderRadius,
-                        child: Icon(
-                          Icons.mosque,
-                          size: screenWidth * 0.04,
-                          color: appColors.secondaryColor,
+                    SupplicationIsShow(
+                      isShow: adhanTimeState.getIsMorning && prayerModel.prayerIndex == Prayer.fajr,
+                      supplicationsId: 26,
+                      iconColor: appColors.secterColor,
+                    ),
+                    SupplicationIsShow(
+                      isShow: adhanTimeState.getIsEvening && prayerModel.prayerIndex == Prayer.asr,
+                      supplicationsId: 27,
+                      iconColor: appColors.secterColor,
+                    ),
+                    SupplicationIsShow(
+                      isShow: adhanTimeState.getIsNight && prayerModel.prayerIndex == Prayer.isha,
+                      supplicationsId: 28,
+                      iconColor: appColors.secterColor,
+                    ),
+                    SupplicationIsShow(
+                      isShow: isPastTime && prayerModel.prayerIndex != Prayer.sunrise,
+                      supplicationsId: 25,
+                      iconColor: appColors.primary,
+                    ),
+                    Visibility(
+                      visible: isPrayer && prayerModel.prayerIndex != Prayer.sunrise,
+                      child: Flexible(
+                        child: AnimatedSize(
+                          duration: const Duration(seconds: 1),
+                          child: InkWell(
+                            onTap: () {
+                              // Adhan time supplication with id
+                            },
+                            borderRadius: AppStyles.mainBorderRadius,
+                            child: Icon(
+                              Icons.mosque,
+                              size: screenWidth * 0.045,
+                              color: appColors.secondaryColor,
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Visibility(
-                    visible: prayerModel.isDuha && prayerModel.prayerIndex == Prayer.sunrise,
-                    child: AnimatedSize(
-                      duration: const Duration(seconds: 1),
-                      child: InkWell(
-                        onTap: () {
-                          // Duha time supplication
-                        },
-                        borderRadius: AppStyles.mainBorderRadius,
-                        child: Icon(
-                          CupertinoIcons.sunrise,
-                          size: screenWidth * 0.05,
-                          color: appColors.secterColor,
+                    Visibility(
+                      visible: adhanTimeState.getIsDuha && prayerModel.prayerIndex == Prayer.sunrise,
+                      child: Flexible(
+                        child: AnimatedSize(
+                          duration: const Duration(seconds: 1),
+                          child: InkWell(
+                            onTap: () {
+                              // Duha time supplication with id
+                            },
+                            borderRadius: AppStyles.mainBorderRadius,
+                            child: Icon(
+                              CupertinoIcons.sunrise,
+                              size: screenWidth * 0.05,
+                              color: appColors.secterColor,
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),

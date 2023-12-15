@@ -10,8 +10,8 @@ class WeekDaysRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations? appLocale = AppLocalizations.of(context);
     final ColorScheme appColors = Theme.of(context).colorScheme;
+    final AppLocalizations? appLocale = AppLocalizations.of(context);
     return Card(
       margin: EdgeInsets.zero,
       color: appColors.glass,

@@ -23,7 +23,8 @@ class AdjustmentItem extends StatelessWidget {
     return Consumer<AdhanTimeState>(
       builder: (BuildContext context, AdhanTimeState adhanTimeState, _) {
         return Row(
-          children: [
+          children: <Widget>[
+            const SizedBox(width: 8),
             Expanded(
               child: MaterialButton(
                 onPressed: () {
@@ -61,6 +62,9 @@ class AdjustmentItem extends StatelessWidget {
                 child: const Icon(Icons.remove),
               ),
             ),
+            const Expanded(
+              child: SizedBox(),
+            ),
             Expanded(
               child: RichText(
                 textAlign: TextAlign.center,
@@ -86,6 +90,9 @@ class AdjustmentItem extends StatelessWidget {
                   ],
                 ),
               ),
+            ),
+            const Expanded(
+              child: SizedBox(),
             ),
             Expanded(
               child: MaterialButton(
@@ -124,6 +131,7 @@ class AdjustmentItem extends StatelessWidget {
                 child: const Icon(Icons.add),
               ),
             ),
+            const SizedBox(width: 8),
           ],
         );
       },

@@ -37,14 +37,14 @@ class MainCurrentDatesCard extends StatelessWidget {
                 AnimatedSize(
                   duration: const Duration(milliseconds: 750),
                   child: Visibility(
-                    visible: !adhanTimeState.getIsFriday,
+                    visible: adhanTimeState.getIsFriday,
                     child: const FridaySunnahsTile(),
                   ),
                 ),
                 AnimatedSize(
                   duration: const Duration(milliseconds: 750),
                   child: Visibility(
-                    visible: !adhanTimeState.getIsFriday,
+                    visible: adhanTimeState.getIsFriday,
                     child: const SizedBox(height: 8),
                   ),
                 ),
@@ -100,8 +100,8 @@ class MainCurrentDatesCard extends StatelessWidget {
                                 width: mediaQuery.orientation == Orientation.portrait
                                     ? screenWidth * 0.23
                                     : screenWidth * 0.24,
-                                color: timeState.currentDateTime.weekday != 5
-                                    ? appColors.primary
+                                color: !adhanTimeState.getIsFriday
+                                    ? appColors.secondaryColor
                                     : appColors.quaternaryColor,
                               ),
                             ),
@@ -112,23 +112,28 @@ class MainCurrentDatesCard extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                 borderRadius: AppStyles.mainBorderRadiusMicro,
                                 side: BorderSide(
-                                  width: screenWidth * 0.003,
-                                  color: appColors.secondaryColor,
+                                  width: screenWidth * 0.005,
+                                  color: !adhanTimeState.getIsFriday
+                                      ? appColors.secondaryColor
+                                      : appColors.quaternaryColor,
                                 ),
                               ),
                               child: SizedBox(
                                 width: screenWidth * 0.22,
-                                child: Text(
-                                  context.watch<SalawatCounterState>().getSalawatCount.toString(),
-                                  style: TextStyle(
-                                    fontSize: screenWidth * 0.04,
-                                    fontFamily: 'Bitter',
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1,
+                                height: screenWidth * 0.06,
+                                child: Center(
+                                  child: Text(
+                                    context.watch<SalawatCounterState>().getSalawatCount.toString(),
+                                    style: TextStyle(
+                                      fontSize: screenWidth * 0.04,
+                                      fontFamily: 'Bitter',
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 1,
+                                    ),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.center,
                                   ),
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  textAlign: TextAlign.center,
                                 ),
                               ),
                             ),
@@ -141,14 +146,14 @@ class MainCurrentDatesCard extends StatelessWidget {
                 AnimatedSize(
                   duration: const Duration(milliseconds: 750),
                   child: Visibility(
-                    visible: !timeState.isWhiteDays,
+                    visible: timeState.isWhiteDays,
                     child: const SizedBox(height: 8),
                   ),
                 ),
                 AnimatedSize(
                   duration: const Duration(milliseconds: 750),
                   child: Visibility(
-                    visible: !timeState.isWhiteDays,
+                    visible: timeState.isWhiteDays,
                     child: const MainWhiteDaysCard(),
                   ),
                 ),
@@ -204,13 +209,9 @@ class MainCurrentDatesCard extends StatelessWidget {
                           style: TextStyle(
                             fontSize: screenWidth * 0.04,
                           ),
+                          textAlign: TextAlign.center,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                        ),
-                        trailing: Icon(
-                          CupertinoIcons.asterisk_circle,
-                          color: appColors.secondaryColor,
-                          size: screenWidth * 0.05,
                         ),
                       ),
                     ),
