@@ -35,8 +35,12 @@ class AppConstraints {
   static const String keyMaghribNotification = 'key_maghrib_notification';
   static const String keyIshaNotification = 'key_isha_notification';
 
+  static const String keyFridayNotification = 'key_friday_notification';
+  static const String keyFridayLastHourNotification = 'key_friday_last_hour_notification';
+
   static const String keyMorningSupplicationsNotification = 'key_morning_supplications_notification';
   static const String keyEveningSupplicationsNotification = 'key_evening_supplications_notification';
+  static const String keyNightSupplicationsNotification = 'key_night_supplications_notification';
 
   // Settings
   static const String keyNamesOfLastPage = 'key_names_of_last_page';

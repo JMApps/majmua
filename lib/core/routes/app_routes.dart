@@ -6,7 +6,7 @@ import 'package:majmua/presentation/adhanTimes/params/adjustmentTime/adjustment_
 import 'package:majmua/presentation/adhanTimes/params/calculation_info_page.dart';
 import 'package:majmua/presentation/adhanTimes/params/selectCity/select_city_page.dart';
 import 'package:majmua/presentation/counter/app_counter_page.dart';
-import 'package:majmua/presentation/pages/notification_settings_page.dart';
+import 'package:majmua/presentation/notifications/notification_settings_page.dart';
 
 class AppRoutes {
   static Route onGeneratorRoute(RouteSettings routeSettings) {

@@ -15,12 +15,50 @@
   "fall": "Осень",
   "winter": "Зима",
 
+  "prayerNotifications": "Уведомления молитв",
+
   "fajr": "Фаджр",
   "sunrise": "Восход",
+  "sunriseDuha": "Восход (ад-Духа)",
   "dhuhr": "Зухр",
   "asr": "'Аср",
   "maghrib": "Магриб",
   "isha": "'Иша",
+
+  "fajrTime": "Время молитвы Фаджр",
+  "sunriseDuhaTime": "Время молитвы Духá",
+  "dhuhrTime": "Время молтвы Зухр",
+  "asrTime": "Время молитвы 'Аср",
+  "maghribTime": "Время молитвы Магриб",
+  "ishaTime": "Время молитвы 'Иша",
+
+  "fastNotifications": "Уведомления постов",
+
+  "fastMonday": "Пост в понедельник",
+  "fastThursday": "Пост в четверг",
+  "fastWhiteDays": "Белые дни",
+
+  "fastMondayTime": "Завтра день желательного поста",
+  "fastThursdayTime": "Завтра день желательного поста",
+  "fastWhiteDaysTime": "Приблизились белые дни",
+
+  "adhkarsNotifications": "Уведомления азкаров",
+
+  "morningAdhkars": "Утренние азкары",
+  "eveningAdhkars": "Вечерние азкары",
+  "nightAdhkars": "Ночные азкары",
+
+  "morningAdhkarsTime": "Время утренних азкаров \uD83E\uDD32",
+  "eveningAdhkarsTime": "Время вечерних азкаров \uD83E\uDD32",
+  "nightAdhkarsTime": "Не забудь азкары перед сном \uD83E\uDD32",
+
+  "fridayNotifications": "Уведомления пятницы",
+
+  "friday": "Пятница",
+  "lastHourFriday": "Последний час пятницы",
+
+  "fridayTime": "Завтра пятница",
+  "lastHourFridayTime": "Последний час пятницы \uD83E\uDD32\uD83E\uDD32\uD83E\uDD32",
 
   "adhanParams": "Параметры",
   "selectedCity": "Выбранный город",

@@ -7,6 +7,7 @@ import 'package:majmua/core/strings/app_constraints.dart';
 import 'package:majmua/presentation/pages/root_page.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
 import 'package:majmua/presentation/state/main_app_state.dart';
+import 'package:majmua/presentation/state/notifications_state.dart';
 import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:majmua/presentation/state/salawat_counter_state.dart';
 import 'package:provider/provider.dart';
@@ -41,6 +42,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (_) => SalawatCounterState(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => NotificationsState(),
         ),
       ],
       child: const RootPage(),
