@@ -6,23 +6,23 @@ class NotificationsState extends ChangeNotifier {
   final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainSettings);
 
   NotificationsState() {
-    _mainSettingsBox.get(AppConstraints.keyFajrNotification, defaultValue: true);
-    _mainSettingsBox.get(AppConstraints.keySunriseNotification, defaultValue: false);
-    _mainSettingsBox.get(AppConstraints.keyDhuhrNotification, defaultValue: true);
-    _mainSettingsBox.get(AppConstraints.keyAsrNotification, defaultValue: true);
-    _mainSettingsBox.get(AppConstraints.keyMaghribNotification, defaultValue: true);
-    _mainSettingsBox.get(AppConstraints.keyIshaNotification, defaultValue: true);
+    _fajrNotification = _mainSettingsBox.get(AppConstraints.keyFajrNotification, defaultValue: true);
+    _sunriseNotification = _mainSettingsBox.get(AppConstraints.keySunriseNotification, defaultValue: false);
+    _dhuhrNotification = _mainSettingsBox.get(AppConstraints.keyDhuhrNotification, defaultValue: true);
+    _asrNotification = _mainSettingsBox.get(AppConstraints.keyAsrNotification, defaultValue: true);
+    _maghribNotification = _mainSettingsBox.get(AppConstraints.keyMaghribNotification, defaultValue: true);
+    _ishaNotification = _mainSettingsBox.get(AppConstraints.keyIshaNotification, defaultValue: true);
 
-    _mainSettingsBox.get(AppConstraints.keyMorningSupplicationsNotification, defaultValue: true);
-    _mainSettingsBox.get(AppConstraints.keyEveningSupplicationsNotification, defaultValue: true);
-    _mainSettingsBox.get(AppConstraints.keyNightSupplicationsNotification, defaultValue: true);
+    _morningSupplicationsNotification = _mainSettingsBox.get(AppConstraints.keyMorningSupplicationsNotification, defaultValue: true);
+    _eveningSupplicationsNotification = _mainSettingsBox.get(AppConstraints.keyEveningSupplicationsNotification, defaultValue: true);
+    _nightSupplicationsNotification = _mainSettingsBox.get(AppConstraints.keyNightSupplicationsNotification, defaultValue: true);
 
-    _mainSettingsBox.get(AppConstraints.keyFastMondayNotification, defaultValue: true);
-    _mainSettingsBox.get(AppConstraints.keyFastThursdayNotification, defaultValue: true);
-    _mainSettingsBox.get(AppConstraints.keyFastWhiteDaysNotification, defaultValue: true);
+    _fastMondayNotification = _mainSettingsBox.get(AppConstraints.keyFastMondayNotification, defaultValue: true);
+    _fastThursdayNotification = _mainSettingsBox.get(AppConstraints.keyFastThursdayNotification, defaultValue: true);
+    _fastWhiteDaysNotification = _mainSettingsBox.get(AppConstraints.keyFastWhiteDaysNotification, defaultValue: true);
 
-    _mainSettingsBox.get(AppConstraints.keyFridayNotification, defaultValue: true);
-    _mainSettingsBox.get(AppConstraints.keyFridayLastHourNotification, defaultValue: true);
+    _fridayNotification = _mainSettingsBox.get(AppConstraints.keyFridayNotification, defaultValue: true);
+    _lastHourFridayNotification = _mainSettingsBox.get(AppConstraints.keyFridayLastHourNotification, defaultValue: true);
   }
 
   late bool _fajrNotification;
