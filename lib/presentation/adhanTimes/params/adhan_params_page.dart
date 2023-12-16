@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/routes/route_names.dart';
 import 'package:majmua/core/styles/app_styles.dart';
-import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/adhanTimes/params/ars_time_madhab.dart';
 import 'package:majmua/presentation/adhanTimes/params/calculation_methods.dart';
 import 'package:majmua/presentation/adhanTimes/params/city_coordinates.dart';
@@ -17,11 +16,9 @@ class AdhanParamsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: appColors.primaryColor,
         title: Text(appLocale!.adhanParams),
         leading: const UserBackButton(),
       ),

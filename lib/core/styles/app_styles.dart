@@ -130,4 +130,15 @@ class AppStyles {
       topRight: Radius.elliptical(35, 25),
     ),
   );
+
+  // Share/BorderRadius – Only
+  static const bottomRadius = BorderRadius.only(
+    bottomLeft: Radius.elliptical(35, 25),
+    bottomRight: Radius.elliptical(35, 25),
+  );
+
+  static const topRadius = BorderRadius.only(
+    topLeft: Radius.elliptical(35, 25),
+    topRight: Radius.elliptical(35, 25),
+  );
 }

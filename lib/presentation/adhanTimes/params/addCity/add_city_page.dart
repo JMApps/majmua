@@ -24,7 +24,6 @@ class AddCityPage extends StatelessWidget {
       ],
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: appColors.primaryColor,
           title: Text(appLocale!.addMyCity),
           actions: [
             IconButton(

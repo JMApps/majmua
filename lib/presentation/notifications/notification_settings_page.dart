@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/styles/app_styles.dart';
@@ -57,7 +56,7 @@ class NotificationSettingsPage extends StatelessWidget {
                       SwitchListTile.adaptive(
                         title: Text(appLocale.sunriseDuha),
                         value: notificationsState.sunriseNotification,
-                        shape: AppStyles.mainShapeMini,
+                        shape: AppStyles.mainShapeMicro,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
@@ -68,7 +67,7 @@ class NotificationSettingsPage extends StatelessWidget {
                       SwitchListTile.adaptive(
                         title: Text(appLocale.dhuhr),
                         value: notificationsState.dhuhrNotification,
-                        shape: AppStyles.mainShapeMini,
+                        shape: AppStyles.mainShapeMicro,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
@@ -79,7 +78,7 @@ class NotificationSettingsPage extends StatelessWidget {
                       SwitchListTile.adaptive(
                         title: Text(appLocale.asr),
                         value: notificationsState.asrNotification,
-                        shape: AppStyles.mainShapeMini,
+                        shape: AppStyles.mainShapeMicro,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
@@ -90,7 +89,7 @@ class NotificationSettingsPage extends StatelessWidget {
                       SwitchListTile.adaptive(
                         title: Text(appLocale.maghrib),
                         value: notificationsState.maghribNotification,
-                        shape: AppStyles.mainShapeMini,
+                        shape: AppStyles.mainShapeMicro,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
@@ -146,7 +145,7 @@ class NotificationSettingsPage extends StatelessWidget {
                       SwitchListTile.adaptive(
                         title: Text(appLocale.eveningAdhkars),
                         value: notificationsState.eveningSupplicationsNotification,
-                        shape: AppStyles.mainShapeMini,
+                        shape: AppStyles.mainShapeMicro,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
@@ -202,7 +201,7 @@ class NotificationSettingsPage extends StatelessWidget {
                       SwitchListTile.adaptive(
                         title: Text(appLocale.fastThursday),
                         value: notificationsState.fastThursdayNotification,
-                        shape: AppStyles.mainShapeMini,
+                        shape: AppStyles.mainShapeMicro,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {

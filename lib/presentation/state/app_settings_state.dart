@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MainAppState extends ChangeNotifier {
+class AppSettingsState extends ChangeNotifier {
   int _backgroundPictureIndex = 5;
 
   int get getBackgroundPictureIndex => _backgroundPictureIndex;

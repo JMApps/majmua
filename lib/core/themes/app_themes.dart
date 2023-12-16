@@ -67,7 +67,7 @@ class AppThemes {
     ),
     appBarTheme: const AppBarTheme(
       shape: AppStyles.bottomShape,
-      backgroundColor: Color(0xD93F51B5),
+      backgroundColor: Color(0xFF11111A),
       centerTitle: true,
       elevation: 0,
       titleTextStyle: TextStyle(

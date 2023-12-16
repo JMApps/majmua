@@ -6,7 +6,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/core/strings/app_constraints.dart';
 import 'package:majmua/presentation/pages/root_page.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
-import 'package:majmua/presentation/state/main_app_state.dart';
+import 'package:majmua/presentation/state/app_settings_state.dart';
 import 'package:majmua/presentation/state/notifications_state.dart';
 import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:majmua/presentation/state/salawat_counter_state.dart';
@@ -32,7 +32,7 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => MainAppState(),
+          create: (_) => AppSettingsState(),
         ),
         ChangeNotifierProvider(
           create: (_) => AdhanTimeState(),
