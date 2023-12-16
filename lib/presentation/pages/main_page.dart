@@ -66,7 +66,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
               backgroundColor: Colors.transparent,
               title: Card(
                 margin: EdgeInsets.zero,
-                color: appColors.glass.withOpacity(0.5),
+                color: appColors.glass.withOpacity(0.35),
                 child: Padding(
                   padding: AppStyles.mainMardingMicro,
                   child: Row(

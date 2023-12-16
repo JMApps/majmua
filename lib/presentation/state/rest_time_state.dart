@@ -138,7 +138,6 @@ class RestTimeState extends ChangeNotifier {
   }
 
   double getElapsedSeasonPercentage(Season currentSeason) {
-
     final int startSeasonMonth;
     final int endSeasonMonth;
 

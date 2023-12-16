@@ -15,6 +15,11 @@ class AppConstraints {
   static const String keyUtcOffsetIndex = 'key_utc_offset_index';
   static const String keyMadhabIndex = 'key_madhab_params_index';
 
+  // Main app settings
+  static const String keyCurrentThemeIndex = 'key_current_theme_index';
+  static const String keyBackgroundPictureIndex = 'key_background_picture_index';
+  static const String keyAlwaysDisplay = 'key_always_display';
+
   // Prayer adjustments
   static const String keyFajrAdjustment = 'key_fajr_adjustment';
   static const String keySunriseAdjustment = 'key_sunrise_adjustment';

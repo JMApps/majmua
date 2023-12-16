@@ -61,6 +61,17 @@
   "fridayTime": "Завтра пятница",
   "lastHourFridayTime": "Последний час пятницы \uD83E\uDD32\uD83E\uDD32\uD83E\uDD32",
 
+  "appTheme": "Тема приложения",
+  "light": "Светлая",
+  "dark": "Тёмная",
+  "system": "Системная",
+  "wallpapersMainScreen": "Обои главного экрана",
+  "display": "Дисплей",
+  "alwaysOnDisplay": "Дисплей всегда включён",
+  "apps": "Приложения",
+  "otherApp": "Другие приложения",
+  "contacts": "Контакты",
+
   "adhanParams": "Параметры",
   "selectedCity": "Выбранный город",
   "coordinates": "Координаты",
