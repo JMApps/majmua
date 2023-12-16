@@ -46,7 +46,7 @@ class AppSettingsState extends ChangeNotifier {
     return currentTheme;
   }
 
-  int _backgroundPictureIndex = 0;
+  late int _backgroundPictureIndex;
 
   int get getBackgroundPictureIndex => _backgroundPictureIndex;
 
@@ -56,7 +56,7 @@ class AppSettingsState extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool _alwaysDisplay = true;
+  late bool _alwaysDisplay;
 
   bool get getAlwaysDisplay => _alwaysDisplay;
 

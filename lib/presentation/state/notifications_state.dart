@@ -7,7 +7,7 @@ class NotificationsState extends ChangeNotifier {
 
   NotificationsState() {
     _fajrNotification = _mainSettingsBox.get(AppConstraints.keyFajrNotification, defaultValue: true);
-    _sunriseNotification = _mainSettingsBox.get(AppConstraints.keySunriseNotification, defaultValue: false);
+    _sunriseNotification = _mainSettingsBox.get(AppConstraints.keySunriseNotification, defaultValue: true);
     _dhuhrNotification = _mainSettingsBox.get(AppConstraints.keyDhuhrNotification, defaultValue: true);
     _asrNotification = _mainSettingsBox.get(AppConstraints.keyAsrNotification, defaultValue: true);
     _maghribNotification = _mainSettingsBox.get(AppConstraints.keyMaghribNotification, defaultValue: true);

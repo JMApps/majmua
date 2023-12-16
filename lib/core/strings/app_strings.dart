@@ -12,6 +12,13 @@ class AppStrings {
     'sixth_background.jpg'
   ];
 
+  static const seasonNames = <String>[
+    'spring.jpg',
+    'summer.jpg',
+    'fall.jpg',
+    'winter.jpg',
+  ];
+
   static  const List<String> monthsPictures = [
     'assets/icons/january.png',
     'assets/icons/february.png',

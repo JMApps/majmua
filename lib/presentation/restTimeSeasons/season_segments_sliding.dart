@@ -28,6 +28,7 @@ class SeasonSegmentsSliding extends StatelessWidget {
                   ? SeasonPercent(
                       season: appLocale!.spring,
                       seasonColor: appColors.springColor,
+                      seasonIndex: 0,
                       percent: timeState.getElapsedSeasonPercentage(Season.spring),
                     )
                   : SeasonNameText(
@@ -37,6 +38,7 @@ class SeasonSegmentsSliding extends StatelessWidget {
                   ? SeasonPercent(
                       season: appLocale.summer,
                       seasonColor: appColors.summerColor,
+                      seasonIndex: 1,
                       percent: timeState.getElapsedSeasonPercentage(Season.summer),
                     )
                   : SeasonNameText(
@@ -46,6 +48,7 @@ class SeasonSegmentsSliding extends StatelessWidget {
                   ? SeasonPercent(
                       season: appLocale.fall,
                       seasonColor: appColors.fallColor,
+                      seasonIndex: 2,
                       percent: timeState.getElapsedSeasonPercentage(Season.fall),
                     )
                   : SeasonNameText(
@@ -55,6 +58,7 @@ class SeasonSegmentsSliding extends StatelessWidget {
                   ? SeasonPercent(
                       season: appLocale.winter,
                       seasonColor: appColors.winterColor,
+                      seasonIndex: 3,
                       percent: timeState.getElapsedSeasonPercentage(Season.winter),
                     )
                   : SeasonNameText(

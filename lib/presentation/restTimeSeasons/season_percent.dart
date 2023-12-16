@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/core/strings/app_strings.dart';
 import 'package:majmua/presentation/restTimeSeasons/season_name_text.dart';
 import 'package:square_progress_indicator/square_progress_indicator.dart';
 
@@ -7,11 +8,13 @@ class SeasonPercent extends StatelessWidget {
     super.key,
     required this.season,
     required this.seasonColor,
+    required this.seasonIndex,
     required this.percent,
   });
 
   final String season;
   final Color seasonColor;
+  final int seasonIndex;
   final double percent;
 
   @override
@@ -31,8 +34,22 @@ class SeasonPercent extends StatelessWidget {
       strokeWidth: screenWidth * 0.005,
       emptyStrokeWidth: screenWidth * 0.005,
       strokeAlign: SquareStrokeAlign.center,
-      child: SeasonNameText(
-        seasonName: season,
+      child: Container(
+        width: double.infinity,
+        height: screenWidth * 0.075,
+        alignment: Alignment.center,
+        margin: const EdgeInsets.all(2),
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(3)),
+          image: DecorationImage(
+            image: AssetImage('assets/pictures/${AppStrings.seasonNames[3]}'),
+            fit: BoxFit.cover,
+            opacity: 0.35,
+          )
+        ),
+        child: SeasonNameText(
+          seasonName: season,
+        ),
       ),
     );
   }
