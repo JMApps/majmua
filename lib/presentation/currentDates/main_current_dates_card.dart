@@ -20,6 +20,7 @@ class MainCurrentDatesCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final MediaQueryData mediaQuery = MediaQuery.of(context);
     final double screenWidth = mediaQuery.size.width;
+    final bool isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
     final AdhanTimeState adhanTimeState = Provider.of<AdhanTimeState>(context);
@@ -96,9 +97,7 @@ class MainCurrentDatesCard extends StatelessWidget {
                               borderRadius: AppStyles.mainBorderRadiusBig,
                               child: Image.asset(
                                 'assets/pictures/salawat.png',
-                                width: mediaQuery.orientation == Orientation.portrait
-                                    ? screenWidth * 0.23
-                                    : screenWidth * 0.24,
+                                width: isPortrait ? screenWidth * 0.23 : screenWidth * 0.24,
                                 color: !adhanTimeState.getIsFriday
                                     ? appColors.secondaryColor
                                     : appColors.quaternaryColor,
@@ -157,64 +156,22 @@ class MainCurrentDatesCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 8),
-                Row(
-                  children: [
-                    // Flexible(
-                    //   child: ListTile(
-                    //     onTap: () {
-                    //       showModalBottomSheet(
-                    //         context: context,
-                    //         isScrollControlled: true,
-                    //         backgroundColor: appColors.surface,
-                    //         builder: (context) {
-                    //           return WeeklyMessages(
-                    //             dailyMessage: AppStrings.getLongDaily(
-                    //               locale: appLocale.localeName,
-                    //               number: timeState.currentDateTime.weekday,
-                    //             ),
-                    //           );
-                    //         },
-                    //       );
-                    //     },
-                    //     tileColor: appColors.glass,
-                    //     shape: AppStyles.leftBottomShapeMini,
-                    //     visualDensity: const VisualDensity(vertical: -2),
-                    //     title: Text(
-                    //       appLocale.ayahDay,
-                    //       style: TextStyle(
-                    //         fontSize: screenWidth * 0.04,
-                    //       ),
-                    //       maxLines: 1,
-                    //       overflow: TextOverflow.ellipsis,
-                    //     ),
-                    //     trailing: Icon(
-                    //       CupertinoIcons.checkmark_circle,
-                    //       color: appColors.secondaryColor,
-                    //       size: screenWidth * 0.05,
-                    //     ),
-                    //   ),
-                    // ),
-                    // const SizedBox(width: 8),
-                    Flexible(
-                      child: ListTile(
-                        onTap: () {
-                          Navigator.pushNamed(context, RouteNames.appCounterPage);
-                        },
-                        tileColor: appColors.glass,
-                        shape: AppStyles.bottomShapeMini,
-                        visualDensity: const VisualDensity(vertical: -2),
-                        title: Text(
-                          appLocale.counter,
-                          style: TextStyle(
-                            fontSize: screenWidth * 0.04,
-                          ),
-                          textAlign: TextAlign.center,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
+                ListTile(
+                  onTap: () {
+                    Navigator.pushNamed(context, RouteNames.appCounterPage);
+                  },
+                  tileColor: appColors.glass,
+                  shape: AppStyles.bottomShapeMini,
+                  visualDensity: const VisualDensity(vertical: -4),
+                  title: Text(
+                    appLocale.counter,
+                    style: TextStyle(
+                      fontSize: screenWidth * 0.04,
                     ),
-                  ],
+                    textAlign: TextAlign.center,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ],
             );

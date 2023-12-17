@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/core/strings/app_constraints.dart';
+import 'package:majmua/data/services/notification_service.dart';
 import 'package:majmua/presentation/pages/root_page.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
 import 'package:majmua/presentation/state/app_settings_state.dart';
@@ -28,6 +29,7 @@ void main() async {
   await Hive.openBox(AppConstraints.keyWeeklySalawatSettings);
   await Hive.openBox(AppConstraints.keySettingsPrayerTimeBox);
   await Hive.openBox(AppConstraints.keyMainCounter);
+  NotificationService().setupNotification();
   runApp(
     MultiProvider(
       providers: [

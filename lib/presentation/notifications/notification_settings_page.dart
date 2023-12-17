@@ -138,7 +138,7 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
-                          notificationsState.morningSupplicationsNotification = onChanged;
+                          notificationsState.setMorningSupplicationsNotification = onChanged;
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
@@ -160,7 +160,7 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
-                          notificationsState.nightSupplicationsNotification = onChanged;
+                          notificationsState.setNightSupplicationsNotification = onChanged;
                         },
                       ),
                     ],
@@ -194,7 +194,7 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
-                          notificationsState.fastMondayNotification = onChanged;
+                          notificationsState.setFastMondayNotification = onChanged;
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
@@ -205,7 +205,7 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
-                          notificationsState.fastThursdayNotification = onChanged;
+                          notificationsState.setFastThursdayNotification = onChanged;
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
@@ -216,7 +216,7 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
-                          notificationsState.fastWhiteDaysNotification = onChanged;
+                          notificationsState.setFastWhiteDaysNotification = onChanged;
                         },
                       ),
                     ],
@@ -250,7 +250,7 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
-                          notificationsState.fridayNotification = onChanged;
+                          notificationsState.setFridayNotification = onChanged;
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
@@ -261,7 +261,7 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
-                          notificationsState.lastHourFridayNotification = onChanged;
+                          notificationsState.setLastHourFridayNotification = onChanged;
                         },
                       ),
                     ],

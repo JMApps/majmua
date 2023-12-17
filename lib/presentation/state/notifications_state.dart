@@ -92,7 +92,7 @@ class NotificationsState extends ChangeNotifier {
 
   bool get nightSupplicationsNotification => _nightSupplicationsNotification;
 
-  set morningSupplicationsNotification(bool value) {
+  set setMorningSupplicationsNotification(bool value) {
     _morningSupplicationsNotification = value;
     _mainSettingsBox.put(AppConstraints.keyMorningSupplicationsNotification, value);
     notifyListeners();
@@ -104,7 +104,7 @@ class NotificationsState extends ChangeNotifier {
     notifyListeners();
   }
 
-  set nightSupplicationsNotification(bool value) {
+  set setNightSupplicationsNotification(bool value) {
     _nightSupplicationsNotification = value;
     _mainSettingsBox.put(AppConstraints.keyNightSupplicationsNotification, value);
     notifyListeners();
@@ -121,19 +121,19 @@ class NotificationsState extends ChangeNotifier {
 
   bool get fastWhiteDaysNotification => _fastWhiteDaysNotification;
 
-  set fastMondayNotification(bool value) {
+  set setFastMondayNotification(bool value) {
     _fastMondayNotification = value;
     _mainSettingsBox.put(AppConstraints.keyFastMondayNotification, value);
     notifyListeners();
   }
 
-  set fastThursdayNotification(bool value) {
+  set setFastThursdayNotification(bool value) {
     _fastThursdayNotification = value;
     _mainSettingsBox.put(AppConstraints.keyFastThursdayNotification, value);
     notifyListeners();
   }
 
-  set fastWhiteDaysNotification(bool value) {
+  set setFastWhiteDaysNotification(bool value) {
     _fastWhiteDaysNotification = value;
     _mainSettingsBox.put(AppConstraints.keyFastWhiteDaysNotification, value);
     notifyListeners();
@@ -147,13 +147,13 @@ class NotificationsState extends ChangeNotifier {
 
   bool get lastHourFridayNotification => _lastHourFridayNotification;
 
-  set fridayNotification(bool value) {
+  set setFridayNotification(bool value) {
     _fridayNotification = value;
     _mainSettingsBox.put(AppConstraints.keyFridayNotification, value);
     notifyListeners();
   }
 
-  set lastHourFridayNotification(bool value) {
+  set setLastHourFridayNotification(bool value) {
     _lastHourFridayNotification = value;
     _mainSettingsBox.put(AppConstraints.keyFridayLastHourNotification, value);
     notifyListeners();

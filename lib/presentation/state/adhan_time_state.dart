@@ -233,13 +233,13 @@ class AdhanTimeState extends ChangeNotifier {
   // Day parts
   bool get getIsMorning {
     final bool isMorning;
-    isMorning = getMinutesOfDay > (getFajrValueInMinutes + 30) && getMinutesOfDay < (getDhuhrValueInMinutes - 1);
+    isMorning = getMinutesOfDay > (getFajrValueInMinutes + 30) && getMinutesOfDay < (getSunriseValueInMinutes - 1);
     return isMorning;
   }
 
   bool get getIsDuha {
     final bool isDuha;
-    isDuha = getMinutesOfDay > (getSunriseValueInMinutes + 45) && getMinutesOfDay < (getDhuhrValueInMinutes - 15);
+    isDuha = getMinutesOfDay > (getSunriseValueInMinutes + 30) && getMinutesOfDay < (getDhuhrValueInMinutes - 15);
     return isDuha;
   }
 

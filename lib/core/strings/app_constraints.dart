@@ -86,4 +86,23 @@ class AppConstraints {
   static const int defCalculationIndex = 10;
   static const int defUtcOffsetIndex = 1;
   static const int defMadhabIndex = 0;
+
+  // Notification IDs
+  static const int fajrNotificationID = 395;
+  static const int sunriseNotificationID = 476;
+  static const int dhuhrNotificationID = 543;
+  static const int asrNotificationID = 876;
+  static const int maghribNotificationID = 563;
+  static const int ishaNotificationID = 854;
+
+  static const int morningSupplicationsNotificationID = 579;
+  static const int eveningSupplicationsNotificationID = 311;
+  static const int nightSupplicationsNotificationID = 800;
+
+  static const int fastMondayNotificationID = 625;
+  static const int fastThursdayNotificationID = 745;
+  static const int fastWhiteDaysNotificationID = 371;
+
+  static const int fridayNotificationID = 985;
+  static const int lastHourFridayNotificationID = 234;
 }

@@ -108,7 +108,7 @@ class AppSettingsPage extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 8),
+                const Divider(indent: 16, endIndent: 16),
                 SwitchListTile.adaptive(
                   title: Text(appLocale.alwaysOnDisplay),
                   value: settings.getAlwaysDisplay,
