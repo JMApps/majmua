@@ -9,6 +9,7 @@ import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/state/app_settings_state.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AppSettingsPage extends StatelessWidget {
   const AppSettingsPage({super.key});
@@ -128,9 +129,10 @@ class AppSettingsPage extends StatelessWidget {
                   ),
                 ),
                 const Divider(indent: 16, endIndent: 16),
-                Platform.isIOS
-                    ? ListTile(
-                  onTap: () {},
+                Platform.isIOS ? ListTile(
+                  onTap: () {
+                    _launchUrl(link: 'https://apps.apple.com/ru/developer/imanil-binyaminov/id1564920953');
+                  },
                   title: Text(appLocale.otherApp),
                   leading: Image.asset('assets/icons/appstore.png'),
                   trailing: Icon(
@@ -141,9 +143,10 @@ class AppSettingsPage extends StatelessWidget {
                   shape: AppStyles.mainShapeMini,
                   visualDensity:
                   const VisualDensity(horizontal: -4, vertical: -4),
-                )
-                    : ListTile(
-                  onTap: () {},
+                ) : ListTile(
+                  onTap: () {
+                    _launchUrl(link: 'https://play.google.com/store/apps/dev?id=8649252597553656018');
+                  },
                   title: Text(appLocale.otherApp),
                   leading: Image.asset('assets/icons/google-play.png'),
                   trailing: Icon(
@@ -165,7 +168,9 @@ class AppSettingsPage extends StatelessWidget {
                 ),
                 const Divider(indent: 16, endIndent: 16),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    _launchUrl(link: 'https://ummalife.com/jmapps');
+                  },
                   title: const Text('Umma Life'),
                   leading: Image.asset('assets/icons/ummalife.png'),
                   trailing: Icon(
@@ -178,7 +183,9 @@ class AppSettingsPage extends StatelessWidget {
                 ),
                 const Divider(indent: 16, endIndent: 16),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    _launchUrl(link: 'https://instagram.com/dev_muslim');
+                  },
                   title: const Text('Instagram'),
                   leading: Image.asset('assets/icons/instagram.png'),
                   trailing: Icon(
@@ -191,7 +198,9 @@ class AppSettingsPage extends StatelessWidget {
                 ),
                 const Divider(indent: 16, endIndent: 16),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    _launchUrl(link: 'https://t.me/jmapps');
+                  },
                   title: const Text('Telegram'),
                   leading: Image.asset('assets/icons/telegram.png'),
                   trailing: Icon(
@@ -209,5 +218,9 @@ class AppSettingsPage extends StatelessWidget {
         },
       ),
     );
+  }
+  Future<void> _launchUrl({required String link}) async {
+    final Uri urlLink = Uri.parse(link);
+    await launchUrl(urlLink);
   }
 }
