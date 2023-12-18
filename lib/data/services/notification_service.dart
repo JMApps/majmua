@@ -9,11 +9,12 @@ import 'package:timezone/timezone.dart';
 
 class NotificationService {
   static const String _logoName = '@drawable/sm_logo';
+
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
   final AndroidNotificationDetails _androidPrayerNotificationDetails = const AndroidNotificationDetails(
-    'Daily prayer and adhkars notification channel ID',
-    'Prayer and adhkars notifications',
+    'Daily prayer notification channel ID',
+    'Prayer notifications',
     channelDescription: 'Daily prayer notifications',
     icon: _logoName,
     importance: Importance.high,
@@ -27,7 +28,18 @@ class NotificationService {
     sound: 'adhan.caf',
   );
 
-  final AndroidNotificationDetails _androidFastNotificationDetails = const AndroidNotificationDetails(
+  final AndroidNotificationDetails _androidTimeNotificationDetails = const AndroidNotificationDetails(
+    'Time notification channel ID',
+    'Time notifications',
+    channelDescription: 'Time notifications',
+    icon: _logoName,
+    importance: Importance.max,
+    priority: Priority.max,
+  );
+
+  final DarwinNotificationDetails _iOSTimeNotificationDetails = const DarwinNotificationDetails();
+
+  final AndroidNotificationDetails _androidDayNotificationDetails = const AndroidNotificationDetails(
     'Day notification channel ID',
     'Day notifications',
     channelDescription: 'Day notifications',
@@ -36,7 +48,18 @@ class NotificationService {
     priority: Priority.max,
   );
 
-  final DarwinNotificationDetails _iOSFastNotificationDetails = const DarwinNotificationDetails();
+  final DarwinNotificationDetails _iOSDayNotificationDetails = const DarwinNotificationDetails();
+
+  final AndroidNotificationDetails _androidMonthNotificationDetails = const AndroidNotificationDetails(
+    'Month notification channel ID',
+    'Month notifications',
+    channelDescription: 'Month notifications',
+    icon: _logoName,
+    importance: Importance.max,
+    priority: Priority.max,
+  );
+
+  final DarwinNotificationDetails _iOSMonthNotificationDetails = const DarwinNotificationDetails();
 
   Future<void> setupNotification() async {
     if (Platform.isAndroid) {
@@ -58,7 +81,7 @@ class NotificationService {
     );
   }
 
-  Future<void> timeNotifications({required int id, required String title, required String body, required DateTime prayerTime}) async {
+  Future<void> prayerNotifications({required int id, required String title, required String body, required DateTime prayerTime}) async {
     TZDateTime tzDateNotification = tz.TZDateTime.from(prayerTime.add(const Duration(hours: -3)), tz.local);
     try {
       await _flutterLocalNotificationsPlugin.zonedSchedule(
@@ -81,7 +104,7 @@ class NotificationService {
     }
   }
 
-  Future<void> dayNotifications({required int id, required String title, required String body, required DateTime dateTime}) async {
+  Future<void> timeNotifications({required int id, required String title, required String body, required DateTime dateTime}) async {
     TZDateTime tzDateNotification = tz.TZDateTime.from(dateTime.add(const Duration(hours: -3)), tz.local);
     try {
       await _flutterLocalNotificationsPlugin.zonedSchedule(
@@ -90,11 +113,56 @@ class NotificationService {
         body,
         tzDateNotification,
         NotificationDetails(
-          android: _androidFastNotificationDetails,
-          iOS: _iOSFastNotificationDetails,
+          android: _androidTimeNotificationDetails,
+          iOS: _iOSTimeNotificationDetails,
+        ),
+        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+        matchDateTimeComponents: DateTimeComponents.time,
+        uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
+      );
+    } on PlatformException catch (e) {
+      debugPrint("Error scheduling notification: $e");
+    } catch (e) {
+      debugPrint("Unknown error: $e");
+    }
+  }
+
+  Future<void> dayNotifications({required int id, required String title, required String body, required DateTime dateTime}) async {
+    TZDateTime tzDateNotification = tz.TZDateTime.from(dateTime, tz.local);
+    try {
+      await _flutterLocalNotificationsPlugin.zonedSchedule(
+        id,
+        title,
+        body,
+        tzDateNotification,
+        NotificationDetails(
+          android: _androidDayNotificationDetails,
+          iOS: _iOSDayNotificationDetails,
         ),
         uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
         matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
+      );
+    } on PlatformException catch (e) {
+      debugPrint("Error scheduling notification: $e");
+    } catch (e) {
+      debugPrint("Unknown error: $e");
+    }
+  }
+
+  Future<void> monthNotifications({required int id, required String title, required String body, required DateTime dateTime}) async {
+    TZDateTime tzDateNotification = tz.TZDateTime.from(dateTime, tz.local);
+    try {
+      await _flutterLocalNotificationsPlugin.zonedSchedule(
+        id,
+        title,
+        body,
+        tzDateNotification,
+        NotificationDetails(
+          android: _androidMonthNotificationDetails,
+          iOS: _iOSMonthNotificationDetails,
+        ),
+        uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
+        matchDateTimeComponents: DateTimeComponents.dayOfMonthAndTime,
       );
     } on PlatformException catch (e) {
       debugPrint("Error scheduling notification: $e");

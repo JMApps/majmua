@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:hijri/hijri_calendar.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/core/routes/route_names.dart';
 import 'package:majmua/core/strings/app_constraints.dart';
@@ -53,8 +54,26 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
     final NotificationService notificationService = NotificationService();
     final NotificationsState notificationsState = NotificationsState();
     final AdhanTimeState adhanTimeState = Provider.of<AdhanTimeState>(context);
+    final RestTimeState restTimeState = Provider.of<RestTimeState>(context);
+    final DateTime dateTime = DateTime.now();
+    int daysUntilNextSunday = DateTime.sunday - dateTime.weekday;
+    if (daysUntilNextSunday <= 0) {
+      daysUntilNextSunday += 7;
+    }
+    int daysUntilNextWednesday = DateTime.wednesday - dateTime.weekday;
+    if (daysUntilNextWednesday <= 0) {
+      daysUntilNextWednesday += 7;
+    }
+    int daysUntilNextThursday = DateTime.thursday - dateTime.weekday;
+    if (daysUntilNextThursday <= 0) {
+      daysUntilNextThursday += 7;
+    }
+    int daysUntilNextFriday = DateTime.friday - dateTime.weekday;
+    if (daysUntilNextFriday <= 0) {
+      daysUntilNextFriday += 7;
+    }
     if (notificationsState.fajrNotification) {
-      notificationService.timeNotifications(
+      notificationService.prayerNotifications(
         id: AppConstraints.fajrNotificationID,
         title: appLocale!.notification,
         body: appLocale.fajrTime,
@@ -68,13 +87,13 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
         id: AppConstraints.sunriseNotificationID,
         title: appLocale!.notification,
         body: appLocale.sunriseDuhaTime,
-        prayerTime: adhanTimeState.getPrayerTimes.sunrise.add(const Duration(minutes: 30)),
+        dateTime: adhanTimeState.getPrayerTimes.sunrise.add(const Duration(minutes: 30)),
       );
     } else {
       notificationService.cancelNotificationWithId(AppConstraints.sunriseNotificationID);
     }
     if (notificationsState.dhuhrNotification) {
-      notificationService.timeNotifications(
+      notificationService.prayerNotifications(
         id: AppConstraints.dhuhrNotificationID,
         title: appLocale!.notification,
         body: appLocale.dhuhrTime,
@@ -84,7 +103,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
       notificationService.cancelNotificationWithId(AppConstraints.dhuhrNotificationID);
     }
     if (notificationsState.asrNotification) {
-      notificationService.timeNotifications(
+      notificationService.prayerNotifications(
         id: AppConstraints.asrNotificationID,
         title: appLocale!.notification,
         body: appLocale.asrTime,
@@ -94,7 +113,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
       notificationService.cancelNotificationWithId(AppConstraints.asrNotificationID);
     }
     if (notificationsState.maghribNotification) {
-      notificationService.timeNotifications(
+      notificationService.prayerNotifications(
         id: AppConstraints.maghribNotificationID,
         title: appLocale!.notification,
         body: appLocale.maghribTime,
@@ -104,7 +123,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
       notificationService.cancelNotificationWithId(AppConstraints.maghribNotificationID);
     }
     if (notificationsState.ishaNotification) {
-      notificationService.timeNotifications(
+      notificationService.prayerNotifications(
         id: AppConstraints.ishaNotificationID,
         title: appLocale!.notification,
         body: appLocale.ishaTime,
@@ -118,17 +137,18 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
         id: AppConstraints.morningSupplicationsNotificationID,
         title: appLocale!.remind,
         body: appLocale.morningAdhkarsTime,
-        prayerTime: adhanTimeState.getPrayerTimes.fajr.add(const Duration(minutes: 30)),
+        dateTime: adhanTimeState.getPrayerTimes.fajr.add(const Duration(minutes: 30)),
       );
     } else {
-      notificationService.cancelNotificationWithId(AppConstraints.morningSupplicationsNotificationID);
+      notificationService.cancelNotificationWithId(
+          AppConstraints.morningSupplicationsNotificationID);
     }
     if (notificationsState.eveningSupplicationsNotification) {
       notificationService.timeNotifications(
         id: AppConstraints.eveningSupplicationsNotificationID,
         title: appLocale!.remind,
         body: appLocale.eveningAdhkarsTime,
-        prayerTime: adhanTimeState.getPrayerTimes.asr.add(const Duration(minutes: 30)),
+        dateTime: adhanTimeState.getPrayerTimes.asr.add(const Duration(minutes: 30)),
       );
     } else {
       notificationService.cancelNotificationWithId(AppConstraints.eveningSupplicationsNotificationID);
@@ -138,10 +158,73 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
         id: AppConstraints.nightSupplicationsNotificationID,
         title: appLocale!.remind,
         body: appLocale.nightAdhkarsTime,
-        prayerTime: adhanTimeState.getPrayerTimes.isha.add(const Duration(hours: 1)),
+        dateTime: adhanTimeState.getPrayerTimes.isha.add(const Duration(hours: 1)),
       );
     } else {
       notificationService.cancelNotificationWithId(AppConstraints.nightSupplicationsNotificationID);
+    }
+    if (notificationsState.fastMondayNotification) {
+      if (!restTimeState.isRamadan && !restTimeState.holidaysRamadan && !restTimeState.isNineDays && !restTimeState.holidaysHijjah) {
+        notificationService.dayNotifications(
+          id: AppConstraints.fastMondayNotificationID,
+          title: appLocale!.remind,
+          body: appLocale.fastMondayTime,
+          dateTime: DateTime(dateTime.year, dateTime.month, dateTime.day, 20, 0).add(Duration(days: daysUntilNextSunday)),
+        );
+      } else {
+        notificationService.cancelNotificationWithId(AppConstraints.fastMondayNotificationID);
+      }
+    } else {
+      notificationService.cancelNotificationWithId(AppConstraints.fastMondayNotificationID);
+    }
+    if (notificationsState.fastThursdayNotification) {
+      if (!restTimeState.isRamadan && !restTimeState.holidaysRamadan && !restTimeState.isNineDays && !restTimeState.holidaysHijjah) {
+        notificationService.dayNotifications(
+          id: AppConstraints.fastThursdayNotificationID,
+          title: appLocale!.remind,
+          body: appLocale.fastThursdayTime,
+          dateTime: DateTime(dateTime.year, dateTime.month, dateTime.day, 20, 0).add(Duration(days: daysUntilNextWednesday)),
+        );
+      } else {
+        notificationService.cancelNotificationWithId(AppConstraints.fastThursdayNotificationID);
+      }
+    } else {
+      notificationService.cancelNotificationWithId(AppConstraints.fastThursdayNotificationID);
+    }
+    if (notificationsState.fastWhiteDaysNotification) {
+      if (!restTimeState.isRamadan && !restTimeState.holidaysRamadan && !restTimeState.isNineDays && !restTimeState.holidaysHijjah) {
+        DateTime next12thDay = calculateNext12thDay(HijriCalendar.now());
+        notificationService.monthNotifications(
+          id: AppConstraints.fastWhiteDaysNotificationID,
+          title: appLocale!.remind,
+          body: appLocale.fastWhiteDaysTime,
+          dateTime: DateTime(next12thDay.year, next12thDay.month, next12thDay.day, 20, 0),
+        );
+      } else {
+        notificationService.cancelNotificationWithId(AppConstraints.fastThursdayNotificationID);
+      }
+    } else {
+      notificationService.cancelNotificationWithId(AppConstraints.fastThursdayNotificationID);
+    }
+    if (notificationsState.fridayNotification) {
+      notificationService.dayNotifications(
+        id: AppConstraints.fridayNotificationID,
+        title: appLocale!.remind,
+        body: appLocale.fridayTime,
+        dateTime: DateTime(dateTime.year, dateTime.month, dateTime.day, 20, 0).add(Duration(days: daysUntilNextThursday)),
+      );
+    } else {
+      notificationService.cancelNotificationWithId(AppConstraints.fridayNotificationID);
+    }
+    if (notificationsState.lastHourFridayNotification) {
+      notificationService.timeNotifications(
+        id: AppConstraints.lastHourFridayNotificationID,
+        title: appLocale!.remind,
+        body: appLocale.lastHourFridayTime,
+        dateTime: DateTime(dateTime.year, dateTime.month, dateTime.day, adhanTimeState.getPrayerTimes.maghrib.hour + 2, adhanTimeState.getPrayerTimes.maghrib.minute).add(Duration(days: daysUntilNextFriday)),
+      );
+    } else {
+      notificationService.cancelNotificationWithId(AppConstraints.fastThursdayNotificationID);
     }
     return Container(
       decoration: BoxDecoration(
@@ -166,9 +249,8 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
                   width: double.infinity,
                   child: Text(
                     appLocale!.appName,
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: appColors.inverseSurface
+                    style: TextStyle(fontSize: 18, color:
+                    appColors.inverseSurface,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -209,6 +291,20 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
           ],
         ),
       ),
+    );
+  }
+
+  DateTime calculateNext12thDay(HijriCalendar hijriCalendar) {
+    int desiredDay = 12;
+    int daysUntilNext12thDay = desiredDay - hijriCalendar.hDay;
+    if (daysUntilNext12thDay <= 0) {
+      hijriCalendar.addMonth(hijriCalendar.hYear, hijriCalendar.hMonth + 1);
+      daysUntilNext12thDay = desiredDay - hijriCalendar.hDay;
+    }
+    return hijriCalendar.hijriToGregorian(
+      hijriCalendar.hYear,
+      hijriCalendar.hMonth,
+      desiredDay,
     );
   }
 }
