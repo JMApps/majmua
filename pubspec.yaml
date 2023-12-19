@@ -23,6 +23,8 @@ dependencies:
   sleek_circular_slider: ^2.0.1
   step_progress_indicator: ^1.0.2
   animated_text_kit: ^4.2.2
+  salomon_bottom_bar: ^3.3.2
+  scrollable_positioned_list: ^0.3.8
 
   # Databases
   sqflite: ^2.3.0
@@ -85,3 +87,6 @@ flutter:
     - family: 'Naskh Arabic'
       fonts:
         - asset: assets/fonts/naskh_arabic.ttf
+    - family: 'Scheherazade'
+      fonts:
+        - asset: assets/fonts/scheherazade.ttf

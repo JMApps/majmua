@@ -165,5 +165,11 @@
   "backgroundWarmth": "Теплота фона",
   "fontContrast": "Контраст текста",
 
-  "sfq": "Мольбы из Корана"
+  "sfq": "Мольбы из Корана",
+  "sfqList": "Cписок",
+  "sfqPages": "Страницы",
+  "arabicTextSize": "Размер арабского текста",
+  "translationTextSize": "Размер текста перевода",
+  "share": "Поделиться",
+  "sfqTableName": "Table_of_supplications_ru"
 }

@@ -78,6 +78,12 @@ class AppConstraints {
   static const String keyCounterClick = 'key_counter_click';
   static const String keyCountValueShow = 'key_count_value_show';
 
+  // Surahs
+  static const String keySurahsBackgroundWarmth = 'key_surah_background_warmth';
+  static const String keyFontContrast = 'key_font_contrast';
+  static const String keySFQArabicTextSize = 'key_sfq_arabic_text_size';
+  static const String keySFQTranslationTextSize = 'key_sfq_translation_text_size';
+
   // Default city params
   static const String defCountry = 'Saudi Arabia';
   static const String defCity = 'Mecca';
