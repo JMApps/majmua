@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:majmua/core/routes/route_names.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
+import 'package:majmua/presentation/supplicationsAndQuran/adhkar_list.dart';
+import 'package:majmua/presentation/supplicationsAndQuran/surahs_list.dart';
 
 class SupplicationsAndQuranCard extends StatelessWidget {
   const SupplicationsAndQuranCard({super.key});
@@ -23,9 +26,16 @@ class SupplicationsAndQuranCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        backgroundColor: appColors.surface,
+                        builder: (context) => const AdhkarList(),
+                      );
+                    },
                     contentPadding: EdgeInsets.zero,
-                    visualDensity: const VisualDensity(vertical: -2, horizontal: -2),
+                    visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                     tileColor: appColors.glass,
                     shape: AppStyles.leftTopShapeMini,
                     title: Text(
@@ -45,15 +55,21 @@ class SupplicationsAndQuranCard extends StatelessWidget {
                   child: Tooltip(
                     message: appLocale.istikhara,
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, RouteNames.istikharaPage);
+                      },
                       borderRadius: AppStyles.mainBorderRadiusMicro,
                       child: Padding(
                         padding: AppStyles.mainMardingMini,
                         child: Image.asset(
                           'assets/icons/dua-hands.png',
                           color: appColors.primary,
-                          width: isPortrait ? screenWidth * 0.08 : screenWidth * 0.05,
-                          height: isPortrait ? screenWidth * 0.08 : screenWidth * 0.05,
+                          width: isPortrait
+                              ? screenWidth * 0.065
+                              : screenWidth * 0.05,
+                          height: isPortrait
+                              ? screenWidth * 0.065
+                              : screenWidth * 0.05,
                         ),
                       ),
                     ),
@@ -62,9 +78,16 @@ class SupplicationsAndQuranCard extends StatelessWidget {
                 const SizedBox(width: 8),
                 Expanded(
                   child: ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        backgroundColor: appColors.surface,
+                        builder: (context) => const SurahsList(),
+                      );
+                    },
                     contentPadding: EdgeInsets.zero,
-                    visualDensity: const VisualDensity(vertical: -2, horizontal: -2),
+                    visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                     tileColor: appColors.glass,
                     shape: AppStyles.rightTopShapeMini,
                     title: Text(
@@ -80,9 +103,11 @@ class SupplicationsAndQuranCard extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, RouteNames.sfqPage);
+              },
               contentPadding: EdgeInsets.zero,
-              visualDensity: const VisualDensity(vertical: -2, horizontal: -2),
+              visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
               tileColor: appColors.glass,
               shape: AppStyles.bottomShapeMini,
               title: Text(
