@@ -7,7 +7,7 @@ class CityModel {
   final String latitude;
   final String longitude;
 
-  CityModel({
+  const CityModel({
     required this.id,
     required this.country,
     required this.city,

@@ -118,6 +118,10 @@ extension ColorSchemeS on ColorScheme {
       ? const Color(0xFF3F51B5)
       : const Color(0xE65C6BC0);
 
+  Color get primaryDark => brightness == Brightness.light
+      ? const Color(0xFF3F51B5)
+      : const Color(0xFF11111A);
+
   Color get secondaryColor => brightness == Brightness.light
       ? const Color(0xFF009688)
       : const Color(0xBF26A69A);

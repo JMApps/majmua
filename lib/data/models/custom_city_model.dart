@@ -5,7 +5,7 @@ class CustomCityModel {
   final String latitude;
   final String longitude;
 
-  CustomCityModel({
+  const CustomCityModel({
     required this.id,
     required this.country,
     required this.city,

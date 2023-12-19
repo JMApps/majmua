@@ -7,7 +7,7 @@ class CityEntity {
   final String latitude;
   final String longitude;
 
-  CityEntity({
+  const CityEntity({
     required this.id,
     required this.country,
     required this.city,

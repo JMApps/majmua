@@ -33,7 +33,7 @@ class SurahSettings extends StatelessWidget {
               title: Text(appLocale.fontContrast),
               subtitle: Slider.adaptive(
                 value: surahSettings.getFontContrast,
-                min: 50,
+                min: 50.0,
                 max: 100.0,
                 onChanged: (double value) {
                   surahSettings.setFontContrast = value;
