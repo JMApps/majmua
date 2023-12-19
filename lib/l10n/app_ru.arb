@@ -148,7 +148,22 @@
   "whiteDays": "Пост в белые дни",
 
   "adhkars": "Азкары",
+
+  "afterPrayer": "После молитвы",
+  "morning": "Утром",
+  "evening": "Вечером",
+  "beforeSleep": "Перед сном",
+
   "istikhara": "Истихара",
   "surahs": "Суры",
+
+  "surahQahf": "Аль-Кахф",
+  "surahSajda": "Ас-Сажда",
+  "surahMulk": "Аль-Мульк",
+  "juzAmma": "Джуз 'Амма",
+
+  "backgroundWarmth": "Теплота фона",
+  "fontContrast": "Контраст текста",
+
   "sfq": "Мольбы из Корана"
 }

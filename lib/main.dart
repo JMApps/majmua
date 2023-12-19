@@ -11,6 +11,7 @@ import 'package:majmua/presentation/state/app_settings_state.dart';
 import 'package:majmua/presentation/state/notifications_state.dart';
 import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:majmua/presentation/state/salawat_counter_state.dart';
+import 'package:majmua/presentation/state/surah_settings_state.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -47,6 +48,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (_) => NotificationsState(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => SurahSettingsState(),
         ),
       ],
       child: const RootPage(),

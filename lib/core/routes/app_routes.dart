@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/core/routes/route_names.dart';
+import 'package:majmua/data/models/args/surah_args.dart';
 import 'package:majmua/presentation/adhanTimes/params/addCity/add_city_page.dart';
 import 'package:majmua/presentation/adhanTimes/params/adhan_params_page.dart';
 import 'package:majmua/presentation/adhanTimes/params/adjustmentTime/adjustment_time_page.dart';
@@ -8,6 +9,9 @@ import 'package:majmua/presentation/adhanTimes/params/selectCity/select_city_pag
 import 'package:majmua/presentation/counter/app_counter_page.dart';
 import 'package:majmua/presentation/notifications/notification_settings_page.dart';
 import 'package:majmua/presentation/settings/app_settings_page.dart';
+import 'package:majmua/presentation/supplicationsAndQuran/istikhara_page.dart';
+import 'package:majmua/presentation/supplicationsAndQuran/sfq/sfq_page.dart';
+import 'package:majmua/presentation/supplicationsAndQuran/surah/surahs_page.dart';
 
 class AppRoutes {
   static Route onGeneratorRoute(RouteSettings routeSettings) {
@@ -43,6 +47,19 @@ class AppRoutes {
       case RouteNames.appCounterPage:
         return MaterialPageRoute(
           builder: (_) => const AppCounterPage(),
+        );
+      case RouteNames.istikharaPage:
+        return MaterialPageRoute(
+          builder: (_) => const IstikharaPage(),
+        );
+      case RouteNames.surahsPage:
+        final SurahArgs args = routeSettings.arguments as SurahArgs;
+        return MaterialPageRoute(
+          builder: (_) => SurahsPage(surahNumber: args.surahNumber, surahName: args.surahName),
+        );
+      case RouteNames.sfqPage:
+        return MaterialPageRoute(
+          builder: (_) => const SFQPage(),
         );
       default:
         throw Exception('Invalid route ${routeSettings.name}');

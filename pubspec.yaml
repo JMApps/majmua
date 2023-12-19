@@ -63,6 +63,7 @@ flutter:
   generate: true
 
   assets:
+    - assets/quran/
     - assets/databases/
     - assets/fonts/
     - assets/pictures/

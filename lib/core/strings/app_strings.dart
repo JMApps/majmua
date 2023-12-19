@@ -485,4 +485,64 @@ class AppStrings {
       ishaAngle: '17.0',
     ),
   ];
+
+  static const List<List> surahsLists = [
+    qahf,
+    sajdah,
+    mulk,
+    juzAmma,
+  ];
+
+  static const List<String> qahf = [
+    'page293',
+    'page294',
+    'page295',
+    'page296',
+    'page297',
+    'page298',
+    'page299',
+    'page300',
+    'page301',
+    'page302',
+    'page303',
+    'page304',
+  ];
+
+  static const List<String> sajdah = [
+    'page415',
+    'page416',
+    'page417',
+  ];
+
+  static const List<String> mulk = [
+    'page562',
+    'page563',
+    'page564',
+  ];
+
+  static const List<String> juzAmma = [
+    'page582',
+    'page583',
+    'page584',
+    'page585',
+    'page586',
+    'page587',
+    'page588',
+    'page589',
+    'page590',
+    'page591',
+    'page592',
+    'page593',
+    'page594',
+    'page595',
+    'page596',
+    'page597',
+    'page598',
+    'page599',
+    'page600',
+    'page601',
+    'page602',
+    'page603',
+    'page604',
+  ];
 }

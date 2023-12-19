@@ -7,4 +7,7 @@ class RouteNames {
   static const String prayerTimeAdjustmentPage = '/prayer_time_adjustment_page';
   static const String informationPage = '/information_page';
   static const String appCounterPage = '/app_counter_page';
+  static const String istikharaPage = '/istikhara_page';
+  static const String surahsPage = '/surahsPage';
+  static const String sfqPage = '/supplications_from_quran_page';
 }
