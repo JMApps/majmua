@@ -5,7 +5,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/core/routes/route_names.dart';
 import 'package:majmua/core/strings/app_constraints.dart';
 import 'package:majmua/core/strings/app_strings.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/data/services/notification_service.dart';
 import 'package:majmua/presentation/lists/main_widgets_list.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
@@ -202,50 +201,37 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
         body: CustomScrollView(
           slivers: [
             SliverAppBar(
-              backgroundColor: Colors.transparent,
-              title: Card(
-                margin: EdgeInsets.zero,
-                child: Container(
-                  padding: AppStyles.mainMardingMini,
-                  width: double.infinity,
-                  child: Text(
-                    appLocale!.appName,
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: appColors.inverseSurface,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
+              expandedHeight: 70,
+              backgroundColor: appColors.primary.withOpacity(Theme.of(context).brightness == Brightness.dark ? 0.1 : 0.35),
+              title: Text(
+                appLocale!.appName,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 18,
                 ),
               ),
               elevation: 0,
               centerTitle: true,
               floating: false,
               actions: [
-                Card(
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, RouteNames.appSettingsPage);
-                    },
-                    tooltip: appLocale.settings,
-                    splashRadius: 20,
-                    color: appColors.primary,
-                    icon: const Icon(CupertinoIcons.settings),
-                  ),
-                ),
-                Card(
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.pushNamed(
-                          context, RouteNames.notificationParamsPage);
-                    },
-                    tooltip: appLocale.notifications,
-                    splashRadius: 20,
-                    color: appColors.primary,
-                    icon: const Icon(CupertinoIcons.bell),
-                  ),
+                IconButton(
+                  onPressed: () {
+                    Navigator.pushNamed(
+                        context, RouteNames.notificationParamsPage);
+                  },
+                  tooltip: appLocale.notifications,
+                  splashRadius: 20,
+                  icon: const Icon(CupertinoIcons.bell),
                 ),
               ],
+              leading: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, RouteNames.appSettingsPage);
+                },
+                tooltip: appLocale.settings,
+                splashRadius: 20,
+                icon: const Icon(CupertinoIcons.settings),
+              ),
             ),
             const SliverToBoxAdapter(
               child: MainWidgetsList(),
