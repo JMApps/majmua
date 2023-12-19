@@ -60,48 +60,48 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
     if (notificationsState.fajrNotification) {
       notificationService.prayerNotifications(
         id: AppConstraints.fajrNotificationID,
-        title: appLocale!.notification,
-        body: appLocale.fajrTime,
+        title: appLocale!.prayerNotification,
+        body: appLocale.fajr,
         prayerTime: adhanTimeState.getPrayerTimes.fajr,
       );
     }
     if (notificationsState.sunriseNotification) {
       notificationService.timeNotifications(
         id: AppConstraints.sunriseNotificationID,
-        title: appLocale!.notification,
-        body: appLocale.sunriseDuhaTime,
+        title: appLocale!.prayerNotification,
+        body: appLocale.sunriseDuha,
         dateTime: adhanTimeState.getPrayerTimes.sunrise.add(const Duration(minutes: 30)),
       );
     }
     if (notificationsState.dhuhrNotification) {
       notificationService.prayerNotifications(
         id: AppConstraints.dhuhrNotificationID,
-        title: appLocale!.notification,
-        body: appLocale.dhuhrTime,
+        title: appLocale!.prayerNotification,
+        body: appLocale.dhuhr,
         prayerTime: adhanTimeState.getPrayerTimes.dhuhr,
       );
     }
     if (notificationsState.asrNotification) {
       notificationService.prayerNotifications(
         id: AppConstraints.asrNotificationID,
-        title: appLocale!.notification,
-        body: appLocale.asrTime,
+        title: appLocale!.prayerNotification,
+        body: appLocale.asr,
         prayerTime: adhanTimeState.getPrayerTimes.asr,
       );
     }
     if (notificationsState.maghribNotification) {
       notificationService.prayerNotifications(
         id: AppConstraints.maghribNotificationID,
-        title: appLocale!.notification,
-        body: appLocale.maghribTime,
+        title: appLocale!.prayerNotification,
+        body: appLocale.maghrib,
         prayerTime: adhanTimeState.getPrayerTimes.maghrib,
       );
     }
     if (notificationsState.ishaNotification) {
       notificationService.prayerNotifications(
         id: AppConstraints.ishaNotificationID,
-        title: appLocale!.notification,
-        body: appLocale.ishaTime,
+        title: appLocale!.prayerNotification,
+        body: appLocale.isha,
         prayerTime: adhanTimeState.getPrayerTimes.isha,
       );
     }
@@ -220,8 +220,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
               ),
               elevation: 0,
               centerTitle: true,
-              pinned: false,
-              floating: true,
+              floating: false,
               actions: [
                 Card(
                   child: IconButton(
