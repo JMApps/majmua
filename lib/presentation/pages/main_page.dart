@@ -201,7 +201,6 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
         body: CustomScrollView(
           slivers: [
             SliverAppBar(
-              expandedHeight: 70,
               backgroundColor: appColors.primary.withOpacity(Theme.of(context).brightness == Brightness.dark ? 0.1 : 0.35),
               title: Text(
                 appLocale!.appName,
@@ -212,7 +211,6 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
               ),
               elevation: 0,
               centerTitle: true,
-              floating: false,
               actions: [
                 IconButton(
                   onPressed: () {
