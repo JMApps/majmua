@@ -8,6 +8,16 @@ import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/timezone.dart';
 
 class NotificationService {
+
+  static final NotificationService _localNoticeService =
+  NotificationService._internal();
+
+  factory NotificationService() {
+    return _localNoticeService;
+  }
+
+  NotificationService._internal();
+
   static const String _logoName = '@drawable/sm_logo';
 
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();

@@ -24,6 +24,8 @@ class RestTimeState extends ChangeNotifier {
 
   bool get isWhiteDays => _currentHijriTime.hDay >= 12 && _currentHijriTime.hDay <= 15;
 
+  bool get isOpenWhiteDays => !isRamadan && !holidaysRamadan && !isNineDays && !holidaysHijjah;
+
   RestTimeState() {
     timer = Timer(
       Duration(seconds: (_currentDateTime.second - 60).abs()), () {
@@ -106,8 +108,56 @@ class RestTimeState extends ChangeNotifier {
     return elapsedYearPercentage;
   }
 
+  int get getDaysUntilNextSunday {
+    int daysUntilNextSunday = DateTime.sunday - _currentDateTime.weekday;
+    if (daysUntilNextSunday <= 0) {
+      daysUntilNextSunday += 7;
+    }
+    return daysUntilNextSunday;
+  }
+
+  int get getDaysUntilNextWednesday {
+    int daysUntilNextWednesday = DateTime.wednesday - _currentDateTime.weekday;
+    if (daysUntilNextWednesday <= 0) {
+      daysUntilNextWednesday += 7;
+    }
+    return daysUntilNextWednesday;
+  }
+
+  int get getDaysUntilNextThursday {
+    int daysUntilNextThursday = DateTime.thursday - _currentDateTime.weekday;
+    if (daysUntilNextThursday <= 0) {
+      daysUntilNextThursday += 7;
+    }
+    return daysUntilNextThursday;
+  }
+
+  int get getDaysUntilNextFriday {
+    int daysUntilNextFriday = DateTime.friday - _currentDateTime.weekday;
+    if (daysUntilNextFriday <= 0) {
+      daysUntilNextFriday += 7;
+    }
+    return daysUntilNextFriday;
+  }
+
   Season get getCurrentSeason {
     return _getCurrentSeason(_currentDateTime.month);
+  }
+
+  DateTime get getNext12thDay => _calculateNext12thDay(_currentHijriTime);
+
+  DateTime _calculateNext12thDay(HijriCalendar hijriCalendar) {
+    int desiredDay = 12;
+    int daysUntilNext12thDay = desiredDay - hijriCalendar.hDay;
+    if (daysUntilNext12thDay <= 0) {
+      hijriCalendar.addMonth(hijriCalendar.hYear, hijriCalendar.hMonth + 1);
+      daysUntilNext12thDay = desiredDay - hijriCalendar.hDay;
+    }
+    return hijriCalendar.hijriToGregorian(
+      hijriCalendar.hYear,
+      hijriCalendar.hMonth,
+      desiredDay,
+    );
   }
 
   Season _getCurrentSeason(int month) {
