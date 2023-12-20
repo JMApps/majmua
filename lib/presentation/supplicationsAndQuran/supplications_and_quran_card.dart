@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/routes/route_names.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
+import 'package:majmua/data/models/args/supplication_args.dart';
 import 'package:majmua/presentation/supplicationsAndQuran/adhkar_list.dart';
 import 'package:majmua/presentation/supplicationsAndQuran/surahs_list.dart';
 
@@ -56,7 +57,14 @@ class SupplicationsAndQuranCard extends StatelessWidget {
                     message: appLocale.istikhara,
                     child: InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, RouteNames.istikharaPage);
+                        Navigator.pushNamed(
+                          context,
+                          RouteNames.fortressContentPage,
+                          arguments: SupplicationArgs(
+                            chapterTitle: appLocale.istikhara,
+                            chapterId: 26,
+                          ),
+                        );
                       },
                       borderRadius: AppStyles.mainBorderRadiusMicro,
                       child: Padding(
