@@ -34,9 +34,9 @@ class FortressUseCase {
     }
   }
 
-  Future<SupplicationFortressEntity> fetchSupplicationByChapterId({required String tableName, required int chapterId}) async {
+  Future<List<SupplicationFortressEntity>> fetchSupplicationByChapterId({required String tableName, required int chapterId}) async {
     try {
-      final SupplicationFortressEntity supplicationByChapterId = await _fortressRepository.getSupplicationByChapterId(tableName: tableName, chapterId: chapterId);
+      final List<SupplicationFortressEntity> supplicationByChapterId = await _fortressRepository.getSupplicationByChapterId(tableName: tableName, chapterId: chapterId);
       return supplicationByChapterId;
     } catch (e) {
       throw Exception(e.toString());

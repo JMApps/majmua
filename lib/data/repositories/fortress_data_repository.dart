@@ -36,11 +36,11 @@ class FortressDataRepository implements FortressRepository {
   }
 
   @override
-  Future<SupplicationFortressEntity> getSupplicationByChapterId({required String tableName, required int chapterId}) async {
+  Future<List<SupplicationFortressEntity>> getSupplicationByChapterId({required String tableName, required int chapterId}) async {
     final Database database = await _fortressDatabaseService.db;
     final List<Map<String, Object?>> resources = await database.query(tableName, where: 'sample_by = $chapterId', whereArgs: [chapterId]);
-    final SupplicationFortressEntity? supplicationByChapterId = resources.isNotEmpty ? _supplicationToEntity(SupplicationFortressModel.fromMap(resources.first)) : null;
-    return supplicationByChapterId!;
+    final List<SupplicationFortressEntity> supplicationsByChapterId = resources.isNotEmpty ? resources.map((c) => _supplicationToEntity(SupplicationFortressModel.fromMap(c))).toList() : [];
+    return supplicationsByChapterId;
   }
 
   @override

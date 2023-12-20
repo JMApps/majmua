@@ -22,7 +22,7 @@ class AdhkarItem extends StatelessWidget {
     return ListTile(
       onTap: () {
         Navigator.pop(context);
-        Navigator.pushNamed(context, RouteNames.surahsPage, arguments: SupplicationArgs(chapterId: chapterId));
+        Navigator.pushNamed(context, RouteNames.fortressContentPage, arguments: SupplicationArgs(chapterTitle: title, chapterId: chapterId));
       },
       title: Text(title),
       contentPadding: AppStyles.mardingHorizontalMini,

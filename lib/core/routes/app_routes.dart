@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/core/routes/route_names.dart';
+import 'package:majmua/data/models/args/supplication_args.dart';
 import 'package:majmua/data/models/args/surah_args.dart';
 import 'package:majmua/presentation/adhanTimes/params/addCity/add_city_page.dart';
 import 'package:majmua/presentation/adhanTimes/params/adhan_params_page.dart';
@@ -7,6 +8,7 @@ import 'package:majmua/presentation/adhanTimes/params/adjustmentTime/adjustment_
 import 'package:majmua/presentation/adhanTimes/params/calculation_info_page.dart';
 import 'package:majmua/presentation/adhanTimes/params/selectCity/select_city_page.dart';
 import 'package:majmua/presentation/counter/app_counter_page.dart';
+import 'package:majmua/presentation/fortress/fortress_content_page.dart';
 import 'package:majmua/presentation/notifications/notification_settings_page.dart';
 import 'package:majmua/presentation/settings/app_settings_page.dart';
 import 'package:majmua/presentation/supplicationsAndQuran/istikhara_page.dart';
@@ -47,6 +49,11 @@ class AppRoutes {
       case RouteNames.appCounterPage:
         return MaterialPageRoute(
           builder: (_) => const AppCounterPage(),
+        );
+      case RouteNames.fortressContentPage:
+        final SupplicationArgs args = routeSettings.arguments as SupplicationArgs;
+        return MaterialPageRoute(
+          builder: (_) => FortressContentPage(chapterTitle: args.chapterTitle, chapterId: args.chapterId),
         );
       case RouteNames.istikharaPage:
         return MaterialPageRoute(
