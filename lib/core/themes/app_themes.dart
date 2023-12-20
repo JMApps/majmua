@@ -142,6 +142,10 @@ extension ColorSchemeS on ColorScheme {
       ? const Color(0xE6FFFFFF)
       : const Color(0xE60D0F1C);
 
+  Color get fullGlass => brightness == Brightness.light
+      ? const Color(0xFFFFFFFF)
+      : const Color(0xFF0D0F1C);
+
   Color get springColor => brightness == Brightness.light
       ? const Color(0xFF43A047)
       : const Color(0xD91B5E20);

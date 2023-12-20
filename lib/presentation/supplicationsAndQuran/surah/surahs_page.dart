@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/strings/app_strings.dart';
+import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/state/surah_settings_state.dart';
 import 'package:majmua/presentation/supplicationsAndQuran/surah/sliding_app_bar.dart';
 import 'package:majmua/presentation/supplicationsAndQuran/surah/surah_settings.dart';
@@ -51,12 +52,16 @@ class _SurahsPageState extends State<SurahsPage>
             surahSettings.setAppBarIsVisible = !surahSettings.getAppBarIsVisible;
           },
           child: Container(
-            color: appColors.surface,
+            color: appColors.fullGlass,
             child: SafeArea(
               top: false,
               bottom: false,
               child: Scaffold(
-                backgroundColor: Colors.yellow.withOpacity(surahSettings.getWarmthValue / 100),
+                backgroundColor: Colors.yellow.withOpacity(
+                  Theme.of(context).brightness == Brightness.light
+                      ? surahSettings.getWarmthValue / 100
+                      : surahSettings.getWarmthValue / 300,
+                ),
                 extendBody: true,
                 appBar: SlidingAppBar(
                   controller: _controller,
@@ -78,9 +83,7 @@ class _SurahsPageState extends State<SurahsPage>
                               },
                               splashRadius: 20,
                               tooltip: appLocale!.settings,
-                              icon: const Icon(
-                                CupertinoIcons.settings,
-                              ),
+                              icon: const Icon(CupertinoIcons.settings),
                             ),
                           ],
                         )

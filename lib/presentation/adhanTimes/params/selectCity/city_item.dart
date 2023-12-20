@@ -30,7 +30,7 @@ class CityItem extends StatelessWidget {
             onTap: () {
               showModalBottomSheet(
                 context: context,
-                backgroundColor: appColors.surface,
+                backgroundColor: appColors.fullGlass,
                 builder: (context) => Container(
                   padding: AppStyles.mardingHorizontal,
                   child: Column(

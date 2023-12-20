@@ -34,7 +34,7 @@ class CustomCityItem extends StatelessWidget {
                 onTap: () {
                   showModalBottomSheet(
                     context: context,
-                    backgroundColor: appColors.surface,
+                    backgroundColor: appColors.fullGlass,
                     builder: (context) => Padding(
                       padding: AppStyles.mardingHorizontal,
                       child: Column(
@@ -64,7 +64,7 @@ class CustomCityItem extends StatelessWidget {
                               showModalBottomSheet(
                                 context: context,
                                 isScrollControlled: true,
-                                backgroundColor: appColors.surface,
+                                backgroundColor: appColors.fullGlass,
                                 builder: (context) => AnimatedPadding(
                                   padding: MediaQuery.of(context).viewInsets,
                                   duration: const Duration(milliseconds: 250),
@@ -88,7 +88,7 @@ class CustomCityItem extends StatelessWidget {
                               Navigator.pop(context);
                               showModalBottomSheet(
                                 context: context,
-                                backgroundColor: appColors.surface,
+                                backgroundColor: appColors.fullGlass,
                                 builder: (context) => Padding(
                                   padding: AppStyles.mardingHorizontal,
                                   child: Column(

@@ -30,7 +30,7 @@ class SupplicationsAndQuranCard extends StatelessWidget {
                       showModalBottomSheet(
                         context: context,
                         isScrollControlled: true,
-                        backgroundColor: appColors.surface,
+                        backgroundColor: appColors.fullGlass,
                         builder: (context) => const AdhkarList(),
                       );
                     },
@@ -82,7 +82,7 @@ class SupplicationsAndQuranCard extends StatelessWidget {
                       showModalBottomSheet(
                         context: context,
                         isScrollControlled: true,
-                        backgroundColor: appColors.surface,
+                        backgroundColor: appColors.fullGlass,
                         builder: (context) => const SurahsList(),
                       );
                     },
