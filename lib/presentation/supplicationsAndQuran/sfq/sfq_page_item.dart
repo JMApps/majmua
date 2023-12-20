@@ -74,6 +74,7 @@ class SFQPageItem extends StatelessWidget {
                   model.ayahTranslation,
                   style: TextStyle(
                     fontSize: sfqState.getTranslationTextSize.toDouble(),
+                    color: appColors.onSecondaryContainer,
                     fontFamily: 'Gilroy'
                   ),
                   textAlign: TextAlign.center,
@@ -83,7 +84,7 @@ class SFQPageItem extends StatelessWidget {
                   model.ayahSource,
                   style: TextStyle(
                     fontSize: sfqState.getTranslationTextSize.toDouble() - 5,
-                    fontFamily: 'Gilroy'
+                    fontFamily: 'Gilroy',
                   ),
                   textAlign: TextAlign.center,
                 ),

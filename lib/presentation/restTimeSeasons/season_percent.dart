@@ -44,7 +44,7 @@ class SeasonPercent extends StatelessWidget {
           image: DecorationImage(
             image: AssetImage('assets/pictures/${AppStrings.seasonNames[3]}'),
             fit: BoxFit.cover,
-            opacity: 0.35,
+            opacity: Theme.of(context).brightness == Brightness.light ? 0.85 : 0.5,
           )
         ),
         child: SeasonNameText(
