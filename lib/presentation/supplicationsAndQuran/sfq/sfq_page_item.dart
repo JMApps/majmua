@@ -22,8 +22,6 @@ class SFQPageItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
-    final Color itemOddColor = appColors.primary.withOpacity(0.03);
-    final Color itemEvenColor = appColors.primary.withOpacity(0.09);
     final SFQState sfqState = Provider.of<SFQState>(context);
     return InkWell(
       onTap: () {
@@ -52,7 +50,7 @@ class SFQPageItem extends StatelessWidget {
         margin: AppStyles.mardingWithoutBottomMini,
         padding: AppStyles.mainMarding,
         decoration: BoxDecoration(
-          color: index.isOdd ? itemOddColor : itemEvenColor,
+          color: appColors.glass,
           borderRadius: AppStyles.mainBorderRadiusMini,
         ),
         child: Center(

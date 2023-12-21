@@ -22,8 +22,6 @@ class SFQItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
-    final Color itemOddColor = appColors.primary.withOpacity(0.03);
-    final Color itemEvenColor = appColors.primary.withOpacity(0.09);
     final SFQState sfqState = Provider.of<SFQState>(context);
     return Container(
       padding: AppStyles.mardingOnlyBottomMini,
@@ -42,7 +40,7 @@ class SFQItem extends StatelessWidget {
                     sharePositionOrigin: const Rect.fromLTWH(1, 1, 1, 2 / 2),
                   );
                 },
-                tileColor: itemEvenColor,
+                tileColor: appColors.glass,
                 title: Text(appLocale!.share),
                 trailing: const Icon(CupertinoIcons.share),
               ),
@@ -54,7 +52,7 @@ class SFQItem extends StatelessWidget {
         child: Container(
           padding: AppStyles.mainMardingMini,
           decoration: BoxDecoration(
-            color: index.isOdd ? itemOddColor : itemEvenColor,
+            color: appColors.glass,
             borderRadius: AppStyles.mainBorderRadiusMini,
           ),
           child: Column(
