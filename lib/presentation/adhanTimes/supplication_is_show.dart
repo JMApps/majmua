@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/core/routes/route_names.dart';
 import 'package:majmua/core/styles/app_styles.dart';
+import 'package:majmua/data/models/args/supplication_args.dart';
 
 class SupplicationIsShow extends StatelessWidget {
   const SupplicationIsShow({
     super.key,
     required this.isShow,
-    required this.supplicationsId,
+    required this.fortressChapterId,
+    required this.fortressChapterTitle,
     required this.iconColor,
   });
 
   final bool isShow;
-  final int supplicationsId;
+  final int fortressChapterId;
+  final String fortressChapterTitle;
   final Color iconColor;
 
   @override
@@ -23,7 +27,14 @@ class SupplicationIsShow extends StatelessWidget {
           duration: const Duration(seconds: 1),
           child: InkWell(
             onTap: () {
-              // PushNamed with supplicationsId
+              Navigator.pushNamed(
+                context,
+                RouteNames.fortressContentPage,
+                arguments: SupplicationArgs(
+                  chapterTitle: fortressChapterTitle,
+                  chapterId: fortressChapterId,
+                ),
+              );
             },
             borderRadius: AppStyles.mainBorderRadius,
             child: Image.asset(

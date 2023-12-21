@@ -47,7 +47,7 @@
 
   "morningAdhkarsTime": "Время утренних азкаров \uD83E\uDD32",
   "eveningAdhkarsTime": "Время вечерних азкаров \uD83E\uDD32",
-  "nightAdhkarsTime": "Не забудь азкары перед сном \uD83E\uDD32",
+  "nightAdhkarsTime": "Не забудь азкары \uD83E\uDD32 перед сном \uD83D\uDCA4",
 
   "fridayNotifications": "Уведомления пятницы",
 
@@ -153,6 +153,7 @@
   "morning": "Утром",
   "evening": "Вечером",
   "beforeSleep": "Перед сном",
+  "adhanTime": "Во время азана",
 
   "istikhara": "Истихара",
   "surahs": "Суры",

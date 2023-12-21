@@ -1,9 +1,12 @@
 import 'package:adhan/adhan.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+import 'package:majmua/core/routes/route_names.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
+import 'package:majmua/data/models/args/supplication_args.dart';
 import 'package:majmua/presentation/adhanTimes/models/prayer_model.dart';
 import 'package:majmua/presentation/adhanTimes/supplication_is_show.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
@@ -20,6 +23,7 @@ class AdhanTimeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
+    final AppLocalizations? appLocale = AppLocalizations.of(context);
     final AdhanTimeState adhanTimeState = Provider.of<AdhanTimeState>(context);
     final double screenWidth = MediaQuery.of(context).size.width;
     final int currentTimeValue = adhanTimeState.getMinutesOfDay;
@@ -37,8 +41,8 @@ class AdhanTimeCard extends StatelessWidget {
             color: isRemainingTime
                 ? appColors.quaternaryColor
                 : isPastTime
-                ? appColors.primary
-                : appColors.secondaryColor.withOpacity(isPrayer ? 1 : 0),
+                    ? appColors.primary
+                    : appColors.secondaryColor.withOpacity(isPrayer ? 1 : 0),
           ),
         ),
         child: Container(
@@ -58,7 +62,9 @@ class AdhanTimeCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: screenWidth * 0.04,
                         color: appColors.onSurface.withOpacity(0.85),
-                        fontWeight: isRemainingTime || isPrayer || isPastTime ? FontWeight.bold : FontWeight.normal,
+                        fontWeight: isRemainingTime || isPrayer || isPastTime
+                            ? FontWeight.bold
+                            : FontWeight.normal,
                       ),
                       textAlign: TextAlign.start,
                       maxLines: 1,
@@ -123,22 +129,26 @@ class AdhanTimeCard extends StatelessWidget {
                     ),
                     SupplicationIsShow(
                       isShow: adhanTimeState.getIsMorning && prayerModel.prayerIndex == Prayer.fajr,
-                      supplicationsId: 26,
+                      fortressChapterId: 27,
+                      fortressChapterTitle: appLocale!.morning,
                       iconColor: appColors.secterColor,
                     ),
                     SupplicationIsShow(
                       isShow: adhanTimeState.getIsEvening && prayerModel.prayerIndex == Prayer.asr,
-                      supplicationsId: 27,
+                      fortressChapterId: 28,
+                      fortressChapterTitle: appLocale.evening,
                       iconColor: appColors.secterColor,
                     ),
                     SupplicationIsShow(
                       isShow: adhanTimeState.getIsNight && prayerModel.prayerIndex == Prayer.isha,
-                      supplicationsId: 28,
+                      fortressChapterId: 29,
+                      fortressChapterTitle: appLocale.beforeSleep,
                       iconColor: appColors.secterColor,
                     ),
                     SupplicationIsShow(
                       isShow: isPastTime && prayerModel.prayerIndex != Prayer.sunrise,
-                      supplicationsId: 25,
+                      fortressChapterId: 25,
+                      fortressChapterTitle: appLocale.afterPrayer,
                       iconColor: appColors.primary,
                     ),
                     Visibility(
@@ -148,7 +158,14 @@ class AdhanTimeCard extends StatelessWidget {
                           duration: const Duration(seconds: 1),
                           child: InkWell(
                             onTap: () {
-                              // Adhan time supplication with id
+                              Navigator.pushNamed(
+                                context,
+                                RouteNames.fortressContentPage,
+                                arguments: SupplicationArgs(
+                                  chapterTitle: appLocale.adhanTime,
+                                  chapterId: 15,
+                                ),
+                              );
                             },
                             borderRadius: AppStyles.mainBorderRadius,
                             child: Icon(
@@ -165,16 +182,10 @@ class AdhanTimeCard extends StatelessWidget {
                       child: Flexible(
                         child: AnimatedSize(
                           duration: const Duration(seconds: 1),
-                          child: InkWell(
-                            onTap: () {
-                              // Duha time supplication with id
-                            },
-                            borderRadius: AppStyles.mainBorderRadius,
-                            child: Icon(
-                              CupertinoIcons.sunrise,
-                              size: screenWidth * 0.05,
-                              color: appColors.secterColor,
-                            ),
+                          child: Icon(
+                            CupertinoIcons.sunrise,
+                            size: screenWidth * 0.05,
+                            color: appColors.secterColor,
                           ),
                         ),
                       ),
