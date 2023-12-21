@@ -8,6 +8,7 @@ import 'package:majmua/presentation/adhanTimes/params/adjustmentTime/adjustment_
 import 'package:majmua/presentation/adhanTimes/params/calculation_info_page.dart';
 import 'package:majmua/presentation/adhanTimes/params/selectCity/select_city_page.dart';
 import 'package:majmua/presentation/counter/app_counter_page.dart';
+import 'package:majmua/presentation/fortress/fortress_chapters_page.dart';
 import 'package:majmua/presentation/fortress/fortress_content_page.dart';
 import 'package:majmua/presentation/notifications/notification_settings_page.dart';
 import 'package:majmua/presentation/settings/app_settings_page.dart';
@@ -49,6 +50,10 @@ class AppRoutes {
       case RouteNames.appCounterPage:
         return MaterialPageRoute(
           builder: (_) => const AppCounterPage(),
+        );
+      case RouteNames.fortressChaptersPage:
+        return MaterialPageRoute(
+          builder: (_) => const FortressChaptersPage(),
         );
       case RouteNames.fortressContentPage:
         final SupplicationArgs args = routeSettings.arguments as SupplicationArgs;

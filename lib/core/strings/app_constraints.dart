@@ -84,6 +84,11 @@ class AppConstraints {
   static const String keySFQArabicTextSize = 'key_sfq_arabic_text_size';
   static const String keySFQTranslationTextSize = 'key_sfq_translation_text_size';
 
+  // Fortress
+  static const String keyFortressArabicTextSize = 'key_fortress_arabic_text_size';
+  static const String keyFortressTranslationTextSize = 'key_fortress_translation_text_size';
+  static const String keyFortressTranscriptionIsShow = 'key_fortress_transcription_is_show';
+
   // Default city params
   static const String defCountry = 'Saudi Arabia';
   static const String defCity = 'Mecca';

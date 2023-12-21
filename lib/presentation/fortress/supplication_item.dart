@@ -3,6 +3,8 @@ import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/domain/entities/supplication_fortress_entity.dart';
 import 'package:majmua/presentation/fortress/for_html_text.dart';
+import 'package:majmua/presentation/state/fortress_content_state.dart';
+import 'package:provider/provider.dart';
 
 class SupplicationItem extends StatelessWidget {
   const SupplicationItem({
@@ -24,44 +26,48 @@ class SupplicationItem extends StatelessWidget {
       color: appColors.glass,
       child: Padding(
         padding: AppStyles.mainMarding,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            model.arabicText != null
-                ? Text(
-                    model.arabicText!,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontFamily: 'Scheherazade',
-                    ),
-                    textAlign: TextAlign.start,
-                    textDirection: TextDirection.rtl,
-                  )
-                : const SizedBox(),
-            model.arabicText != null
-                ? const SizedBox(height: 8)
-                : const SizedBox(),
-            model.transcriptionText != null
-                ? Text(
-                    model.transcriptionText!,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'Nexa',
-                    ),
-                  )
-                : const SizedBox(),
-            model.transcriptionText != null
-                ? const SizedBox(height: 16)
-                : const SizedBox(),
-            ForHtmlText(
-              textData: model.translationText,
-              textSize: 18,
-              textColor: appColors.inverseSurface,
-              fontFamily: 'Nexa',
-              footnoteColor: appColors.quaternaryColor,
-              textDataAlign: TextAlign.start,
-            ),
-          ],
+        child: Consumer<FortressContentState>(
+          builder: (BuildContext context, FortressContentState fcState, _) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                model.arabicText != null
+                    ? Text(
+                  model.arabicText!,
+                  style: TextStyle(
+                    fontSize: fcState.getArabicTextSize.toDouble(),
+                    fontFamily: 'Scheherazade',
+                  ),
+                  textAlign: TextAlign.start,
+                  textDirection: TextDirection.rtl,
+                )
+                    : const SizedBox(),
+                model.arabicText != null
+                    ? const SizedBox(height: 8)
+                    : const SizedBox(),
+                fcState.getTranscriptionIsShow ?model.transcriptionText != null
+                    ? Text(
+                  model.transcriptionText!,
+                  style: TextStyle(
+                    fontSize: fcState.getTranslationTextSize.toDouble(),
+                    fontFamily: 'Nexa',
+                  ),
+                )
+                    : const SizedBox() : const SizedBox(),
+                fcState.getTranscriptionIsShow ? model.transcriptionText != null
+                    ? const SizedBox(height: 16)
+                    : const SizedBox() : const SizedBox(),
+                ForHtmlText(
+                  textData: model.translationText,
+                  textSize: fcState.getTranslationTextSize.toDouble(),
+                  textColor: appColors.inverseSurface,
+                  fontFamily: 'Nexa',
+                  footnoteColor: appColors.quaternaryColor,
+                  textDataAlign: TextAlign.start,
+                ),
+              ],
+            );
+          },
         ),
       ),
     );
