@@ -158,7 +158,8 @@ class MainCurrentDatesCard extends StatelessWidget {
                 const SizedBox(height: 8),
                 ListTile(
                   onTap: () {
-                    Navigator.pushNamed(context, RouteNames.appCounterPage);
+                    //Navigator.pushNamed(context, RouteNames.appCounterPage);
+                    Navigator.pushNamed(context, RouteNames.fortressChaptersPage);
                   },
                   tileColor: appColors.glass,
                   shape: AppStyles.bottomShapeMini,

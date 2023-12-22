@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/core/strings/app_constraints.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/domain/entities/supplication_fortress_entity.dart';
+import 'package:majmua/presentation/fortress/fortress_content_page.dart';
 import 'package:majmua/presentation/fortress/supplication_page_item.dart';
 import 'package:majmua/presentation/widgets/error_data_text.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -39,17 +41,21 @@ class _FortressPageListState extends State<FortressPageList> {
             return Column(
               children: [
                 Expanded(
-                  child: PageView.builder(
-                    controller: _supplicationsPageController,
-                    itemCount: snapshot.data!.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      final SupplicationFortressEntity model = snapshot.data![index];
-                      return SupplicationPageItem(
-                        model: model,
-                        itemIndex: index,
-                        itemsLength: snapshot.data!.length,
-                      );
-                    },
+                  child: PageStorage(
+                    bucket: globalBucketFirstVolumeSubChapters,
+                    child: PageView.builder(
+                      key: const PageStorageKey<String>(AppConstraints.keyBucketPageListChapters),
+                      controller: _supplicationsPageController,
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        final SupplicationFortressEntity model = snapshot.data![index];
+                        return SupplicationPageItem(
+                          model: model,
+                          itemIndex: index,
+                          itemsLength: snapshot.data!.length,
+                        );
+                      },
+                    ),
                   ),
                 ),
                 Padding(

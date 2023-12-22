@@ -14,6 +14,9 @@ import 'package:majmua/presentation/widgets/error_data_text.dart';
 import 'package:provider/provider.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
+final PageStorageBucket globalBucketFirstVolumeChapters = PageStorageBucket();
+final PageStorageBucket globalBucketFirstVolumeSubChapters = PageStorageBucket();
+
 class FortressContentPage extends StatefulWidget {
   const FortressContentPage({
     super.key,
