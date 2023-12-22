@@ -17,8 +17,7 @@ class FortressChaptersPage extends StatefulWidget {
 }
 
 class _FortressChaptersPageState extends State<FortressChaptersPage> {
-  late final FortressUseCase _fortressUseCase =
-      FortressUseCase(FortressDataRepository());
+  late final FortressUseCase _fortressUseCase = FortressUseCase(FortressDataRepository());
 
   @override
   Widget build(BuildContext context) {

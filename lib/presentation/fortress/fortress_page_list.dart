@@ -3,7 +3,6 @@ import 'package:majmua/core/strings/app_constraints.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/domain/entities/supplication_fortress_entity.dart';
-import 'package:majmua/presentation/fortress/fortress_content_page.dart';
 import 'package:majmua/presentation/fortress/supplication_page_item.dart';
 import 'package:majmua/presentation/widgets/error_data_text.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -14,11 +13,13 @@ class FortressPageList extends StatefulWidget {
     required this.chapterId,
     required this.chapterTitle,
     required this.supplicationsByChapterId,
+    required this.bucketStorage,
   });
 
   final int chapterId;
   final String chapterTitle;
   final Future<List<SupplicationFortressEntity>> supplicationsByChapterId;
+  final PageStorageBucket bucketStorage;
 
   @override
   State<FortressPageList> createState() => _FortressPageListState();
@@ -42,7 +43,7 @@ class _FortressPageListState extends State<FortressPageList> {
               children: [
                 Expanded(
                   child: PageStorage(
-                    bucket: globalBucketFirstVolumeSubChapters,
+                    bucket: widget.bucketStorage,
                     child: PageView.builder(
                       key: const PageStorageKey<String>(AppConstraints.keyBucketPageListChapters),
                       controller: _supplicationsPageController,

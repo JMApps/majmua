@@ -14,9 +14,6 @@ import 'package:majmua/presentation/widgets/error_data_text.dart';
 import 'package:provider/provider.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-final PageStorageBucket globalBucketFirstVolumeChapters = PageStorageBucket();
-final PageStorageBucket globalBucketFirstVolumeSubChapters = PageStorageBucket();
-
 class FortressContentPage extends StatefulWidget {
   const FortressContentPage({
     super.key,
@@ -33,6 +30,8 @@ class FortressContentPage extends StatefulWidget {
 
 class _FortressContentPageState extends State<FortressContentPage> {
   late final FortressUseCase _fortressUseCase = FortressUseCase(FortressDataRepository());
+  final PageStorageBucket _globalBucketFirstVolumeChapters = PageStorageBucket();
+  final PageStorageBucket _globalBucketFirstVolumeSubChapters = PageStorageBucket();
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +46,13 @@ class _FortressContentPageState extends State<FortressContentPage> {
         chapterId: widget.chapterId,
         chapterTitle: widget.chapterTitle,
         supplicationsByChapterId: supplicationsList,
+        bucketStorage: _globalBucketFirstVolumeChapters,
       ),
       FortressPageList(
         chapterId: widget.chapterId,
         chapterTitle: widget.chapterTitle,
         supplicationsByChapterId: supplicationsList,
+        bucketStorage: _globalBucketFirstVolumeSubChapters,
       ),
       const FortressSettings(),
     ];

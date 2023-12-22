@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/core/strings/app_constraints.dart';
 import 'package:majmua/domain/entities/supplication_fortress_entity.dart';
-import 'package:majmua/presentation/fortress/fortress_content_page.dart';
 import 'package:majmua/presentation/fortress/supplication_item.dart';
 import 'package:majmua/presentation/widgets/error_data_text.dart';
 
@@ -12,11 +11,13 @@ class FortressList extends StatelessWidget {
     required this.chapterId,
     required this.chapterTitle,
     required this.supplicationsByChapterId,
+    required this.bucketStorage,
   });
 
   final int chapterId;
   final String chapterTitle;
   final Future<List<SupplicationFortressEntity>> supplicationsByChapterId;
+  final PageStorageBucket bucketStorage;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class FortressList extends StatelessWidget {
         builder: (BuildContext context, AsyncSnapshot<List<SupplicationFortressEntity>> snapshot) {
           if (snapshot.hasData && snapshot.data!.isNotEmpty) {
             return PageStorage(
-              bucket: globalBucketFirstVolumeChapters,
+              bucket: bucketStorage,
               child: CupertinoScrollbar(
                 child: ListView.builder(
                   key: const PageStorageKey<String>(AppConstraints.keyBucketListChapters),
