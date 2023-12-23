@@ -10,6 +10,7 @@ import 'package:majmua/presentation/adhanTimes/params/selectCity/select_city_pag
 import 'package:majmua/presentation/counter/app_counter_page.dart';
 import 'package:majmua/presentation/fortress/fortress_chapters_page.dart';
 import 'package:majmua/presentation/fortress/fortress_content_page.dart';
+import 'package:majmua/presentation/gems/gems_page.dart';
 import 'package:majmua/presentation/notifications/notification_settings_page.dart';
 import 'package:majmua/presentation/settings/app_settings_page.dart';
 import 'package:majmua/presentation/supplicationsAndQuran/istikhara_page.dart';
@@ -56,7 +57,8 @@ class AppRoutes {
           builder: (_) => const FortressChaptersPage(),
         );
       case RouteNames.fortressContentPage:
-        final SupplicationArgs args = routeSettings.arguments as SupplicationArgs;
+        final SupplicationArgs args =
+            routeSettings.arguments as SupplicationArgs;
         return MaterialPageRoute(
           builder: (_) => FortressContentPage(chapterTitle: args.chapterTitle, chapterId: args.chapterId),
         );
@@ -72,6 +74,10 @@ class AppRoutes {
       case RouteNames.sfqPage:
         return MaterialPageRoute(
           builder: (_) => const SFQPage(),
+        );
+      case RouteNames.gemsPage:
+        return MaterialPageRoute(
+          builder: (_) => const GemsPage(),
         );
       default:
         throw Exception('Invalid route ${routeSettings.name}');
