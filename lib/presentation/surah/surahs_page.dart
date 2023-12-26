@@ -4,8 +4,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/strings/app_strings.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/state/surah_settings_state.dart';
-import 'package:majmua/presentation/supplicationsAndQuran/surah/sliding_app_bar.dart';
-import 'package:majmua/presentation/supplicationsAndQuran/surah/surah_settings.dart';
+import 'package:majmua/presentation/surah/sliding_app_bar.dart';
+import 'package:majmua/presentation/surah/surah_settings.dart';
 import 'package:provider/provider.dart';
 
 class SurahsPage extends StatefulWidget {
