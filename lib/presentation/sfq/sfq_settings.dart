@@ -45,7 +45,7 @@ class SFQSettings extends StatelessWidget {
                       child: Text(
                         sfqState.getArabicTextSize.toString(),
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           fontFamily: 'Bitter',
                           color: appColors.quaternaryColor,
                         ),
@@ -85,7 +85,7 @@ class SFQSettings extends StatelessWidget {
                       child: Text(
                         sfqState.getTranslationTextSize.toString(),
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           fontFamily: 'Bitter',
                           color: appColors.quaternaryColor,
                         ),

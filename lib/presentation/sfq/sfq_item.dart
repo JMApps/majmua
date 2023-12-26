@@ -89,8 +89,9 @@ class SFQItem extends StatelessWidget {
               Text(
                 model.id.toString(),
                 style: TextStyle(
-                  color: appColors.primary,
+                  color: appColors.secondaryColor,
                 ),
+                textAlign: TextAlign.center,
               ),
             ],
           ),

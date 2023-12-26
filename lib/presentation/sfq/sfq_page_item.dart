@@ -88,12 +88,13 @@ class SFQPageItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 CircleAvatar(
-                  backgroundColor: appColors.primary.withOpacity(0.25),
+                  backgroundColor: appColors.primary.withOpacity(0.05),
+                  radius: 20,
                   child: Text(
                     model.id.toString(),
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 15,
-                      color: Colors.black87,
+                      color: appColors.inverseSurface
                     ),
                   ),
                 ),

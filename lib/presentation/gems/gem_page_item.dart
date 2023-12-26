@@ -67,9 +67,14 @@ class GemPageItem extends StatelessWidget {
                     ),
                     const SizedBox(height: 8),
                     CircleAvatar(
-                      radius: 15,
+                      backgroundColor: appColors.primary.withOpacity(0.05),
+                      radius: 20,
                       child: Text(
                         model.id.toString(),
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: appColors.inverseSurface,
+                        ),
                       ),
                     ),
                   ],
