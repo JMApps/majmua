@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/state/fortress_content_state.dart';
+import 'package:majmua/presentation/state/fortress_settings_state.dart';
 import 'package:provider/provider.dart';
 
 class FortressSettings extends StatelessWidget {
@@ -16,8 +16,8 @@ class FortressSettings extends StatelessWidget {
       appBar: AppBar(
         title: Text(appLocale!.settings),
       ),
-      body: Consumer<FortressContentState>(
-        builder: (BuildContext context, FortressContentState fcState, _) {
+      body: Consumer<FortressSettingsState>(
+        builder: (BuildContext context, FortressSettingsState fcState, _) {
           return Padding(
             padding: AppStyles.mainMardingMini,
             child: Column(
@@ -45,7 +45,7 @@ class FortressSettings extends StatelessWidget {
                       child: Text(
                         fcState.getArabicTextSize.toString(),
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           fontFamily: 'Bitter',
                           color: appColors.quaternaryColor,
                         ),
@@ -85,7 +85,7 @@ class FortressSettings extends StatelessWidget {
                       child: Text(
                         fcState.getTranslationTextSize.toString(),
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           fontFamily: 'Bitter',
                           color: appColors.quaternaryColor,
                         ),

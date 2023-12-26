@@ -3,7 +3,7 @@ import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/domain/entities/supplication_fortress_entity.dart';
 import 'package:majmua/presentation/fortress/for_html_text.dart';
-import 'package:majmua/presentation/state/fortress_content_state.dart';
+import 'package:majmua/presentation/state/fortress_settings_state.dart';
 import 'package:provider/provider.dart';
 
 class SupplicationPageItem extends StatelessWidget {
@@ -27,8 +27,8 @@ class SupplicationPageItem extends StatelessWidget {
       child: Center(
         child: SingleChildScrollView(
           padding: AppStyles.mainMarding,
-          child: Consumer<FortressContentState>(
-            builder: (BuildContext context, FortressContentState fcState, _) {
+          child: Consumer<FortressSettingsState>(
+            builder: (BuildContext context, FortressSettingsState fcState, _) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -51,7 +51,8 @@ class SupplicationPageItem extends StatelessWidget {
                     model.transcriptionText!,
                     style: TextStyle(
                       fontSize: fcState.getTranslationTextSize.toDouble(),
-                      fontFamily: 'Nexa',
+                      color: appColors.inverseSurface.withOpacity(0.75),
+                      fontFamily: 'Gilroy',
                     ),
                   )
                       : const SizedBox() : const SizedBox(),
@@ -62,7 +63,7 @@ class SupplicationPageItem extends StatelessWidget {
                     textData: model.translationText,
                     textSize: fcState.getTranslationTextSize.toDouble(),
                     textColor: appColors.inverseSurface,
-                    fontFamily: 'Nexa',
+                    fontFamily: 'Gilroy',
                     footnoteColor: appColors.quaternaryColor,
                     textDataAlign: TextAlign.start,
                   ),

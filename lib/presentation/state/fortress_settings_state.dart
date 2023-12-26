@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/core/strings/app_constraints.dart';
 
-class FortressContentState extends ChangeNotifier {
+class FortressSettingsState extends ChangeNotifier {
   final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
 
-  FortressContentState() {
+  FortressSettingsState() {
     _arabicTextSize = _mainSettingsBox.get(AppConstraints.keyFortressArabicTextSize, defaultValue: 20);
     _translationTextSize = _mainSettingsBox.get(AppConstraints.keyFortressTranslationTextSize, defaultValue: 18);
     _transcriptionIsShow = _mainSettingsBox.get(AppConstraints.keyFortressTranscriptionIsShow, defaultValue: true);
@@ -23,7 +23,7 @@ class FortressContentState extends ChangeNotifier {
   late int _arabicTextSize;
 
   void incrementArabicTextSize() {
-    if (_arabicTextSize <= 50) {
+    if (_arabicTextSize <= 100) {
       _arabicTextSize++;
       _mainSettingsBox.put(AppConstraints.keyFortressArabicTextSize, _arabicTextSize);
       notifyListeners();
@@ -43,7 +43,7 @@ class FortressContentState extends ChangeNotifier {
   late int _translationTextSize;
 
   void incrementTranslationTextSize() {
-    if (_translationTextSize <= 50) {
+    if (_translationTextSize <= 100) {
       _translationTextSize++;
       _mainSettingsBox.put(AppConstraints.keyFortressTranslationTextSize, _translationTextSize);
       notifyListeners();

@@ -44,12 +44,14 @@ class _FortressChaptersPageState extends State<FortressChaptersPage> {
         ],
       ),
       body: FutureBuilder<List<ChapterFortressEntity>>(
-        future: _fortressUseCase.fetchAllChapters(tableName: appLocale.tableOfChapter),
+        future: _fortressUseCase.fetchAllChapters(
+          tableName: appLocale.tableOfChapter,
+        ),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return CupertinoScrollbar(
               child: ListView.builder(
-                padding: AppStyles.mainMardingMicro,
+                padding: AppStyles.mainMardingMini,
                 itemCount: snapshot.data!.length,
                 itemBuilder: (BuildContext context, int index) {
                   final ChapterFortressEntity model = snapshot.data![index];
