@@ -26,7 +26,7 @@ class SFQState extends ChangeNotifier {
   late int _arabicTextSize;
 
   void incrementArabicTextSize() {
-    if (_arabicTextSize <= 50) {
+    if (_arabicTextSize <= 100) {
       _arabicTextSize++;
       _mainSettingsBox.put(AppConstraints.keySFQArabicTextSize, _arabicTextSize);
       notifyListeners();
@@ -46,7 +46,7 @@ class SFQState extends ChangeNotifier {
   late int _translationTextSize;
 
   void incrementTranslationTextSize() {
-    if (_translationTextSize <= 50) {
+    if (_translationTextSize <= 100) {
       _translationTextSize++;
       _mainSettingsBox.put(AppConstraints.keySFQTranslationTextSize, _translationTextSize);
       notifyListeners();
