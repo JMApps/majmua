@@ -173,11 +173,15 @@
   "tableOfSupplications": "Table_of_supplications",
   "tableOfFootnotes": "Table_of_footnotes",
 
+  "gemsTarifi": "Жемчужины Тарифи",
+  "library": "Библиотека",
+
   "sfq": "Мольбы из Корана",
-  "sfqList": "Cписок",
-  "sfqPages": "Страницы",
   "arabicTextSize": "Размер арабского текста",
   "translationTextSize": "Размер текста перевода",
+  "textSize": "Размер текста",
   "share": "Поделиться",
+  "list": "Cписок",
+  "pages": "Страницы",
   "sfqTableName": "Table_of_supplications_ru"
 }

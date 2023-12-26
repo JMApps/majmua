@@ -88,8 +88,15 @@ class AppConstraints {
   static const String keyFortressArabicTextSize = 'key_fortress_arabic_text_size';
   static const String keyFortressTranslationTextSize = 'key_fortress_translation_text_size';
   static const String keyFortressTranscriptionIsShow = 'key_fortress_transcription_is_show';
-  static const String keyBucketListChapters = 'key_bucket_list_chapters';
-  static const String keyBucketPageListChapters = 'key_bucket_page_list_chapters';
+  static const String keyBucketFortressListChapters = 'key_bucket_list_chapters';
+  static const String keyBucketFortressPageListChapters = 'key_bucket_page_list_chapters';
+
+  // SFQ
+  static const String keyBucketSFQListChapters = 'key_bucket_sfq_list_chapters';
+  static const String keyBucketSFQPageListChapters = 'key_bucket_sfq_page_list_chapters';
+
+  // Gems
+  static const String keyGemsTextSize = 'key_gems_text_size';
 
   // Default city params
   static const String defCountry = 'Saudi Arabia';

@@ -33,11 +33,10 @@ class MainWhiteDaysCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: screenWidth * 0.04,
                 ),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
               ),
             ),
+            const SizedBox(width: 8),
             const Expanded(
               flex: 3,
               child: Card(

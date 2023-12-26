@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/routes/route_names.dart';
 import 'package:majmua/core/strings/app_strings.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
@@ -8,6 +7,7 @@ import 'package:majmua/presentation/currentDates/friday_sunnahs_tile.dart';
 import 'package:majmua/presentation/currentDates/main_white_days_card.dart';
 import 'package:majmua/presentation/currentDates/week_days_row.dart';
 import 'package:majmua/presentation/currentDates/year_month_day_card.dart';
+import 'package:majmua/presentation/restHolidays/rest_holidays_card.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
 import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:majmua/presentation/state/salawat_counter_state.dart';
@@ -97,7 +97,9 @@ class MainCurrentDatesCard extends StatelessWidget {
                               borderRadius: AppStyles.mainBorderRadiusBig,
                               child: Image.asset(
                                 'assets/pictures/salawat.png',
-                                width: isPortrait ? screenWidth * 0.23 : screenWidth * 0.24,
+                                width: isPortrait
+                                    ? screenWidth * 0.23
+                                    : screenWidth * 0.24,
                                 color: !adhanTimeState.getIsFriday
                                     ? appColors.secondaryColor
                                     : appColors.quaternaryColor,
@@ -156,24 +158,7 @@ class MainCurrentDatesCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 8),
-                ListTile(
-                  onTap: () {
-                    //Navigator.pushNamed(context, RouteNames.appCounterPage);
-                    Navigator.pushNamed(context, RouteNames.fortressChaptersPage);
-                  },
-                  tileColor: appColors.glass,
-                  shape: AppStyles.bottomShapeMini,
-                  visualDensity: const VisualDensity(vertical: -4),
-                  title: Text(
-                    appLocale.counter,
-                    style: TextStyle(
-                      fontSize: screenWidth * 0.04,
-                    ),
-                    textAlign: TextAlign.center,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
+                const RestHolidaysCard(),
               ],
             );
           },

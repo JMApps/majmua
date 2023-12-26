@@ -35,6 +35,9 @@ class MajmuaButtonsCard extends StatelessWidget {
                           builder: (context) => const SurahsList(),
                         );
                       },
+                      style: OutlinedButton.styleFrom(
+                        padding: AppStyles.mainMardingMini,
+                      ),
                       child: Image.asset(
                         'assets/icons/quran.png',
                         width: screenWidth * 0.085,
@@ -49,6 +52,9 @@ class MajmuaButtonsCard extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, RouteNames.sfqPage);
                       },
+                      style: OutlinedButton.styleFrom(
+                        padding: AppStyles.mainMardingMini,
+                      ),
                       child: Image.asset(
                         'assets/icons/s_quran.png',
                         width: screenWidth * 0.085,
@@ -64,6 +70,9 @@ class MajmuaButtonsCard extends StatelessWidget {
                         Navigator.pushNamed(
                             context, RouteNames.fortressChaptersPage);
                       },
+                      style: OutlinedButton.styleFrom(
+                        padding: AppStyles.mainMardingMini,
+                      ),
                       child: Image.asset(
                         'assets/icons/fortress.png',
                         width: screenWidth * 0.085,
@@ -78,6 +87,9 @@ class MajmuaButtonsCard extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, RouteNames.gemsPage);
                       },
+                      style: OutlinedButton.styleFrom(
+                        padding: AppStyles.mainMardingMini,
+                      ),
                       child: Image.asset(
                         'assets/icons/pearl.png',
                         width: screenWidth * 0.085,
@@ -92,6 +104,9 @@ class MajmuaButtonsCard extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, RouteNames.appCounterPage);
                       },
+                      style: OutlinedButton.styleFrom(
+                        padding: AppStyles.mainMardingMini,
+                      ),
                       child: Image.asset(
                         'assets/icons/counter.png',
                         width: screenWidth * 0.085,

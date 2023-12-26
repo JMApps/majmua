@@ -158,7 +158,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
           id: AppConstraints.fastWhiteDaysNotificationID,
           title: appLocale!.remind,
           body: appLocale.fastWhiteDaysTime,
-          dateTime: DateTime(restTimeState.getNext12thDay.year, restTimeState.getNext12thDay.month, restTimeState.getNext12thDay.day, 20, 0),
+          dateTime: DateTime(restTimeState.getNext12thDay.year, restTimeState.getNext12thDay.month, restTimeState.getNext12thDay.day, 21, 0),
         );
       }
     } else {

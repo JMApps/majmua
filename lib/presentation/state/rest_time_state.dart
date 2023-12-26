@@ -150,7 +150,7 @@ class RestTimeState extends ChangeNotifier {
     int desiredDay = 12;
     int daysUntilNext12thDay = desiredDay - hijriCalendar.hDay;
     if (daysUntilNext12thDay <= 0) {
-      hijriCalendar.addMonth(hijriCalendar.hYear, hijriCalendar.hMonth + 1);
+      HijriCalendar.addMonth(hijriCalendar.hYear, hijriCalendar.hMonth + 1);
       daysUntilNext12thDay = desiredDay - hijriCalendar.hDay;
     }
     return hijriCalendar.hijriToGregorian(

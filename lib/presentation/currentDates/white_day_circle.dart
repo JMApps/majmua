@@ -20,7 +20,7 @@ class WhiteDayCircle extends StatelessWidget {
     return CircleAvatar(
       radius: screenWidth * 0.045,
       backgroundColor: dayIndex == timeState.currentHijriTime.hDay
-          ? appColors.secondaryColor
+          ? appColors.quaternaryColor
           : appColors.primaryColor,
       child: Text(
         dayIndex.toString(),

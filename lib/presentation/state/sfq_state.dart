@@ -8,8 +8,8 @@ class SFQState extends ChangeNotifier {
   final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
 
   SFQState() {
-    _arabicTextSize = _mainSettingsBox.get(AppConstraints.keySFQArabicTextSize, defaultValue: 20);
-    _translationTextSize = _mainSettingsBox.get(AppConstraints.keySFQTranslationTextSize, defaultValue: 18);
+    _arabicTextSize = _mainSettingsBox.get(AppConstraints.keySFQArabicTextSize, defaultValue: 18);
+    _translationTextSize = _mainSettingsBox.get(AppConstraints.keySFQTranslationTextSize, defaultValue: 16);
   }
 
   int _currentBottomIndex = 0;

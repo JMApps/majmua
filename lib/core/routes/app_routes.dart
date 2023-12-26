@@ -13,9 +13,8 @@ import 'package:majmua/presentation/fortress/fortress_content_page.dart';
 import 'package:majmua/presentation/gems/gems_page.dart';
 import 'package:majmua/presentation/notifications/notification_settings_page.dart';
 import 'package:majmua/presentation/settings/app_settings_page.dart';
-import 'package:majmua/presentation/supplicationsAndQuran/istikhara_page.dart';
-import 'package:majmua/presentation/supplicationsAndQuran/sfq/sfq_page.dart';
-import 'package:majmua/presentation/supplicationsAndQuran/surah/surahs_page.dart';
+import 'package:majmua/presentation/sfq/sfq_page.dart';
+import 'package:majmua/presentation/surah/surahs_page.dart';
 
 class AppRoutes {
   static Route onGeneratorRoute(RouteSettings routeSettings) {
@@ -61,10 +60,6 @@ class AppRoutes {
             routeSettings.arguments as SupplicationArgs;
         return MaterialPageRoute(
           builder: (_) => FortressContentPage(chapterTitle: args.chapterTitle, chapterId: args.chapterId),
-        );
-      case RouteNames.istikharaPage:
-        return MaterialPageRoute(
-          builder: (_) => const IstikharaPage(),
         );
       case RouteNames.surahsPage:
         final SurahArgs args = routeSettings.arguments as SurahArgs;
