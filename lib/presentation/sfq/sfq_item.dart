@@ -36,7 +36,7 @@ class SFQItem extends StatelessWidget {
                 onTap: () {
                   Navigator.pop(context);
                   Share.share(
-                    '${model.ayahArabic}\n${model.ayahTranslation}\n${model.ayahSource}',
+                    '${model.ayahArabic}\n\n${model.ayahTranslation}\n\n${model.ayahSource}',
                     sharePositionOrigin: const Rect.fromLTWH(1, 1, 1, 2 / 2),
                   );
                 },

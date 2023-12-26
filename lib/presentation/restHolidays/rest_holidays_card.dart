@@ -28,7 +28,7 @@ class RestHolidaysCard extends StatelessWidget {
                 padding: AppStyles.mainMardingMicro,
                 child: Row(
                   children: [
-                    const SizedBox(width: 8),
+                    SizedBox(width: screenWidth * 0.02),
                     Expanded(
                       child: Text(
                         !timeState.isRamadan
@@ -60,7 +60,7 @@ class RestHolidaysCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 8),
+                    SizedBox(width: screenWidth * 0.02),
                   ],
                 ),
               ),
@@ -71,9 +71,10 @@ class RestHolidaysCard extends StatelessWidget {
               color: appColors.glass,
               shape: !timeState.isNineDays ? AppStyles.bottomShapeMini : AppStyles.mainShapeMicro,
               child: Padding(
-                padding: AppStyles.mainMardingMini,
+                padding: AppStyles.mainMardingMicro,
                 child: Row(
                   children: [
+                    SizedBox(width: screenWidth * 0.02),
                     Expanded(
                       child: Text(
                         !timeState.isNineDays
@@ -89,7 +90,7 @@ class RestHolidaysCard extends StatelessWidget {
                             : TextAlign.start,
                       ),
                     ),
-                    const SizedBox(width: 8),
+                    SizedBox(width: screenWidth * 0.02),
                     CircleAvatar(
                       radius: screenWidth * 0.05,
                       backgroundColor: appColors.secondaryColor,
@@ -105,6 +106,7 @@ class RestHolidaysCard extends StatelessWidget {
                         ),
                       ),
                     ),
+                    SizedBox(width: screenWidth * 0.02),
                   ],
                 ),
               ),

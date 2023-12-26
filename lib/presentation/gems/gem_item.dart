@@ -38,7 +38,7 @@ class GemItem extends StatelessWidget {
                 onTap: () {
                   Navigator.pop(context);
                   Share.share(
-                    parse(model.citation).body!.text,
+                    '${parse(model.citation).body!.text}\n\nШейх ‘Абду-ль-‘Азиз ат-Тарифи',
                     sharePositionOrigin: const Rect.fromLTWH(1, 1, 1, 2 / 2),
                   );
                 },
