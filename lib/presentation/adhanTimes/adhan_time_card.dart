@@ -161,10 +161,7 @@ class AdhanTimeCard extends StatelessWidget {
                               Navigator.pushNamed(
                                 context,
                                 RouteNames.fortressContentPage,
-                                arguments: SupplicationArgs(
-                                  chapterTitle: appLocale.adhanTime,
-                                  chapterId: 15,
-                                ),
+                                arguments: SupplicationArgs(chapterId: 15),
                               );
                             },
                             borderRadius: AppStyles.mainBorderRadius,

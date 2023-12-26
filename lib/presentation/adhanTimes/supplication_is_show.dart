@@ -30,10 +30,7 @@ class SupplicationIsShow extends StatelessWidget {
               Navigator.pushNamed(
                 context,
                 RouteNames.fortressContentPage,
-                arguments: SupplicationArgs(
-                  chapterTitle: fortressChapterTitle,
-                  chapterId: fortressChapterId,
-                ),
+                arguments: SupplicationArgs(chapterId: fortressChapterId),
               );
             },
             borderRadius: AppStyles.mainBorderRadius,

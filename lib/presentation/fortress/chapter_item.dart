@@ -26,10 +26,7 @@ class ChapterItem extends StatelessWidget {
         Navigator.pushNamed(
           context,
           RouteNames.fortressContentPage,
-          arguments: SupplicationArgs(
-            chapterTitle: model.chapterNumber,
-            chapterId: model.id,
-          ),
+          arguments: SupplicationArgs(chapterId: model.id),
         );
       },
       title: Text(

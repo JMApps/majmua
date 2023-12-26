@@ -13,11 +13,9 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 class FortressContentPage extends StatefulWidget {
   const FortressContentPage({
     super.key,
-    required this.chapterTitle,
     required this.chapterId,
   });
 
-  final String chapterTitle;
   final int chapterId;
 
   @override
@@ -33,12 +31,10 @@ class _FortressContentPageState extends State<FortressContentPage> {
     _fortressWidgets = [
       FortressList(
         chapterId: widget.chapterId,
-        chapterTitle: widget.chapterTitle,
         bucketStorage: PageStorageBucket(),
       ),
       FortressPageList(
         chapterId: widget.chapterId,
-        chapterTitle: widget.chapterTitle,
         bucketStorage: PageStorageBucket(),
       ),
       const FortressSettings(),

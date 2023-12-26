@@ -59,7 +59,7 @@ class AppRoutes {
         final SupplicationArgs args =
             routeSettings.arguments as SupplicationArgs;
         return MaterialPageRoute(
-          builder: (_) => FortressContentPage(chapterTitle: args.chapterTitle, chapterId: args.chapterId),
+          builder: (_) => FortressContentPage(chapterId: args.chapterId),
         );
       case RouteNames.surahsPage:
         final SurahArgs args = routeSettings.arguments as SurahArgs;
