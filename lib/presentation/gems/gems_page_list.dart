@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/strings/app_constraints.dart';
@@ -7,7 +8,9 @@ import 'package:majmua/data/repositories/gems_data_repository.dart';
 import 'package:majmua/domain/entities/gem_entity.dart';
 import 'package:majmua/domain/usecases/gems_use_case.dart';
 import 'package:majmua/presentation/gems/gem_page_item.dart';
+import 'package:majmua/presentation/state/gems_settings_state.dart';
 import 'package:majmua/presentation/widgets/error_data_text.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class GemsPageList extends StatefulWidget {
@@ -33,6 +36,19 @@ class _GemsPageListState extends State<GemsPageList> {
     return Scaffold(
       appBar: AppBar(
         title: Text(appLocale!.gemsTarifi),
+        actions: [
+          IconButton(
+            onPressed: () {
+              _gemsPageController.animateToPage(
+                Provider.of<GemsSettingsState>(context, listen: false).getRandomNumber,
+                duration: const Duration(milliseconds: 750),
+                curve: Curves.linear,
+              );
+            },
+            splashRadius: 20,
+            icon: const Icon(CupertinoIcons.arrow_3_trianglepath),
+          ),
+        ],
       ),
       body: FutureBuilder<List<GemEntity>>(
         future: _gemsUseCase.fetchAllGems(),
@@ -44,7 +60,7 @@ class _GemsPageListState extends State<GemsPageList> {
                   child: PageStorage(
                     bucket: widget.bucketStorage,
                     child: PageView.builder(
-                      key: const PageStorageKey<String>(AppConstraints.keyBucketPageListChapters),
+                      key: const PageStorageKey<String>(AppConstraints.keyBucketFortressPageListChapters),
                       controller: _gemsPageController,
                       itemCount: snapshot.data!.length,
                       itemBuilder: (BuildContext context, int index) {

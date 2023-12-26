@@ -6,7 +6,7 @@ import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/gems/gems_list.dart';
 import 'package:majmua/presentation/gems/gems_page_list.dart';
 import 'package:majmua/presentation/gems/gems_settings.dart';
-import 'package:majmua/presentation/state/gems_content_state.dart';
+import 'package:majmua/presentation/state/gems_settings_state.dart';
 import 'package:provider/provider.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
@@ -18,16 +18,14 @@ class GemsPage extends StatefulWidget {
 }
 
 class _GemsPageState extends State<GemsPage> {
-  final PageStorageBucket _bucketGemsLIst = PageStorageBucket();
-  final PageStorageBucket _bucketGemsPageList = PageStorageBucket();
   late final List<Widget> _gemsPages;
 
   @override
   void initState() {
     super.initState();
     _gemsPages = [
-      GemsList(bucketStorage: _bucketGemsLIst),
-      GemsPageList(bucketStorage: _bucketGemsPageList),
+      GemsList(bucketStorage: PageStorageBucket()),
+      GemsPageList(bucketStorage: PageStorageBucket()),
       const GemsSettings(),
     ];
   }
@@ -39,11 +37,11 @@ class _GemsPageState extends State<GemsPage> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => GemsContentState(),
+          create: (_) => GemsSettingsState(),
         ),
       ],
-      child: Consumer<GemsContentState>(
-        builder: (BuildContext context, GemsContentState gemsState, _) {
+      child: Consumer<GemsSettingsState>(
+        builder: (BuildContext context, GemsSettingsState gemsState, _) {
           return Scaffold(
             body: _gemsPages[gemsState.getCurrentBottomIndex],
             bottomNavigationBar: Card(

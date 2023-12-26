@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/strings/app_constraints.dart';
@@ -5,7 +6,9 @@ import 'package:majmua/data/repositories/gems_data_repository.dart';
 import 'package:majmua/domain/entities/gem_entity.dart';
 import 'package:majmua/domain/usecases/gems_use_case.dart';
 import 'package:majmua/presentation/gems/gem_item.dart';
+import 'package:majmua/presentation/state/gems_settings_state.dart';
 import 'package:majmua/presentation/widgets/error_data_text.dart';
+import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class GemsList extends StatefulWidget {
@@ -21,6 +24,7 @@ class GemsList extends StatefulWidget {
 }
 
 class _GemsListState extends State<GemsList> {
+  final ItemScrollController _itemScrollController = ItemScrollController();
   final GemsUseCase _gemsUseCase = GemsUseCase(GemsDataRepository());
 
   @override
@@ -29,6 +33,18 @@ class _GemsListState extends State<GemsList> {
     return Scaffold(
       appBar: AppBar(
         title: Text(appLocale!.gemsTarifi),
+        actions: [
+          IconButton(
+            onPressed: () {
+              _itemScrollController.scrollTo(
+                index: Provider.of<GemsSettingsState>(context, listen: false).getRandomNumber,
+                duration: const Duration(milliseconds: 750),
+              );
+            },
+            splashRadius: 20,
+            icon: const Icon(CupertinoIcons.arrow_3_trianglepath),
+          ),
+        ],
       ),
       body: FutureBuilder<List<GemEntity>>(
         future: _gemsUseCase.fetchAllGems(),
@@ -37,7 +53,8 @@ class _GemsListState extends State<GemsList> {
             return PageStorage(
               bucket: widget.bucketStorage,
               child: ScrollablePositionedList.builder(
-                key: const PageStorageKey<String>(AppConstraints.keyBucketListChapters),
+                itemScrollController: _itemScrollController,
+                key: const PageStorageKey<String>(AppConstraints.keyBucketFortressListChapters),
                 itemCount: snapshot.data!.length,
                 itemBuilder: (BuildContext context, int index) {
                   final GemEntity model = snapshot.data![index];
