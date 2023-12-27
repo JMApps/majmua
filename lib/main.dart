@@ -8,6 +8,7 @@ import 'package:majmua/data/services/notification_service.dart';
 import 'package:majmua/presentation/pages/root_page.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
 import 'package:majmua/presentation/state/app_settings_state.dart';
+import 'package:majmua/presentation/state/book_settings_state.dart';
 import 'package:majmua/presentation/state/notifications_state.dart';
 import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:majmua/presentation/state/salawat_counter_state.dart';
@@ -51,6 +52,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (_) => SurahSettingsState(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => BookSettingsState(),
         ),
       ],
       child: const RootPage(),

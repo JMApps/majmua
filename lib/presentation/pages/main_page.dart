@@ -49,8 +49,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
     final AppLocalizations? appLocale = AppLocalizations.of(context);
 
     final NotificationService notificationService = NotificationService();
-    final NotificationsState notificationsState =
-        Provider.of<NotificationsState>(context);
+    final NotificationsState notificationsState = Provider.of<NotificationsState>(context);
     final AdhanTimeState adhanTimeState = Provider.of<AdhanTimeState>(context);
     final RestTimeState restTimeState = Provider.of<RestTimeState>(context);
     final DateTime dateTime = DateTime.now();
