@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/strings/app_constraints.dart';
@@ -11,6 +10,7 @@ import 'package:majmua/domain/usecases/fortress_use_case.dart';
 import 'package:majmua/presentation/fortress/for_html_text.dart';
 import 'package:majmua/presentation/fortress/supplication_page_item.dart';
 import 'package:majmua/presentation/widgets/error_data_text.dart';
+import 'package:majmua/presentation/widgets/user_back_button.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class FortressPageList extends StatefulWidget {
@@ -46,6 +46,7 @@ class _FortressPageListState extends State<FortressPageList> {
           final ChapterFortressEntity chapterModel = chapterSnapshot.data!;
           return Scaffold(
             appBar: AppBar(
+              leading: const UserBackButton(),
               title: Text(chapterModel.chapterNumber),
             ),
             body: FutureBuilder<List<SupplicationFortressEntity>>(
@@ -103,7 +104,12 @@ class _FortressPageListState extends State<FortressPageList> {
                                   );
                                 }
                               },
-                              child: const Icon(Icons.arrow_back_ios_rounded),
+                              child: Image.asset(
+                                'assets/icons/angle-left.png',
+                                width: 25,
+                                height: 25,
+                                color: appColors.primary,
+                              ),
                             ),
                             Expanded(
                               child: Center(
@@ -130,8 +136,12 @@ class _FortressPageListState extends State<FortressPageList> {
                                   );
                                 }
                               },
-                              child:
-                                  const Icon(Icons.arrow_forward_ios_rounded),
+                              child: Image.asset(
+                                'assets/icons/angle-right.png',
+                                width: 25,
+                                height: 25,
+                                color: appColors.primary,
+                              ),
                             ),
                           ],
                         ),

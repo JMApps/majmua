@@ -4,6 +4,7 @@ import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/adhanTimes/params/adjustmentTime/adjustment_item.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
+import 'package:majmua/presentation/widgets/user_back_button.dart';
 import 'package:provider/provider.dart';
 
 class AdjustmentTimePage extends StatelessWidget {
@@ -17,6 +18,7 @@ class AdjustmentTimePage extends StatelessWidget {
       builder: (BuildContext context, AdhanTimeState adhanTimeState, _) {
         return Scaffold(
           appBar: AppBar(
+            leading: const UserBackButton(),
             title: Text(appLocale!.prayerTimeAdjustment),
           ),
           body: SingleChildScrollView(

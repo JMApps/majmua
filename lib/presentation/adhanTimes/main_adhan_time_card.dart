@@ -1,5 +1,4 @@
 import 'package:adhan/adhan.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
@@ -69,9 +68,10 @@ class MainAdhanTimeCard extends StatelessWidget {
                             ],
                           ),
                         ),
-                        trailing: Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          size: screenWidth * 0.05,
+                        trailing: Image.asset(
+                          'assets/icons/angle-right.png',
+                          width: screenWidth * 0.05,
+                          height: screenWidth * 0.05,
                           color: appColors.primary,
                         ),
                       ),
@@ -122,10 +122,11 @@ class MainAdhanTimeCard extends StatelessWidget {
                           },
                           splashRadius: 20,
                           visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                          icon: Icon(
-                            CupertinoIcons.share,
-                            color: appColors.secondary,
-                            size: screenWidth * 0.05,
+                          icon: Image.asset(
+                            'assets/icons/share.png',
+                            width: screenWidth * 0.05,
+                            height: screenWidth * 0.05,
+                            color: appColors.primary,
                           ),
                         ),
                       ),

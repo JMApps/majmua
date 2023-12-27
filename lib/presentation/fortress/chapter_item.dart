@@ -21,33 +21,36 @@ class ChapterItem extends StatelessWidget {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final Color itemOddColor = appColors.primary.withOpacity(0.05);
     final Color itemEvenColor = appColors.primary.withOpacity(0.15);
-    return ListTile(
-      onTap: () {
-        Navigator.pushNamed(
-          context,
-          RouteNames.fortressContentPage,
-          arguments: SupplicationArgs(chapterId: model.id),
-        );
-      },
-      title: Text(
-        model.chapterNumber,
-        style: TextStyle(
-          fontSize: 16,
-          color: appColors.secondaryColor,
-          fontWeight: FontWeight.bold,
+    return Padding(
+      padding: AppStyles.mardingOnlyBottomMini,
+      child: ListTile(
+        onTap: () {
+          Navigator.pushNamed(
+            context,
+            RouteNames.fortressContentPage,
+            arguments: SupplicationArgs(chapterId: model.id),
+          );
+        },
+        title: Text(
+          model.chapterNumber,
+          style: TextStyle(
+            fontSize: 16,
+            color: appColors.secondaryColor,
+            fontWeight: FontWeight.bold,
+          ),
         ),
+        subtitle: ForHtmlText(
+          textData: model.chapterTitle,
+          textSize: 16,
+          textColor: appColors.inverseSurface,
+          fontFamily: 'Nexa',
+          footnoteColor: appColors.quaternaryColor,
+          textDataAlign: TextAlign.start,
+        ),
+        tileColor: index.isOdd ? itemOddColor : itemEvenColor,
+        shape: AppStyles.mainShapeMini,
+        visualDensity: const VisualDensity(vertical: -2, horizontal: -4),
       ),
-      subtitle: ForHtmlText(
-        textData: model.chapterTitle,
-        textSize: 16,
-        textColor: appColors.inverseSurface,
-        fontFamily: 'Nexa',
-        footnoteColor: appColors.quaternaryColor,
-        textDataAlign: TextAlign.start,
-      ),
-      tileColor: index.isOdd ? itemOddColor : itemEvenColor,
-      shape: AppStyles.mainShapeMini,
-      visualDensity: const VisualDensity(vertical: -2, horizontal: -4),
     );
   }
 }

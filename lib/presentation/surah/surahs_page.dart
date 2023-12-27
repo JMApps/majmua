@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/strings/app_strings.dart';
@@ -6,6 +5,7 @@ import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/state/surah_settings_state.dart';
 import 'package:majmua/presentation/surah/sliding_app_bar.dart';
 import 'package:majmua/presentation/surah/surah_settings.dart';
+import 'package:majmua/presentation/widgets/user_back_button.dart';
 import 'package:provider/provider.dart';
 
 class SurahsPage extends StatefulWidget {
@@ -49,7 +49,8 @@ class _SurahsPageState extends State<SurahsPage>
       builder: (BuildContext context, SurahSettingsState surahSettings, _) {
         return GestureDetector(
           onTap: () {
-            surahSettings.setAppBarIsVisible = !surahSettings.getAppBarIsVisible;
+            surahSettings.setAppBarIsVisible =
+                !surahSettings.getAppBarIsVisible;
           },
           child: Container(
             color: appColors.fullGlass,
@@ -68,6 +69,7 @@ class _SurahsPageState extends State<SurahsPage>
                   visible: surahSettings.getAppBarIsVisible,
                   child: surahSettings.getAppBarIsVisible
                       ? AppBar(
+                          leading: const UserBackButton(),
                           title: Text(widget.surahName),
                           actions: [
                             IconButton(
@@ -83,7 +85,12 @@ class _SurahsPageState extends State<SurahsPage>
                               },
                               splashRadius: 20,
                               tooltip: appLocale!.settings,
-                              icon: const Icon(CupertinoIcons.settings),
+                              icon: Image.asset(
+                                'assets/icons/setting.png',
+                                width: 25,
+                                height: 25,
+                                color: Colors.white,
+                              ),
                             ),
                           ],
                         )
@@ -96,7 +103,8 @@ class _SurahsPageState extends State<SurahsPage>
                   reverse: true,
                   itemCount: AppStrings.surahsLists[widget.surahNumber].length,
                   itemBuilder: (BuildContext context, int index) {
-                    final String surahPage = AppStrings.surahsLists[widget.surahNumber][index];
+                    final String surahPage =
+                        AppStrings.surahsLists[widget.surahNumber][index];
                     return Center(
                       child: SingleChildScrollView(
                         child: Column(
@@ -104,7 +112,8 @@ class _SurahsPageState extends State<SurahsPage>
                             Image.asset(
                               'assets/quran/$surahPage.png',
                               fit: BoxFit.cover,
-                              color: appColors.inverseSurface.withOpacity(surahSettings.getFontContrast / 100),
+                              color: appColors.inverseSurface.withOpacity(
+                                  surahSettings.getFontContrast / 100),
                             ),
                             const SizedBox(height: 8),
                             Text('${index + 1}'),

@@ -8,6 +8,7 @@ import 'package:majmua/domain/usecases/fortress_use_case.dart';
 import 'package:majmua/presentation/fortress/chapter_item.dart';
 import 'package:majmua/presentation/fortress/search_chapters_delegate.dart';
 import 'package:majmua/presentation/widgets/error_data_text.dart';
+import 'package:majmua/presentation/widgets/user_back_button.dart';
 
 class FortressChaptersPage extends StatefulWidget {
   const FortressChaptersPage({super.key});
@@ -24,6 +25,7 @@ class _FortressChaptersPageState extends State<FortressChaptersPage> {
     final AppLocalizations? appLocale = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
+        leading: const UserBackButton(),
         title: Text(appLocale!.fortress),
         actions: [
           IconButton(
@@ -37,8 +39,11 @@ class _FortressChaptersPageState extends State<FortressChaptersPage> {
             },
             splashRadius: 20,
             tooltip: appLocale.searchByChapters,
-            icon: const Icon(
-              CupertinoIcons.search,
+            icon: Image.asset(
+              'assets/icons/search.png',
+              width: 20,
+              height: 20,
+              color: Colors.white,
             ),
           ),
         ],

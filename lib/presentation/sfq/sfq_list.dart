@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/strings/app_constraints.dart';
@@ -9,6 +8,7 @@ import 'package:majmua/domain/usecases/sfq_use_case.dart';
 import 'package:majmua/presentation/sfq/sfq_item.dart';
 import 'package:majmua/presentation/state/sfq_state.dart';
 import 'package:majmua/presentation/widgets/error_data_text.dart';
+import 'package:majmua/presentation/widgets/user_back_button.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
@@ -33,6 +33,7 @@ class _SFQListState extends State<SFQList> {
     final AppLocalizations? appLocale = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
+        leading: const UserBackButton(),
         title: Text(appLocale!.sfq),
         actions: [
           IconButton(
@@ -43,7 +44,12 @@ class _SFQListState extends State<SFQList> {
               );
             },
             splashRadius: 20,
-            icon: const Icon(CupertinoIcons.arrow_3_trianglepath),
+            icon: Image.asset(
+              'assets/icons/refresh.png',
+              width: 20,
+              height: 20,
+              color: Colors.white,
+            ),
           ),
         ],
       ),

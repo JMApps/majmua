@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/state/sfq_state.dart';
 import 'package:majmua/presentation/sfq/sfq_list.dart';
 import 'package:majmua/presentation/sfq/sfq_page_list.dart';
 import 'package:majmua/presentation/sfq/sfq_settings.dart';
+import 'package:majmua/presentation/state/sfq_state.dart';
 import 'package:provider/provider.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
@@ -18,7 +18,6 @@ class SFQPage extends StatefulWidget {
 }
 
 class _SFQPageState extends State<SFQPage> {
-
   final _sfqWidgets = <Widget>[
     SFQList(bucketSFQList: PageStorageBucket()),
     SFQPageList(bucketSFQPageList: PageStorageBucket()),
@@ -52,15 +51,28 @@ class _SFQPageState extends State<SFQPage> {
                 unselectedItemColor: Colors.white,
                 items: [
                   SalomonBottomBarItem(
-                    icon: const Icon(CupertinoIcons.collections),
+                    icon: Icon(
+                      CupertinoIcons.collections,
+                      color: appColors.inversePrimary,
+                    ),
                     title: Text(appLocale!.list),
                   ),
                   SalomonBottomBarItem(
-                    icon: const Icon(CupertinoIcons.book),
+                    icon: Image.asset(
+                      'assets/icons/book.png',
+                      width: 25,
+                      height: 25,
+                      color: appColors.inversePrimary,
+                    ),
                     title: Text(appLocale.pages),
                   ),
                   SalomonBottomBarItem(
-                    icon: const Icon(CupertinoIcons.settings),
+                    icon: Image.asset(
+                      'assets/icons/setting.png',
+                      width: 25,
+                      height: 25,
+                      color: appColors.inversePrimary,
+                    ),
                     title: Text(appLocale.settings),
                   ),
                 ],

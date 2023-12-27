@@ -8,6 +8,7 @@ import 'package:majmua/presentation/counter/counter_button.dart';
 import 'package:majmua/presentation/counter/counter_values_dropbutton.dart';
 import 'package:majmua/presentation/counter/total_count_text.dart';
 import 'package:majmua/presentation/state/app_counter_state.dart';
+import 'package:majmua/presentation/widgets/user_back_button.dart';
 import 'package:provider/provider.dart';
 
 class AppCounterPage extends StatelessWidget {
@@ -26,6 +27,7 @@ class AppCounterPage extends StatelessWidget {
       ],
       child: Scaffold(
         appBar: AppBar(
+          leading: const UserBackButton(),
           title: Text(appLocale!.counter),
         ),
         body: SafeArea(
@@ -34,7 +36,8 @@ class AppCounterPage extends StatelessWidget {
           child: AnimatedSize(
             duration: const Duration(milliseconds: 500),
             child: Consumer<AppCounterState>(
-              builder: (BuildContext context, AppCounterState appCounterState, _) {
+              builder:
+                  (BuildContext context, AppCounterState appCounterState, _) {
                 return mediaQuery.orientation == Orientation.portrait
                     ? const Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -75,7 +78,8 @@ class AppCounterPage extends StatelessWidget {
           child: Padding(
             padding: AppStyles.mainMarding,
             child: Consumer<AppCounterState>(
-              builder: (BuildContext context, AppCounterState appCounterState, _) {
+              builder:
+                  (BuildContext context, AppCounterState appCounterState, _) {
                 return Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -89,8 +93,10 @@ class AppCounterPage extends StatelessWidget {
                           },
                           tooltip: appLocale.clicked,
                           splashRadius: 25,
-                          icon: Icon(
-                            Icons.volume_up,
+                          icon: Image.asset(
+                            'assets/icons/volume.png',
+                            width: 20,
+                            height: 20,
                             color: appCounterState.getIsClick
                                 ? Colors.white
                                 : appColors.quaternaryColor,
@@ -105,8 +111,10 @@ class AppCounterPage extends StatelessWidget {
                         },
                         tooltip: appLocale.vibration,
                         splashRadius: 25,
-                        icon: Icon(
-                          Icons.vibration,
+                        icon: Image.asset(
+                          'assets/icons/vibrate.png',
+                          width: 20,
+                          height: 20,
                           color: appCounterState.getIsVibrate
                               ? Colors.white
                               : appColors.quaternaryColor,
@@ -120,8 +128,10 @@ class AppCounterPage extends StatelessWidget {
                         },
                         tooltip: appLocale.show,
                         splashRadius: 25,
-                        icon: Icon(
-                          Icons.remove_red_eye_outlined,
+                        icon: Image.asset(
+                          'assets/icons/eye.png',
+                          width: 20,
+                          height: 20,
                           color: appCounterState.getIsShow
                               ? Colors.white
                               : appColors.quaternaryColor,
@@ -131,11 +141,13 @@ class AppCounterPage extends StatelessWidget {
                     CircleAvatar(
                       child: IconButton(
                         onPressed: () {
-                          appCounterState.resetSelectedCount = appCounterState.getCountValuesIndex;
+                          appCounterState.resetSelectedCount =
+                              appCounterState.getCountValuesIndex;
                         },
                         tooltip: appLocale.reset,
                         splashRadius: 25,
-                        icon: const Icon(Icons.refresh),
+                        icon: Image.asset('assets/icons/reset.png',
+                            width: 20, height: 20, color: Colors.white),
                       ),
                     ),
                   ],

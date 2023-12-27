@@ -52,8 +52,11 @@ class SearchCustomCitiesDelegate extends SearchDelegate {
         close(context, null);
       },
       splashRadius: 20,
-      icon: const Icon(
-        Icons.arrow_back_ios,
+      icon: Image.asset(
+        'assets/icons/angle-left.png',
+        width: 20,
+        height: 20,
+        color: Colors.white,
       ),
     );
   }

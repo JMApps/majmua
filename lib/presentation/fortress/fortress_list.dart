@@ -11,6 +11,7 @@ import 'package:majmua/domain/usecases/fortress_use_case.dart';
 import 'package:majmua/presentation/fortress/for_html_text.dart';
 import 'package:majmua/presentation/fortress/supplication_item.dart';
 import 'package:majmua/presentation/widgets/error_data_text.dart';
+import 'package:majmua/presentation/widgets/user_back_button.dart';
 
 class FortressList extends StatefulWidget {
   const FortressList({
@@ -43,6 +44,7 @@ class _FortressListState extends State<FortressList> {
         if (chapterSnapshot.hasData) {
           return Scaffold(
             appBar: AppBar(
+              leading: const UserBackButton(),
               title: Text(chapterSnapshot.data!.chapterNumber),
             ),
             body: CupertinoScrollbar(
@@ -54,8 +56,7 @@ class _FortressListState extends State<FortressList> {
                   ),
                   builder: (BuildContext context, AsyncSnapshot<List<SupplicationFortressEntity>>snapshot) {
                     if (snapshot.hasData && snapshot.data!.isNotEmpty) {
-                      final ChapterFortressEntity chapterModel =
-                          chapterSnapshot.data!;
+                      final ChapterFortressEntity chapterModel = chapterSnapshot.data!;
                       return PageStorage(
                         bucket: widget.bucketStorage,
                         child: Column(

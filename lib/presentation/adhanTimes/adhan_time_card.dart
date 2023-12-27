@@ -1,5 +1,4 @@
 import 'package:adhan/adhan.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
@@ -165,9 +164,10 @@ class AdhanTimeCard extends StatelessWidget {
                               );
                             },
                             borderRadius: AppStyles.mainBorderRadius,
-                            child: Icon(
-                              Icons.mosque,
-                              size: screenWidth * 0.045,
+                            child: Image.asset(
+                              'assets/icons/aqsa.png',
+                              width: screenWidth * 0.045,
+                              height: screenWidth * 0.045,
                               color: appColors.secondaryColor,
                             ),
                           ),
@@ -179,9 +179,10 @@ class AdhanTimeCard extends StatelessWidget {
                       child: Flexible(
                         child: AnimatedSize(
                           duration: const Duration(seconds: 1),
-                          child: Icon(
-                            CupertinoIcons.sunrise,
-                            size: screenWidth * 0.05,
+                          child: Image.asset(
+                            'assets/icons/sunrise.png',
+                            width: screenWidth * 0.05,
+                            height: screenWidth * 0.05,
                             color: appColors.secterColor,
                           ),
                         ),

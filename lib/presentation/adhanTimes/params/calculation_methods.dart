@@ -46,7 +46,6 @@ class CalculationMethods extends StatelessWidget {
                             color: value == AppStrings.prayerCalculationNames[adhanTimeState.calculationMethodIndex]
                                 ? appColors.quaternaryColor
                                 : appColors.inverseSurface,
-                            fontWeight: FontWeight.bold,
                           ),
                           textAlign: TextAlign.center,
                         ),

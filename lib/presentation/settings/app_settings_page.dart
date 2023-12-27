@@ -8,6 +8,7 @@ import 'package:majmua/core/strings/app_strings.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/state/app_settings_state.dart';
+import 'package:majmua/presentation/widgets/user_back_button.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -23,6 +24,7 @@ class AppSettingsPage extends StatelessWidget {
     final double screenHeight = mediaQuery.size.width;
     return Scaffold(
       appBar: AppBar(
+        leading: const UserBackButton(),
         title: Text(appLocale!.settings),
       ),
       body: Consumer<AppSettingsState>(
@@ -87,14 +89,17 @@ class AppSettingsPage extends StatelessWidget {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          child: settings.getBackgroundPictureIndex == index ? CircleAvatar(
-                            radius: screenWidth * 0.05,
-                            backgroundColor: appColors.primary.withOpacity(0.5),
-                            child: Icon(
-                              CupertinoIcons.checkmark_circle,
-                              color: appColors.surface,
-                            ),
-                          ) : const SizedBox(),
+                          child: settings.getBackgroundPictureIndex == index
+                              ? CircleAvatar(
+                                  radius: screenWidth * 0.05,
+                                  backgroundColor:
+                                      appColors.primary.withOpacity(0.5),
+                                  child: Icon(
+                                    CupertinoIcons.checkmark_circle,
+                                    color: appColors.surface,
+                                  ),
+                                )
+                              : const SizedBox(),
                         ),
                       );
                     },
@@ -114,7 +119,8 @@ class AppSettingsPage extends StatelessWidget {
                   value: settings.getAlwaysDisplay,
                   contentPadding: AppStyles.mardingHorizontalMini,
                   shape: AppStyles.mainShapeMini,
-                  visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
+                  visualDensity:
+                      const VisualDensity(horizontal: -4, vertical: -4),
                   activeColor: appColors.quaternaryColor,
                   onChanged: (bool onChanged) {
                     settings.setAlwaysDisplay = onChanged;
@@ -129,35 +135,45 @@ class AppSettingsPage extends StatelessWidget {
                   ),
                 ),
                 const Divider(indent: 16, endIndent: 16),
-                Platform.isIOS ? ListTile(
-                  onTap: () {
-                    _launchUrl(link: 'https://apps.apple.com/ru/developer/imanil-binyaminov/id1564920953');
-                  },
-                  title: Text(appLocale.otherApp),
-                  leading: Image.asset('assets/icons/appstore.png'),
-                  trailing: Icon(
-                    CupertinoIcons.forward,
-                    color: appColors.primary,
-                  ),
-                  contentPadding: AppStyles.mardingHorizontalMini,
-                  shape: AppStyles.mainShapeMini,
-                  visualDensity:
-                  const VisualDensity(horizontal: -4, vertical: -4),
-                ) : ListTile(
-                  onTap: () {
-                    _launchUrl(link: 'https://play.google.com/store/apps/dev?id=8649252597553656018');
-                  },
-                  title: Text(appLocale.otherApp),
-                  leading: Image.asset('assets/icons/google-play.png'),
-                  trailing: Icon(
-                    CupertinoIcons.forward,
-                    color: appColors.primary,
-                  ),
-                  contentPadding: AppStyles.mardingHorizontalMini,
-                  shape: AppStyles.mainShapeMini,
-                  visualDensity:
-                  const VisualDensity(horizontal: -4, vertical: -4),
-                ),
+                Platform.isIOS
+                    ? ListTile(
+                        onTap: () {
+                          _launchUrl(
+                              link:
+                                  'https://apps.apple.com/ru/developer/imanil-binyaminov/id1564920953');
+                        },
+                        title: Text(appLocale.otherApp),
+                        leading: Image.asset('assets/icons/appstore.png'),
+                        trailing: Image.asset(
+                          'assets/icons/angle-right.png',
+                          width: 20,
+                          height: 20,
+                          color: appColors.primary,
+                        ),
+                        contentPadding: AppStyles.mardingHorizontalMini,
+                        shape: AppStyles.mainShapeMini,
+                        visualDensity:
+                            const VisualDensity(horizontal: -4, vertical: -4),
+                      )
+                    : ListTile(
+                        onTap: () {
+                          _launchUrl(
+                              link:
+                                  'https://play.google.com/store/apps/dev?id=8649252597553656018');
+                        },
+                        title: Text(appLocale.otherApp),
+                        leading: Image.asset('assets/icons/google-play.png'),
+                        trailing: Image.asset(
+                          'assets/icons/angle-right.png',
+                          width: 20,
+                          height: 20,
+                          color: appColors.primary,
+                        ),
+                        contentPadding: AppStyles.mardingHorizontalMini,
+                        shape: AppStyles.mainShapeMini,
+                        visualDensity:
+                            const VisualDensity(horizontal: -4, vertical: -4),
+                      ),
                 const Divider(indent: 16, endIndent: 16),
                 Text(
                   appLocale.contacts,
@@ -173,13 +189,16 @@ class AppSettingsPage extends StatelessWidget {
                   },
                   title: const Text('Umma Life'),
                   leading: Image.asset('assets/icons/ummalife.png'),
-                  trailing: Icon(
-                    CupertinoIcons.forward,
+                  trailing: Image.asset(
+                    'assets/icons/angle-right.png',
+                    width: 20,
+                    height: 20,
                     color: appColors.primary,
                   ),
                   contentPadding: AppStyles.mardingHorizontalMini,
                   shape: AppStyles.mainShapeMini,
-                  visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
+                  visualDensity:
+                      const VisualDensity(horizontal: -4, vertical: -4),
                 ),
                 const Divider(indent: 16, endIndent: 16),
                 ListTile(
@@ -188,13 +207,16 @@ class AppSettingsPage extends StatelessWidget {
                   },
                   title: const Text('Instagram'),
                   leading: Image.asset('assets/icons/instagram.png'),
-                  trailing: Icon(
-                    CupertinoIcons.forward,
+                  trailing: Image.asset(
+                    'assets/icons/angle-right.png',
+                    width: 20,
+                    height: 20,
                     color: appColors.primary,
                   ),
                   contentPadding: AppStyles.mardingHorizontalMini,
                   shape: AppStyles.mainShapeMini,
-                  visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
+                  visualDensity:
+                      const VisualDensity(horizontal: -4, vertical: -4),
                 ),
                 const Divider(indent: 16, endIndent: 16),
                 ListTile(
@@ -203,8 +225,10 @@ class AppSettingsPage extends StatelessWidget {
                   },
                   title: const Text('Telegram'),
                   leading: Image.asset('assets/icons/telegram.png'),
-                  trailing: Icon(
-                    CupertinoIcons.forward,
+                  trailing: Image.asset(
+                    'assets/icons/angle-right.png',
+                    width: 20,
+                    height: 20,
                     color: appColors.primary,
                   ),
                   contentPadding: AppStyles.mardingHorizontalMini,
@@ -219,6 +243,7 @@ class AppSettingsPage extends StatelessWidget {
       ),
     );
   }
+
   Future<void> _launchUrl({required String link}) async {
     final Uri urlLink = Uri.parse(link);
     await launchUrl(urlLink);

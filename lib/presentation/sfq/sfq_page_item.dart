@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/styles/app_styles.dart';
@@ -39,7 +38,12 @@ class SFQPageItem extends StatelessWidget {
                 );
               },
               title: Text(appLocale!.share),
-              trailing: const Icon(CupertinoIcons.share),
+              trailing: Image.asset(
+                'assets/icons/share.png',
+                width: 25,
+                height: 25,
+                color: appColors.primary,
+              ),
             ),
           ),
         );

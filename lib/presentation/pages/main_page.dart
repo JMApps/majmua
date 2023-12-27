@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/core/routes/route_names.dart';
 import 'package:majmua/core/strings/app_constraints.dart';
 import 'package:majmua/core/strings/app_strings.dart';
+import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/data/services/notification_service.dart';
 import 'package:majmua/presentation/lists/main_widgets_list.dart';
 import 'package:majmua/presentation/state/adhan_time_state.dart';
@@ -49,12 +49,12 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
     final AppLocalizations? appLocale = AppLocalizations.of(context);
 
     final NotificationService notificationService = NotificationService();
-    final NotificationsState notificationsState = Provider.of<NotificationsState>(context);
+    final NotificationsState notificationsState =
+        Provider.of<NotificationsState>(context);
     final AdhanTimeState adhanTimeState = Provider.of<AdhanTimeState>(context);
     final RestTimeState restTimeState = Provider.of<RestTimeState>(context);
     final DateTime dateTime = DateTime.now();
     DateTime fixed20Time = DateTime(dateTime.year, dateTime.month, dateTime.day, 20, 0);
-
 
     if (notificationsState.fajrNotification) {
       notificationService.prayerNotifications(
@@ -69,7 +69,8 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
         id: AppConstraints.sunriseNotificationID,
         title: appLocale!.prayerNotification,
         body: appLocale.sunriseDuha,
-        dateTime: adhanTimeState.getPrayerTimes.sunrise.add(const Duration(minutes: 30)),
+        dateTime: adhanTimeState.getPrayerTimes.sunrise
+            .add(const Duration(minutes: 30)),
       );
     }
     if (notificationsState.dhuhrNotification) {
@@ -158,7 +159,12 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
           id: AppConstraints.fastWhiteDaysNotificationID,
           title: appLocale!.remind,
           body: appLocale.fastWhiteDaysTime,
-          dateTime: DateTime(restTimeState.getNext12thDay.year, restTimeState.getNext12thDay.month, restTimeState.getNext12thDay.day, 21, 0),
+          dateTime: DateTime(
+              restTimeState.getNext12thDay.year,
+              restTimeState.getNext12thDay.month,
+              restTimeState.getNext12thDay.day,
+              21,
+              0),
         );
       }
     } else {
@@ -193,7 +199,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
             'assets/pictures/${AppStrings.backgroundPictureNames[Provider.of<AppSettingsState>(context).getBackgroundPictureIndex]}',
           ),
           fit: BoxFit.cover,
-          opacity: Theme.of(context).brightness == Brightness.dark ? 0.25 : 1,
+          opacity: Theme.of(context).brightness == Brightness.dark ? 0.20 : 0.75,
         ),
       ),
       child: Scaffold(
@@ -201,7 +207,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
         body: CustomScrollView(
           slivers: [
             SliverAppBar(
-              backgroundColor: appColors.primary.withOpacity(Theme.of(context).brightness == Brightness.dark ? 0.1 : 0.35),
+              backgroundColor: appColors.primaryDark.withOpacity(Theme.of(context).brightness == Brightness.dark ? 0.75 : 0.55),
               title: Text(
                 appLocale!.appName,
                 textAlign: TextAlign.center,
@@ -219,7 +225,12 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
                   },
                   tooltip: appLocale.notifications,
                   splashRadius: 20,
-                  icon: const Icon(CupertinoIcons.bell),
+                  icon: Image.asset(
+                    'assets/icons/notifications.png',
+                    width: 25,
+                    height: 25,
+                    color: Colors.white,
+                  ),
                 ),
               ],
               leading: IconButton(
@@ -228,7 +239,12 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
                 },
                 tooltip: appLocale.settings,
                 splashRadius: 20,
-                icon: const Icon(CupertinoIcons.settings),
+                icon: Image.asset(
+                  'assets/icons/setting.png',
+                  width: 25,
+                  height: 25,
+                  color: Colors.white,
+                ),
               ),
             ),
             const SliverToBoxAdapter(

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/styles/app_styles.dart';
@@ -7,6 +6,7 @@ import 'package:majmua/presentation/adhanTimes/params/addCity/add_city_bottom_sh
 import 'package:majmua/presentation/adhanTimes/params/addCity/custom_cities_list.dart';
 import 'package:majmua/presentation/adhanTimes/params/addCity/search_custom_cities_delegate.dart';
 import 'package:majmua/presentation/state/custom_cities_state.dart';
+import 'package:majmua/presentation/widgets/user_back_button.dart';
 import 'package:provider/provider.dart';
 
 class AddCityPage extends StatelessWidget {
@@ -24,6 +24,7 @@ class AddCityPage extends StatelessWidget {
       ],
       child: Scaffold(
         appBar: AppBar(
+          leading: const UserBackButton(),
           title: Text(appLocale!.addMyCity),
           actions: [
             IconButton(
@@ -37,8 +38,11 @@ class AddCityPage extends StatelessWidget {
               },
               splashRadius: 20,
               tooltip: appLocale.searchByCitiesAndCountries,
-              icon: const Icon(
-                CupertinoIcons.search,
+              icon: Image.asset(
+                'assets/icons/search.png',
+                width: 20,
+                height: 20,
+                color: Colors.white,
               ),
             ),
           ],

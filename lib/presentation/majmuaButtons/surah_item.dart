@@ -41,7 +41,12 @@ class SurahItem extends StatelessWidget {
       contentPadding: AppStyles.mardingHorizontalMini,
       shape: AppStyles.mainShapeMini,
       visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-      leading: Icon(Icons.arrow_back_ios, color: appColors.primary),
+      leading: Image.asset(
+        'assets/icons/angle-left.png',
+        width: 20,
+        height: 20,
+        color: appColors.primary,
+      ),
       trailing: Icon(icon, color: appColors.secondaryColor),
     );
   }

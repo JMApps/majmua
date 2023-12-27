@@ -5,6 +5,7 @@ import 'package:majmua/core/strings/app_strings.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/data/models/adhan_information_model.dart';
 import 'package:majmua/presentation/adhanTimes/params/item_calculation_prayer_time.dart';
+import 'package:majmua/presentation/widgets/user_back_button.dart';
 
 class CalculationInfoPage extends StatelessWidget {
   const CalculationInfoPage({super.key});
@@ -15,6 +16,7 @@ class CalculationInfoPage extends StatelessWidget {
     final AppLocalizations? appLocale = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
+        leading: const UserBackButton(),
         title: Text(appLocale!.information),
         actions: [
           IconButton(
@@ -34,7 +36,12 @@ class CalculationInfoPage extends StatelessWidget {
               );
             },
             splashRadius: 20,
-            icon: const Icon(Icons.info_outline),
+            icon: Image.asset(
+              'assets/icons/info.png',
+              width: 20,
+              height: 20,
+              color: Colors.white,
+            ),
           ),
         ],
       ),

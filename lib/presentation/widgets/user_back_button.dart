@@ -10,7 +10,12 @@ class UserBackButton extends StatelessWidget {
         Navigator.pop(context);
       },
       splashRadius: 20,
-      icon: const Icon(Icons.arrow_back_ios_new_rounded),
+      icon: Image.asset(
+        'assets/icons/angle-left.png',
+        width: 20,
+        height: 20,
+        color: Colors.white,
+      ),
     );
   }
 }
