@@ -4,7 +4,7 @@ import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/data/models/args/supplication_args.dart';
 import 'package:majmua/domain/entities/chapter_fortress_entity.dart';
-import 'package:majmua/presentation/fortress/for_html_text.dart';
+import 'package:majmua/presentation/fortress/fortress_html_text.dart';
 
 class ChapterItem extends StatelessWidget {
   const ChapterItem({
@@ -39,7 +39,7 @@ class ChapterItem extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        subtitle: ForHtmlText(
+        subtitle: FortressHtmlText(
           textData: model.chapterTitle,
           textSize: 16,
           textColor: appColors.inverseSurface,

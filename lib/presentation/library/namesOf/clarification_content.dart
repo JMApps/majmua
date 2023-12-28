@@ -3,9 +3,9 @@ import 'package:majmua/core/themes/app_themes.dart';
 import 'package:provider/provider.dart';
 
 import '../../../domain/entities/clarification_entity.dart';
-import '../../fortress/for_html_text.dart';
 import '../../state/book_settings_state.dart';
 import '../../widgets/error_data_text.dart';
+import 'names_of_html_text.dart';
 
 class ClarificationContent extends StatelessWidget {
   const ClarificationContent({
@@ -25,13 +25,13 @@ class ClarificationContent extends StatelessWidget {
           final ClarificationEntity model = chapterSnapshot.data!;
           return Consumer<BookSettingsState>(
             builder: (BuildContext context, BookSettingsState bookSettingsState, _) {
-              return ForHtmlText(
+              return NamesOfHtmlText(
                 textData: model.clarificationContent,
                 textSize: bookSettingsState.getTextSize.toDouble(),
                 textColor: appColors.inverseSurface,
                 fontFamily: 'Gilroy',
                 footnoteColor: appColors.quaternaryColor,
-                textDataAlign: TextAlign.start,
+                textDataAlign: bookSettingsState.getTextAlign,
               );
             },
           );

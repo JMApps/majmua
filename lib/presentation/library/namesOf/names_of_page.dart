@@ -71,8 +71,8 @@ class _NamesOfPageState extends State<NamesOfPage> {
                     dotColor:
                     appColors.quaternaryColor.withOpacity(0.35),
                     activeDotColor: appColors.quaternaryColor,
-                    dotWidth: 6,
-                    dotHeight: 2,
+                    dotWidth: 7,
+                    dotHeight: 3.5,
                   ),
                 ),
               ),

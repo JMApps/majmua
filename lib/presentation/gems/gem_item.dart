@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/domain/entities/gem_entity.dart';
-import 'package:majmua/presentation/fortress/for_html_text.dart';
+import 'package:majmua/presentation/fortress/fortress_html_text.dart';
 import 'package:majmua/presentation/state/gems_settings_state.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -60,7 +60,7 @@ class GemItem extends StatelessWidget {
             builder: (BuildContext context, GemsSettingsState gemsState, _) {
               return Column(
                 children: [
-                  ForHtmlText(
+                  FortressHtmlText(
                     textData: model.citation,
                     textSize: gemsState.getTextSize.toDouble(),
                     textColor: appColors.inverseSurface,
