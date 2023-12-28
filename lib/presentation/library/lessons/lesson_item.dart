@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/domain/entities/lesson_entity.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/styles/app_styles.dart';
+import '../../../domain/entities/lesson_entity.dart';
 import '../../state/book_settings_state.dart';
 import 'lesson_html_text.dart';
 

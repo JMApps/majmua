@@ -12,6 +12,7 @@ import '../../../domain/usecases/strength_use_case.dart';
 import '../../widgets/user_back_button.dart';
 import '../settings_button.dart';
 import 'strength_item.dart';
+
 class StrengthPage extends StatefulWidget {
   const StrengthPage({super.key});
 

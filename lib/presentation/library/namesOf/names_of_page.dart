@@ -3,13 +3,13 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/library/settings_button.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../core/styles/app_styles.dart';
 import '../../../data/repositories/names_of_data_repository.dart';
 import '../../../domain/usecases/names_of_use_case.dart';
 import '../../widgets/user_back_button.dart';
+import '../settings_button.dart';
 import 'clarification_content.dart';
 import 'list_ayahs.dart';
 import 'list_names.dart';

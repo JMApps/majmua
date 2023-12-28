@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/domain/entities/name_entity.dart';
-import 'package:majmua/presentation/library/namesOf/name_item.dart';
-import 'package:majmua/presentation/widgets/error_data_text.dart';
+
+import '../../../domain/entities/name_entity.dart';
+import '../../widgets/error_data_text.dart';
+import 'name_item.dart';
 
 class ListNames extends StatelessWidget {
   const ListNames({

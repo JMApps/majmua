@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/library/book_settings.dart';
+
+import 'book_settings.dart';
 
 class SettingsButton extends StatelessWidget {
   const SettingsButton({super.key});

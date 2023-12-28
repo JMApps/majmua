@@ -2,12 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/domain/entities/raqaiq_entity.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../core/styles/app_styles.dart';
 import '../../../data/repositories/raqaiq_data_repository.dart';
+import '../../../domain/entities/raqaiq_entity.dart';
 import '../../../domain/usecases/raqaiq_use_case.dart';
 import '../../widgets/user_back_button.dart';
 import '../settings_button.dart';
@@ -29,13 +29,15 @@ class _RaqaiqPageState extends State<RaqaiqPage> {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     return FutureBuilder<List<RaqaiqEntity>>(
       future: _raqaiqUseCase.fetchAllChapters(),
-      builder: (BuildContext context, AsyncSnapshot<List<RaqaiqEntity>> snapshot) {
+      builder:
+          (BuildContext context, AsyncSnapshot<List<RaqaiqEntity>> snapshot) {
         if (snapshot.hasData) {
           return Scaffold(
             body: NestedScrollView(
               physics: const ClampingScrollPhysics(),
               controller: ScrollController(),
-              headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+              headerSliverBuilder:
+                  (BuildContext context, bool innerBoxIsScrolled) {
                 return [
                   SliverAppBar(
                     backgroundColor: appColors.primaryDark,
@@ -73,7 +75,8 @@ class _RaqaiqPageState extends State<RaqaiqPage> {
                               controller: _raqaiqPageController,
                               itemCount: snapshot.data!.length,
                               itemBuilder: (BuildContext context, int index) {
-                                final RaqaiqEntity model = snapshot.data![index];
+                                final RaqaiqEntity model =
+                                    snapshot.data![index];
                                 return RaqaiqItem(
                                   model: model,
                                 );

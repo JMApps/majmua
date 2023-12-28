@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/styles/app_styles.dart';
-import 'package:majmua/domain/entities/name_entity.dart';
-import 'package:majmua/presentation/state/book_settings_state.dart';
 import 'package:provider/provider.dart';
+
+import '../../../core/styles/app_styles.dart';
+import '../../../domain/entities/name_entity.dart';
+import '../../state/book_settings_state.dart';
 
 class NameItem extends StatelessWidget {
   const NameItem({

@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/library/questions/question_html_text.dart';
-import 'package:majmua/presentation/state/book_settings_state.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/styles/app_styles.dart';
 import '../../../domain/entities/question_entity.dart';
+import '../../state/book_settings_state.dart';
 
 class QuestionItem extends StatelessWidget {
   const QuestionItem({

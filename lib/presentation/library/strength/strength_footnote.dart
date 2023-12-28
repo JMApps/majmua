@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:majmua/core/styles/app_styles.dart';
-import 'package:majmua/data/repositories/strength_data_repository.dart';
-import 'package:majmua/domain/entities/strength_footnote_entity.dart';
-import 'package:majmua/domain/usecases/strength_use_case.dart';
-import 'package:majmua/presentation/widgets/error_data_text.dart';
+
+import '../../../data/repositories/strength_data_repository.dart';
+import '../../../domain/entities/strength_footnote_entity.dart';
+import '../../../domain/usecases/strength_use_case.dart';
+import '../../widgets/error_data_text.dart';
 
 class StrengthFootnote extends StatefulWidget {
   const StrengthFootnote({

@@ -3,12 +3,12 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/data/repositories/hadeeths_data_repository.dart';
-import 'package:majmua/domain/entities/hadeeth_entity.dart';
-import 'package:majmua/domain/usecases/hadeeths_use_case.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../core/styles/app_styles.dart';
+import '../../../data/repositories/hadeeths_data_repository.dart';
+import '../../../domain/entities/hadeeth_entity.dart';
+import '../../../domain/usecases/hadeeths_use_case.dart';
 import '../../widgets/user_back_button.dart';
 import '../settings_button.dart';
 import 'hadeeth_item.dart';
@@ -29,13 +29,15 @@ class _HadeethsPageState extends State<HadeethsPage> {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     return FutureBuilder<List<HadeethEntity>>(
       future: _hadeethsUseCase.fetchAllHadeeths(),
-      builder: (BuildContext context, AsyncSnapshot<List<HadeethEntity>> snapshot) {
+      builder:
+          (BuildContext context, AsyncSnapshot<List<HadeethEntity>> snapshot) {
         if (snapshot.hasData) {
           return Scaffold(
             body: NestedScrollView(
               physics: const ClampingScrollPhysics(),
               controller: ScrollController(),
-              headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+              headerSliverBuilder:
+                  (BuildContext context, bool innerBoxIsScrolled) {
                 return [
                   SliverAppBar(
                     backgroundColor: appColors.primaryDark,

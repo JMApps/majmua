@@ -3,11 +3,11 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/domain/entities/lesson_entity.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../core/styles/app_styles.dart';
 import '../../../data/repositories/lessons_data_repository.dart';
+import '../../../domain/entities/lesson_entity.dart';
 import '../../../domain/usecases/lessons_use_case.dart';
 import '../../widgets/user_back_button.dart';
 import '../settings_button.dart';

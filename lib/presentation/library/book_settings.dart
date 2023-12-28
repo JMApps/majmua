@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:majmua/core/enums/align_text.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/enums/align_text.dart';
 import '../../core/styles/app_styles.dart';
 import '../state/book_settings_state.dart';
 

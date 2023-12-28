@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/domain/entities/strength_entity.dart';
-import 'package:majmua/presentation/state/book_settings_state.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/styles/app_styles.dart';
+import '../../../domain/entities/strength_entity.dart';
+import '../../state/book_settings_state.dart';
 import 'strength_html_text.dart';
 
 class StrengthItem extends StatelessWidget {
@@ -23,7 +23,8 @@ class StrengthItem extends StatelessWidget {
       child: SingleChildScrollView(
         padding: AppStyles.mainMardingMini,
         child: Consumer<BookSettingsState>(
-          builder: (BuildContext context, BookSettingsState bookSettingsState, _) {
+          builder:
+              (BuildContext context, BookSettingsState bookSettingsState, _) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [

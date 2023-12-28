@@ -35,7 +35,8 @@ class _QuestionsPageState extends State<QuestionsPage> {
             body: NestedScrollView(
               physics: const ClampingScrollPhysics(),
               controller: ScrollController(),
-              headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+              headerSliverBuilder:
+                  (BuildContext context, bool innerBoxIsScrolled) {
                 return [
                   SliverAppBar(
                     backgroundColor: appColors.primaryDark,

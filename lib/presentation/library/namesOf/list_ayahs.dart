@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/presentation/library/namesOf/ayah_item.dart';
-import 'package:majmua/presentation/widgets/error_data_text.dart';
 
 import '../../../domain/entities/ayah_entity.dart';
-
+import '../../widgets/error_data_text.dart';
+import 'ayah_item.dart';
 
 class ListAyahs extends StatelessWidget {
   const ListAyahs({
