@@ -28,7 +28,7 @@ class StrengthItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  model.paragraph,
+                  model.paragraph.toUpperCase(),
                   style: TextStyle(
                     color: appColors.secondaryColor,
                     fontWeight: FontWeight.bold,

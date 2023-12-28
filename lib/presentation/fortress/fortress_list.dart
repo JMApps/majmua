@@ -28,8 +28,7 @@ class FortressList extends StatefulWidget {
 }
 
 class _FortressListState extends State<FortressList> {
-  final FortressUseCase _fortressUseCase =
-      FortressUseCase(FortressDataRepository());
+  final FortressUseCase _fortressUseCase = FortressUseCase(FortressDataRepository());
 
   @override
   Widget build(BuildContext context) {
