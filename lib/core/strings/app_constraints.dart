@@ -98,6 +98,9 @@ class AppConstraints {
   // Gems
   static const String keyGemsTextSize = 'key_gems_text_size';
 
+  // Library
+  static const String keyNamesOfTextSize = 'key_names_of_text_size';
+
   // Default city params
   static const String defCountry = 'Saudi Arabia';
   static const String defCity = 'Mecca';

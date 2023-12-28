@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/routes/route_names.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
+import 'package:majmua/presentation/majmuaButtons/books_list.dart';
 import 'package:majmua/presentation/majmuaButtons/surah_lists.dart';
 
 class MajmuaButtonsCard extends StatelessWidget {
@@ -120,7 +121,13 @@ class MajmuaButtonsCard extends StatelessWidget {
               Tooltip(
                 message: appLocale.library,
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showModalBottomSheet(
+                      context: context,
+                      backgroundColor: appColors.fullGlass,
+                      builder: (context) => const BooksList(),
+                    );
+                  },
                   child: Text(
                     appLocale.library,
                     style: TextStyle(

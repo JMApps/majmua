@@ -12,4 +12,10 @@ class RouteNames {
   static const String fortressChaptersPage = '/fortress_chapters_page';
   static const String fortressContentPage = '/fortress_content_page';
   static const String gemsPage = '/gems_page';
+  static const String namesOfPage = '/names_of_page';
+  static const String questionsPage = '/questions_page';
+  static const String hadeethsPage = '/hadeeths_page';
+  static const String lessonsPage = '/lessons_page';
+  static const String raqaiqPage = '/raqaiq_page';
+  static const String strengthPage = '/strength_page';
 }

@@ -11,6 +11,7 @@ import 'package:majmua/presentation/counter/app_counter_page.dart';
 import 'package:majmua/presentation/fortress/fortress_chapters_page.dart';
 import 'package:majmua/presentation/fortress/fortress_content_page.dart';
 import 'package:majmua/presentation/gems/gems_page.dart';
+import 'package:majmua/presentation/library/namesOf/names_of_page.dart';
 import 'package:majmua/presentation/notifications/notification_settings_page.dart';
 import 'package:majmua/presentation/settings/app_settings_page.dart';
 import 'package:majmua/presentation/sfq/sfq_page.dart';
@@ -73,6 +74,10 @@ class AppRoutes {
       case RouteNames.gemsPage:
         return MaterialPageRoute(
           builder: (_) => const GemsPage(),
+        );
+      case RouteNames.namesOfPage:
+        return MaterialPageRoute(
+          builder: (_) => const NamesOfPage(),
         );
       default:
         throw Exception('Invalid route ${routeSettings.name}');

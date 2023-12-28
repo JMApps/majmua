@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/presentation/adhanTimes/main_adhan_time_card.dart';
 import 'package:majmua/presentation/currentDates/main_current_dates_card.dart';
 import 'package:majmua/presentation/majmuaButtons/majmua_buttons_card.dart';
@@ -10,18 +9,14 @@ class MainWidgetsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      physics: ClampingScrollPhysics(),
-      padding: AppStyles.mainMardingMicro,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          MainPercentSeasonsCard(),
-          MainAdhanTimeCard(),
-          MainCurrentDatesCard(),
-          MajmuaButtonsCard(),
-        ],
-      ),
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        MainPercentSeasonsCard(),
+        MainAdhanTimeCard(),
+        MainCurrentDatesCard(),
+        MajmuaButtonsCard(),
+      ],
     );
   }
 }
