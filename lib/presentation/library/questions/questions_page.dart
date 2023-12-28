@@ -3,13 +3,14 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/data/repositories/questions_data_repository.dart';
-import 'package:majmua/domain/entities/question_entity.dart';
-import 'package:majmua/domain/usecases/questions_use_case.dart';
-import 'package:majmua/presentation/library/questions/questions_item.dart';
-import 'package:majmua/presentation/library/settings_button.dart';
-import 'package:majmua/presentation/widgets/user_back_button.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../../../data/repositories/questions_data_repository.dart';
+import '../../../domain/entities/question_entity.dart';
+import '../../../domain/usecases/questions_use_case.dart';
+import '../../widgets/user_back_button.dart';
+import '../settings_button.dart';
+import 'questions_item.dart';
 
 class QuestionsPage extends StatefulWidget {
   const QuestionsPage({super.key});
@@ -54,41 +55,47 @@ class _QuestionsPageState extends State<QuestionsPage> {
         body: FutureBuilder<List<QuestionEntity>>(
           future: _questionsUseCase.fetchAllQuestions(),
           builder: (BuildContext context, AsyncSnapshot<List<QuestionEntity>> snapshot) {
-            return SelectableRegion(
-              focusNode: FocusNode(),
-              selectionControls: Platform.isIOS
-                  ? CupertinoTextSelectionControls()
-                  : MaterialTextSelectionControls(),
-              child: Column(
-                children: [
-                  const SizedBox(height: 16),
-                  Center(
-                    child: SmoothPageIndicator(
-                      controller: _questionsPageController,
-                      count: snapshot.data!.length,
-                      effect: ScrollingDotsEffect(
-                        maxVisibleDots: 5,
-                        dotColor: appColors.quaternaryColor.withOpacity(0.35),
-                        activeDotColor: appColors.quaternaryColor,
-                        dotWidth: 7,
-                        dotHeight: 3.5,
+            if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+              return SelectableRegion(
+                focusNode: FocusNode(),
+                selectionControls: Platform.isIOS
+                    ? CupertinoTextSelectionControls()
+                    : MaterialTextSelectionControls(),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 16),
+                    Center(
+                      child: SmoothPageIndicator(
+                        controller: _questionsPageController,
+                        count: snapshot.data!.length,
+                        effect: ScrollingDotsEffect(
+                          maxVisibleDots: 5,
+                          dotColor: appColors.quaternaryColor.withOpacity(0.35),
+                          activeDotColor: appColors.quaternaryColor,
+                          dotWidth: 7,
+                          dotHeight: 3.5,
+                        ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    child: PageView.builder(
-                      controller: _questionsPageController,
-                      itemCount: snapshot.data!.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return QuestionItem(
-                          model: snapshot.data![index],
-                        );
-                      },
+                    Expanded(
+                      child: PageView.builder(
+                        controller: _questionsPageController,
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return QuestionItem(
+                            model: snapshot.data![index],
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            );
+                  ],
+                ),
+              );
+            } else {
+              return const Center(
+                child: CircularProgressIndicator.adaptive(),
+              );
+            }
           },
         ),
       ),

@@ -11,6 +11,7 @@ import '../../presentation/counter/app_counter_page.dart';
 import '../../presentation/fortress/fortress_chapters_page.dart';
 import '../../presentation/fortress/fortress_content_page.dart';
 import '../../presentation/gems/gems_page.dart';
+import '../../presentation/library/hadeeths/hadeeths_page.dart';
 import '../../presentation/library/namesOf/names_of_page.dart';
 import '../../presentation/library/questions/questions_page.dart';
 import '../../presentation/notifications/notification_settings_page.dart';
@@ -83,6 +84,10 @@ class AppRoutes {
       case RouteNames.questionsPage:
         return MaterialPageRoute(
           builder: (_) => const QuestionsPage(),
+        );
+      case RouteNames.hadeethsPage:
+        return MaterialPageRoute(
+          builder: (_) => const HadeethsPage(),
         );
       default:
         throw Exception('Invalid route ${routeSettings.name}');

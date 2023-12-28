@@ -72,13 +72,13 @@ class BookSettingsState extends ChangeNotifier {
     late TextAlign currentAlign;
     switch (alignIndex) {
       case 0:
-        currentAlign = TextAlign.left;
+        currentAlign = TextAlign.start;
         break;
       case 1:
         currentAlign = TextAlign.center;
         break;
       case 2:
-        currentAlign = TextAlign.right;
+        currentAlign = TextAlign.end;
         break;
       case 3:
         currentAlign = TextAlign.justify;
