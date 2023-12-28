@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
@@ -18,49 +19,51 @@ class QuestionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
-    return SingleChildScrollView(
-      padding: AppStyles.mainMardingMini,
-      child: Consumer<BookSettingsState>(
-        builder: (BuildContext context, BookSettingsState bookSettingsState, _) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                model.questionNumber,
-                style: TextStyle(
-                  color: appColors.secondaryColor,
-                  fontWeight: FontWeight.bold,
+    return CupertinoScrollbar(
+      child: SingleChildScrollView(
+        padding: AppStyles.mainMardingMini,
+        child: Consumer<BookSettingsState>(
+          builder: (BuildContext context, BookSettingsState bookSettingsState, _) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  model.questionNumber,
+                  style: TextStyle(
+                    color: appColors.secondaryColor,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 8),
-              Container(
-                padding: AppStyles.mainMardingMini,
-                decoration: BoxDecoration(
-                  color: appColors.inversePrimary,
-                  borderRadius: AppStyles.mainBorderRadiusMini,
+                const SizedBox(height: 8),
+                Container(
+                  padding: AppStyles.mainMardingMini,
+                  decoration: BoxDecoration(
+                    color: appColors.inversePrimary,
+                    borderRadius: AppStyles.mainBorderRadiusMini,
+                  ),
+                  child: QuestionHtmlText(
+                    textData: model.questionContent,
+                    textSize: bookSettingsState.getTextSize.toDouble(),
+                    textColor: appColors.inverseSurface,
+                    fontFamily: 'Gilroy',
+                    footnoteColor: appColors.quaternaryColor,
+                    textDataAlign: TextAlign.center,
+                  ),
                 ),
-                child: QuestionHtmlText(
-                  textData: model.questionContent,
+                const SizedBox(height: 8),
+                QuestionHtmlText(
+                  textData: model.answerContent,
                   textSize: bookSettingsState.getTextSize.toDouble(),
                   textColor: appColors.inverseSurface,
                   fontFamily: 'Gilroy',
                   footnoteColor: appColors.quaternaryColor,
-                  textDataAlign: TextAlign.center,
+                  textDataAlign: bookSettingsState.getTextAlign,
                 ),
-              ),
-              const SizedBox(height: 8),
-              QuestionHtmlText(
-                textData: model.answerContent,
-                textSize: bookSettingsState.getTextSize.toDouble(),
-                textColor: appColors.inverseSurface,
-                fontFamily: 'Gilroy',
-                footnoteColor: appColors.quaternaryColor,
-                textDataAlign: bookSettingsState.getTextAlign,
-              ),
-            ],
-          );
-        },
+              ],
+            );
+          },
+        ),
       ),
     );
   }
