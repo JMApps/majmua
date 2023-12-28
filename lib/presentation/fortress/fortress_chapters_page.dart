@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/styles/app_styles.dart';
-import 'package:majmua/data/repositories/fortress_data_repository.dart';
-import 'package:majmua/domain/entities/chapter_fortress_entity.dart';
-import 'package:majmua/domain/usecases/fortress_use_case.dart';
-import 'package:majmua/presentation/fortress/chapter_item.dart';
 import 'package:majmua/presentation/fortress/search_chapters_delegate.dart';
-import 'package:majmua/presentation/widgets/error_data_text.dart';
-import 'package:majmua/presentation/widgets/user_back_button.dart';
+
+import '../../core/styles/app_styles.dart';
+import '../../data/repositories/fortress_data_repository.dart';
+import '../../domain/entities/chapter_fortress_entity.dart';
+import '../../domain/usecases/fortress_use_case.dart';
+import '../widgets/error_data_text.dart';
+import '../widgets/user_back_button.dart';
+import 'chapter_item.dart';
 
 class FortressChaptersPage extends StatefulWidget {
   const FortressChaptersPage({super.key});
@@ -18,7 +19,7 @@ class FortressChaptersPage extends StatefulWidget {
 }
 
 class _FortressChaptersPageState extends State<FortressChaptersPage> {
-  late final FortressUseCase _fortressUseCase = FortressUseCase(FortressDataRepository());
+  final FortressUseCase _fortressUseCase = FortressUseCase(FortressDataRepository());
 
   @override
   Widget build(BuildContext context) {

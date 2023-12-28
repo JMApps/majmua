@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/domain/entities/sfq_entity.dart';
-import 'package:majmua/presentation/state/sfq_state.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
+
+import '../../core/styles/app_styles.dart';
+import '../../domain/entities/sfq_entity.dart';
+import '../state/sfq_state.dart';
 
 class SFQPageItem extends StatelessWidget {
   const SFQPageItem({
@@ -75,10 +76,9 @@ class SFQPageItem extends StatelessWidget {
                 Text(
                   model.ayahTranslation,
                   style: TextStyle(
-                    fontSize: sfqState.getTranslationTextSize.toDouble(),
-                    color: appColors.onSecondaryContainer,
-                    fontFamily: 'Gilroy'
-                  ),
+                      fontSize: sfqState.getTranslationTextSize.toDouble(),
+                      color: appColors.onSecondaryContainer,
+                      fontFamily: 'Gilroy'),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 16),
@@ -98,7 +98,7 @@ class SFQPageItem extends StatelessWidget {
                     model.id.toString(),
                     style: TextStyle(
                       fontSize: 15,
-                      color: appColors.inverseSurface
+                      color: appColors.inverseSurface,
                     ),
                   ),
                 ),

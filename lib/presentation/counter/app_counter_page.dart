@@ -2,14 +2,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/counter/counter_button.dart';
-import 'package:majmua/presentation/counter/counter_values_dropbutton.dart';
-import 'package:majmua/presentation/counter/total_count_text.dart';
-import 'package:majmua/presentation/state/app_counter_state.dart';
-import 'package:majmua/presentation/widgets/user_back_button.dart';
 import 'package:provider/provider.dart';
+
+import '../../core/styles/app_styles.dart';
+import '../state/app_counter_state.dart';
+import '../widgets/user_back_button.dart';
+import 'counter_button.dart';
+import 'counter_values_dropbutton.dart';
+import 'total_count_text.dart';
 
 class AppCounterPage extends StatelessWidget {
   const AppCounterPage({super.key});
@@ -36,8 +37,7 @@ class AppCounterPage extends StatelessWidget {
           child: AnimatedSize(
             duration: const Duration(milliseconds: 500),
             child: Consumer<AppCounterState>(
-              builder:
-                  (BuildContext context, AppCounterState appCounterState, _) {
+              builder: (BuildContext context, AppCounterState appCounterState, _) {
                 return mediaQuery.orientation == Orientation.portrait
                     ? const Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -78,8 +78,7 @@ class AppCounterPage extends StatelessWidget {
           child: Padding(
             padding: AppStyles.mainMarding,
             child: Consumer<AppCounterState>(
-              builder:
-                  (BuildContext context, AppCounterState appCounterState, _) {
+              builder: (BuildContext context, AppCounterState appCounterState, _) {
                 return Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -141,13 +140,16 @@ class AppCounterPage extends StatelessWidget {
                     CircleAvatar(
                       child: IconButton(
                         onPressed: () {
-                          appCounterState.resetSelectedCount =
-                              appCounterState.getCountValuesIndex;
+                          appCounterState.resetSelectedCount = appCounterState.getCountValuesIndex;
                         },
                         tooltip: appLocale.reset,
                         splashRadius: 25,
-                        icon: Image.asset('assets/icons/reset.png',
-                            width: 20, height: 20, color: Colors.white),
+                        icon: Image.asset(
+                          'assets/icons/reset.png',
+                          width: 20,
+                          height: 20,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ],

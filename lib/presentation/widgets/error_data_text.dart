@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
+
+import '../../core/styles/app_styles.dart';
 
 class ErrorDataText extends StatelessWidget {
   const ErrorDataText({

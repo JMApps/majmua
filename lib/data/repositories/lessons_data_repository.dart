@@ -1,8 +1,9 @@
-import 'package:majmua/data/models/lesson_model.dart';
-import 'package:majmua/data/services/lessons_database_service.dart';
-import 'package:majmua/domain/entities/lesson_entity.dart';
-import 'package:majmua/domain/repository/lessons_repository.dart';
 import 'package:sqflite/sqflite.dart';
+
+import '../../domain/entities/lesson_entity.dart';
+import '../../domain/repository/lessons_repository.dart';
+import '../models/lesson_model.dart';
+import '../services/local/lessons_database_service.dart';
 
 class LessonsDataRepository implements LessonsRepository {
   final LessonsDatabaseService _databaseService = LessonsDatabaseService();

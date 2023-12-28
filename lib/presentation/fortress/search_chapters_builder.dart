@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/styles/app_styles.dart';
-import 'package:majmua/data/repositories/fortress_data_repository.dart';
-import 'package:majmua/domain/entities/chapter_fortress_entity.dart';
-import 'package:majmua/domain/usecases/fortress_use_case.dart';
-import 'package:majmua/presentation/fortress/chapter_item.dart';
-import 'package:majmua/presentation/widgets/info_data_text.dart';
+
+import '../../core/styles/app_styles.dart';
+import '../../data/repositories/fortress_data_repository.dart';
+import '../../domain/entities/chapter_fortress_entity.dart';
+import '../../domain/usecases/fortress_use_case.dart';
+import '../widgets/info_data_text.dart';
+import 'chapter_item.dart';
 
 class SearchChaptersBuilder extends StatefulWidget {
   const SearchChaptersBuilder({super.key, required this.query});
@@ -32,8 +33,7 @@ class _SearchChaptersBuilderState extends State<SearchChaptersBuilder> {
           _chapters = snapshot.data!;
           _recentChapters = widget.query.isEmpty
               ? _chapters
-              : _chapters.where((element) =>
-                      element.chapterNumber.toLowerCase().contains(widget.query.toLowerCase()) ||
+              : _chapters.where((element) => element.chapterNumber.toLowerCase().contains(widget.query.toLowerCase()) ||
                       element.chapterTitle.toLowerCase().contains(widget.query.toLowerCase())).toList();
           if (_recentChapters.isEmpty && widget.query.isNotEmpty) {
             return InfoDataText(infoText: appLocale.queryIsEmpty);

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/strings/app_strings.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/state/surah_settings_state.dart';
-import 'package:majmua/presentation/surah/sliding_app_bar.dart';
-import 'package:majmua/presentation/surah/surah_settings.dart';
-import 'package:majmua/presentation/widgets/user_back_button.dart';
 import 'package:provider/provider.dart';
+
+import '../../core/strings/app_strings.dart';
+import '../state/surah_settings_state.dart';
+import '../widgets/user_back_button.dart';
+import 'sliding_app_bar.dart';
+import 'surah_settings.dart';
 
 class SurahsPage extends StatefulWidget {
   const SurahsPage({
@@ -103,8 +104,7 @@ class _SurahsPageState extends State<SurahsPage>
                   reverse: true,
                   itemCount: AppStrings.surahsLists[widget.surahNumber].length,
                   itemBuilder: (BuildContext context, int index) {
-                    final String surahPage =
-                        AppStrings.surahsLists[widget.surahNumber][index];
+                    final String surahPage = AppStrings.surahsLists[widget.surahNumber][index];
                     return Center(
                       child: SingleChildScrollView(
                         child: Column(

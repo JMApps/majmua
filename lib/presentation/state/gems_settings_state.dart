@@ -2,7 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:majmua/core/strings/app_constraints.dart';
+
+import '../../core/strings/app_constraints.dart';
 
 class GemsSettingsState extends ChangeNotifier {
   final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);

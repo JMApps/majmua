@@ -8,7 +8,7 @@ class PrayerModel {
   final DateTime beforePrayerTime;
   final DateTime afterPrayerTime;
 
-  PrayerModel({
+  const PrayerModel({
     required this.prayerName,
     required this.prayerIndex,
     required this.currentPrayerTime,

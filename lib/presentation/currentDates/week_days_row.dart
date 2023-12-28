@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/strings/app_strings.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/currentDates/week_circle_day.dart';
+
+import '../../core/strings/app_strings.dart';
+import '../../core/styles/app_styles.dart';
 
 class WeekDaysRow extends StatelessWidget {
   const WeekDaysRow({super.key});

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/presentation/fortress/search_chapters_builder.dart';
-import 'package:majmua/presentation/widgets/info_data_text.dart';
+
+import '../widgets/info_data_text.dart';
 
 class SearchChaptersDelegate extends SearchDelegate {
   SearchChaptersDelegate({required String hintText})

@@ -1,7 +1,7 @@
 class SupplicationArgs {
   final int chapterId;
 
-  SupplicationArgs({
+  const SupplicationArgs({
     required this.chapterId,
   });
 }

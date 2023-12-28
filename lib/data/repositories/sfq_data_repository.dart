@@ -1,8 +1,9 @@
-import 'package:majmua/data/models/sfq_model.dart';
-import 'package:majmua/data/services/local/sfq_database_service.dart';
-import 'package:majmua/domain/entities/sfq_entity.dart';
-import 'package:majmua/domain/repository/sfq_repository.dart';
 import 'package:sqflite/sqflite.dart';
+
+import '../../domain/entities/sfq_entity.dart';
+import '../../domain/repository/sfq_repository.dart';
+import '../models/sfq_model.dart';
+import '../services/local/sfq_database_service.dart';
 
 class SFQDataRepository implements SFQRepository {
   final SFQDatabaseService _sfqDatabaseService = SFQDatabaseService();

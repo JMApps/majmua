@@ -2,7 +2,7 @@ class GemEntity {
   final int id;
   final String citation;
 
-  GemEntity({
+  const GemEntity({
     required this.id,
     required this.citation,
   });

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:majmua/core/enums/align_text.dart';
-import 'package:majmua/core/strings/app_constraints.dart';
+
+import '../../core/enums/align_text.dart';
+import '../../core/strings/app_constraints.dart';
 
 class BookSettingsState extends ChangeNotifier {
   final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);

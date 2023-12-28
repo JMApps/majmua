@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/strings/app_constraints.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/data/repositories/gems_data_repository.dart';
-import 'package:majmua/domain/entities/gem_entity.dart';
-import 'package:majmua/domain/usecases/gems_use_case.dart';
-import 'package:majmua/presentation/gems/gem_page_item.dart';
-import 'package:majmua/presentation/state/gems_settings_state.dart';
-import 'package:majmua/presentation/widgets/error_data_text.dart';
-import 'package:majmua/presentation/widgets/user_back_button.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../../core/strings/app_constraints.dart';
+import '../../core/styles/app_styles.dart';
+import '../../data/repositories/gems_data_repository.dart';
+import '../../domain/entities/gem_entity.dart';
+import '../../domain/usecases/gems_use_case.dart';
+import '../state/gems_settings_state.dart';
+import '../widgets/error_data_text.dart';
+import '../widgets/user_back_button.dart';
+import 'gem_page_item.dart';
 
 class GemsPageList extends StatefulWidget {
   const GemsPageList({
@@ -58,7 +59,8 @@ class _GemsPageListState extends State<GemsPageList> {
       ),
       body: FutureBuilder<List<GemEntity>>(
         future: _gemsUseCase.fetchAllGems(),
-        builder: (BuildContext context, AsyncSnapshot<List<GemEntity>> snapshot) {
+        builder:
+            (BuildContext context, AsyncSnapshot<List<GemEntity>> snapshot) {
           if (snapshot.hasData && snapshot.data!.isNotEmpty) {
             return Column(
               children: [

@@ -19,14 +19,6 @@ class QuestionsDataRepository implements QuestionsRepository {
   }
 
   @override
-  Future<List<QuestionEntity>> getQuestionById({required int questionId}) async {
-    final Database database = await _questionsDatabaseService.db;
-    final List<Map<String, Object?>> resources = await database.query('Table_of_questions', where: 'id = $questionId', whereArgs: [questionId]);
-    final List<QuestionEntity> questionById = resources.isNotEmpty ? resources.map((c) => _questionToEntity(QuestionModel.fromMap(c))).toList() : [];
-    return questionById;
-  }
-
-  @override
   Future<QuestionFootnoteEntity> getFootnoteById({required int footnoteId}) async {
     final Database database = await _questionsDatabaseService.db;
     final List<Map<String, Object?>> resources = await database.query('Table_of_footnotes', where: 'id = $footnoteId', whereArgs: [footnoteId]);

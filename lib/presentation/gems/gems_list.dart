@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/strings/app_constraints.dart';
-import 'package:majmua/data/repositories/gems_data_repository.dart';
-import 'package:majmua/domain/entities/gem_entity.dart';
-import 'package:majmua/domain/usecases/gems_use_case.dart';
-import 'package:majmua/presentation/gems/gem_item.dart';
-import 'package:majmua/presentation/state/gems_settings_state.dart';
-import 'package:majmua/presentation/widgets/error_data_text.dart';
-import 'package:majmua/presentation/widgets/user_back_button.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+
+import '../../core/strings/app_constraints.dart';
+import '../../data/repositories/gems_data_repository.dart';
+import '../../domain/entities/gem_entity.dart';
+import '../../domain/usecases/gems_use_case.dart';
+import '../state/gems_settings_state.dart';
+import '../widgets/error_data_text.dart';
+import '../widgets/user_back_button.dart';
+import 'gem_item.dart';
 
 class GemsList extends StatefulWidget {
   const GemsList({
@@ -38,7 +39,8 @@ class _GemsListState extends State<GemsList> {
           IconButton(
             onPressed: () {
               _itemScrollController.scrollTo(
-                index: Provider.of<GemsSettingsState>(context, listen: false).getRandomNumber,
+                index: Provider.of<GemsSettingsState>(context, listen: false)
+                    .getRandomNumber,
                 duration: const Duration(milliseconds: 750),
               );
             },
@@ -54,7 +56,8 @@ class _GemsListState extends State<GemsList> {
       ),
       body: FutureBuilder<List<GemEntity>>(
         future: _gemsUseCase.fetchAllGems(),
-        builder: (BuildContext context, AsyncSnapshot<List<GemEntity>> snapshot) {
+        builder:
+            (BuildContext context, AsyncSnapshot<List<GemEntity>> snapshot) {
           if (snapshot.hasData && snapshot.data!.isNotEmpty) {
             return PageStorage(
               bucket: widget.bucketStorage,

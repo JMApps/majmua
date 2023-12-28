@@ -17,15 +17,6 @@ class QuestionsUseCase {
     }
   }
 
-  Future<List<QuestionEntity>> fetchQuestionById({required int questionId}) async {
-    try {
-      final List<QuestionEntity> questionById = await _questionsRepository.getQuestionById(questionId: questionId);
-      return questionById;
-    } catch (e) {
-      throw Exception(e.toString());
-    }
-  }
-
   Future<QuestionFootnoteEntity> fetchFootnoteById({required int footnoteId}) async {
     try {
       final QuestionFootnoteEntity footnoteById = await _questionsRepository.getFootnoteById(footnoteId: footnoteId);

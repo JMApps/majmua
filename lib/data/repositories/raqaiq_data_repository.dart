@@ -1,8 +1,9 @@
-import 'package:majmua/data/models/raqaiq_model.dart';
-import 'package:majmua/data/services/raqaiq_database_service.dart';
-import 'package:majmua/domain/entities/raqaiq_entity.dart';
-import 'package:majmua/domain/repository/raqaiq_repository.dart';
 import 'package:sqflite/sqflite.dart';
+
+import '../../domain/entities/raqaiq_entity.dart';
+import '../../domain/repository/raqaiq_repository.dart';
+import '../models/raqaiq_model.dart';
+import '../services/local/raqaiq_database_service.dart';
 
 class RaqaiqDataRepository implements RaqaiqRepository {
   final RaqaiqDatabaseService _databaseService = RaqaiqDatabaseService();

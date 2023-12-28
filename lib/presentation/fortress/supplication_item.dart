@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/domain/entities/supplication_fortress_entity.dart';
-import 'package:majmua/presentation/fortress/fortress_html_text.dart';
-import 'package:majmua/presentation/state/fortress_settings_state.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
+
+import '../../core/styles/app_styles.dart';
+import '../../domain/entities/supplication_fortress_entity.dart';
+import '../state/fortress_settings_state.dart';
+import 'fortress_html_text.dart';
 
 class SupplicationItem extends StatelessWidget {
   const SupplicationItem({

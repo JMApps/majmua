@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:majmua/core/strings/app_constraints.dart';
 import 'package:vibration/vibration.dart';
+
+import '../../core/strings/app_constraints.dart';
 
 class SalawatCounterState extends ChangeNotifier {
   final _salawatSettingsBox = Hive.box(AppConstraints.keyWeeklySalawatSettings);
@@ -12,13 +13,14 @@ class SalawatCounterState extends ChangeNotifier {
   int get getSalawatCount => _salawatCount;
 
   SalawatCounterState() {
-    _salawatCount = _salawatSettingsBox.get(AppConstraints.keySalawatCount, defaultValue: 0);
+    _salawatCount = _salawatSettingsBox.get(AppConstraints.keySalawatCount,
+        defaultValue: 0);
   }
 
   void get changeSalawatCount {
     _salawatCount++;
     Vibration.hasVibrator().then(
-          (hasVbr) {
+      (hasVbr) {
         if (hasVbr!) {
           HapticFeedback.lightImpact();
         } else {

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/presentation/state/surah_settings_state.dart';
 import 'package:provider/provider.dart';
+
+import '../state/surah_settings_state.dart';
 
 class SurahSettings extends StatelessWidget {
   const SurahSettings({
     super.key,
   });
-
 
   @override
   Widget build(BuildContext context) {

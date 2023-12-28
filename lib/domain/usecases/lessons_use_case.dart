@@ -1,5 +1,5 @@
-import 'package:majmua/domain/entities/lesson_entity.dart';
-import 'package:majmua/domain/repository/lessons_repository.dart';
+import '../entities/lesson_entity.dart';
+import '../repository/lessons_repository.dart';
 
 class LessonsUseCase {
 

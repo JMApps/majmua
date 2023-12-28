@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/styles/app_styles.dart';
+
+import '../../core/styles/app_styles.dart';
 
 class InfoDataText extends StatelessWidget {
   const InfoDataText({

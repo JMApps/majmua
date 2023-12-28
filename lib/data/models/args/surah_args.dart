@@ -2,7 +2,7 @@ class SurahArgs {
   final int surahNumber;
   final String surahName;
 
-  SurahArgs({
+  const SurahArgs({
     required this.surahNumber,
     required this.surahName,
   });

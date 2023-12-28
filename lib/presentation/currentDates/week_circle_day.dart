@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:provider/provider.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
+
+import '../state/rest_time_state.dart';
 
 class WeekCircleDay extends StatelessWidget {
   const WeekCircleDay({

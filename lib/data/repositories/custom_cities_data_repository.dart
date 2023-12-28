@@ -1,9 +1,10 @@
-import 'package:majmua/data/models/custom_city_model.dart';
-import 'package:majmua/data/services/local/custom_cities_database_service.dart';
-import 'package:majmua/domain/entities/custom_city_entity.dart';
-import 'package:majmua/domain/repository/custom_cities_repository.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqflite.dart' as sql;
+
+import '../../domain/entities/custom_city_entity.dart';
+import '../../domain/repository/custom_cities_repository.dart';
+import '../models/custom_city_model.dart';
+import '../services/local/custom_cities_database_service.dart';
 
 class CustomCitiesDataRepository implements CustomCitiesRepository {
   final CustomCitiesDatabaseService _databaseService = CustomCitiesDatabaseService();

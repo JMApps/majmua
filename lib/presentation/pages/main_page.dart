@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:majmua/core/routes/route_names.dart';
-import 'package:majmua/core/strings/app_constraints.dart';
-import 'package:majmua/core/strings/app_strings.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/data/services/notification_service.dart';
-import 'package:majmua/presentation/lists/main_widgets_list.dart';
-import 'package:majmua/presentation/state/adhan_time_state.dart';
-import 'package:majmua/presentation/state/app_settings_state.dart';
-import 'package:majmua/presentation/state/notifications_state.dart';
-import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:provider/provider.dart';
+
+import '../../core/routes/route_names.dart';
+import '../../core/strings/app_constraints.dart';
+import '../../core/strings/app_strings.dart';
+import '../../data/services/notification_service.dart';
+import '../lists/main_widgets_list.dart';
+import '../state/adhan_time_state.dart';
+import '../state/app_settings_state.dart';
+import '../state/notifications_state.dart';
+import '../state/rest_time_state.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -146,7 +147,8 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
           id: AppConstraints.fastThursdayNotificationID,
           title: appLocale!.remind,
           body: appLocale.fastThursdayTime,
-          dateTime: fixed20Time.add(Duration(days: restTimeState.getDaysUntilNextWednesday)),
+          dateTime: fixed20Time
+              .add(Duration(days: restTimeState.getDaysUntilNextWednesday)),
         );
       }
     } else {
@@ -174,7 +176,8 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
         id: AppConstraints.fridayNotificationID,
         title: appLocale!.remind,
         body: appLocale.fridayTime,
-        dateTime: fixed20Time.add(Duration(days: restTimeState.getDaysUntilNextThursday)),
+        dateTime: fixed20Time
+            .add(Duration(days: restTimeState.getDaysUntilNextThursday)),
       );
     }
     if (notificationsState.lastHourFridayNotification) {
@@ -198,7 +201,8 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
             'assets/pictures/${AppStrings.backgroundPictureNames[Provider.of<AppSettingsState>(context).getBackgroundPictureIndex]}',
           ),
           fit: BoxFit.cover,
-          opacity: Theme.of(context).brightness == Brightness.dark ? 0.20 : 0.75,
+          opacity:
+              Theme.of(context).brightness == Brightness.dark ? 0.20 : 0.75,
         ),
       ),
       child: Scaffold(
@@ -206,7 +210,10 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
         body: CustomScrollView(
           slivers: [
             SliverAppBar(
-              backgroundColor: appColors.primaryDark.withOpacity(Theme.of(context).brightness == Brightness.dark ? 0.75 : 0.55),
+              backgroundColor: appColors.primaryDark.withOpacity(
+                  Theme.of(context).brightness == Brightness.dark
+                      ? 0.75
+                      : 0.55),
               title: Text(
                 appLocale!.appName,
                 textAlign: TextAlign.center,

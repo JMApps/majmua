@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:square_progress_indicator/square_progress_indicator.dart';
+
+import '../../core/styles/app_styles.dart';
 
 class YearMonthDayCard extends StatelessWidget {
   const YearMonthDayCard({

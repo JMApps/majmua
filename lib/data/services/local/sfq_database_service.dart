@@ -22,7 +22,7 @@ class SFQDatabaseService {
         ? await getExternalStorageDirectory()
         : await getApplicationSupportDirectory();
 
-    const String databaseName = 'supplications_from_quran_5.db';
+    const String databaseName = 'supplications_5.db';
 
     String path = join(documentDirectory!.path, databaseName);
     var exists = await databaseExists(path);

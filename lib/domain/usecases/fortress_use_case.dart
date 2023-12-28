@@ -1,7 +1,8 @@
-import 'package:majmua/domain/entities/chapter_fortress_entity.dart';
-import 'package:majmua/domain/entities/footnote_fortress_entity.dart';
-import 'package:majmua/domain/entities/supplication_fortress_entity.dart';
-import 'package:majmua/domain/repository/fortress_repository.dart';
+
+import '../entities/chapter_fortress_entity.dart';
+import '../entities/footnote_fortress_entity.dart';
+import '../entities/supplication_fortress_entity.dart';
+import '../repository/fortress_repository.dart';
 
 class FortressUseCase {
   FortressUseCase(this._fortressRepository);

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/presentation/majmuaButtons/surah_item.dart';
+
+import '../../core/styles/app_styles.dart';
+import 'surah_item.dart';
 
 class SurahsList extends StatelessWidget {
   const SurahsList({super.key});

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/strings/app_strings.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/state/app_counter_state.dart';
 import 'package:provider/provider.dart';
+
+import '../../core/strings/app_strings.dart';
+import '../../core/styles/app_styles.dart';
+import '../state/app_counter_state.dart';
 
 class CounterValuesDropbutton extends StatelessWidget {
   const CounterValuesDropbutton({super.key});
@@ -39,7 +40,8 @@ class CounterValuesDropbutton extends StatelessWidget {
                 onChanged: (String? value) {
                   appCounterState.setCountValuesIndex = AppStrings.getCounterValues(locale: appLocale.localeName).indexOf(value!);
                 },
-                items: AppStrings.getCounterValues(locale: appLocale.localeName).map<DropdownMenuItem<String>>((dynamic value) {
+                items: AppStrings.getCounterValues(locale: appLocale.localeName).map<DropdownMenuItem<String>>(
+                  (dynamic value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Center(

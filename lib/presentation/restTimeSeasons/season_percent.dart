@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/strings/app_strings.dart';
-import 'package:majmua/presentation/restTimeSeasons/season_name_text.dart';
 import 'package:square_progress_indicator/square_progress_indicator.dart';
+
+import '../../core/strings/app_strings.dart';
+import 'season_name_text.dart';
 
 class SeasonPercent extends StatelessWidget {
   const SeasonPercent({
@@ -44,8 +45,9 @@ class SeasonPercent extends StatelessWidget {
           image: DecorationImage(
             image: AssetImage('assets/pictures/${AppStrings.seasonNames[3]}'),
             fit: BoxFit.cover,
-            opacity: Theme.of(context).brightness == Brightness.light ? 0.85 : 0.5,
-          )
+            opacity:
+                Theme.of(context).brightness == Brightness.light ? 0.85 : 0.5,
+          ),
         ),
         child: SeasonNameText(
           seasonName: season,

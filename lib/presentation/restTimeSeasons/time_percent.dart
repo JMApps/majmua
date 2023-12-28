@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
+
+import '../../core/styles/app_styles.dart';
 
 class TimePercent extends StatelessWidget {
   const TimePercent({
@@ -29,10 +30,7 @@ class TimePercent extends StatelessWidget {
       width: screenWidth * 0.22,
       height: screenWidth * 0.22,
       padding: AppStyles.mainMardingMicro,
-      decoration: BoxDecoration(
-        color: appColors.glass,
-        shape: BoxShape.circle
-      ),
+      decoration: BoxDecoration(color: appColors.glass, shape: BoxShape.circle),
       child: SleekCircularSlider(
         initialValue: percent,
         appearance: CircularSliderAppearance(

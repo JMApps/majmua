@@ -1,6 +1,6 @@
-import 'package:majmua/domain/entities/ayah_entity.dart';
-import 'package:majmua/domain/entities/clarification_entity.dart';
-import 'package:majmua/domain/entities/name_entity.dart';
+import '../entities/ayah_entity.dart';
+import '../entities/clarification_entity.dart';
+import '../entities/name_entity.dart';
 
 abstract class NamesOfRepository {
   Future<List<NameEntity>> getAllNames();

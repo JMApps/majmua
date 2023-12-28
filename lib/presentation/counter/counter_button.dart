@@ -1,11 +1,12 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/state/app_counter_state.dart';
 import 'package:provider/provider.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
+
+import '../../core/styles/app_styles.dart';
+import '../state/app_counter_state.dart';
 
 class CounterButton extends StatelessWidget {
   const CounterButton({super.key});

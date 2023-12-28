@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/routes/route_names.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/data/models/args/surah_args.dart';
+
+import '../../core/routes/route_names.dart';
+import '../../core/styles/app_styles.dart';
+import '../../data/models/args/surah_args.dart';
 
 class SurahItem extends StatelessWidget {
   const SurahItem({

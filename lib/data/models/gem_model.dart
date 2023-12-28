@@ -2,7 +2,7 @@ class GemModel {
   final int id;
   final String citation;
 
-  GemModel({
+  const GemModel({
     required this.id,
     required this.citation,
   });

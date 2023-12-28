@@ -1,5 +1,5 @@
-import 'package:majmua/domain/entities/raqaiq_entity.dart';
-import 'package:majmua/domain/repository/raqaiq_repository.dart';
+import '../entities/raqaiq_entity.dart';
+import '../repository/raqaiq_repository.dart';
 
 class RaqaiqUseCase {
   RaqaiqUseCase(this._raqaiqRepository);

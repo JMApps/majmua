@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/currentDates/white_day_circle.dart';
-import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:provider/provider.dart';
+
+import '../../core/styles/app_styles.dart';
+import '../state/rest_time_state.dart';
+import 'white_day_circle.dart';
 
 class MainWhiteDaysCard extends StatelessWidget {
   const MainWhiteDaysCard({super.key});

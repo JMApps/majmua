@@ -1,8 +1,7 @@
-import 'package:majmua/domain/entities/hadeeth_entity.dart';
-import 'package:majmua/domain/repository/hadeeths_repository.dart';
+import '../entities/hadeeth_entity.dart';
+import '../repository/hadeeths_repository.dart';
 
 class HadeethsUseCase {
-
   HadeethsUseCase(this._hadeethsRepository);
 
   final HadeethsRepository _hadeethsRepository;

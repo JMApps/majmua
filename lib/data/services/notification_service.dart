@@ -9,8 +9,7 @@ import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/timezone.dart';
 
 class NotificationService {
-  static final NotificationService _localNoticeService =
-      NotificationService._internal();
+  static final NotificationService _localNoticeService = NotificationService._internal();
 
   factory NotificationService() {
     return _localNoticeService;
@@ -20,11 +19,9 @@ class NotificationService {
 
   static const String _logoName = '@drawable/sm_logo';
 
-  final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
+  final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
-  final AndroidNotificationDetails _androidPrayerNotificationDetails =
-      const AndroidNotificationDetails(
+  final AndroidNotificationDetails _androidPrayerNotificationDetails = const AndroidNotificationDetails(
     'Daily prayer notification channel ID',
     'Prayer notifications',
     channelDescription: 'Daily prayer notifications',
@@ -35,14 +32,12 @@ class NotificationService {
     sound: RawResourceAndroidNotificationSound('adhan'),
   );
 
-  final DarwinNotificationDetails _iOSPrayerNotificationDetails =
-      const DarwinNotificationDetails(
+  final DarwinNotificationDetails _iOSPrayerNotificationDetails = const DarwinNotificationDetails(
     presentSound: true,
     sound: 'adhan.caf',
   );
 
-  final AndroidNotificationDetails _androidTimeNotificationDetails =
-      const AndroidNotificationDetails(
+  final AndroidNotificationDetails _androidTimeNotificationDetails = const AndroidNotificationDetails(
     'Time notification channel ID',
     'Time notifications',
     channelDescription: 'Time notifications',
@@ -51,11 +46,9 @@ class NotificationService {
     priority: Priority.max,
   );
 
-  final DarwinNotificationDetails _iOSTimeNotificationDetails =
-      const DarwinNotificationDetails();
+  final DarwinNotificationDetails _iOSTimeNotificationDetails = const DarwinNotificationDetails();
 
-  final AndroidNotificationDetails _androidDayNotificationDetails =
-      const AndroidNotificationDetails(
+  final AndroidNotificationDetails _androidDayNotificationDetails = const AndroidNotificationDetails(
     'Day notification channel ID',
     'Day notifications',
     channelDescription: 'Day notifications',
@@ -67,8 +60,7 @@ class NotificationService {
   final DarwinNotificationDetails _iOSDayNotificationDetails =
       const DarwinNotificationDetails();
 
-  final AndroidNotificationDetails _androidMonthNotificationDetails =
-      const AndroidNotificationDetails(
+  final AndroidNotificationDetails _androidMonthNotificationDetails = const AndroidNotificationDetails(
     'Month notification channel ID',
     'Month notifications',
     channelDescription: 'Month notifications',
@@ -100,6 +92,7 @@ class NotificationService {
     );
   }
 
+  // Попробовать решить
   void onDidReceiveNotificationResponse(NotificationResponse notificationResponse) async {
     final String? payload = notificationResponse.payload;
     if (notificationResponse.payload != null) {
@@ -121,7 +114,7 @@ class NotificationService {
         ),
         androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
         matchDateTimeComponents: DateTimeComponents.time,
-        payload: 'ВОТ ЖЕ',
+        payload: title,
         uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
       );
     } on PlatformException catch (e) {

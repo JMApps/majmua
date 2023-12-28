@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/routes/app_routes.dart';
-import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/pages/main_page.dart';
-import 'package:majmua/presentation/state/app_settings_state.dart';
 import 'package:provider/provider.dart';
+
+import '../../core/routes/app_routes.dart';
+import '../../core/themes/app_themes.dart';
+import '../state/app_settings_state.dart';
+import 'main_page.dart';
 
 class RootPage extends StatelessWidget {
   const RootPage({super.key});

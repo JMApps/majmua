@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/routes/route_names.dart';
-import 'package:majmua/core/styles/app_styles.dart';
-import 'package:majmua/presentation/majmuaButtons/book_item.dart';
+
+import '../../core/routes/route_names.dart';
+import '../../core/styles/app_styles.dart';
+import 'book_item.dart';
 
 class BooksList extends StatelessWidget {
   const BooksList({super.key});

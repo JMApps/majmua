@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/fortress/fortress_footnote.dart';
+
+import 'fortress_footnote.dart';
 
 class FortressHtmlText extends StatelessWidget {
   const FortressHtmlText({

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/presentation/library/strength/strength_page.dart';
 
 import '../../data/models/args/supplication_args.dart';
 import '../../data/models/args/surah_args.dart';
@@ -17,6 +16,7 @@ import '../../presentation/library/lessons/lessons_page.dart';
 import '../../presentation/library/namesOf/names_of_page.dart';
 import '../../presentation/library/questions/questions_page.dart';
 import '../../presentation/library/raqaiq/raqaiq_page.dart';
+import '../../presentation/library/strength/strength_page.dart';
 import '../../presentation/notifications/notification_settings_page.dart';
 import '../../presentation/settings/app_settings_page.dart';
 import '../../presentation/sfq/sfq_page.dart';

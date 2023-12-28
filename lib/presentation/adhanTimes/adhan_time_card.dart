@@ -2,14 +2,15 @@ import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
-import 'package:majmua/core/routes/route_names.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/data/models/args/supplication_args.dart';
-import 'package:majmua/presentation/adhanTimes/models/prayer_model.dart';
 import 'package:majmua/presentation/adhanTimes/supplication_is_show.dart';
-import 'package:majmua/presentation/state/adhan_time_state.dart';
 import 'package:provider/provider.dart';
+
+import '../../core/routes/route_names.dart';
+import '../../core/styles/app_styles.dart';
+import '../../data/models/args/supplication_args.dart';
+import '../state/adhan_time_state.dart';
+import 'models/prayer_model.dart';
 
 class AdhanTimeCard extends StatelessWidget {
   const AdhanTimeCard({
@@ -160,7 +161,7 @@ class AdhanTimeCard extends StatelessWidget {
                               Navigator.pushNamed(
                                 context,
                                 RouteNames.fortressContentPage,
-                                arguments: SupplicationArgs(chapterId: 15),
+                                arguments: const SupplicationArgs(chapterId: 15),
                               );
                             },
                             borderRadius: AppStyles.mainBorderRadius,

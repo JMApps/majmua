@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/routes/route_names.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/data/models/args/supplication_args.dart';
-import 'package:majmua/domain/entities/chapter_fortress_entity.dart';
-import 'package:majmua/presentation/fortress/fortress_html_text.dart';
+
+import '../../core/routes/route_names.dart';
+import '../../core/styles/app_styles.dart';
+import '../../data/models/args/supplication_args.dart';
+import '../../domain/entities/chapter_fortress_entity.dart';
+import 'fortress_html_text.dart';
 
 class ChapterItem extends StatelessWidget {
   const ChapterItem({

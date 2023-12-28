@@ -3,14 +3,15 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/enums/app_theme.dart';
-import 'package:majmua/core/strings/app_strings.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/state/app_settings_state.dart';
-import 'package:majmua/presentation/widgets/user_back_button.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../core/enums/app_theme.dart';
+import '../../core/strings/app_strings.dart';
+import '../../core/styles/app_styles.dart';
+import '../state/app_settings_state.dart';
+import '../widgets/user_back_button.dart';
 
 class AppSettingsPage extends StatelessWidget {
   const AppSettingsPage({super.key});
@@ -92,8 +93,7 @@ class AppSettingsPage extends StatelessWidget {
                           child: settings.getBackgroundPictureIndex == index
                               ? CircleAvatar(
                                   radius: screenWidth * 0.05,
-                                  backgroundColor:
-                                      appColors.primary.withOpacity(0.5),
+                                  backgroundColor: appColors.primary.withOpacity(0.5),
                                   child: Icon(
                                     CupertinoIcons.checkmark_circle,
                                     color: appColors.surface,
@@ -119,8 +119,7 @@ class AppSettingsPage extends StatelessWidget {
                   value: settings.getAlwaysDisplay,
                   contentPadding: AppStyles.mardingHorizontalMini,
                   shape: AppStyles.mainShapeMini,
-                  visualDensity:
-                      const VisualDensity(horizontal: -4, vertical: -4),
+                  visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
                   activeColor: appColors.quaternaryColor,
                   onChanged: (bool onChanged) {
                     settings.setAlwaysDisplay = onChanged;
@@ -139,8 +138,7 @@ class AppSettingsPage extends StatelessWidget {
                     ? ListTile(
                         onTap: () {
                           _launchUrl(
-                              link:
-                                  'https://apps.apple.com/ru/developer/imanil-binyaminov/id1564920953');
+                              link: 'https://apps.apple.com/ru/developer/imanil-binyaminov/id1564920953');
                         },
                         title: Text(appLocale.otherApp),
                         leading: Image.asset('assets/icons/appstore.png'),
@@ -152,14 +150,12 @@ class AppSettingsPage extends StatelessWidget {
                         ),
                         contentPadding: AppStyles.mardingHorizontalMini,
                         shape: AppStyles.mainShapeMini,
-                        visualDensity:
-                            const VisualDensity(horizontal: -4, vertical: -4),
+                        visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
                       )
                     : ListTile(
                         onTap: () {
                           _launchUrl(
-                              link:
-                                  'https://play.google.com/store/apps/dev?id=8649252597553656018');
+                              link: 'https://play.google.com/store/apps/dev?id=8649252597553656018');
                         },
                         title: Text(appLocale.otherApp),
                         leading: Image.asset('assets/icons/google-play.png'),
@@ -233,7 +229,8 @@ class AppSettingsPage extends StatelessWidget {
                   ),
                   contentPadding: AppStyles.mardingHorizontalMini,
                   shape: AppStyles.mainShapeMini,
-                  visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
+                  visualDensity:
+                      const VisualDensity(horizontal: -4, vertical: -4),
                 ),
                 const Divider(indent: 16, endIndent: 16),
               ],

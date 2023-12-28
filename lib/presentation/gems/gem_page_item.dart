@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/styles/app_styles.dart';
+import 'package:html/parser.dart' show parse;
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/domain/entities/gem_entity.dart';
-import 'package:majmua/presentation/fortress/fortress_html_text.dart';
-import 'package:majmua/presentation/state/gems_settings_state.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:html/parser.dart' show parse;
+
+import '../../core/styles/app_styles.dart';
+import '../../domain/entities/gem_entity.dart';
+import '../fortress/fortress_html_text.dart';
+import '../state/gems_settings_state.dart';
 
 class GemPageItem extends StatelessWidget {
   const GemPageItem({

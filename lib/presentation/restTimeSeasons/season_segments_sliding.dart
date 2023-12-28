@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/enums/season.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/restTimeSeasons/season_name_text.dart';
-import 'package:majmua/presentation/restTimeSeasons/season_percent.dart';
-import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:provider/provider.dart';
+
+import '../../core/enums/season.dart';
+import '../../core/styles/app_styles.dart';
+import '../state/rest_time_state.dart';
+import 'season_name_text.dart';
+import 'season_percent.dart';
 
 class SeasonSegmentsSliding extends StatelessWidget {
   const SeasonSegmentsSliding({super.key});

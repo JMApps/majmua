@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/strings/app_strings.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/currentDates/friday_sunnahs_tile.dart';
-import 'package:majmua/presentation/currentDates/main_white_days_card.dart';
-import 'package:majmua/presentation/currentDates/week_days_row.dart';
-import 'package:majmua/presentation/currentDates/year_month_day_card.dart';
-import 'package:majmua/presentation/restHolidays/rest_holidays_card.dart';
-import 'package:majmua/presentation/state/adhan_time_state.dart';
-import 'package:majmua/presentation/state/rest_time_state.dart';
-import 'package:majmua/presentation/state/salawat_counter_state.dart';
 import 'package:provider/provider.dart';
+
+import '../../core/strings/app_strings.dart';
+import '../../core/styles/app_styles.dart';
+import '../restHolidays/rest_holidays_card.dart';
+import '../state/adhan_time_state.dart';
+import '../state/rest_time_state.dart';
+import '../state/salawat_counter_state.dart';
+import 'friday_sunnahs_tile.dart';
+import 'main_white_days_card.dart';
+import 'week_days_row.dart';
+import 'year_month_day_card.dart';
 
 class MainCurrentDatesCard extends StatelessWidget {
   const MainCurrentDatesCard({super.key});

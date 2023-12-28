@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/strings/app_strings.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/data/models/model_friday.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../../core/strings/app_strings.dart';
+import '../../core/styles/app_styles.dart';
+import '../../data/models/model_friday.dart';
 
 class FridaySunnahsTile extends StatefulWidget {
   const FridaySunnahsTile({super.key});
@@ -59,7 +60,7 @@ class _FridaySunnahsTileState extends State<FridaySunnahsTile> {
                                 'assets/icons/friday_icon_${index + 1}.png',
                                 height: screenWidth * 0.30,
                                 width: screenWidth * 0.30,
-                                color:appColors.secondaryColor,
+                                color: appColors.secondaryColor,
                               ),
                               ListTile(
                                 title: Text(

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/restHolidays/to_adha_days_circle.dart';
-import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:provider/provider.dart';
+
+import '../../core/styles/app_styles.dart';
+import '../state/rest_time_state.dart';
+import 'to_adha_days_circle.dart';
 
 class RestHolidaysCard extends StatelessWidget {
   const RestHolidaysCard({super.key});
@@ -69,7 +70,9 @@ class RestHolidaysCard extends StatelessWidget {
             Card(
               margin: EdgeInsets.zero,
               color: appColors.glass,
-              shape: !timeState.isNineDays ? AppStyles.bottomShapeMini : AppStyles.mainShapeMicro,
+              shape: !timeState.isNineDays
+                  ? AppStyles.bottomShapeMini
+                  : AppStyles.mainShapeMicro,
               child: Padding(
                 padding: AppStyles.mainMardingMicro,
                 child: Row(

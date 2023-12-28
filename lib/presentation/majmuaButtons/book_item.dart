@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/styles/app_styles.dart';
+
+import '../../core/styles/app_styles.dart';
 
 class BookItem extends StatelessWidget {
   const BookItem({

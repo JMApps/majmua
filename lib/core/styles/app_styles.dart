@@ -115,6 +115,7 @@ class AppStyles {
   static const mainBorderRadius = BorderRadius.all(Radius.circular(20));
   static const mainBorderRadiusMini = BorderRadius.all(Radius.circular(15));
   static const mainBorderRadiusMicro = BorderRadius.all(Radius.circular(7.5));
+
   static const leftBottomBorderRadiusMicro = BorderRadius.only(
     topLeft: Radius.circular(7.5),
     bottomLeft: Radius.circular(15),

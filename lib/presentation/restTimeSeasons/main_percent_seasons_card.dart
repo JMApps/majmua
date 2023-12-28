@@ -1,10 +1,11 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/restTimeSeasons/season_segments_sliding.dart';
-import 'package:majmua/presentation/restTimeSeasons/time_circles_row.dart';
+
+import '../../core/styles/app_styles.dart';
+import 'season_segments_sliding.dart';
+import 'time_circles_row.dart';
 
 class MainPercentSeasonsCard extends StatelessWidget {
   const MainPercentSeasonsCard({super.key});
@@ -26,19 +27,16 @@ class MainPercentSeasonsCard extends StatelessWidget {
               shape: AppStyles.topShapeMini,
               child: Padding(
                 padding: AppStyles.mainMardingMicro,
-                child: AnimatedTextKit(
-                  totalRepeatCount: 1,
-                  animatedTexts: [
-                    TyperAnimatedText(
-                      appLocale!.appSlogan,
-                      textAlign: TextAlign.center,
-                      textStyle: TextStyle(
-                        fontSize: screenWidth * 0.04,
-                        fontWeight: FontWeight.bold,
-                      ),
+                child: AnimatedTextKit(totalRepeatCount: 1, animatedTexts: [
+                  TyperAnimatedText(
+                    appLocale!.appSlogan,
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(
+                      fontSize: screenWidth * 0.04,
+                      fontWeight: FontWeight.bold,
                     ),
-                  ]
-                ),
+                  ),
+                ]),
               ),
             ),
             SizedBox(height: screenWidth * 0.02),

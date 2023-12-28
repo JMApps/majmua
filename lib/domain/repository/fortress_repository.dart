@@ -1,6 +1,6 @@
-import 'package:majmua/domain/entities/chapter_fortress_entity.dart';
-import 'package:majmua/domain/entities/footnote_fortress_entity.dart';
-import 'package:majmua/domain/entities/supplication_fortress_entity.dart';
+import '../entities/chapter_fortress_entity.dart';
+import '../entities/footnote_fortress_entity.dart';
+import '../entities/supplication_fortress_entity.dart';
 
 abstract class FortressRepository {
   Future<List<ChapterFortressEntity>> getAllChapters({required String tableName});

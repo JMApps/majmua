@@ -1,7 +1,7 @@
-import 'package:majmua/domain/entities/ayah_entity.dart';
-import 'package:majmua/domain/entities/clarification_entity.dart';
-import 'package:majmua/domain/entities/name_entity.dart';
-import 'package:majmua/domain/repository/names_of_repository.dart';
+import '../entities/ayah_entity.dart';
+import '../entities/clarification_entity.dart';
+import '../entities/name_entity.dart';
+import '../repository/names_of_repository.dart';
 
 class NamesOfUseCase {
   NamesOfUseCase(this._namesOfRepository);

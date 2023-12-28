@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/fortress/fortress_list.dart';
-import 'package:majmua/presentation/fortress/fortress_page_list.dart';
-import 'package:majmua/presentation/fortress/fortress_settings.dart';
-import 'package:majmua/presentation/state/fortress_settings_state.dart';
 import 'package:provider/provider.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+
+import '../../core/styles/app_styles.dart';
+import '../state/fortress_settings_state.dart';
+import 'fortress_list.dart';
+import 'fortress_page_list.dart';
+import 'fortress_settings.dart';
 
 class FortressContentPage extends StatefulWidget {
   const FortressContentPage({

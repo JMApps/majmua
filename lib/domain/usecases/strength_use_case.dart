@@ -1,7 +1,6 @@
-import 'package:majmua/domain/entities/strength_entity.dart';
-import 'package:majmua/domain/repository/strength_repository.dart';
-
+import '../entities/strength_entity.dart';
 import '../entities/strength_footnote_entity.dart';
+import '../repository/strength_repository.dart';
 
 class StrengthUseCase {
   StrengthUseCase(this._strengthRepository);

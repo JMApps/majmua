@@ -3,8 +3,9 @@ import 'dart:async';
 import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:majmua/core/strings/app_constraints.dart';
-import 'package:majmua/core/strings/app_strings.dart';
+
+import '../../core/strings/app_constraints.dart';
+import '../../core/strings/app_strings.dart';
 
 class AdhanTimeState extends ChangeNotifier {
   final Box _mainSettingsBox = Hive.box(AppConstraints.keySettingsPrayerTimeBox);
@@ -34,11 +35,12 @@ class AdhanTimeState extends ChangeNotifier {
 
   AdhanTimeState() {
     timer = Timer(
-      Duration(seconds: (_dateTime.second - 60).abs()), () {
+      Duration(seconds: (_dateTime.second - 60).abs()),
+      () {
         _updateDateTime();
         timer = Timer.periodic(
           const Duration(minutes: 1),
-              (_) {
+          (_) {
             _updateDateTime();
           },
         );
@@ -196,19 +198,26 @@ class AdhanTimeState extends ChangeNotifier {
   }
 
   // Prayers value in minutes
-  int get getFajrValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.fajr);
+  int get getFajrValueInMinutes =>
+      _prayerValueInMinutes(prayerTime: _prayerTimes.fajr);
 
-  int get getSunriseValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.sunrise);
+  int get getSunriseValueInMinutes =>
+      _prayerValueInMinutes(prayerTime: _prayerTimes.sunrise);
 
-  int get getDhuhrValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.dhuhr);
+  int get getDhuhrValueInMinutes =>
+      _prayerValueInMinutes(prayerTime: _prayerTimes.dhuhr);
 
-  int get getAsrValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.asr);
+  int get getAsrValueInMinutes =>
+      _prayerValueInMinutes(prayerTime: _prayerTimes.asr);
 
-  int get getMaghribValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.maghrib);
+  int get getMaghribValueInMinutes =>
+      _prayerValueInMinutes(prayerTime: _prayerTimes.maghrib);
 
-  int get getIshaValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.isha);
+  int get getIshaValueInMinutes =>
+      _prayerValueInMinutes(prayerTime: _prayerTimes.isha);
 
-  int get getMidnightValueInMinutes => _prayerValueInMinutes(prayerTime: _sunnahTimes.middleOfTheNight);
+  int get getMidnightValueInMinutes =>
+      _prayerValueInMinutes(prayerTime: _sunnahTimes.middleOfTheNight);
 
   int _prayerValueInMinutes({required DateTime prayerTime}) {
     final DateTime fromZero = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 0);

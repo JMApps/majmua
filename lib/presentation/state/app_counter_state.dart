@@ -221,10 +221,4 @@ class AppCounterState extends ChangeNotifier {
     _counterValueBox.put(AppConstraints.keyCounterThirdValue, _thirdCounts);
     notifyListeners();
   }
-
-  @override
-  void dispose() {
-    // Решить закрытие и открытие hive box
-    super.dispose();
-  }
 }

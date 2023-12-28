@@ -1,5 +1,5 @@
-import 'package:majmua/domain/entities/sfq_entity.dart';
-import 'package:majmua/domain/repository/sfq_repository.dart';
+import '../entities/sfq_entity.dart';
+import '../repository/sfq_repository.dart';
 
 class SFQUseCase {
 

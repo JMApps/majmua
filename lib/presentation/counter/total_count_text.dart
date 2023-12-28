@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/state/app_counter_state.dart';
 import 'package:provider/provider.dart';
+
+import '../../core/styles/app_styles.dart';
+import '../state/app_counter_state.dart';
 
 class TotalCountText extends StatelessWidget {
   const TotalCountText({super.key});
@@ -32,11 +33,10 @@ class TotalCountText extends StatelessWidget {
                       ? appCounterState.getTotalCountValue.toString()
                       : '',
                   style: TextStyle(
-                    color: appColors.secondaryColor,
-                    fontFamily: 'Bitter',
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 0.5
-                  ),
+                      color: appColors.secondaryColor,
+                      fontFamily: 'Bitter',
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 0.5),
                 ),
               ],
             ),

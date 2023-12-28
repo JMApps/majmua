@@ -1,11 +1,11 @@
-import 'package:majmua/data/services/local/strength_database_service.dart';
-import 'package:majmua/domain/repository/strength_repository.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../../domain/entities/strength_entity.dart';
 import '../../domain/entities/strength_footnote_entity.dart';
+import '../../domain/repository/strength_repository.dart';
 import '../models/strength_footnote_model.dart';
 import '../models/strength_model.dart';
+import '../services/local/strength_database_service.dart';
 
 class StrengthDataRepository implements StrengthRepository {
   final StrengthDatabaseService _databaseService = StrengthDatabaseService();

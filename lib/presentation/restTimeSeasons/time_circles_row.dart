@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/restTimeSeasons/time_percent.dart';
-import 'package:majmua/presentation/state/rest_time_state.dart';
 import 'package:provider/provider.dart';
+
+import '../state/rest_time_state.dart';
+import 'time_percent.dart';
 
 class TimeCircleRow extends StatelessWidget {
   const TimeCircleRow({super.key});
@@ -39,12 +40,11 @@ class TimeCircleRow extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: TimePercent(
-                time: appLocale.year,
-                timeColor: appColors.secondaryColor,
-                percent: restTimeState.getElapsedYearPercentage(),
-              )
-            ),
+                child: TimePercent(
+              time: appLocale.year,
+              timeColor: appColors.secondaryColor,
+              percent: restTimeState.getElapsedYearPercentage(),
+            )),
           ],
         );
       },

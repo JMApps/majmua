@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/strings/app_constraints.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/data/repositories/fortress_data_repository.dart';
-import 'package:majmua/domain/entities/chapter_fortress_entity.dart';
-import 'package:majmua/domain/entities/supplication_fortress_entity.dart';
-import 'package:majmua/domain/usecases/fortress_use_case.dart';
-import 'package:majmua/presentation/fortress/fortress_html_text.dart';
 import 'package:majmua/presentation/fortress/supplication_page_item.dart';
-import 'package:majmua/presentation/widgets/error_data_text.dart';
-import 'package:majmua/presentation/widgets/user_back_button.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../../core/strings/app_constraints.dart';
+import '../../core/styles/app_styles.dart';
+import '../../data/repositories/fortress_data_repository.dart';
+import '../../domain/entities/chapter_fortress_entity.dart';
+import '../../domain/entities/supplication_fortress_entity.dart';
+import '../../domain/usecases/fortress_use_case.dart';
+import '../widgets/error_data_text.dart';
+import '../widgets/user_back_button.dart';
+import 'fortress_html_text.dart';
 
 class FortressPageList extends StatefulWidget {
   const FortressPageList({
@@ -28,8 +29,7 @@ class FortressPageList extends StatefulWidget {
 }
 
 class _FortressPageListState extends State<FortressPageList> {
-  final FortressUseCase _fortressUseCase =
-      FortressUseCase(FortressDataRepository());
+  final FortressUseCase _fortressUseCase = FortressUseCase(FortressDataRepository());
   final PageController _supplicationsPageController = PageController();
 
   @override
@@ -118,8 +118,7 @@ class _FortressPageListState extends State<FortressPageList> {
                                   count: snapshot.data!.length,
                                   effect: ScrollingDotsEffect(
                                     maxVisibleDots: 5,
-                                    dotColor: appColors.quaternaryColor
-                                        .withOpacity(0.35),
+                                    dotColor: appColors.quaternaryColor.withOpacity(0.35),
                                     activeDotColor: appColors.quaternaryColor,
                                     dotWidth: 12,
                                     dotHeight: 6,

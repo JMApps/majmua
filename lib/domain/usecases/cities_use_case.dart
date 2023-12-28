@@ -1,5 +1,5 @@
-import 'package:majmua/domain/entities/city_entity.dart';
-import 'package:majmua/domain/repository/cities_repository.dart';
+import '../entities/city_entity.dart';
+import '../repository/cities_repository.dart';
 
 class CitiesUseCase {
   CitiesUseCase(this._citiesRepository);

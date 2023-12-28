@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:majmua/core/enums/app_theme.dart';
-import 'package:majmua/core/strings/app_constraints.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
-class AppSettingsState extends ChangeNotifier {
+import '../../core/enums/app_theme.dart';
+import '../../core/strings/app_constraints.dart';
 
+class AppSettingsState extends ChangeNotifier {
   final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainSettings);
 
   AppSettingsState() {

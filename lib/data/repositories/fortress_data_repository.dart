@@ -1,19 +1,20 @@
-import 'package:majmua/data/models/chapter_fortress_model.dart';
-import 'package:majmua/data/models/footnote_fortress_model.dart';
-import 'package:majmua/data/models/supplication_fortress_model.dart';
-import 'package:majmua/data/services/local/fortress_database_service.dart';
-import 'package:majmua/domain/entities/chapter_fortress_entity.dart';
-import 'package:majmua/domain/entities/footnote_fortress_entity.dart';
-import 'package:majmua/domain/entities/supplication_fortress_entity.dart';
-import 'package:majmua/domain/repository/fortress_repository.dart';
 import 'package:sqflite/sqflite.dart';
 
+import '../../domain/entities/chapter_fortress_entity.dart';
+import '../../domain/entities/footnote_fortress_entity.dart';
+import '../../domain/entities/supplication_fortress_entity.dart';
+import '../../domain/repository/fortress_repository.dart';
+import '../models/chapter_fortress_model.dart';
+import '../models/footnote_fortress_model.dart';
+import '../models/supplication_fortress_model.dart';
+import '../services/local/fortress_database_service.dart';
+
 class FortressDataRepository implements FortressRepository {
-  final FortressDatabaseService _fortressDatabaseService = FortressDatabaseService();
+  final FortressDatabaseService _databaseService = FortressDatabaseService();
 
   @override
   Future<List<ChapterFortressEntity>> getAllChapters({required String tableName}) async {
-    final Database database = await _fortressDatabaseService.db;
+    final Database database = await _databaseService.db;
     final List<Map<String, Object?>> resources = await database.query(tableName);
     final List<ChapterFortressEntity> allChapters = resources.isNotEmpty ? resources.map((c) => _chapterToEntity(ChapterFortressModel.fromMap(c))).toList() : [];
     return allChapters;
@@ -21,7 +22,7 @@ class FortressDataRepository implements FortressRepository {
 
   @override
   Future<ChapterFortressEntity> getChapterById({required String tableName, required int chapterId}) async {
-    final Database database = await _fortressDatabaseService.db;
+    final Database database = await _databaseService.db;
     final List<Map<String, Object?>> resources = await database.query(tableName,where: 'id = $chapterId', whereArgs: [chapterId]);
     final ChapterFortressEntity? chapterById = resources.isNotEmpty ? _chapterToEntity(ChapterFortressModel.fromMap(resources.first)) : null;
     return chapterById!;
@@ -29,7 +30,7 @@ class FortressDataRepository implements FortressRepository {
 
   @override
   Future<List<SupplicationFortressEntity>> getAllSupplications({required String tableName}) async {
-    final Database database = await _fortressDatabaseService.db;
+    final Database database = await _databaseService.db;
     final List<Map<String, Object?>> resources = await database.query(tableName);
     final List<SupplicationFortressEntity> allSupplications = resources.isNotEmpty ? resources.map((c) => _supplicationToEntity(SupplicationFortressModel.fromMap(c))).toList() : [];
     return allSupplications;
@@ -37,7 +38,7 @@ class FortressDataRepository implements FortressRepository {
 
   @override
   Future<List<SupplicationFortressEntity>> getSupplicationByChapterId({required String tableName, required int chapterId}) async {
-    final Database database = await _fortressDatabaseService.db;
+    final Database database = await _databaseService.db;
     final List<Map<String, Object?>> resources = await database.query(tableName, where: 'sample_by = $chapterId', whereArgs: [chapterId]);
     final List<SupplicationFortressEntity> supplicationsByChapterId = resources.isNotEmpty ? resources.map((c) => _supplicationToEntity(SupplicationFortressModel.fromMap(c))).toList() : [];
     return supplicationsByChapterId;
@@ -45,13 +46,13 @@ class FortressDataRepository implements FortressRepository {
 
   @override
   Future<FootnoteFortressEntity> getFootnoteById({required String tableName, required int footnoteId}) async {
-    final Database database = await _fortressDatabaseService.db;
+    final Database database = await _databaseService.db;
     final List<Map<String, Object?>> resources = await database.query(tableName, where: 'id = $footnoteId', whereArgs: [footnoteId]);
     final FootnoteFortressEntity? footnoteById = resources.isNotEmpty ? _footnoteToEntity(FootnoteFortressModel.fromMap(resources.first)) : null;
     return footnoteById!;
   }
 
-  // Mapping to entity
+  // ChapterFortressEntity to entity
   ChapterFortressEntity _chapterToEntity(ChapterFortressModel model) {
     return ChapterFortressEntity(
       id: model.id,
@@ -60,7 +61,7 @@ class FortressDataRepository implements FortressRepository {
     );
   }
 
-  // Mapping to entity
+  // SupplicationFortressEntity to entity
   SupplicationFortressEntity _supplicationToEntity(SupplicationFortressModel model) {
     return SupplicationFortressEntity(
       id: model.id,
@@ -72,7 +73,7 @@ class FortressDataRepository implements FortressRepository {
     );
   }
 
-  // Mapping to entity
+  // FootnoteFortressEntity to entity
   FootnoteFortressEntity _footnoteToEntity(FootnoteFortressModel model) {
     return FootnoteFortressEntity(
       id: model.id,

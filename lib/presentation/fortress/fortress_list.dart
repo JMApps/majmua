@@ -1,17 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/strings/app_constraints.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/data/repositories/fortress_data_repository.dart';
-import 'package:majmua/domain/entities/chapter_fortress_entity.dart';
-import 'package:majmua/domain/entities/supplication_fortress_entity.dart';
-import 'package:majmua/domain/usecases/fortress_use_case.dart';
-import 'package:majmua/presentation/fortress/fortress_html_text.dart';
-import 'package:majmua/presentation/fortress/supplication_item.dart';
-import 'package:majmua/presentation/widgets/error_data_text.dart';
-import 'package:majmua/presentation/widgets/user_back_button.dart';
+
+import '../../core/strings/app_constraints.dart';
+import '../../core/styles/app_styles.dart';
+import '../../data/repositories/fortress_data_repository.dart';
+import '../../domain/entities/chapter_fortress_entity.dart';
+import '../../domain/entities/supplication_fortress_entity.dart';
+import '../../domain/usecases/fortress_use_case.dart';
+import '../widgets/error_data_text.dart';
+import '../widgets/user_back_button.dart';
+import 'fortress_html_text.dart';
+import 'supplication_item.dart';
 
 class FortressList extends StatefulWidget {
   const FortressList({
@@ -39,7 +40,8 @@ class _FortressListState extends State<FortressList> {
         tableName: appLocale!.tableOfChapter,
         chapterId: widget.chapterId,
       ),
-      builder: (BuildContext context, AsyncSnapshot<ChapterFortressEntity> chapterSnapshot) {
+      builder: (BuildContext context,
+          AsyncSnapshot<ChapterFortressEntity> chapterSnapshot) {
         if (chapterSnapshot.hasData) {
           return Scaffold(
             appBar: AppBar(
@@ -93,8 +95,7 @@ class _FortressListState extends State<FortressList> {
                         ),
                       );
                     } else if (snapshot.hasError) {
-                      return ErrorDataText(
-                          errorText: snapshot.error.toString());
+                      return ErrorDataText(errorText: snapshot.error.toString());
                     } else {
                       return const Center(
                         child: CircularProgressIndicator.adaptive(),

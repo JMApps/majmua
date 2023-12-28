@@ -1,4 +1,5 @@
-import 'package:majmua/domain/entities/custom_city_entity.dart';
+
+import '../entities/custom_city_entity.dart';
 
 abstract class CustomCitiesRepository {
   Future<List<CustomCityEntity>> getAllCustomCities();

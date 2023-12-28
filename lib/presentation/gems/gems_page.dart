@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/gems/gems_list.dart';
-import 'package:majmua/presentation/gems/gems_page_list.dart';
-import 'package:majmua/presentation/gems/gems_settings.dart';
-import 'package:majmua/presentation/state/gems_settings_state.dart';
 import 'package:provider/provider.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+
+import '../../core/styles/app_styles.dart';
+import '../state/gems_settings_state.dart';
+import 'gems_list.dart';
+import 'gems_page_list.dart';
+import 'gems_settings.dart';
 
 class GemsPage extends StatefulWidget {
   const GemsPage({super.key});

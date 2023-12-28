@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/strings/app_constraints.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/data/services/notification_service.dart';
-import 'package:majmua/presentation/state/notifications_state.dart';
-import 'package:majmua/presentation/widgets/user_back_button.dart';
 import 'package:provider/provider.dart';
+
+import '../../core/strings/app_constraints.dart';
+import '../../core/styles/app_styles.dart';
+import '../../data/services/notification_service.dart';
+import '../state/notifications_state.dart';
+import '../widgets/user_back_button.dart';
 
 class NotificationSettingsPage extends StatelessWidget {
   const NotificationSettingsPage({super.key});

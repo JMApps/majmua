@@ -19,21 +19,6 @@ class AppStrings {
     'winter.jpg',
   ];
 
-  static  const List<String> monthsPictures = [
-    'assets/icons/january.png',
-    'assets/icons/february.png',
-    'assets/icons/march.png',
-    'assets/icons/april.png',
-    'assets/icons/may.png',
-    'assets/icons/june.png',
-    'assets/icons/july.png',
-    'assets/icons/august.png',
-    'assets/icons/september.png',
-    'assets/icons/october.png',
-    'assets/icons/november.png',
-    'assets/icons/december.png',
-  ];
-
   static const _ruFridayContentList = <ModelFriday>[
     ModelFriday(
       id: 1,

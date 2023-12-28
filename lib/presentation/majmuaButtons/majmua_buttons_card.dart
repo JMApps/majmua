@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/routes/route_names.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/majmuaButtons/books_list.dart';
-import 'package:majmua/presentation/majmuaButtons/surah_lists.dart';
+
+import '../../core/routes/route_names.dart';
+import '../../core/styles/app_styles.dart';
+import 'books_list.dart';
+import 'surah_lists.dart';
 
 class MajmuaButtonsCard extends StatelessWidget {
   const MajmuaButtonsCard({super.key});

@@ -64,10 +64,6 @@ class AppConstraints {
   static const String keyUserTheme = 'key_user_theme';
   static const String keyWakeLock = 'key_wake_lock';
 
-  // Text's
-  static const String keyMainTextSize = 'key_main_text_size';
-  static const String keyIsTranscriptionShow = 'key_is_transcription_show';
-
   // Counter
   static const String keyCounterValue = 'key_counter_value';
   static const String keyCounterAllValue = 'key_counter_all_value';
@@ -95,8 +91,7 @@ class AppConstraints {
   static const String keyBucketSFQListChapters = 'key_bucket_sfq_list_chapters';
   static const String keyBucketSFQPageListChapters = 'key_bucket_sfq_page_list_chapters';
 
-  // Gems
-  static const String keyGemsTextSize = 'key_gems_text_size';
+  static const keyGemsTextSize = 'key_gems_text_size';
 
   // Library
   static const String keyBookTextSize = 'key_book_text_size';

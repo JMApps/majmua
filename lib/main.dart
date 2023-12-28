@@ -3,17 +3,18 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:majmua/core/strings/app_constraints.dart';
-import 'package:majmua/data/services/notification_service.dart';
-import 'package:majmua/presentation/pages/root_page.dart';
-import 'package:majmua/presentation/state/adhan_time_state.dart';
-import 'package:majmua/presentation/state/app_settings_state.dart';
-import 'package:majmua/presentation/state/book_settings_state.dart';
-import 'package:majmua/presentation/state/notifications_state.dart';
-import 'package:majmua/presentation/state/rest_time_state.dart';
-import 'package:majmua/presentation/state/salawat_counter_state.dart';
-import 'package:majmua/presentation/state/surah_settings_state.dart';
 import 'package:provider/provider.dart';
+
+import 'core/strings/app_constraints.dart';
+import 'data/services/notification_service.dart';
+import 'presentation/pages/root_page.dart';
+import 'presentation/state/adhan_time_state.dart';
+import 'presentation/state/app_settings_state.dart';
+import 'presentation/state/book_settings_state.dart';
+import 'presentation/state/notifications_state.dart';
+import 'presentation/state/rest_time_state.dart';
+import 'presentation/state/salawat_counter_state.dart';
+import 'presentation/state/surah_settings_state.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

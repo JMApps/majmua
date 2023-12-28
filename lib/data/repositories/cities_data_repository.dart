@@ -1,8 +1,9 @@
-import 'package:majmua/data/models/city_model.dart';
-import 'package:majmua/data/services/local/cities_database_service.dart';
-import 'package:majmua/domain/entities/city_entity.dart';
-import 'package:majmua/domain/repository/cities_repository.dart';
 import 'package:sqflite/sqflite.dart';
+
+import '../../domain/entities/city_entity.dart';
+import '../../domain/repository/cities_repository.dart';
+import '../models/city_model.dart';
+import '../services/local/cities_database_service.dart';
 
 class CitiesDataRepository implements CitiesRepository {
   final CitiesDatabaseService _databaseService = CitiesDatabaseService();

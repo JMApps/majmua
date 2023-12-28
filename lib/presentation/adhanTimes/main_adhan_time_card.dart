@@ -2,15 +2,16 @@ import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
-import 'package:majmua/core/routes/route_names.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/adhanTimes/adhan_time_card.dart';
-import 'package:majmua/presentation/adhanTimes/models/prayer_model.dart';
-import 'package:majmua/presentation/adhanTimes/params/qibla_direction.dart';
-import 'package:majmua/presentation/state/adhan_time_state.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
+
+import '../../core/routes/route_names.dart';
+import '../../core/styles/app_styles.dart';
+import '../state/adhan_time_state.dart';
+import 'adhan_time_card.dart';
+import 'models/prayer_model.dart';
+import 'params/qibla_direction.dart';
 
 class MainAdhanTimeCard extends StatelessWidget {
   const MainAdhanTimeCard({super.key});
