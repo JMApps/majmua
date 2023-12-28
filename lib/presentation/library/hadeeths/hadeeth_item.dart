@@ -57,6 +57,7 @@ class HadeethItem extends StatelessWidget {
                 footnoteColor: appColors.quaternaryColor,
                 textDataAlign: bookSettingsState.getTextAlign,
                 textDirection: TextDirection.rtl,
+                textHeight: 1.75,
               ),
               const SizedBox(height: 8),
               HadeethHtmlText(
@@ -67,6 +68,7 @@ class HadeethItem extends StatelessWidget {
                 footnoteColor: appColors.quaternaryColor,
                 textDataAlign: bookSettingsState.getTextAlign,
                 textDirection: TextDirection.ltr,
+                textHeight: 1,
               ),
             ],
           );

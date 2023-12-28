@@ -11,6 +11,7 @@ class HadeethHtmlText extends StatelessWidget {
     required this.footnoteColor,
     required this.textDataAlign,
     required this.textDirection,
+    required this.textHeight,
   });
 
   final String textData;
@@ -20,6 +21,7 @@ class HadeethHtmlText extends StatelessWidget {
   final Color footnoteColor;
   final TextAlign textDataAlign;
   final TextDirection textDirection;
+  final double textHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,7 @@ class HadeethHtmlText extends StatelessWidget {
           color: textColor,
           textAlign: textDataAlign,
           direction: textDirection,
+          lineHeight: LineHeight(textHeight),
         ),
         'b': Style(
           padding: HtmlPaddings.zero,

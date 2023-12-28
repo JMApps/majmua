@@ -17,47 +17,30 @@ class LessonFootnote extends StatelessWidget {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     return SingleChildScrollView(
       padding: AppStyles.mardingWithoutTop,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          CircleAvatar(
-            radius: 20,
-            backgroundColor: footnoteColor,
-            child: Text(
-              '000',
-              style: TextStyle(
-                fontSize: 15,
-                color: appColors.surface,
-              ),
-            ),
+      child: Html(
+        data: footnoteContent,
+        style: {
+          '#': Style(
+            padding: HtmlPaddings.zero,
+            margin: Margins.zero,
+            fontSize: FontSize(18),
+            color: appColors.inverseSurface,
+            textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 8),
-          Html(
-            data: footnoteContent,
-            style: {
-              '#': Style(
-                padding: HtmlPaddings.zero,
-                margin: Margins.zero,
-                fontSize: FontSize(18),
-                color: appColors.inverseSurface,
-                textAlign: TextAlign.center,
-              ),
-              'b': Style(
-                padding: HtmlPaddings.zero,
-                margin: Margins.zero,
-                fontSize: FontSize(18),
-                fontWeight: FontWeight.bold,
-                color: appColors.inverseSurface,
-              ),
-              'small': Style(
-                padding: HtmlPaddings.zero,
-                margin: Margins.zero,
-                fontSize: FontSize(12),
-                color: appColors.inverseSurface,
-              ),
-            },
+          'b': Style(
+            padding: HtmlPaddings.zero,
+            margin: Margins.zero,
+            fontSize: FontSize(18),
+            fontWeight: FontWeight.bold,
+            color: appColors.inverseSurface,
           ),
-        ],
+          'small': Style(
+            padding: HtmlPaddings.zero,
+            margin: Margins.zero,
+            fontSize: FontSize(12),
+            color: appColors.inverseSurface,
+          ),
+        },
       ),
     );
   }

@@ -59,49 +59,49 @@ class _NamesOfPageState extends State<NamesOfPage> {
           selectionControls: Platform.isIOS
               ? CupertinoTextSelectionControls()
               : MaterialTextSelectionControls(),
-          child: Column(
-            children: [
-              const SizedBox(height: 8),
-              Center(
-                child: SmoothPageIndicator(
-                  controller: _namesOfPageController,
-                  count: 65,
-                  effect: ScrollingDotsEffect(
-                    maxVisibleDots: 5,
-                    dotColor:
-                    appColors.quaternaryColor.withOpacity(0.35),
-                    activeDotColor: appColors.quaternaryColor,
-                    dotWidth: 7,
-                    dotHeight: 3.5,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: PageView.builder(
-                  controller: _namesOfPageController,
-                  itemCount: 65,
-                  itemBuilder: (BuildContext context, int index) {
-                    return SingleChildScrollView(
-                      padding: AppStyles.mainMardingMini,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          ListNames(
-                            fetchNamesByChapterId: _namesOfUseCase.fetchNamesByChapterId(chapterId: index + 1),
-                          ),
-                          ListAyahs(
-                            fetchAyahsByChapterId: _namesOfUseCase.fetchAyahsByChapterId(chapterId: index + 1),
-                          ),
-                          ClarificationContent(
-                            fetchClarificationById: _namesOfUseCase.fetchClarificationById(chapterId: index + 1),
-                          ),
-                        ],
+          child: Expanded(
+            child: PageView.builder(
+              controller: _namesOfPageController,
+              itemCount: 65,
+              itemBuilder: (BuildContext context, int index) {
+                return SingleChildScrollView(
+                  padding: AppStyles.mainMardingMini,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      ListNames(
+                        fetchNamesByChapterId: _namesOfUseCase.fetchNamesByChapterId(chapterId: index + 1),
                       ),
-                    );
-                  },
-                ),
-              ),
-            ],
+                      ListAyahs(
+                        fetchAyahsByChapterId: _namesOfUseCase.fetchAyahsByChapterId(chapterId: index + 1),
+                      ),
+                      ClarificationContent(
+                        fetchClarificationById: _namesOfUseCase.fetchClarificationById(chapterId: index + 1),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        height: 4,
+        color: appColors.fullGlass,
+        child: Container(
+          alignment: Alignment.center,
+          padding: AppStyles.mainMardingMini,
+          child: SmoothPageIndicator(
+            controller: _namesOfPageController,
+            count: 65,
+            effect: ScrollingDotsEffect(
+              maxVisibleDots: 5,
+              dotColor: appColors.quaternaryColor.withOpacity(0.35),
+              activeDotColor: appColors.quaternaryColor,
+              dotWidth: 7,
+              dotHeight: 3.5,
+            ),
           ),
         ),
       ),
