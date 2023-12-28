@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/presentation/library/lessons/lessons_page.dart';
 
 import '../../data/models/args/supplication_args.dart';
 import '../../data/models/args/surah_args.dart';
@@ -13,8 +12,10 @@ import '../../presentation/fortress/fortress_chapters_page.dart';
 import '../../presentation/fortress/fortress_content_page.dart';
 import '../../presentation/gems/gems_page.dart';
 import '../../presentation/library/hadeeths/hadeeths_page.dart';
+import '../../presentation/library/lessons/lessons_page.dart';
 import '../../presentation/library/namesOf/names_of_page.dart';
 import '../../presentation/library/questions/questions_page.dart';
+import '../../presentation/library/raqaiq/raqaiq_page.dart';
 import '../../presentation/notifications/notification_settings_page.dart';
 import '../../presentation/settings/app_settings_page.dart';
 import '../../presentation/sfq/sfq_page.dart';
@@ -93,6 +94,10 @@ class AppRoutes {
       case RouteNames.lessonsPage:
         return MaterialPageRoute(
           builder: (_) => const LessonsPage(),
+        );
+      case RouteNames.raqaiqPage:
+        return MaterialPageRoute(
+          builder: (_) => const RaqaiqPage(),
         );
       default:
         throw Exception('Invalid route ${routeSettings.name}');
