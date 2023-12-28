@@ -8,7 +8,7 @@ import 'package:majmua/data/repositories/fortress_data_repository.dart';
 import 'package:majmua/domain/entities/chapter_fortress_entity.dart';
 import 'package:majmua/domain/entities/supplication_fortress_entity.dart';
 import 'package:majmua/domain/usecases/fortress_use_case.dart';
-import 'package:majmua/presentation/fortress/for_html_text.dart';
+import 'package:majmua/presentation/fortress/fortress_html_text.dart';
 import 'package:majmua/presentation/fortress/supplication_item.dart';
 import 'package:majmua/presentation/widgets/error_data_text.dart';
 import 'package:majmua/presentation/widgets/user_back_button.dart';
@@ -66,7 +66,7 @@ class _FortressListState extends State<FortressList> {
                               color: appColors.fullGlass,
                               child: Padding(
                                 padding: AppStyles.mainMardingMini,
-                                child: ForHtmlText(
+                                child: FortressHtmlText(
                                   textData: chapterModel.chapterTitle,
                                   textSize: 16,
                                   textColor: appColors.secondaryColor,

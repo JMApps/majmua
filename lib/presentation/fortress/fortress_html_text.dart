@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/fortress/for_bottom_sheet_footnote.dart';
+import 'package:majmua/presentation/fortress/fortress_footnote.dart';
 
-class ForHtmlText extends StatelessWidget {
-  const ForHtmlText({
+class FortressHtmlText extends StatelessWidget {
+  const FortressHtmlText({
     super.key,
     required this.textData,
     required this.textSize,
@@ -68,7 +68,7 @@ class ForHtmlText extends StatelessWidget {
           context: context,
           isScrollControlled: true,
           backgroundColor: appColors.fullGlass,
-          builder: (context) => ForBottomSheetFootnote(
+          builder: (context) => FortressFootnote(
             footnoteId: url!,
             footnoteColor: footnoteColor,
           ),
