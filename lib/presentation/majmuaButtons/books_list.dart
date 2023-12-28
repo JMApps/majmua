@@ -56,7 +56,7 @@ class BooksList extends StatelessWidget {
           Divider(indent: 16, endIndent: 16),
           BookItem(
             title: 'Сила воли',
-            subTitle: '',
+            subTitle: 'Побуждающий к действию фактор',
             bookNumber: 6,
             routeName: RouteNames.strengthPage,
             color: Colors.indigo,

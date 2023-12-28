@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/presentation/library/strength/strength_page.dart';
 
 import '../../data/models/args/supplication_args.dart';
 import '../../data/models/args/surah_args.dart';
@@ -98,6 +99,10 @@ class AppRoutes {
       case RouteNames.raqaiqPage:
         return MaterialPageRoute(
           builder: (_) => const RaqaiqPage(),
+        );
+      case RouteNames.strengthPage:
+        return MaterialPageRoute(
+          builder: (_) => const StrengthPage(),
         );
       default:
         throw Exception('Invalid route ${routeSettings.name}');
