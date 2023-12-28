@@ -1,10 +1,6 @@
-import 'package:majmua/data/models/city_model.dart';
 import 'package:majmua/data/models/lesson_model.dart';
 import 'package:majmua/data/services/lessons_database_service.dart';
-import 'package:majmua/data/services/local/cities_database_service.dart';
-import 'package:majmua/domain/entities/city_entity.dart';
 import 'package:majmua/domain/entities/lesson_entity.dart';
-import 'package:majmua/domain/repository/cities_repository.dart';
 import 'package:majmua/domain/repository/lessons_repository.dart';
 import 'package:sqflite/sqflite.dart';
 

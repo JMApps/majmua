@@ -1,6 +1,4 @@
-import 'package:majmua/domain/entities/city_entity.dart';
 import 'package:majmua/domain/entities/lesson_entity.dart';
-import 'package:majmua/domain/repository/cities_repository.dart';
 import 'package:majmua/domain/repository/lessons_repository.dart';
 
 class LessonsUseCase {

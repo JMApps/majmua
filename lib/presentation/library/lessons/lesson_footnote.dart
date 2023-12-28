@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:majmua/core/styles/app_styles.dart';
-import 'package:majmua/data/repositories/questions_data_repository.dart';
-import 'package:majmua/domain/entities/question_footnote_entity.dart';
-import 'package:majmua/domain/usecases/questions_use_case.dart';
-import 'package:majmua/presentation/widgets/error_data_text.dart';
 
 class LessonFootnote extends StatelessWidget {
   const LessonFootnote({
