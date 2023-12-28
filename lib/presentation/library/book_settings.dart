@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:majmua/core/enums/align_text.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/state/book_settings_state.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/styles/app_styles.dart';
+import '../state/book_settings_state.dart';
 
 class BookSettings extends StatelessWidget {
   const BookSettings({super.key});
@@ -59,6 +61,40 @@ class BookSettings extends StatelessWidget {
                 ],
               ),
               const Divider(indent: 16, endIndent: 16),
+              const Text(
+                'Расположение текста',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const Divider(indent: 16, endIndent: 16),
+              CupertinoSlidingSegmentedControl(
+                groupValue: bookSettingsState.getCurrentAlign,
+                padding: AppStyles.mainMardingMicro,
+                thumbColor: appColors.inversePrimary,
+                children: <AlignText, Widget>{
+                  AlignText.left: Icon(
+                    Icons.format_align_left,
+                    color: appColors.primary,
+                  ),
+                  AlignText.center: Icon(
+                    Icons.format_align_center,
+                    color: appColors.primary,
+                  ),
+                  AlignText.right: Icon(
+                    Icons.format_align_right,
+                    color: appColors.primary,
+                  ),
+                  AlignText.justify: Icon(
+                    Icons.format_align_justify,
+                    color: appColors.primary,
+                  ),
+                },
+                onValueChanged: (AlignText? value) {
+                  bookSettingsState.setCurrentAlign = value!;
+                },
+              ),
             ],
           ),
         );

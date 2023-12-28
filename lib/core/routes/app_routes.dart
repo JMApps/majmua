@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/routes/route_names.dart';
-import 'package:majmua/data/models/args/supplication_args.dart';
-import 'package:majmua/data/models/args/surah_args.dart';
-import 'package:majmua/presentation/adhanTimes/params/addCity/add_city_page.dart';
-import 'package:majmua/presentation/adhanTimes/params/adhan_params_page.dart';
-import 'package:majmua/presentation/adhanTimes/params/adjustmentTime/adjustment_time_page.dart';
-import 'package:majmua/presentation/adhanTimes/params/calculation_info_page.dart';
-import 'package:majmua/presentation/adhanTimes/params/selectCity/select_city_page.dart';
-import 'package:majmua/presentation/counter/app_counter_page.dart';
-import 'package:majmua/presentation/fortress/fortress_chapters_page.dart';
-import 'package:majmua/presentation/fortress/fortress_content_page.dart';
-import 'package:majmua/presentation/gems/gems_page.dart';
-import 'package:majmua/presentation/library/namesOf/names_of_page.dart';
-import 'package:majmua/presentation/notifications/notification_settings_page.dart';
-import 'package:majmua/presentation/settings/app_settings_page.dart';
-import 'package:majmua/presentation/sfq/sfq_page.dart';
-import 'package:majmua/presentation/surah/surahs_page.dart';
+
+import '../../data/models/args/supplication_args.dart';
+import '../../data/models/args/surah_args.dart';
+import '../../presentation/adhanTimes/params/addCity/add_city_page.dart';
+import '../../presentation/adhanTimes/params/adhan_params_page.dart';
+import '../../presentation/adhanTimes/params/adjustmentTime/adjustment_time_page.dart';
+import '../../presentation/adhanTimes/params/calculation_info_page.dart';
+import '../../presentation/adhanTimes/params/selectCity/select_city_page.dart';
+import '../../presentation/counter/app_counter_page.dart';
+import '../../presentation/fortress/fortress_chapters_page.dart';
+import '../../presentation/fortress/fortress_content_page.dart';
+import '../../presentation/gems/gems_page.dart';
+import '../../presentation/library/namesOf/names_of_page.dart';
+import '../../presentation/library/questions/questions_page.dart';
+import '../../presentation/notifications/notification_settings_page.dart';
+import '../../presentation/settings/app_settings_page.dart';
+import '../../presentation/sfq/sfq_page.dart';
+import '../../presentation/surah/surahs_page.dart';
+import 'route_names.dart';
 
 class AppRoutes {
   static Route onGeneratorRoute(RouteSettings routeSettings) {
@@ -57,8 +59,7 @@ class AppRoutes {
           builder: (_) => const FortressChaptersPage(),
         );
       case RouteNames.fortressContentPage:
-        final SupplicationArgs args =
-            routeSettings.arguments as SupplicationArgs;
+        final SupplicationArgs args = routeSettings.arguments as SupplicationArgs;
         return MaterialPageRoute(
           builder: (_) => FortressContentPage(chapterId: args.chapterId),
         );
@@ -78,6 +79,10 @@ class AppRoutes {
       case RouteNames.namesOfPage:
         return MaterialPageRoute(
           builder: (_) => const NamesOfPage(),
+        );
+      case RouteNames.questionsPage:
+        return MaterialPageRoute(
+          builder: (_) => const QuestionsPage(),
         );
       default:
         throw Exception('Invalid route ${routeSettings.name}');
