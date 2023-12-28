@@ -2,7 +2,6 @@ import 'package:majmua/domain/entities/city_entity.dart';
 import 'package:majmua/domain/repository/cities_repository.dart';
 
 class CitiesUseCase {
-
   CitiesUseCase(this._citiesRepository);
 
   final CitiesRepository _citiesRepository;
