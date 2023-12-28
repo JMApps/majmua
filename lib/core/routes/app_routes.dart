@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/presentation/library/lessons/lessons_page.dart';
 
 import '../../data/models/args/supplication_args.dart';
 import '../../data/models/args/surah_args.dart';
@@ -88,6 +89,10 @@ class AppRoutes {
       case RouteNames.hadeethsPage:
         return MaterialPageRoute(
           builder: (_) => const HadeethsPage(),
+        );
+      case RouteNames.lessonsPage:
+        return MaterialPageRoute(
+          builder: (_) => const LessonsPage(),
         );
       default:
         throw Exception('Invalid route ${routeSettings.name}');
