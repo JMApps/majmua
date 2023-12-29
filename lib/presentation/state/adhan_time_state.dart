@@ -323,7 +323,8 @@ class AdhanTimeState extends ChangeNotifier {
     required String midnight,
     required String thirdNightPart,
     required String prayerCalculationMethod,
-    required String timeOffset}) {
+    required String timeOffset,
+    required String qiblaDirection}) {
     final String prayersInfo;
     prayersInfo = '$_country, $_city\n'
         '${_dateTime.day}.${_dateTime.month}.${_dateTime.year}\n\n'
@@ -336,7 +337,8 @@ class AdhanTimeState extends ChangeNotifier {
         '$midnight: ${DateFormat.Hm().format(_sunnahTimes.middleOfTheNight)}\n'
         '$thirdNightPart: ${DateFormat.Hm().format(_sunnahTimes.lastThirdOfTheNight)}\n'
         '$prayerCalculationMethod: ${AppStrings.prayerCalculationNames[_calculationMethodIndex]}\n'
-        '$timeOffset: ${_dateTime.timeZoneName}';
+        '$timeOffset: ${_dateTime.timeZoneName}\n'
+        '$qiblaDirection: ${_qibla.direction.toStringAsFixed(1)}°';
     return prayersInfo;
   }
 }

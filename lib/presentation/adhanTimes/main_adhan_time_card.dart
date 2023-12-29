@@ -131,6 +131,7 @@ class MainAdhanTimeCard extends StatelessWidget {
                                 thirdNightPart: appLocale.thirdPart,
                                 prayerCalculationMethod: appLocale.calculationMethod,
                                 timeOffset: appLocale.timeOffset,
+                                qiblaDirection: appLocale.qiblaDirection
                               ),
                               sharePositionOrigin: const Rect.fromLTWH(1, 1, 1, 2 / 2),
                             );
