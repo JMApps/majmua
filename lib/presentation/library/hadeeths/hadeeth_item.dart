@@ -12,15 +12,19 @@ class HadeethItem extends StatelessWidget {
   const HadeethItem({
     super.key,
     required this.model,
+    required this.myController,
   });
 
   final HadeethEntity model;
+  final ScrollController myController;
 
   @override
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     return CupertinoScrollbar(
+      controller: myController,
       child: SingleChildScrollView(
+        primary: true,
         padding: AppStyles.mainMardingMini,
         child: Consumer<BookSettingsState>(
           builder: (BuildContext context, BookSettingsState bookSettingsState, _) {

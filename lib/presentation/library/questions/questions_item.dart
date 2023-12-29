@@ -1,26 +1,30 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/library/questions/question_html_text.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/styles/app_styles.dart';
 import '../../../domain/entities/question_entity.dart';
 import '../../state/book_settings_state.dart';
+import 'question_html_text.dart';
 
 class QuestionItem extends StatelessWidget {
   const QuestionItem({
     super.key,
     required this.model,
+    required this.myController,
   });
 
   final QuestionEntity model;
+  final ScrollController myController;
 
   @override
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     return CupertinoScrollbar(
+      controller: myController,
       child: SingleChildScrollView(
+        primary: true,
         padding: AppStyles.mainMardingMini,
         child: Consumer<BookSettingsState>(
           builder: (BuildContext context, BookSettingsState bookSettingsState, _) {

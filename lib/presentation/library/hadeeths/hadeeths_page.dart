@@ -23,21 +23,20 @@ class HadeethsPage extends StatefulWidget {
 class _HadeethsPageState extends State<HadeethsPage> {
   final HadeethsUseCase _hadeethsUseCase = HadeethsUseCase(HadeethsDataRepository());
   final PageController _hadeethsPageController = PageController();
+  final ScrollController _hadeethScrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     return FutureBuilder<List<HadeethEntity>>(
       future: _hadeethsUseCase.fetchAllHadeeths(),
-      builder:
-          (BuildContext context, AsyncSnapshot<List<HadeethEntity>> snapshot) {
+      builder: (BuildContext context, AsyncSnapshot<List<HadeethEntity>> snapshot) {
         if (snapshot.hasData) {
           return Scaffold(
             body: NestedScrollView(
               physics: const ClampingScrollPhysics(),
-              controller: ScrollController(),
-              headerSliverBuilder:
-                  (BuildContext context, bool innerBoxIsScrolled) {
+              controller: _hadeethScrollController,
+              headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
                 return [
                   SliverAppBar(
                     backgroundColor: appColors.primaryDark,
@@ -68,17 +67,16 @@ class _HadeethsPageState extends State<HadeethsPage> {
                       selectionControls: Platform.isIOS
                           ? CupertinoTextSelectionControls()
                           : MaterialTextSelectionControls(),
-                      child: Expanded(
-                        child: PageView.builder(
-                          controller: _hadeethsPageController,
-                          itemCount: snapshot.data!.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            final HadeethEntity model = snapshot.data![index];
-                            return HadeethItem(
-                              model: model,
-                            );
-                          },
-                        ),
+                      child: PageView.builder(
+                        controller: _hadeethsPageController,
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final HadeethEntity model = snapshot.data![index];
+                          return HadeethItem(
+                            model: model,
+                            myController: _hadeethScrollController,
+                          );
+                        },
                       ),
                     );
                   } else {

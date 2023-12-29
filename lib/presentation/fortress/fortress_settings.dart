@@ -19,7 +19,7 @@ class FortressSettings extends StatelessWidget {
       ),
       body: Consumer<FortressSettingsState>(
         builder: (BuildContext context, FortressSettingsState fcState, _) {
-          return Padding(
+          return SingleChildScrollView(
             padding: AppStyles.mainMardingMini,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -15,7 +15,7 @@ class BookSettings extends StatelessWidget {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     return Consumer<BookSettingsState>(
       builder: (BuildContext context, BookSettingsState bookSettingsState, _) {
-        return Padding(
+        return SingleChildScrollView(
           padding: AppStyles.mardingWithoutTop,
           child: Column(
             mainAxisSize: MainAxisSize.min,

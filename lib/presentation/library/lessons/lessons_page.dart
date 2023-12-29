@@ -23,6 +23,7 @@ class LessonsPage extends StatefulWidget {
 class _LessonsPageState extends State<LessonsPage> {
   final LessonsUseCase _lessonsUseCase = LessonsUseCase(LessonsDataRepository());
   final PageController _lessonsPageController = PageController();
+  final ScrollController _lessonScrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class _LessonsPageState extends State<LessonsPage> {
           return Scaffold(
             body: NestedScrollView(
               physics: const ClampingScrollPhysics(),
-              controller: ScrollController(),
+              controller: _lessonScrollController,
               headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
                 return [
                   SliverAppBar(
@@ -66,17 +67,16 @@ class _LessonsPageState extends State<LessonsPage> {
                       selectionControls: Platform.isIOS
                           ? CupertinoTextSelectionControls()
                           : MaterialTextSelectionControls(),
-                      child: Expanded(
-                        child: PageView.builder(
-                          controller: _lessonsPageController,
-                          itemCount: snapshot.data!.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            final LessonEntity model = snapshot.data![index];
-                            return LessonItem(
-                              model: model,
-                            );
-                          },
-                        ),
+                      child: PageView.builder(
+                        controller: _lessonsPageController,
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final LessonEntity model = snapshot.data![index];
+                          return LessonItem(
+                            model: model,
+                            myController: _lessonScrollController,
+                          );
+                        },
                       ),
                     );
                   } else {

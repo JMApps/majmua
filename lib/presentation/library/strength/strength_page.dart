@@ -23,6 +23,7 @@ class StrengthPage extends StatefulWidget {
 class _StrengthPageState extends State<StrengthPage> {
   final StrengthUseCase _strengthUseCase = StrengthUseCase(StrengthDataRepository());
   final PageController _strengthPageController = PageController();
+  final ScrollController _strengthController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class _StrengthPageState extends State<StrengthPage> {
           return Scaffold(
             body: NestedScrollView(
               physics: const ClampingScrollPhysics(),
-              controller: ScrollController(),
+              controller: _strengthController,
               headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
                 return [
                   SliverAppBar(
@@ -62,16 +63,15 @@ class _StrengthPageState extends State<StrengthPage> {
                 selectionControls: Platform.isIOS
                     ? CupertinoTextSelectionControls()
                     : MaterialTextSelectionControls(),
-                child: Expanded(
-                  child: PageView.builder(
-                    controller: _strengthPageController,
-                    itemCount: snapshot.data!.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return StrengthItem(
-                        model: snapshot.data![index],
-                      );
-                    },
-                  ),
+                child: PageView.builder(
+                  controller: _strengthPageController,
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return StrengthItem(
+                      model: snapshot.data![index],
+                      myController: _strengthController,
+                    );
+                  },
                 ),
               ),
             ),

@@ -47,6 +47,7 @@ class CalculationInfoPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
               padding: AppStyles.mainMardingMini,

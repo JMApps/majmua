@@ -42,7 +42,7 @@ class GemItem extends StatelessWidget {
                     sharePositionOrigin: const Rect.fromLTWH(1, 1, 1, 2 / 2),
                   );
                 },
-                tileColor: appColors.glass,
+                tileColor: appColors.primary.withOpacity(0.25),
                 title: Text(appLocale!.share),
                 trailing: Image.asset(
                   'assets/icons/share.png',

@@ -23,6 +23,7 @@ class QuestionsPage extends StatefulWidget {
 class _QuestionsPageState extends State<QuestionsPage> {
   final QuestionsUseCase _questionsUseCase = QuestionsUseCase(QuestionsDataRepository());
   final PageController _questionsPageController = PageController();
+  final ScrollController _questionScrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +34,9 @@ class _QuestionsPageState extends State<QuestionsPage> {
         if (snapshot.hasData) {
           return Scaffold(
             body: NestedScrollView(
+              controller: _questionScrollController,
               physics: const ClampingScrollPhysics(),
-              controller: ScrollController(),
-              headerSliverBuilder:
-                  (BuildContext context, bool innerBoxIsScrolled) {
+              headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
                 return [
                   SliverAppBar(
                     backgroundColor: appColors.primaryDark,
@@ -63,16 +63,15 @@ class _QuestionsPageState extends State<QuestionsPage> {
                 selectionControls: Platform.isIOS
                     ? CupertinoTextSelectionControls()
                     : MaterialTextSelectionControls(),
-                child: Expanded(
-                  child: PageView.builder(
-                    controller: _questionsPageController,
-                    itemCount: snapshot.data!.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return QuestionItem(
-                        model: snapshot.data![index],
-                      );
-                    },
-                  ),
+                child: PageView.builder(
+                  controller: _questionsPageController,
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return QuestionItem(
+                      model: snapshot.data![index],
+                      myController: _questionScrollController,
+                    );
+                  },
                 ),
               ),
             ),

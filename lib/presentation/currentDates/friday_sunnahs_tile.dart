@@ -22,6 +22,7 @@ class _FridaySunnahsTileState extends State<FridaySunnahsTile> {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
     final double screenWidth = MediaQuery.of(context).size.width;
+    final bool isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
     return Card(
       margin: EdgeInsets.zero,
       color: appColors.glass,
@@ -44,7 +45,7 @@ class _FridaySunnahsTileState extends State<FridaySunnahsTile> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   SizedBox(
-                    height: screenWidth * 0.95,
+                    height: isPortrait ? screenWidth * 0.95 : screenWidth * 0.5,
                     child: PageView.builder(
                       controller: _pageFridaySunnahController,
                       itemCount: AppStrings.getFridaySunnahList(locale: appLocale.localeName).length,
@@ -58,8 +59,8 @@ class _FridaySunnahsTileState extends State<FridaySunnahsTile> {
                             children: [
                               Image.asset(
                                 'assets/icons/friday_icon_${index + 1}.png',
-                                height: screenWidth * 0.30,
-                                width: screenWidth * 0.30,
+                                height: isPortrait ? screenWidth * 0.30 : screenWidth * 0.15,
+                                width: isPortrait ? screenWidth * 0.30 : screenWidth * 0.15,
                                 color: appColors.secondaryColor,
                               ),
                               ListTile(

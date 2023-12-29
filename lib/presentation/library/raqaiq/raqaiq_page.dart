@@ -23,21 +23,20 @@ class RaqaiqPage extends StatefulWidget {
 class _RaqaiqPageState extends State<RaqaiqPage> {
   final RaqaiqUseCase _raqaiqUseCase = RaqaiqUseCase(RaqaiqDataRepository());
   final PageController _raqaiqPageController = PageController();
+  final ScrollController _raqaiqScrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     return FutureBuilder<List<RaqaiqEntity>>(
       future: _raqaiqUseCase.fetchAllChapters(),
-      builder:
-          (BuildContext context, AsyncSnapshot<List<RaqaiqEntity>> snapshot) {
+      builder: (BuildContext context, AsyncSnapshot<List<RaqaiqEntity>> snapshot) {
         if (snapshot.hasData) {
           return Scaffold(
             body: NestedScrollView(
               physics: const ClampingScrollPhysics(),
-              controller: ScrollController(),
-              headerSliverBuilder:
-                  (BuildContext context, bool innerBoxIsScrolled) {
+              controller: _raqaiqScrollController,
+              headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
                 return [
                   SliverAppBar(
                     backgroundColor: appColors.primaryDark,
@@ -68,22 +67,16 @@ class _RaqaiqPageState extends State<RaqaiqPage> {
                       selectionControls: Platform.isIOS
                           ? CupertinoTextSelectionControls()
                           : MaterialTextSelectionControls(),
-                      child: Column(
-                        children: [
-                          Expanded(
-                            child: PageView.builder(
-                              controller: _raqaiqPageController,
-                              itemCount: snapshot.data!.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                final RaqaiqEntity model =
-                                    snapshot.data![index];
-                                return RaqaiqItem(
-                                  model: model,
-                                );
-                              },
-                            ),
-                          ),
-                        ],
+                      child: PageView.builder(
+                        controller: _raqaiqPageController,
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final RaqaiqEntity model = snapshot.data![index];
+                          return RaqaiqItem(
+                            model: model,
+                            myController: _raqaiqScrollController,
+                          );
+                        },
                       ),
                     );
                   } else {

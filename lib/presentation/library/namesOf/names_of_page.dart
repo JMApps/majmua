@@ -59,12 +59,12 @@ class _NamesOfPageState extends State<NamesOfPage> {
           selectionControls: Platform.isIOS
               ? CupertinoTextSelectionControls()
               : MaterialTextSelectionControls(),
-          child: Expanded(
-            child: PageView.builder(
-              controller: _namesOfPageController,
-              itemCount: 65,
-              itemBuilder: (BuildContext context, int index) {
-                return SingleChildScrollView(
+          child: PageView.builder(
+            controller: _namesOfPageController,
+            itemCount: 65,
+            itemBuilder: (BuildContext context, int index) {
+              return CupertinoScrollbar(
+                child: SingleChildScrollView(
                   padding: AppStyles.mainMardingMini,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -80,9 +80,9 @@ class _NamesOfPageState extends State<NamesOfPage> {
                       ),
                     ],
                   ),
-                );
-              },
-            ),
+                ),
+              );
+            },
           ),
         ),
       ),
