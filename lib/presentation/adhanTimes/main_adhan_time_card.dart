@@ -119,7 +119,21 @@ class MainAdhanTimeCard extends StatelessWidget {
                         height: isPortrait ? screenWidth * 0.1 : screenWidth * 0.07,
                         child: IconButton(
                           onPressed: () {
-                            Share.share('');
+                            Share.share(
+                              adhanTimeState.sharePrayerTimes(
+                                fajr: appLocale!.fajr,
+                                sunrise: appLocale.sunrise,
+                                dhuhr: appLocale.dhuhr,
+                                asr: appLocale.asr,
+                                maghrib: appLocale.maghrib,
+                                isha: appLocale.isha,
+                                midnight: appLocale.midnight,
+                                thirdNightPart: appLocale.thirdPart,
+                                prayerCalculationMethod: appLocale.calculationMethod,
+                                timeOffset: appLocale.timeOffset,
+                              ),
+                              sharePositionOrigin: const Rect.fromLTWH(1, 1, 1, 2 / 2),
+                            );
                           },
                           splashRadius: 20,
                           visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
