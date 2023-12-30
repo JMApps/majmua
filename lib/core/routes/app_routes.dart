@@ -70,7 +70,7 @@ class AppRoutes {
       case RouteNames.surahsPage:
         final SurahArgs args = routeSettings.arguments as SurahArgs;
         return MaterialPageRoute(
-          builder: (_) => SurahsPage(surahNumber: args.surahNumber, surahName: args.surahName),
+          builder: (_) => SurahsPage(surahNumber: args.surahNumber, surahName: args.surahName, surahKey: args.surahKey,),
         );
       case RouteNames.sfqPage:
         return MaterialPageRoute(

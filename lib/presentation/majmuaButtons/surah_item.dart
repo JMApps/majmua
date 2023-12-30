@@ -11,11 +11,13 @@ class SurahItem extends StatelessWidget {
     required this.title,
     required this.icon,
     required this.surahNumber,
+    required this.surahKey,
   });
 
   final String title;
   final IconData icon;
   final int surahNumber;
+  final String surahKey;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class SurahItem extends StatelessWidget {
           arguments: SurahArgs(
             surahNumber: surahNumber,
             surahName: title,
+            surahKey: surahKey,
           ),
         );
       },

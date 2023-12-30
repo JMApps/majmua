@@ -2,9 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../core/strings/app_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../../data/repositories/names_of_data_repository.dart';
 import '../../../domain/usecases/names_of_use_case.dart';
@@ -23,7 +25,22 @@ class NamesOfPage extends StatefulWidget {
 
 class _NamesOfPageState extends State<NamesOfPage> {
   final NamesOfUseCase _namesOfUseCase = NamesOfUseCase(NamesOfDataRepository());
-  final PageController _namesOfPageController = PageController();
+  final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
+  late final PageController _namesOfPageController;
+  late final int _lastPage;
+
+  @override
+  void initState() {
+    _lastPage = _mainSettingsBox.get(AppConstraints.keyLastNamesOfPage, defaultValue: 0);
+    _namesOfPageController = PageController(initialPage: _lastPage);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _namesOfPageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +99,9 @@ class _NamesOfPageState extends State<NamesOfPage> {
                   ),
                 ),
               );
+            },
+            onPageChanged: (int page) {
+              _mainSettingsBox.put(AppConstraints.keyLastNamesOfPage, page);
             },
           ),
         ),

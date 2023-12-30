@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -15,12 +16,7 @@ import '../widgets/user_back_button.dart';
 import 'gem_page_item.dart';
 
 class GemsPageList extends StatefulWidget {
-  const GemsPageList({
-    super.key,
-    required this.bucketStorage,
-  });
-
-  final PageStorageBucket bucketStorage;
+  const GemsPageList({super.key});
 
   @override
   State<GemsPageList> createState() => _GemsPageListState();
@@ -28,7 +24,22 @@ class GemsPageList extends StatefulWidget {
 
 class _GemsPageListState extends State<GemsPageList> {
   final GemsUseCase _gemsUseCase = GemsUseCase(GemsDataRepository());
-  final PageController _gemsPageController = PageController();
+  final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
+  late final PageController _gemsPageController;
+  late final int _lastPage;
+
+  @override
+  void initState() {
+    _lastPage = _mainSettingsBox.get(AppConstraints.keyLastGemsPage, defaultValue: 0);
+    _gemsPageController = PageController(initialPage: _lastPage);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _gemsPageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,20 +76,19 @@ class _GemsPageListState extends State<GemsPageList> {
             return Column(
               children: [
                 Expanded(
-                  child: PageStorage(
-                    bucket: widget.bucketStorage,
-                    child: PageView.builder(
-                      key: const PageStorageKey<String>(AppConstraints.keyBucketFortressPageListChapters),
-                      controller: _gemsPageController,
-                      itemCount: snapshot.data!.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final GemEntity model = snapshot.data![index];
-                        return GemPageItem(
-                          model: model,
-                          itemIndex: index,
-                        );
-                      },
-                    ),
+                  child: PageView.builder(
+                    controller: _gemsPageController,
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final GemEntity model = snapshot.data![index];
+                      return GemPageItem(
+                        model: model,
+                        itemIndex: index,
+                      );
+                    },
+                    onPageChanged: (int page) {
+                      _mainSettingsBox.put(AppConstraints.keyLastGemsPage, page);
+                    },
                   ),
                 ),
                 Padding(

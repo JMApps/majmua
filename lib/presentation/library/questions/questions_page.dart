@@ -2,9 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../core/strings/app_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../../data/repositories/questions_data_repository.dart';
 import '../../../domain/entities/question_entity.dart';
@@ -22,8 +24,23 @@ class QuestionsPage extends StatefulWidget {
 
 class _QuestionsPageState extends State<QuestionsPage> {
   final QuestionsUseCase _questionsUseCase = QuestionsUseCase(QuestionsDataRepository());
-  final PageController _questionsPageController = PageController();
   final ScrollController _questionScrollController = ScrollController();
+  final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
+  late final PageController _questionsPageController;
+  late final int _lastPage;
+
+  @override
+  void initState() {
+    _lastPage = _mainSettingsBox.get(AppConstraints.keyLastQuestionsPage, defaultValue: 0);
+    _questionsPageController = PageController(initialPage: _lastPage);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _questionsPageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +88,9 @@ class _QuestionsPageState extends State<QuestionsPage> {
                       model: snapshot.data![index],
                       myController: _questionScrollController,
                     );
+                  },
+                  onPageChanged: (int page) {
+                    _mainSettingsBox.put(AppConstraints.keyLastQuestionsPage, page);
                   },
                 ),
               ),

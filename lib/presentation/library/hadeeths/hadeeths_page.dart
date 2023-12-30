@@ -2,9 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../core/strings/app_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../../data/repositories/hadeeths_data_repository.dart';
 import '../../../domain/entities/hadeeth_entity.dart';
@@ -22,8 +24,23 @@ class HadeethsPage extends StatefulWidget {
 
 class _HadeethsPageState extends State<HadeethsPage> {
   final HadeethsUseCase _hadeethsUseCase = HadeethsUseCase(HadeethsDataRepository());
-  final PageController _hadeethsPageController = PageController();
   final ScrollController _hadeethScrollController = ScrollController();
+  final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
+  late final PageController _hadeethsPageController;
+  late final int _lastPage;
+
+  @override
+  void initState() {
+    _lastPage = _mainSettingsBox.get(AppConstraints.keyLastHadeethsPage, defaultValue: 0);
+    _hadeethsPageController = PageController(initialPage: _lastPage);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _hadeethsPageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +93,9 @@ class _HadeethsPageState extends State<HadeethsPage> {
                             model: model,
                             myController: _hadeethScrollController,
                           );
+                        },
+                        onPageChanged: (int page) {
+                          _mainSettingsBox.put(AppConstraints.keyLastHadeethsPage, page);
                         },
                       ),
                     );

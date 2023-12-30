@@ -2,9 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../core/strings/app_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../../data/repositories/strength_data_repository.dart';
 import '../../../domain/entities/strength_entity.dart';
@@ -22,8 +24,23 @@ class StrengthPage extends StatefulWidget {
 
 class _StrengthPageState extends State<StrengthPage> {
   final StrengthUseCase _strengthUseCase = StrengthUseCase(StrengthDataRepository());
-  final PageController _strengthPageController = PageController();
   final ScrollController _strengthController = ScrollController();
+  final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
+  late final PageController _strengthPageController;
+  late final int _lastPage;
+
+  @override
+  void initState() {
+    _lastPage = _mainSettingsBox.get(AppConstraints.keyLastStrengthPage, defaultValue: 0);
+    _strengthPageController = PageController(initialPage: _lastPage);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _strengthPageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +88,9 @@ class _StrengthPageState extends State<StrengthPage> {
                       model: snapshot.data![index],
                       myController: _strengthController,
                     );
+                  },
+                  onPageChanged: (int page) {
+                    _mainSettingsBox.put(AppConstraints.keyLastStrengthPage, page);
                   },
                 ),
               ),

@@ -2,9 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../core/strings/app_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../../data/repositories/lessons_data_repository.dart';
 import '../../../domain/entities/lesson_entity.dart';
@@ -22,8 +24,23 @@ class LessonsPage extends StatefulWidget {
 
 class _LessonsPageState extends State<LessonsPage> {
   final LessonsUseCase _lessonsUseCase = LessonsUseCase(LessonsDataRepository());
-  final PageController _lessonsPageController = PageController();
   final ScrollController _lessonScrollController = ScrollController();
+  final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
+  late final PageController _lessonsPageController;
+  late final int _lastPage;
+
+  @override
+  void initState() {
+    _lastPage = _mainSettingsBox.get(AppConstraints.keyLastLessonsPage, defaultValue: 0);
+    _lessonsPageController = PageController(initialPage: _lastPage);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _lessonsPageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +93,9 @@ class _LessonsPageState extends State<LessonsPage> {
                             model: model,
                             myController: _lessonScrollController,
                           );
+                        },
+                        onPageChanged: (int page) {
+                          _mainSettingsBox.put(AppConstraints.keyLastLessonsPage, page);
                         },
                       ),
                     );

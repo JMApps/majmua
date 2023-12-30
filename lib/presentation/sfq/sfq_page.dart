@@ -20,8 +20,8 @@ class SFQPage extends StatefulWidget {
 
 class _SFQPageState extends State<SFQPage> {
   final _sfqWidgets = <Widget>[
-    SFQList(bucketSFQList: PageStorageBucket()),
-    SFQPageList(bucketSFQPageList: PageStorageBucket()),
+    const SFQList(),
+    const SFQPageList(),
     const SFQSettings()
   ];
 

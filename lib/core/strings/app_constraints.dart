@@ -97,6 +97,21 @@ class AppConstraints {
   static const String keyBookTextSize = 'key_book_text_size';
   static const String keyBookAlignIndex = 'key_book_align_index';
 
+  static const String keyLastFirstSurahPage = 'key_last_first_surah_page';
+  static const String keyLastSecondSurahPage = 'key_last_second_surah_page';
+  static const String keyLastThirdSurahPage = 'key_last_third_surah_page';
+  static const String keyLastFourthSurahPage = 'key_last_fourth_surah_page';
+
+  static const String keyLastSFQPage = 'key_last_sfq_page';
+  static const String keyLastGemsPage = 'key_last_gems_page';
+
+  static const String keyLastNamesOfPage = 'key_last_names_of_page';
+  static const String keyLastQuestionsPage = 'key_last_questions_page';
+  static const String keyLastHadeethsPage = 'key_last_hadeeth_page';
+  static const String keyLastLessonsPage = 'key_last_lessons_page';
+  static const String keyLastRaqaiqPage = 'key_last_raqaiq_page';
+  static const String keyLastStrengthPage = 'key_last_strength_page';
+
   // Default city params
   static const String defCountry = 'Saudi Arabia';
   static const String defCity = 'Mecca';

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -21,8 +19,6 @@ class SFQState extends ChangeNotifier {
     _currentBottomIndex = value;
     notifyListeners();
   }
-
-  int get getRandomNumber => Random().nextInt(54);
 
   late int _arabicTextSize;
 

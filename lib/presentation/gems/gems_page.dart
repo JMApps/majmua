@@ -25,8 +25,8 @@ class _GemsPageState extends State<GemsPage> {
   void initState() {
     super.initState();
     _gemsPages = [
-      GemsList(bucketStorage: PageStorageBucket()),
-      GemsPageList(bucketStorage: PageStorageBucket()),
+      const GemsList(),
+      const GemsPageList(),
       const GemsSettings(),
     ];
   }

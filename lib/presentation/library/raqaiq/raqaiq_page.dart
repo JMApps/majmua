@@ -2,9 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../core/strings/app_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../../data/repositories/raqaiq_data_repository.dart';
 import '../../../domain/entities/raqaiq_entity.dart';
@@ -22,8 +24,23 @@ class RaqaiqPage extends StatefulWidget {
 
 class _RaqaiqPageState extends State<RaqaiqPage> {
   final RaqaiqUseCase _raqaiqUseCase = RaqaiqUseCase(RaqaiqDataRepository());
-  final PageController _raqaiqPageController = PageController();
   final ScrollController _raqaiqScrollController = ScrollController();
+  final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
+  late final PageController _raqaiqPageController;
+  late final int _lastPage;
+
+  @override
+  void initState() {
+    _lastPage = _mainSettingsBox.get(AppConstraints.keyLastRaqaiqPage, defaultValue: 0);
+    _raqaiqPageController = PageController(initialPage: _lastPage);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _raqaiqPageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +93,9 @@ class _RaqaiqPageState extends State<RaqaiqPage> {
                             model: model,
                             myController: _raqaiqScrollController,
                           );
+                        },
+                        onPageChanged: (int page) {
+                          _mainSettingsBox.put(AppConstraints.keyLastRaqaiqPage, page);
                         },
                       ),
                     );

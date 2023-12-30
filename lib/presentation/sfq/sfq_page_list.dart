@@ -1,7 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../core/strings/app_constraints.dart';
@@ -9,18 +11,12 @@ import '../../core/styles/app_styles.dart';
 import '../../data/repositories/sfq_data_repository.dart';
 import '../../domain/entities/sfq_entity.dart';
 import '../../domain/usecases/sfq_use_case.dart';
-import '../state/sfq_state.dart';
 import '../widgets/error_data_text.dart';
 import '../widgets/user_back_button.dart';
 import 'sfq_page_item.dart';
 
 class SFQPageList extends StatefulWidget {
-  const SFQPageList({
-    super.key,
-    required this.bucketSFQPageList,
-  });
-
-  final PageStorageBucket bucketSFQPageList;
+  const SFQPageList({super.key});
 
   @override
   State<SFQPageList> createState() => _SFQPageListState();
@@ -28,7 +24,16 @@ class SFQPageList extends StatefulWidget {
 
 class _SFQPageListState extends State<SFQPageList> {
   final SFQUseCase _sfqUseCase = SFQUseCase(SFQDataRepository());
-  final PageController _sfqPageController = PageController();
+  final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
+  late final PageController _sfqPageController;
+  late final int _lastPage;
+
+  @override
+  void initState() {
+    _lastPage = _mainSettingsBox.get(AppConstraints.keyLastSFQPage, defaultValue: 0);
+    _sfqPageController = PageController(initialPage: _lastPage);
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -48,7 +53,7 @@ class _SFQPageListState extends State<SFQPageList> {
           IconButton(
             onPressed: () {
               _sfqPageController.animateToPage(
-                Provider.of<SFQState>(context, listen: false).getRandomNumber,
+                Random().nextInt(54),
                 duration: const Duration(milliseconds: 750),
                 curve: Curves.linear,
               );
@@ -73,17 +78,16 @@ class _SFQPageListState extends State<SFQPageList> {
             return Column(
               children: [
                 Expanded(
-                  child: PageStorage(
-                    bucket: widget.bucketSFQPageList,
-                    child: PageView.builder(
-                      key: const PageStorageKey<String>(AppConstraints.keyBucketSFQPageListChapters),
-                      controller: _sfqPageController,
-                      itemCount: snapshot.data!.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final SFQEntity model = snapshot.data![index];
-                        return SFQPageItem(model: model, index: index);
-                      },
-                    ),
+                  child: PageView.builder(
+                    controller: _sfqPageController,
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final SFQEntity model = snapshot.data![index];
+                      return SFQPageItem(model: model, index: index);
+                    },
+                    onPageChanged: (int page) {
+                      _mainSettingsBox.put(AppConstraints.keyLastSFQPage, page);
+                    },
                   ),
                 ),
                 const SizedBox(height: 2),
