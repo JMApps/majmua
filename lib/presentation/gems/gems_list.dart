@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -23,21 +21,6 @@ class GemsList extends StatefulWidget {
 class _GemsListState extends State<GemsList> {
   final GemsUseCase _gemsUseCase = GemsUseCase(GemsDataRepository());
   final ItemScrollController _itemScrollController = ItemScrollController();
-
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 1)).then(
-          (value) {
-        if (_itemScrollController.isAttached) {
-          _itemScrollController.scrollTo(
-            index: Random().nextInt(605),
-            duration: const Duration(milliseconds: 750),
-          );
-        }
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {

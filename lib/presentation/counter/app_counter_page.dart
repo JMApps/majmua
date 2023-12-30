@@ -41,11 +41,12 @@ class AppCounterPage extends StatelessWidget {
                 return mediaQuery.orientation == Orientation.portrait
                     ? const Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Expanded(
+                          Flexible(
                             child: CounterButton(),
                           ),
-                          // ignore: prefer_const_constructors
+                          SizedBox(height: 32),
                           CounterValuesDropbutton(),
                           TotalCountText(),
                         ],
@@ -86,6 +87,7 @@ class AppCounterPage extends StatelessWidget {
                     Visibility(
                       visible: Platform.isIOS,
                       child: CircleAvatar(
+                        backgroundColor: appColors.inversePrimary,
                         child: IconButton(
                           onPressed: () {
                             appCounterState.onChangeIsClick;
@@ -97,13 +99,14 @@ class AppCounterPage extends StatelessWidget {
                             width: 20,
                             height: 20,
                             color: appCounterState.getIsClick
-                                ? Colors.white
+                                ? appColors.primary
                                 : appColors.quaternaryColor,
                           ),
                         ),
                       ),
                     ),
                     CircleAvatar(
+                      backgroundColor: appColors.inversePrimary,
                       child: IconButton(
                         onPressed: () {
                           appCounterState.onChangeVibrateState;
@@ -115,12 +118,13 @@ class AppCounterPage extends StatelessWidget {
                           width: 20,
                           height: 20,
                           color: appCounterState.getIsVibrate
-                              ? Colors.white
+                              ? appColors.primary
                               : appColors.quaternaryColor,
                         ),
                       ),
                     ),
                     CircleAvatar(
+                      backgroundColor: appColors.inversePrimary,
                       child: IconButton(
                         onPressed: () {
                           appCounterState.onChangeIsShow;
@@ -132,12 +136,13 @@ class AppCounterPage extends StatelessWidget {
                           width: 20,
                           height: 20,
                           color: appCounterState.getIsShow
-                              ? Colors.white
+                              ? appColors.primary
                               : appColors.quaternaryColor,
                         ),
                       ),
                     ),
                     CircleAvatar(
+                      backgroundColor: appColors.inversePrimary,
                       child: IconButton(
                         onPressed: () {
                           appCounterState.resetSelectedCount = appCounterState.getCountValuesIndex;
@@ -148,7 +153,7 @@ class AppCounterPage extends StatelessWidget {
                           'assets/icons/reset.png',
                           width: 20,
                           height: 20,
-                          color: Colors.white,
+                          color: appColors.primary,
                         ),
                       ),
                     ),

@@ -21,7 +21,7 @@ class StrengthDataRepository implements StrengthRepository {
   @override
   Future<StrengthFootnoteEntity> getFootnoteById({required int footnoteId}) async {
     final Database database = await _databaseService.db;
-    final List<Map<String, Object?>> resources = await database.query('Table_of_footnotes', where: 'id = $footnoteId', whereArgs: [footnoteId]);
+    final List<Map<String, Object?>> resources = await database.query('Table_of_footnotes', where: 'id = ?', whereArgs: [footnoteId]);
     final StrengthFootnoteEntity? footnoteById = resources.isNotEmpty ? _footnoteToEntity(StrengthFootnoteModel.fromMap(resources.first)) : null;
     return footnoteById!;
   }

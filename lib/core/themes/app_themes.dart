@@ -4,7 +4,7 @@ import 'package:majmua/core/styles/app_styles.dart';
 class AppThemes {
   static ThemeData lightTheme = ThemeData(
     fontFamily: 'Nexa',
-    useMaterial3: false,
+    useMaterial3: true,
     scaffoldBackgroundColor: const Color(0xFFE8EAF6),
     colorScheme: ColorScheme.fromSeed(
       brightness: Brightness.light,
@@ -59,7 +59,7 @@ class AppThemes {
 
   static ThemeData darkTheme = ThemeData(
     fontFamily: 'Nexa',
-    useMaterial3: false,
+    useMaterial3: true,
     scaffoldBackgroundColor: const Color(0xFF171821),
     colorScheme: ColorScheme.fromSeed(
       brightness: Brightness.dark,

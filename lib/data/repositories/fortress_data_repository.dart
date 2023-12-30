@@ -23,7 +23,7 @@ class FortressDataRepository implements FortressRepository {
   @override
   Future<ChapterFortressEntity> getChapterById({required String tableName, required int chapterId}) async {
     final Database database = await _databaseService.db;
-    final List<Map<String, Object?>> resources = await database.query(tableName,where: 'id = $chapterId', whereArgs: [chapterId]);
+    final List<Map<String, Object?>> resources = await database.query(tableName,where: 'id = ?', whereArgs: [chapterId]);
     final ChapterFortressEntity? chapterById = resources.isNotEmpty ? _chapterToEntity(ChapterFortressModel.fromMap(resources.first)) : null;
     return chapterById!;
   }
@@ -39,7 +39,7 @@ class FortressDataRepository implements FortressRepository {
   @override
   Future<List<SupplicationFortressEntity>> getSupplicationByChapterId({required String tableName, required int chapterId}) async {
     final Database database = await _databaseService.db;
-    final List<Map<String, Object?>> resources = await database.query(tableName, where: 'sample_by = $chapterId', whereArgs: [chapterId]);
+    final List<Map<String, Object?>> resources = await database.query(tableName, where: 'sample_by = ?', whereArgs: [chapterId]);
     final List<SupplicationFortressEntity> supplicationsByChapterId = resources.isNotEmpty ? resources.map((c) => _supplicationToEntity(SupplicationFortressModel.fromMap(c))).toList() : [];
     return supplicationsByChapterId;
   }
@@ -47,7 +47,7 @@ class FortressDataRepository implements FortressRepository {
   @override
   Future<FootnoteFortressEntity> getFootnoteById({required String tableName, required int footnoteId}) async {
     final Database database = await _databaseService.db;
-    final List<Map<String, Object?>> resources = await database.query(tableName, where: 'id = $footnoteId', whereArgs: [footnoteId]);
+    final List<Map<String, Object?>> resources = await database.query(tableName, where: 'id = ?', whereArgs: [footnoteId]);
     final FootnoteFortressEntity? footnoteById = resources.isNotEmpty ? _footnoteToEntity(FootnoteFortressModel.fromMap(resources.first)) : null;
     return footnoteById!;
   }

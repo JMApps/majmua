@@ -12,7 +12,6 @@ class BooksList extends StatelessWidget {
     return const SingleChildScrollView(
       padding: AppStyles.mainMardingMini,
       child: Column(
-        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           BookItem(

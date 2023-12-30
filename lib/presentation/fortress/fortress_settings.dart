@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/themes/app_themes.dart';
+import 'package:majmua/presentation/widgets/user_back_button.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/styles/app_styles.dart';
@@ -15,6 +16,7 @@ class FortressSettings extends StatelessWidget {
     final AppLocalizations? appLocale = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
+        leading: const UserBackButton(),
         title: Text(appLocale!.settings),
       ),
       body: Consumer<FortressSettingsState>(

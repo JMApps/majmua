@@ -42,14 +42,14 @@ class CustomCitiesDataRepository implements CustomCitiesRepository {
       latitude: model.latitude,
       longitude: model.longitude,
     );
-    final int changeCity = await database.update(_tableName, customCityModel.toMap(), where: 'id = ${model.id}', conflictAlgorithm: sql.ConflictAlgorithm.replace);
+    final int changeCity = await database.update(_tableName, customCityModel.toMap(), where: 'id = ?', whereArgs: [model.id], conflictAlgorithm: sql.ConflictAlgorithm.replace);
     return changeCity;
   }
 
   @override
   Future<int> deleteCity({required int cityId}) async {
     final Database database = await _databaseService.db;
-    final int deleteCity = await database.delete(_tableName, where: 'id = $cityId');
+    final int deleteCity = await database.delete(_tableName, where: 'id = ?', whereArgs: [cityId]);
     return deleteCity;
   }
 
