@@ -57,8 +57,7 @@ class NotificationService {
     priority: Priority.max,
   );
 
-  final DarwinNotificationDetails _iOSDayNotificationDetails =
-      const DarwinNotificationDetails();
+  final DarwinNotificationDetails _iOSDayNotificationDetails = const DarwinNotificationDetails();
 
   final AndroidNotificationDetails _androidMonthNotificationDetails = const AndroidNotificationDetails(
     'Month notification channel ID',
@@ -88,22 +87,14 @@ class NotificationService {
 
     await _flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
-      onDidReceiveNotificationResponse: onDidReceiveNotificationResponse,
     );
-  }
-
-  // Попробовать решить
-  void onDidReceiveNotificationResponse(NotificationResponse notificationResponse) async {
-    final String? payload = notificationResponse.payload;
-    if (notificationResponse.payload != null) {
-      debugPrint('notification payload: $payload');
-    }
   }
 
   Future<void> prayerNotifications({required int id, required String title, required String body, required DateTime prayerTime}) async {
     TZDateTime tzDateNotification = tz.TZDateTime.from(prayerTime.add(const Duration(hours: -3)), tz.local);
     try {
       await _flutterLocalNotificationsPlugin.zonedSchedule(
+        payload: title,
         id,
         title,
         body,
@@ -114,7 +105,6 @@ class NotificationService {
         ),
         androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
         matchDateTimeComponents: DateTimeComponents.time,
-        payload: title,
         uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
       );
     } on PlatformException catch (e) {
@@ -128,6 +118,7 @@ class NotificationService {
     TZDateTime tzDateNotification = tz.TZDateTime.from(dateTime.add(const Duration(hours: -3)), tz.local);
     try {
       await _flutterLocalNotificationsPlugin.zonedSchedule(
+        payload: title,
         id,
         title,
         body,

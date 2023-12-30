@@ -23,7 +23,7 @@ class NamesOfDataRepository implements NamesOfRepository {
   @override
   Future<List<NameEntity>> getNamesByChapterId({required int chapterId}) async {
     final Database database = await _databaseService.db;
-    final List<Map<String, Object?>> resources = await database.query('Table_of_names', where: 'sorted_by = $chapterId', whereArgs: [chapterId]);
+    final List<Map<String, Object?>> resources = await database.query('Table_of_names', where: 'sorted_by = ?', whereArgs: [chapterId]);
     final List<NameEntity> namesByChapterId = resources.isNotEmpty ? resources.map((c) => _nameToEntity(NameModel.fromMap(c))).toList() : [];
     return namesByChapterId;
   }
@@ -31,7 +31,7 @@ class NamesOfDataRepository implements NamesOfRepository {
   @override
   Future<List<AyahEntity>> getAyahsByChapterId({required int chapterId}) async {
     final Database database = await _databaseService.db;
-    final List<Map<String, Object?>> resources = await database.query('Table_of_ayahs', where: 'sorted_by = $chapterId', whereArgs: [chapterId]);
+    final List<Map<String, Object?>> resources = await database.query('Table_of_ayahs', where: 'sorted_by = ?', whereArgs: [chapterId]);
     final List<AyahEntity> ayahsByChapterId = resources.isNotEmpty ? resources.map((c) => _ayahToEntity(AyahModel.fromMap(c))).toList() : [];
     return ayahsByChapterId;
   }
@@ -39,7 +39,7 @@ class NamesOfDataRepository implements NamesOfRepository {
   @override
   Future<ClarificationEntity> getClarificationById({required int chapterId}) async {
     final Database database = await _databaseService.db;
-    final List<Map<String, Object?>> resources = await database.query('Table_of_clarifications', where: 'id = $chapterId', whereArgs: [chapterId]);
+    final List<Map<String, Object?>> resources = await database.query('Table_of_clarifications', where: 'id = ?', whereArgs: [chapterId]);
     final ClarificationEntity? clarificationById = resources.isNotEmpty ? _chapterToEntity(ClarificationModel.fromMap(resources.first)) : null;
     return clarificationById!;
   }

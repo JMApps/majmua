@@ -7,6 +7,8 @@ import '../../core/themes/app_themes.dart';
 import '../state/app_settings_state.dart';
 import 'main_page.dart';
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 class RootPage extends StatelessWidget {
   const RootPage({super.key});
 
@@ -14,6 +16,7 @@ class RootPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppSettingsState settings = Provider.of<AppSettingsState>(context);
     return MaterialApp(
+      key: navigatorKey,
       debugShowCheckedModeBanner: false,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

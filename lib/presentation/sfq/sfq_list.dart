@@ -24,21 +24,6 @@ class _SFQListState extends State<SFQList> {
   final ItemScrollController _itemScrollController = ItemScrollController();
 
   @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 1)).then(
-      (value) {
-        if (_itemScrollController.isAttached) {
-          _itemScrollController.scrollTo(
-            index: Random().nextInt(54),
-            duration: const Duration(milliseconds: 750),
-          );
-        }
-      },
-    );
-  }
-
-  @override
   Widget build(BuildContext context) {
     final AppLocalizations? appLocale = AppLocalizations.of(context);
     return Scaffold(
