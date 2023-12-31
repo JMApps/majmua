@@ -119,6 +119,7 @@ class MajmuaButtonsCard extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(height: 8),
               Tooltip(
                 message: appLocale.library,
                 child: OutlinedButton(

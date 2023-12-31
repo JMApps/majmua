@@ -106,8 +106,7 @@ class FortressSettings extends StatelessWidget {
                   ],
                 ),
                 const Divider(indent: 16, endIndent: 16),
-                SwitchListTile.adaptive(
-                  activeColor: appColors.quaternaryColor,
+                SwitchListTile(
                   title: Text(appLocale.transcription),
                   value: fcState.getTranscriptionIsShow,
                   onChanged: (onChanged) => fcState.transcriptionShowOnChange(),

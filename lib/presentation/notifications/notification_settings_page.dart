@@ -46,12 +46,11 @@ class NotificationSettingsPage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      SwitchListTile.adaptive(
+                      SwitchListTile(
                         title: Text(appLocale.fajr),
                         value: notificationsState.fajrNotification,
                         shape: AppStyles.topShapeMini,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                        activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
                           notificationsState.setFajrNotification = onChanged;
                           if (!onChanged) {
@@ -60,12 +59,11 @@ class NotificationSettingsPage extends StatelessWidget {
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
-                      SwitchListTile.adaptive(
+                      SwitchListTile(
                         title: Text(appLocale.sunriseDuha),
                         value: notificationsState.sunriseNotification,
                         shape: AppStyles.mainShapeMicro,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                        activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
                           notificationsState.setSunriseNotification = onChanged;
                           if (!onChanged) {
@@ -74,12 +72,11 @@ class NotificationSettingsPage extends StatelessWidget {
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
-                      SwitchListTile.adaptive(
+                      SwitchListTile(
                         title: Text(appLocale.dhuhr),
                         value: notificationsState.dhuhrNotification,
                         shape: AppStyles.mainShapeMicro,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                        activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
                           notificationsState.setDhuhrNotification = onChanged;
                           if (!onChanged) {
@@ -88,12 +85,11 @@ class NotificationSettingsPage extends StatelessWidget {
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
-                      SwitchListTile.adaptive(
+                      SwitchListTile(
                         title: Text(appLocale.asr),
                         value: notificationsState.asrNotification,
                         shape: AppStyles.mainShapeMicro,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                        activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
                           notificationsState.setAsrNotification = onChanged;
                           if (!onChanged) {
@@ -102,12 +98,11 @@ class NotificationSettingsPage extends StatelessWidget {
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
-                      SwitchListTile.adaptive(
+                      SwitchListTile(
                         title: Text(appLocale.maghrib),
                         value: notificationsState.maghribNotification,
                         shape: AppStyles.mainShapeMicro,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                        activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
                           notificationsState.setMaghribNotification = onChanged;
                           if (!onChanged) {
@@ -116,12 +111,11 @@ class NotificationSettingsPage extends StatelessWidget {
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
-                      SwitchListTile.adaptive(
+                      SwitchListTile(
                         title: Text(appLocale.isha),
                         value: notificationsState.ishaNotification,
                         shape: AppStyles.bottomShapeMini,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                        activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
                           notificationsState.setIshaNotification = onChanged;
                           if (!onChanged) {
@@ -153,12 +147,11 @@ class NotificationSettingsPage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      SwitchListTile.adaptive(
+                      SwitchListTile(
                         title: Text(appLocale.morningAdhkars),
                         value: notificationsState.morningSupplicationsNotification,
                         shape: AppStyles.topShapeMini,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                        activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
                           notificationsState.setMorningSupplicationsNotification = onChanged;
                           if (!onChanged) {
@@ -167,12 +160,11 @@ class NotificationSettingsPage extends StatelessWidget {
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
-                      SwitchListTile.adaptive(
+                      SwitchListTile(
                         title: Text(appLocale.eveningAdhkars),
                         value: notificationsState.eveningSupplicationsNotification,
                         shape: AppStyles.mainShapeMicro,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                        activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
                           notificationsState.eveningSupplicationsNotification = onChanged;
                           if (!onChanged) {
@@ -181,12 +173,11 @@ class NotificationSettingsPage extends StatelessWidget {
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
-                      SwitchListTile.adaptive(
+                      SwitchListTile(
                         title: Text(appLocale.nightAdhkars),
                         value: notificationsState.nightSupplicationsNotification,
                         shape: AppStyles.bottomShapeMini,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                        activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
                           notificationsState.setNightSupplicationsNotification = onChanged;
                           if (!onChanged) {
@@ -218,12 +209,11 @@ class NotificationSettingsPage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      SwitchListTile.adaptive(
+                      SwitchListTile(
                         title: Text(appLocale.fastMonday),
                         value: notificationsState.fastMondayNotification,
                         shape: AppStyles.topShapeMini,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                        activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
                           notificationsState.setFastMondayNotification = onChanged;
                           if (!onChanged) {
@@ -232,12 +222,11 @@ class NotificationSettingsPage extends StatelessWidget {
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
-                      SwitchListTile.adaptive(
+                      SwitchListTile(
                         title: Text(appLocale.fastThursday),
                         value: notificationsState.fastThursdayNotification,
                         shape: AppStyles.mainShapeMicro,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                        activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
                           notificationsState.setFastThursdayNotification = onChanged;
                           if (!onChanged) {
@@ -246,12 +235,11 @@ class NotificationSettingsPage extends StatelessWidget {
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
-                      SwitchListTile.adaptive(
+                      SwitchListTile(
                         title: Text(appLocale.fastWhiteDays),
                         value: notificationsState.fastWhiteDaysNotification,
                         shape: AppStyles.bottomShapeMini,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                        activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
                           notificationsState.setFastWhiteDaysNotification = onChanged;
                           if (!onChanged) {
@@ -283,12 +271,11 @@ class NotificationSettingsPage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      SwitchListTile.adaptive(
+                      SwitchListTile(
                         title: Text(appLocale.friday),
                         value: notificationsState.fridayNotification,
                         shape: AppStyles.topShapeMini,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                        activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
                           notificationsState.setFridayNotification = onChanged;
                           if (!onChanged) {
@@ -297,12 +284,11 @@ class NotificationSettingsPage extends StatelessWidget {
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
-                      SwitchListTile.adaptive(
+                      SwitchListTile(
                         title: Text(appLocale.lastHourFriday),
                         value: notificationsState.lastHourFridayNotification,
                         shape: AppStyles.bottomShapeMini,
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                        activeColor: appColors.quaternaryColor,
                         onChanged: (bool onChanged) {
                           notificationsState.setLastHourFridayNotification = onChanged;
                           if (!onChanged) {

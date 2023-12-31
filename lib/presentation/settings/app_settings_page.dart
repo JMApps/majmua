@@ -114,13 +114,12 @@ class AppSettingsPage extends StatelessWidget {
                   ),
                 ),
                 const Divider(indent: 16, endIndent: 16),
-                SwitchListTile.adaptive(
+                SwitchListTile(
                   title: Text(appLocale.alwaysOnDisplay),
                   value: settings.getAlwaysDisplay,
                   contentPadding: AppStyles.mardingHorizontalMini,
                   shape: AppStyles.mainShapeMini,
                   visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
-                  activeColor: appColors.quaternaryColor,
                   onChanged: (bool onChanged) {
                     settings.setAlwaysDisplay = onChanged;
                   },

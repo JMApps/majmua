@@ -32,7 +32,8 @@ void main() async {
   await Hive.openBox(AppConstraints.keyWeeklySalawatSettings);
   await Hive.openBox(AppConstraints.keySettingsPrayerTimeBox);
   await Hive.openBox(AppConstraints.keyMainCounter);
-  NotificationService().setupNotification();
+  await NotificationService().setupNotification();
+
   runApp(
     MultiProvider(
       providers: [
