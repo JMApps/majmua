@@ -17,7 +17,7 @@ class NotificationService {
 
   NotificationService._internal();
 
-  static const String _logoName = '@drawable/sm_notification';
+  static const String _logoName = 'ic_stat_notification';
 
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
@@ -71,6 +71,8 @@ class NotificationService {
   final DarwinNotificationDetails _iOSMonthNotificationDetails = const DarwinNotificationDetails();
 
   Future<void> setupNotification() async {
+    tz.initializeTimeZones();
+
     if (Platform.isAndroid) {
       _flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()?.requestNotificationsPermission();
     }
@@ -83,15 +85,13 @@ class NotificationService {
       iOS: iOSInitializationSettings,
     );
 
-    tz.initializeTimeZones();
-
     await _flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
     );
   }
 
   Future<void> prayerNotifications({required int id, required String title, required String body, required DateTime prayerTime}) async {
-    TZDateTime tzDateNotification = tz.TZDateTime.from(prayerTime.add(const Duration(hours: -3)), tz.local);
+    TZDateTime tzDateNotification = tz.TZDateTime.from(DateTime(prayerTime.year, prayerTime.month, prayerTime.day, prayerTime.hour, prayerTime.minute), tz.local);
     try {
       await _flutterLocalNotificationsPlugin.zonedSchedule(
         payload: title,
@@ -115,7 +115,7 @@ class NotificationService {
   }
 
   Future<void> timeNotifications({required int id, required String title, required String body, required DateTime dateTime}) async {
-    TZDateTime tzDateNotification = tz.TZDateTime.from(dateTime.add(const Duration(hours: -3)), tz.local);
+    TZDateTime tzDateNotification = tz.TZDateTime.from(DateTime(dateTime.year, dateTime.month, dateTime.day, dateTime.hour, dateTime.minute), tz.local);
     try {
       await _flutterLocalNotificationsPlugin.zonedSchedule(
         payload: title,
@@ -139,7 +139,7 @@ class NotificationService {
   }
 
   Future<void> dayNotifications({required int id, required String title, required String body, required DateTime dateTime}) async {
-    TZDateTime tzDateNotification = tz.TZDateTime.from(dateTime, tz.local);
+    TZDateTime tzDateNotification = tz.TZDateTime.from(DateTime(dateTime.year, dateTime.month, dateTime.day, dateTime.hour, dateTime.minute), tz.local);
     try {
       await _flutterLocalNotificationsPlugin.zonedSchedule(
         id,
@@ -161,7 +161,7 @@ class NotificationService {
   }
 
   Future<void> monthNotifications({required int id, required String title, required String body, required DateTime dateTime}) async {
-    TZDateTime tzDateNotification = tz.TZDateTime.from(dateTime, tz.local);
+    TZDateTime tzDateNotification = tz.TZDateTime.from(DateTime(dateTime.year, dateTime.month, dateTime.day, dateTime.hour, dateTime.minute), tz.local);
     try {
       await _flutterLocalNotificationsPlugin.zonedSchedule(
         id,
