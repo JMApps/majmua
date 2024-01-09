@@ -225,9 +225,9 @@ class RestTimeState extends ChangeNotifier {
         break;
     }
 
-    final startOfSeason = DateTime(_currentDateTime.year, startSeasonMonth, 1);
+    final startOfSeason = DateTime(_getCurrentSeason(_currentDateTime.month) == Season.winter ? _currentDateTime.year - 1 : _currentDateTime.year, startSeasonMonth, 1);
     final elapsedTime = _currentDateTime.difference(startOfSeason).inMinutes;
-    final endOfSeason = DateTime(_currentDateTime.year + 1, endSeasonMonth + 1, 0);
+    final endOfSeason = DateTime(_currentDateTime.year, endSeasonMonth + 1);
     final totalSeasonTime = endOfSeason.difference(startOfSeason).inMinutes;
 
     final elapsedTimePercentage = (elapsedTime / totalSeasonTime);
