@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/themes/app_themes.dart';
+import 'package:majmua/presentation/majmuaButtons/fortress_lists.dart';
 
 import '../../core/routes/route_names.dart';
 import '../../core/styles/app_styles.dart';
@@ -69,8 +70,11 @@ class MajmuaButtonsCard extends StatelessWidget {
                     message: appLocale.fortress,
                     child: OutlinedButton(
                       onPressed: () {
-                        Navigator.pushNamed(
-                            context, RouteNames.fortressChaptersPage);
+                        showModalBottomSheet(
+                          context: context,
+                          backgroundColor: appColors.fullGlass,
+                          builder: (context) => const FortressList(),
+                        );
                       },
                       style: OutlinedButton.styleFrom(
                         padding: AppStyles.mainMardingMini,
