@@ -16,6 +16,13 @@ allprojects {
         google()
         mavenCentral()
     }
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile).tap {
+            configureEach {
+                options.compilerArgs.add("-Xlint:deprecation")
+            }
+        }
+    }
 }
 
 rootProject.buildDir = '../build'

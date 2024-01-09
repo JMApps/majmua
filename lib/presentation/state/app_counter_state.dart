@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/core/strings/app_constraints.dart';
-import 'package:vibration/vibration.dart';
 
 class AppCounterState extends ChangeNotifier {
   final _counterValueBox = Hive.box(AppConstraints.keyMainCounter);
@@ -157,15 +156,7 @@ class AppCounterState extends ChangeNotifier {
 
   set mainCountClick(int countIndex) {
     if (_isVibrate) {
-      Vibration.hasVibrator().then(
-        (hasVbr) {
-          if (hasVbr!) {
-            HapticFeedback.lightImpact();
-          } else {
-            Vibration.vibrate(duration: 200);
-          }
-        },
-      );
+      HapticFeedback.lightImpact();
     }
     if (_isClick) {
       SystemSound.play(SystemSoundType.click);

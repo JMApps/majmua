@@ -20,6 +20,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await NotificationService().setupNotification();
   if (Platform.isAndroid) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,

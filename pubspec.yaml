@@ -50,8 +50,7 @@ dependencies:
 
   # System
   wakelock_plus: ^1.1.4
-  vibration: ^1.8.4
-  url_launcher: ^6.2.2
+  url_launcher: ^6.2.3
 
   # Notifications
   flutter_local_notifications: ^16.3.0

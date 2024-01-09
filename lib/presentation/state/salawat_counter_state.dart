@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:vibration/vibration.dart';
 
 import '../../core/strings/app_constraints.dart';
 
@@ -19,15 +18,7 @@ class SalawatCounterState extends ChangeNotifier {
 
   void get changeSalawatCount {
     _salawatCount++;
-    Vibration.hasVibrator().then(
-      (hasVbr) {
-        if (hasVbr!) {
-          HapticFeedback.lightImpact();
-        } else {
-          Vibration.vibrate(duration: 200);
-        }
-      },
-    );
+    HapticFeedback.lightImpact();
     _salawatSettingsBox.put(AppConstraints.keySalawatCount, _salawatCount);
     notifyListeners();
   }
