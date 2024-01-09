@@ -76,7 +76,9 @@ class AdhanTimeCard extends StatelessWidget {
                         style: TextStyle(
                           fontSize: screenWidth * 0.0425,
                           fontFamily: 'Bitter',
-                          fontWeight: FontWeight.bold,
+                          fontWeight: isRemainingTime || isPrayer || isPastTime
+                              ? FontWeight.bold
+                              : FontWeight.normal,
                           letterSpacing: 0.5,
                         ),
                         textAlign: TextAlign.start,
@@ -101,7 +103,6 @@ class AdhanTimeCard extends StatelessWidget {
                             style: TextStyle(
                               fontSize: screenWidth * 0.035,
                               color: appColors.quaternaryColor,
-                              fontWeight: FontWeight.bold,
                               fontFamily: 'Bitter',
                               letterSpacing: 0.5,
                             ),
@@ -120,7 +121,6 @@ class AdhanTimeCard extends StatelessWidget {
                               fontSize: screenWidth * 0.035,
                               color: appColors.primary,
                               fontFamily: 'Bitter',
-                              fontWeight: FontWeight.bold,
                               letterSpacing: 0.5,
                             ),
                           ),

@@ -33,7 +33,6 @@ class MainPercentSeasonsCard extends StatelessWidget {
                     textAlign: TextAlign.center,
                     textStyle: TextStyle(
                       fontSize: screenWidth * 0.04,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ]),
