@@ -18,6 +18,7 @@ import 'presentation/state/surah_settings_state.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService().setupNotification();
   if (Platform.isAndroid) {
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
@@ -32,7 +33,6 @@ void main() async {
   await Hive.openBox(AppConstraints.keyWeeklySalawatSettings);
   await Hive.openBox(AppConstraints.keySettingsPrayerTimeBox);
   await Hive.openBox(AppConstraints.keyMainCounter);
-  await NotificationService().setupNotification();
 
   runApp(
     MultiProvider(
