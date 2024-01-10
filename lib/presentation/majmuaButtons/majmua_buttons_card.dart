@@ -15,7 +15,7 @@ class MajmuaButtonsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
-    final double screenWidth = MediaQuery.of(context).size.width;
+    final double screenWidth = MediaQuery.of(context).size.width * 0.075;
     return Card(
       child: Card(
         margin: AppStyles.mainMardingMini,
@@ -28,97 +28,83 @@ class MajmuaButtonsCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Tooltip(
-                    message: appLocale!.surahs,
-                    child: OutlinedButton(
-                      onPressed: () {
-                        showModalBottomSheet(
-                          context: context,
-                          backgroundColor: appColors.fullGlass,
-                          builder: (context) => const SurahsList(),
-                        );
-                      },
-                      style: OutlinedButton.styleFrom(
-                        padding: AppStyles.mainMardingMini,
-                      ),
-                      child: Image.asset(
-                        'assets/icons/quran.png',
-                        width: screenWidth * 0.085,
-                        height: screenWidth * 0.085,
-                        color: appColors.primary,
-                      ),
+                  IconButton.outlined(
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        backgroundColor: appColors.fullGlass,
+                        builder: (context) => const SurahsList(),
+                      );
+                    },
+                    tooltip: appLocale!.surahs,
+                    icon: Image.asset(
+                      'assets/icons/quran.png',
+                      width: screenWidth,
+                      height: screenWidth,
+                      color: appColors.primary,
                     ),
                   ),
-                  Tooltip(
-                    message: appLocale.sfq,
-                    child: OutlinedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, RouteNames.sfqPage);
-                      },
-                      style: OutlinedButton.styleFrom(
-                        padding: AppStyles.mainMardingMini,
-                      ),
-                      child: Image.asset(
-                        'assets/icons/s_quran.png',
-                        width: screenWidth * 0.085,
-                        height: screenWidth * 0.085,
-                        color: appColors.primary,
-                      ),
+                  IconButton.outlined(
+                    onPressed: () {
+                      Navigator.pushNamed(context, RouteNames.sfqPage);
+                    },
+                    tooltip: appLocale.sfq,
+                    icon: Image.asset(
+                      'assets/icons/s_quran.png',
+                      width: screenWidth,
+                      height: screenWidth,
+                      color: appColors.primary,
                     ),
                   ),
-                  Tooltip(
-                    message: appLocale.fortress,
-                    child: OutlinedButton(
-                      onPressed: () {
-                        showModalBottomSheet(
-                          context: context,
-                          backgroundColor: appColors.fullGlass,
-                          builder: (context) => const FortressList(),
-                        );
-                      },
-                      style: OutlinedButton.styleFrom(
-                        padding: AppStyles.mainMardingMini,
+                  Column(
+                    children: [
+                      IconButton.outlined(
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            backgroundColor: appColors.fullGlass,
+                            builder: (context) => const FortressList(),
+                          );
+                        },
+                        tooltip: appLocale.fortress,
+                        icon: Image.asset(
+                          'assets/icons/fortress.png',
+                          width: screenWidth,
+                          height: screenWidth,
+                          color: appColors.primary,
+                        ),
                       ),
-                      child: Image.asset(
-                        'assets/icons/fortress.png',
-                        width: screenWidth * 0.085,
-                        height: screenWidth * 0.085,
-                        color: appColors.primary,
+                      Text(
+                        appLocale.adhkars,
+                        style: TextStyle(
+                          color: appColors.tertiary,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
+                    ],
+                  ),
+                  IconButton.outlined(
+                    onPressed: () {
+                      Navigator.pushNamed(context, RouteNames.gemsPage);
+                    },
+                    tooltip: appLocale.gemsTarifi,
+                    icon: Image.asset(
+                      'assets/icons/pearl.png',
+                      width: screenWidth,
+                      height: screenWidth,
+                      color: appColors.primary,
                     ),
                   ),
-                  Tooltip(
-                    message: appLocale.gemsTarifi,
-                    child: OutlinedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, RouteNames.gemsPage);
-                      },
-                      style: OutlinedButton.styleFrom(
-                        padding: AppStyles.mainMardingMini,
-                      ),
-                      child: Image.asset(
-                        'assets/icons/pearl.png',
-                        width: screenWidth * 0.085,
-                        height: screenWidth * 0.085,
-                        color: appColors.primary,
-                      ),
-                    ),
-                  ),
-                  Tooltip(
-                    message: appLocale.counter,
-                    child: OutlinedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, RouteNames.appCounterPage);
-                      },
-                      style: OutlinedButton.styleFrom(
-                        padding: AppStyles.mainMardingMini,
-                      ),
-                      child: Image.asset(
-                        'assets/icons/counter.png',
-                        width: screenWidth * 0.085,
-                        height: screenWidth * 0.085,
-                        color: appColors.primary,
-                      ),
+                  IconButton.outlined(
+                    onPressed: () {
+                      Navigator.pushNamed(context, RouteNames.appCounterPage);
+                    },
+                    tooltip: appLocale.counter,
+                    icon: Image.asset(
+                      'assets/icons/counter.png',
+                      width: screenWidth,
+                      height: screenWidth,
+                      color: appColors.primary,
                     ),
                   ),
                 ],

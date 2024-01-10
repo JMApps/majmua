@@ -37,7 +37,8 @@ class AppCounterPage extends StatelessWidget {
           child: AnimatedSize(
             duration: const Duration(milliseconds: 500),
             child: Consumer<AppCounterState>(
-              builder: (BuildContext context, AppCounterState appCounterState, _) {
+              builder:
+                  (BuildContext context, AppCounterState appCounterState, _) {
                 return mediaQuery.orientation == Orientation.portrait
                     ? const Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -79,7 +80,8 @@ class AppCounterPage extends StatelessWidget {
           child: Padding(
             padding: AppStyles.mainMarding,
             child: Consumer<AppCounterState>(
-              builder: (BuildContext context, AppCounterState appCounterState, _) {
+              builder:
+                  (BuildContext context, AppCounterState appCounterState, _) {
                 return Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -94,13 +96,9 @@ class AppCounterPage extends StatelessWidget {
                           },
                           tooltip: appLocale.clicked,
                           splashRadius: 25,
-                          icon: Image.asset(
-                            'assets/icons/volume.png',
-                            width: 20,
-                            height: 20,
-                            color: appCounterState.getIsClick
-                                ? appColors.primary
-                                : appColors.quaternaryColor,
+                          icon: Icon(
+                            Icons.volume_up_outlined,
+                            color: appColors.primary,
                           ),
                         ),
                       ),
@@ -113,13 +111,9 @@ class AppCounterPage extends StatelessWidget {
                         },
                         tooltip: appLocale.vibration,
                         splashRadius: 25,
-                        icon: Image.asset(
-                          'assets/icons/vibrate.png',
-                          width: 20,
-                          height: 20,
-                          color: appCounterState.getIsVibrate
-                              ? appColors.primary
-                              : appColors.quaternaryColor,
+                        icon: Icon(
+                          Icons.vibration,
+                          color: appColors.primary,
                         ),
                       ),
                     ),
@@ -131,13 +125,9 @@ class AppCounterPage extends StatelessWidget {
                         },
                         tooltip: appLocale.show,
                         splashRadius: 25,
-                        icon: Image.asset(
-                          'assets/icons/eye.png',
-                          width: 20,
-                          height: 20,
-                          color: appCounterState.getIsShow
-                              ? appColors.primary
-                              : appColors.quaternaryColor,
+                        icon: Icon(
+                          Icons.remove_red_eye_outlined,
+                          color: appColors.primary,
                         ),
                       ),
                     ),
@@ -145,14 +135,13 @@ class AppCounterPage extends StatelessWidget {
                       backgroundColor: appColors.inversePrimary,
                       child: IconButton(
                         onPressed: () {
-                          appCounterState.resetSelectedCount = appCounterState.getCountValuesIndex;
+                          appCounterState.resetSelectedCount =
+                              appCounterState.getCountValuesIndex;
                         },
                         tooltip: appLocale.reset,
                         splashRadius: 25,
-                        icon: Image.asset(
-                          'assets/icons/reset.png',
-                          width: 20,
-                          height: 20,
+                        icon: Icon(
+                          Icons.refresh,
                           color: appColors.primary,
                         ),
                       ),

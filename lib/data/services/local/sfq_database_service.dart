@@ -8,6 +8,8 @@ import 'package:sqflite/sqflite.dart';
 class SFQDatabaseService {
 
   static Database? _db;
+  static const String sfqDatabaseName = 'supplications.db';
+  static const int _dbVersion = 2;
 
   Future<Database> get db async {
     if (_db != null) {
@@ -18,47 +20,37 @@ class SFQDatabaseService {
   }
 
   Future<Database> initializeDatabase() async {
-    Directory? documentDirectory = Platform.isAndroid
-        ? await getExternalStorageDirectory()
-        : await getApplicationSupportDirectory();
-
-    const String databaseName = 'supplications_5.db';
-
-    String path = join(documentDirectory!.path, databaseName);
-    var exists = await databaseExists(path);
-
-    String toDeleteDB = '${documentDirectory.path}/supplications_from_quran.db';
-    String toDeleteDB2 = '${documentDirectory.path}/supplications_from_quran_2.db';
-    String toDeleteDB3 = '${documentDirectory.path}/supplications_from_quran_3.db';
-    String toDeleteDB4 = '${documentDirectory.path}/supplications_from_quran_4.db';
-
-    var delDB = await databaseExists(toDeleteDB);
-    var delDB2 = await databaseExists(toDeleteDB2);
-    var delDB3 = await databaseExists(toDeleteDB3);
-    var delDB4 = await databaseExists(toDeleteDB4);
-
-    if (delDB) {
-      await deleteDatabase(toDeleteDB);
-    } else if (delDB2) {
-      await deleteDatabase(toDeleteDB2);
-    } else if (delDB3) {
-      await deleteDatabase(toDeleteDB3);
-    } else if (delDB4) {
-      await deleteDatabase(toDeleteDB4);
-    }
+    Directory? documentDirectory = await getApplicationSupportDirectory();
+    final String path = join(documentDirectory.path, sfqDatabaseName);
+    final bool exists = await databaseExists(path);
 
     if (!exists) {
-      try {
-        await Directory(dirname(path)).create(recursive: true);
-      } catch (_) {
-        Exception('Invalid database');
-      }
+      await _createDatabase();
+    }
 
-      ByteData data = await rootBundle.load(join('assets/databases', databaseName));
+    return await openDatabase(path, version: _dbVersion, onUpgrade: _onUpgrade);
+  }
+
+  Future<void> _createDatabase() async {
+    Directory? documentDirectory = await getApplicationSupportDirectory();
+    final String path = join(documentDirectory.path, sfqDatabaseName);
+    bool isCreated = false;
+    try {
+      await Directory(dirname(path)).create(recursive: true).whenComplete(() => isCreated = true);
+    } catch (_) {
+      Exception('Invalid database $_');
+    }
+
+    if (isCreated) {
+      ByteData data = await rootBundle.load(join('assets/databases', sfqDatabaseName));
       List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
       await File(path).writeAsBytes(bytes, flush: true);
     }
+  }
 
-    return await openDatabase(path);
+  Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < newVersion) {
+      await _createDatabase();
+    }
   }
 }

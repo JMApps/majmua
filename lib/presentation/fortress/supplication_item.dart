@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/state/fortress_count_state.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../../core/styles/app_styles.dart';
 import '../../domain/entities/supplication_fortress_entity.dart';
+import '../state/fortress_count_state.dart';
 import '../state/fortress_settings_state.dart';
 import 'fortress_html_text.dart';
 
@@ -77,42 +77,42 @@ class SupplicationItem extends StatelessWidget {
                             style: TextStyle(
                               fontSize: fcState.getArabicTextSize.toDouble(),
                               fontFamily: 'Scheherazade',
+                              height: 2,
                             ),
                             textAlign: TextAlign.start,
                             textDirection: TextDirection.rtl,
                           )
                         : const SizedBox(),
-                    model.countNumber != 0
+                    model.arabicText != null
                         ? const SizedBox(height: 8)
                         : const SizedBox(),
                     Consumer<FortressCountState>(
                       builder: (BuildContext context, countState, _) {
                         return model.countNumber != 0
                             ? CircleAvatar(
-                          radius: 40,
-                          backgroundColor: appColors.inversePrimary,
-                          child: InkWell(
-                            onTap: () {
-                              countState.countDecrement;
-                            },
-                            onLongPress: () {
-                              countState.resetCount = model.countNumber;
-                            },
-                            child: Text(
-                              countState.getCountNumber.toString(),
-                              style: TextStyle(
-                                fontSize: 30,
-                                color: appColors.primary,
-                                fontFamily: 'Bitter',
-                                fontWeight: FontWeight.bold
-                              ),
-                            ),
-                          ),
-                        )
+                                radius: 40,
+                                backgroundColor: appColors.inversePrimary,
+                                child: InkWell(
+                                  onTap: () {
+                                    countState.countDecrement;
+                                  },
+                                  onLongPress: () {
+                                    countState.resetCount = model.countNumber;
+                                  },
+                                  child: Text(
+                                    countState.getCountNumber.toString(),
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        color: appColors.primary,
+                                        fontFamily: 'Bitter',
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              )
                             : const SizedBox();
                       },
                     ),
-                    model.arabicText != null
+                    model.countNumber != 0
                         ? const SizedBox(height: 8)
                         : const SizedBox(),
                     fcState.getTranscriptionIsShow

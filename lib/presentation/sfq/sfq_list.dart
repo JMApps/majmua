@@ -49,10 +49,8 @@ class _SFQListState extends State<SFQList> {
         ],
       ),
       body: FutureBuilder<List<SFQEntity>>(
-        future: _sfqUseCase.fetchAllSupplications(
-            tableName: appLocale.sfqTableName),
-        builder:
-            (BuildContext context, AsyncSnapshot<List<SFQEntity>> snapshot) {
+        future: _sfqUseCase.fetchAllSupplications(tableName: appLocale.sfqTableName),
+        builder: (BuildContext context, AsyncSnapshot<List<SFQEntity>> snapshot) {
           if (snapshot.hasData && snapshot.data!.isNotEmpty) {
             return ScrollablePositionedList.builder(
               itemScrollController: _itemScrollController,

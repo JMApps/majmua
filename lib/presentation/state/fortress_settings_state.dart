@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../core/strings/app_constraints.dart';
@@ -27,6 +28,7 @@ class FortressSettingsState extends ChangeNotifier {
     if (_arabicTextSize <= 100) {
       _arabicTextSize++;
       _mainSettingsBox.put(AppConstraints.keyFortressArabicTextSize, _arabicTextSize);
+      HapticFeedback.lightImpact();
       notifyListeners();
     }
   }
@@ -35,6 +37,7 @@ class FortressSettingsState extends ChangeNotifier {
     if (_arabicTextSize >= 16) {
       _arabicTextSize--;
       _mainSettingsBox.put(AppConstraints.keyFortressArabicTextSize, _arabicTextSize);
+      HapticFeedback.lightImpact();
       notifyListeners();
     }
   }
@@ -47,6 +50,7 @@ class FortressSettingsState extends ChangeNotifier {
     if (_translationTextSize <= 100) {
       _translationTextSize++;
       _mainSettingsBox.put(AppConstraints.keyFortressTranslationTextSize, _translationTextSize);
+      HapticFeedback.lightImpact();
       notifyListeners();
     }
   }
@@ -55,6 +59,7 @@ class FortressSettingsState extends ChangeNotifier {
     if (_translationTextSize >= 16) {
       _translationTextSize--;
       _mainSettingsBox.put(AppConstraints.keyFortressTranslationTextSize, _translationTextSize);
+      HapticFeedback.lightImpact();
       notifyListeners();
     }
   }

@@ -69,6 +69,7 @@ class SFQItem extends StatelessWidget {
                   fontSize: sfqState.getArabicTextSize.toDouble(),
                   color: appColors.onSecondaryContainer,
                   fontFamily: 'Scheherazade',
+                  height: 2,
                 ),
                 textAlign: TextAlign.center,
                 textDirection: TextDirection.rtl,

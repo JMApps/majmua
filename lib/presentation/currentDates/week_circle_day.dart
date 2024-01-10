@@ -35,42 +35,39 @@ class WeekCircleDay extends StatelessWidget {
             : appColors.primaryColor,
       ),
       child: isCurrentDay
-          ? Padding(
-              padding: const EdgeInsets.all(1.5),
-              child: SleekCircularSlider(
-                initialValue: timeState.getElapsedDayPercentage(),
-                appearance: CircularSliderAppearance(
-                  infoProperties: InfoProperties(
-                    modifier: null,
-                    topLabelText: dayName,
-                    topLabelStyle: TextStyle(
-                      fontSize: screenWidth * 0.035,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    mainLabelStyle: const TextStyle(
-                      fontSize: 0,
-                    ),
-                  ),
-                  customWidths: CustomSliderWidths(
-                    progressBarWidth: screenWidth * 0.006,
-                    trackWidth: screenWidth * 0.004,
-                    handlerSize: screenWidth * 0.003,
-                  ),
-                  customColors: CustomSliderColors(
-                    hideShadow: true,
-                    dotColor: appColors.surface,
-                    progressBarColor: appColors.primary,
-                    trackColor: appColors.inversePrimary.withOpacity(0.5),
-                  ),
-                  size: screenWidth * 0.22,
-                  spinnerMode: false,
-                  startAngle: 270,
-                  angleRange: 360,
-                  animationEnabled: true,
+          ? SleekCircularSlider(
+            initialValue: timeState.getElapsedDayPercentage(),
+            appearance: CircularSliderAppearance(
+              infoProperties: InfoProperties(
+                modifier: null,
+                topLabelText: dayName,
+                topLabelStyle: TextStyle(
+                  fontSize: screenWidth * 0.035,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+                mainLabelStyle: const TextStyle(
+                  fontSize: 0,
                 ),
               ),
-            )
+              customWidths: CustomSliderWidths(
+                progressBarWidth: screenWidth * 0.006,
+                trackWidth: screenWidth * 0.004,
+                handlerSize: screenWidth * 0.003,
+              ),
+              customColors: CustomSliderColors(
+                hideShadow: true,
+                dotColor: appColors.surface,
+                progressBarColor: appColors.primary,
+                trackColor: appColors.inversePrimary.withOpacity(0.5),
+              ),
+              size: screenWidth * 0.22,
+              spinnerMode: false,
+              startAngle: 270,
+              angleRange: 360,
+              animationEnabled: true,
+            ),
+          )
           : Center(
               child: Text(
                 dayName,
