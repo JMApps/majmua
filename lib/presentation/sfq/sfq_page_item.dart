@@ -68,7 +68,7 @@ class SFQPageItem extends StatelessWidget {
                   model.ayahArabic,
                   style: TextStyle(
                     fontSize: sfqState.getArabicTextSize.toDouble(),
-                    fontFamily: 'Scheherazade',
+                    fontFamily: 'Karim',
                     height: 2,
                   ),
                   textAlign: TextAlign.center,

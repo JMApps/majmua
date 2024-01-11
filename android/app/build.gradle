@@ -23,7 +23,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.example.majmua"
+    namespace "jmapps.project.majmua"
     compileSdk 34
     ndkVersion "25.1.8937393"
 
@@ -42,6 +42,7 @@ android {
     }
 
     buildFeatures {
+        buildConfig = true
     }
 
     sourceSets {
@@ -50,18 +51,18 @@ android {
 
     defaultConfig {
         applicationId "jmapps.project.majmua"
-        compileSdk 34
-        minSdkVersion 23
-        targetSdkVersion flutter.targetSdkVersion
+        minSdk 23
+        targetSdk 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        compileOptions {
-            coreLibraryDesugaringEnabled true
-        }
     }
 
     buildTypes {
         release {
+            proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+            )
             signingConfig signingConfigs.debug
         }
     }
@@ -72,5 +73,6 @@ flutter {
 }
 
 dependencies {
+    implementation 'androidx.core:core-ktx:1.12.0'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
 }

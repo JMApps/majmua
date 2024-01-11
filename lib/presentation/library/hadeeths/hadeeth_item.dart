@@ -59,11 +59,11 @@ class HadeethItem extends StatelessWidget {
                   textData: model.hadeethArabic,
                   textSize: bookSettingsState.getTextSize.toDouble() + 3,
                   textColor: appColors.inverseSurface,
-                  fontFamily: 'Scheherazade',
+                  fontFamily: 'Karim',
                   footnoteColor: appColors.quaternaryColor,
                   textDataAlign: bookSettingsState.getTextAlign,
                   textDirection: TextDirection.rtl,
-                  textHeight: 1.75,
+                  textHeight: 2,
                 ),
                 const SizedBox(height: 8),
                 HadeethHtmlText(

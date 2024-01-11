@@ -17,7 +17,7 @@ class NotificationService {
 
   NotificationService._internal();
 
-  static const String _logoName = '@drawable/sm_logo';
+  static const String _logoName = '@drawable/ic_stat_notification';
 
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 

@@ -6,7 +6,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
 class NamesOfDatabaseService {
-
   static Database? _db;
 
   Future<Database> get db async {
@@ -18,34 +17,29 @@ class NamesOfDatabaseService {
   }
 
   Future<Database> initializeDatabase() async {
-    Directory? documentDirectory = Platform.isAndroid
-        ? await getExternalStorageDirectory()
-        : await getApplicationSupportDirectory();
+    const int dbVersion = 1;
+    const String sfqDatabaseName = 'names_database.db';
+    final databasePath = await getDatabasesPath();
+    String path = join(databasePath, sfqDatabaseName);
 
-    const String databaseName = 'the_names.db';
+    var database = await openDatabase(path);
 
-    String path = join(documentDirectory!.path, databaseName);
-    var exists = await databaseExists(path);
+    if (await database.getVersion() < dbVersion) {
+      database.close();
+      await deleteDatabase(path);
 
-    // String toDeleteDB = '${documentDirectory.path}/the_names.db';
-    // var delDB = await databaseExists(toDeleteDB);
-
-    // if (delDB) {
-    //   await deleteDatabase(toDeleteDB);
-    // }
-
-    if (!exists) {
       try {
         await Directory(dirname(path)).create(recursive: true);
-      } catch (_) {
-        Exception('Invalid database');
-      }
+      } catch (_) {}
 
-      ByteData data = await rootBundle.load(join('assets/databases', databaseName));
+      ByteData data = await rootBundle.load(join('assets/databases', sfqDatabaseName));
       List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
       await File(path).writeAsBytes(bytes, flush: true);
+
+      database = await openDatabase(path);
+      database.setVersion(dbVersion);
     }
 
-    return await openDatabase(path);
+    return database;
   }
 }

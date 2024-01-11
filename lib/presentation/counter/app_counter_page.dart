@@ -41,15 +41,14 @@ class AppCounterPage extends StatelessWidget {
                   (BuildContext context, AppCounterState appCounterState, _) {
                 return mediaQuery.orientation == Orientation.portrait
                     ? const Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Flexible(
-                            child: CounterButton(),
-                          ),
-                          SizedBox(height: 32),
                           CounterValuesDropbutton(),
+                          SizedBox(height: 40),
+                          CounterButton(),
+                          SizedBox(height: 16),
                           TotalCountText(),
+                          SizedBox(height: 16),
                         ],
                       )
                     : const Row(

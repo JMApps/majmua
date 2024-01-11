@@ -76,7 +76,7 @@ class SupplicationPageItem extends StatelessWidget {
                               model.arabicText!,
                               style: TextStyle(
                                 fontSize: fcState.getArabicTextSize.toDouble(),
-                                fontFamily: 'Scheherazade',
+                                fontFamily: 'Karim',
                                 height: 2,
                               ),
                               textAlign: TextAlign.start,

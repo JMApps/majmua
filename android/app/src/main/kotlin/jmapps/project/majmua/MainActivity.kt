@@ -1,4 +1,4 @@
-package com.example.majmua
+package jmapps.project.majmua
 
 import io.flutter.embedding.android.FlutterActivity
 

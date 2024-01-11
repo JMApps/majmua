@@ -72,8 +72,7 @@ class _SFQPageListState extends State<SFQPageList> {
         future: _sfqUseCase.fetchAllSupplications(
           tableName: appLocale.sfqTableName,
         ),
-        builder:
-            (BuildContext context, AsyncSnapshot<List<SFQEntity>> snapshot) {
+        builder: (BuildContext context, AsyncSnapshot<List<SFQEntity>> snapshot) {
           if (snapshot.hasData && snapshot.data!.isNotEmpty) {
             return Column(
               children: [

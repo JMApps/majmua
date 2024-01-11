@@ -2,11 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:path/path.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
 class CitiesDatabaseService {
-
   static Database? _db;
 
   Future<Database> get db async {
@@ -18,42 +16,29 @@ class CitiesDatabaseService {
   }
 
   Future<Database> initializeDatabase() async {
-    Directory? documentDirectory = Platform.isAndroid
-        ? await getExternalStorageDirectory()
-        : await getApplicationSupportDirectory();
+    const int dbVersion = 1;
+    const String sfqDatabaseName = 'countries_database.db';
+    final databasePath = await getDatabasesPath();
+    String path = join(databasePath, sfqDatabaseName);
 
-    const String databaseName = 'country_coordinates_4.db';
+    var database = await openDatabase(path);
 
-    String path = join(documentDirectory!.path, databaseName);
-    var exists = await databaseExists(path);
+    if (await database.getVersion() < dbVersion) {
+      database.close();
+      await deleteDatabase(path);
 
-    String toDeleteDB = '${documentDirectory.path}/county_coordinates.db';
-    bool delDB = await databaseExists(toDeleteDB);
-    String toDeleteDB2 = '${documentDirectory.path}/county_coordinates_2.db';
-    bool delDB2 = await databaseExists(toDeleteDB2);
-    String toDeleteDB3 = '${documentDirectory.path}/county_coordinates_3.db';
-    bool delDB3 = await databaseExists(toDeleteDB3);
-
-    if (delDB) {
-      await deleteDatabase(toDeleteDB);
-    } else if (delDB2) {
-      await deleteDatabase(toDeleteDB2);
-    } else if (delDB3) {
-      await deleteDatabase(toDeleteDB3);
-    }
-
-    if (!exists) {
       try {
         await Directory(dirname(path)).create(recursive: true);
-      } catch (_) {
-        Exception('Invalid database');
-      }
+      } catch (_) {}
 
-      ByteData data = await rootBundle.load(join('assets/databases', databaseName));
+      ByteData data = await rootBundle.load(join('assets/databases', sfqDatabaseName));
       List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
       await File(path).writeAsBytes(bytes, flush: true);
+
+      database = await openDatabase(path);
+      database.setVersion(dbVersion);
     }
 
-    return await openDatabase(path);
+    return database;
   }
 }
