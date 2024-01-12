@@ -9,7 +9,7 @@ class GemsSettingsState extends ChangeNotifier {
   final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
 
   GemsSettingsState() {
-    _textSize = _mainSettingsBox.get(AppConstraints.keyGemsTextSize, defaultValue: 16);
+    _textSize = _mainSettingsBox.get(AppConstraints.keyGemsTextSize, defaultValue: 18);
   }
 
   int _currentBottomIndex = 0;

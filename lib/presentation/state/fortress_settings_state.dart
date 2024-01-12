@@ -8,8 +8,8 @@ class FortressSettingsState extends ChangeNotifier {
   final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
 
   FortressSettingsState() {
-    _arabicTextSize = _mainSettingsBox.get(AppConstraints.keyFortressArabicTextSize, defaultValue: 18);
-    _translationTextSize = _mainSettingsBox.get(AppConstraints.keyFortressTranslationTextSize, defaultValue: 16);
+    _arabicTextSize = _mainSettingsBox.get(AppConstraints.keyFortressArabicTextSize, defaultValue: 20);
+    _translationTextSize = _mainSettingsBox.get(AppConstraints.keyFortressTranslationTextSize, defaultValue: 18);
     _transcriptionIsShow = _mainSettingsBox.get(AppConstraints.keyFortressTranscriptionIsShow, defaultValue: true);
   }
 

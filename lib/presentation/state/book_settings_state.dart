@@ -8,7 +8,7 @@ class BookSettingsState extends ChangeNotifier {
   final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
 
   BookSettingsState() {
-    _textSize = _mainSettingsBox.get(AppConstraints.keyBookTextSize, defaultValue: 16);
+    _textSize = _mainSettingsBox.get(AppConstraints.keyBookTextSize, defaultValue: 18);
     _alignIndex = _mainSettingsBox.get(AppConstraints.keyBookAlignIndex, defaultValue: 0);
   }
 
