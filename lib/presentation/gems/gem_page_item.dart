@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:html/parser.dart' show parse;
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:provider/provider.dart';
-import 'package:share_plus/share_plus.dart';
 
 import '../../core/styles/app_styles.dart';
 import '../../domain/entities/gem_entity.dart';
@@ -24,7 +22,6 @@ class GemPageItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
-    final AppLocalizations? appLocale = AppLocalizations.of(context);
     return Card(
       margin: AppStyles.mardingWithoutBottomMini,
       color: appColors.glass,

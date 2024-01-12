@@ -35,7 +35,7 @@ class AdhanTimeCard extends StatelessWidget {
         margin: EdgeInsets.zero,
         color: appColors.glass,
         shape: RoundedRectangleBorder(
-          borderRadius: AppStyles.mainBorderRadiusMini,
+          borderRadius: AppStyles.mainBorderRadiusMicro,
           side: BorderSide(
             width: 2,
             color: isRemainingTime

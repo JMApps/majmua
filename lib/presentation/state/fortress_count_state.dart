@@ -14,12 +14,14 @@ class FortressCountState extends ChangeNotifier {
       _countNumber--;
       HapticFeedback.lightImpact();
       notifyListeners();
+    } else {
+      HapticFeedback.vibrate();
     }
   }
 
   set resetCount(int defCount) {
     _countNumber = defCount;
-    HapticFeedback.heavyImpact();
+    HapticFeedback.vibrate();
     notifyListeners();
   }
 }
