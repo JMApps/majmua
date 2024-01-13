@@ -15,7 +15,7 @@ class AppCounterState extends ChangeNotifier {
     _secondCounts = _counterValueBox.get(AppConstraints.keyCounterSecondValue, defaultValue: defValue);
     _thirdCounts = _counterValueBox.get(AppConstraints.keyCounterThirdValue, defaultValue: defValue);
 
-    _isClick = _counterValueBox.get(AppConstraints.keyCounterClick, defaultValue: true);
+    _isClick = _counterValueBox.get(AppConstraints.keyCounterClick, defaultValue: false);
     _isVibrate = _counterValueBox.get(AppConstraints.keyCounterVibrate, defaultValue: true);
     _isShow = _counterValueBox.get(AppConstraints.keyCountValueShow, defaultValue: true);
   }
@@ -197,6 +197,7 @@ class AppCounterState extends ChangeNotifier {
         _counterValueBox.put(AppConstraints.keyCounterThirdValue, defValue);
         break;
     }
+    HapticFeedback.vibrate();
     notifyListeners();
   }
 
@@ -210,6 +211,7 @@ class AppCounterState extends ChangeNotifier {
     _counterValueBox.put(AppConstraints.keyCounterSecondValue, _secondCounts);
     _thirdCounts = defValue;
     _counterValueBox.put(AppConstraints.keyCounterThirdValue, _thirdCounts);
+    HapticFeedback.vibrate();
     notifyListeners();
   }
 }

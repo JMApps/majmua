@@ -18,7 +18,9 @@ class SFQState extends ChangeNotifier {
 
   set setCurrentBottomIndex(int value) {
     _currentBottomIndex = value;
-    _mainSettingsBox.put(AppConstraints.keyBooksBNIndex, _currentBottomIndex);
+    if (_currentBottomIndex != 2) {
+      _mainSettingsBox.put(AppConstraints.keyBooksBNIndex, _currentBottomIndex);
+    }
     notifyListeners();
   }
 

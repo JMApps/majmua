@@ -97,7 +97,7 @@ class AppCounterPage extends StatelessWidget {
                           splashRadius: 25,
                           icon: Icon(
                             Icons.volume_up_outlined,
-                            color: appColors.primary,
+                            color: appCounterState.getIsClick ? appColors.primary : appColors.quaternaryColor,
                           ),
                         ),
                       ),
@@ -112,7 +112,7 @@ class AppCounterPage extends StatelessWidget {
                         splashRadius: 25,
                         icon: Icon(
                           Icons.vibration,
-                          color: appColors.primary,
+                          color: appCounterState.getIsVibrate ? appColors.primary : appColors.quaternaryColor,
                         ),
                       ),
                     ),
@@ -126,7 +126,7 @@ class AppCounterPage extends StatelessWidget {
                         splashRadius: 25,
                         icon: Icon(
                           Icons.remove_red_eye_outlined,
-                          color: appColors.primary,
+                          color: appCounterState.getIsShow ? appColors.primary : appColors.quaternaryColor,
                         ),
                       ),
                     ),
@@ -134,8 +134,7 @@ class AppCounterPage extends StatelessWidget {
                       backgroundColor: appColors.inversePrimary,
                       child: IconButton(
                         onPressed: () {
-                          appCounterState.resetSelectedCount =
-                              appCounterState.getCountValuesIndex;
+                          appCounterState.resetSelectedCount = appCounterState.getCountValuesIndex;
                         },
                         tooltip: appLocale.reset,
                         splashRadius: 25,
