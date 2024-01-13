@@ -7,16 +7,18 @@ class SFQState extends ChangeNotifier {
   final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
 
   SFQState() {
+    _currentBottomIndex = _mainSettingsBox.get(AppConstraints.keyBooksBNIndex, defaultValue: 0);
     _arabicTextSize = _mainSettingsBox.get(AppConstraints.keySFQArabicTextSize, defaultValue: 20);
     _translationTextSize = _mainSettingsBox.get(AppConstraints.keySFQTranslationTextSize, defaultValue: 18);
   }
 
-  int _currentBottomIndex = 0;
+  late int _currentBottomIndex;
 
   int get getCurrentBottomIndex => _currentBottomIndex;
 
   set setCurrentBottomIndex(int value) {
     _currentBottomIndex = value;
+    _mainSettingsBox.put(AppConstraints.keyBooksBNIndex, _currentBottomIndex);
     notifyListeners();
   }
 

@@ -9,15 +9,17 @@ class GemsSettingsState extends ChangeNotifier {
   final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
 
   GemsSettingsState() {
+    _currentBottomIndex = _mainSettingsBox.get(AppConstraints.keyBooksBNIndex, defaultValue: 0);
     _textSize = _mainSettingsBox.get(AppConstraints.keyGemsTextSize, defaultValue: 18);
   }
 
-  int _currentBottomIndex = 0;
+  late int _currentBottomIndex;
 
   int get getCurrentBottomIndex => _currentBottomIndex;
 
   set setCurrentBottomIndex(int value) {
     _currentBottomIndex = value;
+    _mainSettingsBox.put(AppConstraints.keyBooksBNIndex, _currentBottomIndex);
     notifyListeners();
   }
 

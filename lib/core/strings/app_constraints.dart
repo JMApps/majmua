@@ -96,6 +96,7 @@ class AppConstraints {
   // Library
   static const String keyBookTextSize = 'key_book_text_size';
   static const String keyBookAlignIndex = 'key_book_align_index';
+  static const String keyBooksBNIndex = 'key_books_b_n_index';
 
   static const String keyLastFirstSurahPage = 'key_last_first_surah_page';
   static const String keyLastSecondSurahPage = 'key_last_second_surah_page';
