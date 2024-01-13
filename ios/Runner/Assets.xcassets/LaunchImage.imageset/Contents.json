@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "sm_org_512.png",
+      "filename" : "sm_512 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "sm_org_512 1.png",
+      "filename" : "sm_512.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "sm_org_512 2.png",
+      "filename" : "sm_512 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
