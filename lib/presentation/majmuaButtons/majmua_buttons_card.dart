@@ -15,7 +15,7 @@ class MajmuaButtonsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
-    final double screenWidth = MediaQuery.of(context).size.width * 0.075;
+    final double screenWidth = MediaQuery.of(context).size.width * 0.1;
     return Card(
       child: Card(
         margin: AppStyles.mainMardingMini,

@@ -10,12 +10,14 @@ class SupplicationIsShow extends StatelessWidget {
     required this.isShow,
     required this.fortressChapterId,
     required this.fortressChapterTitle,
+    required this.icon,
     required this.iconColor,
   });
 
   final bool isShow;
   final int fortressChapterId;
   final String fortressChapterTitle;
+  final IconData icon;
   final Color iconColor;
 
   @override
@@ -35,10 +37,9 @@ class SupplicationIsShow extends StatelessWidget {
               );
             },
             borderRadius: AppStyles.mainBorderRadius,
-            child: Image.asset(
-              'assets/icons/dua-hands.png',
-              width: screenWidth * 0.05,
-              height: screenWidth * 0.05,
+            child: Icon(
+              icon,
+              size: screenWidth * 0.05,
               color: iconColor,
             ),
           ),

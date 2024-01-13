@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -27,7 +28,8 @@ class SurahsPage extends StatefulWidget {
   State<SurahsPage> createState() => _SurahsPageState();
 }
 
-class _SurahsPageState extends State<SurahsPage> with SingleTickerProviderStateMixin {
+class _SurahsPageState extends State<SurahsPage>
+    with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
   late final PageController _surahPageController;
@@ -59,7 +61,8 @@ class _SurahsPageState extends State<SurahsPage> with SingleTickerProviderStateM
       builder: (BuildContext context, SurahSettingsState surahSettings, _) {
         return GestureDetector(
           onTap: () {
-            surahSettings.setAppBarIsVisible = !surahSettings.getAppBarIsVisible;
+            surahSettings.setAppBarIsVisible =
+                !surahSettings.getAppBarIsVisible;
           },
           child: Container(
             color: appColors.fullGlass,
@@ -81,6 +84,20 @@ class _SurahsPageState extends State<SurahsPage> with SingleTickerProviderStateM
                           leading: const UserBackButton(),
                           title: Text(widget.surahName),
                           actions: [
+                            IconButton(
+                              onPressed: () {
+                                _mainSettingsBox.put(widget.surahKey, 0);
+                                _surahPageController.animateToPage(
+                                  0,
+                                  duration: const Duration(milliseconds: 350),
+                                  curve: Curves.linear,
+                                );
+                              },
+                              icon: const Icon(
+                                CupertinoIcons.arrow_counterclockwise,
+                                color: Colors.white,
+                              ),
+                            ),
                             IconButton(
                               onPressed: () {
                                 showModalBottomSheet(
@@ -113,7 +130,8 @@ class _SurahsPageState extends State<SurahsPage> with SingleTickerProviderStateM
                   reverse: true,
                   itemCount: AppStrings.surahsLists[widget.surahNumber].length,
                   itemBuilder: (BuildContext context, int index) {
-                    final String surahPage = AppStrings.surahsLists[widget.surahNumber][index];
+                    final String surahPage =
+                        AppStrings.surahsLists[widget.surahNumber][index];
                     return Center(
                       child: SingleChildScrollView(
                         child: Column(
@@ -122,7 +140,8 @@ class _SurahsPageState extends State<SurahsPage> with SingleTickerProviderStateM
                               'assets/quran/$surahPage.png',
                               fit: BoxFit.cover,
                               color: appColors.inverseSurface.withOpacity(
-                                  surahSettings.getFontContrast / 100),
+                                surahSettings.getFontContrast / 100,
+                              ),
                             ),
                             const SizedBox(height: 8),
                             Text('${index + 1}'),
