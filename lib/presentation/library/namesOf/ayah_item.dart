@@ -38,7 +38,7 @@ class AyahItem extends StatelessWidget {
                 style: TextStyle(
                   fontSize: bookSettingsState.getTextSize.toDouble() + 3,
                   color: appColors.primary,
-                  fontFamily: 'Scheherazade',
+                  fontFamily: 'Karim',
                 ),
                 textDirection: TextDirection.rtl,
               ),
