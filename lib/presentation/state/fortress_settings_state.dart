@@ -8,17 +8,19 @@ class FortressSettingsState extends ChangeNotifier {
   final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
 
   FortressSettingsState() {
+    _currentBottomIndex = _mainSettingsBox.get(AppConstraints.keyBooksBNIndex, defaultValue: 0);
     _arabicTextSize = _mainSettingsBox.get(AppConstraints.keyFortressArabicTextSize, defaultValue: 20);
     _translationTextSize = _mainSettingsBox.get(AppConstraints.keyFortressTranslationTextSize, defaultValue: 18);
     _transcriptionIsShow = _mainSettingsBox.get(AppConstraints.keyFortressTranscriptionIsShow, defaultValue: true);
   }
 
-  int _currentBottomIndex = 0;
+  late int _currentBottomIndex;
 
   int get getCurrentBottomIndex => _currentBottomIndex;
 
   set setCurrentBottomIndex(int value) {
     _currentBottomIndex = value;
+    _mainSettingsBox.put(AppConstraints.keyBooksBNIndex, _currentBottomIndex);
     notifyListeners();
   }
 

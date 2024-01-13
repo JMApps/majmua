@@ -1,4 +1,5 @@
 import 'package:adhan/adhan.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
@@ -27,9 +28,15 @@ class AdhanTimeCard extends StatelessWidget {
     final AdhanTimeState adhanTimeState = Provider.of<AdhanTimeState>(context);
     final double screenWidth = MediaQuery.of(context).size.width;
     final int currentTimeValue = adhanTimeState.getMinutesOfDay;
-    final bool isRemainingTime = currentTimeValue >= prayerModel.currentPrayerTime - 59 && currentTimeValue < prayerModel.currentPrayerTime - 1;
-    final bool isPastTime = currentTimeValue >= prayerModel.currentPrayerTime + 4 && currentTimeValue <= prayerModel.currentPrayerTime + 30;
-    final bool isPrayer = currentTimeValue >= prayerModel.currentPrayerTime - 1 && currentTimeValue <= prayerModel.currentPrayerTime + 3;
+    final bool isRemainingTime =
+        currentTimeValue >= prayerModel.currentPrayerTime - 59 &&
+            currentTimeValue < prayerModel.currentPrayerTime - 1;
+    final bool isPastTime =
+        currentTimeValue >= prayerModel.currentPrayerTime + 4 &&
+            currentTimeValue <= prayerModel.currentPrayerTime + 30;
+    final bool isPrayer =
+        currentTimeValue >= prayerModel.currentPrayerTime - 1 &&
+            currentTimeValue <= prayerModel.currentPrayerTime + 3;
     return Flexible(
       child: Card(
         margin: EdgeInsets.zero,
@@ -130,31 +137,31 @@ class AdhanTimeCard extends StatelessWidget {
                       ),
                     ),
                     SupplicationIsShow(
-                      isShow: adhanTimeState.getIsMorning && prayerModel.prayerIndex == Prayer.fajr,
+                      isShow: adhanTimeState.getIsMorning &&
+                          prayerModel.prayerIndex == Prayer.fajr,
                       fortressChapterId: 27,
                       fortressChapterTitle: appLocale!.morning,
+                      icon: CupertinoIcons.sunrise,
                       iconColor: appColors.secterColor,
                     ),
                     SupplicationIsShow(
-                      isShow: adhanTimeState.getIsEvening && prayerModel.prayerIndex == Prayer.asr,
+                      isShow: adhanTimeState.getIsEvening &&
+                          prayerModel.prayerIndex == Prayer.asr,
                       fortressChapterId: 28,
                       fortressChapterTitle: appLocale.evening,
+                      icon: CupertinoIcons.sunset,
                       iconColor: appColors.secterColor,
                     ),
                     SupplicationIsShow(
-                      isShow: adhanTimeState.getIsNight && prayerModel.prayerIndex == Prayer.isha,
+                      isShow: adhanTimeState.getIsNight &&
+                          prayerModel.prayerIndex == Prayer.isha,
                       fortressChapterId: 29,
                       fortressChapterTitle: appLocale.beforeSleep,
+                      icon: CupertinoIcons.moon_zzz,
                       iconColor: appColors.secterColor,
                     ),
-                    SupplicationIsShow(
-                      isShow: isPastTime && prayerModel.prayerIndex != Prayer.sunrise,
-                      fortressChapterId: 25,
-                      fortressChapterTitle: appLocale.afterPrayer,
-                      iconColor: appColors.primary,
-                    ),
                     Visibility(
-                      visible: isPrayer && prayerModel.prayerIndex != Prayer.sunrise,
+                      visible: isPastTime && prayerModel.prayerIndex != Prayer.sunrise,
                       child: Flexible(
                         child: AnimatedSize(
                           duration: const Duration(seconds: 1),
@@ -163,7 +170,35 @@ class AdhanTimeCard extends StatelessWidget {
                               Navigator.pushNamed(
                                 context,
                                 RouteNames.fortressContentPage,
-                                arguments: const SupplicationArgs(chapterId: 15),
+                                arguments: const SupplicationArgs(
+                                  chapterId: 25,
+                                ),
+                              );
+                            },
+                            borderRadius: AppStyles.mainBorderRadius,
+                            child: Image.asset(
+                              'assets/icons/dua-hands.png',
+                              width: screenWidth * 0.05,
+                              height: screenWidth * 0.05,
+                              color: appColors.primary,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Visibility(
+                      visible:
+                          isPrayer && prayerModel.prayerIndex != Prayer.sunrise,
+                      child: Flexible(
+                        child: AnimatedSize(
+                          duration: const Duration(seconds: 1),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                RouteNames.fortressContentPage,
+                                arguments:
+                                    const SupplicationArgs(chapterId: 15),
                               );
                             },
                             borderRadius: AppStyles.mainBorderRadius,
@@ -178,7 +213,8 @@ class AdhanTimeCard extends StatelessWidget {
                       ),
                     ),
                     Visibility(
-                      visible: adhanTimeState.getIsDuha && prayerModel.prayerIndex == Prayer.sunrise,
+                      visible: adhanTimeState.getIsDuha &&
+                          prayerModel.prayerIndex == Prayer.sunrise,
                       child: Flexible(
                         child: AnimatedSize(
                           duration: const Duration(seconds: 1),
