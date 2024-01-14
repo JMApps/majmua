@@ -134,7 +134,7 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
                     autofocus: false,
                     autocorrect: false,
                     textInputAction: TextInputAction.next,
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.text,
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(RegExp(r'^[0-9.-]+'))
                     ],
