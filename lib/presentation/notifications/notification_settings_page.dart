@@ -3,9 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/strings/app_constraints.dart';
 import '../../core/styles/app_styles.dart';
-import '../../data/services/notification_service.dart';
 import '../state/notifications_state.dart';
 import '../widgets/user_back_button.dart';
 
@@ -16,7 +14,6 @@ class NotificationSettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
-    final NotificationService notificationService = NotificationService();
     return Scaffold(
       appBar: AppBar(
         title: Text(appLocale!.notifications),
@@ -53,9 +50,6 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         onChanged: (bool onChanged) {
                           notificationsState.setFajrNotification = onChanged;
-                          if (!onChanged) {
-                            notificationService.cancelNotificationWithId(AppConstraints.fajrNotificationID);
-                          }
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
@@ -66,9 +60,6 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         onChanged: (bool onChanged) {
                           notificationsState.setSunriseNotification = onChanged;
-                          if (!onChanged) {
-                            notificationService.cancelNotificationWithId(AppConstraints.sunriseNotificationID);
-                          }
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
@@ -79,9 +70,6 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         onChanged: (bool onChanged) {
                           notificationsState.setDhuhrNotification = onChanged;
-                          if (!onChanged) {
-                            notificationService.cancelNotificationWithId(AppConstraints.dhuhrNotificationID);
-                          }
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
@@ -92,9 +80,6 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         onChanged: (bool onChanged) {
                           notificationsState.setAsrNotification = onChanged;
-                          if (!onChanged) {
-                            notificationService.cancelNotificationWithId(AppConstraints.asrNotificationID);
-                          }
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
@@ -105,9 +90,6 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         onChanged: (bool onChanged) {
                           notificationsState.setMaghribNotification = onChanged;
-                          if (!onChanged) {
-                            notificationService.cancelNotificationWithId(AppConstraints.maghribNotificationID);
-                          }
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
@@ -118,9 +100,6 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         onChanged: (bool onChanged) {
                           notificationsState.setIshaNotification = onChanged;
-                          if (!onChanged) {
-                            notificationService.cancelNotificationWithId(AppConstraints.ishaNotificationID);
-                          }
                         },
                       ),
                     ],
@@ -154,9 +133,6 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         onChanged: (bool onChanged) {
                           notificationsState.setMorningSupplicationsNotification = onChanged;
-                          if (!onChanged) {
-                            notificationService.cancelNotificationWithId(AppConstraints.morningSupplicationsNotificationID);
-                          }
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
@@ -167,9 +143,6 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         onChanged: (bool onChanged) {
                           notificationsState.eveningSupplicationsNotification = onChanged;
-                          if (!onChanged) {
-                            notificationService.cancelNotificationWithId(AppConstraints.eveningSupplicationsNotificationID);
-                          }
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
@@ -180,9 +153,6 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         onChanged: (bool onChanged) {
                           notificationsState.setNightSupplicationsNotification = onChanged;
-                          if (!onChanged) {
-                            notificationService.cancelNotificationWithId(AppConstraints.nightSupplicationsNotificationID);
-                          }
                         },
                       ),
                     ],
@@ -216,9 +186,6 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         onChanged: (bool onChanged) {
                           notificationsState.setFastMondayNotification = onChanged;
-                          if (!onChanged) {
-                            notificationService.cancelNotificationWithId(AppConstraints.fastMondayNotificationID);
-                          }
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
@@ -229,9 +196,6 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         onChanged: (bool onChanged) {
                           notificationsState.setFastThursdayNotification = onChanged;
-                          if (!onChanged) {
-                            notificationService.cancelNotificationWithId(AppConstraints.fastThursdayNotificationID);
-                          }
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
@@ -242,9 +206,6 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         onChanged: (bool onChanged) {
                           notificationsState.setFastWhiteDaysNotification = onChanged;
-                          if (!onChanged) {
-                            notificationService.cancelNotificationWithId(AppConstraints.fastWhiteDaysNotificationID);
-                          }
                         },
                       ),
                     ],
@@ -278,9 +239,6 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         onChanged: (bool onChanged) {
                           notificationsState.setFridayNotification = onChanged;
-                          if (!onChanged) {
-                            notificationService.cancelNotificationWithId(AppConstraints.fridayNotificationID);
-                          }
                         },
                       ),
                       const Divider(indent: 16, endIndent: 16),
@@ -291,9 +249,6 @@ class NotificationSettingsPage extends StatelessWidget {
                         visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                         onChanged: (bool onChanged) {
                           notificationsState.setLastHourFridayNotification = onChanged;
-                          if (!onChanged) {
-                            notificationService.cancelNotificationWithId(AppConstraints.lastHourFridayNotificationID);
-                          }
                         },
                       ),
                     ],

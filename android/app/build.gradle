@@ -45,19 +45,21 @@ android {
     main.java.srcDirs += 'src/main/kotlin'
   }
 
-  defaultConfig {
-    multiDexEnabled true
-    applicationId "jmapps.project.majmua"
-    minSdk 23
-    targetSdk 34
-    versionCode flutterVersionCode.toInteger()
-    versionName flutterVersionName
-  }
-
   buildTypes {
     release {
       signingConfig signingConfigs.debug
+      minifyEnabled false
+      shrinkResources false
     }
+  }
+
+  defaultConfig {
+    multiDexEnabled true
+    applicationId "jmapps.project.majmua"
+    targetSdk 34
+    minSdk 23
+    versionCode flutterVersionCode.toInteger()
+    versionName flutterVersionName
   }
 }
 
