@@ -88,3 +88,6 @@ flutter:
     - family: 'Karim'
       fonts:
         - asset: assets/fonts/karim.ttf
+    - family: 'Uthmanic'
+      fonts:
+        - asset: assets/fonts/uthmanic.ttf

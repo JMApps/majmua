@@ -43,7 +43,7 @@ class SeasonPercent extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(3)),
           image: DecorationImage(
-            image: AssetImage('assets/pictures/${AppStrings.seasonNames[3]}'),
+            image: AssetImage('assets/pictures/${AppStrings.seasonNames[seasonIndex]}'),
             fit: BoxFit.cover,
             opacity:
                 Theme.of(context).brightness == Brightness.light ? 0.85 : 0.5,
