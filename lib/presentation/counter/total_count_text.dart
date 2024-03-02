@@ -16,7 +16,7 @@ class TotalCountText extends StatelessWidget {
     return Consumer<AppCounterState>(
       builder: (BuildContext context, AppCounterState appCounterState, _) {
         return Padding(
-          padding: AppStyles.mainMarding,
+          padding: AppStyles.mardingWithoutBottom,
           child: RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
@@ -33,10 +33,11 @@ class TotalCountText extends StatelessWidget {
                       ? appCounterState.getTotalCountValue.toString()
                       : '',
                   style: TextStyle(
-                      color: appColors.secondaryColor,
-                      fontFamily: 'Bitter',
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 0.5),
+                    color: appColors.secondaryColor,
+                    fontFamily: 'Bitter',
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 0.5,
+                  ),
                 ),
               ],
             ),

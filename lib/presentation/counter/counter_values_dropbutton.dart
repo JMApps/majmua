@@ -23,7 +23,7 @@ class CounterValuesDropbutton extends StatelessWidget {
           child: ButtonTheme(
             alignedDropdown: true,
             child: Padding(
-              padding: AppStyles.mainMardingMini,
+              padding: AppStyles.mainMarding,
               child: DropdownButton<String>(
                 value: AppStrings.getCounterValues(locale: appLocale!.localeName)[appCounterState.getCountValuesIndex],
                 borderRadius: AppStyles.mainBorderRadiusMini,

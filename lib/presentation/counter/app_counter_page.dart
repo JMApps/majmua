@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:majmua/core/themes/app_themes.dart';
@@ -40,33 +41,59 @@ class AppCounterPage extends StatelessWidget {
               builder:
                   (BuildContext context, AppCounterState appCounterState, _) {
                 return mediaQuery.orientation == Orientation.portrait
-                    ? const Column(
+                    ? Column(
                         mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          CounterValuesDropbutton(),
-                          SizedBox(height: 40),
-                          CounterButton(),
-                          SizedBox(height: 16),
-                          TotalCountText(),
-                          SizedBox(height: 16),
+                        children: <Widget>[
+                          const CounterValuesDropbutton(),
+                          const SizedBox(height: 40),
+                          const CounterButton(),
+                          const SizedBox(height: 16),
+                          const TotalCountText(),
+                          CupertinoButton(
+                            padding: EdgeInsets.zero,
+                            child: const Text(
+                              'Сброс',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.red,
+                              ),
+                            ),
+                            onPressed: () {
+                              appCounterState.resetTotalCount;
+                            },
+                          ),
+                          const SizedBox(height: 16),
                         ],
                       )
-                    : const Row(
+                    : Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(width: 16),
+                          const SizedBox(width: 16),
                           Expanded(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                CounterValuesDropbutton(),
-                                TotalCountText(),
+                                const CounterValuesDropbutton(),
+                                const TotalCountText(),
+                                CupertinoButton(
+                                  padding: EdgeInsets.zero,
+                                  child: const Text(
+                                    'Сброс',
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.red,
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    appCounterState.resetTotalCount;
+                                  },
+                                ),
                               ],
                             ),
                           ),
-                          SizedBox(width: 16),
-                          CounterButton(),
-                          SizedBox(width: 16),
+                          const SizedBox(width: 16),
+                          const CounterButton(),
+                          const SizedBox(width: 16),
                         ],
                       );
               },
@@ -75,7 +102,7 @@ class AppCounterPage extends StatelessWidget {
         ),
         bottomNavigationBar: Card(
           color: appColors.glass,
-          margin: EdgeInsets.zero,
+          margin: AppStyles.mardingOnlyBottomMini,
           child: Padding(
             padding: AppStyles.mainMarding,
             child: Consumer<AppCounterState>(
@@ -97,7 +124,9 @@ class AppCounterPage extends StatelessWidget {
                           splashRadius: 25,
                           icon: Icon(
                             Icons.volume_up_outlined,
-                            color: appCounterState.getIsClick ? appColors.primary : appColors.quaternaryColor,
+                            color: appCounterState.getIsClick
+                                ? appColors.primary
+                                : appColors.quaternaryColor,
                           ),
                         ),
                       ),
@@ -112,7 +141,9 @@ class AppCounterPage extends StatelessWidget {
                         splashRadius: 25,
                         icon: Icon(
                           Icons.vibration,
-                          color: appCounterState.getIsVibrate ? appColors.primary : appColors.quaternaryColor,
+                          color: appCounterState.getIsVibrate
+                              ? appColors.primary
+                              : appColors.quaternaryColor,
                         ),
                       ),
                     ),
@@ -126,7 +157,9 @@ class AppCounterPage extends StatelessWidget {
                         splashRadius: 25,
                         icon: Icon(
                           Icons.remove_red_eye_outlined,
-                          color: appCounterState.getIsShow ? appColors.primary : appColors.quaternaryColor,
+                          color: appCounterState.getIsShow
+                              ? appColors.primary
+                              : appColors.quaternaryColor,
                         ),
                       ),
                     ),
@@ -134,7 +167,8 @@ class AppCounterPage extends StatelessWidget {
                       backgroundColor: appColors.inversePrimary,
                       child: IconButton(
                         onPressed: () {
-                          appCounterState.resetSelectedCount = appCounterState.getCountValuesIndex;
+                          appCounterState.resetSelectedCount =
+                              appCounterState.getCountValuesIndex;
                         },
                         tooltip: appLocale.reset,
                         splashRadius: 25,
