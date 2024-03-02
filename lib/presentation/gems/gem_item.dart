@@ -4,7 +4,6 @@ import 'package:html/parser.dart' show parse;
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/widgets/text_share_button.dart';
 import 'package:provider/provider.dart';
-import 'package:share_plus/share_plus.dart';
 
 import '../../core/styles/app_styles.dart';
 import '../../domain/entities/gem_entity.dart';
