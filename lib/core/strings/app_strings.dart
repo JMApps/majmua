@@ -1,6 +1,7 @@
 import 'package:adhan/adhan.dart';
-import 'package:majmua/data/models/adhan_information_model.dart';
-import 'package:majmua/data/models/model_friday.dart';
+
+import '../../data/models/adhan_information_model.dart';
+import '../../data/models/model_friday.dart';
 
 class AppStrings {
   static const backgroundPictureNames = <String>[

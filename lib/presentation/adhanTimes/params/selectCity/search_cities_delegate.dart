@@ -10,7 +10,7 @@ class SearchCitiesDelegate extends SearchDelegate {
           keyboardType: TextInputType.text,
           searchFieldStyle: const TextStyle(
             color: Colors.white,
-            fontSize: 20,
+            fontSize: 22,
           ),
         );
 
@@ -22,7 +22,7 @@ class SearchCitiesDelegate extends SearchDelegate {
         border: InputBorder.none,
         hintStyle: TextStyle(
           color: Colors.grey,
-          fontSize: 16,
+          fontSize: 22,
         ),
       ),
     );
@@ -38,6 +38,7 @@ class SearchCitiesDelegate extends SearchDelegate {
               },
               icon: AnimatedIcon(
                 icon: AnimatedIcons.menu_close,
+                color: Colors.white,
                 progress: transitionAnimation,
               ),
             )

@@ -28,8 +28,7 @@ class SurahsPage extends StatefulWidget {
   State<SurahsPage> createState() => _SurahsPageState();
 }
 
-class _SurahsPageState extends State<SurahsPage>
-    with SingleTickerProviderStateMixin {
+class _SurahsPageState extends State<SurahsPage> with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
   late final PageController _surahPageController;
@@ -58,11 +57,10 @@ class _SurahsPageState extends State<SurahsPage>
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
     return Consumer<SurahSettingsState>(
-      builder: (BuildContext context, SurahSettingsState surahSettings, _) {
+      builder: (BuildContext context, surahSettings, _) {
         return GestureDetector(
           onTap: () {
-            surahSettings.setAppBarIsVisible =
-                !surahSettings.getAppBarIsVisible;
+            surahSettings.setAppBarIsVisible = !surahSettings.getAppBarIsVisible;
           },
           child: Container(
             color: appColors.fullGlass,
@@ -130,8 +128,7 @@ class _SurahsPageState extends State<SurahsPage>
                   reverse: true,
                   itemCount: AppStrings.surahsLists[widget.surahNumber].length,
                   itemBuilder: (BuildContext context, int index) {
-                    final String surahPage =
-                        AppStrings.surahsLists[widget.surahNumber][index];
+                    final String surahPage = AppStrings.surahsLists[widget.surahNumber][index];
                     return Center(
                       child: SingleChildScrollView(
                         child: Column(

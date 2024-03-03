@@ -26,7 +26,7 @@ class NotificationService {
     'Prayer notifications',
     channelDescription: 'Daily prayer notifications',
     icon: _logoName,
-    importance: Importance.high,
+    importance: Importance.max,
     priority: Priority.max,
     playSound: true,
     sound: RawResourceAndroidNotificationSound('adhan'),
