@@ -34,7 +34,8 @@ class CounterValuesDropbutton extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 16,
                   color: appColors.inverseSurface,
-                  fontFamily: 'Nexa',
+                  fontFamily: 'Karim',
+                  height: 1.5,
                 ),
                 underline: const SizedBox(),
                 onChanged: (String? value) {

@@ -49,7 +49,7 @@ class AppCounterPage extends StatelessWidget {
                           const CounterButton(),
                           const SizedBox(height: 16),
                           const TotalCountText(),
-                          CupertinoButton(
+                          appCounterState.getTotalCountValue > 0 ? CupertinoButton(
                             padding: EdgeInsets.zero,
                             child: const Text(
                               'Сброс',
@@ -61,7 +61,7 @@ class AppCounterPage extends StatelessWidget {
                             onPressed: () {
                               appCounterState.resetTotalCount;
                             },
-                          ),
+                          ) : const SizedBox(),
                           const SizedBox(height: 16),
                         ],
                       )
@@ -75,7 +75,7 @@ class AppCounterPage extends StatelessWidget {
                               children: [
                                 const CounterValuesDropbutton(),
                                 const TotalCountText(),
-                                CupertinoButton(
+                                appCounterState.getTotalCountValue > 0 ? CupertinoButton(
                                   padding: EdgeInsets.zero,
                                   child: const Text(
                                     'Сброс',
@@ -87,7 +87,7 @@ class AppCounterPage extends StatelessWidget {
                                   onPressed: () {
                                     appCounterState.resetTotalCount;
                                   },
-                                ),
+                                ) : const SizedBox(),
                               ],
                             ),
                           ),
