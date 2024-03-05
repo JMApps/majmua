@@ -119,8 +119,10 @@ class _SurahsPageState extends State<SurahsPage> with SingleTickerProviderStateM
                           ],
                         )
                       : const PreferredSize(
-                          preferredSize: Size(0, 0),
-                          child: SizedBox(),
+                          preferredSize: Size(0, 100),
+                          child: SizedBox(
+                            height: 100,
+                          ),
                         ),
                 ),
                 body: PageView.builder(
