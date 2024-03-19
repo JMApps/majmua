@@ -14,12 +14,12 @@ if (localPropertiesFile.exists()) {
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
-  flutterVersionCode = '14'
+  flutterVersionCode = '16'
 }
 
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
-  flutterVersionName = '1.7.3'
+  flutterVersionName = '1.7.4'
 }
 
 android {
@@ -48,8 +48,6 @@ android {
   buildTypes {
     release {
       signingConfig signingConfigs.debug
-      minifyEnabled false
-      shrinkResources false
     }
   }
 

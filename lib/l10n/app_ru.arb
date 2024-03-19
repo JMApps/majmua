@@ -1,7 +1,8 @@
 {
-  "@@locale": "en",
+  "@@locale": "ru",
 
-  "appName": "Shelf muslim",
+  "interfaceLanguage": "Язык интерфейса",
+  "appName": "Полка мусульманина",
   "notifications": "Уведомления",
   "settings": "Настройки",
   "appSlogan": "Уходят дни – уходит часть тебя",
