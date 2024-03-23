@@ -1,24 +1,19 @@
 {
   "@@locale": "ru",
-
   "interfaceLanguage": "Язык интерфейса",
   "appName": "Полка мусульманина",
   "notifications": "Уведомления",
   "settings": "Настройки",
   "appSlogan": "Уходят дни – уходит часть тебя",
-
   "day": "День",
   "week": "Неделя",
   "month": "Месяц",
   "year": "Год",
-
   "spring": "Весна",
   "summer": "Лето",
   "fall": "Осень",
   "winter": "Зима",
-
   "prayerNotifications": "Уведомления молитв",
-
   "fajr": "Фаджр",
   "sunrise": "Восход",
   "sunriseDuha": "Восход (ад-Духа)",
@@ -26,38 +21,27 @@
   "asr": "'Аср",
   "maghrib": "Магриб",
   "isha": "'Иша",
-
   "prayerNotification": "Время молитвы",
   "remind": "Напоминание",
-
   "fastNotifications": "Уведомления постов",
-
   "fastMonday": "Пост в понедельник",
   "fastThursday": "Пост в четверг",
   "fastWhiteDays": "Белые дни",
-
   "fastMondayTime": "Завтра день желательного поста",
   "fastThursdayTime": "Завтра день желательного поста",
   "fastWhiteDaysTime": "Приблизились белые дни",
-
   "adhkarsNotifications": "Уведомления азкаров",
-
   "morningAdhkars": "Утренние азкары",
   "eveningAdhkars": "Вечерние азкары",
   "nightAdhkars": "Ночные азкары",
-
   "morningAdhkarsTime": "Время утренних азкаров \uD83E\uDD32",
   "eveningAdhkarsTime": "Время вечерних азкаров \uD83E\uDD32",
   "nightAdhkarsTime": "Не забудь азкары \uD83E\uDD32 перед сном \uD83D\uDCA4",
-
   "fridayNotifications": "Уведомления пятницы",
-
   "friday": "Пятница",
   "lastHourFriday": "Последний час пятницы",
-
   "fridayTime": "Завтра пятница",
   "lastHourFridayTime": "Последний час пятницы \uD83E\uDD32\uD83E\uDD32\uD83E\uDD32",
-
   "appTheme": "Тема приложения",
   "light": "Светлая",
   "dark": "Тёмная",
@@ -68,7 +52,6 @@
   "apps": "Приложения",
   "otherApp": "Другие приложения",
   "contacts": "Контакты",
-
   "adhanParams": "Параметры",
   "selectedCity": "Выбранный город",
   "coordinates": "Координаты",
@@ -80,32 +63,24 @@
   "hanafi": "Ханафи",
   "timeOffset": "Часовой пояс",
   "defaultVal": "По умолчанию",
-
   "selectCity": "Выбрать город",
   "addMyCity": "Добавить свой город",
   "prayerTimeAdjustment": "Корректировка минут",
   "information": "Информация",
-
   "selectOtherCity": "Выбрать другой город",
-
   "country": "Страна",
   "countryName": "Саудовская Аравия",
   "inputCountryName": "Введите название страны",
-
   "city": "Город",
   "cityName": "Мекка",
   "inputCityName": "Введите название города",
-
   "inputLatitude": "Введите широту",
   "inputLongitude": "Введите долготу",
-
   "cityAdded": "Город добавлен",
   "cityChanged": "Город изменён",
   "cityDeleted": "Город удалён",
-
   "counter": "Счётчик",
   "totalValue": "Общее количество: ",
-
   "addCityInformation": "Вводите корректные данные, например:",
   "customCitiesIsEmpty": "Вы не добавили ни одного города",
   "searchByCitiesAndCountries": "Поиск по городам и странам...",
@@ -115,10 +90,8 @@
   "qiblaDirection": "Направление Киблы",
   "qiblaOn": "Кибла на",
   "qiblaInformation": "Поскольку мы стремимся избегать в наших приложениях запроса любых разрешений, доступа к вашему компасу у приложения нет. Но вам предоставлен градус направления к Кибле в соответствии с широтой и долготой, которые выбраны в настройках. Вы можете воспользоваться любым компасом и, сверившись с градусом направления, указанным выше, определить направление к Кибле.",
-
-  "startSearch": "Начните поиск...",
+  "startSearch": "Начните поиск",
   "queryIsEmpty": "По вашему запросу ничего не найдено",
-
   "add": "Добавить",
   "change": "Изменить",
   "delete": "Удалить",
@@ -131,53 +104,40 @@
   "show": "Отобразить",
   "ayahDay": "Аят дня",
   "hadeethDay": "Хадис дня",
-
   "midnight": "Полночь: ",
   "thirdPart": "Последняя ⅓ ночи: ",
-
   "fridaySunnahs": "Пятничные Суннаны",
-
   "daysLeftUntilRamadan": "Дней до Рамадана",
   "blessedRamadan": "Благословенный Рамадан",
   "happyRamadan": "С праздником разговения!\nДа примет Аллах от нас и от вас!",
-
   "daysLeftUntilAdha": "Дней до Зу-ль-Хиджи",
   "nineHijjah": "Пост в Зу-ль-Хиджа",
   "happyHijjah": "С праздником жертвоприношения!\nДа примет Аллах от нас и от вас!",
-
   "nearWhiteDays": "Приблизились белые дни",
   "whiteDays": "Пост в белые дни",
-
   "adhkars": "азкары",
-
   "afterPrayer": "После молитвы",
   "morning": "Утром",
   "evening": "Вечером",
   "beforeSleep": "Перед сном",
   "adhanTime": "Во время азана",
   "allChapters": "Все главы",
-
   "istikhara": "Истихара",
   "surahs": "Суры",
-
   "surahQahf": "Аль-Кахф",
   "surahSajda": "Ас-Сажда",
   "surahMulk": "Аль-Мульк",
   "juzAmma": "Джуз 'Амма",
-
   "backgroundWarmth": "Теплота фона",
   "fontContrast": "Контраст текста",
-
   "fortress": "Крепость мусульманина",
   "transcription": "Транскрипция",
   "searchByChapters": "Поиск по главам...",
   "tableOfChapter": "Table_of_chapters",
   "tableOfSupplications": "Table_of_supplications",
   "tableOfFootnotes": "Table_of_footnotes",
-
   "gemsTarifi": "Жемчужины Тарифи",
   "library": "Библиотека",
-
   "sfq": "Мольбы из Корана",
   "arabicTextSize": "Размер арабского текста",
   "translationTextSize": "Размер текста перевода",
