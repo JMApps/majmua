@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../../widgets/info_data_text.dart';
 import 'search_cities_builder.dart';
 
 class SearchCitiesDelegate extends SearchDelegate {

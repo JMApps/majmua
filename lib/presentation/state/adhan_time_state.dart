@@ -13,7 +13,7 @@ import '../../core/strings/app_strings.dart';
 
 class AdhanTimeState extends ChangeNotifier {
   final Box _mainSettingsBox = Hive.box(AppConstraints.keySettingsPrayerTimeBox);
-  late TZDateTime _dateTime = tz.TZDateTime.from(DateTime.now(), tz.local);
+  TZDateTime _dateTime = tz.TZDateTime.from(DateTime.now(), tz.local);
   Timer? timer;
 
   late PrayerTimes _prayerTimes;

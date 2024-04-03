@@ -156,6 +156,142 @@ class AppStrings {
     ),
   ];
 
+  static const _kaFridayContentList = <ModelFriday>[
+    ModelFriday(
+      id: 1,
+      categorySunnah: 'სასურველია',
+      contentSunnah: 'შეასრულეთ დიდი განბანვა',
+    ),
+    ModelFriday(
+      id: 2,
+      categorySunnah: 'სასურველია',
+      contentSunnah: 'მოწესრიგდით',
+    ),
+    ModelFriday(
+      id: 3,
+      categorySunnah: 'სასურველია',
+      contentSunnah: 'ჩაიცვით სუფთა ტანსაცმელი',
+    ),
+    ModelFriday(
+      id: 4,
+      categorySunnah: 'სასურველია',
+      contentSunnah: 'იპკურეთ/წაისვით მისქი',
+    ),
+    ModelFriday(
+      id: 5,
+      categorySunnah: 'სასურველია',
+      contentSunnah: 'ადრე წადით მეჩეთში',
+    ),
+    ModelFriday(
+      id: 6,
+      categorySunnah: 'სასურველია',
+      contentSunnah: 'წადით მეჩეთში ფეხით',
+    ),
+    ModelFriday(
+      id: 7,
+      categorySunnah: 'სასურველია',
+      contentSunnah: 'დაჯექით მინბართან უფრო ახლოს',
+    ),
+    ModelFriday(
+      id: 8,
+      categorySunnah: 'აკრძალული (ჰარამი)',
+      contentSunnah: "გადაბიჯება სხვებზე, გარდა იმ შემთხვევებისა, როდესაც სხვაგვარად შეუძლებელია სასურველ ადგილზე მისვლა",
+    ),
+    ModelFriday(
+      id: 9,
+      categorySunnah: 'აკრძალული (ჰარამი)',
+      contentSunnah: 'საუბარი ხუთბას დროს',
+    ),
+    ModelFriday(
+      id: 10,
+      categorySunnah: 'სასურველია',
+      contentSunnah: 'შეასრულეთ 4 რაქაათი, (2 - 2), ჯუმას შემდეგ მეჩეთში ან 2 რაქათი სახლში',
+    ),
+    ModelFriday(
+      id: 11,
+      categorySunnah: 'სასურველია',
+      contentSunnah: "წაიკითხეთ სურა «ალ-ქაჰფი»",
+    ),
+    ModelFriday(
+      id: 12,
+      categorySunnah: 'სასურველია',
+      contentSunnah: 'რაც შეიძლება მეტი წაიკითხეთ სალავათი წინასწარმეტყველზე ﷺ',
+    ),
+    ModelFriday(
+      id: 13,
+      categorySunnah: 'სასურველია',
+      contentSunnah: 'გააკეთეთ დუა ჯუმა დღის  ბოლო საათში\n(მაღრიბამდე ერთი საათით ადრე)',
+    ),
+  ];
+
+  static const _uzFridayContentList = <ModelFriday>[
+    ModelFriday(
+      id: 1,
+      categorySunnah: 'Тавсия этилади',
+      contentSunnah: 'Ғусл',
+    ),
+    ModelFriday(
+      id: 2,
+      categorySunnah: 'Тавсия этилади',
+      contentSunnah: 'Ўзни тартибга келтириш',
+    ),
+    ModelFriday(
+      id: 3,
+      categorySunnah: 'Тавсия этилади',
+      contentSunnah: 'Тоза кийим кийиш',
+    ),
+    ModelFriday(
+      id: 4,
+      categorySunnah: 'Тавсия этилади',
+      contentSunnah: 'Ҳушбўй ҳидлардан фойдаланиш',
+    ),
+    ModelFriday(
+      id: 5,
+      categorySunnah: 'Тавсия этилади',
+      contentSunnah: 'Масжидга эрта отланиш',
+    ),
+    ModelFriday(
+      id: 6,
+      categorySunnah: 'Тавсия этилади',
+      contentSunnah: 'Масжидга пиёда бориш',
+    ),
+    ModelFriday(
+      id: 7,
+      categorySunnah: 'Тавсия этилади',
+      contentSunnah: 'Минбарга яқин жойга жойлашиш',
+    ),
+    ModelFriday(
+      id: 8,
+      categorySunnah: 'Ман этилади (харом)',
+      contentSunnah: 'Одамлар орасини ёриб ўтиш.Фақат белгиланган ўрнига интилаётган инсонгагина рухсат этилади',
+    ),
+    ModelFriday(
+      id: 9,
+      categorySunnah: 'Ман этилади (харом)',
+      contentSunnah: 'Хутба вақтида сўзлашиш',
+    ),
+    ModelFriday(
+      id: 10,
+      categorySunnah: 'Тавсия этилади',
+      contentSunnah: '4 ракаат суннатни ўқиш , (2 ракаат суннатдан аввал ва 2 ракаат суннатдан сўнг), жума фарзидан сўнги суннатни масжидда ёки уйда ўқиш ҳам мумкин',
+    ),
+    ModelFriday(
+      id: 11,
+      categorySunnah: 'Тавсия этилади',
+      contentSunnah: '«ал-Қахф» сурасини ўқинг',
+    ),
+    ModelFriday(
+      id: 12,
+      categorySunnah: 'Тавсия этилади',
+      contentSunnah: 'Пайғамбаримиз Мухаммад Мустафога ﷺ салавотларни кўпайтириш',
+    ),
+    ModelFriday(
+      id: 13,
+      categorySunnah: 'Тавсия этилади',
+      contentSunnah: 'Жума кунининг сўнги соатларида дуони кўпайтириш\n(шомдан аввалги соатлар)',
+    ),
+  ];
+
   static const List<String> _enCounterValues = [
     'Free',
     'لَا إِلَهَ إلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
@@ -170,6 +306,20 @@ class AppStrings {
     'أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ',
   ];
 
+  static const List<String> _kaCounterValues = [
+    'არანაირი შეზღუდვა',
+    'لَا إِلَهَ إلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
+    'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ',
+    'أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ',
+  ];
+
+  static const List<String> _uzCounterValues = [
+    'Чексиз',
+    'لَا إِلَهَ إلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
+    'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ',
+    'أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ',
+  ];
+
   static const Map<String, Map<String, List<dynamic>>> _localLists = {
     'ru': {
       'friday_content_list': _ruFridayContentList,
@@ -179,6 +329,14 @@ class AppStrings {
       'friday_content_list': _enFridayContentList,
       'counter_values': _enCounterValues,
     },
+    'ka': {
+      'friday_content_list': _kaFridayContentList,
+      'counter_values': _kaCounterValues,
+    },
+    'uz': {
+      'friday_content_list': _uzFridayContentList,
+      'counter_values': _uzCounterValues,
+    },
   };
 
   static const Map<String, Map<String, Map<int, String>>> _localNames = {
@@ -187,14 +345,24 @@ class AppStrings {
       'hijri_month_names': _ruHijriMonthNames,
       'long_wd_names': _ruLongWdNames,
       'short_wd_names': _ruShortWdNames,
-      'daily_long': _ruDailyLongMessages
     },
     'en': {
       'month_names': _enMonthNames,
       'hijri_month_names': _enHijriMonthNames,
       'long_wd_names': _enLongWdNames,
       'short_wd_names': _enShortWdNames,
-      'daily_long': _enDailyLongMessages
+    },
+    'ka': {
+      'month_names': _kaMonthNames,
+      'hijri_month_names': _kaHijriMonthNames,
+      'long_wd_names': _kaLongWdNames,
+      'short_wd_names': _kaShortWdNames,
+    },
+    'uz': {
+      'month_names': _uzMonthNames,
+      'hijri_month_names': _uzHijriMonthNames,
+      'long_wd_names': _uzLongWdNames,
+      'short_wd_names': _uzShortWdNames,
     },
   };
 
@@ -228,6 +396,36 @@ class AppStrings {
     12: 'December'
   };
 
+  static const Map<int, String> _kaMonthNames = {
+    1: "იანვარი",
+    2: "თებერვალი",
+    3: "მარტი",
+    4: "აპრილი",
+    5: "მაისი",
+    6: "ივნისი",
+    7: "ივლისი",
+    8: "აგვისტო",
+    9: "სექტემბერი",
+    10: "ოქტომბერი",
+    11: "ნოემბერი",
+    12: "დეკემბერი"
+  };
+
+  static const Map<int, String> _uzMonthNames = {
+    1: 'Январь',
+    2: 'Февраль',
+    3: 'Март',
+    4: 'Апрель',
+    5: 'Май',
+    6: 'Июнь',
+    7: 'Июль',
+    8: 'Август',
+    9: 'Сентябрь',
+    10: 'Октябрь',
+    11: 'Ноябрь',
+    12: 'Декабрь'
+  };
+
   static const Map<int, String> _ruHijriMonthNames = {
     1: 'Мухаррам',
     2: 'Сафар',
@@ -258,6 +456,36 @@ class AppStrings {
     12: 'Dhu Al-Hijjah'
   };
 
+  static const Map<int, String> _kaHijriMonthNames = {
+    1: 'მუჰარრამი',
+    2: 'საფარი',
+    3: 'რაბი ალ-ავვალი',
+    4: 'რაბი ალ-სანი',
+    5: 'ჯუმადა ალ-ულა',
+    6: 'ჯუმადა ალ-სანი',
+    7: 'რაჯაბი',
+    8: 'შაბან',
+    9: 'რამადანი',
+    10: 'შავვალი',
+    11: 'ზუ-ლ-ყა\'და',
+    12: 'დ(ზ)ჰულ-ჰიჯა'
+  };
+
+  static const Map<int, String> _uzHijriMonthNames = {
+    1: 'Муҳаррам',
+    2: 'Сафар',
+    3: 'Раъби ул-Аввал',
+    4: 'Раъби ус-Соний',
+    5: 'Жумад ул-Аввал',
+    6: 'Жумад ус-Соний',
+    7: 'Ражаб',
+    8: 'Шаъбон',
+    9: 'Рамазон',
+    10: 'Шаввол',
+    11: 'Зул-Қаъда',
+    12: 'Зул-Ҳижжа'
+  };
+
   static const Map<int, String> _ruLongWdNames = {
     monIndex: "Понедельник",
     tueIndex: "Вторник",
@@ -276,6 +504,26 @@ class AppStrings {
     friIndex: "Friday",
     satIndex: "Saturday",
     sunIndex: "Sunday"
+  };
+
+  static const Map<int, String> _kaLongWdNames = {
+    monIndex: "ორშაბათი",
+    tueIndex: "სამშაბათი",
+    wedIndex: "ოთხშაბათი",
+    thuIndex: "ხუთშაბათი",
+    friIndex: "პარასკევი",
+    satIndex: "შაბათი",
+    sunIndex: "კვირა"
+  };
+
+  static const Map<int, String> _uzLongWdNames = {
+    monIndex: "Душанба",
+    tueIndex: "Сешанба",
+    wedIndex: "Чоршанба",
+    thuIndex: "Пайшанба",
+    friIndex: "Жума",
+    satIndex: "Шанба",
+    sunIndex: "Якшанба"
   };
 
   static const Map<int, String> _ruShortWdNames = {
@@ -298,24 +546,24 @@ class AppStrings {
     sunIndex: "Sun"
   };
 
-  static const Map<int, String> _ruDailyLongMessages = {
-    monIndex: "Первое большое напоминание",
-    tueIndex: "Второе большое напоминание",
-    wedIndex: "Третье большое напоминание",
-    thuIndex: "Четвертое большое напоминание",
-    friIndex: "Пятое большое напоминание",
-    satIndex: "Шестое большое напоминание",
-    sunIndex: "Седьмое большое напоминание"
+  static const Map<int, String> _kaShortWdNames = {
+    monIndex: "ორშ",
+    tueIndex: "სამ",
+    wedIndex: "ოთხ",
+    thuIndex: "ხუთ",
+    friIndex: "პარ",
+    satIndex: "შაბ",
+    sunIndex: "კვირ"
   };
 
-  static const Map<int, String> _enDailyLongMessages = {
-    monIndex: "First big daily message",
-    tueIndex: "Second big daily message",
-    wedIndex: "Third big daily message",
-    thuIndex: "Fourth big daily message",
-    friIndex: "Fifth big daily message",
-    satIndex: "Sixth big daily message",
-    sunIndex: "Seventh big daily message"
+  static const Map<int, String> _uzShortWdNames = {
+    monIndex: "Дш",
+    tueIndex: "Сш",
+    wedIndex: "Чш",
+    thuIndex: "Пш",
+    friIndex: "Жм",
+    satIndex: "Шб",
+    sunIndex: "Як"
   };
 
   static const int monIndex = 1;
@@ -392,6 +640,7 @@ class AppStrings {
     Madhab.shafi,
     Madhab.hanafi,
   ];
+
 
   static final List<Duration> calculationUtcOffset = [
     DateTime.now().timeZoneOffset - const Duration(hours: 1),

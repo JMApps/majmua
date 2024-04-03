@@ -106,31 +106,79 @@ class AppCounterPage extends StatelessWidget {
           child: Padding(
             padding: AppStyles.mainMarding,
             child: Consumer<AppCounterState>(
-              builder:
-                  (BuildContext context, AppCounterState appCounterState, _) {
-                return Row(
+              builder: (BuildContext context, AppCounterState appCounterState, _) {
+                return Platform.isIOS ? Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Visibility(
-                      visible: Platform.isIOS,
-                      child: CircleAvatar(
-                        backgroundColor: appColors.inversePrimary,
-                        child: IconButton(
-                          onPressed: () {
-                            appCounterState.onChangeIsClick;
-                          },
-                          tooltip: appLocale.clicked,
-                          splashRadius: 25,
-                          icon: Icon(
-                            Icons.volume_up_outlined,
-                            color: appCounterState.getIsClick
-                                ? appColors.primary
-                                : appColors.quaternaryColor,
-                          ),
+                    CircleAvatar(
+                      backgroundColor: appColors.inversePrimary,
+                      child: IconButton(
+                        onPressed: () {
+                          appCounterState.onChangeIsClick;
+                        },
+                        tooltip: appLocale.clicked,
+                        splashRadius: 25,
+                        icon: Icon(
+                          Icons.volume_up_outlined,
+                          color: appCounterState.getIsClick
+                              ? appColors.primary
+                              : appColors.quaternaryColor,
                         ),
                       ),
                     ),
+                    CircleAvatar(
+                      backgroundColor: appColors.inversePrimary,
+                      child: IconButton(
+                        onPressed: () {
+                          appCounterState.onChangeVibrateState;
+                        },
+                        tooltip: appLocale.vibration,
+                        splashRadius: 25,
+                        icon: Icon(
+                          Icons.vibration,
+                          color: appCounterState.getIsVibrate
+                              ? appColors.primary
+                              : appColors.quaternaryColor,
+                        ),
+                      ),
+                    ),
+                    CircleAvatar(
+                      backgroundColor: appColors.inversePrimary,
+                      child: IconButton(
+                        onPressed: () {
+                          appCounterState.onChangeIsShow;
+                        },
+                        tooltip: appLocale.show,
+                        splashRadius: 25,
+                        icon: Icon(
+                          Icons.remove_red_eye_outlined,
+                          color: appCounterState.getIsShow
+                              ? appColors.primary
+                              : appColors.quaternaryColor,
+                        ),
+                      ),
+                    ),
+                    CircleAvatar(
+                      backgroundColor: appColors.inversePrimary,
+                      child: IconButton(
+                        onPressed: () {
+                          appCounterState.resetSelectedCount =
+                              appCounterState.getCountValuesIndex;
+                        },
+                        tooltip: appLocale.reset,
+                        splashRadius: 25,
+                        icon: Icon(
+                          Icons.refresh,
+                          color: appColors.primary,
+                        ),
+                      ),
+                    ),
+                  ],
+                ) : Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
                     CircleAvatar(
                       backgroundColor: appColors.inversePrimary,
                       child: IconButton(

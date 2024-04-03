@@ -25,6 +25,7 @@ class MajmuaButtonsCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              appLocale!.localeName.contains('ru') ?
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -36,7 +37,7 @@ class MajmuaButtonsCard extends StatelessWidget {
                         builder: (context) => const SurahsList(),
                       );
                     },
-                    tooltip: appLocale!.surahs,
+                    tooltip: appLocale.surahs,
                     icon: Image.asset(
                       'assets/icons/quran.png',
                       width: screenWidth,
@@ -108,22 +109,85 @@ class MajmuaButtonsCard extends StatelessWidget {
                     ),
                   ),
                 ],
+              ) : Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton.outlined(
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        backgroundColor: appColors.fullGlass,
+                        builder: (context) => const SurahsList(),
+                      );
+                    },
+                    tooltip: appLocale.surahs,
+                    icon: Image.asset(
+                      'assets/icons/quran.png',
+                      width: screenWidth,
+                      height: screenWidth,
+                      color: appColors.primary,
+                    ),
+                  ),
+                  IconButton.outlined(
+                    onPressed: () {
+                      Navigator.pushNamed(context, RouteNames.sfqPage);
+                    },
+                    tooltip: appLocale.sfq,
+                    icon: Image.asset(
+                      'assets/icons/s_quran.png',
+                      width: screenWidth,
+                      height: screenWidth,
+                      color: appColors.primary,
+                    ),
+                  ),
+                  IconButton.outlined(
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        backgroundColor: appColors.fullGlass,
+                        builder: (context) => const FortressList(),
+                      );
+                    },
+                    tooltip: appLocale.fortress,
+                    icon: Image.asset(
+                      'assets/icons/fortress.png',
+                      width: screenWidth,
+                      height: screenWidth,
+                      color: appColors.primary,
+                    ),
+                  ),
+                  IconButton.outlined(
+                    onPressed: () {
+                      Navigator.pushNamed(context, RouteNames.appCounterPage);
+                    },
+                    tooltip: appLocale.counter,
+                    icon: Image.asset(
+                      'assets/icons/counter.png',
+                      width: screenWidth,
+                      height: screenWidth,
+                      color: appColors.primary,
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(height: 8),
-              Tooltip(
-                message: appLocale.library,
-                child: OutlinedButton(
-                  onPressed: () {
-                    showModalBottomSheet(
-                      context: context,
-                      backgroundColor: appColors.fullGlass,
-                      builder: (context) => const BooksList(),
-                    );
-                  },
-                  child: Text(
-                    appLocale.library,
-                    style: TextStyle(
-                      color: appColors.secondaryColor,
+              SizedBox(height: appLocale.localeName.contains('ru') ? 8 : 0),
+              Visibility(
+                visible: appLocale.localeName.contains('ru'),
+                child: Tooltip(
+                  message: appLocale.library,
+                  child: OutlinedButton(
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        backgroundColor: appColors.fullGlass,
+                        builder: (context) => const BooksList(),
+                      );
+                    },
+                    child: Text(
+                      appLocale.library,
+                      style: TextStyle(
+                        color: appColors.secondaryColor,
+                      ),
                     ),
                   ),
                 ),
