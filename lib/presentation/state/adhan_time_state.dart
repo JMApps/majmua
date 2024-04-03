@@ -3,15 +3,17 @@ import 'dart:async';
 import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:timezone/data/latest_all.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
 import 'package:intl/intl.dart';
+import 'package:timezone/timezone.dart';
 
 import '../../core/strings/app_constraints.dart';
 import '../../core/strings/app_strings.dart';
 
 class AdhanTimeState extends ChangeNotifier {
-  final Box _mainSettingsBox =
-      Hive.box(AppConstraints.keySettingsPrayerTimeBox);
-  DateTime _dateTime = DateTime.now().toLocal();
+  final Box _mainSettingsBox = Hive.box(AppConstraints.keySettingsPrayerTimeBox);
+  late TZDateTime _dateTime = tz.TZDateTime.from(DateTime.now(), tz.local);
   Timer? timer;
 
   late PrayerTimes _prayerTimes;
@@ -36,6 +38,7 @@ class AdhanTimeState extends ChangeNotifier {
   int _madhabIndex = AppConstraints.defMadhabIndex;
 
   AdhanTimeState() {
+    tz.initializeTimeZones();
     timer = Timer(
       Duration(seconds: (_dateTime.second - 60).abs()),
       () {
@@ -49,40 +52,26 @@ class AdhanTimeState extends ChangeNotifier {
       },
     );
 
-    _fajrAdjustment =
-        _mainSettingsBox.get(AppConstraints.keyFajrAdjustment, defaultValue: 0);
-    _sunriseAdjustment = _mainSettingsBox
-        .get(AppConstraints.keySunriseAdjustment, defaultValue: 0);
-    _dhuhrAdjustment = _mainSettingsBox.get(AppConstraints.keyDhuhrAdjustment,
-        defaultValue: 0);
-    _asrAdjustment =
-        _mainSettingsBox.get(AppConstraints.keyAsrAdjustment, defaultValue: 0);
-    _maghribAdjustment = _mainSettingsBox
-        .get(AppConstraints.keyMaghribAdjustment, defaultValue: 0);
-    _ishaAdjustment =
-        _mainSettingsBox.get(AppConstraints.keyIshaAdjustment, defaultValue: 0);
+    _fajrAdjustment = _mainSettingsBox.get(AppConstraints.keyFajrAdjustment, defaultValue: 0);
+    _sunriseAdjustment = _mainSettingsBox.get(AppConstraints.keySunriseAdjustment, defaultValue: 0);
+    _dhuhrAdjustment = _mainSettingsBox.get(AppConstraints.keyDhuhrAdjustment, defaultValue: 0);
+    _asrAdjustment = _mainSettingsBox.get(AppConstraints.keyAsrAdjustment, defaultValue: 0);
+    _maghribAdjustment = _mainSettingsBox.get(AppConstraints.keyMaghribAdjustment, defaultValue: 0);
+    _ishaAdjustment = _mainSettingsBox.get(AppConstraints.keyIshaAdjustment, defaultValue: 0);
 
-    _country = _mainSettingsBox.get(AppConstraints.keyCountry,
-        defaultValue: AppConstraints.defCountry);
-    _city = _mainSettingsBox.get(AppConstraints.keyCity,
-        defaultValue: AppConstraints.defCity);
-    _latitude = _mainSettingsBox.get(AppConstraints.keyCurrentLatitude,
-        defaultValue: AppConstraints.defLatitude);
-    _longitude = _mainSettingsBox.get(AppConstraints.keyCurrentLongitude,
-        defaultValue: AppConstraints.defLongitude);
-    _calculationMethodIndex = _mainSettingsBox.get(
-        AppConstraints.keyCalculationIndex,
-        defaultValue: AppConstraints.defCalculationIndex);
-    _madhabIndex = _mainSettingsBox.get(AppConstraints.keyMadhabIndex,
-        defaultValue: AppConstraints.defMadhabIndex);
-    _timeOffsetIndex = _mainSettingsBox.get(AppConstraints.keyUtcOffsetIndex,
-        defaultValue: AppConstraints.defUtcOffsetIndex);
+    _country = _mainSettingsBox.get(AppConstraints.keyCountry, defaultValue: AppConstraints.defCountry);
+    _city = _mainSettingsBox.get(AppConstraints.keyCity, defaultValue: AppConstraints.defCity);
+    _latitude = _mainSettingsBox.get(AppConstraints.keyCurrentLatitude, defaultValue: AppConstraints.defLatitude);
+    _longitude = _mainSettingsBox.get(AppConstraints.keyCurrentLongitude, defaultValue: AppConstraints.defLongitude);
+    _calculationMethodIndex = _mainSettingsBox.get(AppConstraints.keyCalculationIndex, defaultValue: AppConstraints.defCalculationIndex);
+    _madhabIndex = _mainSettingsBox.get(AppConstraints.keyMadhabIndex, defaultValue: AppConstraints.defMadhabIndex);
+    _timeOffsetIndex = _mainSettingsBox.get(AppConstraints.keyUtcOffsetIndex, defaultValue: AppConstraints.defUtcOffsetIndex);
 
     initPrayerTime();
   }
 
   void _updateDateTime() {
-    _dateTime = DateTime.now().toLocal();
+    _dateTime = tz.TZDateTime.from(DateTime.now(), tz.local);
     notifyListeners();
   }
 
@@ -93,8 +82,7 @@ class AdhanTimeState extends ChangeNotifier {
   // Init prayer params
   initPrayerTime() {
     _coordinates = Coordinates(_latitude, _longitude);
-    _prayerParams = AppStrings.prayerCalculationMethods[_calculationMethodIndex]
-        .getParameters();
+    _prayerParams = AppStrings.prayerCalculationMethods[_calculationMethodIndex].getParameters();
     _prayerParams.madhab = AppStrings.calculationMadhab[_madhabIndex];
 
     _prayerParams.adjustments.fajr = _fajrAdjustment;
@@ -119,9 +107,7 @@ class AdhanTimeState extends ChangeNotifier {
   PrayerTimes get getPrayerTimes => _prayerTimes;
 
   // Day minutes value
-  int get getMinutesOfDay => _dateTime
-      .difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day))
-      .inMinutes;
+  int get getMinutesOfDay => _dateTime.difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day)).inMinutes;
 
   // Prayer param getters
   String get country => _country;
@@ -217,32 +203,23 @@ class AdhanTimeState extends ChangeNotifier {
   }
 
   // Prayers value in minutes
-  int get getFajrValueInMinutes =>
-      _prayerValueInMinutes(prayerTime: _prayerTimes.fajr);
+  int get getFajrValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.fajr);
 
-  int get getSunriseValueInMinutes =>
-      _prayerValueInMinutes(prayerTime: _prayerTimes.sunrise);
+  int get getSunriseValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.sunrise);
 
-  int get getDhuhrValueInMinutes =>
-      _prayerValueInMinutes(prayerTime: _prayerTimes.dhuhr);
+  int get getDhuhrValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.dhuhr);
 
-  int get getAsrValueInMinutes =>
-      _prayerValueInMinutes(prayerTime: _prayerTimes.asr);
+  int get getAsrValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.asr);
 
-  int get getMaghribValueInMinutes =>
-      _prayerValueInMinutes(prayerTime: _prayerTimes.maghrib);
+  int get getMaghribValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.maghrib);
 
-  int get getIshaValueInMinutes =>
-      _prayerValueInMinutes(prayerTime: _prayerTimes.isha);
+  int get getIshaValueInMinutes => _prayerValueInMinutes(prayerTime: _prayerTimes.isha);
 
-  int get getMidnightValueInMinutes =>
-      _prayerValueInMinutes(prayerTime: _sunnahTimes.middleOfTheNight);
+  int get getMidnightValueInMinutes => _prayerValueInMinutes(prayerTime: _sunnahTimes.middleOfTheNight);
 
   int _prayerValueInMinutes({required DateTime prayerTime}) {
-    final DateTime fromZero =
-        DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 0);
-    final toPrayer = DateTime(prayerTime.year, prayerTime.month, prayerTime.day,
-        prayerTime.hour, prayerTime.minute);
+    final DateTime fromZero = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 0);
+    final toPrayer = DateTime(prayerTime.year, prayerTime.month, prayerTime.day, prayerTime.hour, prayerTime.minute);
     return toPrayer.difference(fromZero).inMinutes;
   }
 
