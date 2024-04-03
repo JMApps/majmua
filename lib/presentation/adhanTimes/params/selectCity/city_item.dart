@@ -42,8 +42,8 @@ class CityItem extends StatelessWidget {
                         onPressed: () {
                           adhanTimeState.setCountry = cityModel.country;
                           adhanTimeState.setCity = cityModel.city;
-                          adhanTimeState.setLatitude = double.parse(cityModel.latitude).abs();
-                          adhanTimeState.setLongitude = double.parse(cityModel.longitude).abs();
+                          adhanTimeState.setLatitude = double.parse(cityModel.latitude);
+                          adhanTimeState.setLongitude = double.parse(cityModel.longitude);
                           adhanTimeState.initPrayerTime();
                           Navigator.pop(context);
                           Navigator.of(context).pop();

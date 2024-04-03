@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/presentation/adhanTimes/params/selectCity/cities_list.dart';
-import 'package:majmua/presentation/adhanTimes/params/selectCity/search_cities_delegate.dart';
-import 'package:majmua/presentation/widgets/user_back_button.dart';
+
+import '../../../widgets/user_back_button.dart';
+import 'cities_list.dart';
+import 'search_cities_delegate.dart';
 
 class SelectCityPage extends StatelessWidget {
   const SelectCityPage({super.key});

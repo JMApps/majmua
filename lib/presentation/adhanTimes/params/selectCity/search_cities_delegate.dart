@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/presentation/adhanTimes/params/selectCity/search_cities_builder.dart';
-import 'package:majmua/presentation/widgets/info_data_text.dart';
+
+import '../../../widgets/info_data_text.dart';
+import 'search_cities_builder.dart';
 
 class SearchCitiesDelegate extends SearchDelegate {
   SearchCitiesDelegate({required String hintText})
@@ -69,11 +70,6 @@ class SearchCitiesDelegate extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    if (query.length > 2) {
-      return SearchCitiesBuilder(query: query);
-    } else {
-      final AppLocalizations? locale = AppLocalizations.of(context);
-      return InfoDataText(infoText: locale!.startSearch);
-    }
+    return SearchCitiesBuilder(query: query);
   }
 }
