@@ -266,6 +266,19 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
                     color: Colors.white,
                   ),
                 ),
+                IconButton(
+                  onPressed: () {
+                    // TODO add share
+                  },
+                  tooltip: appLocale.notifications,
+                  splashRadius: 20,
+                  icon: Image.asset(
+                    'assets/icons/share.png',
+                    width: 25,
+                    height: 25,
+                    color: Colors.white,
+                  ),
+                ),
               ],
               leading: IconButton(
                 onPressed: () {
