@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/themes/app_themes.dart';
 import 'package:provider/provider.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
@@ -40,7 +39,7 @@ class _SFQPageState extends State<SFQPage> {
           return Scaffold(
             body: _sfqWidgets[sfqState.getCurrentBottomIndex],
             bottomNavigationBar: Card(
-              color: appColors.primaryDark,
+              color: appColors.inversePrimary,
               margin: EdgeInsets.zero,
               shape: AppStyles.topShapeMini,
               child: SalomonBottomBar(
@@ -48,7 +47,7 @@ class _SFQPageState extends State<SFQPage> {
                 duration: const Duration(milliseconds: 250),
                 itemShape: AppStyles.mainShapeMini,
                 backgroundColor: Colors.transparent,
-                selectedItemColor: appColors.inversePrimary,
+                selectedItemColor: appColors.primary,
                 unselectedItemColor: Colors.white,
                 items: [
                   SalomonBottomBarItem(
