@@ -219,7 +219,7 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
                               style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 18,
-                                fontFamily: 'Nexa',
+                                fontFamily: 'Raleway',
                               ),
                             ),
                           ),

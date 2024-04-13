@@ -24,7 +24,7 @@ class ParamsDescRichText extends StatelessWidget {
             text: firstText,
             style: TextStyle(
               color: appColors.onSurface,
-              fontFamily: 'Nexa',
+              fontFamily: 'Raleway',
             ),
           ),
           TextSpan(
@@ -32,7 +32,7 @@ class ParamsDescRichText extends StatelessWidget {
             style: TextStyle(
               color: appColors.primaryColor,
               fontWeight: FontWeight.bold,
-              fontFamily: 'Nexa',
+              fontFamily: 'Raleway',
             ),
           ),
         ],

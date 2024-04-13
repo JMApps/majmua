@@ -136,8 +136,7 @@ class AppSettingsPage extends StatelessWidget {
                 Platform.isIOS
                     ? ListTile(
                         onTap: () {
-                          _launchUrl(
-                              link: 'https://apps.apple.com/ru/developer/imanil-binyaminov/id1564920953');
+                          _launchUrl(link: 'https://apps.apple.com/ru/developer/imanil-binyaminov/id1564920953');
                         },
                         title: Text(appLocale.otherApp),
                         leading: Image.asset('assets/icons/appstore.png'),
@@ -153,8 +152,7 @@ class AppSettingsPage extends StatelessWidget {
                       )
                     : ListTile(
                         onTap: () {
-                          _launchUrl(
-                              link: 'https://play.google.com/store/apps/dev?id=8649252597553656018');
+                          _launchUrl(link: 'https://play.google.com/store/apps/dev?id=8649252597553656018');
                         },
                         title: Text(appLocale.otherApp),
                         leading: Image.asset('assets/icons/google-play.png'),

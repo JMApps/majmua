@@ -74,7 +74,7 @@ class WeekCircleDay extends StatelessWidget {
                 style: TextStyle(
                   fontSize: screenWidth * 0.035,
                   color: Colors.white,
-                  fontFamily: 'Nexa',
+                  fontFamily: 'Raleway',
                 ),
                 textAlign: TextAlign.center,
               ),

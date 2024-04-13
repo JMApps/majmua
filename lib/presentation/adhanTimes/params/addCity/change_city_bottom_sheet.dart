@@ -236,7 +236,7 @@ class _ChangeCityBottomSheetState extends State<ChangeCityBottomSheet> {
                                 appLocale.cityChanged,
                                 style: const TextStyle(
                                   fontSize: 18,
-                                  fontFamily: 'Nexa',
+                                  fontFamily: 'Raleway',
                                 ),
                               ),
                             ),

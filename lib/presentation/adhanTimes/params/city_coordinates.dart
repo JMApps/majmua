@@ -43,7 +43,7 @@ class CityCoordinates extends StatelessWidget {
                         style: TextStyle(
                           color: appColors.onSurface,
                           fontSize: 18,
-                          fontFamily: 'Nexa',
+                          fontFamily: 'Raleway',
                         ),
                       ),
                       TextSpan(
@@ -52,7 +52,7 @@ class CityCoordinates extends StatelessWidget {
                           fontSize: 18,
                           color: appColors.quaternaryColor,
                           fontWeight: FontWeight.bold,
-                          fontFamily: 'Nexa',
+                          fontFamily: 'Raleway',
                         ),
                       ),
                     ],
@@ -77,7 +77,7 @@ class CityCoordinates extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           color: appColors.onSurface,
-                          fontFamily: 'Nexa',
+                          fontFamily: 'Raleway',
                         ),
                       ),
                       TextSpan(
@@ -85,7 +85,7 @@ class CityCoordinates extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           color: appColors.quaternaryColor,
-                          fontFamily: 'Nexa',
+                          fontFamily: 'Raleway',
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -103,7 +103,7 @@ class CityCoordinates extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           color: appColors.onSurface,
-                          fontFamily: 'Nexa',
+                          fontFamily: 'Raleway',
                         ),
                       ),
                       TextSpan(
@@ -111,7 +111,7 @@ class CityCoordinates extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           color: appColors.quaternaryColor,
-                          fontFamily: 'Nexa',
+                          fontFamily: 'Raleway',
                           fontWeight: FontWeight.bold,
                         ),
                       ),

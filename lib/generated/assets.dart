@@ -17,7 +17,7 @@ class Assets {
   static const String fontsGilroyRegular = 'assets/fonts/gilroy_regular.ttf';
   static const String fontsKarim = 'assets/fonts/karim.ttf';
   static const String fontsNexaRegular = 'assets/fonts/nexa_regular.ttf';
-  static const String fontsRobotoRegular = 'assets/fonts/roboto_regular.ttf';
+  static const String fontsRobotoRegular = 'assets/fonts/raleway_regular.ttf';
   static const String iconsAngleLeft = 'assets/icons/angle-left.png';
   static const String iconsAngleRight = 'assets/icons/angle-right.png';
   static const String iconsAppstore = 'assets/icons/appstore.png';

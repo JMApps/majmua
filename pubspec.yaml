@@ -49,10 +49,10 @@ dependencies:
 
   # System
   wakelock_plus: ^1.2.4
-  url_launcher: ^6.2.5
+  url_launcher: ^6.2.6
 
   # Notifications
-  flutter_local_notifications: ^17.0.0
+  flutter_local_notifications: ^17.0.1
 
 dev_dependencies:
   flutter_test:
@@ -73,12 +73,9 @@ flutter:
     - assets/icons/
 
   fonts:
-    - family: 'Nexa'
+    - family: 'Raleway'
       fonts:
-        - asset: assets/fonts/nexa_regular.ttf
-    - family: 'Roboto'
-      fonts:
-        - asset: assets/fonts/roboto_regular.ttf
+        - asset: assets/fonts/raleway_regular.ttf
     - family: 'Gilroy'
       fonts:
         - asset: assets/fonts/gilroy_regular.ttf

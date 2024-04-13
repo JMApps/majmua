@@ -44,7 +44,7 @@ class ChapterItem extends StatelessWidget {
           textData: model.chapterTitle,
           textSize: 16,
           textColor: appColors.inverseSurface,
-          fontFamily: 'Nexa',
+          fontFamily: 'Raleway',
           footnoteColor: appColors.quaternaryColor,
           textDataAlign: TextAlign.start,
         ),

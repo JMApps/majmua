@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:html/parser.dart' show parse;
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:majmua/presentation/widgets/text_share_button.dart';
@@ -23,7 +22,6 @@ class GemItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
-    final AppLocalizations? appLocale = AppLocalizations.of(context);
     return Card(
       margin: AppStyles.mardingWithoutBottomMini,
       color: appColors.glass,

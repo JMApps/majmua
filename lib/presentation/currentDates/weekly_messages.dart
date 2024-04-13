@@ -23,7 +23,7 @@ class WeeklyMessages extends StatelessWidget {
             dailyMessage,
             style: const TextStyle(
               fontSize: 16,
-              fontFamily: 'Nexa',
+              fontFamily: 'Raleway',
             ),
             textAlign: TextAlign.center,
           ),

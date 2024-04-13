@@ -75,7 +75,7 @@ class AdjustmentItem extends StatelessWidget {
                       style: TextStyle(
                         color: appColors.onSurface,
                         fontSize: 18,
-                        fontFamily: 'Nexa',
+                        fontFamily: 'Raleway',
                       ),
                     ),
                     TextSpan(

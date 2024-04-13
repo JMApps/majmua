@@ -46,7 +46,7 @@ class QiblaDirection extends StatelessWidget {
                       style: TextStyle(
                         color: appColors.onSurface,
                         fontSize: 18,
-                        fontFamily: 'Nexa',
+                        fontFamily: 'Raleway',
                       ),
                     ),
                     TextSpan(
@@ -55,7 +55,7 @@ class QiblaDirection extends StatelessWidget {
                         color: appColors.primaryColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
-                        fontFamily: 'Nexa',
+                        fontFamily: 'Raleway',
                       ),
                     ),
                   ],
@@ -70,7 +70,7 @@ class QiblaDirection extends StatelessWidget {
                       style: TextStyle(
                         color: appColors.onSurface,
                         fontSize: 18,
-                        fontFamily: 'Nexa',
+                        fontFamily: 'Raleway',
                       ),
                     ),
                     TextSpan(
@@ -94,7 +94,7 @@ class QiblaDirection extends StatelessWidget {
                       style: TextStyle(
                         color: appColors.onSurface,
                         fontSize: 18,
-                        fontFamily: 'Nexa',
+                        fontFamily: 'Raleway',
                       ),
                     ),
                     TextSpan(

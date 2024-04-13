@@ -28,8 +28,7 @@ class SurahsPage extends StatefulWidget {
   State<SurahsPage> createState() => _SurahsPageState();
 }
 
-class _SurahsPageState extends State<SurahsPage>
-    with SingleTickerProviderStateMixin {
+class _SurahsPageState extends State<SurahsPage> with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainAppSettings);
   late final PageController _surahPageController;

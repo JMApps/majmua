@@ -24,7 +24,7 @@ class TotalCountText extends StatelessWidget {
                 TextSpan(
                   text: appLocale!.totalValue,
                   style: TextStyle(
-                    fontFamily: 'Nexa',
+                    fontFamily: 'Raleway',
                     color: appColors.onSurface,
                   ),
                 ),

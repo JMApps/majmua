@@ -4,6 +4,10 @@ import '../../data/models/adhan_information_model.dart';
 import '../../data/models/model_friday.dart';
 
 class AppStrings {
+
+  static const String appAndroidLink = 'https://play.google.com/store/apps/details?id=jmapps.project.majmua';
+  static const String appiOSLink = 'https://apps.apple.com/ru/app/полка-мусульманина/id1659190395';
+
   static const backgroundPictureNames = <String>[
     'first_background.jpg',
     'second_background.jpg',

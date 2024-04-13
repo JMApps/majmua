@@ -16,7 +16,7 @@ class SeasonNameText extends StatelessWidget {
       seasonName,
       style: TextStyle(
         fontSize: screenWidth * 0.035,
-        fontFamily: 'Nexa',
+        fontFamily: 'Raleway',
       ),
     );
   }

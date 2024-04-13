@@ -62,7 +62,7 @@ class MainAdhanTimeCard extends StatelessWidget {
                                   fontSize: screenWidth * 0.04,
                                   color: appColors.primary,
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: 'Nexa',
+                                  fontFamily: 'Raleway',
                                 ),
                               ),
                             ],
@@ -241,7 +241,7 @@ class MainAdhanTimeCard extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: screenWidth * 0.04,
                                   color: appColors.onSurface,
-                                  fontFamily: 'Nexa',
+                                  fontFamily: 'Raleway',
                                 ),
                               ),
                               TextSpan(
@@ -276,7 +276,7 @@ class MainAdhanTimeCard extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: screenWidth * 0.04,
                                     color: appColors.onSurface,
-                                    fontFamily: 'Nexa',
+                                    fontFamily: 'Raleway',
                                   ),
                                 ),
                                 TextSpan(

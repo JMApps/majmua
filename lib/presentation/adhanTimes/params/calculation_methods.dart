@@ -29,7 +29,7 @@ class CalculationMethods extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 color: appColors.inverseSurface,
-                fontFamily: 'Nexa',
+                fontFamily: 'Raleway',
               ),
               underline: const SizedBox(),
               onChanged: (String? value) {

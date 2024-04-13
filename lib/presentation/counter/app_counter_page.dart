@@ -51,9 +51,9 @@ class AppCounterPage extends StatelessWidget {
                           const TotalCountText(),
                           appCounterState.getTotalCountValue > 0 ? CupertinoButton(
                             padding: EdgeInsets.zero,
-                            child: const Text(
-                              'Сброс',
-                              style: TextStyle(
+                            child: Text(
+                              appLocale.reset,
+                              style: const TextStyle(
                                 fontSize: 14,
                                 color: Colors.red,
                               ),
