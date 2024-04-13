@@ -25,10 +25,8 @@ class _SFQListState extends State<SFQList> {
 
   @override
   Widget build(BuildContext context) {
-    final appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
     return Scaffold(
-      backgroundColor: appColors.inversePrimary,
       appBar: AppBar(
         leading: const UserBackButton(),
         title: Text(appLocale!.sfq),

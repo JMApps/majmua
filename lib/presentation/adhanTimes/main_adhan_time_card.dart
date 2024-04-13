@@ -53,7 +53,7 @@ class MainAdhanTimeCard extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: screenWidth * 0.04,
                                   color: appColors.onSurface,
-                                  fontFamily: 'Nexa',
+                                  fontFamily: 'Raleway',
                                 ),
                               ),
                               TextSpan(

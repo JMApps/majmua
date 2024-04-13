@@ -39,7 +39,7 @@ class _SFQPageState extends State<SFQPage> {
           return Scaffold(
             body: _sfqWidgets[sfqState.getCurrentBottomIndex],
             bottomNavigationBar: Card(
-              color: appColors.inversePrimary,
+              color: appColors.primary,
               margin: EdgeInsets.zero,
               shape: AppStyles.topShapeMini,
               child: SalomonBottomBar(
@@ -47,7 +47,7 @@ class _SFQPageState extends State<SFQPage> {
                 duration: const Duration(milliseconds: 250),
                 itemShape: AppStyles.mainShapeMini,
                 backgroundColor: Colors.transparent,
-                selectedItemColor: appColors.primary,
+                selectedItemColor: appColors.inversePrimary,
                 unselectedItemColor: Colors.white,
                 items: [
                   SalomonBottomBarItem(

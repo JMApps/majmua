@@ -42,14 +42,19 @@ class AppCounterPage extends StatelessWidget {
                   (BuildContext context, AppCounterState appCounterState, _) {
                 return mediaQuery.orientation == Orientation.portrait
                     ? Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           const CounterValuesDropbutton(),
                           const SizedBox(height: 40),
                           const CounterButton(),
                           const SizedBox(height: 16),
                           const TotalCountText(),
-                          appCounterState.getTotalCountValue > 0 ? CupertinoButton(
+                          Visibility(
+                            visible: appCounterState.getTotalCountValue > 0,
+                            maintainState: true,
+                            maintainAnimation: true,
+                            maintainSize: true,
+                            child: CupertinoButton(
                             padding: EdgeInsets.zero,
                             child: Text(
                               appLocale.reset,
@@ -61,7 +66,7 @@ class AppCounterPage extends StatelessWidget {
                             onPressed: () {
                               appCounterState.resetTotalCount;
                             },
-                          ) : const SizedBox(),
+                          ),),
                           const SizedBox(height: 16),
                         ],
                       )

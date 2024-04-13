@@ -77,7 +77,6 @@ class _SurahsPageState extends State<SurahsPage> with SingleTickerProviderStateM
                 visible: surahSettings.getAppBarIsVisible,
                 child: surahSettings.getAppBarIsVisible
                     ? AppBar(
-                        backgroundColor: appColors.inversePrimary,
                         leading: const UserBackButton(),
                         title: Text(widget.surahName),
                         actions: [

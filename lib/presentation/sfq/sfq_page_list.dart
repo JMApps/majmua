@@ -46,7 +46,6 @@ class _SFQPageListState extends State<SFQPageList> {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final AppLocalizations? appLocale = AppLocalizations.of(context);
     return Scaffold(
-      backgroundColor: appColors.inversePrimary,
       appBar: AppBar(
         leading: const UserBackButton(),
         title: Text(appLocale!.sfq),
