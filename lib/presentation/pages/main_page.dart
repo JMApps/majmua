@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:majmua/core/themes/app_themes.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../core/routes/route_names.dart';
 import '../../core/strings/app_constraints.dart';
@@ -54,7 +57,8 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
     final AdhanTimeState adhanTimeState = Provider.of<AdhanTimeState>(context);
     final RestTimeState restTimeState = Provider.of<RestTimeState>(context);
     final DateTime dateTime = DateTime.now();
-    DateTime fixed20Time = DateTime(dateTime.year, dateTime.month, dateTime.day, 20, 0);
+    DateTime fixed20Time =
+        DateTime(dateTime.year, dateTime.month, dateTime.day, 20, 0);
 
     if (notificationsState.fajrNotification) {
       notificationService.prayerNotifications(
@@ -64,7 +68,8 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
         prayerTime: adhanTimeState.getPrayerTimes.fajr,
       );
     } else {
-      notificationService.cancelNotificationWithId(AppConstraints.fajrNotificationID);
+      notificationService
+          .cancelNotificationWithId(AppConstraints.fajrNotificationID);
     }
     if (notificationsState.sunriseNotification) {
       notificationService.timeNotifications(
@@ -75,7 +80,8 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
             .add(const Duration(minutes: 30)),
       );
     } else {
-      notificationService.cancelNotificationWithId(AppConstraints.sunriseNotificationID);
+      notificationService
+          .cancelNotificationWithId(AppConstraints.sunriseNotificationID);
     }
     if (notificationsState.dhuhrNotification) {
       notificationService.prayerNotifications(
@@ -85,7 +91,8 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
         prayerTime: adhanTimeState.getPrayerTimes.dhuhr,
       );
     } else {
-      notificationService.cancelNotificationWithId(AppConstraints.dhuhrNotificationID);
+      notificationService
+          .cancelNotificationWithId(AppConstraints.dhuhrNotificationID);
     }
     if (notificationsState.asrNotification) {
       notificationService.prayerNotifications(
@@ -95,7 +102,8 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
         prayerTime: adhanTimeState.getPrayerTimes.asr,
       );
     } else {
-      notificationService.cancelNotificationWithId(AppConstraints.asrNotificationID);
+      notificationService
+          .cancelNotificationWithId(AppConstraints.asrNotificationID);
     }
     if (notificationsState.maghribNotification) {
       notificationService.prayerNotifications(
@@ -105,7 +113,8 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
         prayerTime: adhanTimeState.getPrayerTimes.maghrib,
       );
     } else {
-      notificationService.cancelNotificationWithId(AppConstraints.maghribNotificationID);
+      notificationService
+          .cancelNotificationWithId(AppConstraints.maghribNotificationID);
     }
     if (notificationsState.ishaNotification) {
       notificationService.prayerNotifications(
@@ -115,37 +124,44 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
         prayerTime: adhanTimeState.getPrayerTimes.isha,
       );
     } else {
-      notificationService.cancelNotificationWithId(AppConstraints.ishaNotificationID);
+      notificationService
+          .cancelNotificationWithId(AppConstraints.ishaNotificationID);
     }
     if (notificationsState.morningSupplicationsNotification) {
       notificationService.timeNotifications(
         id: AppConstraints.morningSupplicationsNotificationID,
         title: appLocale!.remind,
         body: appLocale.morningAdhkarsTime,
-        dateTime: adhanTimeState.getPrayerTimes.fajr.add(const Duration(minutes: 30)),
+        dateTime:
+            adhanTimeState.getPrayerTimes.fajr.add(const Duration(minutes: 30)),
       );
     } else {
-      notificationService.cancelNotificationWithId(AppConstraints.morningSupplicationsNotificationID);
+      notificationService.cancelNotificationWithId(
+          AppConstraints.morningSupplicationsNotificationID);
     }
     if (notificationsState.eveningSupplicationsNotification) {
       notificationService.timeNotifications(
         id: AppConstraints.eveningSupplicationsNotificationID,
         title: appLocale!.remind,
         body: appLocale.eveningAdhkarsTime,
-        dateTime: adhanTimeState.getPrayerTimes.asr.add(const Duration(minutes: 30)),
+        dateTime:
+            adhanTimeState.getPrayerTimes.asr.add(const Duration(minutes: 30)),
       );
     } else {
-      notificationService.cancelNotificationWithId(AppConstraints.eveningSupplicationsNotificationID);
+      notificationService.cancelNotificationWithId(
+          AppConstraints.eveningSupplicationsNotificationID);
     }
     if (notificationsState.nightSupplicationsNotification) {
       notificationService.timeNotifications(
         id: AppConstraints.nightSupplicationsNotificationID,
         title: appLocale!.remind,
         body: appLocale.nightAdhkarsTime,
-        dateTime: adhanTimeState.getPrayerTimes.isha.add(const Duration(hours: 1)),
+        dateTime:
+            adhanTimeState.getPrayerTimes.isha.add(const Duration(hours: 1)),
       );
     } else {
-      notificationService.cancelNotificationWithId(AppConstraints.nightSupplicationsNotificationID);
+      notificationService.cancelNotificationWithId(
+          AppConstraints.nightSupplicationsNotificationID);
     }
     if (notificationsState.fastMondayNotification) {
       if (restTimeState.isOpenWhiteDays) {
@@ -153,13 +169,16 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
           id: AppConstraints.fastMondayNotificationID,
           title: appLocale!.remind,
           body: appLocale.fastMondayTime,
-          dateTime: fixed20Time.add(Duration(days: restTimeState.getDaysUntilNextSunday)),
+          dateTime: fixed20Time
+              .add(Duration(days: restTimeState.getDaysUntilNextSunday)),
         );
       } else {
-        notificationService.cancelNotificationWithId(AppConstraints.fastMondayNotificationID);
+        notificationService
+            .cancelNotificationWithId(AppConstraints.fastMondayNotificationID);
       }
     } else {
-      notificationService.cancelNotificationWithId(AppConstraints.fastMondayNotificationID);
+      notificationService
+          .cancelNotificationWithId(AppConstraints.fastMondayNotificationID);
     }
     if (notificationsState.fastThursdayNotification) {
       if (restTimeState.isOpenWhiteDays) {
@@ -171,10 +190,12 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
               .add(Duration(days: restTimeState.getDaysUntilNextWednesday)),
         );
       } else {
-        notificationService.cancelNotificationWithId(AppConstraints.fastThursdayNotificationID);
+        notificationService.cancelNotificationWithId(
+            AppConstraints.fastThursdayNotificationID);
       }
     } else {
-      notificationService.cancelNotificationWithId(AppConstraints.fastThursdayNotificationID);
+      notificationService
+          .cancelNotificationWithId(AppConstraints.fastThursdayNotificationID);
     }
     if (notificationsState.fastWhiteDaysNotification) {
       if (restTimeState.isOpenWhiteDays) {
@@ -190,10 +211,12 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
               0),
         );
       } else {
-        notificationService.cancelNotificationWithId(AppConstraints.fastWhiteDaysNotificationID);
+        notificationService.cancelNotificationWithId(
+            AppConstraints.fastWhiteDaysNotificationID);
       }
     } else {
-      notificationService.cancelNotificationWithId(AppConstraints.fastWhiteDaysNotificationID);
+      notificationService
+          .cancelNotificationWithId(AppConstraints.fastWhiteDaysNotificationID);
     }
     if (notificationsState.fridayNotification) {
       notificationService.dayNotifications(
@@ -204,7 +227,8 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
             .add(Duration(days: restTimeState.getDaysUntilNextThursday)),
       );
     } else {
-      notificationService.cancelNotificationWithId(AppConstraints.fridayNotificationID);
+      notificationService
+          .cancelNotificationWithId(AppConstraints.fridayNotificationID);
     }
     if (notificationsState.lastHourFridayNotification) {
       notificationService.dayNotifications(
@@ -220,7 +244,8 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
             .add(Duration(days: restTimeState.getDaysUntilNextFriday)),
       );
     } else {
-      notificationService.cancelNotificationWithId(AppConstraints.lastHourFridayNotificationID);
+      notificationService.cancelNotificationWithId(
+          AppConstraints.lastHourFridayNotificationID);
     }
     return Container(
       decoration: BoxDecoration(
@@ -268,14 +293,12 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
                 ),
                 IconButton(
                   onPressed: () {
-                    // TODO add share
+                    Share.share('${appLocale.appName}\n\niOS:\n${AppStrings.appiOSLink}\n\nAndroid:\n${AppStrings.appAndroidLink}');
                   },
                   tooltip: appLocale.notifications,
                   splashRadius: 20,
-                  icon: Image.asset(
-                    'assets/icons/share.png',
-                    width: 25,
-                    height: 25,
+                  icon: const Icon(
+                    Icons.share,
                     color: Colors.white,
                   ),
                 ),
