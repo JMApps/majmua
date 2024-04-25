@@ -71,8 +71,8 @@ class RestTimeState extends ChangeNotifier {
   int _toHijjahDays() {
     final int countDays;
     final hijriZulHijjahToGregorian = _currentHijriTime.hMonth == 12 && _currentHijriTime.hDay >= 1
-        ? _currentHijriTime.hijriToGregorian(_currentHijriTime.hYear + 1, 12, 10)
-        : _currentHijriTime.hijriToGregorian(_currentHijriTime.hYear, 12, 10);
+        ? _currentHijriTime.hijriToGregorian(_currentHijriTime.hYear + 1, 12, 1)
+        : _currentHijriTime.hijriToGregorian(_currentHijriTime.hYear, 12, 1);
     countDays = _currentDateTime.difference(DateTime(hijriZulHijjahToGregorian.year, hijriZulHijjahToGregorian.month, hijriZulHijjahToGregorian.day)).inDays;
     return countDays - 1;
   }

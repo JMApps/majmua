@@ -38,8 +38,7 @@ class AppCounterPage extends StatelessWidget {
           child: AnimatedSize(
             duration: const Duration(milliseconds: 500),
             child: Consumer<AppCounterState>(
-              builder:
-                  (BuildContext context, AppCounterState appCounterState, _) {
+              builder: (BuildContext context, appCounterState, _) {
                 return mediaQuery.orientation == Orientation.portrait
                     ? Column(
                         mainAxisAlignment: MainAxisAlignment.center,
