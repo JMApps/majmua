@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:majmua/core/themes/app_themes.dart';
-import 'package:majmua/presentation/adhanTimes/supplication_is_show.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/routes/route_names.dart';
@@ -12,6 +11,7 @@ import '../../core/styles/app_styles.dart';
 import '../../data/models/args/supplication_args.dart';
 import '../state/adhan_time_state.dart';
 import 'models/prayer_model.dart';
+import 'supplication_is_show.dart';
 
 class AdhanTimeCard extends StatelessWidget {
   const AdhanTimeCard({
@@ -28,15 +28,9 @@ class AdhanTimeCard extends StatelessWidget {
     final AdhanTimeState adhanTimeState = Provider.of<AdhanTimeState>(context);
     final double screenWidth = MediaQuery.of(context).size.width;
     final int currentTimeValue = adhanTimeState.getMinutesOfDay;
-    final bool isRemainingTime =
-        currentTimeValue >= prayerModel.currentPrayerTime - 59 &&
-            currentTimeValue < prayerModel.currentPrayerTime - 1;
-    final bool isPastTime =
-        currentTimeValue >= prayerModel.currentPrayerTime + 4 &&
-            currentTimeValue <= prayerModel.currentPrayerTime + 30;
-    final bool isPrayer =
-        currentTimeValue >= prayerModel.currentPrayerTime - 1 &&
-            currentTimeValue <= prayerModel.currentPrayerTime + 3;
+    final bool isRemainingTime = currentTimeValue >= prayerModel.currentPrayerTime - 59 && currentTimeValue < prayerModel.currentPrayerTime - 1;
+    final bool isPastTime = currentTimeValue >= prayerModel.currentPrayerTime + 4 && currentTimeValue <= prayerModel.currentPrayerTime + 30;
+    final bool isPrayer = currentTimeValue >= prayerModel.currentPrayerTime - 1 && currentTimeValue <= prayerModel.currentPrayerTime + 3;
     return Flexible(
       child: Card(
         margin: EdgeInsets.zero,
@@ -137,24 +131,21 @@ class AdhanTimeCard extends StatelessWidget {
                       ),
                     ),
                     SupplicationIsShow(
-                      isShow: adhanTimeState.getIsMorning &&
-                          prayerModel.prayerIndex == Prayer.fajr,
+                      isShow: adhanTimeState.getIsMorning && prayerModel.prayerIndex == Prayer.fajr,
                       fortressChapterId: 27,
                       fortressChapterTitle: appLocale!.morning,
                       icon: CupertinoIcons.sunrise,
                       iconColor: appColors.secterColor,
                     ),
                     SupplicationIsShow(
-                      isShow: adhanTimeState.getIsEvening &&
-                          prayerModel.prayerIndex == Prayer.asr,
+                      isShow: adhanTimeState.getIsEvening && prayerModel.prayerIndex == Prayer.asr,
                       fortressChapterId: 28,
                       fortressChapterTitle: appLocale.evening,
                       icon: CupertinoIcons.sunset,
                       iconColor: appColors.secterColor,
                     ),
                     SupplicationIsShow(
-                      isShow: adhanTimeState.getIsNight &&
-                          prayerModel.prayerIndex == Prayer.isha,
+                      isShow: adhanTimeState.getIsNight && prayerModel.prayerIndex == Prayer.isha,
                       fortressChapterId: 29,
                       fortressChapterTitle: appLocale.beforeSleep,
                       icon: CupertinoIcons.moon_zzz,
@@ -187,8 +178,7 @@ class AdhanTimeCard extends StatelessWidget {
                       ),
                     ),
                     Visibility(
-                      visible:
-                          isPrayer && prayerModel.prayerIndex != Prayer.sunrise,
+                      visible: isPrayer && prayerModel.prayerIndex != Prayer.sunrise,
                       child: Flexible(
                         child: AnimatedSize(
                           duration: const Duration(seconds: 1),
@@ -213,8 +203,7 @@ class AdhanTimeCard extends StatelessWidget {
                       ),
                     ),
                     Visibility(
-                      visible: adhanTimeState.getIsDuha &&
-                          prayerModel.prayerIndex == Prayer.sunrise,
+                      visible: adhanTimeState.getIsDuha && prayerModel.prayerIndex == Prayer.sunrise,
                       child: Flexible(
                         child: AnimatedSize(
                           duration: const Duration(seconds: 1),

@@ -14,12 +14,12 @@ if (localPropertiesFile.exists()) {
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
-  flutterVersionCode = '18'
+  flutterVersionCode = '19'
 }
 
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
-  flutterVersionName = '1.8.0'
+  flutterVersionName = '1.8.1'
 }
 
 android {
@@ -56,6 +56,7 @@ android {
     applicationId "jmapps.project.majmua"
     targetSdk 34
     minSdk 23
+    targetSdk 34
     versionCode flutterVersionCode.toInteger()
     versionName flutterVersionName
   }
