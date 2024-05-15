@@ -34,6 +34,7 @@ class AdhanTimeState extends ChangeNotifier {
   double _latitude = AppConstraints.defLatitude;
   double _longitude = AppConstraints.defLongitude;
   int _calculationMethodIndex = AppConstraints.defCalculationIndex;
+  int _highLatitudeMethodIndex = AppConstraints.defHighLatitudeIndex;
   int _timeOffsetIndex = AppConstraints.defUtcOffsetIndex;
   int _madhabIndex = AppConstraints.defMadhabIndex;
 
@@ -64,6 +65,7 @@ class AdhanTimeState extends ChangeNotifier {
     _latitude = _mainSettingsBox.get(AppConstraints.keyCurrentLatitude, defaultValue: AppConstraints.defLatitude);
     _longitude = _mainSettingsBox.get(AppConstraints.keyCurrentLongitude, defaultValue: AppConstraints.defLongitude);
     _calculationMethodIndex = _mainSettingsBox.get(AppConstraints.keyCalculationIndex, defaultValue: AppConstraints.defCalculationIndex);
+    _highLatitudeMethodIndex = _mainSettingsBox.get(AppConstraints.keyHighLatitudeIndex, defaultValue: AppConstraints.defHighLatitudeIndex);
     _madhabIndex = _mainSettingsBox.get(AppConstraints.keyMadhabIndex, defaultValue: AppConstraints.defMadhabIndex);
     _timeOffsetIndex = _mainSettingsBox.get(AppConstraints.keyUtcOffsetIndex, defaultValue: AppConstraints.defUtcOffsetIndex);
 
@@ -83,6 +85,7 @@ class AdhanTimeState extends ChangeNotifier {
   initPrayerTime() {
     _coordinates = Coordinates(_latitude, _longitude);
     _prayerParams = AppStrings.prayerCalculationMethods[_calculationMethodIndex].getParameters();
+    _prayerParams.highLatitudeRule = AppStrings.highLatitude[_highLatitudeMethodIndex];
     _prayerParams.madhab = AppStrings.calculationMadhab[_madhabIndex];
 
     _prayerParams.adjustments.fajr = _fajrAdjustment;
@@ -143,6 +146,13 @@ class AdhanTimeState extends ChangeNotifier {
   set setCalculationIndex(int index) {
     _calculationMethodIndex = index;
     _mainSettingsBox.put(AppConstraints.keyCalculationIndex, index);
+  }
+
+  int get highLatitudeMethodIndex => _highLatitudeMethodIndex;
+
+  set setHighLatitudeIndex(int index) {
+    _highLatitudeMethodIndex = index;
+    _mainSettingsBox.put(AppConstraints.keyHighLatitudeIndex, index);
   }
 
   int get madhabIndex => _madhabIndex;

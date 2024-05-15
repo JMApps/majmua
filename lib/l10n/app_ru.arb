@@ -58,6 +58,7 @@
   "latitude": "Широта: ",
   "longitude": "Долгота: ",
   "calculationMethod": "Метод расчёта времени молитв",
+  "highLatitudeMethod": "Расчёт для высоких широт",
   "asrMadhabMethod": "Метод расчёта молитвы 'аср",
   "shafii": "Шафи'и",
   "hanafi": "Ханафи",

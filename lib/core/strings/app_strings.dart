@@ -640,6 +640,18 @@ class AppStrings {
     'Singapore',
   ];
 
+  static const List<String> highLatitudeNames = [
+    'Middle of the night',
+    'Seventh of the night',
+    'Twilight angle',
+  ];
+
+  static const List<HighLatitudeRule> highLatitude = [
+    HighLatitudeRule.middle_of_the_night,
+    HighLatitudeRule.seventh_of_the_night,
+    HighLatitudeRule.twilight_angle,
+  ];
+
   static const List<Madhab> calculationMadhab = [
     Madhab.shafi,
     Madhab.hanafi,

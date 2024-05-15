@@ -12,6 +12,7 @@ class AppConstraints {
   static const String keyCurrentLatitude = 'key_current_latitude';
   static const String keyCurrentLongitude = 'key_current_longitude';
   static const String keyCalculationIndex = 'key_prayer_params_index';
+  static const String keyHighLatitudeIndex = 'key_high_latitude_params_index';
   static const String keyUtcOffsetIndex = 'key_utc_offset_index';
   static const String keyMadhabIndex = 'key_madhab_params_index';
 
@@ -119,6 +120,7 @@ class AppConstraints {
   static const double defLatitude = 21.4225;
   static const double defLongitude = 39.8261;
   static const int defCalculationIndex = 10;
+  static const int defHighLatitudeIndex = 0;
   static const int defUtcOffsetIndex = 1;
   static const int defMadhabIndex = 0;
 

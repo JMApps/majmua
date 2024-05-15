@@ -7,6 +7,7 @@ import 'package:majmua/presentation/adhanTimes/params/ars_time_madhab.dart';
 import 'package:majmua/presentation/adhanTimes/params/calculation_methods.dart';
 import 'package:majmua/presentation/adhanTimes/params/city_coordinates.dart';
 import 'package:majmua/presentation/adhanTimes/params/param_button.dart';
+import 'package:majmua/presentation/adhanTimes/params/selectCity/high_latitude_methods.dart';
 import 'package:majmua/presentation/adhanTimes/params/time_offset_params.dart';
 import 'package:majmua/presentation/widgets/description_params_text.dart';
 import 'package:majmua/presentation/widgets/user_back_button.dart';
@@ -41,6 +42,10 @@ class AdhanParamsPage extends StatelessWidget {
                     DescriptionParamsText(text: appLocale.calculationMethod),
                     const SizedBox(height: 8),
                     const CalculationMethods(),
+                    const SizedBox(height: 8),
+                    DescriptionParamsText(text: appLocale.highLatitudeMethod),
+                    const SizedBox(height: 8),
+                    const HighLatitudeMethods(),
                     const SizedBox(height: 8),
                     DescriptionParamsText(text: appLocale.asrMadhabMethod),
                     const SizedBox(height: 8),
