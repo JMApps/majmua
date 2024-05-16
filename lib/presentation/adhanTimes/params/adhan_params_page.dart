@@ -18,6 +18,7 @@ class AdhanParamsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations? appLocale = AppLocalizations.of(context);
+    final appColors = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
         title: Text(appLocale!.adhanParams),
@@ -43,7 +44,20 @@ class AdhanParamsPage extends StatelessWidget {
                     const SizedBox(height: 8),
                     const CalculationMethods(),
                     const SizedBox(height: 8),
-                    DescriptionParamsText(text: appLocale.highLatitudeMethod),
+                    ListTile(
+                      visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
+                      title: Center(child: Text(appLocale.highLatitudeMethod)),
+                      titleTextStyle: TextStyle(
+                        fontSize: 16,
+                        color: appColors.onSurface,
+                        fontFamily: 'Raleway',
+                        fontWeight: FontWeight.bold,
+                      ),
+                      trailing: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.info_outline),
+                      ),
+                    ),
                     const SizedBox(height: 8),
                     const HighLatitudeMethods(),
                     const SizedBox(height: 8),
