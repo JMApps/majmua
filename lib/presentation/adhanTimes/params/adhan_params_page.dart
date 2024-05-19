@@ -1,16 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/routes/route_names.dart';
-import 'package:majmua/core/styles/app_styles.dart';
-import 'package:majmua/presentation/adhanTimes/params/ars_time_madhab.dart';
-import 'package:majmua/presentation/adhanTimes/params/calculation_methods.dart';
-import 'package:majmua/presentation/adhanTimes/params/city_coordinates.dart';
-import 'package:majmua/presentation/adhanTimes/params/param_button.dart';
-import 'package:majmua/presentation/adhanTimes/params/selectCity/high_latitude_methods.dart';
-import 'package:majmua/presentation/adhanTimes/params/time_offset_params.dart';
-import 'package:majmua/presentation/widgets/description_params_text.dart';
-import 'package:majmua/presentation/widgets/user_back_button.dart';
+
+import '../../../core/routes/route_names.dart';
+import '../../../core/styles/app_styles.dart';
+import '../../widgets/description_params_text.dart';
+import '../../widgets/user_back_button.dart';
+import 'ars_time_madhab.dart';
+import 'calculation_methods.dart';
+import 'city_coordinates.dart';
+import 'param_button.dart';
+import 'selectCity/high_latitude_methods.dart';
+import 'time_offset_params.dart';
 
 class AdhanParamsPage extends StatelessWidget {
   const AdhanParamsPage({super.key});
@@ -54,7 +55,9 @@ class AdhanParamsPage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                       trailing: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, RouteNames.highLatitudePage);
+                        },
                         icon: const Icon(Icons.info_outline),
                       ),
                     ),

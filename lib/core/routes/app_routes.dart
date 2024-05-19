@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/presentation/adhanTimes/params/high_latitude_page.dart';
 
 import '../../data/models/args/supplication_args.dart';
 import '../../data/models/args/surah_args.dart';
@@ -103,6 +104,10 @@ class AppRoutes {
       case RouteNames.strengthPage:
         return MaterialPageRoute(
           builder: (_) => const StrengthPage(),
+        );
+      case RouteNames.highLatitudePage:
+        return MaterialPageRoute(
+          builder: (_) => const HighLatitudePage(),
         );
       default:
         throw Exception('Invalid route ${routeSettings.name}');

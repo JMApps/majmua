@@ -18,4 +18,5 @@ class RouteNames {
   static const String lessonsPage = '/lessons_page';
   static const String raqaiqPage = '/raqaiq_page';
   static const String strengthPage = '/strength_page';
+  static const String highLatitudePage = '/high_latitude_page';
 }
