@@ -16,7 +16,7 @@ class FortressDatabaseService {
   }
 
   Future<Database> initializeDatabase() async {
-    const int dbVersion = 1;
+    const int dbVersion = 2;
     const String sfqDatabaseName = 'fortress_database.db';
     final databasePath = await getDatabasesPath();
     String path = join(databasePath, sfqDatabaseName);
