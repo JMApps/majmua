@@ -103,7 +103,7 @@ class NotificationService {
           android: _androidPrayerNotificationDetails,
           iOS: _iOSPrayerNotificationDetails,
         ),
-        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+        androidScheduleMode: AndroidScheduleMode.alarmClock,
         matchDateTimeComponents: DateTimeComponents.time,
         uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
       );
@@ -127,7 +127,7 @@ class NotificationService {
           android: _androidTimeNotificationDetails,
           iOS: _iOSTimeNotificationDetails,
         ),
-        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+        androidScheduleMode: AndroidScheduleMode.alarmClock,
         matchDateTimeComponents: DateTimeComponents.time,
         uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
       );
