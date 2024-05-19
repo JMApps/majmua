@@ -63,9 +63,7 @@ class AdhanTimeCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: screenWidth * 0.04,
                         color: appColors.onSurface.withOpacity(0.85),
-                        fontWeight: isRemainingTime || isPrayer || isPastTime
-                            ? FontWeight.bold
-                            : FontWeight.normal,
+                        fontWeight: isRemainingTime || isPrayer || isPastTime ? FontWeight.bold : FontWeight.normal,
                       ),
                       textAlign: TextAlign.start,
                       maxLines: 1,
@@ -77,9 +75,7 @@ class AdhanTimeCard extends StatelessWidget {
                         style: TextStyle(
                           fontSize: screenWidth * 0.0425,
                           fontFamily: 'Bitter',
-                          fontWeight: isRemainingTime || isPrayer || isPastTime
-                              ? FontWeight.bold
-                              : FontWeight.normal,
+                          fontWeight: isRemainingTime || isPrayer || isPastTime ? FontWeight.bold : FontWeight.normal,
                           letterSpacing: 0.5,
                         ),
                         textAlign: TextAlign.start,
@@ -187,8 +183,7 @@ class AdhanTimeCard extends StatelessWidget {
                               Navigator.pushNamed(
                                 context,
                                 RouteNames.fortressContentPage,
-                                arguments:
-                                    const SupplicationArgs(chapterId: 15),
+                                arguments: const SupplicationArgs(chapterId: 15),
                               );
                             },
                             borderRadius: AppStyles.mainBorderRadius,
