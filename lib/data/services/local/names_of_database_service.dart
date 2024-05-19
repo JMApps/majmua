@@ -29,8 +29,8 @@ class NamesOfDatabaseService {
 
       try {
         await Directory(dirname(path)).create(recursive: true);
-      } catch (_) {
-        Exception('Invalid database $_');
+      } catch (e) {
+        Exception('Invalid database $e');
       }
 
       ByteData data = await rootBundle.load(join('assets/databases', sfqDatabaseName));
