@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'core/strings/app_string_constraints.dart';
 import 'presentation/pages/root_page.dart';
 import 'presentation/state/app_settings_state.dart';
+import 'presentation/state/prayer_state.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +18,10 @@ void main() async {
       providers: [
         ChangeNotifierProvider(
           create: (_) => AppSettingsState(),
-        )
+        ),
+        ChangeNotifierProvider(
+          create: (_) => PrayerState(),
+        ),
       ],
       child: const RootPage(),
     ),
