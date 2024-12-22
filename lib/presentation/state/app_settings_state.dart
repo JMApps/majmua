@@ -1,68 +1,75 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:wakelock_plus/wakelock_plus.dart';
 
-import '../../core/enums/app_theme.dart';
-import '../../core/strings/app_constraints.dart';
+import '../../core/strings/app_string_constraints.dart';
 
 class AppSettingsState extends ChangeNotifier {
-  final Box _mainSettingsBox = Hive.box(AppConstraints.keyMainSettings);
+  final _appSettingsBox = Hive.box(AppStringConstraints.keyAppSettingsBox);
 
   AppSettingsState() {
-    _themeIndex = _mainSettingsBox.get(AppConstraints.keyCurrentThemeIndex, defaultValue: 2);
-    _backgroundPictureIndex = _mainSettingsBox.get(AppConstraints.keyBackgroundPictureIndex, defaultValue: 0);
-    _alwaysDisplay = _mainSettingsBox.get(AppConstraints.keyAlwaysDisplay, defaultValue: true);
-    _alwaysDisplay ? WakelockPlus.enable() : WakelockPlus.disable();
+    _appLocaleIndex = _appSettingsBox.get(AppStringConstraints.keyAppLocaleIndex, defaultValue: _defaultLocaleIndex());
+    _appThemeColor = Color(_appSettingsBox.get(AppStringConstraints.keyAppThemeColor, defaultValue: Colors.blue.value));
+    _appThemeModeIndex = _appSettingsBox.get(AppStringConstraints.keyAppThemeModeIndex, defaultValue: 2);
   }
 
-  late int _themeIndex;
-
-  int get getThemeIndex => _themeIndex;
-
-  AppTheme get getCurrentTheme {
-    return _getCurrentTheme(_themeIndex);
+  int _defaultLocaleIndex() {
+    final deviceLocale = PlatformDispatcher.instance.locale;
+    switch (deviceLocale.languageCode) {
+      case 'en':
+        return 1;
+      default:
+        return 0;
+    }
   }
 
-  set setCurrentTheme(AppTheme value) {
-    _themeIndex = value.index;
-    _mainSettingsBox.put(AppConstraints.keyCurrentThemeIndex, value.index);
-    notifyListeners();
+  late int _appLocaleIndex;
+
+  int get getAppLocaleIndex => _appLocaleIndex;
+
+  set setAppLocaleIndex(int index) {
+    if (_appLocaleIndex != index) {
+      _appSettingsBox.put(AppStringConstraints.keyAppLocaleIndex, index);
+      notifyListeners();
+    }
   }
 
-  AppTheme _getCurrentTheme(int themeIndex) {
-    late AppTheme currentTheme;
-    switch (themeIndex) {
+  late Color _appThemeColor;
+
+  Color get getAppThemeColor => _appThemeColor;
+
+  set setAppThemeColor(Color color) {
+    if (_appThemeColor != color) {
+      _appThemeColor = color;
+      _appSettingsBox.put(AppStringConstraints.keyAppThemeColor, color.value);
+      notifyListeners();
+    }
+  }
+
+  late int _appThemeModeIndex;
+
+  set setAppThemeModeIndex(int index) {
+    if (_appThemeModeIndex != index) {
+      _appThemeModeIndex = index;
+      _appSettingsBox.put(AppStringConstraints.keyAppThemeModeIndex, index);
+      notifyListeners();
+    }
+  }
+
+  ThemeMode get getAppThemeMode {
+    late final ThemeMode themeMode;
+    switch (_appThemeModeIndex) {
       case 0:
-        currentTheme = AppTheme.light;
+        themeMode = ThemeMode.light;
         break;
       case 1:
-        currentTheme = AppTheme.dark;
+        themeMode = ThemeMode.dark;
         break;
       case 2:
-        currentTheme = AppTheme.adaptive;
+        themeMode = ThemeMode.system;
         break;
     }
-    return currentTheme;
-  }
-
-  late int _backgroundPictureIndex;
-
-  int get getBackgroundPictureIndex => _backgroundPictureIndex;
-
-  set setBackgroundPictureIndex(int backgroundPicIndex) {
-    _backgroundPictureIndex = backgroundPicIndex;
-    _mainSettingsBox.put(AppConstraints.keyBackgroundPictureIndex, backgroundPicIndex);
-    notifyListeners();
-  }
-
-  late bool _alwaysDisplay;
-
-  bool get getAlwaysDisplay => _alwaysDisplay;
-
-  set setAlwaysDisplay(bool value) {
-    _alwaysDisplay = value;
-    _mainSettingsBox.put(AppConstraints.keyAlwaysDisplay, value);
-    value ? WakelockPlus.enable() : WakelockPlus.disable();
-    notifyListeners();
+    return themeMode;
   }
 }
