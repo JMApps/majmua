@@ -52,12 +52,8 @@ class _PrayerItemState extends State<PrayerItem> {
                     elevation: 0,
                     margin: EdgeInsets.zero,
                     color: isHourBefore || isHourAfter ? appColors.tertiary.withAlpha(20) : appColors.surface,
-                    child: Wrap(
-                      direction: Axis.vertical,
-                      alignment: WrapAlignment.center,
-                      runAlignment: WrapAlignment.center,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      spacing: 2,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
                           widget.prayerIcon,
@@ -123,7 +119,6 @@ class _PrayerItemState extends State<PrayerItem> {
                         ),
                         Visibility(
                           visible: widget.prayer == Prayer.isha && prayerState.isNight,
-                          maintainSize: false,
                           child: const ToSupplicationsButton(
                             fortressChapterId: 0,
                             iconName: AppStringConstraints.iconHands,
