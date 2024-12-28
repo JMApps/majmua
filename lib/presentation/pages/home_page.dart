@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../core/strings/app_string_constraints.dart';
+import '../../core/styles/app_styles.dart';
 import '../prayer/pages/prayers_container.dart';
 import '../widgets/app_title.dart';
 import '../widgets/main_icon_button.dart';
@@ -22,16 +23,23 @@ class HomePage extends StatelessWidget {
             title: const AppTitle(),
             actions: [
               MainIconButton(
-                onPressed: () {},
+                onPressed: () {
+                  // Open app settings
+                },
                 tooltip: appLocale.settings,
                 iconName: AppStringConstraints.iconSettings,
                 iconColor: appColors.secondary,
               ),
-              MainIconButton(
-                onPressed: () {},
-                tooltip: appLocale.notifications,
-                iconName: AppStringConstraints.iconNotifications,
-                iconColor: appColors.secondary,
+              Padding(
+                padding: AppStyles.mardingRightMini,
+                child: MainIconButton(
+                  onPressed: () {
+                    // Open notification settings
+                  },
+                  tooltip: appLocale.notifications,
+                  iconName: AppStringConstraints.iconNotifications,
+                  iconColor: appColors.secondary,
+                ),
               ),
             ],
           ),

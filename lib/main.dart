@@ -11,7 +11,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Hive.initFlutter();
-  await Hive.openBox(AppStringConstraints.keyAppSettingsBox);
+  await Hive.openBox(AppStringConstraints.keyMainSettings);
+  await Hive.openBox(AppStringConstraints.keyMainAppSettings);
+  await Hive.openBox(AppStringConstraints.keySettingsPrayerTimeBox);
 
   runApp(
     MultiProvider(
@@ -20,7 +22,7 @@ void main() async {
           create: (_) => AppSettingsState(),
         ),
         ChangeNotifierProvider(
-          create: (_) => PrayerState(),
+          create: (_) => PrayerState(Hive.box(AppStringConstraints.keySettingsPrayerTimeBox)),
         ),
       ],
       child: const RootPage(),

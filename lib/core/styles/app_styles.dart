@@ -6,6 +6,7 @@ class AppStyles {
   static const mainMarding = EdgeInsets.all(16);
   static const mainMardingMini = EdgeInsets.all(8);
   static const mainMardingMicro = EdgeInsets.all(4);
+  static const mainMardingMicroMini = EdgeInsets.all(2);
 
   static const mardingHorizontal = EdgeInsets.symmetric(horizontal: 16);
   static const mardingHorizontalMini = EdgeInsets.symmetric(horizontal: 8);

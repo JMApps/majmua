@@ -6,7 +6,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import '../../core/strings/app_string_constraints.dart';
 
 class AppSettingsState extends ChangeNotifier {
-  final _appSettingsBox = Hive.box(AppStringConstraints.keyAppSettingsBox);
+  final _appSettingsBox = Hive.box(AppStringConstraints.keyMainAppSettings);
 
   AppSettingsState() {
     _appLocaleIndex = _appSettingsBox.get(AppStringConstraints.keyAppLocaleIndex, defaultValue: _defaultLocaleIndex());
