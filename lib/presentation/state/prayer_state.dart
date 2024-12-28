@@ -3,11 +3,12 @@ import 'package:cron/cron.dart';
 import 'package:flutter/material.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
+import 'package:timezone/timezone.dart';
 
 import '../../core/strings/app_string_constraints.dart';
 
 class PrayerState extends ChangeNotifier {
-  late tz.TZDateTime _dateTime;
+  late TZDateTime _dateTime;
   final Cron _cron = Cron();
   static const Duration hourInterval = Duration(hours: 1);
 
@@ -19,7 +20,7 @@ class PrayerState extends ChangeNotifier {
 
   PrayerState() {
     tz.initializeTimeZones();
-    _dateTime = tz.TZDateTime.from(DateTime.now(), tz.local);
+    _dateTime = tz.TZDateTime.now(tz.local);
     _startCron();
     _initPrayerTime();
   }
@@ -41,7 +42,6 @@ class PrayerState extends ChangeNotifier {
   Qibla get qiblahDirection => _qibla;
 
   int get getMinutesOfDay => _dateTime.difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day)).inMinutes;
-
   int get getFajrValueInMinutes => _prayerValueInMinutes(time: _prayerTimes.fajr);
   int get getSunriseValueInMinutes => _prayerValueInMinutes(time: _prayerTimes.sunrise);
   int get getDhuhrValueInMinutes => _prayerValueInMinutes(time: _prayerTimes.dhuhr);
@@ -49,7 +49,7 @@ class PrayerState extends ChangeNotifier {
   int get getMaghribValueInMinutes => _prayerValueInMinutes(time: _prayerTimes.maghrib);
   int get getIshaValueInMinutes => _prayerValueInMinutes(time: _prayerTimes.isha);
   int get getMidnightValueInMinutes => _prayerValueInMinutes(time: _sunnahTimes.middleOfTheNight);
-  int get getLastThirdPartValueInMinutes => _prayerValueInMinutes(time: _sunnahTimes.lastThirdOfTheNight);
+  int get getThirdPartValueInMinutes => _prayerValueInMinutes(time: _sunnahTimes.lastThirdOfTheNight);
 
   double beforeAfterHourPercent({required DateTime prayerTime}) {
     final bool isBefore = isPrayerInHourRange(before: true, prayerTime: prayerTime);
@@ -66,61 +66,67 @@ class PrayerState extends ChangeNotifier {
   }
 
   String restPrayerTime({required bool isBefore, required DateTime time}) {
-    DateTime targetTime = time;
-    if (targetTime.isBefore(_dateTime)) {
-      targetTime = targetTime.add(const Duration(days: 1));
+    late final Duration remainingDuration;
+    if (isBefore) {
+      if (_dateTime.isAfter(time)) {
+        time = time.add(const Duration(days: 1));
+      }
+      remainingDuration = time.difference(_dateTime);
+    } else {
+      remainingDuration = _dateTime.difference(time);
     }
-    final remainingDuration = isBefore ? targetTime.difference(_dateTime) : _dateTime.difference(targetTime);
     final hours = remainingDuration.inHours.abs();
     final minutes = remainingDuration.inMinutes.remainder(60).abs();
     return '${hours.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}';
   }
 
-  bool isNextPrayer({required Prayer prayer}) {
-    final Prayer nextPrayer = _prayerTimes.nextPrayer();
-    return prayer == nextPrayer;
-  }
+  bool isNextPrayer({required Prayer prayer}) => _prayerTimes.nextPrayer() == prayer;
 
   DateTime thirdTime({required String partName}) {
+    late final DateTime timeFor;
     switch (partName) {
       case AppStringConstraints.timeSunrise:
-        return _prayerTimes.sunrise;
+        timeFor = _prayerTimes.sunrise;
+        break;
       case AppStringConstraints.timeMiddleNight:
-        return _sunnahTimes.middleOfTheNight;
+        timeFor = _sunnahTimes.middleOfTheNight;
+        break;
       case AppStringConstraints.timeLastThird:
-        return _sunnahTimes.lastThirdOfTheNight;
-      default:
-        throw ArgumentError('Invalid partName: $partName');
+        timeFor = _sunnahTimes.lastThirdOfTheNight;
+        break;
     }
+    return timeFor;
   }
 
-  double getProgressForPart(String partName) {
-    final DateTime partTime = thirdTime(partName: partName);
-    final DateTime now = tz.TZDateTime.now(tz.local);
-    final DateTime nextPartTime = partTime.isBefore(now) ? partTime.add(const Duration(days: 1)) : partTime;
+  int partTimeValues({required String partName}) {
+    late final int values;
+    switch (partName) {
+      case AppStringConstraints.timeSunrise:
+        values = getDhuhrValueInMinutes;
+        break;
+      case AppStringConstraints.timeMiddleNight:
+        values = getFajrValueInMinutes;
+        break;
+      case AppStringConstraints.timeLastThird:
+        values = getFajrValueInMinutes;
+        break;
+    }
+    return values;
+  }
 
-    if (partName == AppStringConstraints.timeSunrise) {
-      final DateTime dhuhrMinus15 = DateTime(now.year, now.month, now.day, 0, 0).add(Duration(minutes: getDhuhrValueInMinutes - 15));
-      if (now.isAfter(partTime) && now.isBefore(dhuhrMinus15)) {
-        return 1.0;
-      }
+  double getProgressForPart({required String partName}) {
+    final DateTime completeTime = thirdTime(partName: partName);
+    final int remainingTimeInMinutes;
+    if (_dateTime.isBefore(completeTime)) {
+      remainingTimeInMinutes = completeTime.difference(_dateTime).inMinutes;
+    } else {
+      remainingTimeInMinutes = completeTime.add(const Duration(days: 1)).difference(_dateTime).inMinutes;
     }
-    if (partName == AppStringConstraints.timeMiddleNight) {
-      final DateTime lastThirdTime = DateTime(now.year, now.month, now.day, 0, 0).add(Duration(minutes: getLastThirdPartValueInMinutes));
-      if (now.isAfter(partTime) && now.isBefore(lastThirdTime)) {
-        return 1.0;
-      }
+    if (remainingTimeInMinutes <= partTimeValues(partName: partName)) {
+      return 1.0;
     }
-    if (partName == AppStringConstraints.timeLastThird) {
-      final DateTime fajrTime = DateTime(now.year, now.month, now.day, 0, 0).add(Duration(minutes: getFajrValueInMinutes));
-      if (now.isAfter(partTime) && now.isBefore(fajrTime)) {
-        return 1.0;
-      }
-    }
-
-    final Duration totalDuration = nextPartTime.difference(DateTime(now.year, now.month, now.day));
-    final Duration elapsedDuration = now.difference(DateTime(now.year, now.month, now.day));
-    return elapsedDuration.inSeconds / totalDuration.inSeconds;
+    final double elapsedPercentage = (1.0 - remainingTimeInMinutes / const Duration(days: 1).inMinutes).clamp(0.0, 1.0);
+    return elapsedPercentage;
   }
 
   bool isAdhan({required Prayer prayer}) {
@@ -134,8 +140,11 @@ class PrayerState extends ChangeNotifier {
   }
 
   bool get isMorning => _isWithinRange(getFajrValueInMinutes + 45, getSunriseValueInMinutes - 1);
+
   bool get isDuha => _isWithinRange(getSunriseValueInMinutes + 45, getDhuhrValueInMinutes - 15);
+
   bool get isEvening => _isWithinRange(getAsrValueInMinutes + 45, getMaghribValueInMinutes - 1);
+
   bool get isNight => _isWithinRange(getIshaValueInMinutes + 45, getMidnightValueInMinutes - 1);
 
   bool get isFriday {

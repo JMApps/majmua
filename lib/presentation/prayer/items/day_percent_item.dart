@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
@@ -24,17 +24,11 @@ class DayPercentItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
     final appColors = Theme.of(context).colorScheme;
-
-    return Selector<PrayerState, double>(
-      selector: (context, prayerState) => prayerState.getProgressForPart(partName),
-      builder: (context, progress, _) {
-        final prayerState = context.read<PrayerState>();
-        final thirdTime = prayerState.thirdTime(partName: partName);
-        final isDuha = partName.contains(AppStringConstraints.timeSunrise) && prayerState.isDuha;
-        final displayText = isDuha ? '$dayTitle ${appLocale.duha}' : dayTitle;
+    return Consumer<PrayerState>(
+      builder: (context, prayerState, _) {
         return LinearPercentIndicator(
           lineHeight: 22.5,
-          percent: progress,
+          percent: prayerState.getProgressForPart(partName: partName),
           progressColor: percentColor,
           backgroundColor: appColors.surface,
           center: Padding(
@@ -43,19 +37,16 @@ class DayPercentItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  !isDuha ? '–${prayerState.restPrayerTime(isBefore: true, time: thirdTime)}' : '',
+                  '–${prayerState.restPrayerTime(isBefore: true, time: prayerState.thirdTime(partName: partName))}',
                   style: TextStyle(
                     color: appColors.onErrorContainer,
                   ),
                 ),
-                Expanded(
-                  child: Text(
-                    displayText,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
+                const SizedBox(width: 8),
+                Text(partName.contains(AppStringConstraints.timeSunrise) && prayerState.isDuha ? '$dayTitle ${appLocale.duha}' : dayTitle),
+                const SizedBox(width: 8),
                 Text(
-                  DateFormat('HH:mm').format(thirdTime),
+                  DateFormat('HH:mm').format(prayerState.thirdTime(partName: partName)),
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                   ),

@@ -34,20 +34,18 @@ class _PrayerItemState extends State<PrayerItem> {
     return Expanded(
       child: SizedBox(
         height: isPortrait ? mediaQuery.size.height * 0.2 : mediaQuery.size.width * 0.2,
-        child: Selector<PrayerState, DateTime>(
-          selector: (context, prayerState) =>
-          prayerState.prayerTimes.timeForPrayer(widget.prayer)!,
-          builder: (context, currentPrayerTime, child) {
-            final prayerState = context.read<PrayerState>();
-            final prayerIsHourPercent = prayerState.beforeAfterHourPercent(prayerTime: currentPrayerTime);
-            final isHourBefore = prayerState.isPrayerInHourRange(before: true, prayerTime: currentPrayerTime);
-            final isHourAfter = prayerState.isPrayerInHourRange(before: false, prayerTime: currentPrayerTime);
+        child: Consumer<PrayerState>(
+          builder: (context, prayerState, _) {
+            DateTime currentPrayerTime = prayerState.prayerTimes.timeForPrayer(widget.prayer)!;
+            double prayerIsHourPercent = prayerState.beforeAfterHourPercent(prayerTime: currentPrayerTime);
+            bool isHourBefore = prayerState.isPrayerInHourRange(before: true, prayerTime: currentPrayerTime);
+            bool isHourAfter = prayerState.isPrayerInHourRange(before: false, prayerTime: currentPrayerTime);
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Icon(
                   isHourBefore || isHourAfter ? Icons.radio_button_checked_rounded : Icons.circle,
-                  size: isHourBefore || isHourAfter ? 12.5 : 8,
+                  size: isHourBefore || isHourAfter ? 15.0 : 12.5,
                   color: isHourBefore || isHourAfter ? appColors.tertiary : appColors.primary,
                 ),
                 const SizedBox(height: 8),
@@ -63,12 +61,82 @@ class _PrayerItemState extends State<PrayerItem> {
                       color: isHourBefore ? appColors.primary : appColors.tertiary,
                       strokeWidth: prayerIsHourPercent < 1.0 ? 2.5 : -1,
                       value: prayerIsHourPercent,
-                      child: _buildPrayerContent(
-                        prayerState,
-                        currentPrayerTime,
-                        isHourBefore,
-                        isHourAfter,
-                        appColors,
+                      child: Wrap(
+                        direction: Axis.vertical,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        spacing: 2,
+                        children: [
+                          Icon(
+                            widget.prayerIcon,
+                            color: isHourAfter ? appColors.tertiary : appColors.primary,
+                          ),
+                          Text(
+                            widget.prayerName,
+                            style: AppStyles.mainTextStyleMini,
+                          ),
+                          Text(
+                            DateFormat('HH:mm').format(prayerState.prayerTimes.timeForPrayer(widget.prayer)!),
+                            style: AppStyles.mainTextStyleMiniBold,
+                          ),
+                          Visibility(
+                            visible: isHourBefore || prayerState.isNextPrayer(prayer: widget.prayer),
+                            child: Text(
+                              '–${prayerState.restPrayerTime(isBefore: true, time: currentPrayerTime)}',
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                color: appColors.primary,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Visibility(
+                            visible: isHourAfter,
+                            child: Text(
+                              prayerState.restPrayerTime(isBefore: false, time: currentPrayerTime),
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                color: appColors.tertiary,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Visibility(
+                            visible: prayerState.isAdhan(prayer: widget.prayer),
+                            child: const ToSupplicationsButton(
+                              fortressChapterId: 0,
+                              iconName: AppStringConstraints.iconAqsa,
+                            ),
+                          ),
+                          Visibility(
+                            visible: prayerState.isDhikr(prayer: widget.prayer),
+                            child: const ToSupplicationsButton(
+                              fortressChapterId: 0,
+                              iconName: AppStringConstraints.iconHands,
+                            ),
+                          ),
+                          Visibility(
+                            visible: widget.prayer == Prayer.fajr && prayerState.isMorning,
+                            child: const ToSupplicationsButton(
+                              fortressChapterId: 0,
+                              iconName: AppStringConstraints.iconHands,
+                            ),
+                          ),
+                          Visibility(
+                            visible: widget.prayer == Prayer.asr && prayerState.isEvening,
+                            child: const ToSupplicationsButton(
+                              fortressChapterId: 0,
+                              iconName: AppStringConstraints.iconHands,
+                            ),
+                          ),
+                          Visibility(
+                            visible: widget.prayer == Prayer.isha && prayerState.isNight,
+                            maintainSize: false,
+                            child: const ToSupplicationsButton(
+                              fortressChapterId: 0,
+                              iconName: AppStringConstraints.iconHands,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -78,71 +146,6 @@ class _PrayerItemState extends State<PrayerItem> {
           },
         ),
       ),
-    );
-  }
-
-  Widget _buildPrayerContent(PrayerState prayerState, DateTime currentPrayerTime, bool isHourBefore, bool isHourAfter, ColorScheme appColors) {
-    return Wrap(
-      direction: Axis.vertical,
-      crossAxisAlignment: WrapCrossAlignment.center,
-      spacing: 2,
-      children: [
-        Icon(
-          widget.prayerIcon,
-          color: isHourAfter ? appColors.tertiary : appColors.primary,
-        ),
-        Text(
-          widget.prayerName,
-          style: AppStyles.mainTextStyleMini,
-        ),
-        Text(
-          DateFormat('HH:mm').format(currentPrayerTime),
-          style: AppStyles.mainTextStyleMiniBold,
-        ),
-        if (isHourBefore || prayerState.isNextPrayer(prayer: widget.prayer))
-          Text(
-            '–${prayerState.restPrayerTime(isBefore: true, time: currentPrayerTime)}',
-            style: TextStyle(
-              fontSize: 12.0,
-              color: appColors.primary,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        if (isHourAfter)
-          Text(
-            prayerState.restPrayerTime(isBefore: false, time: currentPrayerTime),
-            style: TextStyle(
-              fontSize: 12.0,
-              color: appColors.tertiary,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        if (prayerState.isAdhan(prayer: widget.prayer))
-          const ToSupplicationsButton(
-            fortressChapterId: 0,
-            iconName: AppStringConstraints.iconAqsa,
-          ),
-        if (prayerState.isDhikr(prayer: widget.prayer))
-          const ToSupplicationsButton(
-            fortressChapterId: 0,
-            iconName: AppStringConstraints.iconHands,
-          ),
-        if (widget.prayer == Prayer.fajr && prayerState.isMorning)
-          const ToSupplicationsButton(
-            fortressChapterId: 0,
-            iconName: AppStringConstraints.iconHands,
-          ),
-        if (widget.prayer == Prayer.asr && prayerState.isEvening)
-          const ToSupplicationsButton(
-            fortressChapterId: 0,
-            iconName: AppStringConstraints.iconHands,
-          ),
-        if (widget.prayer == Prayer.isha && prayerState.isNight)
-          const ToSupplicationsButton(
-            fortressChapterId: 0,
-            iconName: AppStringConstraints.iconHands,
-          ),
-      ],
     );
   }
 }
