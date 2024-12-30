@@ -21,6 +21,9 @@
   "midnight": "Полночь",
   "lastThirdNightPart": "Последняя ⅓ ночи",
 
+  "params": "Параметры",
+  "prayerSchedule": "Расписание молитв",
+
   "settings": "Настройки",
   "notifications": "Уведомдения"
 }

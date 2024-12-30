@@ -20,7 +20,7 @@ class AppThemes {
         seedColor: _appColor,
       ),
       appBarTheme: const AppBarTheme(
-        centerTitle: false,
+        centerTitle: true,
       ),
       inputDecorationTheme: const InputDecorationTheme(
         contentPadding: AppStyles.mardingHorizontal,

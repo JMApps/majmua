@@ -18,6 +18,7 @@ class HomePage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            centerTitle: false,
             stretch: true,
             floating: true,
             title: const AppTitle(),
