@@ -22,7 +22,8 @@
   "lastThirdNightPart": "Последняя ⅓ ночи",
 
   "params": "Параметры",
-  "prayerSchedule": "Расписание молитв",
+  "prayerSchedule": "Расписание на месяц",
+  "dayNumber": "Число",
 
   "settings": "Настройки",
   "notifications": "Уведомдения"

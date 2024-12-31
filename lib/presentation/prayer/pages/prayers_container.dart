@@ -40,7 +40,7 @@ class PrayersContainer extends StatelessWidget {
               ),
               MainIconButton(
                 onPressed: () {
-                  // Open prayer calendar
+                  Navigator.pushNamed(context, AppRouteNames.pagePrayerSchedule);
                 },
                 tooltip: appLocale.prayerCalendar,
                 iconName: AppStringConstraints.iconCalendar,
@@ -104,19 +104,19 @@ class PrayersContainer extends StatelessWidget {
               DayPercentItem(
                 dayTitle: appLocale.sunrise,
                 partName: AppStringConstraints.timeSunrise,
-                percentColor: appColors.primaryContainer,
+                percentColor: appColors.onSecondary,
               ),
               const SizedBox(height: 8),
               DayPercentItem(
                 dayTitle: appLocale.midnight,
                 partName: AppStringConstraints.timeMiddleNight,
-                percentColor: appColors.secondaryContainer,
+                percentColor: appColors.surfaceContainerHigh,
               ),
               const SizedBox(height: 8),
               DayPercentItem(
                 dayTitle: appLocale.lastThirdNightPart,
                 partName: AppStringConstraints.timeLastThird,
-                percentColor: appColors.tertiaryContainer,
+                percentColor: appColors.primaryContainer,
               ),
               const SizedBox(height: 8),
             ],
