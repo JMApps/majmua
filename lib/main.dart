@@ -6,6 +6,7 @@ import 'core/strings/app_string_constraints.dart';
 import 'presentation/pages/root_page.dart';
 import 'presentation/state/app_settings_state.dart';
 import 'presentation/state/prayer_state.dart';
+import 'presentation/state/time_state.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,6 +24,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (_) => PrayerState(Hive.box(AppStringConstraints.keySettingsPrayerTimeBox)),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => TimeState(),
         ),
       ],
       child: const RootPage(),
