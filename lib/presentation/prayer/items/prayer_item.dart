@@ -43,15 +43,15 @@ class _PrayerItemState extends State<PrayerItem> {
               children: [
                 Icon(
                   isHourBefore || isHourAfter ? Icons.radio_button_checked_rounded : Icons.circle,
-                  size: isHourBefore || isHourAfter ? 10.0 : 8.0,
-                  color: isHourBefore || isHourAfter ? appColors.tertiary : appColors.primary,
+                  size: isHourBefore || isHourAfter ? 11.0 : 8.0,
+                  color: isHourBefore ? appColors.primary : isHourAfter ? appColors.tertiary : appColors.primary,
                 ),
                 const SizedBox(height: 8),
                 Expanded(
                   child: Card(
                     elevation: 0,
                     margin: EdgeInsets.zero,
-                    color: isHourBefore || isHourAfter ? appColors.tertiary.withAlpha(20) : appColors.surface,
+                    color: isHourBefore ? appColors.primary.withAlpha(20) : isHourAfter ? appColors.tertiary.withAlpha(20) : appColors.surface,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -65,7 +65,7 @@ class _PrayerItemState extends State<PrayerItem> {
                         ),
                         Text(
                           DateFormat('HH:mm').format(prayerState.prayerTimes.timeForPrayer(widget.prayer)!),
-                          style: AppStyles.mainTextStyleMiniBold,
+                          style: isHourAfter || isHourBefore ? AppStyles.mainTextStyleMiniBold : AppStyles.mainTextStyleMini,
                         ),
                         Visibility(
                           visible: isHourBefore || prayerState.isNextPrayer(prayer: widget.prayer),

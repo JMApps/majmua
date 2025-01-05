@@ -48,8 +48,8 @@ class PrayerState extends ChangeNotifier {
 
     _country = _settingsPrayerTimeBox.get(AppStringConstraints.keyCountry, defaultValue: 'Saudi Arabia');
     _city = _settingsPrayerTimeBox.get(AppStringConstraints.keyCity, defaultValue: 'Mecca');
-    _latitude = _settingsPrayerTimeBox.get(AppStringConstraints.keyCurrentLatitude, defaultValue: 21.4225);
-    _longitude = _settingsPrayerTimeBox.get(AppStringConstraints.keyCurrentLongitude, defaultValue: 39.8261);
+    _latitude = _settingsPrayerTimeBox.get(AppStringConstraints.keyCurrentLatitude, defaultValue: 36.2076);
+    _longitude = _settingsPrayerTimeBox.get(AppStringConstraints.keyCurrentLongitude, defaultValue: 36.5192);
     _calculationMethodIndex = _settingsPrayerTimeBox.get(AppStringConstraints.keyCalculationIndex, defaultValue: 10);
     _highLatitudeMethodIndex = _settingsPrayerTimeBox.get(AppStringConstraints.keyHighLatitudeIndex, defaultValue: 0);
     _madhabIndex = _settingsPrayerTimeBox.get(AppStringConstraints.keyMadhabIndex, defaultValue: 0);
@@ -82,6 +82,10 @@ class PrayerState extends ChangeNotifier {
     _sunnahTimes = SunnahTimes(_prayerTimes);
     _qibla = Qibla(_coordinates);
     notifyListeners();
+  }
+
+  PrayerTimes prayerTimeSchedule({required DateTime time}) {
+    return PrayerTimes(_coordinates, DateComponents.from(time), _prayerParams);
   }
 
   PrayerTimes get prayerTimes => _prayerTimes;
@@ -173,16 +177,16 @@ class PrayerState extends ChangeNotifier {
   String restPrayerTime({required bool isBefore, required DateTime time}) {
     late final Duration remainingDuration;
     if (isBefore) {
-      if (_dateTime.isAfter(time)) {
+      if (_dateTime.isAfter(time) || _dateTime.isAtSameMomentAs(time)) {
         time = time.add(const Duration(days: 1));
       }
       remainingDuration = time.difference(_dateTime);
     } else {
       remainingDuration = _dateTime.difference(time);
     }
-    final hours = remainingDuration.inHours.abs();
-    final minutes = remainingDuration.inMinutes.remainder(60).abs();
-    return '${hours.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}';
+    final hours = remainingDuration.inHours.remainder(24);
+    final minutes = remainingDuration.inMinutes.remainder(60);
+    return '${hours.abs().toString().padLeft(2, '0')}:${minutes.abs().toString().padLeft(2, '0')}';
   }
 
   bool isNextPrayer({required Prayer prayer}) => _prayerTimes.nextPrayer() == prayer;
@@ -203,34 +207,31 @@ class PrayerState extends ChangeNotifier {
     return timeFor;
   }
 
-  int partTimeValues({required String partName}) {
-    late final int values;
+  bool thirdState({required String partName}) {
+    late final bool state;
     switch (partName) {
       case AppStringConstraints.timeSunrise:
-        values = getDhuhrValueInMinutes;
+        state = isSunrise;
         break;
       case AppStringConstraints.timeMiddleNight:
-        values = getFajrValueInMinutes;
+        state = isMidnight;
         break;
       case AppStringConstraints.timeLastThird:
-        values = getFajrValueInMinutes;
+        state = isLastThird;
         break;
     }
-    return values;
+    return state;
   }
 
   double getProgressForPart({required String partName}) {
-    final DateTime completeTime = thirdTime(partName: partName);
+    final DateTime targetTime = thirdTime(partName: partName);
     final int remainingTimeInMinutes;
-    if (_dateTime.isBefore(completeTime)) {
-      remainingTimeInMinutes = completeTime.difference(_dateTime).inMinutes;
+    if (_dateTime.isBefore(targetTime)) {
+      remainingTimeInMinutes = targetTime.difference(_dateTime).inMinutes;
     } else {
-      remainingTimeInMinutes = completeTime.add(const Duration(days: 1)).difference(_dateTime).inMinutes;
+      remainingTimeInMinutes = targetTime.add(const Duration(days: 1)).difference(_dateTime).inMinutes;
     }
-    if (remainingTimeInMinutes <= partTimeValues(partName: partName)) {
-      return 1.0;
-    }
-    final double elapsedPercentage = (1.0 - remainingTimeInMinutes / const Duration(days: 1).inMinutes).clamp(0.0, 1.0);
+    final elapsedPercentage = (1.0 - remainingTimeInMinutes / const Duration(days: 1).inMinutes).clamp(0.0, 1.0);
     return elapsedPercentage;
   }
 
@@ -246,11 +247,17 @@ class PrayerState extends ChangeNotifier {
 
   bool get isMorning => _isWithinRange(getFajrValueInMinutes + 45, getSunriseValueInMinutes - 1);
 
+  bool get isSunrise => _isWithinRange(getSunriseValueInMinutes - 1, getMaghribValueInMinutes - 1);
+
   bool get isDuha => _isWithinRange(getSunriseValueInMinutes + 45, getDhuhrValueInMinutes - 15);
 
   bool get isEvening => _isWithinRange(getAsrValueInMinutes + 45, getMaghribValueInMinutes - 1);
 
   bool get isNight => _isWithinRange(getIshaValueInMinutes + 45, getMidnightValueInMinutes - 1);
+
+  bool get isMidnight => _isWithinRange(getMidnightValueInMinutes - 1, getThirdPartValueInMinutes - 1);
+
+  bool get isLastThird => _isWithinRange(getThirdPartValueInMinutes - 1, getFajrValueInMinutes - 1);
 
   bool get isFriday {
     bool firstCheck = _dateTime.weekday == 4 && getMinutesOfDay >= getMaghribValueInMinutes;
@@ -259,7 +266,7 @@ class PrayerState extends ChangeNotifier {
   }
 
   int _prayerValueInMinutes({required DateTime time}) {
-    final DateTime fromMidnight = DateTime(_dateTime.year, _dateTime.month, _dateTime.day, 0, 0);
+    final DateTime fromMidnight =  DateTime(_dateTime.year, _dateTime.month, _dateTime.day);
     return time.difference(fromMidnight).inMinutes;
   }
 
@@ -269,7 +276,6 @@ class PrayerState extends ChangeNotifier {
   }
 
   void _startCron() {
-    print(_dateTime.timeZoneOffset.toString());
     _cron.schedule(Schedule.parse('*/1 * * * *'), () {
       _updateDateTime();
     });

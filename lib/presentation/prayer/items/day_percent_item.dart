@@ -28,18 +28,21 @@ class DayPercentItem extends StatelessWidget {
       builder: (context, prayerState, _) {
         return LinearPercentIndicator(
           lineHeight: 22.5,
-          percent: prayerState.getProgressForPart(partName: partName),
-          progressColor: percentColor,
+          percent: prayerState.thirdState(partName: partName) ? 1.0 : prayerState.getProgressForPart(partName: partName),
+          progressColor: percentColor.withAlpha(175),
           backgroundColor: appColors.surface,
           center: Padding(
             padding: AppStyles.mardingHorizontal,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  '–${prayerState.restPrayerTime(isBefore: true, time: prayerState.thirdTime(partName: partName))}',
-                  style: TextStyle(
-                    color: appColors.onErrorContainer,
+                Visibility(
+                  visible: !prayerState.thirdState(partName: partName),
+                  child: Text(
+                    '–${prayerState.restPrayerTime(isBefore: true, time: prayerState.thirdTime(partName: partName))}',
+                    style: TextStyle(
+                      color: appColors.onErrorContainer,
+                    ),
                   ),
                 ),
                 const SizedBox(width: 8),

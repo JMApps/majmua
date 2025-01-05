@@ -1,7 +1,12 @@
+
 import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+
+import '../../../core/styles/app_styles.dart';
+import '../../state/prayer_state.dart';
 
 class PrayersSchedulePage extends StatefulWidget {
   const PrayersSchedulePage({super.key});
@@ -11,15 +16,20 @@ class PrayersSchedulePage extends StatefulWidget {
 }
 
 class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
+  final DateTime _currentDateTime = DateTime.now();
+  late final int _daysInMonth;
+
+  @override
+  void initState() {
+    _daysInMonth = DateTime(_currentDateTime.year, _currentDateTime.month + 1, 0).day;
+    super.initState();
+  }
+
   List<PrayerTimes> getPrayerTimesForWeek() {
     List<PrayerTimes> prayerTimesList = [];
-
-    for (int i = 0; i < 30; i++) {
-      final newYork = Coordinates(35.7750, -78.6336);
-      final nyDate = DateComponents(2024, 12, i);
-      final nyParams = CalculationMethod.muslim_world_league.getParameters();
-      nyParams.madhab = Madhab.shafi;
-      final prayerTimes = PrayerTimes(newYork, nyDate, nyParams, utcOffset: Duration(hours: -5));
+    for (int day = 1; day <= _daysInMonth; day++) {
+      DateTime currentDate = DateTime(_currentDateTime.year, _currentDateTime.month, day);
+      final prayerTimes = Provider.of<PrayerState>(context, listen: false).prayerTimeSchedule(time: currentDate);
       prayerTimesList.add(prayerTimes);
     }
 
@@ -31,48 +41,74 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
     final appLocale = AppLocalizations.of(context)!;
     final prayerTimesList = getPrayerTimesForWeek();
     final screenWidth = MediaQuery.of(context).size.width;
-    const columnCount = 7;
-    final columnWidth = screenWidth / columnCount;
+    final columnWidth = screenWidth / 7;
+    final appColors = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
         title: Text(appLocale.prayerSchedule),
       ),
       body: Scrollbar(
         child: SingleChildScrollView(
+          padding: AppStyles.mardingBottom,
           child: DataTable(
-            horizontalMargin: 8,
+            headingRowColor: WidgetStateProperty.all(appColors.inversePrimary.withAlpha(75)),
             columnSpacing: 0,
+            dataRowHeight: 32.5,
             columns: [
               DataColumn(
-                label: Text(appLocale.fajr),
+                tooltip: appLocale.dayNumber,
+                label: const Text(''),
               ),
               DataColumn(
-                label: Text(appLocale.fajr),
+                tooltip: appLocale.fajr,
+                label: Text(
+                  appLocale.fajr,
+                ),
               ),
               DataColumn(
-                label: Text(appLocale.sunrise),
+                tooltip: appLocale.sunrise,
+                label: Text(
+                  appLocale.sunrise,
+                ),
               ),
               DataColumn(
-                label: Text(appLocale.dhuhr),
+                tooltip: appLocale.dhuhr,
+                label: Text(
+                  appLocale.dhuhr,
+                ),
               ),
               DataColumn(
-                label: Text(appLocale.asr),
+                tooltip: appLocale.asr,
+                label: Text(
+                  appLocale.asr,
+                ),
               ),
               DataColumn(
-                label: Text(appLocale.maghrib),
+                tooltip: appLocale.maghrib,
+                label: Text(
+                  appLocale.maghrib,
+                ),
               ),
               DataColumn(
-                label: Text(appLocale.isha),
+                tooltip: appLocale.isha,
+                label: Text(
+                  appLocale.isha,
+                ),
               ),
             ],
             rows: prayerTimesList.map((prayerTimes) {
               final dayIndex = prayerTimesList.indexOf(prayerTimes);
               return DataRow(
+                color: WidgetStateProperty.all(
+                  dayIndex + 1 == _currentDateTime.day ? appColors.tertiaryContainer : appColors.secondaryContainer.withAlpha(75),
+                ),
                 cells: [
                   DataCell(
                     SizedBox(
-                      width: columnWidth,
-                      child: Text('${dayIndex + 1}'),
+                      width: columnWidth / 1.25,
+                      child: Text(
+                        (dayIndex + 1).toString(),
+                      ),
                     ),
                   ),
                   DataCell(
@@ -80,6 +116,10 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                       width: columnWidth,
                       child: Text(
                         DateFormat('HH:mm').format(prayerTimes.fajr),
+                        style: TextStyle(
+                          color: appColors.onTertiaryContainer,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -96,6 +136,10 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                       width: columnWidth,
                       child: Text(
                         DateFormat('HH:mm').format(prayerTimes.dhuhr),
+                        style: TextStyle(
+                          color: appColors.onTertiaryContainer,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -112,6 +156,10 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                       width: columnWidth,
                       child: Text(
                         DateFormat('HH:mm').format(prayerTimes.maghrib),
+                        style: TextStyle(
+                          color: appColors.onTertiaryContainer,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
