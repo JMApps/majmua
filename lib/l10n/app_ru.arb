@@ -21,6 +21,8 @@
   "midnight": "Полночь",
   "lastThirdNightPart": "Последняя ⅓ ночи",
 
+  "week2DayNames": "Пн, Вт, Ср, Чт, Пт, Сб, Вс",
+
   "params": "Параметры",
   "prayerSchedule": "Расписание на месяц",
   "dayNumber": "Число",

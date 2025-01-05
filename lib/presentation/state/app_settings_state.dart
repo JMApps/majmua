@@ -10,7 +10,7 @@ class AppSettingsState extends ChangeNotifier {
 
   AppSettingsState() {
     _appLocaleIndex = _appSettingsBox.get(AppStringConstraints.keyAppLocaleIndex, defaultValue: _defaultLocaleIndex());
-    _appThemeColor = Color(_appSettingsBox.get(AppStringConstraints.keyAppThemeColor, defaultValue: Colors.blue.value));
+    _appThemeColor = Color(_appSettingsBox.get(AppStringConstraints.keyAppThemeColor, defaultValue: Colors.blueGrey.value));
     _appThemeModeIndex = _appSettingsBox.get(AppStringConstraints.keyAppThemeModeIndex, defaultValue: 2);
   }
 

@@ -50,6 +50,7 @@ dependencies:
   # System
   wakelock_plus: ^1.2.10
   url_launcher: ^6.3.1
+  flutter_compass: ^0.8.1
 
   # Notifications
   flutter_local_notifications: ^18.0.1
