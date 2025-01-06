@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/presentation/times/pages/times_container.dart';
 
 import '../../core/strings/app_string_constraints.dart';
 import '../../core/styles/app_styles.dart';
 import '../prayer/pages/prayers_container.dart';
+import '../times/pages/times_container.dart';
+import '../times/widgets/main_data_item.dart';
 import '../widgets/app_title.dart';
 import '../widgets/main_icon_button.dart';
 
@@ -49,6 +50,7 @@ class HomePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                MainDataItem(),
                 PrayersContainer(),
                 SizedBox(height: 8),
                 TimesContainer(),
