@@ -11,20 +11,14 @@ class SalawatIcon extends StatelessWidget {
       children: [
         Image.asset(
           'assets/pictures/salawat.png',
-          width: 105,
-          height: 105,
+          width: 75,
+          height: 75,
           color: appColors.inversePrimary,
         ),
         Image.asset(
-          'assets/pictures/salawat_border_one.png',
-          width: 105,
-          height: 105,
-          color: appColors.tertiaryContainer,
-        ),
-        Image.asset(
           'assets/pictures/salawat_border_two.png',
-          width: 105,
-          height: 105,
+          width: 75,
+          height: 75,
           color: appColors.secondary,
         ),
       ],
