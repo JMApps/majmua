@@ -77,6 +77,9 @@ flutter:
     - family: 'Gilroy'
       fonts:
         - asset: assets/fonts/gilroy_regular.ttf
+    - family: 'Gilroy medium'
+      fonts:
+        - asset: assets/fonts/gilroy_medium.ttf
     - family: 'Hafs'
       fonts:
         - asset: assets/fonts/hafs_regular.ttf
