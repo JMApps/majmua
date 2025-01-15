@@ -105,9 +105,12 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                 cells: [
                   DataCell(
                     SizedBox(
-                      width: columnWidth / 1.25,
+                      width: columnWidth / 1.75,
                       child: Text(
                         (dayIndex + 1).toString(),
+                        style: TextStyle(
+                          fontWeight: dayIndex + 1 == _currentDateTime.day ? FontWeight.bold : FontWeight.normal,
+                        ),
                       ),
                     ),
                   ),

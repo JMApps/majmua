@@ -37,6 +37,10 @@ class AppThemes {
         showDragHandle: true,
         dragHandleSize: Size(48, 3),
       ),
+      cardTheme: const CardTheme(
+        elevation: 0,
+        margin: EdgeInsets.zero,
+      )
     );
   }
 }

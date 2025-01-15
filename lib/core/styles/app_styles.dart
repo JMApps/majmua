@@ -27,6 +27,7 @@ class AppStyles {
 
   static const mardingTop = EdgeInsets.only(top: 16);
   static const mardingTopMini = EdgeInsets.only(top: 8);
+  static const mardingTopMicroMini = EdgeInsets.only(top: 2);
 
   static const mardingRight = EdgeInsets.only(right: 16);
   static const mardingRightMini = EdgeInsets.only(right: 8);
@@ -45,9 +46,10 @@ class AppStyles {
 
   static const mainBorder = BorderRadius.all(Radius.circular(20));
   static const mainBorderMini = BorderRadius.all(Radius.circular(10));
+  static const mainBorderMicro = BorderRadius.all(Radius.circular(5));
 
-  static const mainTextStyleBig = TextStyle(fontSize: 20.0, fontFamily: AppStringConstraints.fontGilroy);
-  static const mainTextStyle = TextStyle(fontSize: 18.0, fontFamily: AppStringConstraints.fontGilroy);
-  static const mainTextStyleMini = TextStyle(fontSize: 16.0, fontFamily: AppStringConstraints.fontGilroy);
-  static const mainTextStyleMiniBold = TextStyle(fontSize: 16.0, fontFamily: AppStringConstraints.fontGilroy, fontWeight: FontWeight.bold);
+  static const mainTextStyleBig = TextStyle(fontSize: 18.0, fontFamily: AppStringConstraints.fontGilroy);
+  static const mainTextStyle = TextStyle(fontSize: 16.0, fontFamily: AppStringConstraints.fontGilroy);
+  static const mainTextStyleMini = TextStyle(fontSize: 14.0, fontFamily: AppStringConstraints.fontGilroy);
+  static const mainTextStyleMiniBold = TextStyle(fontSize: 14.0, fontFamily: AppStringConstraints.fontGilroy, fontWeight: FontWeight.bold);
 }

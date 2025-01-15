@@ -266,7 +266,11 @@ class PrayerState extends ChangeNotifier {
   }
 
   int _prayerValueInMinutes({required DateTime time}) {
-    final DateTime fromMidnight =  DateTime(_dateTime.year, _dateTime.month, _dateTime.day);
+    DateTime fromMidnight = DateTime(_dateTime.year, _dateTime.month, _dateTime.day);
+    if (time.isBefore(fromMidnight)) {
+      time = time.add(const Duration(days: 1));
+    }
+
     return time.difference(fromMidnight).inMinutes;
   }
 

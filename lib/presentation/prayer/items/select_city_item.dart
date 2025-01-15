@@ -33,7 +33,7 @@ class _SelectCityItemState extends State<SelectCityItem> {
                 prayerState.city, // From Hive
                 style: TextStyle(
                   color: appColors.primary,
-                  fontSize: 18.0,
+                  fontSize: 17.0,
                   fontFamily: AppStringConstraints.fontGilroy,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.underline,
@@ -45,8 +45,8 @@ class _SelectCityItemState extends State<SelectCityItem> {
           ),
           leading: Image.asset(
             'assets/icons/location.png',
-            height: 25,
-            width: 25,
+            height: 22.5,
+            width: 22.5,
             color: appColors.primary,
           ),
         ),

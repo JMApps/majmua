@@ -4,6 +4,7 @@ import 'package:adhan/adhan.dart';
 
 class AppStringConstraints {
   static const String fontGilroy = 'Gilroy';
+  static const String fontGilroyMedium = 'Gilroy medium';
   static const String fontHafs = 'Hafs';
 
   static const String keyMainSettings = 'key_main_settings';
@@ -47,6 +48,22 @@ class AppStringConstraints {
   static const String timeSunrise = 'sunrise';
   static const String timeMiddleNight = 'middle_night';
   static const String timeLastThird = 'last_third_part';
+
+  static const String startSeason = 'map_start_season';
+  static const String endSeason = 'map_end_season';
+
+  static const String mapDaysToRamadan = 'map_days_to_ramadan';
+  static const String mapRamadanDate = 'map_ramadan_date';
+  static const String mapPercentageToRamadan = 'map_percentage_to_ramadan';
+
+  static const String mapDaysToDhulHijjah = 'map_days_to_dhul_hijjah';
+  static const String mapDhulHijjahDate = 'map_dhul_hijjah_date';
+  static const String mapPercentageToDhulHijjah = 'map_percent_to_dhul_hijjah';
+
+  static const String startPeriod = 'map_start_period';
+  static const String endPeriod = 'map_end_period';
+  static const String remainingDateTime = 'map_remaining_date_time';
+  static const String elapsedPercentage = 'map_elapsedPercentage';
 
   static const List<Locale> appLocales = [
     Locale('ru', 'RU'),
@@ -108,5 +125,12 @@ class AppStringConstraints {
     const Duration(hours: 1),
     const Duration(),
     const Duration(hours: 1),
+  ];
+
+  static const List<String> timePeriodPics = [
+    'spring',
+    'summer',
+    'fall',
+    'winter',
   ];
 }

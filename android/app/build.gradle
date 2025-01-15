@@ -25,7 +25,7 @@ android {
 
     defaultConfig {
         multiDexEnabled true
-        applicationId = "jmapps.project.majmua"
+        applicationId = "jmapps.project.majmua2"
         minSdk = 23
         targetSdk = 35
         versionCode = flutter.versionCode

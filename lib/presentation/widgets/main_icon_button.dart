@@ -22,8 +22,8 @@ class MainIconButton extends StatelessWidget {
       visualDensity: VisualDensity.compact,
       icon: Image.asset(
         'assets/icons/$iconName.png',
-        height: 25,
-        width: 25,
+        height: 22.5,
+        width: 22.5,
         color: iconColor,
       ),
     );

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
-import '../../../core/styles/app_styles.dart';
+import '../../../core/strings/app_string_constraints.dart';
 import '../../state/time_state.dart';
+import 'white_day_item.dart';
 
 class MainDataItem extends StatelessWidget {
   const MainDataItem({super.key});
@@ -13,40 +13,70 @@ class MainDataItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
     final appColors = Theme.of(context).colorScheme;
-    return Card(
-      elevation: 0,
-      margin: AppStyles.mardingHorizontalMini,
-      child: Padding(
-        padding: AppStyles.mardingHorizontal,
-        child: Consumer<TimeState>(
-          builder: (context, timeState, _) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  '${DateFormat('d.M.yyyy').format(timeState.getDateTime)} – ${appLocale.gregorianMonthNames.split(', ')[timeState.getDateTime.month - 1]}',
-                  style: TextStyle(
-                    fontSize: 14.0,
-                    color: appColors.primary,
-                  ),
-                  overflow: TextOverflow.ellipsis,
+    return Consumer<TimeState>(
+      builder: (context, timeState, _) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              '${timeState.getHijriDateTime.hDay} ${appLocale.hijriMonthNames.split(', ')[timeState.getHijriDateTime.hMonth - 1]} ${timeState.getHijriDateTime.hYear}',
+              style: TextStyle(
+                fontSize: 17.0,
+                fontFamily: AppStringConstraints.fontGilroy,
+                color: appColors.primary,
+                fontWeight: FontWeight.bold,
+              ),
+              overflow: TextOverflow.ellipsis,
+            ),
+            Visibility(
+              visible: timeState.getHijriDateTime.hDay == 12,
+              child: Text(
+                'Приблизились белые дни',
+                style: TextStyle(
+                  fontSize: 12.0,
+                  color: appColors.secondary,
                 ),
-                const SizedBox(width: 4),
-                const Text('/', style: AppStyles.mainTextStyle),
-                const SizedBox(width: 4),
-                Text(
-                  '${timeState.getHijriDateTime.toFormat('dd.mm.yyyy')} – ${appLocale.hijriMonthNames.split(', ')[timeState.getHijriDateTime.hMonth - 1]}',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 14.0,
-                    color: appColors.tertiary,
+                textAlign: TextAlign.start,
+              ),
+            ),
+            Visibility(
+              visible: timeState.isWhiteDays(),
+              child: Wrap(
+                alignment: WrapAlignment.start,
+                spacing: 4,
+                children: [
+                  Text(
+                    'Белые дни',
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      color: appColors.secondary,
+                    ),
+                    textAlign: TextAlign.start,
                   ),
-                ),
-              ],
-            );
-          },
-        ),
-      ),
+                  WhiteDayItem(
+                    dayNumber: 13,
+                    dayColor: timeState.getHijriDateTime.hDay == 13
+                        ? appColors.tertiaryContainer
+                        : appColors.secondaryContainer,
+                  ),
+                  WhiteDayItem(
+                    dayNumber: 14,
+                    dayColor: timeState.getHijriDateTime.hDay == 14
+                        ? appColors.tertiaryContainer
+                        : appColors.secondaryContainer,
+                  ),
+                  WhiteDayItem(
+                    dayNumber: 15,
+                    dayColor: timeState.getHijriDateTime.hDay == 15
+                        ? appColors.tertiaryContainer
+                        : appColors.secondaryContainer,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

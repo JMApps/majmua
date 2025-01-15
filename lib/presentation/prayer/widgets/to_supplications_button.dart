@@ -20,15 +20,17 @@ class ToSupplicationsButton extends StatelessWidget {
     return Tooltip(
       message: appLocale.adhkars,
       child: InkWell(
-        onTap: () {},
-        splashColor: appColors.primary.withAlpha(25),
+        onTap: () {
+          // Navigate to fortress
+        },
+        splashColor: appColors.primary.withAlpha(75),
         borderRadius: AppStyles.mainBorderMini,
         child: Padding(
           padding: AppStyles.mardingHorizontalMini,
           child: Image.asset(
             'assets/icons/$iconName.png',
-            height: 20,
-            width: 20,
+            height: 20.0,
+            width: 20.0,
             color: appColors.tertiary,
           ),
         ),
