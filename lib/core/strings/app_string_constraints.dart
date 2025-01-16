@@ -44,6 +44,11 @@ class AppStringConstraints {
   static const String iconQiblah = 'qiblah';
   static const String iconAqsa = 'aqsa';
   static const String iconHands = 'hands';
+  static const String iconQuran = 'quran';
+  static const String iconSQuran = 's_quran';
+  static const String iconFortress = 'fortress';
+  static const String iconGems = 'gems';
+  static const String iconCounter = 'counter';
 
   static const String timeSunrise = 'sunrise';
   static const String timeMiddleNight = 'middle_night';

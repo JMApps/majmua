@@ -48,6 +48,12 @@
   "nearFriday": "Завтра пятница",
   "lastFridayHour": "Последний час пятницы",
 
+  "quran": "Коран",
+  "sQuran": "Мольбы из Корана",
+  "fortress": "Азкары",
+  "gems": "Жемчужины",
+  "counter": "Счётчик",
+
   "seasonSpring": "Весна",
   "seasonSummer": "Лето",
   "seasonFall": "Осень",
