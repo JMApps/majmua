@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../core/styles/app_styles.dart';
 
@@ -21,26 +22,24 @@ class MainButtonItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          InkWell(
-            onTap: onTap,
-            borderRadius: AppStyles.mainBorderMini,
-            splashColor: appColors.primaryContainer,
-            child: Container(
-              height: 40,
-              decoration: BoxDecoration(
-                borderRadius: AppStyles.mainBorderMini,
-                border: Border.all(
-                  width: 2.5,
-                  color: appColors.secondaryContainer,
-                ),
-                image: DecorationImage(
-                  colorFilter: ColorFilter.mode(
-                    appColors.primary,
-                    BlendMode.srcIn,
-                  ),
-                  image: AssetImage('assets/icons/$imageName.png'),
-                ),
-              ),
+          IconButton.filledTonal(
+            visualDensity: VisualDensity.compact,
+            padding: EdgeInsets.zero,
+            highlightColor: appColors.tertiaryContainer,
+            focusColor: appColors.tertiaryContainer,
+            tooltip: title,
+            onPressed: () {
+              HapticFeedback.lightImpact();
+            },
+            icon: Image.asset(
+              'assets/icons/$imageName.png',
+              color: appColors.primary,
+              width: 50,
+              height: 50,
+            ),
+            style: ButtonStyle(
+              backgroundColor: WidgetStateProperty.all<Color>(appColors.secondaryContainer.withAlpha(125)),
+              shape: WidgetStateProperty.all<OutlinedBorder?>(AppStyles.mainShapeMini),
             ),
           ),
           const SizedBox(height: 4),

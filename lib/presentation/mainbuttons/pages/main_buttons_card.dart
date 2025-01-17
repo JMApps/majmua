@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/strings/app_string_constraints.dart';
-import 'package:majmua/presentation/mainbuttons/widgets/main_button_item.dart';
 
+import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
+import '../widgets/main_button_item.dart';
 
 class MainButtonsCard extends StatelessWidget {
   const MainButtonsCard({super.key});
@@ -49,7 +49,6 @@ class MainButtonsCard extends StatelessWidget {
                   imageName: AppStringConstraints.iconCounter,
                   title: appLocale.counter,
                 ),
-                const SizedBox(width: 8),
               ],
             ),
           ],
