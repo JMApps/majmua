@@ -15,12 +15,12 @@ class WhiteDayItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
       backgroundColor: dayColor,
-      radius: 8.0,
+      radius: 10.0,
       child: Padding(
         padding: AppStyles.mardingTopMicroMini,
         child: Text(
           '$dayNumber',
-          style: const TextStyle(fontSize: 9.0),
+          style: const TextStyle(fontSize: 11.0),
         ),
       ),
     );

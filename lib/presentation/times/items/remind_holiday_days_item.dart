@@ -56,6 +56,7 @@ class RemindHolidayDaysItem extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             LinearPercentIndicator(
+              lineHeight: 2.5,
               padding: EdgeInsets.zero,
               percent: percentage,
               progressColor: itemColor,

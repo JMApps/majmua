@@ -24,7 +24,6 @@ class TimePeriodPercent extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
     final appColors = Theme.of(context).colorScheme;
-    final mediaQuerySize = MediaQuery.of(context).size.width;
     return Consumer<PrayerState>(
       builder: (context, prayerState, _) {
         return LinearPercentIndicator(
@@ -37,8 +36,7 @@ class TimePeriodPercent extends StatelessWidget {
             padding: AppStyles.mardingHorizontalMini,
             child: Row(
               children: [
-                SizedBox(
-                  width: mediaQuerySize * 0.1,
+                Expanded(
                   child: Visibility(
                     visible: !prayerState.thirdState(partName: partName),
                     maintainSize: true,
@@ -50,23 +48,25 @@ class TimePeriodPercent extends StatelessWidget {
                         fontSize: 13.0,
                         color: appColors.onErrorContainer,
                       ),
+                      textAlign: TextAlign.start,
                     ),
                   ),
                 ),
                 Expanded(
+                  flex: 3,
                   child: Text(
                     partName.contains(AppStringConstraints.timeSunrise) && prayerState.isDuha ? '$dayTitle ${appLocale.duha}' : dayTitle,
                     textAlign: TextAlign.center,
                   ),
                 ),
-                SizedBox(
-                  width: mediaQuerySize * 0.075,
+                Expanded(
                   child: Text(
                     DateFormat('HH:mm').format(prayerState.thirdTime(partName: partName)),
                     style: const TextStyle(
                       fontSize: 13.0,
                       fontWeight: FontWeight.bold,
                     ),
+                    textAlign: TextAlign.end,
                   ),
                 ),
               ],

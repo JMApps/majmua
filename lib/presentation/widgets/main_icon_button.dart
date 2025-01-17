@@ -19,6 +19,7 @@ class MainIconButton extends StatelessWidget {
     return IconButton(
       onPressed: onPressed,
       tooltip: tooltip,
+      splashColor: iconColor,
       visualDensity: VisualDensity.compact,
       icon: Image.asset(
         'assets/icons/$iconName.png',

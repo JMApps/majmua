@@ -15,7 +15,7 @@ class PrayerParamsPage extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
-        title: Text(appLocale.params),
+        title: Text(appLocale.prayerParams),
       ),
       body: SingleChildScrollView(
         child: Consumer<PrayerState>(

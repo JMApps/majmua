@@ -21,9 +21,19 @@ class MainDataItem extends StatelessWidget {
             Text(
               '${timeState.getHijriDateTime.hDay} ${appLocale.hijriMonthNames.split(', ')[timeState.getHijriDateTime.hMonth - 1]} ${timeState.getHijriDateTime.hYear}',
               style: TextStyle(
-                fontSize: 17.0,
+                fontSize: 15.0,
                 fontFamily: AppStringConstraints.fontGilroy,
                 color: appColors.primary,
+                fontWeight: FontWeight.bold,
+              ),
+              overflow: TextOverflow.ellipsis,
+            ),
+            Text(
+              '${timeState.getDateTime.day} ${appLocale.gregorianMonthNames.split(', ')[timeState.getDateTime.month - 1]} ${timeState.getDateTime.year}',
+              style: TextStyle(
+                fontSize: 15.0,
+                fontFamily: AppStringConstraints.fontGilroy,
+                color: appColors.tertiary,
                 fontWeight: FontWeight.bold,
               ),
               overflow: TextOverflow.ellipsis,
@@ -31,7 +41,7 @@ class MainDataItem extends StatelessWidget {
             Visibility(
               visible: timeState.getHijriDateTime.hDay == 12,
               child: Text(
-                'Приблизились белые дни',
+                appLocale.nearWhiteDays,
                 style: TextStyle(
                   fontSize: 12.0,
                   color: appColors.secondary,
@@ -46,9 +56,9 @@ class MainDataItem extends StatelessWidget {
                 spacing: 4,
                 children: [
                   Text(
-                    'Белые дни',
+                    appLocale.whiteDays,
                     style: TextStyle(
-                      fontSize: 12.0,
+                      fontSize: 14.0,
                       color: appColors.secondary,
                     ),
                     textAlign: TextAlign.start,

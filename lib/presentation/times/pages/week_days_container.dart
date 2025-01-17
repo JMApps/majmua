@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/styles/app_styles.dart';
-import '../widgets/week_day.dart';
+import '../items/week_day_item.dart';
 
 class WeekDaysContainer extends StatelessWidget {
   const WeekDaysContainer({super.key});
@@ -14,19 +14,19 @@ class WeekDaysContainer extends StatelessWidget {
         padding: AppStyles.mainMardingMini,
         child: Row(
           children: [
-            WeekDay(dayNumber: 1),
+            WeekDayItem(dayNumber: 1),
             SizedBox(width: 8),
-            WeekDay(dayNumber: 2),
+            WeekDayItem(dayNumber: 2),
             SizedBox(width: 8),
-            WeekDay(dayNumber: 3),
+            WeekDayItem(dayNumber: 3),
             SizedBox(width: 8),
-            WeekDay(dayNumber: 4),
+            WeekDayItem(dayNumber: 4),
             SizedBox(width: 8),
-            WeekDay(dayNumber: 5),
+            WeekDayItem(dayNumber: 5),
             SizedBox(width: 8),
-            WeekDay(dayNumber: 6),
+            WeekDayItem(dayNumber: 6),
             SizedBox(width: 8),
-            WeekDay(dayNumber: 7),
+            WeekDayItem(dayNumber: 7),
           ],
         ),
       ),

@@ -50,6 +50,7 @@ class _PrayerItemState extends State<PrayerItem> {
                   Text(
                     widget.prayerName,
                     style: const TextStyle(
+                      fontSize: 15.0,
                      fontFamily: AppStringConstraints.fontGilroyMedium,
                     ),
                     overflow: TextOverflow.ellipsis,

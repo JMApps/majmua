@@ -6,8 +6,8 @@ import '../../../core/styles/app_styles.dart';
 import '../../state/prayer_state.dart';
 import '../../state/time_state.dart';
 
-class WeekDay extends StatefulWidget {
-  const WeekDay({
+class WeekDayItem extends StatefulWidget {
+  const WeekDayItem({
     super.key,
     required this.dayNumber,
   });
@@ -15,10 +15,10 @@ class WeekDay extends StatefulWidget {
   final int dayNumber;
 
   @override
-  State<WeekDay> createState() => _WeekDayState();
+  State<WeekDayItem> createState() => _WeekDayItemState();
 }
 
-class _WeekDayState extends State<WeekDay> {
+class _WeekDayItemState extends State<WeekDayItem> {
   @override
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
@@ -58,10 +58,10 @@ class _WeekDayState extends State<WeekDay> {
         dayColor = appColors.primary;
         break;
       case 5:
-        dayColor = appColors.error;
+        dayColor = appColors.tertiaryContainer;
         break;
       default:
-        dayColor = appColors.tertiary;
+        dayColor = appColors.secondary;
     }
     return dayColor;
   }
@@ -75,10 +75,10 @@ class _WeekDayState extends State<WeekDay> {
         dayColor = appColors.primaryContainer;
         break;
       case 5:
-        dayColor = appColors.errorContainer;
+        dayColor = appColors.tertiary;
         break;
       default:
-        dayColor = appColors.tertiaryContainer;
+        dayColor = appColors.secondaryContainer;
     }
     return dayColor;
   }

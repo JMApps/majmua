@@ -30,7 +30,7 @@ class SeasonItem extends StatelessWidget {
       clockwise: true,
       color: appColors.primary,
       emptyStrokeColor: appColors.primaryContainer.withAlpha(125),
-      strokeWidth: 2.5,
+      strokeWidth: 1.75,
       emptyStrokeWidth: 1.25,
       child: Container(
         alignment: Alignment.center,
