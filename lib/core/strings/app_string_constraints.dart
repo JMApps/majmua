@@ -49,6 +49,9 @@ class AppStringConstraints {
   static const String iconFortress = 'fortress';
   static const String iconGems = 'gems';
   static const String iconCounter = 'counter';
+  static const String iconAyahDay = 'ayah_day';
+  static const String iconHadithDay = 'hadith_day';
+  static const String iconShare = 'share';
 
   static const String timeSunrise = 'sunrise';
   static const String timeMiddleNight = 'middle_night';

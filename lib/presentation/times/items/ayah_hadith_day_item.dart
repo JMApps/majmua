@@ -6,19 +6,21 @@ import '../../../core/styles/app_styles.dart';
 class AyahHadithDayItem extends StatelessWidget {
   const AyahHadithDayItem({
     super.key,
+    required this.iconName,
     required this.title,
     required this.color,
     required this.onTap,
   });
 
+  final String iconName;
   final String title;
   final Color color;
   final GestureTapCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: AppStyles.mardingRightMini,
+    return Card(
+      margin: AppStyles.mardingRightMini,
       child: InkWell(
         onTap: onTap,
         borderRadius: AppStyles.mainBorderMini,
@@ -32,6 +34,10 @@ class AyahHadithDayItem extends StatelessWidget {
             border: Border.all(
               width: 2.5,
               color: color,
+            ),
+            image: DecorationImage(
+              image: AssetImage('assets/icons/$iconName.png'),
+              colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
             ),
           ),
           child: Text(
