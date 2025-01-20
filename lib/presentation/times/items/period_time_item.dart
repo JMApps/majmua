@@ -25,7 +25,7 @@ class PeriodTimeItem extends StatelessWidget {
     final String pastTime = '${(percent - 100).toStringAsFixed(2)}%';
     return Container(
       decoration: BoxDecoration(
-        color: timeIndex.isOdd ? appColors.onPrimary.withAlpha(150) : appColors.onTertiary.withAlpha(150),
+        color: appColors.surface,
         shape: BoxShape.circle,
       ),
       child: SleekCircularSlider(
