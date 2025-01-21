@@ -31,7 +31,7 @@ class ToSupplicationsButton extends StatelessWidget {
             'assets/icons/$iconName.png',
             height: 20.0,
             width: 20.0,
-            color: appColors.tertiary,
+            color: appColors.secondary,
           ),
         ),
       ),
