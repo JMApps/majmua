@@ -25,20 +25,20 @@ class _WeekDayItemState extends State<WeekDayItem> {
     final appColors = Theme.of(context).colorScheme;
     return Consumer2<TimeState, PrayerState>(
       builder: (context, timeState, prayerState, _) {
-        final bool isWeekday = timeState.isWeekDay(dayNumber: widget.dayNumber);
+        final bool isWeekday = timeState.getDateTime.weekday == widget.dayNumber;
         return Expanded(
           child: Container(
             height: 25.0,
             decoration: BoxDecoration(
               borderRadius: AppStyles.mainBorderMini,
-              color: isWeekday ? getWeekDay(widget.dayNumber) : appColors.secondaryContainer,
+              color: isWeekday ? appColors.primary : timeState.getDateTime.weekday == 5 ? appColors.error : appColors.secondaryContainer,
             ),
             alignment: Alignment.center,
             child: Text(
               appLocale.week2DayNames.split(', ')[widget.dayNumber - 1],
               style: TextStyle(
                 fontSize: 12.0,
-                color: isWeekday ? getShadowWeekDay(widget.dayNumber) : appColors.secondary,
+                color: isWeekday ? appColors.primaryContainer : timeState.getDateTime.weekday == 5 ? appColors.errorContainer : appColors.secondary,
                 fontWeight: !isWeekday ? FontWeight.normal : FontWeight.bold,
               ),
               overflow: TextOverflow.ellipsis,
@@ -47,39 +47,5 @@ class _WeekDayItemState extends State<WeekDayItem> {
         );
       },
     );
-  }
-
-  Color getWeekDay(dayNumber) {
-    final appColors = Theme.of(context).colorScheme;
-    late Color dayColor;
-    switch (dayNumber) {
-      case 1:
-      case 4:
-        dayColor = appColors.primary;
-        break;
-      case 5:
-        dayColor = appColors.tertiaryContainer;
-        break;
-      default:
-        dayColor = appColors.secondary;
-    }
-    return dayColor;
-  }
-
-  Color getShadowWeekDay(dayNumber) {
-    final appColors = Theme.of(context).colorScheme;
-    late Color dayColor;
-    switch (dayNumber) {
-      case 1:
-      case 4:
-        dayColor = appColors.primaryContainer;
-        break;
-      case 5:
-        dayColor = appColors.tertiary;
-        break;
-      default:
-        dayColor = appColors.secondaryContainer;
-    }
-    return dayColor;
   }
 }

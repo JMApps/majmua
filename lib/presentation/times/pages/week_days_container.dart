@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/styles/app_styles.dart';
+import '../items/fasting_messages.dart';
 import '../items/week_day_item.dart';
 
 class WeekDaysContainer extends StatelessWidget {
@@ -12,21 +13,27 @@ class WeekDaysContainer extends StatelessWidget {
       margin: AppStyles.mardingHorizontalMini,
       child: Padding(
         padding: AppStyles.mainMardingMini,
-        child: Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            WeekDayItem(dayNumber: 1),
-            SizedBox(width: 8),
-            WeekDayItem(dayNumber: 2),
-            SizedBox(width: 8),
-            WeekDayItem(dayNumber: 3),
-            SizedBox(width: 8),
-            WeekDayItem(dayNumber: 4),
-            SizedBox(width: 8),
-            WeekDayItem(dayNumber: 5),
-            SizedBox(width: 8),
-            WeekDayItem(dayNumber: 6),
-            SizedBox(width: 8),
-            WeekDayItem(dayNumber: 7),
+            Row(
+              children: [
+                WeekDayItem(dayNumber: 1),
+                SizedBox(width: 8),
+                WeekDayItem(dayNumber: 2),
+                SizedBox(width: 8),
+                WeekDayItem(dayNumber: 3),
+                SizedBox(width: 8),
+                WeekDayItem(dayNumber: 4),
+                SizedBox(width: 8),
+                WeekDayItem(dayNumber: 5),
+                SizedBox(width: 8),
+                WeekDayItem(dayNumber: 6),
+                SizedBox(width: 8),
+                WeekDayItem(dayNumber: 7),
+              ],
+            ),
+            FastingMessages(),
           ],
         ),
       ),
