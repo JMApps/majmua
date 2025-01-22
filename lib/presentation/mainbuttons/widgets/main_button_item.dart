@@ -19,37 +19,25 @@ class MainButtonItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
     return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          IconButton.filledTonal(
-            visualDensity: VisualDensity.compact,
-            padding: EdgeInsets.zero,
-            highlightColor: appColors.tertiaryContainer,
-            focusColor: appColors.tertiaryContainer,
-            tooltip: title,
-            onPressed: () {
-              HapticFeedback.lightImpact();
-            },
-            icon: Image.asset(
-              'assets/icons/$imageName.png',
-              color: appColors.primary,
-              width: 50,
-              height: 50,
-            ),
-            style: ButtonStyle(
-              backgroundColor: WidgetStateProperty.all<Color>(appColors.secondaryContainer.withAlpha(125)),
-              shape: WidgetStateProperty.all<OutlinedBorder?>(AppStyles.mainShapeMini),
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            title,
-            style: const TextStyle(fontSize: 14.0),
-            textAlign: TextAlign.center,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ],
+      child: IconButton.filledTonal(
+        visualDensity: VisualDensity.compact,
+        padding: EdgeInsets.zero,
+        highlightColor: appColors.tertiaryContainer,
+        focusColor: appColors.tertiaryContainer,
+        tooltip: title,
+        onPressed: () {
+          HapticFeedback.lightImpact();
+        },
+        icon: Image.asset(
+          'assets/icons/$imageName.png',
+          color: appColors.primary,
+          width: 50,
+          height: 50,
+        ),
+        style: ButtonStyle(
+          backgroundColor: WidgetStateProperty.all<Color>(appColors.secondaryContainer.withAlpha(125)),
+          shape: WidgetStateProperty.all<OutlinedBorder?>(AppStyles.mainShapeMini),
+        ),
       ),
     );
   }

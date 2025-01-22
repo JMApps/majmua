@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 
 import '../../../core/styles/app_styles.dart';
 
@@ -9,14 +8,12 @@ class RemindHolidayDaysItem extends StatelessWidget {
     required this.remindTitle,
     required this.remindDays,
     required this.eventDate,
-    required this.percentage,
     required this.itemColor,
   });
 
   final String remindTitle;
   final int remindDays;
   final String eventDate;
-  final double percentage;
   final Color itemColor;
 
   @override
@@ -25,43 +22,42 @@ class RemindHolidayDaysItem extends StatelessWidget {
     return Card(
       margin: AppStyles.mardingHorizontalMini,
       child: Padding(
-        padding: AppStyles.mainMardingMini,
-        child: Column(
+        padding: AppStyles.mardingHorizontalMini,
+        child: Row(
           children: [
-            Row(
-              children: [
-                Text(
-                  remindTitle,
-                  style: const TextStyle(
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+            Expanded(
+              flex: 9,
+              child: Text(
+                remindTitle,
+                style: TextStyle(
+                  fontSize: 14.0,
+                  color: itemColor,
+                  fontWeight: FontWeight.bold,
                 ),
-                const Spacer(),
-                const SizedBox(width: 8),
-                Text(
-                  '($eventDate)',
-                  style: const TextStyle(fontSize: 11.0),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(width: 8),
-                Text(
-                  remindDays.toString(),
-                  style: const TextStyle(
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
+              ),
             ),
-            const SizedBox(height: 8),
-            LinearPercentIndicator(
-              lineHeight: 2.5,
-              padding: EdgeInsets.zero,
-              percent: percentage,
-              progressColor: itemColor,
-              backgroundColor: appColors.surface,
-              barRadius: const Radius.circular(8),
+            const SizedBox(width: 8),
+            Expanded(
+              flex: 3,
+              child: Tooltip(
+                message: eventDate,
+                child: Card(
+                  color: appColors.secondaryContainer,
+                  shape: AppStyles.mainShapeMini,
+                  child: Padding(
+                    padding: AppStyles.mardingVerticalMicro,
+                    child: Text(
+                      remindDays.toString(),
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        color: itemColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+              ),
             ),
           ],
         ),

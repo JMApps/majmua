@@ -26,12 +26,32 @@ class TimeState extends ChangeNotifier {
     _startCron();
   }
 
-  bool isWeekDay({required int dayNumber}) {
-    return _dateTime.weekday == dayNumber;
+  bool isRamadan() {
+    return _hijriCalendar.hMonth == 9;
+  }
+
+  bool isDhulhijjah() {
+    return _hijriCalendar.hMonth == 10 && _hijriCalendar.hDay <= 9;
+  }
+
+  bool isRamadanHoliday() {
+    return _hijriCalendar.hMonth == 10 && _hijriCalendar.hDay <= 1;
+  }
+
+  bool isDhulhijjahHoliday() {
+    return _hijriCalendar.hMonth == 10 && _hijriCalendar.hDay >= 10 && _hijriCalendar.hDay <= 12;
   }
 
   bool isWhiteDays() {
     return _hijriCalendar.hDay >= 13 && _hijriCalendar.hDay <= 15;
+  }
+
+  bool isNearThirdSixth() {
+    return _dateTime.weekday == 3 || _dateTime.weekday == 7;
+  }
+
+  bool isFirstFourth() {
+    return _dateTime.weekday == 1 || _dateTime.weekday == 4;
   }
 
   Map<String, dynamic> getDaysToRamadan() {
@@ -45,21 +65,10 @@ class TimeState extends ChangeNotifier {
     final Duration difference = ramadanDate.difference(_dateTime);
     final int daysToRamadan = difference.inDays;
 
-    final DateTime startOfYear = DateTime(_dateTime.year);
-    final DateTime endOfYear = DateTime(_dateTime.year + 1);
-    final int totalDaysInYear = endOfYear.difference(startOfYear).inDays;
-
-    final double percentage = 1.0 - (daysToRamadan / totalDaysInYear);
-
     return {
       AppStringConstraints.mapDaysToRamadan: daysToRamadan,
       AppStringConstraints.mapRamadanDate: ramadanDate,
-      AppStringConstraints.mapPercentageToRamadan: percentage.clamp(0.0, 1.0),
     };
-  }
-  
-  bool get isRamadanHoliday {
-    return _hijriCalendar.hMonth == 10 && _hijriCalendar.hDay == 1;
   }
 
   Map<String, dynamic> getDaysToDhulHijjah() {
@@ -73,16 +82,9 @@ class TimeState extends ChangeNotifier {
     final Duration difference = dhulHijjahDate.difference(_dateTime);
     final int daysToDhulHijjah = difference.inDays;
 
-    final DateTime startOfYear = DateTime(_dateTime.year);
-    final DateTime endOfYear = DateTime(_dateTime.year + 1);
-    final int totalDaysInYear = endOfYear.difference(startOfYear).inDays;
-
-    final double percentage = 1.0 - (daysToDhulHijjah / totalDaysInYear);
-
     return {
       AppStringConstraints.mapDaysToDhulHijjah: daysToDhulHijjah,
       AppStringConstraints.mapDhulHijjahDate: dhulHijjahDate,
-      AppStringConstraints.mapPercentageToDhulHijjah: percentage.clamp(0.0, 1.0),
     };
   }
 

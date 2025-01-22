@@ -57,8 +57,8 @@ class SeasonTimesContainer extends StatelessWidget {
                 IgnorePointer(
                   child: CupertinoSlidingSegmentedControl(
                     groupValue: timeState.getCurrentSeason(),
-                    thumbColor: appColors.inversePrimary,
-                    backgroundColor: appColors.inversePrimary.withAlpha(35),
+                    thumbColor: appColors.surface,
+                    backgroundColor: appColors.surface,
                     children: <Season, Widget>{
                       Season.spring: timeState.getCurrentSeason() == Season.spring
                           ? SeasonItem(season: Season.spring, seasonName: appLocale.seasonSpring)

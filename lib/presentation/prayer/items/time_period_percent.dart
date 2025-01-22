@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
@@ -13,12 +12,12 @@ class TimePeriodPercent extends StatelessWidget {
     super.key,
     required this.dayTitle,
     required this.partName,
-    required this.percentColor,
+    required this.cardColor,
   });
 
   final String dayTitle;
   final String partName;
-  final Color percentColor;
+  final Color cardColor;
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +25,9 @@ class TimePeriodPercent extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     return Consumer<PrayerState>(
       builder: (context, prayerState, _) {
-        return LinearPercentIndicator(
-          lineHeight: 22.5,
-          padding: EdgeInsets.zero,
-          percent: prayerState.thirdState(partName: partName) ? 1.0 : prayerState.getProgressForPart(partName: partName),
-          progressColor: percentColor,
-          backgroundColor: appColors.surface,
-          center: Padding(
+        return Card(
+          color: cardColor,
+          child: Padding(
             padding: AppStyles.mardingHorizontalMini,
             child: Row(
               children: [
@@ -43,7 +38,7 @@ class TimePeriodPercent extends StatelessWidget {
                     maintainAnimation: true,
                     maintainState: true,
                     child: Text(
-                      '–${prayerState.restPrayerTime(isBefore: true, time: prayerState.thirdTime(partName: partName))}',
+                      '-${prayerState.restPrayerTime(isBefore: true, time: prayerState.thirdTime(partName: partName))}',
                       style: TextStyle(
                         fontSize: 13.0,
                         color: appColors.onErrorContainer,
@@ -72,7 +67,6 @@ class TimePeriodPercent extends StatelessWidget {
               ],
             ),
           ),
-          barRadius: const Radius.circular(8),
         );
       },
     );

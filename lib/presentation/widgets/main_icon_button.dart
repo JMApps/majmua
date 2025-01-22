@@ -21,6 +21,7 @@ class MainIconButton extends StatelessWidget {
       tooltip: tooltip,
       splashColor: iconColor,
       visualDensity: VisualDensity.compact,
+      padding: EdgeInsets.zero,
       icon: Image.asset(
         'assets/icons/$iconName.png',
         height: 22.5,

@@ -18,69 +18,68 @@ class RestHolidaysContainer extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     return Consumer<TimeState>(
       builder: (context, timeState, _) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SizedBox(
-              height: 50,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Expanded(
-                    flex: 8,
-                    child: RemindHolidayDaysItem(
-                      remindTitle: appLocale.daysToRamadan,
-                      remindDays: timeState.getDaysToRamadan()[AppStringConstraints.mapDaysToRamadan],
-                      eventDate: DateFormat('dd.MM.yyyy').format(timeState.getDaysToRamadan()[AppStringConstraints.mapRamadanDate]),
-                      percentage: timeState.getDaysToRamadan()[AppStringConstraints.mapPercentageToRamadan],
-                      itemColor: appColors.primaryContainer,
+        return SizedBox(
+          height: 100,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      flex: 8,
+                      child: RemindHolidayDaysItem(
+                        remindTitle: appLocale.daysToRamadan,
+                        remindDays: timeState.getDaysToRamadan()[AppStringConstraints.mapDaysToRamadan],
+                        eventDate: DateFormat('dd.MM.yyyy').format(timeState.getDaysToRamadan()[AppStringConstraints.mapRamadanDate]),
+                        itemColor: appColors.primary,
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: AyahHadithDayItem(
-                      iconName: AppStringConstraints.iconAyahDay,
-                      title: appLocale.ayahDay,
-                      color: appColors.primaryContainer,
-                      onTap: () {
-                        HapticFeedback.lightImpact();
-                      },
+                    Expanded(
+                      flex: 2,
+                      child: AyahHadithDayItem(
+                        iconName: AppStringConstraints.iconAyahDay,
+                        title: appLocale.ayahDay,
+                        color: appColors.primary,
+                        onTap: () {
+                          HapticFeedback.lightImpact();
+                        },
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: 8),
-            SizedBox(
-              height: 50,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Expanded(
-                    flex: 8,
-                    child: RemindHolidayDaysItem(
-                      remindTitle: appLocale.daysToDhulHujjah,
-                      remindDays: timeState.getDaysToDhulHijjah()[AppStringConstraints.mapDaysToDhulHijjah],
-                      eventDate: DateFormat('dd.MM.yyyy').format(timeState.getDaysToDhulHijjah()[AppStringConstraints.mapDhulHijjahDate]),
-                      percentage: timeState.getDaysToDhulHijjah()[AppStringConstraints.mapPercentageToDhulHijjah],
-                      itemColor: appColors.tertiaryContainer,
+              const SizedBox(height: 8),
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      flex: 8,
+                      child: RemindHolidayDaysItem(
+                        remindTitle: appLocale.daysToDhulHujjah,
+                        remindDays: timeState.getDaysToDhulHijjah()[AppStringConstraints.mapDaysToDhulHijjah],
+                        eventDate: DateFormat('dd.MM.yyyy').format(timeState.getDaysToDhulHijjah()[AppStringConstraints.mapDhulHijjahDate]),
+                        itemColor: appColors.tertiary,
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: AyahHadithDayItem(
-                      iconName: AppStringConstraints.iconHadithDay,
-                      title: appLocale.hadithDay,
-                      color: appColors.tertiaryContainer,
-                      onTap: () {
-                        HapticFeedback.lightImpact();
-                      },
+                    Expanded(
+                      flex: 2,
+                      child: AyahHadithDayItem(
+                        iconName: AppStringConstraints.iconHadithDay,
+                        title: appLocale.hadithDay,
+                        color: appColors.tertiary,
+                        onTap: () {
+                          HapticFeedback.lightImpact();
+                        },
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       },
     );

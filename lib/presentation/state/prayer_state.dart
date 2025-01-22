@@ -223,18 +223,6 @@ class PrayerState extends ChangeNotifier {
     return state;
   }
 
-  double getProgressForPart({required String partName}) {
-    final DateTime targetTime = thirdTime(partName: partName);
-    final int remainingTimeInMinutes;
-    if (_dateTime.isBefore(targetTime)) {
-      remainingTimeInMinutes = targetTime.difference(_dateTime).inMinutes;
-    } else {
-      remainingTimeInMinutes = targetTime.add(const Duration(days: 1)).difference(_dateTime).inMinutes;
-    }
-    final elapsedPercentage = (1.0 - remainingTimeInMinutes / const Duration(days: 1).inMinutes).clamp(0.0, 1.0);
-    return elapsedPercentage;
-  }
-
   bool isAdhan({required Prayer prayer}) {
     DateTime currentPrayerTime = _prayerTimes.timeForPrayer(prayer)!;
     return _dateTime.isAfter(currentPrayerTime.add(const Duration(minutes: -1))) && _dateTime.isBefore(currentPrayerTime.add(const Duration(minutes: 3)));

@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
 import '../../state/time_state.dart';
-import 'white_day_item.dart';
 
 class MainDataItem extends StatelessWidget {
   const MainDataItem({super.key});
@@ -28,6 +27,34 @@ class MainDataItem extends StatelessWidget {
               ),
               overflow: TextOverflow.ellipsis,
             ),
+            Visibility(
+              visible: (!timeState.isRamadan() || !timeState.isDhulhijjah()) && timeState.getHijriDateTime.hDay == 12,
+              child: Text(
+                appLocale.nearWhiteDays,
+                style: TextStyle(
+                  fontSize: 13.0,
+                  color: appColors.secondary,
+                ),
+                textAlign: TextAlign.start,
+              ),
+            ),
+            Visibility(
+              visible: (!timeState.isRamadan() || !timeState.isDhulhijjah()) && timeState.isWhiteDays(),
+              child: Wrap(
+                alignment: WrapAlignment.start,
+                spacing: 4,
+                children: [
+                  Text(
+                    appLocale.whiteDays,
+                    style: TextStyle(
+                      fontSize: 13.0,
+                      color: appColors.secondary,
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+                ],
+              ),
+            ),
             Text(
               '${timeState.getDateTime.day} ${appLocale.gregorianMonthNames.split(', ')[timeState.getDateTime.month - 1]} ${timeState.getDateTime.year}',
               style: TextStyle(
@@ -37,52 +64,6 @@ class MainDataItem extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
               overflow: TextOverflow.ellipsis,
-            ),
-            Visibility(
-              visible: timeState.getHijriDateTime.hDay == 12,
-              child: Text(
-                appLocale.nearWhiteDays,
-                style: TextStyle(
-                  fontSize: 12.0,
-                  color: appColors.secondary,
-                ),
-                textAlign: TextAlign.start,
-              ),
-            ),
-            Visibility(
-              visible: timeState.isWhiteDays(),
-              child: Wrap(
-                alignment: WrapAlignment.start,
-                spacing: 4,
-                children: [
-                  Text(
-                    appLocale.whiteDays,
-                    style: TextStyle(
-                      fontSize: 14.0,
-                      color: appColors.secondary,
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
-                  WhiteDayItem(
-                    dayNumber: 13,
-                    dayColor: timeState.getHijriDateTime.hDay == 13
-                        ? appColors.tertiaryContainer
-                        : appColors.secondaryContainer,
-                  ),
-                  WhiteDayItem(
-                    dayNumber: 14,
-                    dayColor: timeState.getHijriDateTime.hDay == 14
-                        ? appColors.tertiaryContainer
-                        : appColors.secondaryContainer,
-                  ),
-                  WhiteDayItem(
-                    dayNumber: 15,
-                    dayColor: timeState.getHijriDateTime.hDay == 15
-                        ? appColors.tertiaryContainer
-                        : appColors.secondaryContainer,
-                  ),
-                ],
-              ),
             ),
           ],
         );

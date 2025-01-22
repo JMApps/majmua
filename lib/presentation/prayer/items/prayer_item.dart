@@ -62,7 +62,7 @@ class _PrayerItemState extends State<PrayerItem> {
                   Visibility(
                     visible: isHourBefore || prayerState.isNextPrayer(prayer: widget.prayer),
                     child: Text(
-                      '–${prayerState.restPrayerTime(isBefore: true, time: currentPrayerTime)}',
+                      '-${prayerState.restPrayerTime(isBefore: true, time: currentPrayerTime)}',
                       style: TextStyle(
                         fontSize: 12.0,
                         color: appColors.tertiary,
@@ -90,34 +90,6 @@ class _PrayerItemState extends State<PrayerItem> {
                   ),
                   Visibility(
                     visible: prayerState.isDhikr(prayer: widget.prayer),
-                    child: const ToSupplicationsButton(
-                      fortressChapterId: 0,
-                      iconName: AppStringConstraints.iconHands,
-                    ),
-                  ),
-                  Visibility(
-                    visible: widget.prayer == Prayer.fajr && prayerState.isMorning,
-                    child: const ToSupplicationsButton(
-                      fortressChapterId: 0,
-                      iconName: AppStringConstraints.iconHands,
-                    ),
-                  ),
-                  Visibility(
-                    visible: widget.prayer == Prayer.sunrise && prayerState.isSunrise,
-                    child: const ToSupplicationsButton(
-                      fortressChapterId: 0,
-                      iconName: AppStringConstraints.iconHands,
-                    ),
-                  ),
-                  Visibility(
-                    visible: widget.prayer == Prayer.asr && prayerState.isEvening,
-                    child: const ToSupplicationsButton(
-                      fortressChapterId: 0,
-                      iconName: AppStringConstraints.iconHands,
-                    ),
-                  ),
-                  Visibility(
-                    visible: widget.prayer == Prayer.isha && prayerState.isNight,
                     child: const ToSupplicationsButton(
                       fortressChapterId: 0,
                       iconName: AppStringConstraints.iconHands,

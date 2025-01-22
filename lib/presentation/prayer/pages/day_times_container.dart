@@ -22,19 +22,19 @@ class DayTimesContainer extends StatelessWidget {
             TimePeriodPercent(
               dayTitle: appLocale.sunrise,
               partName: AppStringConstraints.timeSunrise,
-              percentColor: appColors.primaryContainer,
+              cardColor: appColors.primaryContainer,
             ),
             const SizedBox(height: 8),
             TimePeriodPercent(
               dayTitle: appLocale.midnight,
               partName: AppStringConstraints.timeMiddleNight,
-              percentColor: appColors.secondaryContainer,
+              cardColor: appColors.secondaryContainer,
             ),
             const SizedBox(height: 8),
             TimePeriodPercent(
               dayTitle: appLocale.lastThirdNightPart,
               partName: AppStringConstraints.timeLastThird,
-              percentColor: appColors.tertiaryContainer,
+              cardColor: appColors.tertiaryContainer,
             ),
           ],
         ),

@@ -1,6 +1,7 @@
 import 'package:adhan/adhan.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../core/routes/app_route_names.dart';
@@ -10,6 +11,7 @@ import '../../qiblah/qiblah_direction_container.dart';
 import '../../widgets/main_icon_button.dart';
 import '../items/prayer_item.dart';
 import '../items/select_city_item.dart';
+import '../widgets/prayer_messages.dart';
 
 class PrayersContainer extends StatelessWidget {
   const PrayersContainer({super.key});
@@ -29,6 +31,7 @@ class PrayersContainer extends StatelessWidget {
             const SizedBox(width: 8),
             MainIconButton(
               onPressed: () {
+                HapticFeedback.lightImpact();
                 Navigator.pushNamed(
                   context,
                   AppRouteNames.pagePrayerParams,
@@ -40,6 +43,7 @@ class PrayersContainer extends StatelessWidget {
             ),
             MainIconButton(
               onPressed: () {
+                HapticFeedback.lightImpact();
                 Navigator.pushNamed(
                   context,
                   AppRouteNames.pagePrayerSchedule,
@@ -53,6 +57,7 @@ class PrayersContainer extends StatelessWidget {
               padding: AppStyles.mardingRightMini,
               child: MainIconButton(
                 onPressed: () {
+                  HapticFeedback.lightImpact();
                   showModalBottomSheet(
                     context: context,
                     builder: (context) => const QiblahDirectionContainer(),
@@ -68,50 +73,49 @@ class PrayersContainer extends StatelessWidget {
         Card(
           elevation: 0,
           margin: AppStyles.mardingHorizontalMini,
-          child: ClipRRect(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const SizedBox(height: 8),
-                Padding(
-                  padding: AppStyles.mardingHorizontalMini,
-                  child: Row(
-                    children: [
-                      PrayerItem(
-                        prayer: Prayer.fajr,
-                        prayerName: appLocale.fajr,
-                        prayerIcon: CupertinoIcons.sunrise_fill,
-                      ),
-                      const SizedBox(width: 8),
-                      PrayerItem(
-                        prayer: Prayer.dhuhr,
-                        prayerName: appLocale.dhuhr,
-                        prayerIcon: CupertinoIcons.sun_max_fill,
-                      ),
-                      const SizedBox(width: 8),
-                      PrayerItem(
-                        prayer: Prayer.asr,
-                        prayerName: appLocale.asr,
-                        prayerIcon: CupertinoIcons.sun_min_fill,
-                      ),
-                      const SizedBox(width: 8),
-                      PrayerItem(
-                        prayer: Prayer.maghrib,
-                        prayerName: appLocale.maghrib,
-                        prayerIcon: CupertinoIcons.sunset_fill,
-                      ),
-                      const SizedBox(width: 8),
-                      PrayerItem(
-                        prayer: Prayer.isha,
-                        prayerName: appLocale.isha,
-                        prayerIcon: CupertinoIcons.moon_stars_fill,
-                      ),
-                    ],
-                  ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(height: 8),
+              Padding(
+                padding: AppStyles.mardingHorizontalMini,
+                child: Row(
+                  children: [
+                    PrayerItem(
+                      prayer: Prayer.fajr,
+                      prayerName: appLocale.fajr,
+                      prayerIcon: CupertinoIcons.sunrise_fill,
+                    ),
+                    const SizedBox(width: 8),
+                    PrayerItem(
+                      prayer: Prayer.dhuhr,
+                      prayerName: appLocale.dhuhr,
+                      prayerIcon: CupertinoIcons.sun_max_fill,
+                    ),
+                    const SizedBox(width: 8),
+                    PrayerItem(
+                      prayer: Prayer.asr,
+                      prayerName: appLocale.asr,
+                      prayerIcon: CupertinoIcons.sun_min_fill,
+                    ),
+                    const SizedBox(width: 8),
+                    PrayerItem(
+                      prayer: Prayer.maghrib,
+                      prayerName: appLocale.maghrib,
+                      prayerIcon: CupertinoIcons.sunset_fill,
+                    ),
+                    const SizedBox(width: 8),
+                    PrayerItem(
+                      prayer: Prayer.isha,
+                      prayerName: appLocale.isha,
+                      prayerIcon: CupertinoIcons.moon_stars_fill,
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 8),
-              ],
-            ),
+              ),
+              const SizedBox(height: 8),
+              const PrayerMessages(),
+            ],
           ),
         ),
       ],

@@ -52,7 +52,6 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
-
     return ChangeNotifierProvider<QiblahDirectionState>.value(
       value: _qiblahState,
       child: Consumer2<PrayerState, QiblahDirectionState>(
@@ -61,12 +60,10 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
           final double deviceOrientation = qiblahState.deviceOrientation;
 
           // Угол для стрелки Киблы
-          final double targetArrowAngle =
-              ((qiblahDirection - deviceOrientation) % 360) * (3.14159265359 / 180);
+          final double targetArrowAngle = ((qiblahDirection - deviceOrientation) % 360) * (3.14159265359 / 180);
 
           // Угол для фона компаса
-          final double targetBackgroundAngle =
-              -deviceOrientation * (3.14159265359 / 180);
+          final double targetBackgroundAngle = -deviceOrientation * (3.14159265359 / 180);
 
           return Container(
             width: double.infinity,
@@ -76,8 +73,7 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
               children: [
                 // Анимированный фон компаса
                 TweenAnimationBuilder<double>(
-                  tween: Tween<double>(
-                      begin: targetBackgroundAngle, end: targetBackgroundAngle),
+                  tween: Tween<double>(begin: targetBackgroundAngle, end: targetBackgroundAngle),
                   duration: const Duration(milliseconds: 300),
                   builder: (context, angle, child) {
                     return Transform.rotate(
@@ -85,14 +81,41 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
                       child: Image.asset(
                         'assets/pictures/compass.png',
                         fit: BoxFit.contain,
+                        color: appColors.primary,
                       ),
                     );
                   },
                 ),
-                // Анимированная стрелка Киблы
                 TweenAnimationBuilder<double>(
-                  tween: Tween<double>(
-                      begin: targetArrowAngle, end: targetArrowAngle),
+                  tween: Tween<double>(begin: targetArrowAngle, end: targetArrowAngle),
+                  duration: const Duration(milliseconds: 300),
+                  builder: (context, angle, child) {
+                    return Transform.rotate(
+                      angle: angle,
+                      child: Image.asset(
+                        'assets/pictures/dots.png',
+                        fit: BoxFit.contain,
+                        color: appColors.tertiary,
+                      ),
+                    );
+                  },
+                ),
+                TweenAnimationBuilder<double>(
+                  tween: Tween<double>(begin: targetArrowAngle, end: targetArrowAngle),
+                  duration: const Duration(milliseconds: 300),
+                  builder: (context, angle, child) {
+                    return Transform.rotate(
+                      angle: angle,
+                      child: Image.asset(
+                        'assets/pictures/n.png',
+                        fit: BoxFit.contain,
+                        color: appColors.tertiary,
+                      ),
+                    );
+                  },
+                ),
+                TweenAnimationBuilder<double>(
+                  tween: Tween<double>(begin: targetArrowAngle, end: targetArrowAngle),
                   duration: const Duration(milliseconds: 300),
                   builder: (context, angle, child) {
                     return Transform.rotate(
@@ -100,7 +123,7 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
                       child: Image.asset(
                         'assets/pictures/arrow.png',
                         fit: BoxFit.contain,
-                        height: 350,
+                        color: appColors.inversePrimary,
                       ),
                     );
                   },

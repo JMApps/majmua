@@ -27,10 +27,11 @@ class LibraryButton extends StatelessWidget {
         ),
         style: ButtonStyle(
           overlayColor: WidgetStateProperty.all(appColors.tertiaryContainer),
+          backgroundColor: WidgetStateProperty.all(appColors.secondaryContainer),
           side: WidgetStateProperty.all<BorderSide>(
             BorderSide(
-              width: 2.5,
-              color: appColors.primaryContainer,
+              width: 0,
+              color: appColors.secondaryContainer,
             ),
           ),
           shape: WidgetStateProperty.all(AppStyles.mainShapeMini),

@@ -24,20 +24,19 @@ class AyahHadithDayItem extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         borderRadius: AppStyles.mainBorderMini,
-        splashColor: color.withAlpha(155),
-        highlightColor: color,
+        splashColor: color.withAlpha(100),
+        highlightColor: color.withAlpha(100),
         child: Container(
-          height: 40,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: AppStyles.mainBorderMini,
             border: Border.all(
-              width: 2.5,
+              width: 1.5,
               color: color,
             ),
             image: DecorationImage(
               image: AssetImage('assets/icons/$iconName.png'),
-              colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(color.withAlpha(35), BlendMode.srcIn),
             ),
           ),
           child: Text(
