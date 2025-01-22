@@ -28,6 +28,11 @@
   "maghrib": "Магриб",
   "isha": "'Иша",
 
+  "morningAdhkarsTime": "Время утренних азкаров",
+  "eveningAdhkarsTime": "Время вечерних азкаров",
+  "adDuhaTime": "Время молитвы «ад-Духа»",
+  "nightAdhkarsTime": "Не забудь азкары перед сном!",
+
   "adhan": "Азан",
   "adhkars": "Азкары",
 
@@ -39,8 +44,7 @@
   "week2DayNames": "Пн, Вт, Ср, Чт, Пт, Сб, Вс",
 
   "nearFastingDay": "Завтра день желательного поста",
-  "fatingDay": "День желательного поста",
-  "nearFriday": "Завтра пятница",
+  "fastingDay": "День желательного поста",
   "lastFridayHour": "Последний час пятницы",
 
   "day": "День",
