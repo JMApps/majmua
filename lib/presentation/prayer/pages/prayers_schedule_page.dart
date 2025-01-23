@@ -1,11 +1,9 @@
-
 import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/styles/app_styles.dart';
 import '../../state/prayer_state.dart';
 
 class PrayersSchedulePage extends StatefulWidget {
@@ -43,56 +41,65 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
     final screenWidth = MediaQuery.of(context).size.width;
     final columnWidth = screenWidth / 7;
     final appColors = Theme.of(context).colorScheme;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(appLocale.prayerSchedule),
       ),
       body: Scrollbar(
         child: SingleChildScrollView(
-          padding: AppStyles.mardingBottom,
           child: DataTable(
             headingRowColor: WidgetStateProperty.all(appColors.inversePrimary.withAlpha(75)),
             columnSpacing: 0,
-            dataRowHeight: 32.5,
+            dataRowHeight: 35.0,
             columns: [
               DataColumn(
                 tooltip: appLocale.dayNumber,
-                label: const Text(''),
+                label: SizedBox(
+                  width: columnWidth / 1.75,
+                  child: const Text(''),
+                ),
               ),
               DataColumn(
                 tooltip: appLocale.fajr,
-                label: Text(
-                  appLocale.fajr,
+                label: SizedBox(
+                  width: columnWidth,
+                  child: Text(appLocale.fajr),
                 ),
               ),
               DataColumn(
                 tooltip: appLocale.sunrise,
-                label: Text(
-                  appLocale.sunrise,
+                label: SizedBox(
+                  width: columnWidth,
+                  child: Text(appLocale.sunrise),
                 ),
               ),
               DataColumn(
                 tooltip: appLocale.dhuhr,
-                label: Text(
-                  appLocale.dhuhr,
+                label: SizedBox(
+                  width: columnWidth,
+                  child: Text(appLocale.dhuhr),
                 ),
               ),
               DataColumn(
                 tooltip: appLocale.asr,
-                label: Text(
-                  appLocale.asr,
+                label: SizedBox(
+                  width: columnWidth,
+                  child: Text(appLocale.asr),
                 ),
               ),
               DataColumn(
                 tooltip: appLocale.maghrib,
-                label: Text(
-                  appLocale.maghrib,
+                label: SizedBox(
+                  width: columnWidth,
+                  child: Text(appLocale.maghrib),
                 ),
               ),
               DataColumn(
                 tooltip: appLocale.isha,
-                label: Text(
-                  appLocale.isha,
+                label: SizedBox(
+                  width: columnWidth,
+                  child: Text(appLocale.isha),
                 ),
               ),
             ],
@@ -100,7 +107,9 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
               final dayIndex = prayerTimesList.indexOf(prayerTimes);
               return DataRow(
                 color: WidgetStateProperty.all(
-                  dayIndex + 1 == _currentDateTime.day ? appColors.tertiaryContainer : appColors.secondaryContainer.withAlpha(75),
+                  dayIndex + 1 == _currentDateTime.day
+                      ? appColors.tertiaryContainer
+                      : appColors.secondaryContainer.withAlpha(75),
                 ),
                 cells: [
                   DataCell(
@@ -109,7 +118,9 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                       child: Text(
                         (dayIndex + 1).toString(),
                         style: TextStyle(
-                          fontWeight: dayIndex + 1 == _currentDateTime.day ? FontWeight.bold : FontWeight.normal,
+                          fontWeight: dayIndex + 1 == _currentDateTime.day
+                              ? FontWeight.bold
+                              : FontWeight.normal,
                         ),
                       ),
                     ),
@@ -120,7 +131,7 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                       child: Text(
                         DateFormat('HH:mm').format(prayerTimes.fajr),
                         style: TextStyle(
-                          color: appColors.onTertiaryContainer,
+                          color: appColors.primary,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -140,7 +151,7 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                       child: Text(
                         DateFormat('HH:mm').format(prayerTimes.dhuhr),
                         style: TextStyle(
-                          color: appColors.onTertiaryContainer,
+                          color: appColors.primary,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -160,7 +171,7 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                       child: Text(
                         DateFormat('HH:mm').format(prayerTimes.maghrib),
                         style: TextStyle(
-                          color: appColors.onTertiaryContainer,
+                          color: appColors.primary,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
