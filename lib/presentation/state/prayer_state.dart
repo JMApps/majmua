@@ -48,8 +48,8 @@ class PrayerState extends ChangeNotifier {
 
     _country = _settingsPrayerTimeBox.get(AppStringConstraints.keyCountry, defaultValue: 'Saudi Arabia');
     _city = _settingsPrayerTimeBox.get(AppStringConstraints.keyCity, defaultValue: 'Mecca');
-    _latitude = _settingsPrayerTimeBox.get(AppStringConstraints.keyCurrentLatitude, defaultValue: 36.2076);
-    _longitude = _settingsPrayerTimeBox.get(AppStringConstraints.keyCurrentLongitude, defaultValue: 36.5192);
+    _latitude = _settingsPrayerTimeBox.get(AppStringConstraints.keyCurrentLatitude, defaultValue: 21.42580);
+    _longitude = _settingsPrayerTimeBox.get(AppStringConstraints.keyCurrentLongitude, defaultValue: 39.82410);
     _calculationMethodIndex = _settingsPrayerTimeBox.get(AppStringConstraints.keyCalculationIndex, defaultValue: 10);
     _highLatitudeMethodIndex = _settingsPrayerTimeBox.get(AppStringConstraints.keyHighLatitudeIndex, defaultValue: 0);
     _madhabIndex = _settingsPrayerTimeBox.get(AppStringConstraints.keyMadhabIndex, defaultValue: 0);
@@ -99,6 +99,7 @@ class PrayerState extends ChangeNotifier {
   set changCountry(String country) {
     _country = country;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyCountry, country);
+    notifyListeners();
   }
 
   String get city => _city;
@@ -106,6 +107,7 @@ class PrayerState extends ChangeNotifier {
   set changeCity(String city) {
     _city = city;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyCity, city);
+    notifyListeners();
   }
 
   double get latitude => _latitude;
@@ -113,6 +115,7 @@ class PrayerState extends ChangeNotifier {
   set setLatitude(double latitude) {
     _latitude = latitude;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyCurrentLatitude, latitude);
+    notifyListeners();
   }
 
   double get longitude => _longitude;
@@ -120,6 +123,7 @@ class PrayerState extends ChangeNotifier {
   set setLongitude(double longitude) {
     _longitude = longitude;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyCurrentLongitude, longitude);
+    notifyListeners();
   }
 
   int get calculationMethodIndex => _calculationMethodIndex;
@@ -127,6 +131,7 @@ class PrayerState extends ChangeNotifier {
   set setCalculationIndex(int index) {
     _calculationMethodIndex = index;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyCalculationIndex, index);
+    notifyListeners();
   }
 
   int get highLatitudeMethodIndex => _highLatitudeMethodIndex;
@@ -134,6 +139,7 @@ class PrayerState extends ChangeNotifier {
   set setHighLatitudeIndex(int index) {
     _highLatitudeMethodIndex = index;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyHighLatitudeIndex, index);
+    notifyListeners();
   }
 
   int get madhabIndex => _madhabIndex;
@@ -141,6 +147,7 @@ class PrayerState extends ChangeNotifier {
   set setMadhabIndex(int index) {
     _madhabIndex = index;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyMadhabIndex, index);
+    notifyListeners();
   }
 
   int get timeOffsetIndex => _timeOffsetIndex;
@@ -148,6 +155,7 @@ class PrayerState extends ChangeNotifier {
   set setTimeOffsetIndex(int index) {
     _timeOffsetIndex = index;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyUtcOffsetIndex, index);
+    notifyListeners();
   }
 
   int get getMinutesOfDay => _dateTime.difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day)).inMinutes;
@@ -230,18 +238,18 @@ class PrayerState extends ChangeNotifier {
 
   bool isDhikr({required Prayer prayer}) {
     DateTime currentPrayerTime = _prayerTimes.timeForPrayer(prayer)!;
-    return _dateTime.isAfter(currentPrayerTime.add(const Duration(minutes: 3))) && _dateTime.isBefore(currentPrayerTime.add(const Duration(minutes: 45)));
+    return _dateTime.isAfter(currentPrayerTime.add(const Duration(minutes: 3))) && _dateTime.isBefore(currentPrayerTime.add(const Duration(minutes: 30)));
   }
 
-  bool get isMorning => _isWithinRange(getFajrValueInMinutes + 45, getSunriseValueInMinutes - 1);
+  bool get isMorning => _isWithinRange(getFajrValueInMinutes + 30, getSunriseValueInMinutes - 1);
 
-  bool get isSunrise => _isWithinRange(getSunriseValueInMinutes - 1, getMaghribValueInMinutes - 1);
+  bool get isSunrise => _isWithinRange(getSunriseValueInMinutes - 1, getDhuhrValueInMinutes - 1);
 
   bool get isDuha => _isWithinRange(getSunriseValueInMinutes + 45, getDhuhrValueInMinutes - 15);
 
-  bool get isEvening => _isWithinRange(getAsrValueInMinutes + 45, getMaghribValueInMinutes - 1);
+  bool get isEvening => _isWithinRange(getAsrValueInMinutes + 30, getMaghribValueInMinutes - 1);
 
-  bool get isNight => _isWithinRange(getIshaValueInMinutes + 45, getMidnightValueInMinutes - 1);
+  bool get isNight => _isWithinRange(getIshaValueInMinutes + 30, getMidnightValueInMinutes - 1);
 
   bool get isMidnight => _isWithinRange(getMidnightValueInMinutes - 1, getThirdPartValueInMinutes - 1);
 
