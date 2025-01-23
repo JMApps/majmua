@@ -22,7 +22,7 @@ class RemindHolidayDaysItem extends StatelessWidget {
     return Card(
       margin: AppStyles.mardingHorizontalMini,
       child: Padding(
-        padding: AppStyles.mardingHorizontalMini,
+        padding: AppStyles.mardingHorizontal,
         child: Row(
           children: [
             Expanded(
@@ -32,7 +32,6 @@ class RemindHolidayDaysItem extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 14.0,
                   color: itemColor,
-                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),

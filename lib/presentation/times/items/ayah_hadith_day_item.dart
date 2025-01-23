@@ -34,15 +34,11 @@ class AyahHadithDayItem extends StatelessWidget {
               width: 1.5,
               color: color,
             ),
-            image: DecorationImage(
-              image: AssetImage('assets/icons/$iconName.png'),
-              colorFilter: ColorFilter.mode(color.withAlpha(35), BlendMode.srcIn),
-            ),
           ),
           child: Text(
             title,
             style: const TextStyle(
-              fontSize: 14.0,
+              fontSize: 13.0,
               fontFamily: AppStringConstraints.fontGilroyMedium,
               height: 1.0,
             ),
