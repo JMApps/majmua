@@ -39,7 +39,6 @@ class RestHolidaysContainer extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: AyahHadithDayItem(
-                        iconName: AppStringConstraints.iconAyahDay,
                         title: appLocale.ayahDay,
                         color: appColors.primary,
                         onTap: () {
@@ -67,7 +66,6 @@ class RestHolidaysContainer extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: AyahHadithDayItem(
-                        iconName: AppStringConstraints.iconHadithDay,
                         title: appLocale.hadithDay,
                         color: appColors.tertiary,
                         onTap: () {

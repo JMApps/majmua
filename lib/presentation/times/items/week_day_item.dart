@@ -31,14 +31,14 @@ class _WeekDayItemState extends State<WeekDayItem> {
             height: 25.0,
             decoration: BoxDecoration(
               borderRadius: AppStyles.mainBorderMini,
-              color: isWeekday ? appColors.primary : timeState.getDateTime.weekday == 5 ? appColors.error : appColors.secondaryContainer,
+              color: isWeekday && timeState.getDateTime.weekday == 5 ? appColors.tertiaryContainer : isWeekday ? appColors.primaryContainer : appColors.secondaryContainer,
             ),
             alignment: Alignment.center,
             child: Text(
               appLocale.week2DayNames.split(', ')[widget.dayNumber - 1],
               style: TextStyle(
                 fontSize: 12.0,
-                color: isWeekday ? appColors.primaryContainer : timeState.getDateTime.weekday == 5 ? appColors.errorContainer : appColors.secondary,
+                color: isWeekday && timeState.getDateTime.weekday == 5 ? appColors.tertiary : isWeekday ? appColors.primary : appColors.secondary,
                 fontWeight: !isWeekday ? FontWeight.normal : FontWeight.bold,
               ),
               overflow: TextOverflow.ellipsis,

@@ -6,13 +6,11 @@ import '../../../core/styles/app_styles.dart';
 class AyahHadithDayItem extends StatelessWidget {
   const AyahHadithDayItem({
     super.key,
-    required this.iconName,
     required this.title,
     required this.color,
     required this.onTap,
   });
 
-  final String iconName;
   final String title;
   final Color color;
   final GestureTapCallback onTap;
@@ -37,9 +35,10 @@ class AyahHadithDayItem extends StatelessWidget {
           ),
           child: Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 13.0,
-              fontFamily: AppStringConstraints.fontGilroyMedium,
+              color: color,
+              fontFamily: AppStringConstraints.fontGilroy,
               height: 1.0,
             ),
             textAlign: TextAlign.center,

@@ -19,21 +19,24 @@ class _FastingMessagesState extends State<FastingMessages> {
     final appColors = Theme.of(context).colorScheme;
     return Consumer<TimeState>(
       builder: (context, timeState, _) {
-        return Visibility(
-          visible: (!timeState.isRamadan() || !timeState.isDhulhijjah() || !timeState.isRamadanHoliday() || !timeState.isDhulhijjahHoliday()) && (timeState.isNearThirdSixth() || timeState.isFirstFourth()),
-          child: Card(
-            color: appColors.surface,
-            margin: AppStyles.mardingTopMini,
-            child: Padding(
-              padding: AppStyles.mainMardingMicro,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(
-                    timeState.isNearThirdSixth() ? appLocale.nearFastingDay : timeState.isFirstFourth() ? appLocale.fastingDay : '',
-                    textAlign: TextAlign.center,
-                  )
-                ],
+        return AnimatedSwitcher(
+          duration: const Duration(milliseconds: 1500),
+          child: Visibility(
+            visible: (!timeState.isRamadan() || !timeState.isDhulhijjah() || !timeState.isRamadanHoliday() || !timeState.isDhulhijjahHoliday()) && (timeState.isNearThirdSixth() || timeState.isFirstFourth()),
+            child: Card(
+              color: appColors.surface,
+              margin: AppStyles.mardingTopMini,
+              child: Padding(
+                padding: AppStyles.mainMardingMicro,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      timeState.isNearThirdSixth() ? appLocale.nearFastingDay : timeState.isFirstFourth() ? appLocale.fastingDay : '',
+                      textAlign: TextAlign.center,
+                    )
+                  ],
+                ),
               ),
             ),
           ),

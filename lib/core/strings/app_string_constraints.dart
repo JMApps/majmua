@@ -116,6 +116,11 @@ class AppStringConstraints {
     'Twilight angle',
   ];
 
+  static const List<String> asrMethodNames = [
+    'Shafi',
+    'Hanafi',
+  ];
+
   static const List<HighLatitudeRule> highLatitude = [
     HighLatitudeRule.middle_of_the_night,
     HighLatitudeRule.seventh_of_the_night,
