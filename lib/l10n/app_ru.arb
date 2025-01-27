@@ -4,7 +4,6 @@
   "shelf": "Полка ",
   "muslim": "мусульманина",
 
-  "calendar": "Календарь",
   "settings": "Настройки",
   "notifications": "Уведомдения",
   "share": "Поделиться",
@@ -16,7 +15,24 @@
   "whiteDays": "Белые дни",
 
   "location": "Местоположение",
+
   "prayerParams": "Параметры",
+  "selectedCity": "Выбранный город",
+  "coordinates": "Координаты",
+  "calculationPrayerMethod": "Метод расчёта",
+  "highLatitude": "Широкие высоты",
+  "madhabMethod": "Молитва 'аср",
+  "selectCity": "Выбрать город",
+  "addCity": "Добавить город",
+  "adjustmentTimes": "Корректировка минут",
+  "information": "Информация (важно)",
+
+  "select": "Выбрать",
+  "cancel": "Отмена",
+
+  "search": "Поиск",
+  "searchIsEmpty": "По вашему запросу ничего не найдено",
+
   "prayerCalendar": "Расписание молитв",
   "prayerSchedule": "Расписание на месяц",
   "dayNumber": "Число",

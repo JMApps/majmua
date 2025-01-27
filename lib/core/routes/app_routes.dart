@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../presentation/prayer/pages/prayer_params_page.dart';
 import '../../presentation/prayer/pages/prayers_schedule_page.dart';
+import '../../presentation/prayer/pages/select_city_page.dart';
 import 'app_route_names.dart';
 
 class AppRoutes {
@@ -21,6 +22,7 @@ class AppRoutes {
   static Map<String, Widget Function(BuildContext, dynamic)> routes = {
     AppRouteNames.pagePrayerParams: (context, args) => const PrayerParamsPage(),
     AppRouteNames.pagePrayerSchedule: (context, args) => const PrayersSchedulePage(),
+    AppRouteNames.pageSelectCity: (context, args) => const SelectCityPage(),
     // AppRouteNames.pagePrayerParams: (context, args) {
     //   final CollectionArgs collectionArgs = args;
     //   return CollectionDetailPage(

@@ -21,8 +21,8 @@ class AppStringConstraints {
   static const String keyCurrentLongitude = 'key_current_longitude';
   static const String keyCalculationIndex = 'key_prayer_params_index';
   static const String keyHighLatitudeIndex = 'key_high_latitude_params_index';
-  static const String keyUtcOffsetIndex = 'key_utc_offset_index';
   static const String keyMadhabIndex = 'key_madhab_params_index';
+  static const String keyUtcOffsetIndex = 'key_utc_offset_index';
 
   // Prayer adjustments
   static const String keyFajrAdjustment = 'key_fajr_adjustment';
@@ -93,6 +93,17 @@ class AppStringConstraints {
     CalculationMethod.singapore,
   ];
 
+  static const List<HighLatitudeRule> highLatitude = [
+    HighLatitudeRule.middle_of_the_night,
+    HighLatitudeRule.seventh_of_the_night,
+    HighLatitudeRule.twilight_angle,
+  ];
+
+  static const List<Madhab> calculationMadhab = [
+    Madhab.shafi,
+    Madhab.hanafi,
+  ];
+
   static const List<String> prayerCalculationNames = [
     'Umm al-Qura',
     'North America (ISNA)',
@@ -119,17 +130,6 @@ class AppStringConstraints {
   static const List<String> asrMethodNames = [
     'Shafi',
     'Hanafi',
-  ];
-
-  static const List<HighLatitudeRule> highLatitude = [
-    HighLatitudeRule.middle_of_the_night,
-    HighLatitudeRule.seventh_of_the_night,
-    HighLatitudeRule.twilight_angle,
-  ];
-
-  static const List<Madhab> calculationMadhab = [
-    Madhab.shafi,
-    Madhab.hanafi,
   ];
 
   static final List<Duration> calculationUtcOffset = [

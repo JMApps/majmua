@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/routes/app_route_names.dart';
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../state/prayer_state.dart';
@@ -27,7 +28,10 @@ class _SelectCityItemState extends State<SelectCityItem> {
           return CupertinoButton(
             onPressed: () {
               HapticFeedback.lightImpact();
-              // Open city select page
+              Navigator.pushNamed(
+                context,
+                AppRouteNames.pageSelectCity,
+              );
             },
             alignment: Alignment.centerLeft,
             padding: AppStyles.mardingLeftMini,
