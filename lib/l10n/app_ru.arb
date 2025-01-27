@@ -29,9 +29,12 @@
 
   "select": "Выбрать",
   "cancel": "Отмена",
+  "change": "Изменить",
+  "delete": "Удалить",
 
   "search": "Поиск",
   "searchIsEmpty": "По вашему запросу ничего не найдено",
+  "customCityIsEmpty": "Вы пока не добавили ни одного города",
 
   "prayerCalendar": "Расписание молитв",
   "prayerSchedule": "Расписание на месяц",

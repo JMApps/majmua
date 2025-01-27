@@ -49,11 +49,12 @@ class AppStyles {
   static const mainBorderMini = BorderRadius.all(Radius.circular(10));
   static const mainBorderMicro = BorderRadius.all(Radius.circular(5));
 
-  static const mainTextStyleBig = TextStyle(fontSize: 18.0, fontFamily: AppStringConstraints.fontGilroy);
-  static const mainTextStyleBigBold = TextStyle(fontSize: 18.0, fontFamily: AppStringConstraints.fontGilroy, fontWeight: FontWeight.bold);
-  static const mainTextStyle = TextStyle(fontSize: 16.0, fontFamily: AppStringConstraints.fontGilroy);
-  static const mainTextStyleBold = TextStyle(fontSize: 16.0, fontFamily: AppStringConstraints.fontGilroy, fontWeight: FontWeight.bold);
-  static const mainTextStyleMini = TextStyle(fontSize: 14.0, fontFamily: AppStringConstraints.fontGilroy);
-  static const mainTextStyleMicro = TextStyle(fontSize: 12.0, fontFamily: AppStringConstraints.fontGilroy);
-  static const mainTextStyleMiniBold = TextStyle(fontSize: 14.0, fontFamily: AppStringConstraints.fontGilroy, fontWeight: FontWeight.bold);
+  static const mainTextStyleBig = TextStyle(fontSize: 20.0, fontFamily: AppStringConstraints.fontGilroy);
+  static const mainTextStyleBigBold = TextStyle(fontSize: 20.0, fontFamily: AppStringConstraints.fontGilroy, fontWeight: FontWeight.bold);
+  static const mainTextStyle = TextStyle(fontSize: 18.0, fontFamily: AppStringConstraints.fontGilroy);
+  static const mainTextStyleBold = TextStyle(fontSize: 18.0, fontFamily: AppStringConstraints.fontGilroy, fontWeight: FontWeight.bold);
+  static const mainTextStyleMini = TextStyle(fontSize: 16.0, fontFamily: AppStringConstraints.fontGilroy);
+  static const mainTextStyleMiniBold = TextStyle(fontSize: 16.0, fontFamily: AppStringConstraints.fontGilroy, fontWeight: FontWeight.bold);
+  static const mainTextStyleMicro = TextStyle(fontSize: 14.0, fontFamily: AppStringConstraints.fontGilroy);
+  static const mainTextStyleMicroBold = TextStyle(fontSize: 14.0, fontFamily: AppStringConstraints.fontGilroy, fontWeight: FontWeight.bold);
 }
