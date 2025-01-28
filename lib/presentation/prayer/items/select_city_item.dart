@@ -43,16 +43,14 @@ class _SelectCityItemState extends State<SelectCityItem> {
                   width: 22.5,
                   color: appColors.primary,
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 4),
                 Expanded(
                   child: Text(
                     prayerState.city,
                     style: TextStyle(
                       color: appColors.primary,
                       fontSize: 17.0,
-                      fontFamily: AppStringConstraints.fontGilroy,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.underline,
+                      fontFamily: AppStringConstraints.fontGilroyMedium,
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,

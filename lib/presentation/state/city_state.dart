@@ -8,6 +8,15 @@ class CityState with ChangeNotifier {
 
   CityState(this._cityUseCase);
 
+  String _searchValue = '';
+
+  String get searchValue => _searchValue;
+
+  set searchValue(String value) {
+    _searchValue = value;
+    notifyListeners();
+  }
+
   Future<List<CityEntity>> getAllCities() async {
     return await _cityUseCase.fetchAllCities();
   }

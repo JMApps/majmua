@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../../domain/entities/city_entity.dart';
 import '../widgets/select_city_bottom_sheet.dart';
@@ -26,26 +27,34 @@ class CityItem extends StatelessWidget {
         onTap: () {
           showModalBottomSheet(
             context: context,
-            builder: (context) => SelectCityBottomSheet(cityModel: cityModel),
+            builder: (context) => SelectCityBottomSheet(
+              cityModel: cityModel,
+            ),
           );
         },
+        visualDensity: VisualDensity.compact,
+        contentPadding: AppStyles.mardingHorizontalMini,
         shape: AppStyles.mainShapeMini,
         splashColor: appColors.primary.withAlpha(50),
         title: Text(
           cityModel.city,
-          style: AppStyles.mainTextStyleBig,
+          style: AppStyles.mainTextStyleMiniBold,
         ),
         subtitle: Text(
           cityModel.country,
-          style: AppStyles.mainTextStyle,
+          style: AppStyles.mainTextStyleMini,
         ),
         leading: CircleAvatar(
-          backgroundColor: appColors.tertiaryContainer,
+          backgroundColor: appColors.primaryContainer,
           child: Padding(
             padding: AppStyles.mardingTopMicroMini,
             child: Text(
-              cityModel.iso3,
-              style: AppStyles.mainTextStyleMini,
+              cityModel.iso3!,
+              style: TextStyle(
+                fontSize: 13.0,
+                color: appColors.primary,
+                fontFamily: AppStringConstraints.fontGilroyMedium,
+              ),
             ),
           ),
         ),

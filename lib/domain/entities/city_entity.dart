@@ -4,8 +4,8 @@ class CityEntity {
   final int id;
   final String country;
   final String city;
-  final String adminName;
-  final String iso3;
+  final String? adminName;
+  final String? iso3;
   final String latitude;
   final String longitude;
 

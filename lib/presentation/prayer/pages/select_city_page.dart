@@ -1,13 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/strings/app_string_constraints.dart';
+import '../../../core/styles/app_styles.dart';
 import '../../../data/repositories/city_data_repository.dart';
 import '../../../data/services/city_database_service.dart';
 import '../../../domain/usecases/city_use_case.dart';
 import '../../state/city_state.dart';
 import '../lists/cities_list.dart';
-import '../widgets/search_cities_delegate.dart';
 
 class SelectCityPage extends StatefulWidget {
   const SelectCityPage({super.key});
@@ -22,6 +24,7 @@ class _SelectCityPageState extends State<SelectCityPage> {
   @override
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
+    final appColors = Theme.of(context).colorScheme;
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -35,29 +38,46 @@ class _SelectCityPageState extends State<SelectCityPage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(appLocale.selectCity),
-          actions: [
-            Consumer<CityState>(
-              builder: (context, cityState, _) {
-                return IconButton(
-                  onPressed: () {
-                    showSearch(
-                      context: context,
-                      delegate: SearchCitiesDelegate(
-                        search: appLocale.search,
-                        cityState: cityState,
+          bottom: PreferredSize(
+            preferredSize: const Size(double.infinity, 35),
+            child: Padding(
+              padding: AppStyles.mainMardingMini,
+              child: Consumer<CityState>(
+                builder: (context, cityState, _) {
+                  return CupertinoTextField(
+                    autofocus: true,
+                    padding: AppStyles.mainMardingMini,
+                    style: TextStyle(
+                      fontSize: 17.0,
+                      color: appColors.onSurface,
+                      fontFamily: AppStringConstraints.fontGilroyMedium,
+                    ),
+                    placeholder: appLocale.search,
+                    textCapitalization: TextCapitalization.sentences,
+                    textInputAction: TextInputAction.search,
+                    textAlign: TextAlign.center,
+                    placeholderStyle: TextStyle(
+                      fontSize: 17.0,
+                      color: appColors.secondary.withAlpha(175),
+                      fontFamily: AppStringConstraints.fontGilroy,
+                    ),
+                    decoration: BoxDecoration(
+                      color: appColors.surface,
+                      borderRadius: AppStyles.mainBorderMini,
+                      border: Border.all(
+                        width: 1,
+                        color: appColors.onSurface,
                       ),
-                    );
-                  },
-                  icon: Image.asset(
-                    'assets/icons/search.png',
-                    width: 25,
-                    height: 25,
-                    color: Theme.of(context).colorScheme.onSurface,
-                  ),
-                );
-              },
+                    ),
+                    onChanged: (String? value) {
+                      cityState.searchValue = value!;
+                    },
+                    clearButtonMode: OverlayVisibilityMode.editing,
+                  );
+                },
+              ),
             ),
-          ],
+          ),
         ),
         body: const CitiesList(),
       ),

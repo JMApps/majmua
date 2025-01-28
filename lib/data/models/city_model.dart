@@ -4,8 +4,8 @@ class CityModel {
   final int id;
   final String country;
   final String city;
-  final String adminName;
-  final String iso3;
+  final String? adminName;
+  final String? iso3;
   final String latitude;
   final String longitude;
 
@@ -24,8 +24,8 @@ class CityModel {
       id: map[DBValueStrings.id] as int,
       country: map[DBValueStrings.dbCountry] as String,
       city: map[DBValueStrings.dbCity] as String,
-      adminName: map[DBValueStrings.dbAdminName] as String,
-      iso3: map[DBValueStrings.dbIso3] as String,
+      adminName: map[DBValueStrings.dbAdminName] as String?,
+      iso3: map[DBValueStrings.dbIso3] as String?,
       latitude: map[DBValueStrings.dbLatitude] as String,
       longitude: map[DBValueStrings.dbLongitude] as String,
     );
