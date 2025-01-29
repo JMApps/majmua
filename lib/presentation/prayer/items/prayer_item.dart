@@ -49,9 +49,9 @@ class _PrayerItemState extends State<PrayerItem> {
                   ),
                   Text(
                     widget.prayerName,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 15.0,
-                     fontFamily: AppStringConstraints.fontGilroyMedium,
+                     fontFamily: isHourAfter || isHourBefore ? AppStringConstraints.fontGilroyMedium : AppStringConstraints.fontGilroy,
                     ),
                     overflow: TextOverflow.ellipsis,
                   ),

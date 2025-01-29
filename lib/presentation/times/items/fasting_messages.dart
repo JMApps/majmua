@@ -33,7 +33,9 @@ class _FastingMessagesState extends State<FastingMessages> {
                   children: [
                     Text(
                       timeState.isNearThirdSixth() ? appLocale.nearFastingDay : timeState.isFirstFourth() ? appLocale.fastingDay : '',
+                      style: AppStyles.mainTextStyleMini,
                       textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
                     )
                   ],
                 ),

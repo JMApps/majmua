@@ -33,33 +33,36 @@ class _PrayerMessagesState extends State<PrayerMessages> {
           }
           return message;
         }
-        return Visibility(
-          visible: prayerState.isMorning || prayerState.isEvening || prayerState.isNight,
-          child: Card(
-            margin: AppStyles.mardingWithoutTopMini,
-            color: appColors.surface,
-            child: ListTile(
-              onTap: () {
-                HapticFeedback.lightImpact();
-                // Open fortress with chapter id
-              },
-              shape: AppStyles.mainShapeMini,
-              splashColor: appColors.tertiaryContainer,
-              contentPadding: AppStyles.mardingRightMini,
-              dense: true,
-              visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
-              minVerticalPadding: 0,
-              titleAlignment: ListTileTitleAlignment.center,
-              title: Text(
-                isMessage(),
-                style: const TextStyle(
-                  fontSize: 14.0,
+        return AnimatedContainer(
+          duration: const Duration(milliseconds: 1500),
+          child: Visibility(
+            visible: prayerState.isMorning || prayerState.isEvening || prayerState.isNight,
+            child: Card(
+              margin: AppStyles.mardingWithoutTopMini,
+              color: appColors.surface,
+              child: ListTile(
+                onTap: () {
+                  HapticFeedback.lightImpact();
+                  // Open fortress with chapter id
+                },
+                shape: AppStyles.mainShapeMini,
+                splashColor: appColors.tertiaryContainer,
+                contentPadding: AppStyles.mardingRightMini,
+                dense: true,
+                visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
+                minVerticalPadding: 0,
+                titleAlignment: ListTileTitleAlignment.center,
+                title: Text(
+                  isMessage(),
+                  style: AppStyles.mainTextStyleMini,
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
                 ),
-                textAlign: TextAlign.center,
-              ),
-              trailing: const Icon(
-                Icons.arrow_forward_ios,
-                size: 15,
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  color: appColors.primary,
+                  size: 15,
+                ),
               ),
             ),
           ),

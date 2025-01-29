@@ -133,7 +133,7 @@ class AppStringConstraints {
   ];
 
   static final List<Duration> calculationUtcOffset = [
-    const Duration(hours: 1),
+    const Duration(hours: -1),
     const Duration(),
     const Duration(hours: 1),
   ];

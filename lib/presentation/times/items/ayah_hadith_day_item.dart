@@ -36,7 +36,7 @@ class AyahHadithDayItem extends StatelessWidget {
           child: Text(
             title,
             style: TextStyle(
-              fontSize: 13.0,
+              fontSize: 14.0,
               color: color,
               fontFamily: AppStringConstraints.fontGilroy,
               height: 1.0,

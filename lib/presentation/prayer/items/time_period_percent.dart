@@ -40,7 +40,7 @@ class TimePeriodPercent extends StatelessWidget {
                     child: Text(
                       '-${prayerState.restPrayerTime(isBefore: true, time: prayerState.thirdTime(partName: partName))}',
                       style: TextStyle(
-                        fontSize: 13.0,
+                        fontSize: 14.0,
                         color: appColors.onErrorContainer,
                       ),
                       textAlign: TextAlign.start,
@@ -51,6 +51,7 @@ class TimePeriodPercent extends StatelessWidget {
                   flex: 3,
                   child: Text(
                     partName.contains(AppStringConstraints.timeSunrise) && prayerState.isDuha ? '$dayTitle ${appLocale.duha}' : dayTitle,
+                    style: AppStyles.mainTextStyleMini,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -58,7 +59,7 @@ class TimePeriodPercent extends StatelessWidget {
                   child: Text(
                     DateFormat('HH:mm').format(prayerState.thirdTime(partName: partName)),
                     style: const TextStyle(
-                      fontSize: 13.0,
+                      fontSize: 14.0,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.end,

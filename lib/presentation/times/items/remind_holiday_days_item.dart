@@ -30,7 +30,7 @@ class RemindHolidayDaysItem extends StatelessWidget {
               child: Text(
                 remindTitle,
                 style: TextStyle(
-                  fontSize: 14.0,
+                  fontSize: 16.0,
                   color: itemColor,
                 ),
               ),

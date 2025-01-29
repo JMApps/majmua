@@ -14,7 +14,7 @@ class PrayerParamsDescriptionText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       '$text:',
-      style: AppStyles.mainTextStyleBold,
+      style: AppStyles.mainTextStyleMiniBold,
       textAlign: TextAlign.start,
       overflow: TextOverflow.ellipsis,
     );
