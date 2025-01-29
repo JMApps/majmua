@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_compass/flutter_compass.dart';
 import 'package:provider/provider.dart';
@@ -22,11 +22,8 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
   @override
   void initState() {
     super.initState();
-
-    // Инициализация состояния
     _qiblahState = QiblahDirectionState();
 
-    // Подписка на данные компаса
     final compassEvents = FlutterCompass.events;
     if (compassEvents != null) {
       _compassSubscription = compassEvents.listen(
@@ -49,6 +46,12 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
     super.dispose();
   }
 
+  /// Вычисляет кратчайший угол поворота, чтобы избежать резких скачков через 360° или 0°.
+  double calculateShortestRotation(double from, double to) {
+    double difference = (to - from + 540) % 360 - 180;
+    return difference * (pi / 180);
+  }
+
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
@@ -59,11 +62,16 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
           final double qiblahDirection = prayerState.qiblahDirection.direction;
           final double deviceOrientation = qiblahState.deviceOrientation;
 
+          // Угол для стрелки компаса (вращаем против ориентации устройства)
+          final double compassAngle = -deviceOrientation * (pi / 180);
           // Угол для стрелки Киблы
-          final double targetArrowAngle = ((qiblahDirection - deviceOrientation) % 360) * (3.14159265359 / 180);
+          final double qiblahAngle = calculateShortestRotation(deviceOrientation, qiblahDirection);
 
-          // Угол для фона компаса
-          final double targetBackgroundAngle = -deviceOrientation * (3.14159265359 / 180);
+          // Радиус круга, по которому движется Кибла
+          const double compassRadius = 110.0;
+          final double qiblahRadians = (qiblahDirection - deviceOrientation) * (pi / 180);
+          final double qiblahX = compassRadius * cos(qiblahRadians);
+          final double qiblahY = compassRadius * sin(qiblahRadians);
 
           return Container(
             width: double.infinity,
@@ -73,7 +81,7 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
               children: [
                 // Анимированный фон компаса
                 TweenAnimationBuilder<double>(
-                  tween: Tween<double>(begin: targetBackgroundAngle, end: targetBackgroundAngle),
+                  tween: Tween<double>(begin: compassAngle, end: compassAngle),
                   duration: const Duration(milliseconds: 300),
                   builder: (context, angle, child) {
                     return Transform.rotate(
@@ -86,36 +94,10 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
                     );
                   },
                 ),
+
+                // Стрелка компаса (север)
                 TweenAnimationBuilder<double>(
-                  tween: Tween<double>(begin: targetArrowAngle, end: targetArrowAngle),
-                  duration: const Duration(milliseconds: 300),
-                  builder: (context, angle, child) {
-                    return Transform.rotate(
-                      angle: angle,
-                      child: Image.asset(
-                        'assets/pictures/dots.png',
-                        fit: BoxFit.contain,
-                        color: appColors.tertiary,
-                      ),
-                    );
-                  },
-                ),
-                TweenAnimationBuilder<double>(
-                  tween: Tween<double>(begin: targetArrowAngle, end: targetArrowAngle),
-                  duration: const Duration(milliseconds: 300),
-                  builder: (context, angle, child) {
-                    return Transform.rotate(
-                      angle: angle,
-                      child: Image.asset(
-                        'assets/pictures/n.png',
-                        fit: BoxFit.contain,
-                        color: appColors.tertiary,
-                      ),
-                    );
-                  },
-                ),
-                TweenAnimationBuilder<double>(
-                  tween: Tween<double>(begin: targetArrowAngle, end: targetArrowAngle),
+                  tween: Tween<double>(begin: compassAngle, end: compassAngle),
                   duration: const Duration(milliseconds: 300),
                   builder: (context, angle, child) {
                     return Transform.rotate(
@@ -123,7 +105,25 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
                       child: Image.asset(
                         'assets/pictures/arrow.png',
                         fit: BoxFit.contain,
-                        color: appColors.inversePrimary,
+                        color: appColors.secondary,
+                      ),
+                    );
+                  },
+                ),
+
+                // Иконка Киблы, двигающаяся по кругу
+                TweenAnimationBuilder<double>(
+                  tween: Tween<double>(begin: qiblahAngle, end: qiblahAngle),
+                  duration: const Duration(milliseconds: 300),
+                  builder: (context, angle, child) {
+                    return Transform.translate(
+                      offset: Offset(qiblahX, qiblahY),
+                      child: Image.asset(
+                        'assets/icons/qiblah.png',
+                        fit: BoxFit.contain,
+                        color: appColors.tertiary,
+                        width: 30,
+                        height: 30,
                       ),
                     );
                   },
