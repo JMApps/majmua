@@ -14,11 +14,11 @@ class PrayerState extends ChangeNotifier {
   final Cron _cron = Cron();
   static const Duration hourInterval = Duration(hours: 1);
 
-  late final PrayerTimes _prayerTimes;
-  late final CalculationParameters _prayerParams;
-  late final Coordinates _coordinates;
-  late final SunnahTimes _sunnahTimes;
-  late final Qibla _qibla;
+  late PrayerTimes _prayerTimes;
+  late CalculationParameters _prayerParams;
+  late Coordinates _coordinates;
+  late SunnahTimes _sunnahTimes;
+  late Qibla _qibla;
 
   late int _fajrAdjustment;
   late int _sunriseAdjustment;
@@ -39,12 +39,12 @@ class PrayerState extends ChangeNotifier {
   late int _madhabIndex;
 
   PrayerState(this._settingsPrayerTimeBox) {
-    _fajrAdjustment = _getAdjustment(AppStringConstraints.keyFajrAdjustment);
-    _sunriseAdjustment = _getAdjustment(AppStringConstraints.keySunriseAdjustment);
-    _dhuhrAdjustment = _getAdjustment(AppStringConstraints.keyDhuhrAdjustment);
-    _asrAdjustment = _getAdjustment(AppStringConstraints.keyAsrAdjustment);
-    _maghribAdjustment = _getAdjustment(AppStringConstraints.keyMaghribAdjustment);
-    _ishaAdjustment = _getAdjustment(AppStringConstraints.keyIshaAdjustment);
+    _fajrAdjustment = getAdjustment(AppStringConstraints.keyFajrAdjustment);
+    _sunriseAdjustment = getAdjustment(AppStringConstraints.keySunriseAdjustment);
+    _dhuhrAdjustment = getAdjustment(AppStringConstraints.keyDhuhrAdjustment);
+    _asrAdjustment = getAdjustment(AppStringConstraints.keyAsrAdjustment);
+    _maghribAdjustment = getAdjustment(AppStringConstraints.keyMaghribAdjustment);
+    _ishaAdjustment = getAdjustment(AppStringConstraints.keyIshaAdjustment);
 
     _country = _settingsPrayerTimeBox.get(AppStringConstraints.keyCountry, defaultValue: 'Saudi Arabia');
     _city = _settingsPrayerTimeBox.get(AppStringConstraints.keyCity, defaultValue: 'Mecca');
@@ -54,14 +54,13 @@ class PrayerState extends ChangeNotifier {
     _highLatitudeMethodIndex = _settingsPrayerTimeBox.get(AppStringConstraints.keyHighLatitudeIndex, defaultValue: 0);
     _madhabIndex = _settingsPrayerTimeBox.get(AppStringConstraints.keyMadhabIndex, defaultValue: 0);
     _timeOffsetIndex = _settingsPrayerTimeBox.get(AppStringConstraints.keyUtcOffsetIndex, defaultValue: 1);
-
     tz.initializeTimeZones();
     _dateTime = tz.TZDateTime.from(DateTime.now(), tz.local);
     _startCron();
-    _initPrayerTime();
+    initPrayerTime();
   }
 
-  void _initPrayerTime() {
+  void initPrayerTime() {
     _coordinates = Coordinates(_latitude, _longitude);
 
     _prayerParams = AppStringConstraints.prayerCalculationMethods[_calculationMethodIndex].getParameters()
@@ -99,7 +98,6 @@ class PrayerState extends ChangeNotifier {
   set changCountry(String country) {
     _country = country;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyCountry, country);
-    notifyListeners();
   }
 
   String get city => _city;
@@ -107,7 +105,6 @@ class PrayerState extends ChangeNotifier {
   set changeCity(String city) {
     _city = city;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyCity, city);
-    notifyListeners();
   }
 
   double get latitude => _latitude;
@@ -115,7 +112,6 @@ class PrayerState extends ChangeNotifier {
   set setLatitude(double latitude) {
     _latitude = latitude;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyCurrentLatitude, latitude);
-    notifyListeners();
   }
 
   double get longitude => _longitude;
@@ -123,7 +119,6 @@ class PrayerState extends ChangeNotifier {
   set setLongitude(double longitude) {
     _longitude = longitude;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyCurrentLongitude, longitude);
-    notifyListeners();
   }
 
   int get calculationMethodIndex => _calculationMethodIndex;
@@ -131,7 +126,7 @@ class PrayerState extends ChangeNotifier {
   set setCalculationIndex(int index) {
     _calculationMethodIndex = index;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyCalculationIndex, index);
-    notifyListeners();
+    initPrayerTime();
   }
 
   int get highLatitudeMethodIndex => _highLatitudeMethodIndex;
@@ -139,7 +134,7 @@ class PrayerState extends ChangeNotifier {
   set setHighLatitudeIndex(int index) {
     _highLatitudeMethodIndex = index;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyHighLatitudeIndex, index);
-    notifyListeners();
+    initPrayerTime();
   }
 
   int get madhabIndex => _madhabIndex;
@@ -147,7 +142,7 @@ class PrayerState extends ChangeNotifier {
   set setMadhabIndex(int index) {
     _madhabIndex = index;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyMadhabIndex, index);
-    notifyListeners();
+    initPrayerTime();
   }
 
   int get timeOffsetIndex => _timeOffsetIndex;
@@ -286,7 +281,12 @@ class PrayerState extends ChangeNotifier {
     notifyListeners();
   }
 
-  int _getAdjustment(String key, {int defaultValue = 0}) => _settingsPrayerTimeBox.get(key, defaultValue: defaultValue);
+  int getAdjustment(String key, {int defaultValue = 0}) => _settingsPrayerTimeBox.get(key, defaultValue: defaultValue);
+
+  void setAdjustment(String key, int value) {
+    _settingsPrayerTimeBox.put(key, value);
+    notifyListeners();
+  }
 
   @override
   void dispose() {

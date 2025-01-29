@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../presentation/prayer/pages/add_city_page.dart';
+import '../../presentation/prayer/pages/page_adjustments.dart';
 import '../../presentation/prayer/pages/prayer_params_page.dart';
 import '../../presentation/prayer/pages/prayers_schedule_page.dart';
 import '../../presentation/prayer/pages/select_city_page.dart';
@@ -25,6 +26,7 @@ class AppRoutes {
     AppRouteNames.pagePrayerSchedule: (context, args) => const PrayersSchedulePage(),
     AppRouteNames.pageSelectCity: (context, args) => const SelectCityPage(),
     AppRouteNames.pageAddCity: (context, args) => const AddCityPage(),
+    AppRouteNames.pageAdjustments: (context, args) => const PageAdjustments(),
     // AppRouteNames.pagePrayerParams: (context, args) {
     //   final CollectionArgs collectionArgs = args;
     //   return CollectionDetailPage(
