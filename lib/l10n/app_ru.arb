@@ -41,6 +41,7 @@
   "cancel": "Отмена",
   "change": "Изменить",
   "delete": "Удалить",
+  "defaultAdjustments": "По умолчанию",
 
   "search": "Поиск",
   "searchIsEmpty": "По вашему запросу ничего не найдено",
