@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
@@ -185,47 +186,19 @@ class PrayerParamsPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                Column(
-                  children: [
-                    const SizedBox(height: 10),
-                    PrayerParamsDescriptionText(text: appLocale.timeOffset),
-                    const SizedBox(height: 8),
-                    Card(
-                      child: DropdownButton<int>(
-                        isExpanded: true,
-                        padding: AppStyles.mardingHorizontalMini,
-                        borderRadius: AppStyles.mainBorderMini,
-                        elevation: 1,
-                        icon: const Icon(Icons.keyboard_arrow_down_rounded),
-                        alignment: Alignment.center,
-                        value: prayerState.timeOffsetIndex,
-                        items: List.generate(
-                          appLocale.timeOffsetNames.split(', ').length,
-                              (index) {
-                            return DropdownMenuItem<int>(
-                              value: index,
-                              child: Center(
-                                child: Text(
-                                  appLocale.timeOffsetNames.split(', ')[index],
-                                  style: prayerState.timeOffsetIndex == index ? TextStyle(
-                                    fontSize: 16.0,
-                                    color: appColors.primary,
-                                    fontWeight: FontWeight.bold,
-                                  ) : AppStyles.mainTextStyleMini,
-                                  overflow: TextOverflow.ellipsis,
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                        onChanged: (newIndex) => prayerState.setTimeOffsetIndex = newIndex!,
-                        underline: const SizedBox(),
-                      ),
-                    ),
-                  ],
-                ),
                 const SizedBox(height: 8),
+                ListTile(
+                  shape: AppStyles.mainShapeMini,
+                  title: Text(appLocale.timeOffset, style: AppStyles.mainTextStyleMiniBold),
+                  trailing: Switch(
+                    value: prayerState.dst,
+                    onChanged: (onChanged) {
+                      HapticFeedback.lightImpact();
+                      prayerState.setDst = onChanged;
+                    },
+                  ),
+                ),
+                const SizedBox(height: 4),
                 FilledButton.tonal(
                   onPressed: () {
                     Navigator.pushNamed(
@@ -263,7 +236,12 @@ class PrayerParamsPage extends StatelessWidget {
                   ),
                 ),
                 FilledButton.tonalIcon(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      AppRouteNames.pageInformation,
+                    );
+                  },
                   label: Text(
                     appLocale.information,
                     style: AppStyles.mainTextStyleMini,

@@ -4,4 +4,5 @@ class AppRouteNames {
   static const String pageSelectCity = 'page_select_city';
   static const String pageAddCity = 'page_add_city';
   static const String pageAdjustments = 'page_adjustments';
+  static const String pageInformation = 'page_information';
 }
