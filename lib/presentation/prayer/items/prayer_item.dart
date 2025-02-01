@@ -56,7 +56,7 @@ class _PrayerItemState extends State<PrayerItem> {
                     overflow: TextOverflow.ellipsis,
                   ),
                   Text(
-                    DateFormat('HH:mm').format(prayerState.prayerTimes.timeForPrayer(widget.prayer)!),
+                    DateFormat('HH:mm').format(prayerState.prayerTimes.timeForPrayer(widget.prayer)!.add(prayerState.dst ? const Duration(hours: -1) : const Duration(hours: 0))),
                     style: isHourAfter || isHourBefore ? AppStyles.mainTextStyleMiniBold : AppStyles.mainTextStyleMini,
                   ),
                   Visibility(

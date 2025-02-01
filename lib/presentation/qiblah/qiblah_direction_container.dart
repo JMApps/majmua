@@ -89,7 +89,6 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
                       child: Image.asset(
                         'assets/pictures/compass.png',
                         fit: BoxFit.contain,
-                        color: appColors.primary,
                       ),
                     );
                   },
@@ -105,7 +104,6 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
                       child: Image.asset(
                         'assets/pictures/arrow.png',
                         fit: BoxFit.contain,
-                        color: appColors.secondary,
                       ),
                     );
                   },
@@ -121,7 +119,7 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
                       child: Image.asset(
                         'assets/icons/qiblah.png',
                         fit: BoxFit.contain,
-                        color: appColors.tertiary,
+                        color: appColors.secondary,
                         width: 30,
                         height: 30,
                       ),

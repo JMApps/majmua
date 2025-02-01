@@ -41,7 +41,6 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
     final screenWidth = MediaQuery.of(context).size.width;
     final columnWidth = screenWidth / 7;
     final appColors = Theme.of(context).colorScheme;
-
     return Scaffold(
       appBar: AppBar(
         title: Text(appLocale.prayerSchedule),
@@ -107,9 +106,7 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
               final dayIndex = prayerTimesList.indexOf(prayerTimes);
               return DataRow(
                 color: WidgetStateProperty.all(
-                  dayIndex + 1 == _currentDateTime.day
-                      ? appColors.tertiaryContainer
-                      : appColors.secondaryContainer.withAlpha(75),
+                  dayIndex + 1 == _currentDateTime.day ? appColors.tertiaryContainer : appColors.secondaryContainer.withAlpha(75),
                 ),
                 cells: [
                   DataCell(
@@ -118,9 +115,7 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                       child: Text(
                         (dayIndex + 1).toString(),
                         style: TextStyle(
-                          fontWeight: dayIndex + 1 == _currentDateTime.day
-                              ? FontWeight.bold
-                              : FontWeight.normal,
+                          fontWeight: dayIndex + 1 == _currentDateTime.day ? FontWeight.bold : FontWeight.normal,
                         ),
                       ),
                     ),
@@ -131,7 +126,7 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                       child: Text(
                         DateFormat('HH:mm').format(prayerTimes.fajr),
                         style: TextStyle(
-                          color: appColors.primary,
+                          color: dayIndex + 1 == _currentDateTime.day ? appColors.tertiary : appColors.primary,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -151,7 +146,7 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                       child: Text(
                         DateFormat('HH:mm').format(prayerTimes.dhuhr),
                         style: TextStyle(
-                          color: appColors.primary,
+                          color: dayIndex + 1 == _currentDateTime.day ? appColors.tertiary : appColors.primary,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -171,7 +166,7 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                       child: Text(
                         DateFormat('HH:mm').format(prayerTimes.maghrib),
                         style: TextStyle(
-                          color: appColors.primary,
+                          color: dayIndex + 1 == _currentDateTime.day ? appColors.tertiary : appColors.primary,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

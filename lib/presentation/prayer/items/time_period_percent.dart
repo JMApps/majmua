@@ -40,7 +40,6 @@ class TimePeriodPercent extends StatelessWidget {
                     child: Text(
                       '-${prayerState.restPrayerTime(isBefore: true, time: prayerState.thirdTime(partName: partName))}',
                       style: TextStyle(
-                        fontSize: 14.0,
                         color: appColors.onErrorContainer,
                       ),
                       textAlign: TextAlign.start,
@@ -59,7 +58,6 @@ class TimePeriodPercent extends StatelessWidget {
                   child: Text(
                     DateFormat('HH:mm').format(prayerState.thirdTime(partName: partName)),
                     style: const TextStyle(
-                      fontSize: 14.0,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.end,

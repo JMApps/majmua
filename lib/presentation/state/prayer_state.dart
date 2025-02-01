@@ -35,16 +35,16 @@ class PrayerState extends ChangeNotifier {
 
   late int _calculationMethodIndex;
   late int _highLatitudeMethodIndex;
-  late int _timeOffsetIndex;
+  late bool _dst;
   late int _madhabIndex;
 
   PrayerState(this._settingsPrayerTimeBox) {
-    _fajrAdjustment = getAdjustment(AppStringConstraints.keyFajrAdjustment);
-    _sunriseAdjustment = getAdjustment(AppStringConstraints.keySunriseAdjustment);
-    _dhuhrAdjustment = getAdjustment(AppStringConstraints.keyDhuhrAdjustment);
-    _asrAdjustment = getAdjustment(AppStringConstraints.keyAsrAdjustment);
-    _maghribAdjustment = getAdjustment(AppStringConstraints.keyMaghribAdjustment);
-    _ishaAdjustment = getAdjustment(AppStringConstraints.keyIshaAdjustment);
+    _fajrAdjustment = _settingsPrayerTimeBox.get(AppStringConstraints.keyFajrAdjustment, defaultValue: 0);
+    _sunriseAdjustment = _settingsPrayerTimeBox.get(AppStringConstraints.keySunriseAdjustment, defaultValue: 0);
+    _dhuhrAdjustment = _settingsPrayerTimeBox.get(AppStringConstraints.keyDhuhrAdjustment, defaultValue: 0);
+    _asrAdjustment = _settingsPrayerTimeBox.get(AppStringConstraints.keyAsrAdjustment, defaultValue: 0);
+    _maghribAdjustment = _settingsPrayerTimeBox.get(AppStringConstraints.keyMaghribAdjustment, defaultValue: 0);
+    _ishaAdjustment = _settingsPrayerTimeBox.get(AppStringConstraints.keyIshaAdjustment, defaultValue: 0);
 
     _country = _settingsPrayerTimeBox.get(AppStringConstraints.keyCountry, defaultValue: 'Saudi Arabia');
     _city = _settingsPrayerTimeBox.get(AppStringConstraints.keyCity, defaultValue: 'Mecca');
@@ -53,7 +53,7 @@ class PrayerState extends ChangeNotifier {
     _calculationMethodIndex = _settingsPrayerTimeBox.get(AppStringConstraints.keyCalculationIndex, defaultValue: 10);
     _highLatitudeMethodIndex = _settingsPrayerTimeBox.get(AppStringConstraints.keyHighLatitudeIndex, defaultValue: 0);
     _madhabIndex = _settingsPrayerTimeBox.get(AppStringConstraints.keyMadhabIndex, defaultValue: 0);
-    _timeOffsetIndex = _settingsPrayerTimeBox.get(AppStringConstraints.keyUtcOffsetIndex, defaultValue: 1);
+    _dst = _settingsPrayerTimeBox.get(AppStringConstraints.keyDST, defaultValue: false);
     tz.initializeTimeZones();
     _dateTime = tz.TZDateTime.from(DateTime.now(), tz.local);
     _startCron();
@@ -65,13 +65,14 @@ class PrayerState extends ChangeNotifier {
 
     _prayerParams = AppStringConstraints.prayerCalculationMethods[_calculationMethodIndex].getParameters()
       ..highLatitudeRule = AppStringConstraints.highLatitude[_highLatitudeMethodIndex]
-      ..madhab = AppStringConstraints.calculationMadhab[_madhabIndex]
-      ..adjustments.fajr = _fajrAdjustment
-      ..adjustments.sunrise = _sunriseAdjustment
-      ..adjustments.dhuhr = _dhuhrAdjustment
-      ..adjustments.asr = _asrAdjustment
-      ..adjustments.maghrib = _maghribAdjustment
-      ..adjustments.isha = _ishaAdjustment;
+      ..madhab = AppStringConstraints.calculationMadhab[_madhabIndex];
+
+    _prayerParams.adjustments.fajr = _fajrAdjustment;
+    _prayerParams.adjustments.sunrise = _sunriseAdjustment;
+    _prayerParams.adjustments.dhuhr = _dhuhrAdjustment;
+    _prayerParams.adjustments.asr = _asrAdjustment;
+    _prayerParams.adjustments.maghrib = _maghribAdjustment;
+    _prayerParams.adjustments.isha = _ishaAdjustment;
 
     _prayerTimes = PrayerTimes.today(
       _coordinates,
@@ -145,12 +146,12 @@ class PrayerState extends ChangeNotifier {
     initPrayerTime();
   }
 
-  int get timeOffsetIndex => _timeOffsetIndex;
+  bool get dst => _dst;
 
-  set setTimeOffsetIndex(int index) {
-    _timeOffsetIndex = index;
-    _settingsPrayerTimeBox.put(AppStringConstraints.keyUtcOffsetIndex, index);
-    notifyListeners();
+  set setDst(bool dstState) {
+    _dst = dstState;
+    _settingsPrayerTimeBox.put(AppStringConstraints.keyDST, dstState);
+    initPrayerTime();
   }
 
   int get getMinutesOfDay => _dateTime.difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day)).inMinutes;
@@ -170,6 +171,84 @@ class PrayerState extends ChangeNotifier {
   int get getMidnightValueInMinutes => _prayerValueInMinutes(time: _sunnahTimes.middleOfTheNight);
 
   int get getThirdPartValueInMinutes => _prayerValueInMinutes(time: _sunnahTimes.lastThirdOfTheNight);
+
+  int get fajrAdjustment => _fajrAdjustment;
+
+  int get sunriseAdjustment => _sunriseAdjustment;
+
+  int get dhuhrAdjustment => _dhuhrAdjustment;
+
+  int get asrAdjustment => _asrAdjustment;
+
+  int get maghribAdjustment => _maghribAdjustment;
+
+  int get ishaAdjustment => _ishaAdjustment;
+
+  set fajrAdjustment(int value) {
+    if (_fajrAdjustment != value) {
+      _fajrAdjustment = value;
+      _settingsPrayerTimeBox.put(AppStringConstraints.keyFajrAdjustment, value);
+      initPrayerTime();
+    }
+  }
+
+  set sunriseAdjustment(int value) {
+    if (_sunriseAdjustment != value) {
+      _sunriseAdjustment = value;
+      _settingsPrayerTimeBox.put(AppStringConstraints.keySunriseAdjustment, value);
+      initPrayerTime();
+    }
+  }
+
+  set dhuhrAdjustment(int value) {
+    if (_dhuhrAdjustment != value) {
+      _dhuhrAdjustment = value;
+      _settingsPrayerTimeBox.put(AppStringConstraints.keyDhuhrAdjustment, value);
+      initPrayerTime();
+    }
+  }
+
+  set asrAdjustment(int value) {
+    if (_asrAdjustment != value) {
+      _asrAdjustment = value;
+      _settingsPrayerTimeBox.put(AppStringConstraints.keyAsrAdjustment, value);
+      initPrayerTime();
+    }
+  }
+
+  set maghribAdjustment(int value) {
+    if (_maghribAdjustment != value) {
+      _maghribAdjustment = value;
+      _settingsPrayerTimeBox.put(AppStringConstraints.keyMaghribAdjustment, value);
+      initPrayerTime();
+    }
+  }
+
+  set ishaAdjustment(int value) {
+    if (_ishaAdjustment != value) {
+      _ishaAdjustment = value;
+      _settingsPrayerTimeBox.put(AppStringConstraints.keyIshaAdjustment, value);
+      initPrayerTime();
+    }
+  }
+
+  void get defaultAdjustments {
+    _fajrAdjustment = 0;
+    _sunriseAdjustment = 0;
+    _dhuhrAdjustment = 0;
+    _asrAdjustment = 0;
+    _maghribAdjustment = 0;
+    _ishaAdjustment = 0;
+
+    _settingsPrayerTimeBox.put(AppStringConstraints.keyFajrAdjustment, _fajrAdjustment);
+    _settingsPrayerTimeBox.put(AppStringConstraints.keySunriseAdjustment, _sunriseAdjustment);
+    _settingsPrayerTimeBox.put(AppStringConstraints.keyDhuhrAdjustment, _dhuhrAdjustment);
+    _settingsPrayerTimeBox.put(AppStringConstraints.keyAsrAdjustment, _asrAdjustment);
+    _settingsPrayerTimeBox.put(AppStringConstraints.keyMaghribAdjustment, _maghribAdjustment);
+    _settingsPrayerTimeBox.put(AppStringConstraints.keyIshaAdjustment, _ishaAdjustment);
+
+    initPrayerTime();
+  }
 
   bool isPrayerInHourRange({required bool before, required DateTime prayerTime}) {
     final DateTime rangeStart = before ? prayerTime.subtract(hourInterval) : prayerTime;
@@ -278,13 +357,6 @@ class PrayerState extends ChangeNotifier {
 
   void _updateDateTime() {
     _dateTime = tz.TZDateTime.from(DateTime.now(), tz.local);
-    notifyListeners();
-  }
-
-  int getAdjustment(String key, {int defaultValue = 0}) => _settingsPrayerTimeBox.get(key, defaultValue: defaultValue);
-
-  void setAdjustment(String key, int value) {
-    _settingsPrayerTimeBox.put(key, value);
     notifyListeners();
   }
 

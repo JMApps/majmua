@@ -21,14 +21,15 @@ class PageAdjustments extends StatelessWidget {
         padding: AppStyles.mainMardingMini,
         child: Consumer<PrayerState>(
           builder: (context, prayerState, _) {
+            final Duration isDst = prayerState.dst ? const Duration(hours: -1) : const Duration(hours: 0);
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                const Card(
+                Card(
                   child: Padding(
                     padding: AppStyles.mainMardingMini,
                     child: Text(
-                      'Description',
+                      appLocale.adjustmentMessage,
                       style: AppStyles.mainTextStyle,
                       textAlign: TextAlign.center,
                     ),
@@ -36,115 +37,127 @@ class PageAdjustments extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 ListTile(
-                  leading: FilledButton(
+                  leading: FilledButton.tonal(
                     onPressed: () {
                       HapticFeedback.lightImpact();
+                      prayerState.fajrAdjustment = prayerState.fajrAdjustment - 1;
                     },
                     child: const Icon(Icons.remove),
                   ),
                   title: Text(
-                    '${appLocale.fajr}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.fajr)}',
+                    '${appLocale.fajr}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.fajr.add(isDst))}',
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),
-                  trailing: FilledButton(
+                  trailing: FilledButton.tonal(
                     onPressed: () {
                       HapticFeedback.lightImpact();
+                      prayerState.fajrAdjustment = prayerState.fajrAdjustment + 1;
                     },
                     child: const Icon(Icons.add),
                   ),
                 ),
                 ListTile(
-                  leading: FilledButton(
+                  leading: FilledButton.tonal(
                     onPressed: () {
                       HapticFeedback.lightImpact();
+                      prayerState.sunriseAdjustment = prayerState.sunriseAdjustment - 1;
                     },
                     child: const Icon(Icons.remove),
                   ),
                   title: Text(
-                    '${appLocale.sunrise}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.sunrise)}',
+                    '${appLocale.sunrise}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.sunrise.add(isDst))}',
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),
-                  trailing: FilledButton(
+                  trailing: FilledButton.tonal(
                     onPressed: () {
                       HapticFeedback.lightImpact();
+                      prayerState.sunriseAdjustment = prayerState.sunriseAdjustment + 1;
                     },
                     child: const Icon(Icons.add),
                   ),
                 ),
                 ListTile(
-                  leading: FilledButton(
+                  leading: FilledButton.tonal(
                     onPressed: () {
                       HapticFeedback.lightImpact();
+                      prayerState.dhuhrAdjustment = prayerState.dhuhrAdjustment - 1;
                     },
                     child: const Icon(Icons.remove),
                   ),
                   title: Text(
-                    '${appLocale.dhuhr}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.dhuhr)}',
+                    '${appLocale.dhuhr}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.dhuhr.add(isDst))}',
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),
-                  trailing: FilledButton(
+                  trailing: FilledButton.tonal(
                     onPressed: () {
                       HapticFeedback.lightImpact();
+                      prayerState.dhuhrAdjustment = prayerState.dhuhrAdjustment + 1;
                     },
                     child: const Icon(Icons.add),
                   ),
                 ),
                 ListTile(
-                  leading: FilledButton(
+                  leading: FilledButton.tonal(
                     onPressed: () {
                       HapticFeedback.lightImpact();
+                      prayerState.asrAdjustment = prayerState.asrAdjustment - 1;
                     },
                     child: const Icon(Icons.remove),
                   ),
                   title: Text(
-                    '${appLocale.asr}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.asr)}',
+                    '${appLocale.asr}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.asr.add(isDst))}',
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),
-                  trailing: FilledButton(
+                  trailing: FilledButton.tonal(
                     onPressed: () {
                       HapticFeedback.lightImpact();
+                      prayerState.asrAdjustment = prayerState.asrAdjustment + 1;
                     },
                     child: const Icon(Icons.add),
                   ),
                 ),
                 ListTile(
-                  leading: FilledButton(
+                  leading: FilledButton.tonal(
                     onPressed: () {
                       HapticFeedback.lightImpact();
+                      prayerState.maghribAdjustment = prayerState.maghribAdjustment - 1;
                     },
                     child: const Icon(Icons.remove),
                   ),
                   title: Text(
-                    '${appLocale.maghrib}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.maghrib)}',
+                    '${appLocale.maghrib}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.maghrib.add(isDst))}',
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),
-                  trailing: FilledButton(
+                  trailing: FilledButton.tonal(
                     onPressed: () {
                       HapticFeedback.lightImpact();
+                      prayerState.maghribAdjustment = prayerState.maghribAdjustment + 1;
                     },
                     child: const Icon(Icons.add),
                   ),
                 ),
                 ListTile(
-                  leading: FilledButton(
+                  leading: FilledButton.tonal(
                     onPressed: () {
                       HapticFeedback.lightImpact();
+                      prayerState.ishaAdjustment = prayerState.ishaAdjustment - 1;
                     },
                     child: const Icon(Icons.remove),
                   ),
                   title: Text(
-                    '${appLocale.isha}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.isha)}',
+                    '${appLocale.isha}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.isha.add(isDst))}',
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),
-                  trailing: FilledButton(
+                  trailing: FilledButton.tonal(
                     onPressed: () {
                       HapticFeedback.lightImpact();
+                      prayerState.ishaAdjustment = prayerState.ishaAdjustment + 1;
                     },
                     child: const Icon(Icons.add),
                   ),
@@ -156,9 +169,10 @@ class PageAdjustments extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding: AppStyles.mainMarding,
-        child: FilledButton(
+        child: FilledButton.tonal(
           onPressed: () {
             HapticFeedback.lightImpact();
+            Provider.of<PrayerState>(context, listen: false).defaultAdjustments;
           },
           child: Text(
             appLocale.defaultAdjustments,
