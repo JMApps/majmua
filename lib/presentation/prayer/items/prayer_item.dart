@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../state/prayer_state.dart';
-import '../widgets/to_supplications_button.dart';
 
 class PrayerItem extends StatefulWidget {
   const PrayerItem({
@@ -43,9 +42,12 @@ class _PrayerItemState extends State<PrayerItem> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
-                    widget.prayerIcon,
-                    color: isHourBefore ? appColors.tertiary : appColors.primary,
+                  Tooltip(
+                    message: '-${prayerState.restPrayerTime(isBefore: true, time: currentPrayerTime)}',
+                    child: Icon(
+                      widget.prayerIcon,
+                      color: isHourBefore ? appColors.tertiary : appColors.primary,
+                    ),
                   ),
                   Text(
                     widget.prayerName,
@@ -79,20 +81,6 @@ class _PrayerItemState extends State<PrayerItem> {
                         color: appColors.primary,
                         fontWeight: FontWeight.bold,
                       ),
-                    ),
-                  ),
-                  Visibility(
-                    visible: prayerState.isAdhan(prayer: widget.prayer),
-                    child: const ToSupplicationsButton(
-                      fortressChapterId: 0,
-                      iconName: AppStringConstraints.iconAqsa,
-                    ),
-                  ),
-                  Visibility(
-                    visible: prayerState.isDhikr(prayer: widget.prayer),
-                    child: const ToSupplicationsButton(
-                      fortressChapterId: 0,
-                      iconName: AppStringConstraints.iconHands,
                     ),
                   ),
                 ],

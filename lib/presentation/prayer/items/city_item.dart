@@ -18,10 +18,7 @@ class CityItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
-    final Color itemOdd = appColors.primary.withAlpha(15);
-    final Color itemEven = appColors.primary.withAlpha(5);
     return Card(
-      color: index.isOdd ? itemOdd : itemEven,
       margin: AppStyles.mardingBottomMini,
       child: ListTile(
         onTap: () {
@@ -45,7 +42,7 @@ class CityItem extends StatelessWidget {
           style: AppStyles.mainTextStyleMini,
         ),
         leading: CircleAvatar(
-          backgroundColor: appColors.primaryContainer,
+          backgroundColor: appColors.inversePrimary,
           child: Padding(
             padding: AppStyles.mardingTopMicroMini,
             child: Text(

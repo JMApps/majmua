@@ -12,29 +12,32 @@ class LibraryButton extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     return Padding(
       padding: AppStyles.mardingWithoutTopMini,
-      child: OutlinedButton.icon(
-        onPressed: () {
-          HapticFeedback.lightImpact();
-        },
-        iconAlignment: IconAlignment.end,
-        icon: const Icon(Icons.menu_book_rounded),
-        label: const Text(
-          'Библиотека',
-          style: TextStyle(
-            fontSize: 15.0,
-            fontFamily: AppStringConstraints.fontGilroyMedium,
-          ),
-        ),
-        style: ButtonStyle(
-          overlayColor: WidgetStateProperty.all(appColors.tertiaryContainer),
-          backgroundColor: WidgetStateProperty.all(appColors.secondaryContainer),
-          side: WidgetStateProperty.all<BorderSide>(
-            BorderSide(
-              width: 0,
-              color: appColors.secondaryContainer,
+      child: Tooltip(
+        message: 'Библиотека',
+        child: FilledButton.tonalIcon(
+          onPressed: () {
+            HapticFeedback.lightImpact();
+          },
+          iconAlignment: IconAlignment.end,
+          icon: const Icon(Icons.menu_book_rounded),
+          label: const Text(
+            'Библиотека',
+            style: TextStyle(
+              fontSize: 15.0,
+              fontFamily: AppStringConstraints.fontGilroyMedium,
             ),
           ),
-          shape: WidgetStateProperty.all(AppStyles.mainShapeMini),
+          style: ButtonStyle(
+            overlayColor: WidgetStateProperty.all(appColors.tertiaryContainer),
+            backgroundColor: WidgetStateProperty.all(appColors.secondaryContainer),
+            side: WidgetStateProperty.all<BorderSide>(
+              BorderSide(
+                width: 0,
+                color: appColors.secondaryContainer,
+              ),
+            ),
+            shape: WidgetStateProperty.all(AppStyles.mainShapeMini),
+          ),
         ),
       ),
     );

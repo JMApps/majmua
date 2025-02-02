@@ -26,7 +26,7 @@ class PageInformation extends StatelessWidget {
                 padding: AppStyles.mainMardingMini,
                 child: Text(
                   appLocale.calculationTimeMessage,
-                  style: AppStyles.mainTextStyle,
+                  style: AppStyles.mainTextStyleMini,
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -37,21 +37,19 @@ class PageInformation extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               itemCount: AppStringConstraints.calculationMethodInfo.length,
               itemBuilder: (context, index) {
-                final AdhanInformationModel model =
-                    AppStringConstraints.calculationMethodInfo[index];
+                final AdhanInformationModel model = AppStringConstraints.calculationMethodInfo[index];
                 return Padding(
                   padding: AppStyles.mardingTop,
                   child: Column(
                     children: [
                       Text(
                         model.convention,
-                        style: AppStyles.mainTextStyleBold,
+                        style: AppStyles.mainTextStyleMiniBold,
                         textAlign: TextAlign.center,
                       ),
                       Text(
                         'Fajr angle: ${model.fajrAngle}',
                         style: TextStyle(
-                          fontSize: 18.0,
                           color: appColors.primary,
                         ),
                         textAlign: TextAlign.center,
@@ -59,7 +57,6 @@ class PageInformation extends StatelessWidget {
                       Text(
                         'Isha angle: ${model.ishaAngle}',
                         style: TextStyle(
-                          fontSize: 18.0,
                           color: appColors.tertiary,
                         ),
                         textAlign: TextAlign.center,

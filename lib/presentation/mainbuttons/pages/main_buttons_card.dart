@@ -12,7 +12,7 @@ class MainButtonsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
     return Card(
-      margin: AppStyles.mainMardingMini,
+      margin: AppStyles.mardingWithoutBottomMini,
       child: Padding(
         padding: AppStyles.mainMardingMini,
         child: Column(

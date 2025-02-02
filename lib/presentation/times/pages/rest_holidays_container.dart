@@ -33,7 +33,7 @@ class RestHolidaysContainer extends StatelessWidget {
                         remindTitle: appLocale.daysToRamadan,
                         remindDays: timeState.getDaysToRamadan()[AppStringConstraints.mapDaysToRamadan],
                         eventDate: DateFormat('dd.MM.yyyy').format(timeState.getDaysToRamadan()[AppStringConstraints.mapRamadanDate]),
-                        itemColor: appColors.primary,
+                        itemColor: appColors.primaryContainer,
                       ),
                     ),
                     Expanded(
@@ -60,7 +60,7 @@ class RestHolidaysContainer extends StatelessWidget {
                         remindTitle: appLocale.daysToDhulHujjah,
                         remindDays: timeState.getDaysToDhulHijjah()[AppStringConstraints.mapDaysToDhulHijjah],
                         eventDate: DateFormat('dd.MM.yyyy').format(timeState.getDaysToDhulHijjah()[AppStringConstraints.mapDhulHijjahDate]),
-                        itemColor: appColors.tertiary,
+                        itemColor: appColors.tertiaryContainer,
                       ),
                     ),
                     Expanded(

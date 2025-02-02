@@ -71,7 +71,6 @@ class PrayersContainer extends StatelessWidget {
           ],
         ),
         Card(
-          elevation: 0,
           margin: AppStyles.mardingHorizontalMini,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,

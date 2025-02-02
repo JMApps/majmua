@@ -13,12 +13,14 @@ class AppThemes {
   ThemeData get darkTheme => _buildTheme(Brightness.dark);
 
   ThemeData _buildTheme(Brightness brightness) {
+    final colorScheme = ColorScheme.fromSeed(
+      brightness: brightness,
+      seedColor: _appColor,
+    );
+
     return ThemeData(
       fontFamily: AppStringConstraints.fontGilroy,
-      colorScheme: ColorScheme.fromSeed(
-        brightness: brightness,
-        seedColor: _appColor,
-      ),
+      colorScheme: colorScheme,
       appBarTheme: const AppBarTheme(
         centerTitle: true,
       ),
@@ -38,9 +40,20 @@ class AppThemes {
         dragHandleSize: Size(48, 3),
       ),
       cardTheme: const CardTheme(
-        elevation: 0,
+        elevation: 0.5,
         margin: EdgeInsets.zero,
-      )
+      ),
+      tooltipTheme: TooltipThemeData(
+        decoration: BoxDecoration(
+          color: colorScheme.surface,
+          borderRadius: AppStyles.mainBorderMini,
+          border: Border.all(
+            width: 1.0,
+            color: colorScheme.primary,
+          ),
+        ),
+        textStyle: AppStyles.mainTextStyleMicro,
+      ),
     );
   }
 }

@@ -13,16 +13,17 @@ class TimePeriodPercent extends StatelessWidget {
     required this.dayTitle,
     required this.partName,
     required this.cardColor,
+    required this.textColor,
   });
 
   final String dayTitle;
   final String partName;
   final Color cardColor;
+  final Color textColor;
 
   @override
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
-    final appColors = Theme.of(context).colorScheme;
     return Consumer<PrayerState>(
       builder: (context, prayerState, _) {
         return Card(
@@ -40,7 +41,8 @@ class TimePeriodPercent extends StatelessWidget {
                     child: Text(
                       '-${prayerState.restPrayerTime(isBefore: true, time: prayerState.thirdTime(partName: partName))}',
                       style: TextStyle(
-                        color: appColors.onErrorContainer,
+                        color: textColor,
+                        fontFamily: AppStringConstraints.fontGilroyMedium,
                       ),
                       textAlign: TextAlign.start,
                     ),
@@ -50,7 +52,6 @@ class TimePeriodPercent extends StatelessWidget {
                   flex: 3,
                   child: Text(
                     partName.contains(AppStringConstraints.timeSunrise) && prayerState.isDuha ? '$dayTitle ${appLocale.duha}' : dayTitle,
-                    style: AppStyles.mainTextStyleMini,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -58,7 +59,7 @@ class TimePeriodPercent extends StatelessWidget {
                   child: Text(
                     DateFormat('HH:mm').format(prayerState.thirdTime(partName: partName)),
                     style: const TextStyle(
-                      fontWeight: FontWeight.bold,
+                      fontFamily: AppStringConstraints.fontGilroyMedium,
                     ),
                     textAlign: TextAlign.end,
                   ),

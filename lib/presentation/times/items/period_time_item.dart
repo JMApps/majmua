@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/core/styles/app_styles.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 class PeriodTimeItem extends StatelessWidget {
@@ -23,45 +24,47 @@ class PeriodTimeItem extends StatelessWidget {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final double screenWidth = MediaQuery.of(context).size.width;
     final String pastTime = '${(percent - 100).toStringAsFixed(2)}%';
-    return Container(
-      decoration: BoxDecoration(
-        color: appColors.surface,
-        shape: BoxShape.circle,
-      ),
-      child: SleekCircularSlider(
-        initialValue: percent,
-        appearance: CircularSliderAppearance(
-          infoProperties: InfoProperties(
-            topLabelText: time,
-            topLabelStyle: TextStyle(
-              color: timeIndex.isOdd ? appColors.primary : appColors.tertiary,
-              fontSize: 12.0,
-              fontWeight: FontWeight.bold,
+    return Card(
+      color: appColors.surface,
+      shape: AppStyles.mainShapeBig,
+      margin: EdgeInsets.zero,
+      child: Padding(
+        padding: AppStyles.mainMardingMicroMini,
+        child: SleekCircularSlider(
+          initialValue: percent,
+          appearance: CircularSliderAppearance(
+            infoProperties: InfoProperties(
+              topLabelText: time,
+              topLabelStyle: TextStyle(
+                color: timeIndex.isOdd ? appColors.primary : appColors.tertiary,
+                fontSize: 12.0,
+                fontWeight: FontWeight.bold,
+              ),
+              modifier: percentageModifier,
+              mainLabelStyle: TextStyle(
+                color: appColors.primary,
+                fontSize: 10.0,
+              ),
+              bottomLabelText: pastTime,
+              bottomLabelStyle: TextStyle(
+                color: appColors.tertiary,
+                fontSize: 10.0,
+              ),
             ),
-            modifier: percentageModifier,
-            mainLabelStyle: TextStyle(
-              color: appColors.primary,
-              fontSize: 10.0,
+            customWidths: CustomSliderWidths(
+              progressBarWidth: 3.5,
+              trackWidth: 2.5,
+              handlerSize: 1.5,
             ),
-            bottomLabelText: pastTime,
-            bottomLabelStyle: TextStyle(
-              color: appColors.tertiary,
-              fontSize: 10.0,
+            customColors: CustomSliderColors(
+              hideShadow: true,
+              progressBarColor: timeIndex.isOdd ? appColors.primary : appColors.tertiary,
+              trackColor: timeIndex.isOdd ? appColors.primary.withAlpha(50) : appColors.secondary.withAlpha(50),
             ),
+            size: screenWidth * 0.2,
+            spinnerMode: false,
+            animationEnabled: false,
           ),
-          customWidths: CustomSliderWidths(
-            progressBarWidth: 3.5,
-            trackWidth: 2.5,
-            handlerSize: 1.5,
-          ),
-          customColors: CustomSliderColors(
-            hideShadow: true,
-            progressBarColor: timeIndex.isOdd ? appColors.primary : appColors.tertiary,
-            trackColor: timeIndex.isOdd ? appColors.primary.withAlpha(50) : appColors.secondary.withAlpha(50),
-          ),
-          size: screenWidth * 0.2,
-          spinnerMode: false,
-          animationEnabled: false,
         ),
       ),
     );

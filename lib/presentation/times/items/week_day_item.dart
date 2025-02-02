@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/styles/app_styles.dart';
 import '../../state/prayer_state.dart';
 import '../../state/time_state.dart';
 
@@ -27,21 +27,24 @@ class _WeekDayItemState extends State<WeekDayItem> {
       builder: (context, timeState, prayerState, _) {
         final bool isWeekday = timeState.getDateTime.weekday == widget.dayNumber;
         return Expanded(
-          child: Container(
+          child: SizedBox(
             height: 25.0,
-            decoration: BoxDecoration(
-              borderRadius: AppStyles.mainBorderMini,
-              color: isWeekday && timeState.getDateTime.weekday == 5 ? appColors.tertiaryContainer : isWeekday ? appColors.primary : appColors.secondaryContainer,
-            ),
-            alignment: Alignment.center,
-            child: Text(
-              appLocale.week2DayNames.split(', ')[widget.dayNumber - 1],
-              style: TextStyle(
-                fontSize: 14.0,
-                color: isWeekday && timeState.getDateTime.weekday == 5 ? appColors.tertiary : isWeekday ? appColors.primaryContainer : appColors.secondary,
-                fontWeight: !isWeekday ? FontWeight.normal : FontWeight.bold,
+            child: Tooltip(
+              message: isWeekday ? '${appLocale.week2DayNames.split(', ')[widget.dayNumber - 1]} / ${DateFormat('dd.MM.yyyy').format(DateTime.now())}' : '',
+              child: Card(
+                color: isWeekday && timeState.getDateTime.weekday == 5 ? appColors.tertiaryContainer : isWeekday ? appColors.primary : appColors.secondaryContainer,
+                child: Center(
+                  child: Text(
+                    appLocale.week2DayNamesShort.split(', ')[widget.dayNumber - 1],
+                    style: TextStyle(
+                      color: isWeekday && timeState.getDateTime.weekday == 5 ? appColors.tertiary : isWeekday ? appColors.primaryContainer : appColors.secondary,
+                      fontWeight: !isWeekday ? FontWeight.normal : FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
               ),
-              overflow: TextOverflow.ellipsis,
             ),
           ),
         );

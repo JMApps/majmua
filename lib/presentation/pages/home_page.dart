@@ -72,6 +72,7 @@ class HomePage extends StatelessWidget {
                 SeasonTimesContainer(),
                 RestHolidaysContainer(),
                 MainButtonsCard(),
+                SizedBox(height: 4),
                 LibraryButton(),
               ],
             ),

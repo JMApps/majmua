@@ -21,44 +21,16 @@ class MainDataItem extends StatelessWidget {
               '${timeState.getHijriDateTime.hDay} ${appLocale.hijriMonthNames.split(', ')[timeState.getHijriDateTime.hMonth - 1]} ${timeState.getHijriDateTime.hYear}',
               style: TextStyle(
                 fontSize: 15.0,
-                fontFamily: AppStringConstraints.fontGilroy,
+                fontFamily: AppStringConstraints.fontGilroyMedium,
                 color: appColors.primary,
               ),
               overflow: TextOverflow.ellipsis,
-            ),
-            Visibility(
-              visible: (!timeState.isRamadan() || !timeState.isDhulhijjah()) && timeState.getHijriDateTime.hDay == 12,
-              child: Text(
-                appLocale.nearWhiteDays,
-                style: TextStyle(
-                  fontSize: 13.0,
-                  color: appColors.secondary,
-                ),
-                textAlign: TextAlign.start,
-              ),
-            ),
-            Visibility(
-              visible: (!timeState.isRamadan() || !timeState.isDhulhijjah()) && timeState.isWhiteDays(),
-              child: Wrap(
-                alignment: WrapAlignment.start,
-                spacing: 4,
-                children: [
-                  Text(
-                    appLocale.whiteDays,
-                    style: TextStyle(
-                      fontSize: 13.0,
-                      color: appColors.secondary,
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
-                ],
-              ),
             ),
             Text(
               '${timeState.getDateTime.day} ${appLocale.gregorianMonthNames.split(', ')[timeState.getDateTime.month - 1]} ${timeState.getDateTime.year}',
               style: TextStyle(
                 fontSize: 15.0,
-                fontFamily: AppStringConstraints.fontGilroy,
+                fontFamily: AppStringConstraints.fontGilroyMedium,
                 color: appColors.tertiary,
               ),
               overflow: TextOverflow.ellipsis,

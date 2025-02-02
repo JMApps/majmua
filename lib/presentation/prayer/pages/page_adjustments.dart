@@ -30,14 +30,14 @@ class PageAdjustments extends StatelessWidget {
                     padding: AppStyles.mainMardingMini,
                     child: Text(
                       appLocale.adjustmentMessage,
-                      style: AppStyles.mainTextStyle,
+                      style: AppStyles.mainTextStyleMini,
                       textAlign: TextAlign.center,
                     ),
                   ),
                 ),
                 const SizedBox(height: 8),
                 ListTile(
-                  leading: FilledButton.tonal(
+                  leading: OutlinedButton(
                     onPressed: () {
                       HapticFeedback.lightImpact();
                       prayerState.fajrAdjustment = prayerState.fajrAdjustment - 1;
@@ -49,7 +49,7 @@ class PageAdjustments extends StatelessWidget {
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),
-                  trailing: FilledButton.tonal(
+                  trailing: OutlinedButton(
                     onPressed: () {
                       HapticFeedback.lightImpact();
                       prayerState.fajrAdjustment = prayerState.fajrAdjustment + 1;
@@ -58,7 +58,7 @@ class PageAdjustments extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  leading: FilledButton.tonal(
+                  leading: OutlinedButton(
                     onPressed: () {
                       HapticFeedback.lightImpact();
                       prayerState.sunriseAdjustment = prayerState.sunriseAdjustment - 1;
@@ -70,7 +70,7 @@ class PageAdjustments extends StatelessWidget {
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),
-                  trailing: FilledButton.tonal(
+                  trailing: OutlinedButton(
                     onPressed: () {
                       HapticFeedback.lightImpact();
                       prayerState.sunriseAdjustment = prayerState.sunriseAdjustment + 1;
@@ -79,7 +79,7 @@ class PageAdjustments extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  leading: FilledButton.tonal(
+                  leading: OutlinedButton(
                     onPressed: () {
                       HapticFeedback.lightImpact();
                       prayerState.dhuhrAdjustment = prayerState.dhuhrAdjustment - 1;
@@ -91,7 +91,7 @@ class PageAdjustments extends StatelessWidget {
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),
-                  trailing: FilledButton.tonal(
+                  trailing: OutlinedButton(
                     onPressed: () {
                       HapticFeedback.lightImpact();
                       prayerState.dhuhrAdjustment = prayerState.dhuhrAdjustment + 1;
@@ -100,7 +100,7 @@ class PageAdjustments extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  leading: FilledButton.tonal(
+                  leading: OutlinedButton(
                     onPressed: () {
                       HapticFeedback.lightImpact();
                       prayerState.asrAdjustment = prayerState.asrAdjustment - 1;
@@ -112,7 +112,7 @@ class PageAdjustments extends StatelessWidget {
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),
-                  trailing: FilledButton.tonal(
+                  trailing: OutlinedButton(
                     onPressed: () {
                       HapticFeedback.lightImpact();
                       prayerState.asrAdjustment = prayerState.asrAdjustment + 1;
@@ -121,7 +121,7 @@ class PageAdjustments extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  leading: FilledButton.tonal(
+                  leading: OutlinedButton(
                     onPressed: () {
                       HapticFeedback.lightImpact();
                       prayerState.maghribAdjustment = prayerState.maghribAdjustment - 1;
@@ -133,7 +133,7 @@ class PageAdjustments extends StatelessWidget {
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),
-                  trailing: FilledButton.tonal(
+                  trailing: OutlinedButton(
                     onPressed: () {
                       HapticFeedback.lightImpact();
                       prayerState.maghribAdjustment = prayerState.maghribAdjustment + 1;
@@ -142,7 +142,7 @@ class PageAdjustments extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  leading: FilledButton.tonal(
+                  leading: OutlinedButton(
                     onPressed: () {
                       HapticFeedback.lightImpact();
                       prayerState.ishaAdjustment = prayerState.ishaAdjustment - 1;
@@ -154,7 +154,7 @@ class PageAdjustments extends StatelessWidget {
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),
-                  trailing: FilledButton.tonal(
+                  trailing: OutlinedButton(
                     onPressed: () {
                       HapticFeedback.lightImpact();
                       prayerState.ishaAdjustment = prayerState.ishaAdjustment + 1;

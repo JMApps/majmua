@@ -26,19 +26,13 @@ class AyahHadithDayItem extends StatelessWidget {
         highlightColor: color.withAlpha(100),
         child: Container(
           alignment: Alignment.center,
-          decoration: BoxDecoration(
-            borderRadius: AppStyles.mainBorderMini,
-            border: Border.all(
-              width: 1.5,
-              color: color,
-            ),
-          ),
           child: Text(
             title,
             style: TextStyle(
               fontSize: 14.0,
               color: color,
               fontFamily: AppStringConstraints.fontGilroy,
+              fontWeight: FontWeight.bold,
               height: 1.0,
             ),
             textAlign: TextAlign.center,

@@ -18,7 +18,6 @@ class RemindHolidayDaysItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appColors = Theme.of(context).colorScheme;
     return Card(
       margin: AppStyles.mardingHorizontalMini,
       child: Padding(
@@ -29,9 +28,8 @@ class RemindHolidayDaysItem extends StatelessWidget {
               flex: 9,
               child: Text(
                 remindTitle,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16.0,
-                  color: itemColor,
                 ),
               ),
             ),
@@ -41,15 +39,13 @@ class RemindHolidayDaysItem extends StatelessWidget {
               child: Tooltip(
                 message: eventDate,
                 child: Card(
-                  color: appColors.secondaryContainer,
+                  color: itemColor,
                   shape: AppStyles.mainShapeMini,
                   child: Padding(
                     padding: AppStyles.mardingVerticalMicro,
                     child: Text(
                       remindDays.toString(),
-                      style: TextStyle(
-                        fontSize: 14.0,
-                        color: itemColor,
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                       textAlign: TextAlign.center,

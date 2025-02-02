@@ -7,7 +7,6 @@ import '../../../core/enums/time_period.dart';
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../state/time_state.dart';
-import '../widgets/season_name.dart';
 
 class SeasonItem extends StatelessWidget {
   const SeasonItem({super.key,
@@ -26,12 +25,12 @@ class SeasonItem extends StatelessWidget {
       height: 27.5,
       value: Provider.of<TimeState>(context).restPeriodTimes(timePeriod: TimePeriod.season)[AppStringConstraints.elapsedPercentage] / 100,
       startPosition: StartPosition.topCenter,
-      strokeAlign: SquareStrokeAlign.center,
+      strokeAlign: SquareStrokeAlign.outside,
       clockwise: true,
       color: appColors.primary,
       emptyStrokeColor: appColors.primaryContainer.withAlpha(125),
       strokeWidth: 1.75,
-      emptyStrokeWidth: 1.25,
+      emptyStrokeWidth: 1.75,
       child: Container(
         alignment: Alignment.center,
         margin: AppStyles.mainMardingMicroMini,
@@ -40,10 +39,8 @@ class SeasonItem extends StatelessWidget {
           image: DecorationImage(
             image: AssetImage('assets/pictures/${AppStringConstraints.timePeriodPics[season.index]}.png'),
             fit: BoxFit.cover,
-            opacity: 0.5,
           ),
         ),
-        child: SeasonName(seasonName: seasonName),
       ),
     );
   }
