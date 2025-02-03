@@ -39,21 +39,26 @@ class AppStringConstraints {
   static const String keyAppLocaleIndex = 'key_app_locale_index';
 
   static const String iconSettings = 'settings';
-  static const String iconParams = 'params';
   static const String iconNotifications = 'notifications';
+  static const String iconLinks = 'share';
+
+  static const String iconAppStore = 'appstore';
+  static const String iconGooglePlay = 'google-play';
+  static const String iconTelegram = 'telegram';
+  static const String iconInstagram = 'instagram';
+  static const String iconUmmaLife = 'ummalife';
+  static const String iconStar = 'star';
+
   static const String iconLocation = 'location';
+  static const String iconParams = 'params';
   static const String iconCalendar = 'calendar';
   static const String iconQiblah = 'qiblah';
-  static const String iconAqsa = 'aqsa';
-  static const String iconHands = 'hands';
+
   static const String iconQuran = 'quran';
   static const String iconSQuran = 's_quran';
   static const String iconFortress = 'fortress';
   static const String iconGems = 'gems';
   static const String iconCounter = 'counter';
-  static const String iconAyahDay = 'ayah_day';
-  static const String iconHadithDay = 'hadith_day';
-  static const String iconShare = 'share';
 
   static const String timeSunrise = 'sunrise';
   static const String timeMiddleNight = 'middle_night';
@@ -72,6 +77,16 @@ class AppStringConstraints {
   static const String endPeriod = 'map_end_period';
   static const String remainingDateTime = 'map_remaining_date_time';
   static const String elapsedPercentage = 'map_elapsedPercentage';
+
+  static const String appStoreLink = 'https://apps.apple.com/ru/developer/imanil-binyaminov/id1564920953';
+  static const String googlePlayLink = 'https://play.google.com/store/apps/dev?id=8649252597553656018';
+  static const String telegramLink = 'https://t.me/jmapps';
+  static const String instagramLink = 'https://www.instagram.com/dev_muslim';
+  static const String ummaLifeLink = 'https://ummalife.com/jmapps';
+  static const String appLinkIOS = 'https://apps.apple.com/ru/app/полка-мусульманина/id1659190395';
+  static const String appLinkAndroid = 'https://play.google.com/store/apps/details?id=jmapps.project.majmua';
+  static const String iOS = 'iOS:';
+  static const String android = 'Android:';
 
   static const List<Locale> appLocales = [
     Locale('ru', 'RU'),
