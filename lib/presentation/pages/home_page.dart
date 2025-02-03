@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../core/routes/app_route_names.dart';
 import '../../core/strings/app_string_constraints.dart';
 import '../../core/styles/app_styles.dart';
+import '../about/pages/about_us_bottom_sheet.dart';
 import '../library/widgets/library_button.dart';
 import '../mainbuttons/pages/main_buttons_card.dart';
 import '../prayer/pages/day_times_container.dart';
@@ -33,7 +35,10 @@ class HomePage extends StatelessWidget {
               MainIconButton(
                 onPressed: () {
                   HapticFeedback.lightImpact();
-                  // Open app settings
+                  Navigator.pushNamed(
+                    context,
+                    AppRouteNames.pageAppSettings,
+                  );
                 },
                 tooltip: appLocale.settings,
                 iconName: AppStringConstraints.iconSettings,
@@ -42,7 +47,10 @@ class HomePage extends StatelessWidget {
               MainIconButton(
                 onPressed: () {
                   HapticFeedback.lightImpact();
-                  // Open notification settings
+                  Navigator.pushNamed(
+                    context,
+                    AppRouteNames.pageAppNotifications,
+                  );
                 },
                 tooltip: appLocale.notifications,
                 iconName: AppStringConstraints.iconNotifications,
@@ -53,10 +61,14 @@ class HomePage extends StatelessWidget {
                 child: MainIconButton(
                   onPressed: () {
                     HapticFeedback.lightImpact();
-                    // Open notification settings
+                    showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      builder: (context) => const AboutUsBottomSheet(),
+                    );
                   },
                   tooltip: appLocale.share,
-                  iconName: AppStringConstraints.iconShare,
+                  iconName: AppStringConstraints.iconLinks,
                   iconColor: appColors.secondary,
                 ),
               ),

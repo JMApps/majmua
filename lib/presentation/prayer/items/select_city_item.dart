@@ -38,7 +38,7 @@ class _SelectCityItemState extends State<SelectCityItem> {
             child: Row(
               children: [
                 Image.asset(
-                  'assets/icons/location.png',
+                  'assets/icons/${AppStringConstraints.iconLocation}.png',
                   height: 22.5,
                   width: 22.5,
                   color: appColors.primary,

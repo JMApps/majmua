@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../presentation/prayer/pages/add_city_page.dart';
+import '../../presentation/settings/pages/app_settings_page.dart';
+import '../../presentation/notifications/pages/app_notifications_page.dart';
 import '../../presentation/prayer/pages/page_adjustments.dart';
 import '../../presentation/prayer/pages/page_information.dart';
 import '../../presentation/prayer/pages/prayer_params_page.dart';
@@ -23,6 +25,8 @@ class AppRoutes {
   }
 
   static Map<String, Widget Function(BuildContext, dynamic)> routes = {
+    AppRouteNames.pageAppSettings: (context, args) => const AppSettingsPage(),
+    AppRouteNames.pageAppNotifications: (context, args) => const AppNotificationsPage(),
     AppRouteNames.pagePrayerParams: (context, args) => const PrayerParamsPage(),
     AppRouteNames.pagePrayerSchedule: (context, args) => const PrayersSchedulePage(),
     AppRouteNames.pageSelectCity: (context, args) => const SelectCityPage(),
