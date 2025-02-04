@@ -24,20 +24,8 @@ class AppThemes {
       appBarTheme: const AppBarTheme(
         centerTitle: true,
       ),
-      inputDecorationTheme: const InputDecorationTheme(
-        contentPadding: AppStyles.mardingHorizontal,
-        alignLabelWithHint: true,
-        floatingLabelAlignment: FloatingLabelAlignment.center,
-        border: OutlineInputBorder(
-          borderRadius: AppStyles.mainBorder,
-          borderSide: BorderSide(
-            width: 0.5,
-          ),
-        ),
-      ),
       bottomSheetTheme: const BottomSheetThemeData(
         showDragHandle: true,
-        dragHandleSize: Size(48, 3),
       ),
       cardTheme: const CardTheme(
         elevation: 0.5,

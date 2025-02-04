@@ -32,7 +32,7 @@ class PrayerParamsPage extends StatelessWidget {
                     padding: AppStyles.mardingVerticalMini,
                     child: Column(
                       children: [
-                        PrayerParamsDescriptionText(text: appLocale.selectCity),
+                        PrayerParamsDescriptionText(text: appLocale.selectedCity),
                         Text(
                           '${prayerState.country},',
                           style: AppStyles.mainTextStyle,

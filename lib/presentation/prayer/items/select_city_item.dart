@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 
 import '../../../core/routes/app_route_names.dart';
 import '../../../core/strings/app_string_constraints.dart';
-import '../../../core/styles/app_styles.dart';
 import '../../state/prayer_state.dart';
 
 class SelectCityItem extends StatefulWidget {
@@ -34,7 +33,7 @@ class _SelectCityItemState extends State<SelectCityItem> {
               );
             },
             alignment: Alignment.centerLeft,
-            padding: AppStyles.mardingLeftMini,
+            padding: const EdgeInsets.only(left: 12),
             child: Row(
               children: [
                 Image.asset(
@@ -43,7 +42,7 @@ class _SelectCityItemState extends State<SelectCityItem> {
                   width: 22.5,
                   color: appColors.primary,
                 ),
-                const SizedBox(width: 4),
+                const SizedBox(width: 8),
                 Expanded(
                   child: Text(
                     prayerState.city,

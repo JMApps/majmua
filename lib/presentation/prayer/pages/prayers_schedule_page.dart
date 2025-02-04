@@ -47,142 +47,148 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
       ),
       body: Scrollbar(
         child: SingleChildScrollView(
-          child: DataTable(
-            headingRowColor: WidgetStateProperty.all(appColors.inversePrimary.withAlpha(75)),
-            columnSpacing: 0,
-            dataRowHeight: 35.0,
-            columns: [
-              DataColumn(
-                tooltip: appLocale.dayNumber,
-                label: SizedBox(
-                  width: columnWidth / 1.75,
-                  child: const Text(''),
-                ),
-              ),
-              DataColumn(
-                tooltip: appLocale.fajr,
-                label: SizedBox(
-                  width: columnWidth,
-                  child: Text(appLocale.fajr),
-                ),
-              ),
-              DataColumn(
-                tooltip: appLocale.sunrise,
-                label: SizedBox(
-                  width: columnWidth,
-                  child: Text(appLocale.sunrise),
-                ),
-              ),
-              DataColumn(
-                tooltip: appLocale.dhuhr,
-                label: SizedBox(
-                  width: columnWidth,
-                  child: Text(appLocale.dhuhr),
-                ),
-              ),
-              DataColumn(
-                tooltip: appLocale.asr,
-                label: SizedBox(
-                  width: columnWidth,
-                  child: Text(appLocale.asr),
-                ),
-              ),
-              DataColumn(
-                tooltip: appLocale.maghrib,
-                label: SizedBox(
-                  width: columnWidth,
-                  child: Text(appLocale.maghrib),
-                ),
-              ),
-              DataColumn(
-                tooltip: appLocale.isha,
-                label: SizedBox(
-                  width: columnWidth,
-                  child: Text(appLocale.isha),
-                ),
-              ),
-            ],
-            rows: prayerTimesList.map((prayerTimes) {
-              final dayIndex = prayerTimesList.indexOf(prayerTimes);
-              return DataRow(
-                color: WidgetStateProperty.all(
-                  dayIndex + 1 == _currentDateTime.day ? appColors.tertiaryContainer : appColors.secondaryContainer.withAlpha(75),
-                ),
-                cells: [
-                  DataCell(
-                    SizedBox(
+          child: Consumer<PrayerState>(
+            builder: (context, prayerState, _) {
+              final Duration dstState = prayerState.dst ? const Duration(hours: - 1) : const Duration(hours: 0);
+              return DataTable(
+                headingRowColor: WidgetStateProperty.all(appColors.inversePrimary.withAlpha(75)),
+                columnSpacing: 0,
+                dataRowMinHeight: 40,
+                dataRowMaxHeight: 40,
+                columns: [
+                  DataColumn(
+                    tooltip: appLocale.dayNumber,
+                    label: SizedBox(
                       width: columnWidth / 1.75,
-                      child: Text(
-                        (dayIndex + 1).toString(),
-                        style: TextStyle(
-                          fontWeight: dayIndex + 1 == _currentDateTime.day ? FontWeight.bold : FontWeight.normal,
-                        ),
-                      ),
+                      child: const Text(''),
                     ),
                   ),
-                  DataCell(
-                    SizedBox(
+                  DataColumn(
+                    tooltip: appLocale.fajr,
+                    label: SizedBox(
                       width: columnWidth,
-                      child: Text(
-                        DateFormat('HH:mm').format(prayerTimes.fajr),
-                        style: TextStyle(
-                          color: dayIndex + 1 == _currentDateTime.day ? appColors.tertiary : appColors.primary,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      child: Text(appLocale.fajr),
                     ),
                   ),
-                  DataCell(
-                    SizedBox(
+                  DataColumn(
+                    tooltip: appLocale.sunrise,
+                    label: SizedBox(
                       width: columnWidth,
-                      child: Text(
-                        DateFormat('HH:mm').format(prayerTimes.sunrise),
-                      ),
+                      child: Text(appLocale.sunrise),
                     ),
                   ),
-                  DataCell(
-                    SizedBox(
+                  DataColumn(
+                    tooltip: appLocale.dhuhr,
+                    label: SizedBox(
                       width: columnWidth,
-                      child: Text(
-                        DateFormat('HH:mm').format(prayerTimes.dhuhr),
-                        style: TextStyle(
-                          color: dayIndex + 1 == _currentDateTime.day ? appColors.tertiary : appColors.primary,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      child: Text(appLocale.dhuhr),
                     ),
                   ),
-                  DataCell(
-                    SizedBox(
+                  DataColumn(
+                    tooltip: appLocale.asr,
+                    label: SizedBox(
                       width: columnWidth,
-                      child: Text(
-                        DateFormat('HH:mm').format(prayerTimes.asr),
-                      ),
+                      child: Text(appLocale.asr),
                     ),
                   ),
-                  DataCell(
-                    SizedBox(
+                  DataColumn(
+                    tooltip: appLocale.maghrib,
+                    label: SizedBox(
                       width: columnWidth,
-                      child: Text(
-                        DateFormat('HH:mm').format(prayerTimes.maghrib),
-                        style: TextStyle(
-                          color: dayIndex + 1 == _currentDateTime.day ? appColors.tertiary : appColors.primary,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      child: Text(appLocale.maghrib),
                     ),
                   ),
-                  DataCell(
-                    SizedBox(
+                  DataColumn(
+                    tooltip: appLocale.isha,
+                    label: SizedBox(
                       width: columnWidth,
-                      child: Text(
-                        DateFormat('HH:mm').format(prayerTimes.isha),
-                      ),
+                      child: Text(appLocale.isha),
                     ),
                   ),
                 ],
+                rows: prayerTimesList.map((prayerTimes) {
+                  final dayIndex = prayerTimesList.indexOf(prayerTimes);
+                  return DataRow(
+                    color: WidgetStateProperty.all(
+                      dayIndex + 1 == _currentDateTime.day ? appColors.tertiaryContainer : appColors.secondaryContainer.withAlpha(75),
+                    ),
+                    cells: [
+                      DataCell(
+                        SizedBox(
+                          width: columnWidth / 1.75,
+                          child: Text(
+                            (dayIndex + 1).toString(),
+                            style: TextStyle(
+                              fontWeight: dayIndex + 1 == _currentDateTime.day ? FontWeight.bold : FontWeight.normal,
+                            ),
+                          ),
+                        ),
+                      ),
+                      DataCell(
+                        SizedBox(
+                          width: columnWidth,
+                          child: Text(
+                            DateFormat('HH:mm').format(prayerTimes.fajr.add(dstState)),
+                            style: TextStyle(
+                              color: dayIndex + 1 == _currentDateTime.day ? appColors.tertiary : appColors.primary,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      DataCell(
+                        SizedBox(
+                          width: columnWidth,
+                          child: Text(
+                            DateFormat('HH:mm').format(prayerTimes.sunrise.add(dstState)),
+                          ),
+                        ),
+                      ),
+                      DataCell(
+                        SizedBox(
+                          width: columnWidth,
+                          child: Text(
+                            DateFormat('HH:mm').format(prayerTimes.dhuhr.add(dstState)),
+                            style: TextStyle(
+                              color: dayIndex + 1 == _currentDateTime.day ? appColors.tertiary : appColors.primary,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      DataCell(
+                        SizedBox(
+                          width: columnWidth,
+                          child: Text(
+                            DateFormat('HH:mm').format(prayerTimes.asr.add(dstState)),
+                          ),
+                        ),
+                      ),
+                      DataCell(
+                        SizedBox(
+                          width: columnWidth,
+                          child: Text(
+                            DateFormat('HH:mm').format(prayerTimes.maghrib.add(dstState)),
+                            style: TextStyle(
+                              color: dayIndex + 1 == _currentDateTime.day ? appColors.tertiary : appColors.primary,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      DataCell(
+                        SizedBox(
+                          width: columnWidth,
+                          child: Text(
+                            DateFormat('HH:mm').format(prayerTimes.isha.add(dstState)),
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                }).toList(),
               );
-            }).toList(),
+            },
           ),
         ),
       ),

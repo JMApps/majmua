@@ -37,6 +37,4 @@ class SocialItem extends StatelessWidget {
       trailing: const Icon(Icons.arrow_forward_ios),
     );
   }
-  Future<void> _launchUrl() async {
-  }
 }

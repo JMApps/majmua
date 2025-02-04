@@ -36,7 +36,7 @@ class AppStyles {
   static const mardingBottom = EdgeInsets.only(bottom: 16);
   static const mardingBottomMini = EdgeInsets.only(bottom: 8);
 
-  static const mainShapeBig = RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50)));
+  static const mainShapeBig = RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(150)));
   static const mainShape = RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20)));
   static const mainShapeMini = RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)));
   static const mainShapeMicro = RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5)));
