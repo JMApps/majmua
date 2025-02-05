@@ -18,8 +18,12 @@ class CityItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
+    final Color itemOdd = appColors.primary.withAlpha(20);
+    final Color itemEven = appColors.primary.withAlpha(05);
     return Card(
       margin: AppStyles.mardingBottomMini,
+      elevation: 0,
+      color: index.isOdd ? itemOdd : itemEven,
       child: ListTile(
         onTap: () {
           showModalBottomSheet(
@@ -42,20 +46,23 @@ class CityItem extends StatelessWidget {
           style: AppStyles.mainTextStyleMini,
         ),
         leading: CircleAvatar(
-          backgroundColor: appColors.inversePrimary,
+          backgroundColor: appColors.secondaryContainer,
           child: Padding(
             padding: AppStyles.mardingTopMicroMini,
             child: Text(
               cityModel.iso3!,
               style: TextStyle(
                 fontSize: 13.0,
-                color: appColors.primary,
+                color: appColors.secondary,
                 fontFamily: AppStringConstraints.fontGilroyMedium,
               ),
             ),
           ),
         ),
-        trailing: const Icon(Icons.arrow_forward_ios),
+        trailing: Icon(
+          Icons.arrow_forward_ios,
+          color: appColors.secondary,
+        ),
       ),
     );
   }

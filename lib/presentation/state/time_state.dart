@@ -31,7 +31,7 @@ class TimeState extends ChangeNotifier {
   }
 
   bool isDhulhijjah() {
-    return _hijriCalendar.hMonth == 10 && _hijriCalendar.hDay <= 9;
+    return _hijriCalendar.hMonth == 10;
   }
 
   bool isRamadanHoliday() {
@@ -42,16 +42,24 @@ class TimeState extends ChangeNotifier {
     return _hijriCalendar.hMonth == 10 && _hijriCalendar.hDay >= 10 && _hijriCalendar.hDay <= 12;
   }
 
+  bool isNearWhiteDays() {
+    return (isFasting()) && (_hijriCalendar.hDay == 12);
+  }
+
   bool isWhiteDays() {
-    return _hijriCalendar.hDay >= 13 && _hijriCalendar.hDay <= 15;
+    return (isFasting()) && (_hijriCalendar.hDay >= 13 && _hijriCalendar.hDay <= 15);
   }
 
   bool isNearThirdSixth() {
-    return _dateTime.weekday == 3 || _dateTime.weekday == 7;
+    return (isFasting()) && (_dateTime.weekday == 3 || _dateTime.weekday == 7);
   }
 
   bool isFirstFourth() {
-    return _dateTime.weekday == 1 || _dateTime.weekday == 4;
+    return (isFasting()) && (_dateTime.weekday == 1 || _dateTime.weekday == 4);
+  }
+
+  bool isFasting() {
+    return !isRamadan() || !isDhulhijjah() || !isRamadanHoliday() || !isDhulhijjahHoliday();
   }
 
   Map<String, dynamic> getDaysToRamadan() {

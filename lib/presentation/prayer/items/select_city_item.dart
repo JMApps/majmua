@@ -38,8 +38,8 @@ class _SelectCityItemState extends State<SelectCityItem> {
               children: [
                 Image.asset(
                   'assets/icons/${AppStringConstraints.iconLocation}.png',
-                  height: 22.5,
-                  width: 22.5,
+                  height: 25.0,
+                  width: 25.0,
                   color: appColors.primary,
                 ),
                 const SizedBox(width: 8),
@@ -48,7 +48,6 @@ class _SelectCityItemState extends State<SelectCityItem> {
                     prayerState.city,
                     style: TextStyle(
                       color: appColors.primary,
-                      fontSize: 17.0,
                       fontFamily: AppStringConstraints.fontGilroyMedium,
                     ),
                     maxLines: 1,

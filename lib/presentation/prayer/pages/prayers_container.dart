@@ -3,11 +3,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core/routes/app_route_names.dart';
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../qiblah/qiblah_direction_container.dart';
+import '../../state/time_state.dart';
 import '../../widgets/main_icon_button.dart';
 import '../items/prayer_item.dart';
 import '../items/select_city_item.dart';
@@ -23,6 +25,43 @@ class PrayersContainer extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        Consumer<TimeState>(
+          builder: (context, timeState, _) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                AnimatedSize(
+                  duration: const Duration(milliseconds: 1500),
+                  child: Visibility(
+                    visible: timeState.isNearWhiteDays(),
+                    child: Card(
+                      margin: AppStyles.mardingHorizontalMini,
+                      child: Text(
+                        appLocale.nearWhiteDays,
+                        style: AppStyles.mainTextStyleMini,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                ),
+                AnimatedSize(
+                  duration: const Duration(milliseconds: 1500),
+                  child: Visibility(
+                    visible: timeState.isWhiteDays(),
+                    child: Card(
+                      margin: AppStyles.mardingHorizontalMini,
+                      child: Text(
+                        appLocale.whiteDays,
+                        style: AppStyles.mainTextStyleMini,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
         Row(
           children: [
             const Expanded(

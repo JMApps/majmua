@@ -22,7 +22,7 @@ class SeasonItem extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     return SquareProgressIndicator(
       width: double.infinity,
-      height: 27.5,
+      height: 25,
       value: Provider.of<TimeState>(context).restPeriodTimes(timePeriod: TimePeriod.season)[AppStringConstraints.elapsedPercentage] / 100,
       startPosition: StartPosition.topCenter,
       strokeAlign: SquareStrokeAlign.outside,

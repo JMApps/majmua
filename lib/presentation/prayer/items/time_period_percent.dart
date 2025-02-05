@@ -51,14 +51,15 @@ class TimePeriodPercent extends StatelessWidget {
                 Expanded(
                   flex: 3,
                   child: Text(
-                    partName.contains(AppStringConstraints.timeSunrise) && prayerState.isDuha ? '$dayTitle ${appLocale.duha}' : dayTitle,
+                    partName.contains(AppStringConstraints.timeSunrise) && prayerState.isDuha ? appLocale.adDuhaTime : dayTitle,
                     textAlign: TextAlign.center,
                   ),
                 ),
                 Expanded(
                   child: Text(
                     DateFormat('HH:mm').format(prayerState.thirdTime(partName: partName)),
-                    style: const TextStyle(
+                    style: TextStyle(
+                      color: textColor,
                       fontFamily: AppStringConstraints.fontGilroyMedium,
                     ),
                     textAlign: TextAlign.end,

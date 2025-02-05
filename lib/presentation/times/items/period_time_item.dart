@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
+
+import '../../../core/styles/app_styles.dart';
 
 class PeriodTimeItem extends StatelessWidget {
   const PeriodTimeItem({

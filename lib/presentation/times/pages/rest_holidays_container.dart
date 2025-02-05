@@ -19,7 +19,7 @@ class RestHolidaysContainer extends StatelessWidget {
     return Consumer<TimeState>(
       builder: (context, timeState, _) {
         return SizedBox(
-          height: 100,
+          height: 90,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -30,10 +30,11 @@ class RestHolidaysContainer extends StatelessWidget {
                     Expanded(
                       flex: 8,
                       child: RemindHolidayDaysItem(
-                        remindTitle: appLocale.daysToRamadan,
-                        remindDays: timeState.getDaysToRamadan()[AppStringConstraints.mapDaysToRamadan],
+                        remindTitle: !timeState.isRamadan() ? appLocale.daysToRamadan : appLocale.blessedRamadan,
+                        remindDays: !timeState.isRamadan() ? timeState.getDaysToRamadan()[AppStringConstraints.mapDaysToRamadan] : timeState.getHijriDateTime.hDay,
                         eventDate: DateFormat('dd.MM.yyyy').format(timeState.getDaysToRamadan()[AppStringConstraints.mapRamadanDate]),
                         itemColor: appColors.primaryContainer,
+                        textColor: appColors.primary,
                       ),
                     ),
                     Expanded(
@@ -57,10 +58,11 @@ class RestHolidaysContainer extends StatelessWidget {
                     Expanded(
                       flex: 8,
                       child: RemindHolidayDaysItem(
-                        remindTitle: appLocale.daysToDhulHujjah,
-                        remindDays: timeState.getDaysToDhulHijjah()[AppStringConstraints.mapDaysToDhulHijjah],
+                        remindTitle: !timeState.isDhulhijjah() ? appLocale.daysToDhulHujjah : appLocale.dhulHijjah,
+                        remindDays: !timeState.isDhulhijjah() ? timeState.getDaysToDhulHijjah()[AppStringConstraints.mapDaysToDhulHijjah] : timeState.getHijriDateTime.hDay,
                         eventDate: DateFormat('dd.MM.yyyy').format(timeState.getDaysToDhulHijjah()[AppStringConstraints.mapDhulHijjahDate]),
                         itemColor: appColors.tertiaryContainer,
+                        textColor: appColors.tertiary,
                       ),
                     ),
                     Expanded(

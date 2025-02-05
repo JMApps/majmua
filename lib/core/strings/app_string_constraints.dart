@@ -60,6 +60,9 @@ class AppStringConstraints {
   static const String iconGems = 'gems';
   static const String iconCounter = 'counter';
 
+  static const String iconDuaHands = 'dua-hands';
+  static const String iconAqsa = 'aqsa';
+
   static const String timeSunrise = 'sunrise';
   static const String timeMiddleNight = 'middle_night';
   static const String timeLastThird = 'last_third_part';

@@ -27,7 +27,7 @@ class _FastingMessagesState extends State<FastingMessages> {
             AnimatedSize(
               duration: const Duration(milliseconds: 1500),
               child: Visibility(
-                visible: (!timeState.isRamadan() || !timeState.isDhulhijjah() || !timeState.isRamadanHoliday() || !timeState.isDhulhijjahHoliday()) && (timeState.isNearThirdSixth() || timeState.isFirstFourth()),
+                visible: timeState.isNearThirdSixth() || timeState.isFirstFourth(),
                 child: Card(
                   color: appColors.surface,
                   margin: AppStyles.mardingTopMini,

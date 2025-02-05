@@ -31,8 +31,8 @@ class MainButtonItem extends StatelessWidget {
         icon: Image.asset(
           'assets/icons/$imageName.png',
           color: appColors.primary,
-          width: 50,
-          height: 50,
+          width: 45,
+          height: 45,
         ),
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all<Color>(appColors.secondaryContainer.withAlpha(125)),

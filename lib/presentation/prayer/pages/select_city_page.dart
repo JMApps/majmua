@@ -62,11 +62,10 @@ class _SelectCityPageState extends State<SelectCityPage> {
                       fontFamily: AppStringConstraints.fontGilroy,
                     ),
                     decoration: BoxDecoration(
-                      color: appColors.surface,
+                      color: appColors.secondary.withAlpha(25),
                       borderRadius: AppStyles.mainBorderMini,
                       border: Border.all(
-                        width: 1,
-                        color: appColors.onSurface,
+                        color: appColors.surface,
                       ),
                     ),
                     onChanged: (String? value) {

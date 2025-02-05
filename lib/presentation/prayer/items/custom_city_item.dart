@@ -19,8 +19,12 @@ class CustomCityItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
+    final Color itemOdd = appColors.primary.withAlpha(20);
+    final Color itemEven = appColors.primary.withAlpha(05);
     return Card(
       margin: AppStyles.mardingBottomMini,
+      elevation: 0,
+      color: index.isOdd ? itemOdd : itemEven,
       child: Consumer<CityState>(
         builder: (context, cityState, _) {
           return ListTile(
@@ -45,7 +49,10 @@ class CustomCityItem extends StatelessWidget {
               cityModel.country,
               style: AppStyles.mainTextStyleMini,
             ),
-            trailing: const Icon(Icons.arrow_forward_ios),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: appColors.secondary,
+            ),
           );
         },
       ),

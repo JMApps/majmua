@@ -4,26 +4,23 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../state/prayer_state.dart';
 
-class PrayerMessages extends StatefulWidget {
+class PrayerMessages extends StatelessWidget {
   const PrayerMessages({super.key});
 
-  @override
-  State<PrayerMessages> createState() => _PrayerMessagesState();
-}
-
-class _PrayerMessagesState extends State<PrayerMessages> {
   @override
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
     final appColors = Theme.of(context).colorScheme;
     return Consumer<PrayerState>(
       builder: (context, prayerState, _) {
-        final bool isVisible = prayerState.prayerTimes.currentPrayer() != Prayer.sunrise &&
-            prayerState.isAdhan(prayer: prayerState.prayerTimes.currentPrayer()) ||
-            prayerState.isDhikr(prayer: prayerState.prayerTimes.currentPrayer());
+        final bool isVisible =
+            prayerState.prayerTimes.currentPrayer() != Prayer.sunrise &&
+              prayerState.isAdhan(prayer: prayerState.prayerTimes.currentPrayer()) ||
+                prayerState.isDhikr(prayer: prayerState.prayerTimes.currentPrayer());
         String isMessage() {
           String message;
           if (prayerState.isMorning) {
@@ -59,6 +56,15 @@ class _PrayerMessagesState extends State<PrayerMessages> {
                     visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
                     minVerticalPadding: 0,
                     titleAlignment: ListTileTitleAlignment.center,
+                    leading: Padding(
+                      padding: AppStyles.mardingLeftMini,
+                      child: Image.asset(
+                        'assets/icons/${AppStringConstraints.iconDuaHands}.png',
+                        width: 20,
+                        height: 20,
+                        color: appColors.primary,
+                      ),
+                    ),
                     title: Text(
                       isMessage(),
                       style: AppStyles.mainTextStyleMicro,
@@ -93,6 +99,12 @@ class _PrayerMessagesState extends State<PrayerMessages> {
                     visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
                     minVerticalPadding: 0,
                     titleAlignment: ListTileTitleAlignment.center,
+                    leading: Image.asset(
+                      prayerState.isAdhan(prayer: prayerState.prayerTimes.currentPrayer()) ? 'assets/icons/${AppStringConstraints.iconAqsa}.png' : 'assets/icons/${AppStringConstraints.iconDuaHands}.png',
+                      width: 20,
+                      height: 20,
+                      color: appColors.primary,
+                    ),
                     title: Text(
                       prayerState.isAdhan(prayer: prayerState.prayerTimes.currentPrayer()) ? appLocale.adhanTime : appLocale.adhkarsTime,
                       style: AppStyles.mainTextStyleMicro,

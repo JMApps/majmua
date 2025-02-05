@@ -52,8 +52,7 @@ class _PrayerItemState extends State<PrayerItem> {
                   Text(
                     widget.prayerName,
                     style: TextStyle(
-                      fontSize: 15.0,
-                     fontFamily: isHourAfter || isHourBefore ? AppStringConstraints.fontGilroyMedium : AppStringConstraints.fontGilroy,
+                      fontFamily: isHourAfter || isHourBefore ? AppStringConstraints.fontGilroyMedium : AppStringConstraints.fontGilroy,
                     ),
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -68,7 +67,7 @@ class _PrayerItemState extends State<PrayerItem> {
                       style: TextStyle(
                         fontSize: 12.0,
                         color: appColors.tertiary,
-                        fontWeight: FontWeight.bold,
+                        fontFamily: AppStringConstraints.fontGilroyMedium,
                       ),
                     ),
                   ),
@@ -79,7 +78,7 @@ class _PrayerItemState extends State<PrayerItem> {
                       style: TextStyle(
                         fontSize: 12.0,
                         color: appColors.primary,
-                        fontWeight: FontWeight.bold,
+                        fontFamily: AppStringConstraints.fontGilroyMedium,
                       ),
                     ),
                   ),

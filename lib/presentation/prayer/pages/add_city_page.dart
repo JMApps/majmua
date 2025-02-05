@@ -56,7 +56,7 @@ class _AddCityPageState extends State<AddCityPage> {
                 );
               },
               backgroundColor: appColors.inversePrimary,
-              elevation: 0,
+              elevation: 0.5,
               tooltip: appLocale.addCity,
               child: const Icon(Icons.add),
             );
