@@ -1,18 +1,22 @@
 import 'dart:async';
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_compass/flutter_compass.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/strings/app_string_constraints.dart';
 import '../../core/styles/app_styles.dart';
-import '../../presentation/state/qiblah_direction_state.dart';
 import '../../presentation/state/prayer_state.dart';
+import '../../presentation/state/qiblah_direction_state.dart';
 
 class QiblahDirectionContainer extends StatefulWidget {
   const QiblahDirectionContainer({super.key});
 
   @override
-  State<QiblahDirectionContainer> createState() => _QiblahDirectionContainerState();
+  State<QiblahDirectionContainer> createState() =>
+      _QiblahDirectionContainerState();
 }
 
 class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
@@ -26,7 +30,8 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
 
     final compassEvents = FlutterCompass.events;
     if (compassEvents != null) {
-      _compassSubscription = compassEvents.listen((event) {
+      _compassSubscription = compassEvents.listen(
+        (event) {
           _qiblahState.updateDeviceOrientation(event.heading ?? 0.0);
         },
         onError: (error) {
@@ -52,6 +57,8 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).colorScheme;
+    final appLocale = AppLocalizations.of(context)!;
     return ChangeNotifierProvider<QiblahDirectionState>.value(
       value: _qiblahState,
       child: Consumer2<PrayerState, QiblahDirectionState>(
@@ -63,21 +70,40 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
           return Container(
             width: double.infinity,
             padding: AppStyles.mardingWithoutTop,
-            child: Stack(
-              alignment: Alignment.center,
+            child: Column(
               children: [
-                Transform.rotate(
-                  angle: compassAngle,
-                  child: Image.asset(
-                    'assets/pictures/compass.png',
-                    fit: BoxFit.contain,
+                Text(
+                  '${prayerState.country}, ${prayerState.city}',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: appColors.primary,
+                    fontFamily: AppStringConstraints.fontGilroyMedium,
                   ),
                 ),
-                Transform.rotate(
-                  angle: qiblahAngle,
-                  child: Image.asset(
-                    'assets/pictures/arrow.png',
-                    fit: BoxFit.contain,
+                Text(
+                  '${appLocale.qiblah}:\n${prayerState.qiblahDirection.direction.toStringAsFixed(1)}°',
+                  style: AppStyles.mainTextStyle,
+                  textAlign: TextAlign.center,
+                ),
+                Expanded(
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Transform.rotate(
+                        angle: compassAngle,
+                        child: Image.asset(
+                          'assets/pictures/compass.png',
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                      Transform.rotate(
+                        angle: qiblahAngle,
+                        child: Image.asset(
+                          'assets/pictures/arrow.png',
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
