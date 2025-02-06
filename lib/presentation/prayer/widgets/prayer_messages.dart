@@ -99,11 +99,14 @@ class PrayerMessages extends StatelessWidget {
                     visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
                     minVerticalPadding: 0,
                     titleAlignment: ListTileTitleAlignment.center,
-                    leading: Image.asset(
-                      prayerState.isAdhan(prayer: prayerState.prayerTimes.currentPrayer()) ? 'assets/icons/${AppStringConstraints.iconAqsa}.png' : 'assets/icons/${AppStringConstraints.iconDuaHands}.png',
-                      width: 20,
-                      height: 20,
-                      color: appColors.primary,
+                    leading: Padding(
+                      padding: AppStyles.mardingLeftMini,
+                      child: Image.asset(
+                        prayerState.isAdhan(prayer: prayerState.prayerTimes.currentPrayer()) ? 'assets/icons/${AppStringConstraints.iconAqsa}.png' : 'assets/icons/${AppStringConstraints.iconDuaHands}.png',
+                        width: 20,
+                        height: 20,
+                        color: appColors.primary,
+                      ),
                     ),
                     title: Text(
                       prayerState.isAdhan(prayer: prayerState.prayerTimes.currentPrayer()) ? appLocale.adhanTime : appLocale.adhkarsTime,

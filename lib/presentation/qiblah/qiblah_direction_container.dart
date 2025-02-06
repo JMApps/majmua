@@ -26,8 +26,7 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
 
     final compassEvents = FlutterCompass.events;
     if (compassEvents != null) {
-      _compassSubscription = compassEvents.listen(
-            (event) {
+      _compassSubscription = compassEvents.listen((event) {
           _qiblahState.updateDeviceOrientation(event.heading ?? 0.0);
         },
         onError: (error) {
@@ -46,7 +45,6 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
     super.dispose();
   }
 
-  /// Вычисляет кратчайший угол поворота, чтобы избежать резких скачков через 360° или 0°.
   double calculateShortestRotation(double from, double to) {
     double difference = (to - from + 540) % 360 - 180;
     return difference * (pi / 180);
@@ -54,77 +52,33 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
 
   @override
   Widget build(BuildContext context) {
-    final appColors = Theme.of(context).colorScheme;
     return ChangeNotifierProvider<QiblahDirectionState>.value(
       value: _qiblahState,
       child: Consumer2<PrayerState, QiblahDirectionState>(
         builder: (context, prayerState, qiblahState, _) {
           final double qiblahDirection = prayerState.qiblahDirection.direction;
           final double deviceOrientation = qiblahState.deviceOrientation;
-
-          // Угол для стрелки компаса (вращаем против ориентации устройства)
           final double compassAngle = -deviceOrientation * (pi / 180);
-          // Угол для стрелки Киблы
-          final double qiblahAngle = calculateShortestRotation(deviceOrientation, qiblahDirection);
-
-          // Радиус круга, по которому движется Кибла
-          const double compassRadius = 110.0;
-          final double qiblahRadians = (qiblahDirection - deviceOrientation) * (pi / 180);
-          final double qiblahX = compassRadius * cos(qiblahRadians);
-          final double qiblahY = compassRadius * sin(qiblahRadians);
-
+          final double qiblahAngle = (qiblahDirection - deviceOrientation) * (pi / 180);
           return Container(
             width: double.infinity,
             padding: AppStyles.mardingWithoutTop,
             child: Stack(
               alignment: Alignment.center,
               children: [
-                // Анимированный фон компаса
-                TweenAnimationBuilder<double>(
-                  tween: Tween<double>(begin: compassAngle, end: compassAngle),
-                  duration: const Duration(milliseconds: 300),
-                  builder: (context, angle, child) {
-                    return Transform.rotate(
-                      angle: angle,
-                      child: Image.asset(
-                        'assets/pictures/compass.png',
-                        fit: BoxFit.contain,
-                      ),
-                    );
-                  },
+                Transform.rotate(
+                  angle: compassAngle,
+                  child: Image.asset(
+                    'assets/pictures/compass.png',
+                    fit: BoxFit.contain,
+                  ),
                 ),
-
-                // Стрелка компаса (север)
-                TweenAnimationBuilder<double>(
-                  tween: Tween<double>(begin: compassAngle, end: compassAngle),
-                  duration: const Duration(milliseconds: 300),
-                  builder: (context, angle, child) {
-                    return Transform.rotate(
-                      angle: angle,
-                      child: Image.asset(
-                        'assets/pictures/arrow.png',
-                        fit: BoxFit.contain,
-                      ),
-                    );
-                  },
-                ),
-
-                // Иконка Киблы, двигающаяся по кругу
-                TweenAnimationBuilder<double>(
-                  tween: Tween<double>(begin: qiblahAngle, end: qiblahAngle),
-                  duration: const Duration(milliseconds: 300),
-                  builder: (context, angle, child) {
-                    return Transform.translate(
-                      offset: Offset(qiblahX, qiblahY),
-                      child: Image.asset(
-                        'assets/icons/qiblah.png',
-                        fit: BoxFit.contain,
-                        color: appColors.secondary,
-                        width: 30,
-                        height: 30,
-                      ),
-                    );
-                  },
+                Transform.rotate(
+                  angle: qiblahAngle,
+                  child: Image.asset(
+                    'assets/pictures/arrow.png',
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ],
             ),
