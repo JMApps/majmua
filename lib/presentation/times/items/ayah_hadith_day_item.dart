@@ -24,17 +24,27 @@ class AyahHadithDayItem extends StatelessWidget {
         borderRadius: AppStyles.mainBorderMini,
         splashColor: color.withAlpha(100),
         highlightColor: color.withAlpha(100),
-        child: Container(
-          alignment: Alignment.center,
-          child: Text(
-            title,
-            style: TextStyle(
-              fontSize: 14.0,
-              color: color,
-              fontFamily: AppStringConstraints.fontGilroyMedium,
-              height: 1.0,
+        child: Padding(
+          padding: AppStyles.mainMardingMicroMini,
+          child: Container(
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: AppStyles.mainBorderMini,
+              border: Border.all(
+                width: 2,
+                color: color.withAlpha(125),
+              )
             ),
-            textAlign: TextAlign.center,
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: 12.0,
+                color: color,
+                fontFamily: AppStringConstraints.fontGilroyMedium,
+                height: 1.0,
+              ),
+              textAlign: TextAlign.center,
+            ),
           ),
         ),
       ),

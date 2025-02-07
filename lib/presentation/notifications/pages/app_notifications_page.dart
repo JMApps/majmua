@@ -23,6 +23,13 @@ class AppNotificationsPage extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  Padding(
+                    padding: AppStyles.mardingHorizontal,
+                    child: Text(
+                      appLocale.prayerNotifications,
+                      style: AppStyles.mainTextStyleBold,
+                    ),
+                  ),
                   Card(
                     margin: AppStyles.mardingWithoutBottomMini,
                     child: Padding(
@@ -69,7 +76,14 @@ class AppNotificationsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 8),
+                  Padding(
+                    padding: AppStyles.mardingHorizontal,
+                    child: Text(
+                      appLocale.adhkarsNotifications,
+                      style: AppStyles.mainTextStyleBold,
+                    ),
+                  ),
                   Card(
                     margin: AppStyles.mardingWithoutBottomMini,
                     child: Padding(
@@ -98,7 +112,14 @@ class AppNotificationsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 8),
+                  Padding(
+                    padding: AppStyles.mardingHorizontal,
+                    child: Text(
+                      appLocale.fastingNotifications,
+                      style: AppStyles.mainTextStyleBold,
+                    ),
+                  ),
                   Card(
                     margin: AppStyles.mardingWithoutBottomMini,
                     child: Padding(
@@ -127,7 +148,14 @@ class AppNotificationsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 8),
+                  Padding(
+                    padding: AppStyles.mardingHorizontal,
+                    child: Text(
+                      appLocale.fridayNotifications,
+                      style: AppStyles.mainTextStyleBold,
+                    ),
+                  ),
                   Card(
                     margin: AppStyles.mainMardingMini,
                     child: Padding(

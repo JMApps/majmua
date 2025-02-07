@@ -22,7 +22,7 @@ class NotificationItem extends StatelessWidget {
       shape: AppStyles.mainShapeMini,
       title: Text(
         title,
-        style: AppStyles.mainTextStyle,
+        style: AppStyles.mainTextStyleMini,
       ),
       value: switchState,
       onChanged: onChanged,

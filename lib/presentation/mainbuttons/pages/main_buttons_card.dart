@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
@@ -11,6 +12,7 @@ class MainButtonsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
+    final appColors = Theme.of(context).colorScheme;
     return Card(
       margin: AppStyles.mardingWithoutBottomMini,
       child: Padding(
@@ -21,33 +23,48 @@ class MainButtonsCard extends StatelessWidget {
             Row(
               children: [
                 MainButtonItem(
-                  onTap: () {},
+                  onTap: () {
+                    HapticFeedback.lightImpact();
+                  },
                   imageName: AppStringConstraints.iconQuran,
                   title: appLocale.quran,
+                  buttonColor: appColors.secondaryContainer,
                 ),
                 const SizedBox(width: 8),
                 MainButtonItem(
-                  onTap: () {},
+                  onTap: () {
+                    HapticFeedback.lightImpact();
+                  },
                   imageName: AppStringConstraints.iconSQuran,
                   title: appLocale.sQuran,
+                  buttonColor: appColors.secondaryContainer,
                 ),
                 const SizedBox(width: 8),
                 MainButtonItem(
-                  onTap: () {},
+                  onTap: () {
+                    HapticFeedback.lightImpact();
+                  },
                   imageName: AppStringConstraints.iconFortress,
                   title: appLocale.fortress,
+                  buttonColor: appColors.secondaryContainer,
                 ),
                 const SizedBox(width: 8),
                 MainButtonItem(
-                  onTap: () {},
+                  onTap: () {
+                    HapticFeedback.lightImpact();
+                  },
                   imageName: AppStringConstraints.iconGems,
                   title: appLocale.gems,
+                  buttonColor: appColors.secondaryContainer,
                 ),
                 const SizedBox(width: 8),
                 MainButtonItem(
-                  onTap: () {},
+                  onTap: () {
+                    HapticFeedback.lightImpact();
+                  },
                   imageName: AppStringConstraints.iconCounter,
                   title: appLocale.counter,
+                  buttonColor: appColors.secondaryContainer,
                 ),
               ],
             ),

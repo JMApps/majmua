@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../../core/styles/app_styles.dart';
 
@@ -9,11 +8,13 @@ class MainButtonItem extends StatelessWidget {
     required this.imageName,
     required this.title,
     required this.onTap,
+    required this.buttonColor,
   });
 
   final String imageName;
   final String title;
   final GestureTapCallback onTap;
+  final Color buttonColor;
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +26,7 @@ class MainButtonItem extends StatelessWidget {
         highlightColor: appColors.tertiaryContainer,
         focusColor: appColors.tertiaryContainer,
         tooltip: title,
-        onPressed: () {
-          HapticFeedback.lightImpact();
-        },
+        onPressed: onTap,
         icon: Image.asset(
           'assets/icons/$imageName.png',
           color: appColors.primary,
@@ -35,7 +34,7 @@ class MainButtonItem extends StatelessWidget {
           height: 45,
         ),
         style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all<Color>(appColors.secondaryContainer.withAlpha(125)),
+          backgroundColor: WidgetStateProperty.all<Color>(buttonColor.withAlpha(125)),
           shape: WidgetStateProperty.all<OutlinedBorder?>(AppStyles.mainShapeMini),
         ),
       ),

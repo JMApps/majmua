@@ -87,6 +87,11 @@
   "tomorrowFriday": "Завтра пятница",
   "lastHourFriday": "Последний час пятницы",
 
+  "prayerNotifications": "Уведомление молитв",
+  "adhkarsNotifications": "Уведомление азкаров",
+  "fastingNotifications": "Уведомление постов",
+  "fridayNotifications": "Уведомление пятницы",
+
   "sunrise": "Восход",
   "duha": "(духа)",
   "midnight": "Полночь",

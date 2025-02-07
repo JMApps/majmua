@@ -64,6 +64,9 @@ class AppStringConstraints {
   static const String iconHandsFill = 'hands-fill';
   static const String iconAqsa = 'aqsa';
 
+  static const String iconDailyAyah = 'daily_ayah';
+  static const String iconDailyHadith = 'daily_hadith';
+
   static const String timeSunrise = 'sunrise';
   static const String timeMiddleNight = 'middle_night';
   static const String timeLastThird = 'last_third_part';
