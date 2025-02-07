@@ -4,7 +4,7 @@ import '../../core/strings/db_value_strings.dart';
 import '../../domain/entities/city_entity.dart';
 import '../../domain/repositories/city_repository.dart';
 import '../models/city_model.dart';
-import '../services/city_database_service.dart';
+import '../services/databases/city_database_service.dart';
 
 class CityDataRepository implements CityRepository {
   final CityDatabaseService _cityDatabaseService;

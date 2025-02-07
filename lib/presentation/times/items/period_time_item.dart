@@ -24,7 +24,7 @@ class PeriodTimeItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorScheme appColors = Theme.of(context).colorScheme;
     final double screenWidth = MediaQuery.of(context).size.width;
-    final String pastTime = '${(percent - 100).toStringAsFixed(2)}%';
+    final String pastTime = '${(percent.clamp(0.0, 100.0) - 100).toStringAsFixed(2)}%';
     return Card(
       color: appColors.surface,
       shape: AppStyles.mainShapeBig,
@@ -32,7 +32,7 @@ class PeriodTimeItem extends StatelessWidget {
       child: Padding(
         padding: AppStyles.mainMardingMicroMini,
         child: SleekCircularSlider(
-          initialValue: percent,
+          initialValue: percent.clamp(0.0, 100.0),
           appearance: CircularSliderAppearance(
             infoProperties: InfoProperties(
               topLabelText: time,

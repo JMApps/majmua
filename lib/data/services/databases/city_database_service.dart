@@ -4,9 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import '../../core/strings/db_value_strings.dart';
+import '../../../core/strings/db_value_strings.dart';
 
-class CustomCityDatabaseService {
+class CityDatabaseService {
   static Database? _db;
 
   final int dbVersion = 1;
@@ -21,7 +21,7 @@ class CustomCityDatabaseService {
 
   Future<Database> initializeDatabase() async {
     final databasePath = await getDatabasesPath();
-    String path = join(databasePath, DBValueStrings.customCityDBName);
+    String path = join(databasePath, DBValueStrings.cityDBName);
 
     var database = await openDatabase(path);
 
@@ -33,7 +33,7 @@ class CustomCityDatabaseService {
         await Directory(dirname(path)).create(recursive: true);
       } catch (_) {}
 
-      ByteData data = await rootBundle.load(join('assets/databases', DBValueStrings.customCityDBName));
+      ByteData data = await rootBundle.load(join('assets/databases', DBValueStrings.cityDBName));
       List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
       await File(path).writeAsBytes(bytes, flush: true);
 

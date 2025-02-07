@@ -3,8 +3,10 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
 import 'core/strings/app_string_constraints.dart';
+import 'data/services/notification/notification_service.dart';
 import 'presentation/pages/root_page.dart';
 import 'presentation/state/app_settings_state.dart';
+import 'presentation/state/notifications_state.dart';
 import 'presentation/state/prayer_state.dart';
 import 'presentation/state/time_state.dart';
 
@@ -15,6 +17,9 @@ void main() async {
   await Hive.openBox(AppStringConstraints.keyMainSettings);
   await Hive.openBox(AppStringConstraints.keyMainAppSettings);
   await Hive.openBox(AppStringConstraints.keySettingsPrayerTimeBox);
+
+  NotificationService notificationService = NotificationService();
+  await notificationService.setupNotification();
 
   runApp(
     MultiProvider(
@@ -27,6 +32,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (_) => TimeState(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => NotificationsState(Hive.box(AppStringConstraints.keyMainSettings)),
         ),
       ],
       child: const RootPage(),

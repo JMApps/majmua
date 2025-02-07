@@ -30,7 +30,6 @@ class RemindHolidayDaysItem extends StatelessWidget {
               flex: 9,
               child: Text(
                 remindTitle,
-                style: AppStyles.mainTextStyleMini,
               ),
             ),
             const SizedBox(width: 8),

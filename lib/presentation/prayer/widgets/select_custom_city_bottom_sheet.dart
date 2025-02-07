@@ -31,10 +31,10 @@ class SelectCustomCityBottomSheet extends StatelessWidget {
             builder: (context, prayerState, _) {
               return FilledButton.tonal(
                 onPressed: () {
-                  prayerState.changCountry = cityModel.country;
+                  prayerState.changeCountry = cityModel.country;
                   prayerState.changeCity = cityModel.city;
-                  prayerState.setLatitude = double.parse(cityModel.latitude);
-                  prayerState.setLongitude = double.parse(cityModel.longitude);
+                  prayerState.changeLatitude = double.parse(cityModel.latitude);
+                  prayerState.changeLongitude = double.parse(cityModel.longitude);
                   prayerState.initPrayerTime();
                   Navigator.pop(context);
                   Navigator.pop(context);

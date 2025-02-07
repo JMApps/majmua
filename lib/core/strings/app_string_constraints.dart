@@ -61,6 +61,7 @@ class AppStringConstraints {
   static const String iconCounter = 'counter';
 
   static const String iconDuaHands = 'dua-hands';
+  static const String iconHandsFill = 'hands-fill';
   static const String iconAqsa = 'aqsa';
 
   static const String timeSunrise = 'sunrise';
@@ -90,6 +91,44 @@ class AppStringConstraints {
   static const String appLinkAndroid = 'https://play.google.com/store/apps/details?id=jmapps.project.majmua';
   static const String iOS = 'iOS:';
   static const String android = 'Android:';
+
+  // Notifications
+  static const String keyFajrNotification = 'key_fajr_notification';
+  static const String keySunriseNotification = 'key_sunrise_notification';
+  static const String keyDhuhrNotification = 'key_dhuhr_notification';
+  static const String keyAsrNotification = 'key_asr_notification';
+  static const String keyMaghribNotification = 'key_maghrib_notification';
+  static const String keyIshaNotification = 'key_isha_notification';
+
+  static const String keyFastMondayNotification = 'key_fast_monday_notification';
+  static const String keyFastThursdayNotification = 'key_fast_thursday_notification';
+  static const String keyFastWhiteDaysNotification = 'key_fast_white_days_notification';
+
+  static const String keyMorningSupplicationsNotification = 'key_morning_supplications_notification';
+  static const String keyEveningSupplicationsNotification = 'key_evening_supplications_notification';
+  static const String keyNightSupplicationsNotification = 'key_night_supplications_notification';
+
+  static const String keyFridayNotification = 'key_friday_notification';
+  static const String keyFridayLastHourNotification = 'key_friday_last_hour_notification';
+
+  // Notification IDs
+  static const int fajrNotificationID = 395;
+  static const int sunriseNotificationID = 476;
+  static const int dhuhrNotificationID = 543;
+  static const int asrNotificationID = 876;
+  static const int maghribNotificationID = 563;
+  static const int ishaNotificationID = 854;
+
+  static const int morningSupplicationsNotificationID = 579;
+  static const int eveningSupplicationsNotificationID = 311;
+  static const int nightSupplicationsNotificationID = 800;
+
+  static const int fastMondayNotificationID = 625;
+  static const int fastThursdayNotificationID = 745;
+  static const int fastWhiteDaysNotificationID = 371;
+
+  static const int fridayNotificationID = 985;
+  static const int lastHourFridayNotificationID = 234;
 
   static const List<Locale> appLocales = [
     Locale('ru', 'RU'),

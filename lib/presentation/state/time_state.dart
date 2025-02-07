@@ -1,27 +1,23 @@
 import 'package:cron/cron.dart';
 import 'package:flutter/material.dart';
 import 'package:hijri/hijri_calendar.dart';
-import 'package:timezone/data/latest_all.dart' as tz;
-import 'package:timezone/timezone.dart' as tz;
-import 'package:timezone/timezone.dart';
 
 import '../../core/enums/season.dart';
 import '../../core/enums/time_period.dart';
 import '../../core/strings/app_string_constraints.dart';
 
 class TimeState extends ChangeNotifier {
-  late TZDateTime _dateTime;
-  late HijriCalendar _hijriCalendar;
+  DateTime _dateTime = DateTime.now();
+  HijriCalendar _hijriCalendar = HijriCalendar.now();
   final Cron _cron = Cron();
   final Duration _minusMicro = const Duration(microseconds: -1);
 
-  TZDateTime get getDateTime => _dateTime;
+  DateTime get getDateTime => _dateTime;
 
   HijriCalendar get getHijriDateTime => _hijriCalendar;
 
   TimeState() {
-    tz.initializeTimeZones();
-    _dateTime = tz.TZDateTime.from(DateTime.now(), tz.local);
+    _dateTime = DateTime.now();
     _hijriCalendar = HijriCalendar.now();
     _startCron();
   }
@@ -253,7 +249,7 @@ class TimeState extends ChangeNotifier {
   }
 
   void _updateDateTime() {
-    _dateTime = tz.TZDateTime.from(DateTime.now(), tz.local);
+    _dateTime = DateTime.now();
     _hijriCalendar = HijriCalendar.now();
     notifyListeners();
   }

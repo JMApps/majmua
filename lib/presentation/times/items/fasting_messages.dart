@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:majmua/presentation/state/prayer_state.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/styles/app_styles.dart';
@@ -47,37 +48,41 @@ class _FastingMessagesState extends State<FastingMessages> {
                 ),
               ),
             ),
-            AnimatedSize(
-              duration: const Duration(milliseconds: 1500),
-              child: Visibility(
-                visible: (timeState.getDateTime.weekday == 5),
-                child: Card(
-                  color: appColors.surface,
-                  margin: AppStyles.mardingTopMini,
-                  child: ListTile(
-                    onTap: () {
-                      HapticFeedback.lightImpact();
-                      showModalBottomSheet(
-                        context: context,
-                        isScrollControlled: true,
-                        builder: (context) => const FridaySunansSlide(),
-                      );
-                    },
-                    shape: AppStyles.mainShapeMini,
-                    splashColor: appColors.tertiaryContainer,
-                    dense: true,
-                    visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
-                    minVerticalPadding: 0,
-                    contentPadding: AppStyles.mardingRightMini,
-                    title: Text(
-                      appLocale.fridaySunans,
-                      style: AppStyles.mainTextStyleMicro,
-                      textAlign: TextAlign.center,
+            Consumer<PrayerState>(
+              builder: (context, prayerState, _) {
+                return AnimatedSize(
+                  duration: const Duration(milliseconds: 1500),
+                  child: Visibility(
+                    visible: prayerState.isFriday,
+                    child: Card(
+                      color: appColors.surface,
+                      margin: AppStyles.mardingTopMini,
+                      child: ListTile(
+                        onTap: () {
+                          HapticFeedback.lightImpact();
+                          showModalBottomSheet(
+                            context: context,
+                            isScrollControlled: true,
+                            builder: (context) => const FridaySunansSlide(),
+                          );
+                        },
+                        shape: AppStyles.mainShapeMini,
+                        splashColor: appColors.tertiaryContainer,
+                        dense: true,
+                        visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
+                        minVerticalPadding: 0,
+                        contentPadding: AppStyles.mardingRightMini,
+                        title: Text(
+                          appLocale.fridaySunans,
+                          style: AppStyles.mainTextStyleMicro,
+                          textAlign: TextAlign.center,
+                        ),
+                        trailing: const Icon(Icons.arrow_forward_ios, size: 15.0,),
+                      ),
                     ),
-                    trailing: const Icon(Icons.arrow_forward_ios, size: 15.0,),
                   ),
-                ),
-              ),
+                );
+              },
             ),
           ],
         );

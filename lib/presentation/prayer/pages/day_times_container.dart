@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 import 'package:majmua/presentation/prayer/items/time_period_percent.dart';
+import 'package:majmua/presentation/state/prayer_state.dart';
+import 'package:provider/provider.dart';
 
-import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 
 class DayTimesContainer extends StatelessWidget {
@@ -16,30 +18,40 @@ class DayTimesContainer extends StatelessWidget {
       margin: AppStyles.mainMardingMini,
       child: Padding(
         padding: AppStyles.mainMardingMini,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            TimePeriodPercent(
-              dayTitle: appLocale.sunrise,
-              partName: AppStringConstraints.timeSunrise,
-              cardColor: appColors.primaryContainer,
-              textColor: appColors.primary,
-            ),
-            const SizedBox(height: 8),
-            TimePeriodPercent(
-              dayTitle: appLocale.midnight,
-              partName: AppStringConstraints.timeMiddleNight,
-              cardColor: appColors.secondaryContainer,
-              textColor: appColors.secondary,
-            ),
-            const SizedBox(height: 8),
-            TimePeriodPercent(
-              dayTitle: appLocale.lastThirdNightPart,
-              partName: AppStringConstraints.timeLastThird,
-              cardColor: appColors.tertiaryContainer,
-              textColor: appColors.tertiary,
-            ),
-          ],
+        child: Consumer<PrayerState>(
+          builder: (context, prayerState, _) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                TimePeriodPercent(
+                  isState: prayerState.isDuha,
+                  remainingTime: prayerState.restPrayerTime(isBefore: true, time: prayerState.prayerTimes.sunrise),
+                  title: !prayerState.isDuha ? appLocale.sunrise : appLocale.adDuhaTime,
+                  targetTime: DateFormat('HH:mm').format(prayerState.prayerTimes.sunrise),
+                  cardColor: appColors.primaryContainer,
+                  textColor: appColors.primary,
+                ),
+                const SizedBox(height: 8),
+                TimePeriodPercent(
+                  isState: prayerState.isMidnight,
+                  remainingTime: prayerState.restPrayerTime(isBefore: true, time: prayerState.sunnahTimes.middleOfTheNight),
+                  title: appLocale.midnight,
+                  targetTime: DateFormat('HH:mm').format(prayerState.sunnahTimes.middleOfTheNight),
+                  cardColor: appColors.secondaryContainer,
+                  textColor: appColors.secondary,
+                ),
+                const SizedBox(height: 8),
+                TimePeriodPercent(
+                  isState: prayerState.isLastThird,
+                  remainingTime: prayerState.restPrayerTime(isBefore: true, time: prayerState.sunnahTimes.lastThirdOfTheNight),
+                  title: appLocale.lastThirdNightPart,
+                  targetTime: DateFormat('HH:mm').format(prayerState.sunnahTimes.lastThirdOfTheNight),
+                  cardColor: appColors.tertiaryContainer,
+                  textColor: appColors.tertiary,
+                ),
+              ],
+            );
+          },
         ),
       ),
     );

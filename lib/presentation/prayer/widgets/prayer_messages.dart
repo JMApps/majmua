@@ -1,4 +1,3 @@
-import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -17,10 +16,7 @@ class PrayerMessages extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     return Consumer<PrayerState>(
       builder: (context, prayerState, _) {
-        final bool isVisible =
-            prayerState.prayerTimes.currentPrayer() != Prayer.sunrise &&
-              prayerState.isAdhan(prayer: prayerState.prayerTimes.currentPrayer()) ||
-                prayerState.isDhikr(prayer: prayerState.prayerTimes.currentPrayer());
+        final bool isVisible = prayerState.isAdhan(prayer: prayerState.prayerTimes.currentPrayer()) || prayerState.isDhikr(prayer: prayerState.prayerTimes.currentPrayer());
         String isMessage() {
           String message;
           if (prayerState.isMorning) {
@@ -59,7 +55,7 @@ class PrayerMessages extends StatelessWidget {
                     leading: Padding(
                       padding: AppStyles.mardingLeftMini,
                       child: Image.asset(
-                        'assets/icons/${AppStringConstraints.iconDuaHands}.png',
+                        'assets/icons/${AppStringConstraints.iconHandsFill}.png',
                         width: 20,
                         height: 20,
                         color: appColors.primary,
@@ -102,7 +98,7 @@ class PrayerMessages extends StatelessWidget {
                     leading: Padding(
                       padding: AppStyles.mardingLeftMini,
                       child: Image.asset(
-                        prayerState.isAdhan(prayer: prayerState.prayerTimes.currentPrayer()) ? 'assets/icons/${AppStringConstraints.iconAqsa}.png' : 'assets/icons/${AppStringConstraints.iconDuaHands}.png',
+                        prayerState.isAdhan(prayer: prayerState.prayerTimes.currentPrayer()) ? 'assets/icons/${AppStringConstraints.iconAqsa}.png' : 'assets/icons/${AppStringConstraints.iconHandsFill}.png',
                         width: 20,
                         height: 20,
                         color: appColors.primary,

@@ -10,7 +10,7 @@ import '../../core/strings/app_string_constraints.dart';
 
 class PrayerState extends ChangeNotifier {
   late final Box _settingsPrayerTimeBox;
-  late TZDateTime _dateTime;
+  TZDateTime _dateTime = tz.TZDateTime.from(DateTime.now(), tz.local);
   final Cron _cron = Cron();
   static const Duration hourInterval = Duration(hours: 1);
 
@@ -55,7 +55,6 @@ class PrayerState extends ChangeNotifier {
     _madhabIndex = _settingsPrayerTimeBox.get(AppStringConstraints.keyMadhabIndex, defaultValue: 0);
     _dst = _settingsPrayerTimeBox.get(AppStringConstraints.keyDST, defaultValue: false);
     tz.initializeTimeZones();
-    _dateTime = tz.TZDateTime.from(DateTime.now(), tz.local);
     _startCron();
     initPrayerTime();
   }
@@ -96,7 +95,7 @@ class PrayerState extends ChangeNotifier {
 
   String get country => _country;
 
-  set changCountry(String country) {
+  set changeCountry(String country) {
     _country = country;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyCountry, country);
   }
@@ -110,14 +109,14 @@ class PrayerState extends ChangeNotifier {
 
   double get latitude => _latitude;
 
-  set setLatitude(double latitude) {
+  set changeLatitude(double latitude) {
     _latitude = latitude;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyCurrentLatitude, latitude);
   }
 
   double get longitude => _longitude;
 
-  set setLongitude(double longitude) {
+  set changeLongitude(double longitude) {
     _longitude = longitude;
     _settingsPrayerTimeBox.put(AppStringConstraints.keyCurrentLongitude, longitude);
   }
@@ -153,24 +152,6 @@ class PrayerState extends ChangeNotifier {
     _settingsPrayerTimeBox.put(AppStringConstraints.keyDST, dstState);
     initPrayerTime();
   }
-
-  int get getMinutesOfDay => _dateTime.difference(DateTime(_dateTime.year, _dateTime.month, _dateTime.day)).inMinutes;
-
-  int get getFajrValueInMinutes => _prayerValueInMinutes(time: _prayerTimes.fajr);
-
-  int get getSunriseValueInMinutes => _prayerValueInMinutes(time: _prayerTimes.sunrise);
-
-  int get getDhuhrValueInMinutes => _prayerValueInMinutes(time: _prayerTimes.dhuhr);
-
-  int get getAsrValueInMinutes => _prayerValueInMinutes(time: _prayerTimes.asr);
-
-  int get getMaghribValueInMinutes => _prayerValueInMinutes(time: _prayerTimes.maghrib);
-
-  int get getIshaValueInMinutes => _prayerValueInMinutes(time: _prayerTimes.isha);
-
-  int get getMidnightValueInMinutes => _prayerValueInMinutes(time: _sunnahTimes.middleOfTheNight);
-
-  int get getThirdPartValueInMinutes => _prayerValueInMinutes(time: _sunnahTimes.lastThirdOfTheNight);
 
   int get fajrAdjustment => _fajrAdjustment;
 
@@ -273,80 +254,50 @@ class PrayerState extends ChangeNotifier {
 
   bool isNextPrayer({required Prayer prayer}) => _prayerTimes.nextPrayer() == prayer;
 
-  DateTime thirdTime({required String partName}) {
-    late final DateTime timeFor;
-    switch (partName) {
-      case AppStringConstraints.timeSunrise:
-        timeFor = _prayerTimes.sunrise;
-        break;
-      case AppStringConstraints.timeMiddleNight:
-        timeFor = _sunnahTimes.middleOfTheNight;
-        break;
-      case AppStringConstraints.timeLastThird:
-        timeFor = _sunnahTimes.lastThirdOfTheNight;
-        break;
-    }
-    return timeFor;
-  }
-
-  bool thirdState({required String partName}) {
-    late final bool state;
-    switch (partName) {
-      case AppStringConstraints.timeSunrise:
-        state = isSunrise;
-        break;
-      case AppStringConstraints.timeMiddleNight:
-        state = isMidnight;
-        break;
-      case AppStringConstraints.timeLastThird:
-        state = isLastThird;
-        break;
-    }
-    return state;
-  }
-
   bool isAdhan({required Prayer prayer}) {
-    DateTime currentPrayerTime = _prayerTimes.timeForPrayer(prayer)!;
-    return _dateTime.isAfter(currentPrayerTime.add(const Duration(minutes: -1))) && _dateTime.isBefore(currentPrayerTime.add(const Duration(minutes: 3)));
+    return _dateTime.isAfter(_timeAdhanAdhkar(prayer).subtract(const Duration(minutes: 2))) &&
+        _dateTime.isBefore(_timeAdhanAdhkar(prayer).add(const Duration(minutes: 3)));
   }
 
   bool isDhikr({required Prayer prayer}) {
-    DateTime currentPrayerTime = _prayerTimes.timeForPrayer(prayer)!;
-    return _dateTime.isAfter(currentPrayerTime.add(const Duration(minutes: 3))) && _dateTime.isBefore(currentPrayerTime.add(const Duration(minutes: 30)));
+    return _dateTime.isAfter(_timeAdhanAdhkar(prayer).add(const Duration(minutes: 3))) &&
+        _dateTime.isBefore(_timeAdhanAdhkar(prayer).add(const Duration(minutes: 30)));
   }
 
-  bool get isMorning => _isWithinRange(getFajrValueInMinutes + 30, getSunriseValueInMinutes - 1);
+  DateTime _timeAdhanAdhkar(Prayer prayer) {
+    final DateTime currentPrayerTime;
+    if (prayer == Prayer.none) {
+      currentPrayerTime= _prayerTimes.timeForPrayer(Prayer.fajr)!;
+    } else if (prayer == Prayer.sunrise) {
+      currentPrayerTime= _prayerTimes.timeForPrayer(Prayer.dhuhr)!;
+    } else {
+      currentPrayerTime= _prayerTimes.timeForPrayer(prayer)!;
+    }
+    return currentPrayerTime;
+  }
 
-  bool get isSunrise => _isWithinRange(getSunriseValueInMinutes - 1, getDhuhrValueInMinutes - 1);
+  bool get isMorning => _isWithinRange(_prayerTimes.fajr.add(const Duration(minutes: 30)), _prayerTimes.sunrise);
 
-  bool get isDuha => _isWithinRange(getSunriseValueInMinutes + 45, getDhuhrValueInMinutes - 15);
+  bool get isSunrise => _isWithinRange(_prayerTimes.sunrise, _prayerTimes.dhuhr);
 
-  bool get isEvening => _isWithinRange(getAsrValueInMinutes + 30, getMaghribValueInMinutes - 1);
+  bool get isDuha => _isWithinRange(_prayerTimes.sunrise.add(const Duration(minutes: 45)), _prayerTimes.dhuhr.subtract(const Duration(minutes: 15)));
 
-  bool get isNight => _isWithinRange(getIshaValueInMinutes + 30, getMidnightValueInMinutes - 1);
+  bool get isEvening => _isWithinRange(_prayerTimes.asr.add(const Duration(minutes: 30)), _prayerTimes.maghrib);
 
-  bool get isMidnight => _isWithinRange(getMidnightValueInMinutes - 1, getThirdPartValueInMinutes - 1);
+  bool get isNight => _isWithinRange(_prayerTimes.isha.add(const Duration(minutes: 30)), _sunnahTimes.middleOfTheNight);
 
-  bool get isLastThird => _isWithinRange(getThirdPartValueInMinutes - 1, getFajrValueInMinutes - 1);
+  bool get isMidnight => _isWithinRange(_sunnahTimes.middleOfTheNight, _sunnahTimes.lastThirdOfTheNight);
+
+  bool get isLastThird => _isWithinRange(_sunnahTimes.lastThirdOfTheNight, _prayerTimes.fajr);
 
   bool get isFriday {
-    bool firstCheck = _dateTime.weekday == 4 && getMinutesOfDay >= getMaghribValueInMinutes;
-    bool secondCheck = _dateTime.weekday == 5 && getMinutesOfDay <= getMaghribValueInMinutes;
+    bool firstCheck = _dateTime.weekday == 4 && _dateTime.isAfter(_prayerTimes.maghrib);
+    bool secondCheck = _dateTime.weekday == 5 && _dateTime.isBefore(_prayerTimes.maghrib);
     return firstCheck || secondCheck;
   }
 
-  int _prayerValueInMinutes({required DateTime time}) {
-    DateTime fromMidnight = DateTime(_dateTime.year, _dateTime.month, _dateTime.day);
-    if (time.isBefore(fromMidnight)) {
-      time = time.add(const Duration(days: 1));
-    }
-
-    return time.difference(fromMidnight).inMinutes;
-  }
-
-  bool _isWithinRange(int start, int end) {
-    final minutes = getMinutesOfDay;
-    return minutes > start && minutes < end;
+  bool _isWithinRange(DateTime start, DateTime end) {
+    return _dateTime.isAfter(start) && _dateTime.isBefore(end);
   }
 
   void _startCron() {
