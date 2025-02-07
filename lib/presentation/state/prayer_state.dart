@@ -290,6 +290,8 @@ class PrayerState extends ChangeNotifier {
 
   bool get isLastThird => _isWithinRange(_sunnahTimes.lastThirdOfTheNight, _prayerTimes.fajr);
 
+  bool get isLastFridayHour => _isWithinRange(_prayerTimes.maghrib.subtract(const Duration(hours: 1)), _prayerTimes.maghrib);
+
   bool get isFriday {
     bool firstCheck = _dateTime.weekday == 4 && _dateTime.isAfter(_prayerTimes.maghrib);
     bool secondCheck = _dateTime.weekday == 5 && _dateTime.isBefore(_prayerTimes.maghrib);

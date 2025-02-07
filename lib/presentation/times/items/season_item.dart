@@ -36,11 +36,9 @@ class SeasonItem extends StatelessWidget {
         margin: AppStyles.mainMardingMicroMini,
         decoration: BoxDecoration(
           borderRadius: AppStyles.mainBorderMicro,
-          image: DecorationImage(
-            image: AssetImage('assets/pictures/${AppStringConstraints.timePeriodPics[season.index]}.png'),
-            fit: BoxFit.cover,
-          ),
+          color: appColors.tertiaryContainer,
         ),
+        child: Text(seasonName),
       ),
     );
   }
