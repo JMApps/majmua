@@ -8,6 +8,7 @@ import '../../presentation/prayer/pages/page_information.dart';
 import '../../presentation/prayer/pages/prayer_params_page.dart';
 import '../../presentation/prayer/pages/prayers_schedule_page.dart';
 import '../../presentation/prayer/pages/select_city_page.dart';
+import '../../presentation/counter/pages/counter_page.dart';
 import 'app_route_names.dart';
 
 class AppRoutes {
@@ -33,6 +34,7 @@ class AppRoutes {
     AppRouteNames.pageAddCity: (context, args) => const AddCityPage(),
     AppRouteNames.pageAdjustments: (context, args) => const PageAdjustments(),
     AppRouteNames.pageInformation: (context, args) => const PageInformation(),
+    AppRouteNames.pageCounter: (context, args) => const CounterPage(),
     // AppRouteNames.pagePrayerParams: (context, args) {
     //   final CollectionArgs collectionArgs = args;
     //   return CollectionDetailPage(
