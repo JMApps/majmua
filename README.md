@@ -1,16 +1,7 @@
-# majmua
+Shelf of the muslim – Полка мусульманина
 
-A new Flutter project.
+- [iOS версия](https://apps.apple.com/ru/app/полка-мусульманина/id1659190395)
+- [Android версия](https://play.google.com/store/apps/details?id=jmapps.project.majmua)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![White theme](https://github.com/user-attachments/assets/e2195742-b967-4ade-a7f5-87011e21913b)
+![Dark theme](https://github.com/user-attachments/assets/cfd21504-60c5-4d28-a3bd-d3befc85ec8d)
