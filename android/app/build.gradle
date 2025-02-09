@@ -35,9 +35,9 @@ android {
     buildTypes {
         release {
             signingConfig = signingConfigs.debug
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    buildToolsVersion '35.0.0'
 }
 
 flutter {
