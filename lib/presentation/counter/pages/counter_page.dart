@@ -40,7 +40,7 @@ class CounterPage extends StatelessWidget {
                     child: Text(
                       counterState.currentCount(),
                       style: TextStyle(
-                        fontSize: 125,
+                        fontSize: 100,
                         fontFamily: AppStringConstraints.fontGilroyMedium,
                         fontWeight: FontWeight.bold,
                         color: appColors.secondary,
@@ -87,11 +87,13 @@ class CounterPage extends StatelessWidget {
                     onPressed: () {
                       counterState.restoreAllCountValue();
                     },
+                    sizeStyle: CupertinoButtonSize.small,
                     padding: EdgeInsets.zero,
                     child: Text(
                       appLocale.reset,
                       style: TextStyle(
                         color: appColors.tertiary,
+                        fontSize: 14.0
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -101,6 +103,7 @@ class CounterPage extends StatelessWidget {
               ],
             ),
             bottomNavigationBar: Card(
+              margin: AppStyles.mardingBottom,
               child: Padding(
                 padding: AppStyles.mainMardingMini,
                 child: Row(
@@ -109,8 +112,8 @@ class CounterPage extends StatelessWidget {
                     const CountsDropDown(),
                     IconButton.filledTonal(
                       onPressed: () {
+                        counterState.setTacticFeedback;
                         HapticFeedback.lightImpact();
-                        counterState.tacticFeedback = !counterState.tacticFeedback;
                       },
                       icon: Icon(
                         Icons.vibration_rounded,
@@ -119,8 +122,8 @@ class CounterPage extends StatelessWidget {
                     ),
                     IconButton.filledTonal(
                       onPressed: () {
+                        counterState.setCountShowState;
                         HapticFeedback.lightImpact();
-                        counterState.countShowState = !counterState.countShowState;
                       },
                       icon: Icon(
                         Icons.remove_red_eye_outlined,

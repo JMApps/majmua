@@ -41,15 +41,15 @@ class CounterState with ChangeNotifier {
 
   int get countIndex => _countIndex;
 
-  set tacticFeedback(bool state) {
-    _tacticFeedback = state;
-    _appCounterBox.put(AppStringConstraints.keyFeedback, state);
+  void get setTacticFeedback {
+    _tacticFeedback = !_tacticFeedback;
+    _appCounterBox.put(AppStringConstraints.keyFeedback, _tacticFeedback);
     notifyListeners();
   }
 
-  set countShowState(bool state) {
-    _countShowState = state;
-    _appCounterBox.put(AppStringConstraints.keyCountValueShow, state);
+  void get setCountShowState {
+    _countShowState = !_countShowState;
+    _appCounterBox.put(AppStringConstraints.keyCountValueShow, _countShowState);
     notifyListeners();
   }
 
