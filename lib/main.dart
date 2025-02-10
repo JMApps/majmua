@@ -17,6 +17,7 @@ void main() async {
   await Hive.openBox(AppStringConstraints.keyMainSettings);
   await Hive.openBox(AppStringConstraints.keyMainAppSettings);
   await Hive.openBox(AppStringConstraints.keySettingsPrayerTimeBox);
+  await Hive.openBox(AppStringConstraints.keyMainCounter);
 
   NotificationService notificationService = NotificationService();
   await notificationService.setupNotification();

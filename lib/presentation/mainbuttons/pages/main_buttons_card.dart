@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../../core/routes/app_route_names.dart';
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../widgets/main_button_item.dart';
@@ -61,6 +62,10 @@ class MainButtonsCard extends StatelessWidget {
                 MainButtonItem(
                   onTap: () {
                     HapticFeedback.lightImpact();
+                    Navigator.pushNamed(
+                      context,
+                      AppRouteNames.pageCounter,
+                    );
                   },
                   imageName: AppStringConstraints.iconCounter,
                   title: appLocale.counter,

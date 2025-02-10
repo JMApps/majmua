@@ -64,13 +64,6 @@ class AppStringConstraints {
   static const String iconHandsFill = 'hands-fill';
   static const String iconAqsa = 'aqsa';
 
-  static const String iconDailyAyah = 'daily_ayah';
-  static const String iconDailyHadith = 'daily_hadith';
-
-  static const String timeSunrise = 'sunrise';
-  static const String timeMiddleNight = 'middle_night';
-  static const String timeLastThird = 'last_third_part';
-
   static const String startSeason = 'map_start_season';
   static const String endSeason = 'map_end_season';
 
@@ -113,6 +106,15 @@ class AppStringConstraints {
 
   static const String keyFridayNotification = 'key_friday_notification';
   static const String keyFridayLastHourNotification = 'key_friday_last_hour_notification';
+
+  // Counter
+  static const String keyCounterAllValue = 'key_counter_all_value';
+  static const String keyFreeCounterValue = 'key_counter_value';
+  static const String key33CounterValue = 'key_counter_first_value';
+  static const String key100CounterValue = 'key_counter_second_value';
+  static const String key1000CounterValue = 'key_counter_third_value';
+  static const String keyCountValueShow = 'key_count_value_show';
+  static const String keyFeedback = 'key_counter_vibrate';
 
   // Notification IDs
   static const int fajrNotificationID = 395;
@@ -205,6 +207,13 @@ class AppStringConstraints {
     'summer',
     'fall',
     'winter',
+  ];
+
+  static const List<String> tasbeehCounts = [
+    '-/-',
+    '33',
+    '100',
+    '1000',
   ];
 
   static final List<AdhanInformationModel> calculationMethodInfo = [
