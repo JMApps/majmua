@@ -7,15 +7,15 @@ import '../../core/strings/app_string_constraints.dart';
 class CounterState with ChangeNotifier {
   final _appCounterBox = Hive.box(AppStringConstraints.keyMainCounter);
 
-  late int _allCounts;
+  int _allCounts = 0;
 
-  late int _count33Value;
+  int _count33Value = 33;
 
-  late int _count100Value;
+  int _count100Value = 100;
 
-  late int _count1000Value;
+  int _count1000Value = 1000;
 
-  late int _freeCountValue;
+  int _freeCountValue = 0;
 
   CounterState() {
     _tacticFeedback = _appCounterBox.get(AppStringConstraints.keyFeedback, defaultValue:  true);
@@ -58,38 +58,38 @@ class CounterState with ChangeNotifier {
     notifyListeners();
   }
 
-  void onCountClick() {
+  void onCountClick() async {
     switch (_countIndex) {
       case 0:
         _freeCountValue++;
-        _appCounterBox.put(AppStringConstraints.keyFreeCounterValue, _freeCountValue);
+        await _appCounterBox.put(AppStringConstraints.keyFreeCounterValue, _freeCountValue);
         incrementAllCount();
         break;
       case 1:
         if (_count33Value > 0) {
           _count33Value--;
-          _appCounterBox.put(AppStringConstraints.key33CounterValue, _count33Value);
+          await _appCounterBox.put(AppStringConstraints.key33CounterValue, _count33Value);
           incrementAllCount();
         } else {
-          Vibration.vibrate();
+          await Vibration.vibrate();
         }
         break;
       case 2:
         if (_count100Value > 0) {
           _count100Value--;
-          _appCounterBox.put(AppStringConstraints.key100CounterValue, _count100Value);
+          await _appCounterBox.put(AppStringConstraints.key100CounterValue, _count100Value);
           incrementAllCount();
         } else {
-          Vibration.vibrate();
+          await Vibration.vibrate();
         }
         break;
       case 3:
         if (_count1000Value > 0) {
           _count1000Value--;
-          _appCounterBox.put(AppStringConstraints.key1000CounterValue, _count1000Value);
+          await _appCounterBox.put(AppStringConstraints.key1000CounterValue, _count1000Value);
           incrementAllCount();
         } else {
-          Vibration.vibrate();
+          await Vibration.vibrate();
         }
         break;
     }

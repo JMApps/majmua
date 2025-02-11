@@ -20,7 +20,7 @@ class AllCountItem extends StatelessWidget {
               opacity: counterState.countShowState ? 1.0 : 0.0,
               child: Text(
                 counterState.getAllCounts.toString(),
-                style: AppStyles.mainTextStyle,
+                style: AppStyles.mainTextStyleMini,
                 textAlign: TextAlign.center,
               ),
             ),

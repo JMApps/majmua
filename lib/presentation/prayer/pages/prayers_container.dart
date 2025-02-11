@@ -117,29 +117,35 @@ class _PrayersContainerState extends State<PrayersContainer> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     AnimatedSize(
-                      duration: const Duration(milliseconds: 1500),
+                      duration: const Duration(milliseconds: 500),
                       child: Visibility(
                         visible: timeState.isNearWhiteDays(),
                         child: Card(
                           margin: AppStyles.mardingHorizontalMini,
-                          child: Text(
-                            appLocale.nearWhiteDays,
-                            style: AppStyles.mainTextStyleMini,
-                            textAlign: TextAlign.center,
+                          child: Padding(
+                            padding: AppStyles.mainMardingMicro,
+                            child: Text(
+                              appLocale.nearWhiteDays,
+                              style: AppStyles.mainTextStyleMini,
+                              textAlign: TextAlign.center,
+                            ),
                           ),
                         ),
                       ),
                     ),
                     AnimatedSize(
-                      duration: const Duration(milliseconds: 1500),
+                      duration: const Duration(milliseconds: 500),
                       child: Visibility(
                         visible: timeState.isWhiteDays(),
                         child: Card(
                           margin: AppStyles.mardingHorizontalMini,
-                          child: Text(
-                            appLocale.whiteDays,
-                            style: AppStyles.mainTextStyleMini,
-                            textAlign: TextAlign.center,
+                          child: Padding(
+                            padding: AppStyles.mainMardingMicro,
+                            child: Text(
+                              appLocale.whiteDays,
+                              style: AppStyles.mainTextStyleMini,
+                              textAlign: TextAlign.center,
+                            ),
                           ),
                         ),
                       ),
