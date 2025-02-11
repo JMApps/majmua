@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:vibration/vibration.dart';
 
 import '../../core/strings/app_string_constraints.dart';
 
@@ -63,35 +63,42 @@ class CounterState with ChangeNotifier {
       case 0:
         _freeCountValue++;
         _appCounterBox.put(AppStringConstraints.keyFreeCounterValue, _freeCountValue);
+        incrementAllCount();
         break;
       case 1:
         if (_count33Value > 0) {
           _count33Value--;
+          _appCounterBox.put(AppStringConstraints.key33CounterValue, _count33Value);
+          incrementAllCount();
         } else {
-          HapticFeedback.vibrate();
+          Vibration.vibrate();
         }
-        _appCounterBox.put(AppStringConstraints.key33CounterValue, _count33Value);
         break;
       case 2:
         if (_count100Value > 0) {
           _count100Value--;
+          _appCounterBox.put(AppStringConstraints.key100CounterValue, _count100Value);
+          incrementAllCount();
         } else {
-          HapticFeedback.vibrate();
+          Vibration.vibrate();
         }
-        _appCounterBox.put(AppStringConstraints.key100CounterValue, _count100Value);
         break;
       case 3:
         if (_count1000Value > 0) {
           _count1000Value--;
+          _appCounterBox.put(AppStringConstraints.key1000CounterValue, _count1000Value);
+          incrementAllCount();
         } else {
-          HapticFeedback.vibrate();
+          Vibration.vibrate();
         }
-        _appCounterBox.put(AppStringConstraints.key1000CounterValue, _count1000Value);
         break;
     }
+    notifyListeners();
+  }
+
+  void incrementAllCount() {
     _allCounts++;
     _appCounterBox.put(AppStringConstraints.keyCounterAllValue, _allCounts);
-    notifyListeners();
   }
 
   void restoreCountValue() {

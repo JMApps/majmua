@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
-import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../state/counter_state.dart';
+import '../items/all_count_item.dart';
+import '../items/count_title_item.dart';
+import '../items/counter_button_item.dart';
 import '../widgets/counts_drop_down.dart';
 
 class CounterPage extends StatelessWidget {
@@ -16,7 +19,6 @@ class CounterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
     final appColors = Theme.of(context).colorScheme;
-    final mediaQuery = MediaQuery.of(context);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -29,78 +31,25 @@ class CounterPage extends StatelessWidget {
             appBar: AppBar(
               title: Text(appLocale.counter),
             ),
-            body: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Padding(
-                  padding: AppStyles.mardingTop,
-                  child: AnimatedOpacity(
-                    duration: const Duration(seconds: 1),
-                    opacity: counterState.countShowState ? 1.0 : 0,
-                    child: Text(
-                      counterState.currentCount(),
-                      style: TextStyle(
-                        fontSize: 100,
-                        fontFamily: AppStringConstraints.fontGilroyMedium,
-                        fontWeight: FontWeight.bold,
-                        color: appColors.secondary,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
+            body: OrientationLayoutBuilder(
+              portrait: (context) => const Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  CountTitleItem(),
+                  Expanded(
+                    child: CounterButtonItem(),
                   ),
-                ),
-                Expanded(
-                  child: Container(
-                    padding: AppStyles.mainMarding,
-                    alignment: Alignment.center,
-                    child: IconButton(
-                      onPressed: () {
-                        counterState.onCountClick();
-                        if (counterState.tacticFeedback) {
-                          HapticFeedback.lightImpact();
-                        }
-                      },
-                      splashColor: appColors.secondary,
-                      icon: Icon(
-                        Icons.fingerprint_rounded,
-                        color: appColors.primary,
-                        size: mediaQuery.size.width * 0.85,
-                      ),
-                    ),
-                  ),
-                ),
-                AnimatedOpacity(
-                  duration: const Duration(seconds: 1),
-                  opacity: counterState.countShowState ? 1.0 : 0.0,
-                  child: Text(
-                    counterState.getAllCounts.toString(),
-                    style: AppStyles.mainTextStyleMini,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Visibility(
-                  visible: counterState.getAllCounts > 0,
-                  maintainState: true,
-                  maintainAnimation: true,
-                  maintainSize: true,
-                  child: CupertinoButton(
-                    onPressed: () {
-                      counterState.restoreAllCountValue();
-                    },
-                    sizeStyle: CupertinoButtonSize.small,
-                    padding: EdgeInsets.zero,
-                    child: Text(
-                      appLocale.reset,
-                      style: TextStyle(
-                        color: appColors.tertiary,
-                        fontSize: 14.0
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16),
-              ],
+                  AllCountItem(),
+                ],
+              ),
+              landscape: (context) => const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Expanded(child: CountTitleItem()),
+                  AllCountItem(),
+                  Expanded(child: CounterButtonItem()),
+                ],
+              ),
             ),
             bottomNavigationBar: Card(
               margin: AppStyles.mardingBottom,
@@ -117,7 +66,9 @@ class CounterPage extends StatelessWidget {
                       },
                       icon: Icon(
                         Icons.vibration_rounded,
-                        color: counterState.tacticFeedback ? appColors.primary : appColors.tertiary,
+                        color: counterState.tacticFeedback
+                            ? appColors.primary
+                            : appColors.tertiary,
                       ),
                     ),
                     IconButton.filledTonal(
@@ -127,7 +78,9 @@ class CounterPage extends StatelessWidget {
                       },
                       icon: Icon(
                         Icons.remove_red_eye_outlined,
-                        color: counterState.countShowState ? appColors.primary : appColors.tertiary,
+                        color: counterState.countShowState
+                            ? appColors.primary
+                            : appColors.tertiary,
                       ),
                     ),
                     IconButton.filledTonal(

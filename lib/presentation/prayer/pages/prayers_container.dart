@@ -65,17 +65,17 @@ class _PrayersContainerState extends State<PrayersContainer> {
           _notificationService.cancelNotificationWithId(AppStringConstraints.ishaNotificationID);
         }
         if (notification.isMorningAdhkarsNotification) {
-          _notificationService.dailyNotification(id: AppStringConstraints.morningSupplicationsNotificationID, title: appLocale.remind, body: appLocale.morningAdhkars, dateTime: prayer.prayerTimes.fajr.add(const Duration(minutes: 30)));
+          _notificationService.dailyNotification(id: AppStringConstraints.morningSupplicationsNotificationID, title: appLocale.remind, body: '${appLocale.morningAdhkarsTime} 🤲', dateTime: prayer.prayerTimes.fajr.add(const Duration(minutes: 30)));
         } else {
           _notificationService.cancelNotificationWithId(AppStringConstraints.morningSupplicationsNotificationID);
         }
         if (notification.isEveningAdhkarsNotification) {
-          _notificationService.dailyNotification(id: AppStringConstraints.eveningSupplicationsNotificationID, title: appLocale.remind, body: appLocale.eveningAdhkars, dateTime: prayer.prayerTimes.asr.add(const Duration(minutes: 30)));
+          _notificationService.dailyNotification(id: AppStringConstraints.eveningSupplicationsNotificationID, title: appLocale.remind, body: '${appLocale.eveningAdhkarsTime} 🤲', dateTime: prayer.prayerTimes.asr.add(const Duration(minutes: 30)));
         } else {
           _notificationService.cancelNotificationWithId(AppStringConstraints.eveningSupplicationsNotificationID);
         }
         if (notification.isNightAdhkarsNotification) {
-          _notificationService.dailyNotification(id: AppStringConstraints.nightSupplicationsNotificationID, title: appLocale.remind, body: appLocale.nightAdhkars, dateTime: prayer.prayerTimes.isha.add(const Duration(minutes: 30)));
+          _notificationService.dailyNotification(id: AppStringConstraints.nightSupplicationsNotificationID, title: appLocale.remind, body: '${appLocale.nightAdhkarsTime} 🤲', dateTime: prayer.prayerTimes.isha.add(const Duration(minutes: 30)));
         } else {
           _notificationService.cancelNotificationWithId(AppStringConstraints.nightSupplicationsNotificationID);
         }
@@ -104,7 +104,7 @@ class _PrayersContainerState extends State<PrayersContainer> {
           _notificationService.cancelNotificationWithId(AppStringConstraints.fridayNotificationID);
         }
         if (notification.isLastHourFridayNotification) {
-          _notificationService.weeklyNotification(id: AppStringConstraints.lastHourFridayNotificationID, title: appLocale.remind, body: appLocale.lastFridayHour, dateTime: prayer.prayerTimes.maghrib.add(const Duration(hours: -1)));
+          _notificationService.weeklyNotification(id: AppStringConstraints.lastHourFridayNotificationID, title: appLocale.remind, body: '${appLocale.lastFridayHour} 🤲🤲🤲', dateTime: prayer.prayerTimes.maghrib.add(const Duration(hours: -1)));
         } else {
           _notificationService.cancelNotificationWithId(AppStringConstraints.lastHourFridayNotificationID);
         }
