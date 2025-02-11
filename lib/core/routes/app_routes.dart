@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../data/models/args/quran_args.dart';
 import '../../presentation/prayer/pages/add_city_page.dart';
+import '../../presentation/quran/pages/quran_page.dart';
 import '../../presentation/settings/pages/app_settings_page.dart';
 import '../../presentation/notifications/pages/app_notifications_page.dart';
 import '../../presentation/prayer/pages/page_adjustments.dart';
@@ -34,6 +36,13 @@ class AppRoutes {
     AppRouteNames.pageAddCity: (context, args) => const AddCityPage(),
     AppRouteNames.pageAdjustments: (context, args) => const PageAdjustments(),
     AppRouteNames.pageInformation: (context, args) => const PageInformation(),
+    AppRouteNames.pageQuran: (context, args) {
+      final QuranArgs quranArgs = args;
+      return QuranPage(
+        surahName: quranArgs.surahName,
+        listPages: quranArgs.listPages,
+      );
+    },
     AppRouteNames.pageCounter: (context, args) => const CounterPage(),
     // AppRouteNames.pagePrayerParams: (context, args) {
     //   final CollectionArgs collectionArgs = args;

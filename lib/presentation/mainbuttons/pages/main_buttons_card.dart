@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:majmua/presentation/quran/pages/surahs_bottom_sheet.dart';
 
 import '../../../core/routes/app_route_names.dart';
 import '../../../core/strings/app_string_constraints.dart';
@@ -26,6 +27,11 @@ class MainButtonsCard extends StatelessWidget {
                 MainButtonItem(
                   onTap: () {
                     HapticFeedback.lightImpact();
+                    showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      builder: (context) => const SurahsBottomSheet(),
+                    );
                   },
                   imageName: AppStringConstraints.iconQuran,
                   title: appLocale.quran,

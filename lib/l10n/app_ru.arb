@@ -139,6 +139,9 @@
   "daysToDhulHujjah": "Дней до Зу-ль-Хиджи",
   "dhulHijjah": "Пост в Зу-ль-Хиджа",
 
+  "backgroundWarmth": "Теплота фона",
+  "textContrast": "Контраст текста",
+
   "ayahDay": "Аят\nдня",
   "hadithDay": "Хадис\nдня",
 
@@ -147,6 +150,11 @@
   "fortress": "Азкары",
   "gems": "Жемчужины",
   "counter": "Счётчик",
+
+  "surahKahf": "Сура «аль-Кахф»",
+  "surahSajda": "Сура «ас-Саджда»",
+  "surahMulk": "Сура «аль-Мульк»",
+  "djuzAmma": "Джуз «'Амма»",
 
   "timeOffset": "Зимнее время (DST)",
 

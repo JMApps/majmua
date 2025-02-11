@@ -7,5 +7,6 @@ class AppRouteNames {
   static const String pageAddCity = 'page_add_city';
   static const String pageAdjustments = 'page_adjustments';
   static const String pageInformation = 'page_information';
+  static const String pageQuran = 'page_quran';
   static const String pageCounter = 'page_counter';
 }
