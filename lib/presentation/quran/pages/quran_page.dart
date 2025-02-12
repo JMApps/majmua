@@ -24,14 +24,6 @@ class QuranPage extends StatefulWidget {
 }
 
 class _QuranPageState extends State<QuranPage> {
-  late final PageController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = PageController();
-  }
-
   Future<String> _cacheImage(String assetName) async {
     final dir = await getTemporaryDirectory();
     final filePath = '${dir.path}/$assetName.png';
@@ -53,7 +45,7 @@ class _QuranPageState extends State<QuranPage> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => SurahSettingsState(),
+          create: (context) => SurahSettingsState(widget.surahName),
         ),
       ],
       child: Consumer<SurahSettingsState>(
@@ -63,41 +55,50 @@ class _QuranPageState extends State<QuranPage> {
           final yellowTint = Color.lerp(
             appColors.surface,
             Colors.yellow,
-            brightness == Brightness.light ? surahState.getWarmthValue / 100 : surahState.getWarmthValue / 200,
+            brightness == Brightness.light
+                ? surahState.getWarmthValue / 100
+                : surahState.getWarmthValue / 200,
           );
           return GestureDetector(
-            onTap: () => surahState.setAppBarIsVisible = !surahState.getAppBarIsVisible,
+            onTap: () =>
+                surahState.setAppBarIsVisible = !surahState.getAppBarIsVisible,
             child: Scaffold(
               backgroundColor: yellowTint,
               appBar: PreferredSize(
-                preferredSize: Size(double.infinity, surahState.getAppBarIsVisible ? 60 : 0),
-                child: AnimatedPositioned(
-                  duration: const Duration(milliseconds: 150),
-                  top: surahState.getAppBarIsVisible ? 0 : -kToolbarHeight * 2,
+                preferredSize: const Size.fromHeight(60),
+                child: AnimatedOpacity(
+                  duration: const Duration(milliseconds: 200),
+                  opacity: surahState.getAppBarIsVisible ? 1.0 : 0.0,
                   child: AppBar(
-                    backgroundColor: Colors.transparent,
+                    backgroundColor: yellowTint,
                     title: Text(widget.surahName),
                     actions: [
                       IconButton(
                         onPressed: () {
-                          _controller.animateToPage(
+                          surahState.getPageController.animateToPage(
                             0,
                             duration: const Duration(milliseconds: 100),
                             curve: Curves.easeIn,
                           );
                         },
-                        icon: const Icon(Icons.refresh_rounded),
+                        padding: EdgeInsets.zero,
+                        visualDensity: VisualDensity.compact,
+                        icon: const Icon(Icons.replay_circle_filled_rounded),
                       ),
                       IconButton(
                         onPressed: () {
                           showModalBottomSheet(
                             context: context,
-                            builder: (BuildContext context) =>
-                                SurahSettingsBottomSheet(
-                              surahState: surahState,
-                            ),
+                            builder: (BuildContext context) {
+                              return ChangeNotifierProvider.value(
+                                value: surahState,
+                                child: const SurahSettingsBottomSheet(),
+                              );
+                            }
                           );
                         },
+                        padding: EdgeInsets.zero,
+                        visualDensity: VisualDensity.compact,
                         icon: const Icon(Icons.settings),
                       ),
                     ],
@@ -105,7 +106,7 @@ class _QuranPageState extends State<QuranPage> {
                 ),
               ),
               body: PageView.builder(
-                controller: _controller,
+                controller: surahState.getPageController,
                 itemCount: widget.listPages.length,
                 reverse: true,
                 itemBuilder: (context, index) {
@@ -142,7 +143,7 @@ class _QuranPageState extends State<QuranPage> {
                   );
                 },
                 onPageChanged: (int page) {
-                  // Save page
+                  surahState.savePageNumber(page);
                 },
               ),
             ),
