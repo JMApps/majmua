@@ -41,7 +41,8 @@ class RestHolidaysContainer extends StatelessWidget {
                       flex: 2,
                       child: AyahHadithDayItem(
                         title: appLocale.ayahDay,
-                        color: appColors.primary,
+                        color: appColors.primaryContainer,
+                        textColor: appColors.primary,
                         onTap: () {
                           HapticFeedback.lightImpact();
                         },
@@ -69,7 +70,8 @@ class RestHolidaysContainer extends StatelessWidget {
                       flex: 2,
                       child: AyahHadithDayItem(
                         title: appLocale.hadithDay,
-                        color: appColors.tertiary,
+                        color: appColors.tertiaryContainer,
+                        textColor: appColors.tertiary,
                         onTap: () {
                           HapticFeedback.lightImpact();
                         },

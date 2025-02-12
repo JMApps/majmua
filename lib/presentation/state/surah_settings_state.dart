@@ -39,8 +39,6 @@ class SurahSettingsState with ChangeNotifier {
 
   void savePageNumber(int pageNumber) {
     _pageNumber = pageNumber;
-    _mainSettingsBox.put(_pageNumberKey, _pageNumber);
-    notifyListeners();
   }
 
   set setAppBarIsVisible(bool value) {
@@ -50,13 +48,19 @@ class SurahSettingsState with ChangeNotifier {
 
   set setWarmthValue(double value) {
     _warmthValue = value;
-    _mainSettingsBox.put(AppStringConstraints.keySurahsBackgroundWarmth, value);
     notifyListeners();
   }
 
   set setFontContrast(double value) {
     _fontContrast = value;
-    _mainSettingsBox.put(AppStringConstraints.keyFontContrast, value);
     notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    _mainSettingsBox.put(_pageNumberKey, _pageNumber);
+    _mainSettingsBox.put(AppStringConstraints.keySurahsBackgroundWarmth, _warmthValue);
+    _mainSettingsBox.put(AppStringConstraints.keyFontContrast, _fontContrast);
+    super.dispose();
   }
 }

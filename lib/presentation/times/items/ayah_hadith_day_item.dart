@@ -8,11 +8,13 @@ class AyahHadithDayItem extends StatelessWidget {
     super.key,
     required this.title,
     required this.color,
+    required this.textColor,
     required this.onTap,
   });
 
   final String title;
   final Color color;
+  final Color textColor;
   final GestureTapCallback onTap;
 
   @override
@@ -22,8 +24,8 @@ class AyahHadithDayItem extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         borderRadius: AppStyles.mainBorderMini,
-        splashColor: color.withAlpha(100),
-        highlightColor: color.withAlpha(100),
+        splashColor: color,
+        highlightColor: color,
         child: Padding(
           padding: AppStyles.mainMardingMicroMini,
           child: Container(
@@ -31,15 +33,15 @@ class AyahHadithDayItem extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: AppStyles.mainBorderMini,
               border: Border.all(
-                width: 2,
-                color: color.withAlpha(125),
+                width: 1.5,
+                color: textColor,
               )
             ),
             child: Text(
               title,
               style: TextStyle(
                 fontSize: 12.0,
-                color: color,
+                color: textColor,
                 fontFamily: AppStringConstraints.fontGilroyMedium,
                 height: 1.0,
               ),
