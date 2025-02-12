@@ -86,6 +86,7 @@ class AboutUsBottomSheet extends StatelessWidget {
             iconName: AppStringConstraints.iconStar,
             link: isAndroid ? AppStringConstraints.appLinkAndroid : AppStringConstraints.appLinkIOS,
           ),
+          const SizedBox(height: 8),
           FilledButton.tonalIcon(
             onPressed: () {
               Navigator.pop(context);
@@ -98,7 +99,6 @@ class AboutUsBottomSheet extends StatelessWidget {
             iconAlignment: IconAlignment.end,
             icon: const Icon(Icons.ios_share),
           ),
-          const SizedBox(height: 8),
         ],
       ),
     );

@@ -40,7 +40,7 @@ class _PrayersContainerState extends State<PrayersContainer> {
           _notificationService.cancelNotificationWithId(AppStringConstraints.fajrNotificationID);
         }
         if (notification.isSunriseNotification) {
-          _notificationService.dailyNotification(id: AppStringConstraints.sunriseNotificationID, title: appLocale.prayerTime, body: '${appLocale.sunrise} ${appLocale.duha}', dateTime: prayer.prayerTimes.sunrise.add(const Duration(minutes: 45)));
+          _notificationService.dailyNotification(id: AppStringConstraints.sunriseNotificationID, title: appLocale.sunrise, body: appLocale.adDuhaTime, dateTime: prayer.prayerTimes.sunrise.add(const Duration(minutes: 45)));
         } else {
           _notificationService.cancelNotificationWithId(AppStringConstraints.sunriseNotificationID);
         }
@@ -65,49 +65,49 @@ class _PrayersContainerState extends State<PrayersContainer> {
           _notificationService.cancelNotificationWithId(AppStringConstraints.ishaNotificationID);
         }
         if (notification.isMorningAdhkarsNotification) {
-          _notificationService.dailyNotification(id: AppStringConstraints.morningSupplicationsNotificationID, title: appLocale.remind, body: '${appLocale.morningAdhkarsTime} 🤲', dateTime: prayer.prayerTimes.fajr.add(const Duration(minutes: 30)));
+          _notificationService.dailyNotification(id: AppStringConstraints.morningSupplicationsNotificationID, title: appLocale.remind, body: appLocale.morningAdhkarsTime, dateTime: prayer.prayerTimes.fajr.add(const Duration(minutes: 30)));
         } else {
           _notificationService.cancelNotificationWithId(AppStringConstraints.morningSupplicationsNotificationID);
         }
         if (notification.isEveningAdhkarsNotification) {
-          _notificationService.dailyNotification(id: AppStringConstraints.eveningSupplicationsNotificationID, title: appLocale.remind, body: '${appLocale.eveningAdhkarsTime} 🤲', dateTime: prayer.prayerTimes.asr.add(const Duration(minutes: 30)));
+          _notificationService.dailyNotification(id: AppStringConstraints.eveningSupplicationsNotificationID, title: appLocale.remind, body: appLocale.eveningAdhkarsTime, dateTime: prayer.prayerTimes.asr.add(const Duration(minutes: 30)));
         } else {
           _notificationService.cancelNotificationWithId(AppStringConstraints.eveningSupplicationsNotificationID);
         }
         if (notification.isNightAdhkarsNotification) {
-          _notificationService.dailyNotification(id: AppStringConstraints.nightSupplicationsNotificationID, title: appLocale.remind, body: '${appLocale.nightAdhkarsTime} 🤲', dateTime: prayer.prayerTimes.isha.add(const Duration(minutes: 30)));
+          _notificationService.dailyNotification(id: AppStringConstraints.nightSupplicationsNotificationID, title: appLocale.remind, body: appLocale.nightAdhkarsTime, dateTime: prayer.prayerTimes.isha.add(const Duration(minutes: 30)));
         } else {
           _notificationService.cancelNotificationWithId(AppStringConstraints.nightSupplicationsNotificationID);
         }
-        if (notification.isFastMondayNotification) {
-          if (time.getDateTime.weekday == 3) {
-            _notificationService.weeklyNotification(id: AppStringConstraints.fastMondayNotificationID, title: appLocale.remind, body: appLocale.nearFastingDay, dateTime: DateTime(time.getDateTime.year, time.getDateTime.month, time.getDateTime.day, 20, 0));
-          }
-        } else {
-          _notificationService.cancelNotificationWithId(AppStringConstraints.fastMondayNotificationID);
-        }
-        if (notification.isFastThursdayNotification) {
-          if (time.getDateTime.weekday == 7) {
-            _notificationService.weeklyNotification(id: AppStringConstraints.fastThursdayNotificationID, title: appLocale.remind, body: appLocale.nearFastingDay, dateTime: DateTime(time.getDateTime.year, time.getDateTime.month, time.getDateTime.day, 20, 0));
-          }
-        } else {
-          _notificationService.cancelNotificationWithId(AppStringConstraints.fastThursdayNotificationID);
-        }
-        if (notification.isWhiteDaysNotification) {
-          _notificationService.monthlyNotification(id: AppStringConstraints.fastWhiteDaysNotificationID, title: appLocale.remind, body: appLocale.nearWhiteDays, dateTime: prayer.prayerTimes.isha);
-        } else {
-          _notificationService.cancelNotificationWithId(AppStringConstraints.fastWhiteDaysNotificationID);
-        }
-        if (notification.isFridayNotification) {
-          _notificationService.weeklyNotification(id: AppStringConstraints.fridayNotificationID, title: appLocale.remind, body: appLocale.tomorrowFriday, dateTime: prayer.prayerTimes.maghrib.add(const Duration(hours: -1)));
-        } else {
-          _notificationService.cancelNotificationWithId(AppStringConstraints.fridayNotificationID);
-        }
-        if (notification.isLastHourFridayNotification) {
-          _notificationService.weeklyNotification(id: AppStringConstraints.lastHourFridayNotificationID, title: appLocale.remind, body: '${appLocale.lastFridayHour} 🤲🤲🤲', dateTime: prayer.prayerTimes.maghrib.add(const Duration(hours: -1)));
-        } else {
-          _notificationService.cancelNotificationWithId(AppStringConstraints.lastHourFridayNotificationID);
-        }
+        // if (notification.isFastMondayNotification) {
+        //   if (time.getDateTime.weekday == 3) {
+        //     _notificationService.weeklyNotification(id: AppStringConstraints.fastMondayNotificationID, title: appLocale.remind, body: appLocale.nearFastingDay, dateTime: DateTime(time.getDateTime.year, time.getDateTime.month, time.getDateTime.day, 20, 0));
+        //   }
+        // } else {
+        //   _notificationService.cancelNotificationWithId(AppStringConstraints.fastMondayNotificationID);
+        // }
+        // if (notification.isFastThursdayNotification) {
+        //   if (time.getDateTime.weekday == 7) {
+        //     _notificationService.weeklyNotification(id: AppStringConstraints.fastThursdayNotificationID, title: appLocale.remind, body: appLocale.nearFastingDay, dateTime: DateTime(time.getDateTime.year, time.getDateTime.month, time.getDateTime.day, 20, 0));
+        //   }
+        // } else {
+        //   _notificationService.cancelNotificationWithId(AppStringConstraints.fastThursdayNotificationID);
+        // }
+        // if (notification.isWhiteDaysNotification) {
+        //   _notificationService.monthlyNotification(id: AppStringConstraints.fastWhiteDaysNotificationID, title: appLocale.remind, body: appLocale.nearWhiteDays, dateTime: prayer.prayerTimes.isha);
+        // } else {
+        //   _notificationService.cancelNotificationWithId(AppStringConstraints.fastWhiteDaysNotificationID);
+        // }
+        // if (notification.isFridayNotification) {
+        //   _notificationService.weeklyNotification(id: AppStringConstraints.fridayNotificationID, title: appLocale.remind, body: appLocale.tomorrowFriday, dateTime: prayer.prayerTimes.maghrib.add(const Duration(hours: -1)));
+        // } else {
+        //   _notificationService.cancelNotificationWithId(AppStringConstraints.fridayNotificationID);
+        // }
+        // if (notification.isLastHourFridayNotification) {
+        //   _notificationService.weeklyNotification(id: AppStringConstraints.lastHourFridayNotificationID, title: appLocale.remind, body: '${appLocale.lastFridayHour} 🤲🤲🤲', dateTime: prayer.prayerTimes.maghrib.add(const Duration(hours: -1)));
+        // } else {
+        //   _notificationService.cancelNotificationWithId(AppStringConstraints.lastHourFridayNotificationID);
+        // }
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

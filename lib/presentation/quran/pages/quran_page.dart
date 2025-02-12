@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 
 import '../../../core/styles/app_styles.dart';
 import '../../state/surah_settings_state.dart';
+import '../../widgets/app_error_text.dart';
 import '../widgets/surah_settings_bottom_sheet.dart';
 
 class QuranPage extends StatefulWidget {
@@ -29,12 +30,16 @@ class _QuranPageState extends State<QuranPage> {
     final filePath = '${dir.path}/$assetName.png';
 
     final file = File(filePath);
-    if (!await file.exists()) {
-      ByteData data = await rootBundle.load('assets/quran/$assetName.png');
-      List<int> bytes = data.buffer.asUint8List();
-      await file.writeAsBytes(bytes);
-    }
 
+    if (!await file.exists()) {
+      try {
+        ByteData data = await rootBundle.load('assets/quran/$assetName.png');
+        List<int> bytes = data.buffer.asUint8List();
+        await file.writeAsBytes(bytes);
+      } catch (e) {
+        return '$e';
+      }
+    }
     return filePath;
   }
 
@@ -55,13 +60,10 @@ class _QuranPageState extends State<QuranPage> {
           final yellowTint = Color.lerp(
             appColors.surface,
             Colors.yellow,
-            brightness == Brightness.light
-                ? surahState.getWarmthValue / 100
-                : surahState.getWarmthValue / 200,
+            brightness == Brightness.light ? surahState.getWarmthValue / 100 : surahState.getWarmthValue / 200,
           );
           return GestureDetector(
-            onTap: () =>
-                surahState.setAppBarIsVisible = !surahState.getAppBarIsVisible,
+            onTap: () => surahState.setAppBarIsVisible = !surahState.getAppBarIsVisible,
             child: Scaffold(
               backgroundColor: yellowTint,
               appBar: PreferredSize(
@@ -88,13 +90,13 @@ class _QuranPageState extends State<QuranPage> {
                       IconButton(
                         onPressed: () {
                           showModalBottomSheet(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return ChangeNotifierProvider.value(
-                                value: surahState,
-                                child: const SurahSettingsBottomSheet(),
-                              );
-                            }
+                              context: context,
+                              builder: (BuildContext context) {
+                                return ChangeNotifierProvider.value(
+                                  value: surahState,
+                                  child: const SurahSettingsBottomSheet(),
+                                );
+                              },
                           );
                         },
                         padding: EdgeInsets.zero,
@@ -114,15 +116,17 @@ class _QuranPageState extends State<QuranPage> {
                     future: _cacheImage(widget.listPages[index]),
                     builder: (context, snapshot) {
                       if (snapshot.hasError) {
-                        return const Center(child: Icon(Icons.error));
+                        return Center(
+                          child: AppErrorText(text: snapshot.error.toString()),
+                        );
                       }
                       if (snapshot.hasData) {
                         return Center(
                           child: SingleChildScrollView(
                             child: Column(
                               children: [
-                                Image.asset(
-                                  snapshot.data!,
+                                Image.file(
+                                  File(snapshot.data!),
                                   fit: BoxFit.cover,
                                   color: textColor,
                                 ),

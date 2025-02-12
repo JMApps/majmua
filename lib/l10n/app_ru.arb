@@ -67,9 +67,9 @@
   "adhanTime": "Слова поминания во время азана",
   "adhkarsTime": "Слова поминания после молитвы",
 
-  "morningAdhkarsTime": "Время утренних азкаров",
-  "eveningAdhkarsTime": "Время вечерних азкаров",
-  "nightAdhkarsTime": "Не забудь азкары перед сном!",
+  "morningAdhkarsTime": "Время утренних азкаров \uD83E\uDD32",
+  "eveningAdhkarsTime": "Время вечерних азкаров \uD83E\uDD32",
+  "nightAdhkarsTime": "Не забудь азкары перед сном! \uD83E\uDD32",
 
   "prayerTime": "Время молитвы",
   "remind": "Напоминание",
@@ -94,7 +94,7 @@
   "fridayNotifications": "Уведомление пятницы",
 
   "sunrise": "Восход",
-  "duha": "(духа)",
+  "duha": "(ад-духа)",
   "midnight": "Полночь",
   "lastThirdNightPart": "Последняя ⅓ ночи",
 
