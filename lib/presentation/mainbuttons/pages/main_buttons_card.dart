@@ -41,6 +41,10 @@ class MainButtonsCard extends StatelessWidget {
                 MainButtonItem(
                   onTap: () {
                     HapticFeedback.lightImpact();
+                    Navigator.pushNamed(
+                      context,
+                      AppRouteNames.pageSFQ,
+                    );
                   },
                   imageName: AppStringConstraints.iconSQuran,
                   title: appLocale.sQuran,

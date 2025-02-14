@@ -67,9 +67,9 @@
   "adhanTime": "Слова поминания во время азана",
   "adhkarsTime": "Слова поминания после молитвы",
 
-  "morningAdhkarsTime": "Время утренних азкаров \uD83E\uDD32",
-  "eveningAdhkarsTime": "Время вечерних азкаров \uD83E\uDD32",
-  "nightAdhkarsTime": "Не забудь азкары перед сном! \uD83E\uDD32",
+  "morningAdhkarsTime": "Время утренних азкаров",
+  "eveningAdhkarsTime": "Время вечерних азкаров",
+  "nightAdhkarsTime": "Не забудь азкары перед сном!",
 
   "prayerTime": "Время молитвы",
   "remind": "Напоминание",
@@ -150,6 +150,8 @@
   "fortress": "Азкары",
   "gems": "Жемчужины",
   "counter": "Счётчик",
+
+  "sfqTableName": "Table_of_supplications_ru",
 
   "surahKahf": "Сура «аль-Кахф»",
   "surahSajda": "Сура «ас-Саджда»",

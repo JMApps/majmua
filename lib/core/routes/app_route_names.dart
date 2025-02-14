@@ -8,5 +8,6 @@ class AppRouteNames {
   static const String pageAdjustments = 'page_adjustments';
   static const String pageInformation = 'page_information';
   static const String pageQuran = 'page_quran';
+  static const String pageSFQ = 'page_sfq';
   static const String pageCounter = 'page_counter';
 }

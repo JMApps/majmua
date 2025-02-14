@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/presentation/sfq/pages/sfq_page.dart';
 
 import '../../data/models/args/quran_args.dart';
 import '../../presentation/prayer/pages/add_city_page.dart';
@@ -43,6 +44,7 @@ class AppRoutes {
         listPages: quranArgs.listPages,
       );
     },
+    AppRouteNames.pageSFQ: (context, args) => const SfqPage(),
     AppRouteNames.pageCounter: (context, args) => const CounterPage(),
     // AppRouteNames.pagePrayerParams: (context, args) {
     //   final CollectionArgs collectionArgs = args;
