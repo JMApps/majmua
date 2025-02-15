@@ -7,9 +7,6 @@ import 'package:sqflite/sqflite.dart';
 import '../../../core/strings/db_value_strings.dart';
 
 class DatabaseSFQService {
-  static final DatabaseSFQService _instance = DatabaseSFQService.internal();
-
-  factory DatabaseSFQService() => _instance;
   static Database? _db;
 
   Future<Database> get db async {
@@ -19,8 +16,6 @@ class DatabaseSFQService {
     _db = await initializeDatabase();
     return _db!;
   }
-
-  DatabaseSFQService.internal();
 
   Future<Database> initializeDatabase() async {
     final databasePath = await getDatabasesPath();
