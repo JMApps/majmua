@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/strings/app_string_constraints.dart';
-import 'package:majmua/core/styles/app_styles.dart';
+
+import '../../../core/strings/app_string_constraints.dart';
+import '../../../core/styles/app_styles.dart';
 
 class TimePeriodPercent extends StatelessWidget {
   const TimePeriodPercent({
@@ -31,8 +32,8 @@ class TimePeriodPercent extends StatelessWidget {
             Expanded(
               child: Text(
                 '-$remainingTime',
-                style: TextStyle(
-                  color: textColor,
+                style: const TextStyle(
+                  fontFamily: AppStringConstraints.fontGilroyMedium,
                 ),
                 textAlign: TextAlign.start,
               ),
@@ -47,8 +48,7 @@ class TimePeriodPercent extends StatelessWidget {
             Expanded(
               child: Text(
                 targetTime,
-                style: TextStyle(
-                  color: textColor,
+                style: const TextStyle(
                   fontFamily: AppStringConstraints.fontGilroyMedium,
                 ),
                 textAlign: TextAlign.end,

@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/presentation/state/prayer_state.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/styles/app_styles.dart';
+import '../../state/prayer_state.dart';
 import '../../state/time_state.dart';
 import '../widgets/friday_sunans_slide.dart';
 
-class FastingMessages extends StatefulWidget {
+class FastingMessages extends StatelessWidget {
   const FastingMessages({super.key});
 
-  @override
-  State<FastingMessages> createState() => _FastingMessagesState();
-}
-
-class _FastingMessagesState extends State<FastingMessages> {
   @override
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
@@ -72,12 +67,18 @@ class _FastingMessagesState extends State<FastingMessages> {
                         visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
                         minVerticalPadding: 0,
                         contentPadding: AppStyles.mardingRightMini,
-                        title: Text(
-                          appLocale.fridaySunans,
-                          style: AppStyles.mainTextStyleMicro,
-                          textAlign: TextAlign.center,
+                        title: Padding(
+                          padding: AppStyles.mardingLeft,
+                          child: Text(
+                            appLocale.fridaySunans,
+                            style: AppStyles.mainTextStyleMicro,
+                            textAlign: TextAlign.center,
+                          ),
                         ),
-                        trailing: const Icon(Icons.arrow_forward_ios, size: 15.0,),
+                        trailing: const Icon(
+                          Icons.arrow_forward_ios,
+                          size: 15.0,
+                        ),
                       ),
                     ),
                   ),
