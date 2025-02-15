@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -48,17 +47,14 @@ class _SfqPageState extends State<SfqPage> {
               actions: [
                 IconButton(
                   onPressed: () {
-                    showModalBottomSheet(context: context, builder: (context) => Container());
+                    showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      builder: (context) => Container(),
+                    );
                   },
                   visualDensity: VisualDensity.compact,
                   icon: const Icon(Icons.settings),
-                ),
-                IconButton(
-                  onPressed: () {
-                    sfqState.defaultItem();
-                  },
-                  visualDensity: VisualDensity.compact,
-                  icon: const Icon(Icons.next_plan),
                 ),
                 IconButton(
                   onPressed: () {
@@ -79,18 +75,26 @@ class _SfqPageState extends State<SfqPage> {
                 !sfqState.pageMode ? Padding(
                   padding: AppStyles.mardingBottom,
                   child: SmoothPageIndicator(
-                      controller: sfqState.controller,
-                      count: 54,
-                      effect: ScrollingDotsEffect(
-                        maxVisibleDots: 7,
-                        dotWidth: 12.0,
-                        dotHeight: 12.0,
-                        dotColor: appColors.primaryContainer,
-                        activeDotColor: appColors.tertiary,
-                      ),
+                    controller: sfqState.controller,
+                    count: 54,
+                    effect: ScrollingDotsEffect(
+                      maxVisibleDots: 7,
+                      dotWidth: 12.0,
+                      dotHeight: 12.0,
+                      dotColor: appColors.primaryContainer,
+                      activeDotColor: appColors.tertiary,
+                    ),
                   ),
                 ) : const SizedBox(),
               ],
+            ),
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                sfqState.defaultItem();
+              },
+              elevation: 0.5,
+              tooltip: appLocale.defaultAyah,
+              child: const Icon(Icons.refresh),
             ),
           );
         },
