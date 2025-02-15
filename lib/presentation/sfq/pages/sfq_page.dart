@@ -94,7 +94,7 @@ class _SfqPageState extends State<SfqPage> {
               },
               elevation: 0.5,
               tooltip: appLocale.defaultAyah,
-              child: const Icon(Icons.refresh),
+              child: const Icon(Icons.next_plan_rounded),
             ),
           );
         },

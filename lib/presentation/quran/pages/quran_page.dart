@@ -64,91 +64,96 @@ class _QuranPageState extends State<QuranPage> {
           );
           return GestureDetector(
             onTap: () => surahState.setAppBarIsVisible = !surahState.getAppBarIsVisible,
-            child: Scaffold(
-              backgroundColor: yellowTint,
-              appBar: PreferredSize(
-                preferredSize: const Size.fromHeight(60),
-                child: AnimatedOpacity(
-                  duration: const Duration(milliseconds: 200),
-                  opacity: surahState.getAppBarIsVisible ? 1.0 : 0.0,
-                  child: AppBar(
-                    backgroundColor: yellowTint,
-                    title: Text(widget.surahName),
-                    actions: [
-                      IconButton(
-                        onPressed: () {
-                          surahState.getPageController.animateToPage(
-                            0,
-                            duration: const Duration(milliseconds: 100),
-                            curve: Curves.easeIn,
-                          );
-                        },
-                        padding: EdgeInsets.zero,
-                        visualDensity: VisualDensity.compact,
-                        icon: const Icon(Icons.replay_circle_filled_rounded),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          showModalBottomSheet(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return ChangeNotifierProvider.value(
-                                  value: surahState,
-                                  child: const SurahSettingsBottomSheet(),
-                                );
-                              },
-                          );
-                        },
-                        padding: EdgeInsets.zero,
-                        visualDensity: VisualDensity.compact,
-                        icon: const Icon(Icons.settings),
-                      ),
-                    ],
+            child: SafeArea(
+              top: false,
+              bottom: false,
+              left: false,
+              child: Scaffold(
+                backgroundColor: yellowTint,
+                appBar: PreferredSize(
+                  preferredSize: const Size.fromHeight(60),
+                  child: AnimatedOpacity(
+                    duration: const Duration(milliseconds: 200),
+                    opacity: surahState.getAppBarIsVisible ? 1.0 : 0.0,
+                    child: AppBar(
+                      backgroundColor: yellowTint,
+                      title: Text(widget.surahName),
+                      actions: [
+                        IconButton(
+                          onPressed: () {
+                            surahState.getPageController.animateToPage(
+                              0,
+                              duration: const Duration(milliseconds: 100),
+                              curve: Curves.easeIn,
+                            );
+                          },
+                          padding: EdgeInsets.zero,
+                          visualDensity: VisualDensity.compact,
+                          icon: const Icon(Icons.replay_circle_filled_rounded),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            showModalBottomSheet(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return ChangeNotifierProvider.value(
+                                    value: surahState,
+                                    child: const SurahSettingsBottomSheet(),
+                                  );
+                                },
+                            );
+                          },
+                          padding: EdgeInsets.zero,
+                          visualDensity: VisualDensity.compact,
+                          icon: const Icon(Icons.settings),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              body: PageView.builder(
-                controller: surahState.getPageController,
-                itemCount: widget.listPages.length,
-                reverse: true,
-                itemBuilder: (context, index) {
-                  return FutureBuilder<String>(
-                    future: _cacheImage(widget.listPages[index]),
-                    builder: (context, snapshot) {
-                      if (snapshot.hasError) {
-                        return Center(
-                          child: AppErrorText(text: snapshot.error.toString()),
-                        );
-                      }
-                      if (snapshot.hasData) {
-                        return Center(
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                Image.file(
-                                  File(snapshot.data!),
-                                  fit: BoxFit.cover,
-                                  color: textColor,
-                                ),
-                                const SizedBox(height: 32),
-                                Text(
-                                  '${index + 1}',
-                                  style: AppStyles.mainTextStyleMini,
-                                ),
-                              ],
+                body: PageView.builder(
+                  controller: surahState.getPageController,
+                  itemCount: widget.listPages.length,
+                  reverse: true,
+                  itemBuilder: (context, index) {
+                    return FutureBuilder<String>(
+                      future: _cacheImage(widget.listPages[index]),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasError) {
+                          return Center(
+                            child: AppErrorText(text: snapshot.error.toString()),
+                          );
+                        }
+                        if (snapshot.hasData) {
+                          return Center(
+                            child: SingleChildScrollView(
+                              child: Column(
+                                children: [
+                                  Image.file(
+                                    File(snapshot.data!),
+                                    fit: BoxFit.cover,
+                                    color: textColor,
+                                  ),
+                                  const SizedBox(height: 32),
+                                  Text(
+                                    '${index + 1}',
+                                    style: AppStyles.mainTextStyleMini,
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
+                          );
+                        }
+                        return const Center(
+                          child: CircularProgressIndicator(),
                         );
-                      }
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    },
-                  );
-                },
-                onPageChanged: (int page) {
-                  surahState.savePageNumber(page);
-                },
+                      },
+                    );
+                  },
+                  onPageChanged: (int page) {
+                    surahState.savePageNumber(page);
+                  },
+                ),
               ),
             ),
           );
