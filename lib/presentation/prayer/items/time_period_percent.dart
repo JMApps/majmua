@@ -30,12 +30,15 @@ class TimePeriodPercent extends StatelessWidget {
         child: Row(
           children: [
             Expanded(
-              child: Text(
-                '-$remainingTime',
-                style: const TextStyle(
-                  fontFamily: AppStringConstraints.fontGilroyMedium,
+              child: Visibility(
+                visible: !isState,
+                child: Text(
+                  '-$remainingTime',
+                  style: const TextStyle(
+                    fontFamily: AppStringConstraints.fontGilroyMedium,
+                  ),
+                  textAlign: TextAlign.start,
                 ),
-                textAlign: TextAlign.start,
               ),
             ),
             Expanded(

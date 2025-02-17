@@ -6,7 +6,7 @@ import 'package:sqflite/sqflite.dart';
 
 import '../../../core/strings/db_value_strings.dart';
 
-class DatabaseSFQService {
+class SFQDatabaseService {
   static Database? _db;
 
   Future<Database> get db async {

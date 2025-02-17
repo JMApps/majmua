@@ -1,12 +1,13 @@
-import 'package:sqflite/sqflite.dart';
+import 'package:sqflite/sqflite.'
+    'dart';
 
 import '../../domain/entities/supplication_entity.dart';
 import '../../domain/repositories/supplication_repository.dart';
 import '../models/supplication_model.dart';
-import '../services/databases/database_sfq_service.dart';
+import '../services/databases/sfq_database_service.dart';
 
 class SupplicationDataRepository implements SupplicationRepository {
-  final DatabaseSFQService _databaseService;
+  final SFQDatabaseService _databaseService;
 
   SupplicationDataRepository(this._databaseService);
 

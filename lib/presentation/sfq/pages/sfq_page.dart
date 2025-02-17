@@ -5,7 +5,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../core/styles/app_styles.dart';
 import '../../../data/repositories/supplication_data_repository.dart';
-import '../../../data/services/databases/database_sfq_service.dart';
+import '../../../data/services/databases/sfq_database_service.dart';
 import '../../../domain/usecases/supplication_use_case.dart';
 import '../../state/sfq_state.dart';
 import '../lists/supplication_list.dart';
@@ -18,7 +18,7 @@ class SfqPage extends StatefulWidget {
 }
 
 class _SfqPageState extends State<SfqPage> {
-  final DatabaseSFQService _databaseService = DatabaseSFQService();
+  final SFQDatabaseService _databaseService = SFQDatabaseService();
   late final SupplicationUseCase _supplicationUseCase;
 
   @override
@@ -79,8 +79,8 @@ class _SfqPageState extends State<SfqPage> {
                     count: 54,
                     effect: ScrollingDotsEffect(
                       maxVisibleDots: 7,
-                      dotWidth: 12.0,
-                      dotHeight: 12.0,
+                      dotWidth: 8.0,
+                      dotHeight: 8.0,
                       dotColor: appColors.primaryContainer,
                       activeDotColor: appColors.tertiary,
                     ),
@@ -93,7 +93,7 @@ class _SfqPageState extends State<SfqPage> {
                 sfqState.defaultItem();
               },
               elevation: 0.5,
-              tooltip: appLocale.defaultAyah,
+              tooltip: appLocale.randomAyah,
               child: const Icon(Icons.next_plan_rounded),
             ),
           );
