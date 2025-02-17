@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:adhan/adhan.dart';
+import 'package:flutter/material.dart';
 
 import '../../data/models/adhan_information_model.dart';
 
@@ -34,10 +35,13 @@ class AppStringConstraints {
   static const String keyMaghribAdjustment = 'key_maghrib_adjustment';
   static const String keyIshaAdjustment = 'key_isha_adjustment';
 
+
+  // App settings
   static const String keyAppThemeColor = 'key_app_theme_color';
   static const String keyAppThemeModeIndex = 'key_app_theme_mode_index';
   static const String keyAppLocaleIndex = 'key_app_locale_index';
 
+  // Icon names
   static const String iconSettings = 'settings';
   static const String iconNotifications = 'notifications';
   static const String iconLinks = 'share';
@@ -64,6 +68,7 @@ class AppStringConstraints {
   static const String iconHandsFill = 'hands-fill';
   static const String iconAqsa = 'aqsa';
 
+  // Map season keys
   static const String startSeason = 'map_start_season';
   static const String endSeason = 'map_end_season';
 
@@ -142,6 +147,9 @@ class AppStringConstraints {
   // SQF
   static const String keySFQArabicTextSize = 'key_sfq_arabic_text_size';
   static const String keySFQTranslationTextSize = 'key_sfq_translation_text_size';
+
+  // Gems
+  static const keyGemsTextSize = 'key_gems_text_size';
 
   static const List<Locale> appLocales = [
     Locale('ru', 'RU'),

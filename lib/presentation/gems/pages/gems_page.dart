@@ -76,7 +76,7 @@ class _GemsPageState extends State<GemsPage> {
                   padding: AppStyles.mardingBottom,
                   child: SmoothPageIndicator(
                     controller: gemsState.controller,
-                    count: 54,
+                    count: 605,
                     effect: ScrollingDotsEffect(
                       maxVisibleDots: 7,
                       dotWidth: 8.0,
