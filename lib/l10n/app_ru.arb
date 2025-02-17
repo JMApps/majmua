@@ -152,7 +152,8 @@
   "counter": "Счётчик",
 
   "sfqTableName": "Table_of_supplications_ru",
-  "defaultAyah": "Случайный аят",
+  "randomAyah": "Случайный аят",
+  "randomCitation": "Случайная цитата",
 
   "surahKahf": "Сура «аль-Кахф»",
   "surahSajda": "Сура «ас-Саджда»",

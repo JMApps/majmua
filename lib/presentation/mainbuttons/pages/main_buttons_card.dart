@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/presentation/quran/pages/surahs_bottom_sheet.dart';
 
 import '../../../core/routes/app_route_names.dart';
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
+import '../../quran/pages/surahs_bottom_sheet.dart';
 import '../widgets/main_button_item.dart';
 
 class MainButtonsCard extends StatelessWidget {
@@ -63,6 +63,10 @@ class MainButtonsCard extends StatelessWidget {
                 MainButtonItem(
                   onTap: () {
                     HapticFeedback.lightImpact();
+                    Navigator.pushNamed(
+                      context,
+                      AppRouteNames.pageGems,
+                    );
                   },
                   imageName: AppStringConstraints.iconGems,
                   title: appLocale.gems,

@@ -1,0 +1,2 @@
+/Users/jmapps/StudioProjects/majmua/android/app/.cxx/RelWithDebInfo/s146v3d6/x86_64/CMakeFiles/edit_cache.dir
+/Users/jmapps/StudioProjects/majmua/android/app/.cxx/RelWithDebInfo/s146v3d6/x86_64/CMakeFiles/rebuild_cache.dir

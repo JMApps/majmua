@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/presentation/sfq/pages/sfq_page.dart';
 
 import '../../data/models/args/quran_args.dart';
+import '../../presentation/gems/pages/gems_page.dart';
 import '../../presentation/prayer/pages/add_city_page.dart';
 import '../../presentation/quran/pages/quran_page.dart';
 import '../../presentation/settings/pages/app_settings_page.dart';
@@ -12,6 +12,7 @@ import '../../presentation/prayer/pages/prayer_params_page.dart';
 import '../../presentation/prayer/pages/prayers_schedule_page.dart';
 import '../../presentation/prayer/pages/select_city_page.dart';
 import '../../presentation/counter/pages/counter_page.dart';
+import '../../presentation/sfq/pages/sfq_page.dart';
 import 'app_route_names.dart';
 
 class AppRoutes {
@@ -45,6 +46,7 @@ class AppRoutes {
       );
     },
     AppRouteNames.pageSFQ: (context, args) => const SfqPage(),
+    AppRouteNames.pageGems: (context, args) => const GemsPage(),
     AppRouteNames.pageCounter: (context, args) => const CounterPage(),
     // AppRouteNames.pagePrayerParams: (context, args) {
     //   final CollectionArgs collectionArgs = args;

@@ -21,4 +21,11 @@ class DBValueStrings {
   static const String dbAyahTranslation = 'ayah_translation';
   static const String dbAyahSource = 'ayah_source';
   static const String dbNameAudio = 'name_audio';
+
+  // Gems
+  static const String dbGemsName = 'gems_database.db';
+  static const int dbGemsVersion = 1;
+
+  static const String dbGemsTableName = 'Table_of_content';
+  static const String dbGemsCitation = 'citation';
 }
