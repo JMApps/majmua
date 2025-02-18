@@ -155,6 +155,10 @@
   "randomAyah": "Случайный аят",
   "randomCitation": "Случайная цитата",
 
+  "arabicTextSize": "Размер арабского текста",
+  "translationTextSize": "Размер текста перевода",
+  "textSize": "Размер текста",
+
   "surahKahf": "Сура «аль-Кахф»",
   "surahSajda": "Сура «ас-Саджда»",
   "surahMulk": "Сура «аль-Мульк»",

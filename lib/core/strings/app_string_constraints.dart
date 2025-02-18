@@ -147,9 +147,11 @@ class AppStringConstraints {
   // SQF
   static const String keySFQArabicTextSize = 'key_sfq_arabic_text_size';
   static const String keySFQTranslationTextSize = 'key_sfq_translation_text_size';
+  static const String keySFQListPageMode = 'key_sfq_list_page_mode';
 
   // Gems
   static const keyGemsTextSize = 'key_gems_text_size';
+  static const String keyGemsListPageMode = 'key_gems_list_page_mode';
 
   static const List<Locale> appLocales = [
     Locale('ru', 'RU'),

@@ -1,31 +1,59 @@
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
+import '../../core/strings/app_string_constraints.dart';
 import '../../domain/entities/supplication_entity.dart';
 import '../../domain/usecases/supplication_use_case.dart';
 
 class SFQState extends ChangeNotifier {
+  final Box _mainSettingsBox = Hive.box(AppStringConstraints.keyMainAppSettings);
+
   final SupplicationUseCase _supplicationUseCase;
 
   final PageController _controller = PageController();
 
   final ItemScrollController _itemScrollController = ItemScrollController();
 
-  SFQState(this._supplicationUseCase);
+  SFQState(this._supplicationUseCase) {
+   _pageMode = _mainSettingsBox.get(AppStringConstraints.keySFQListPageMode, defaultValue: true);
+   _arabicTextSize = _mainSettingsBox.get(AppStringConstraints.keySFQArabicTextSize, defaultValue: 22.0);
+   _translationTextSize = _mainSettingsBox.get(AppStringConstraints.keySFQTranslationTextSize, defaultValue: 18.0);
+  }
 
   PageController get controller => _controller;
 
   ItemScrollController get itemController => _itemScrollController;
 
+  double _arabicTextSize = 22.0;
+
+  double _translationTextSize = 18.0;
+
   bool _pageMode = true;
 
   bool get pageMode => _pageMode;
 
+  double get arabicTextSize => _arabicTextSize;
+
+  double get translationTextSize => _translationTextSize;
+
   set pageMode(bool state) {
     _pageMode = state;
+    _mainSettingsBox.put(AppStringConstraints.keySFQListPageMode, state);
+    notifyListeners();
+  }
+
+  set arabicTextSize(double size) {
+    _arabicTextSize = size;
+    _mainSettingsBox.put(AppStringConstraints.keySFQArabicTextSize, size);
+    notifyListeners();
+  }
+
+  set translationTextSize(double size) {
+    _translationTextSize = size;
+    _mainSettingsBox.put(AppStringConstraints.keySFQTranslationTextSize, size);
     notifyListeners();
   }
 

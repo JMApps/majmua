@@ -51,7 +51,10 @@ class _SfqPageState extends State<SfqPage> {
                     showModalBottomSheet(
                       context: context,
                       isScrollControlled: true,
-                      builder: (context) => const SfqSettings(),
+                      builder: (context) => ChangeNotifierProvider.value(
+                        value: sfqState,
+                        child: const SfqSettings(),
+                      ),
                     );
                   },
                   visualDensity: VisualDensity.compact,
