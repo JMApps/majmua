@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../../domain/entities/gem_entity.dart';
+import '../../state/gems_state.dart';
 
 class GemItem extends StatelessWidget {
   const GemItem({
@@ -26,16 +28,20 @@ class GemItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Html(
-                data: gemModel.citation,
-                style: {
-                  '#': Style(
-                    fontSize: FontSize(20.0),
-                    fontFamily: AppStringConstraints.fontGilroy,
-                    margin: Margins.zero,
-                    padding: HtmlPaddings.zero,
-                    textAlign: TextAlign.center,
-                  )
+              Consumer<GemsState>(
+                builder: (context, gemsState, _) {
+                  return Html(
+                    data: gemModel.citation,
+                    style: {
+                      '#': Style(
+                        fontSize: FontSize(gemsState.textSize),
+                        fontFamily: AppStringConstraints.fontGilroy,
+                        margin: Margins.zero,
+                        padding: HtmlPaddings.zero,
+                        textAlign: TextAlign.center,
+                      )
+                    },
+                  );
                 },
               ),
               const SizedBox(height: 8),

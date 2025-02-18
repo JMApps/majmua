@@ -9,6 +9,7 @@ import '../../../data/services/databases/gems_database_service.dart';
 import '../../../domain/usecases/gems_use_case.dart';
 import '../../state/gems_state.dart';
 import '../lists/gem_list.dart';
+import '../widgets/gems_settings.dart';
 
 class GemsPage extends StatefulWidget {
   const GemsPage({super.key});
@@ -50,7 +51,10 @@ class _GemsPageState extends State<GemsPage> {
                     showModalBottomSheet(
                       context: context,
                       isScrollControlled: true,
-                      builder: (context) => Container(),
+                      builder: (context) => ChangeNotifierProvider.value(
+                        value: gemsState,
+                        child: const GemsSettings(),
+                      ),
                     );
                   },
                   visualDensity: VisualDensity.compact,
@@ -62,7 +66,9 @@ class _GemsPageState extends State<GemsPage> {
                   },
                   visualDensity: VisualDensity.compact,
                   icon: Icon(
-                    gemsState.pageMode ? Icons.menu_book_outlined : Icons.view_list_sharp,
+                    gemsState.pageMode
+                        ? Icons.menu_book_outlined
+                        : Icons.view_list_sharp,
                   ),
                 ),
               ],
@@ -72,20 +78,22 @@ class _GemsPageState extends State<GemsPage> {
                 const Expanded(
                   child: GemList(),
                 ),
-                !gemsState.pageMode ? Padding(
-                  padding: AppStyles.mardingBottom,
-                  child: SmoothPageIndicator(
-                    controller: gemsState.controller,
-                    count: 605,
-                    effect: ScrollingDotsEffect(
-                      maxVisibleDots: 7,
-                      dotWidth: 8.0,
-                      dotHeight: 8.0,
-                      dotColor: appColors.primaryContainer,
-                      activeDotColor: appColors.tertiary,
-                    ),
-                  ),
-                ) : const SizedBox(),
+                !gemsState.pageMode
+                    ? Padding(
+                        padding: AppStyles.mardingBottom,
+                        child: SmoothPageIndicator(
+                          controller: gemsState.controller,
+                          count: 605,
+                          effect: ScrollingDotsEffect(
+                            maxVisibleDots: 7,
+                            dotWidth: 8.0,
+                            dotHeight: 8.0,
+                            dotColor: appColors.primaryContainer,
+                            activeDotColor: appColors.tertiary,
+                          ),
+                        ),
+                      )
+                    : const SizedBox(),
               ],
             ),
             floatingActionButton: FloatingActionButton(
