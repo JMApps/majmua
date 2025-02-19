@@ -13,7 +13,7 @@ class SFQState extends ChangeNotifier {
 
   final SupplicationUseCase _supplicationUseCase;
 
-  final PageController _controller = PageController();
+  late final PageController _controller;
 
   final ItemScrollController _itemScrollController = ItemScrollController();
 
@@ -21,6 +21,8 @@ class SFQState extends ChangeNotifier {
    _pageMode = _mainSettingsBox.get(AppStringConstraints.keySFQListPageMode, defaultValue: true);
    _arabicTextSize = _mainSettingsBox.get(AppStringConstraints.keySFQArabicTextSize, defaultValue: 22.0);
    _translationTextSize = _mainSettingsBox.get(AppStringConstraints.keySFQTranslationTextSize, defaultValue: 18.0);
+   _lastPage = _mainSettingsBox.get(AppStringConstraints.keySFQLastPage, defaultValue: 0);
+   _controller = PageController(initialPage: _lastPage.clamp(0, 53));
   }
 
   PageController get controller => _controller;
@@ -33,11 +35,15 @@ class SFQState extends ChangeNotifier {
 
   bool _pageMode = true;
 
+  int _lastPage = 0;
+
   bool get pageMode => _pageMode;
 
   double get arabicTextSize => _arabicTextSize;
 
   double get translationTextSize => _translationTextSize;
+
+  int get lastPage => _lastPage;
 
   set pageMode(bool state) {
     _pageMode = state;
@@ -55,6 +61,11 @@ class SFQState extends ChangeNotifier {
     _translationTextSize = size;
     _mainSettingsBox.put(AppStringConstraints.keySFQTranslationTextSize, size);
     notifyListeners();
+  }
+
+  set lastPage(int page) {
+    _lastPage = page;
+    _mainSettingsBox.put(AppStringConstraints.keySFQLastPage, page);
   }
 
   Future<List<SupplicationEntity>> fetchAllSupplications({required String tableName}) async {

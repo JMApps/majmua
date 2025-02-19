@@ -6,8 +6,8 @@ import '../../../core/styles/app_styles.dart';
 import '../../../domain/entities/supplication_entity.dart';
 import '../../state/sfq_state.dart';
 
-class SupplicationItem extends StatelessWidget {
-  const SupplicationItem({
+class SFQItem extends StatelessWidget {
+  const SFQItem({
     super.key,
     required this.supplicationModel,
     required this.index,

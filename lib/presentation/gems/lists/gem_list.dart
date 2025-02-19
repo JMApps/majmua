@@ -46,6 +46,9 @@ class GemList extends StatelessWidget {
                     ),
                   );
                 },
+                onPageChanged: (int page) {
+                  gemsState.lastPage = page;
+                },
               );
             }
             return const Center(

@@ -7,10 +7,10 @@ import '../../../core/styles/app_styles.dart';
 import '../../../domain/entities/supplication_entity.dart';
 import '../../state/sfq_state.dart';
 import '../../widgets/app_error_text.dart';
-import '../items/supplication_item.dart';
+import '../items/sfq_item.dart';
 
-class SupplicationList extends StatelessWidget {
-  const SupplicationList({super.key});
+class SFQList extends StatelessWidget {
+  const SFQList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class SupplicationList extends StatelessWidget {
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
                   final SupplicationEntity supplicationModel = snapshot.data![index];
-                  return SupplicationItem(
+                  return SFQItem(
                     supplicationModel: supplicationModel,
                     index: index,
                   );
@@ -42,11 +42,14 @@ class SupplicationList extends StatelessWidget {
                   final SupplicationEntity supplicationModel = snapshot.data![index];
                   return Padding(
                     padding: AppStyles.mainMardingMini,
-                    child: SupplicationItem(
+                    child: SFQItem(
                       supplicationModel: supplicationModel,
                       index: index,
                     ),
                   );
+                },
+                onPageChanged: (int page) {
+                  sfqState.lastPage = page;
                 },
               );
             }

@@ -13,13 +13,15 @@ class GemsState extends ChangeNotifier {
 
   final GemsUseCase _gemsUseCase;
 
-  final PageController _controller = PageController();
+  late final PageController _controller;
 
   final ItemScrollController _itemScrollController = ItemScrollController();
 
   GemsState(this._gemsUseCase) {
     _pageMode = _mainSettingsBox.get(AppStringConstraints.keyGemsListPageMode, defaultValue: true);
     _textSize = _mainSettingsBox.get(AppStringConstraints.keyGemsTextSize, defaultValue: 18.0);
+    _lastPage = _mainSettingsBox.get(AppStringConstraints.keyGemsLastPage, defaultValue: 0);
+    _controller = PageController(initialPage: _lastPage.clamp(0, 604));
   }
 
   PageController get controller => _controller;
@@ -30,9 +32,13 @@ class GemsState extends ChangeNotifier {
 
   bool _pageMode = true;
 
+  int _lastPage = 0;
+
   double get textSize => _textSize;
 
   bool get pageMode => _pageMode;
+
+  int get lastPage => _lastPage;
 
   set textSize(double size) {
     _textSize = size;
@@ -44,6 +50,11 @@ class GemsState extends ChangeNotifier {
     _pageMode = state;
     _mainSettingsBox.put(AppStringConstraints.keyGemsListPageMode, state);
     notifyListeners();
+  }
+
+  set lastPage(int page) {
+    _lastPage = page;
+    _mainSettingsBox.put(AppStringConstraints.keyGemsLastPage, page);
   }
 
   Future<List<GemEntity>> fetchAllGems() async {

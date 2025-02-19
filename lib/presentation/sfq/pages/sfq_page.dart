@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/presentation/sfq/widgets/sfq_settings.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -9,7 +8,8 @@ import '../../../data/repositories/supplication_data_repository.dart';
 import '../../../data/services/databases/sfq_database_service.dart';
 import '../../../domain/usecases/supplication_use_case.dart';
 import '../../state/sfq_state.dart';
-import '../lists/supplication_list.dart';
+import '../lists/sfq_list.dart';
+import '../widgets/sfq_settings.dart';
 
 class SfqPage extends StatefulWidget {
   const SfqPage({super.key});
@@ -74,7 +74,7 @@ class _SfqPageState extends State<SfqPage> {
             body: Column(
               children: [
                 const Expanded(
-                  child: SupplicationList(),
+                  child: SFQList(),
                 ),
                 !sfqState.pageMode ? Padding(
                   padding: AppStyles.mardingBottom,
