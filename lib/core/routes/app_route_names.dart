@@ -11,4 +11,5 @@ class AppRouteNames {
   static const String pageSFQ = 'page_sfq';
   static const String pageGems = 'page_gems';
   static const String pageCounter = 'page_counter';
+  static const String pageFortress = 'page_fortress';
 }

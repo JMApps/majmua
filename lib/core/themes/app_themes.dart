@@ -17,9 +17,9 @@ class AppThemes {
       brightness: brightness,
       seedColor: _appColor,
     );
-
     return ThemeData(
       fontFamily: AppStringConstraints.fontGilroy,
+      fontFamilyFallback: const [AppStringConstraints.fontSFPro],
       colorScheme: colorScheme,
       appBarTheme: const AppBarTheme(
         centerTitle: true,

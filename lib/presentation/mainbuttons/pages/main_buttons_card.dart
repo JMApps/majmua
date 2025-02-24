@@ -54,6 +54,10 @@ class MainButtonsCard extends StatelessWidget {
                 MainButtonItem(
                   onTap: () {
                     HapticFeedback.lightImpact();
+                    Navigator.pushNamed(
+                      context,
+                      AppRouteNames.pageFortress,
+                    );
                   },
                   imageName: AppStringConstraints.iconFortress,
                   title: appLocale.fortress,

@@ -9,8 +9,6 @@ import '../../../core/strings/db_value_strings.dart';
 class CityDatabaseService {
   static Database? _db;
 
-  final int dbVersion = 1;
-
   Future<Database> get db async {
     if (_db != null) {
       return _db!;
@@ -25,7 +23,7 @@ class CityDatabaseService {
 
     var database = await openDatabase(path);
 
-    if (await database.getVersion() < dbVersion) {
+    if (await database.getVersion() < DBValueStrings.dbCustomCityVersion) {
       database.close();
       await deleteDatabase(path);
 
@@ -38,7 +36,7 @@ class CityDatabaseService {
       await File(path).writeAsBytes(bytes, flush: true);
 
       database = await openDatabase(path);
-      database.setVersion(dbVersion);
+      database.setVersion(DBValueStrings.dbCustomCityVersion);
     }
 
     return database;

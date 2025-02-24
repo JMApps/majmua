@@ -6,8 +6,15 @@ import 'package:sqflite/sqflite.dart';
 
 import '../../../core/strings/db_value_strings.dart';
 
-class CustomCityDatabaseService {
+class FortressDatabaseService {
+  static final FortressDatabaseService _instance = FortressDatabaseService._internal();
   static Database? _db;
+
+  factory FortressDatabaseService() {
+    return _instance;
+  }
+
+  FortressDatabaseService._internal();
 
   Future<Database> get db async {
     if (_db != null) {
@@ -19,11 +26,11 @@ class CustomCityDatabaseService {
 
   Future<Database> initializeDatabase() async {
     final databasePath = await getDatabasesPath();
-    String path = join(databasePath, DBValueStrings.customCityDBName);
+    String path = join(databasePath, DBValueStrings.dbFortressName);
 
     var database = await openDatabase(path);
 
-    if (await database.getVersion() < DBValueStrings.dbCustomCityVersion) {
+    if (await database.getVersion() < DBValueStrings.dbFortressVersion) {
       database.close();
       await deleteDatabase(path);
 
@@ -31,12 +38,12 @@ class CustomCityDatabaseService {
         await Directory(dirname(path)).create(recursive: true);
       } catch (_) {}
 
-      ByteData data = await rootBundle.load(join('assets/databases', DBValueStrings.customCityDBName));
+      ByteData data = await rootBundle.load(join('assets/databases', DBValueStrings.dbFortressName));
       List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
       await File(path).writeAsBytes(bytes, flush: true);
 
       database = await openDatabase(path);
-      database.setVersion(DBValueStrings.dbCustomCityVersion);
+      database.setVersion(DBValueStrings.dbFortressVersion);
     }
 
     return database;

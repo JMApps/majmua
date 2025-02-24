@@ -20,7 +20,7 @@ dependencies:
   html: ^0.15.4
   percent_indicator: ^4.2.4
   square_progress_indicator: ^0.0.7
-  smooth_page_indicator: ^1.2.0+3
+  smooth_page_indicator: ^1.2.1
   sleek_circular_slider: ^2.0.1
   step_progress_indicator: ^1.0.2
   salomon_bottom_bar: ^3.3.2
@@ -28,7 +28,7 @@ dependencies:
   responsive_builder: ^0.7.1
 
   # Databases
-  sqflite: ^2.4.1
+  sqflite: ^2.4.2
   hive_flutter: ^1.1.0
 
   # Path
@@ -53,7 +53,7 @@ dependencies:
   wakelock_plus: ^1.2.10
   url_launcher: ^6.3.1
   flutter_compass: ^0.8.1
-  vibration: ^3.1.2
+  vibration: ^3.1.3
 
   # Notifications
   flutter_local_notifications: ^18.0.1
@@ -62,8 +62,12 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  lint: ^2.3.0
+  lint: ^2.8.0
   flutter_lints: ^4.0.0
+
+flutter_gen:
+  output: lib/gen/
+  synthetic_package: false
 
 flutter:
   uses-material-design: true
@@ -86,3 +90,6 @@ flutter:
     - family: 'Hafs'
       fonts:
         - asset: assets/fonts/hafs_regular.ttf
+    - family: 'SF Pro'
+      fonts:
+        - asset: assets/fonts/sf_pro_regular.ttf

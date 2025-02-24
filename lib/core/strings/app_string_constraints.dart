@@ -9,6 +9,7 @@ class AppStringConstraints {
   static const String fontGilroy = 'Gilroy';
   static const String fontGilroyMedium = 'Gilroy medium';
   static const String fontHafs = 'Hafs';
+  static const String fontSFPro = 'SF Pro';
 
   static const String keyMainSettings = 'key_main_settings';
   static const String keyWeeklySalawatSettings = 'key_weekly_salawat_settings';
