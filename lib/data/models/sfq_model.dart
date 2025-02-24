@@ -1,13 +1,13 @@
 import '../../core/strings/db_value_strings.dart';
 
-class SupplicationModel {
+class SFQModel {
   final int id;
   final String ayahArabic;
   final String ayahTranslation;
   final String ayahSource;
   final String nameAudio;
 
-  const SupplicationModel({
+  const SFQModel({
     required this.id,
     required this.ayahArabic,
     required this.ayahTranslation,
@@ -15,8 +15,8 @@ class SupplicationModel {
     required this.nameAudio,
   });
 
-  factory SupplicationModel.fromMap(Map<String, Object?> map) {
-    return SupplicationModel(
+  factory SFQModel.fromMap(Map<String, Object?> map) {
+    return SFQModel(
       id: map[DBValueStrings.id] as int,
       ayahArabic: map[DBValueStrings.dbAyahArabic] as String,
       ayahTranslation: map[DBValueStrings.dbAyahTranslation] as String,

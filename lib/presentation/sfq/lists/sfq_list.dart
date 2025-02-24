@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../../../core/styles/app_styles.dart';
-import '../../../domain/entities/supplication_entity.dart';
+import '../../../domain/entities/sfq_entity.dart';
 import '../../state/sfq_state.dart';
 import '../../widgets/app_error_text.dart';
 import '../items/sfq_item.dart';
@@ -29,7 +29,7 @@ class SFQList extends StatelessWidget {
                 padding: AppStyles.mainMardingMini,
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
-                  final SupplicationEntity supplicationModel = snapshot.data![index];
+                  final SFQEntity supplicationModel = snapshot.data![index];
                   return SFQItem(
                     supplicationModel: supplicationModel,
                     index: index,
@@ -39,7 +39,7 @@ class SFQList extends StatelessWidget {
                 controller: sfqState.controller,
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
-                  final SupplicationEntity supplicationModel = snapshot.data![index];
+                  final SFQEntity supplicationModel = snapshot.data![index];
                   return Padding(
                     padding: AppStyles.mainMardingMini,
                     child: SFQItem(

@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
-import '../../../domain/entities/supplication_entity.dart';
+import '../../../domain/entities/sfq_entity.dart';
 import '../../state/sfq_state.dart';
 
 class SFQItem extends StatelessWidget {
@@ -13,7 +13,7 @@ class SFQItem extends StatelessWidget {
     required this.index,
   });
 
-  final SupplicationEntity supplicationModel;
+  final SFQEntity supplicationModel;
   final int index;
 
   @override

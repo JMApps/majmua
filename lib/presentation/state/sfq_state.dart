@@ -5,13 +5,13 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../../core/strings/app_string_constraints.dart';
-import '../../domain/entities/supplication_entity.dart';
-import '../../domain/usecases/supplication_use_case.dart';
+import '../../domain/entities/sfq_entity.dart';
+import '../../domain/usecases/sfq_use_case.dart';
 
 class SFQState extends ChangeNotifier {
   final Box _mainSettingsBox = Hive.box(AppStringConstraints.keyMainAppSettings);
 
-  final SupplicationUseCase _supplicationUseCase;
+  final SFQUseCase _supplicationUseCase;
 
   late final PageController _controller;
 
@@ -68,7 +68,7 @@ class SFQState extends ChangeNotifier {
     _mainSettingsBox.put(AppStringConstraints.keySFQLastPage, page);
   }
 
-  Future<List<SupplicationEntity>> fetchAllSupplications({required String tableName}) async {
+  Future<List<SFQEntity>> fetchAllSupplications({required String tableName}) async {
     return await _supplicationUseCase.getAllSupplications(tableName: tableName);
   }
 

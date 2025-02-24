@@ -1,13 +1,13 @@
-import '../../data/models/supplication_model.dart';
+import '../../data/models/sfq_model.dart';
 
-class SupplicationEntity {
+class SFQEntity {
   final int id;
   final String ayahArabic;
   final String ayahTranslation;
   final String ayahSource;
   final String nameAudio;
 
-  const SupplicationEntity({
+  const SFQEntity({
     required this.id,
     required this.ayahArabic,
     required this.ayahTranslation,
@@ -15,8 +15,8 @@ class SupplicationEntity {
     required this.nameAudio,
   });
 
-  factory SupplicationEntity.fromModel(SupplicationModel model) {
-    return SupplicationEntity(
+  factory SFQEntity.fromModel(SFQModel model) {
+    return SFQEntity(
       id: model.id,
       ayahArabic: model.ayahArabic,
       ayahTranslation: model.ayahTranslation,

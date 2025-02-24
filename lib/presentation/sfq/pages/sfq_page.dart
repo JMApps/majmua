@@ -4,9 +4,9 @@ import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../core/styles/app_styles.dart';
-import '../../../data/repositories/supplication_data_repository.dart';
+import '../../../data/repositories/sfq_data_repository.dart';
 import '../../../data/services/databases/sfq_database_service.dart';
-import '../../../domain/usecases/supplication_use_case.dart';
+import '../../../domain/usecases/sfq_use_case.dart';
 import '../../state/sfq_state.dart';
 import '../lists/sfq_list.dart';
 import '../widgets/sfq_settings.dart';
@@ -20,13 +20,13 @@ class SfqPage extends StatefulWidget {
 
 class _SfqPageState extends State<SfqPage> {
   final SFQDatabaseService _databaseService = SFQDatabaseService();
-  late final SupplicationUseCase _supplicationUseCase;
+  late final SFQUseCase _supplicationUseCase;
 
   @override
   void initState() {
     super.initState();
-    _supplicationUseCase = SupplicationUseCase(
-      SupplicationDataRepository(_databaseService),
+    _supplicationUseCase = SFQUseCase(
+      SFQDataRepository(_databaseService),
     );
   }
 
