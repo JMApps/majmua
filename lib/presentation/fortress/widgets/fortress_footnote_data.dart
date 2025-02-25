@@ -22,27 +22,31 @@ class FortressFootnoteData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
-    return FutureBuilder<FortressFootnoteEntity>(
-      future: Provider.of<FortressFootnotesState>(context, listen: false).getFootnoteById(tableName: appLocale.fortressFootnoteTableName, footnoteId: footnoteNumber),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          if (snapshot.hasError) {
-            return AppErrorText(text: snapshot.error.toString());
-          }
-          return SingleChildScrollView(
-            padding: AppStyles.mardingWithoutTop,
-            child: FortressHtmlData(
-              htmlData: '<b>[${snapshot.data!.footnoteId}]</b> – ${snapshot.data!.footnote}',
-              footnoteColor: footnoteColor,
-              font: AppStringConstraints.fontGilroy,
-              fontSize: 18.0,
-              textAlign: TextAlign.center,
-              fontColor: Theme.of(context).colorScheme.onSurface,
-            ),
-          );
-        }
-        return const Center(
-          child: CircularProgressIndicator.adaptive(),
+    return Consumer<FortressFootnotesState>(
+      builder: (context, footnotesState, _) {
+        return FutureBuilder<FortressFootnoteEntity>(
+          future: footnotesState.getFootnoteById(tableName: appLocale.fortressFootnoteTableName, footnoteId: footnoteNumber),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              if (snapshot.hasError) {
+                return AppErrorText(text: snapshot.error.toString());
+              }
+              return SingleChildScrollView(
+                padding: AppStyles.mardingWithoutTop,
+                child: FortressHtmlData(
+                  htmlData: '<b>[${snapshot.data!.footnoteId}]</b> – ${snapshot.data!.footnote}',
+                  footnoteColor: footnoteColor,
+                  font: AppStringConstraints.fontGilroy,
+                  fontSize: 18.0,
+                  textAlign: TextAlign.center,
+                  fontColor: Theme.of(context).colorScheme.onSurface,
+                ),
+              );
+            }
+            return const Center(
+              child: CircularProgressIndicator.adaptive(),
+            );
+          },
         );
       },
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../data/models/args/fortress_chapter_args.dart';
 import '../../data/models/args/quran_args.dart';
+import '../../presentation/fortress/pages/fortress_content_page.dart';
 import '../../presentation/fortress/pages/main_fortress_page.dart';
 import '../../presentation/gems/pages/gems_page.dart';
 import '../../presentation/prayer/pages/add_city_page.dart';
@@ -50,11 +52,11 @@ class AppRoutes {
     AppRouteNames.pageGems: (context, args) => const GemsPage(),
     AppRouteNames.pageCounter: (context, args) => const CounterPage(),
     AppRouteNames.pageFortress: (context, args) => const MainFortressPage(),
-    // AppRouteNames.pagePrayerParams: (context, args) {
-    //   final CollectionArgs collectionArgs = args;
-    //   return CollectionDetailPage(
-    //     collectionModel: collectionArgs.collectionModel,
-    //   );
-    // },
+    AppRouteNames.pageContentFortress: (context, args) {
+      final FortressChapterArgs fortressChapterArgs = args;
+      return FortressContentPage(
+        chapterId: fortressChapterArgs.chapterId,
+      );
+    },
   };
 }

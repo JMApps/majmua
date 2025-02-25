@@ -124,7 +124,14 @@ class _MainFortressPageState extends State<MainFortressPage> {
                 ],
               ),
               const Divider(),
-              const FortressChaptersList()
+              Consumer<FortressChaptersState>(
+                builder: (context, chapterState, _) {
+                  return FortressChaptersList(
+                    chapterState: chapterState,
+                    tableName: appLocale.fortressChapterTableName,
+                  );
+                },
+              )
             ],
           ),
         ),

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
+import '../../../core/routes/app_route_names.dart';
 import '../../../core/styles/app_styles.dart';
+import '../../../data/models/args/fortress_chapter_args.dart';
 
 class FortressDailyItem extends StatelessWidget {
   const FortressDailyItem({
@@ -19,7 +22,14 @@ class FortressDailyItem extends StatelessWidget {
     return Card(
       child: InkWell(
         onTap: () {
-          // Navigate with chapter id
+          HapticFeedback.lightImpact();
+          Navigator.pushNamed(
+            context,
+            AppRouteNames.pageContentFortress,
+            arguments: FortressChapterArgs(
+              chapterId: chapterId,
+            ),
+          );
         },
         borderRadius: AppStyles.mainBorderMini,
         child: Container(
@@ -29,7 +39,9 @@ class FortressDailyItem extends StatelessWidget {
             image: DecorationImage(
               image: AssetImage('assets/pictures/$iconName.jpg'),
               fit: BoxFit.cover,
-              opacity: Theme.of(context).brightness == Brightness.light ? 0.65 : 0.35,
+              opacity: Theme.of(context).brightness == Brightness.light
+                  ? 0.65
+                  : 0.35,
             ),
           ),
           child: Text(
