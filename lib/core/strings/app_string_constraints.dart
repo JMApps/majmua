@@ -69,6 +69,11 @@ class AppStringConstraints {
   static const String iconHandsFill = 'hands-fill';
   static const String iconAqsa = 'aqsa';
 
+  static const String iconMorning = 'morning';
+  static const String iconEvening = 'evening';
+  static const String iconNight = 'night';
+  static const String iconIstikhara = 'question';
+
   // Map season keys
   static const String startSeason = 'map_start_season';
   static const String endSeason = 'map_end_season';

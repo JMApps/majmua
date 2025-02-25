@@ -151,6 +151,17 @@
   "gems": "Жемчужины",
   "counter": "Счётчик",
 
+  "fortressMuslim": "Крепость мусульманина",
+
+  "fortressChapterTableName": "Table_of_chapters_ru",
+  "fortressFootnoteTableName": "Table_of_footnotes_ru",
+  "fortressTableName": "Table_of_supplications_ru",
+
+  "morning": "Утром",
+  "evening": "Вечером",
+  "night": "Перед сном",
+  "istikhara": "Истихара",
+
   "sfqTableName": "Table_of_supplications_ru",
   "randomAyah": "Случайный аят",
   "randomCitation": "Случайная цитата",
