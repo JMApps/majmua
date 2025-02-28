@@ -19,7 +19,10 @@ class AppThemes {
     );
     return ThemeData(
       fontFamily: AppStringConstraints.fontGilroy,
-      fontFamilyFallback: const [AppStringConstraints.fontSFPro],
+      fontFamilyFallback: const [
+        AppStringConstraints.fontSFPro,
+        AppStringConstraints.fontArial,
+      ],
       colorScheme: colorScheme,
       appBarTheme: const AppBarTheme(
         centerTitle: true,

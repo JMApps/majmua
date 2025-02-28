@@ -27,7 +27,7 @@ class TimeState extends ChangeNotifier {
   }
 
   bool isDhulhijjah() {
-    return _hijriCalendar.hMonth == 10;
+    return _hijriCalendar.hMonth == 12;
   }
 
   bool isRamadanHoliday() {
@@ -35,7 +35,7 @@ class TimeState extends ChangeNotifier {
   }
 
   bool isDhulhijjahHoliday() {
-    return _hijriCalendar.hMonth == 10 && _hijriCalendar.hDay >= 10 && _hijriCalendar.hDay <= 12;
+    return _hijriCalendar.hMonth == 12 && _hijriCalendar.hDay >= 10 && _hijriCalendar.hDay <= 12;
   }
 
   bool isNearWhiteDays() {
@@ -67,7 +67,7 @@ class TimeState extends ChangeNotifier {
     }
 
     final Duration difference = ramadanDate.difference(_dateTime);
-    final int daysToRamadan = difference.inDays;
+    final int daysToRamadan = difference.inDays + 1;
 
     return {
       AppStringConstraints.mapDaysToRamadan: daysToRamadan,
@@ -84,7 +84,7 @@ class TimeState extends ChangeNotifier {
     }
 
     final Duration difference = dhulHijjahDate.difference(_dateTime);
-    final int daysToDhulHijjah = difference.inDays;
+    final int daysToDhulHijjah = difference.inDays + 1;
 
     return {
       AppStringConstraints.mapDaysToDhulHijjah: daysToDhulHijjah,
