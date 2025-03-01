@@ -35,6 +35,7 @@ class CounterPage extends StatelessWidget {
               portrait: (context) => const Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  SizedBox(height: 64),
                   CountTitleItem(),
                   Expanded(
                     child: CounterButtonItem(),
