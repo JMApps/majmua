@@ -6,6 +6,7 @@ import '../../../domain/entities/fortress_entity.dart';
 import '../../state/fortress_state.dart';
 import '../../widgets/app_error_text.dart';
 import '../widgets/fortress_html_data.dart';
+import '../widgets/supplication_media_card.dart';
 
 class FortressContentList extends StatefulWidget {
   const FortressContentList({
@@ -69,6 +70,7 @@ class _FortressContentListState extends State<FortressContentList> {
                         textAlign: TextAlign.center,
                         textDirection: TextDirection.rtl,
                       ) : const SizedBox(),
+                      SizedBox(height: fortressModel.arabicText != null ? 16 : 0),
                       fortressModel.transcriptionText != null ? Text(
                         fortressModel.transcriptionText!,
                         style: const TextStyle(
@@ -78,6 +80,7 @@ class _FortressContentListState extends State<FortressContentList> {
                         ),
                         textAlign: TextAlign.center,
                       ) : const SizedBox(),
+                      SizedBox(height: fortressModel.transcriptionText != null ? 16 : 0),
                       FortressHtmlData(
                         htmlData: fortressModel.translationText,
                         footnoteColor: appColors.primary,
@@ -85,6 +88,11 @@ class _FortressContentListState extends State<FortressContentList> {
                         fontSize: 16.0,
                         textAlign: TextAlign.center,
                         fontColor: appColors.onSurface,
+                      ),
+                      SupplicationMediaCard(
+                        supplicationModel: fortressModel,
+                        supplicationIndex: index + 1,
+                        supplicationLength: snapshot.data!.length,
                       ),
                     ],
                   ),

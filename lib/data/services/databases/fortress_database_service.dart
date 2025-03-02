@@ -7,14 +7,7 @@ import 'package:sqflite/sqflite.dart';
 import '../../../core/strings/db_value_strings.dart';
 
 class FortressDatabaseService {
-  static final FortressDatabaseService _instance = FortressDatabaseService._internal();
   static Database? _db;
-
-  factory FortressDatabaseService() {
-    return _instance;
-  }
-
-  FortressDatabaseService._internal();
 
   Future<Database> get db async {
     if (_db != null) {
@@ -47,5 +40,12 @@ class FortressDatabaseService {
     }
 
     return database;
+  }
+
+  Future<void> closeDB() async {
+    if (_db != null) {
+      await _db!.close();
+      _db = null;
+    }
   }
 }

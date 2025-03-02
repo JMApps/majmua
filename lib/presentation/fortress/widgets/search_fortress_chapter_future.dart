@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core/styles/app_styles.dart';
 import '../../../domain/entities/fortress_chapter_entity.dart';
@@ -13,12 +14,10 @@ class SearchFortressChaptersFuture extends StatefulWidget {
     super.key,
     required this.query,
     required this.tableName,
-    required this.chapterState,
   });
 
   final String query;
   final String tableName;
-  final FortressChaptersState chapterState;
 
   @override
   State<SearchFortressChaptersFuture> createState() => _SearchFortressChaptersFutureState();
@@ -32,7 +31,7 @@ class _SearchFortressChaptersFutureState extends State<SearchFortressChaptersFut
   @override
   void initState() {
     super.initState();
-    _futureChapters = widget.chapterState.fetchAllChapters(tableName: widget.tableName);
+    _futureChapters = Provider.of<FortressChaptersState>(context, listen: false).fetchAllChapters(tableName: widget.tableName);
   }
 
   @override

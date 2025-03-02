@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:majmua/presentation/state/fortress_footnotes_state.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
 import 'fortress_footnote_data.dart';
@@ -45,16 +47,19 @@ class FortressHtmlData extends StatelessWidget {
           letterSpacing: 1.5,
           color: footnoteColor,
           fontWeight: FontWeight.bold,
-          fontFamily: AppStringConstraints.fontGilroy,
+          fontFamily: AppStringConstraints.fontGilroyMedium,
         ),
       },
       onLinkTap: (String? footnoteNumber, _, __) {
         showModalBottomSheet(
           context: (context),
           isScrollControlled: true,
-          builder: (_) => FortressFootnoteData(
-            footnoteNumber: int.parse(footnoteNumber!),
-            footnoteColor: footnoteColor,
+          builder: (_) => ChangeNotifierProvider.value(
+            value: Provider.of<FortressFootnotesState>(context, listen: false),
+            child: FortressFootnoteData(
+              footnoteNumber: int.parse(footnoteNumber!),
+              footnoteColor: footnoteColor,
+            ),
           ),
         );
       },

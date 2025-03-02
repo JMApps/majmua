@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../domain/entities/fortress_chapter_entity.dart';
 import '../../state/fortress_chapters_state.dart';
@@ -8,11 +9,9 @@ import '../items/fortress_chapter_item.dart';
 class FortressChaptersList extends StatefulWidget {
   const FortressChaptersList({
     super.key,
-    required this.chapterState,
     required this.tableName,
   });
 
-  final FortressChaptersState chapterState;
   final String tableName;
 
   @override
@@ -25,7 +24,7 @@ class _FortressChaptersListState extends State<FortressChaptersList> {
   @override
   void initState() {
     super.initState();
-    _futureChapters = widget.chapterState.fetchAllChapters(tableName: widget.tableName);
+    _futureChapters = Provider.of<FortressChaptersState>(context, listen: false).fetchAllChapters(tableName: widget.tableName);
   }
 
   @override
@@ -43,8 +42,7 @@ class _FortressChaptersListState extends State<FortressChaptersList> {
                 padding: EdgeInsets.zero,
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
-                  final FortressChapterEntity chapterModel =
-                      snapshot.data![index];
+                  final FortressChapterEntity chapterModel = snapshot.data![index];
                   return FortressChapterItem(
                     chapterModel: chapterModel,
                     index: index,

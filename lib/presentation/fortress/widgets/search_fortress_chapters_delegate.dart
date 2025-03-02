@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../state/fortress_chapters_state.dart';
+import '../../state/fortress_footnotes_state.dart';
 import 'search_fortress_chapter_future.dart';
 
 class SearchFortressChaptersDelegate extends SearchDelegate {
   SearchFortressChaptersDelegate({
     required this.search,
     required this.tableName,
-    required this.chapterState,
+    required this.chaptersState,
+    required this.footnotesState,
   }) : super(searchFieldLabel: search, keyboardType: TextInputType.text);
 
   final String search;
   final String tableName;
-  final FortressChaptersState chapterState;
+  final FortressChaptersState chaptersState;
+  final FortressFootnotesState footnotesState;
 
   @override
   ThemeData appBarTheme(BuildContext context) {
@@ -52,19 +56,29 @@ class SearchFortressChaptersDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return SearchFortressChaptersFuture(
-      query: query.toLowerCase(),
-      tableName: tableName,
-      chapterState: chapterState,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: chaptersState),
+        ChangeNotifierProvider.value(value: footnotesState),
+      ],
+      child: SearchFortressChaptersFuture(
+        query: query.toLowerCase(),
+        tableName: tableName,
+      ),
     );
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return SearchFortressChaptersFuture(
-      query: query.toLowerCase(),
-      tableName: tableName,
-      chapterState: chapterState,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: chaptersState),
+        ChangeNotifierProvider.value(value: footnotesState),
+      ],
+      child: SearchFortressChaptersFuture(
+        query: query.toLowerCase(),
+        tableName: tableName,
+      ),
     );
   }
 }
