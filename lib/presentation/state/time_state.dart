@@ -31,7 +31,7 @@ class TimeState extends ChangeNotifier {
   }
 
   bool isRamadanHoliday() {
-    return _hijriCalendar.hMonth == 10 && _hijriCalendar.hDay <= 1;
+    return _hijriCalendar.hMonth == 10 && _hijriCalendar.hDay == 1;
   }
 
   bool isDhulhijjahHoliday() {
@@ -55,7 +55,7 @@ class TimeState extends ChangeNotifier {
   }
 
   bool isFasting() {
-    return !isRamadan() || !isDhulhijjah() || !isRamadanHoliday() || !isDhulhijjahHoliday();
+    return !isRamadan() && !isDhulhijjah() && !isRamadanHoliday() && !isDhulhijjahHoliday();
   }
 
   Map<String, dynamic> getDaysToRamadan() {
