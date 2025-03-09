@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
+import 'library_bottom_sheet.dart';
 
 class LibraryButton extends StatelessWidget {
   const LibraryButton({super.key});
@@ -17,6 +18,11 @@ class LibraryButton extends StatelessWidget {
         child: FilledButton.tonalIcon(
           onPressed: () {
             HapticFeedback.lightImpact();
+            showModalBottomSheet(
+              context: context,
+              isScrollControlled: true,
+              builder: (context) => const LibraryBottomSheet(),
+            );
           },
           iconAlignment: IconAlignment.end,
           icon: const Icon(Icons.menu_book_rounded),
@@ -29,7 +35,8 @@ class LibraryButton extends StatelessWidget {
           ),
           style: ButtonStyle(
             overlayColor: WidgetStateProperty.all(appColors.tertiaryContainer),
-            backgroundColor: WidgetStateProperty.all(appColors.secondaryContainer),
+            backgroundColor:
+                WidgetStateProperty.all(appColors.secondaryContainer),
             side: WidgetStateProperty.all<BorderSide>(
               BorderSide(
                 width: 0,
