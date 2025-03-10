@@ -29,7 +29,7 @@ class LibraryBookItem extends StatelessWidget {
       visualDensity: VisualDensity.comfortable,
       contentPadding: AppStyles.mardingHorizontal,
       leading: CircleAvatar(
-        backgroundColor: bookColor,
+        backgroundColor: bookColor.withAlpha(175),
         child: Padding(
           padding: AppStyles.mardingTopMicroMini,
           child: Text(
