@@ -6,6 +6,7 @@ import '../../core/routes/app_route_names.dart';
 import '../../core/strings/app_string_constraints.dart';
 import '../../core/styles/app_styles.dart';
 import '../about/pages/about_us_bottom_sheet.dart';
+import '../counter/widgets/salawat_button.dart';
 import '../library/widgets/library_button.dart';
 import '../mainbuttons/pages/main_buttons_card.dart';
 import '../prayer/pages/day_times_container.dart';
@@ -83,6 +84,7 @@ class HomePage extends StatelessWidget {
                 RamadanCard(),
                 DayTimesContainer(),
                 WeekDaysContainer(),
+                SalawatButton(),
                 SeasonTimesContainer(),
                 RestHolidaysContainer(),
                 MainButtonsCard(),

@@ -120,6 +120,7 @@ class AppStringConstraints {
   static const String keyFridayLastHourNotification = 'key_friday_last_hour_notification';
 
   // Counter
+  static const String keySalawatCount = 'key_salawat_count';
   static const String keyCounterAllValue = 'key_counter_all_value';
   static const String keyFreeCounterValue = 'key_counter_value';
   static const String key33CounterValue = 'key_counter_first_value';

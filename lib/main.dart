@@ -8,6 +8,7 @@ import 'presentation/pages/root_page.dart';
 import 'presentation/state/app_settings_state.dart';
 import 'presentation/state/notifications_state.dart';
 import 'presentation/state/prayer_state.dart';
+import 'presentation/state/salawat_state.dart';
 import 'presentation/state/time_state.dart';
 
 void main() async {
@@ -18,6 +19,7 @@ void main() async {
   await Hive.openBox(AppStringConstraints.keyMainAppSettings);
   await Hive.openBox(AppStringConstraints.keySettingsPrayerTimeBox);
   await Hive.openBox(AppStringConstraints.keyMainCounter);
+  await Hive.openBox(AppStringConstraints.keyWeeklySalawatSettings);
 
   NotificationService notificationService = NotificationService();
   await notificationService.setupNotification();
@@ -29,13 +31,20 @@ void main() async {
           create: (_) => AppSettingsState(),
         ),
         ChangeNotifierProvider(
-          create: (_) => PrayerState(Hive.box(AppStringConstraints.keySettingsPrayerTimeBox)),
+          create: (_) => PrayerState(
+            Hive.box(AppStringConstraints.keySettingsPrayerTimeBox),
+          ),
         ),
         ChangeNotifierProvider(
           create: (_) => TimeState(),
         ),
         ChangeNotifierProvider(
-          create: (_) => NotificationsState(Hive.box(AppStringConstraints.keyMainSettings)),
+          create: (_) => NotificationsState(
+            Hive.box(AppStringConstraints.keyMainSettings),
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => SalawatState(),
         ),
       ],
       child: const RootPage(),
