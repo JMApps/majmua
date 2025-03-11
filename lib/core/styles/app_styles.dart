@@ -46,6 +46,7 @@ class AppStyles {
   static const borderWithoutBottom = RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20), bottomLeft: Radius.circular(5), bottomRight: Radius.circular(5)));
   static const borderWithoutBottomMini = RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10), bottomLeft: Radius.circular(2.5), bottomRight: Radius.circular(2.5),));
 
+  static const mainBorderBig = BorderRadius.all(Radius.circular(150));
   static const mainBorder = BorderRadius.all(Radius.circular(20));
   static const mainBorderMini = BorderRadius.all(Radius.circular(10));
   static const mainBorderMicro = BorderRadius.all(Radius.circular(5));
