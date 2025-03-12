@@ -158,6 +158,11 @@ class AppStringConstraints {
   static const String keySFQListPageMode = 'key_sfq_list_page_mode';
   static const String keySFQLastPage = 'key_sfq_last_page';
 
+  // Fortress
+  static const String keyFortressArabicTextSize = 'key_fortress_arabic_text_size';
+  static const String keyFortressTranslationTextSize = 'key_fortress_translation_text_size';
+  static const String keyFortressTranscriptionIsShow = 'key_fortress_transcription_is_show';
+
   // Gems
   static const keyGemsTextSize = 'key_gems_text_size';
   static const String keyGemsListPageMode = 'key_gems_list_page_mode';

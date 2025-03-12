@@ -1,36 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/styles/app_styles.dart';
 import '../../state/salawat_state.dart';
-import '../../times/items/ayah_hadith_day_item.dart';
 
 class SalawatButton extends StatelessWidget {
   const SalawatButton({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final appLocale = AppLocalizations.of(context)!;
     final appColors = Theme.of(context).colorScheme;
     return Card(
       margin: AppStyles.mardingWithoutBottomMini,
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(width: 8),
-          Expanded(
-            child: AyahHadithDayItem(
-              title: appLocale.ayahDay,
-              color: appColors.primaryContainer,
-              onTap: () {
-                HapticFeedback.lightImpact();
-              },
-            ),
+          const Expanded(
+            flex: 3,
+            child: SizedBox(),
           ),
-          const SizedBox(width: 8),
           Expanded(
             child: Column(
               children: [
@@ -90,17 +79,6 @@ class SalawatButton extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: AyahHadithDayItem(
-              title: appLocale.hadithDay,
-              color: appColors.tertiaryContainer,
-              onTap: () {
-                HapticFeedback.lightImpact();
-              },
-            ),
-          ),
-          const SizedBox(width: 8),
         ],
       ),
     );

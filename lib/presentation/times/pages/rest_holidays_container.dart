@@ -17,28 +17,24 @@ class RestHolidaysContainer extends StatelessWidget {
     return Consumer<TimeState>(
       builder: (context, timeState, _) {
         return SizedBox(
-          height: 90,
+          height: 100,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Expanded(
-                child: RemindHolidayDaysItem(
-                  remindTitle: !timeState.isRamadan() ? appLocale.daysToRamadan : appLocale.blessedRamadan,
-                  remindDays: !timeState.isRamadan() ? timeState.getDaysToRamadan()[AppStringConstraints.mapDaysToRamadan] : timeState.getHijriDateTime.hDay,
-                  eventDate: DateFormat('dd.MM.yyyy').format(timeState.getDaysToRamadan()[AppStringConstraints.mapRamadanDate]),
-                  itemColor: appColors.primaryContainer,
-                  textColor: appColors.primary,
-                ),
+              RemindHolidayDaysItem(
+                remindTitle: !timeState.isRamadan() ? appLocale.daysToRamadan : appLocale.blessedRamadan,
+                remindDays: !timeState.isRamadan() ? timeState.getDaysToRamadan()[AppStringConstraints.mapDaysToRamadan] : timeState.getHijriDateTime.hDay,
+                eventDate: DateFormat('dd.MM.yyyy').format(timeState.getDaysToRamadan()[AppStringConstraints.mapRamadanDate]),
+                itemColor: appColors.primaryContainer,
+                textColor: appColors.primary,
               ),
               const SizedBox(height: 8),
-              Expanded(
-                child: RemindHolidayDaysItem(
-                  remindTitle: !timeState.isDhulhijjah() ? appLocale.daysToDhulHujjah : appLocale.dhulHijjah,
-                  remindDays: !timeState.isDhulhijjah() ? timeState.getDaysToDhulHijjah()[AppStringConstraints.mapDaysToDhulHijjah] : timeState.getHijriDateTime.hDay,
-                  eventDate: DateFormat('dd.MM.yyyy').format(timeState.getDaysToDhulHijjah()[AppStringConstraints.mapDhulHijjahDate]),
-                  itemColor: appColors.tertiaryContainer,
-                  textColor: appColors.tertiary,
-                ),
+              RemindHolidayDaysItem(
+                remindTitle: !timeState.isDhulhijjah() ? appLocale.daysToDhulHujjah : appLocale.dhulHijjah,
+                remindDays: !timeState.isDhulhijjah() ? timeState.getDaysToDhulHijjah()[AppStringConstraints.mapDaysToDhulHijjah] : timeState.getHijriDateTime.hDay,
+                eventDate: DateFormat('dd.MM.yyyy').format(timeState.getDaysToDhulHijjah()[AppStringConstraints.mapDhulHijjahDate]),
+                itemColor: appColors.tertiaryContainer,
+                textColor: appColors.tertiary,
               ),
             ],
           ),
