@@ -144,8 +144,7 @@
   "backgroundWarmth": "Теплота фона",
   "textContrast": "Контраст текста",
 
-  "ayahDay": "Аят\nдня",
-  "hadithDay": "Хадис\nдня",
+  "ayahDay": "Аят дня",
 
   "quran": "Коран",
   "sQuran": "Мольбы из Корана",
@@ -172,6 +171,7 @@
   "arabicTextSize": "Размер арабского текста",
   "translationTextSize": "Размер текста перевода",
   "textSize": "Размер текста",
+  "transcription": "Транскрипция",
 
   "surahKahf": "Сура «аль-Кахф»",
   "surahSajda": "Сура «ас-Саджда»",

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
@@ -57,44 +58,48 @@ class _FortressContentListState extends State<FortressContentList> {
                 margin: AppStyles.mardingBottomMini,
                 child: Padding(
                   padding: AppStyles.mainMardingMini,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      fortressModel.arabicText != null ? Text(
-                        fortressModel.arabicText!,
-                        style: const TextStyle(
-                          fontSize: 20.0,
-                          fontFamily: AppStringConstraints.fontHafs,
-                          height: 1.75,
-                        ),
-                        textAlign: TextAlign.center,
-                        textDirection: TextDirection.rtl,
-                      ) : const SizedBox(),
-                      SizedBox(height: fortressModel.arabicText != null ? 16 : 0),
-                      fortressModel.transcriptionText != null ? Text(
-                        fortressModel.transcriptionText!,
-                        style: const TextStyle(
-                          fontSize: 16.0,
-                          fontFamily: AppStringConstraints.fontGilroy,
-                          height: 1.75,
-                        ),
-                        textAlign: TextAlign.center,
-                      ) : const SizedBox(),
-                      SizedBox(height: fortressModel.transcriptionText != null ? 16 : 0),
-                      FortressHtmlData(
-                        htmlData: fortressModel.translationText,
-                        footnoteColor: appColors.primary,
-                        font: AppStringConstraints.fontGilroyMedium,
-                        fontSize: 16.0,
-                        textAlign: TextAlign.center,
-                        fontColor: appColors.onSurface,
-                      ),
-                      SupplicationMediaCard(
-                        supplicationModel: fortressModel,
-                        supplicationIndex: index + 1,
-                        supplicationLength: snapshot.data!.length,
-                      ),
-                    ],
+                  child: Consumer<FortressState>(
+                    builder: (context, fortressState, _) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          fortressModel.arabicText != null ? Text(
+                            fortressModel.arabicText!,
+                            style: TextStyle(
+                              fontSize: fortressState.arabicTextSize,
+                              fontFamily: AppStringConstraints.fontHafs,
+                              height: 1.75,
+                            ),
+                            textAlign: TextAlign.center,
+                            textDirection: TextDirection.rtl,
+                          ) : const SizedBox(),
+                          SizedBox(height: fortressModel.arabicText != null ? 16 : 0),
+                          fortressState.transcriptionIsShow ? fortressModel.transcriptionText != null ? Text(
+                            fortressModel.transcriptionText!,
+                            style: TextStyle(
+                              fontSize: fortressState.translationTextSize,
+                              fontFamily: AppStringConstraints.fontGilroy,
+                              height: 1.75,
+                            ),
+                            textAlign: TextAlign.center,
+                          ) : const SizedBox() : const SizedBox(),
+                          SizedBox(height: fortressState.transcriptionIsShow ? fortressModel.transcriptionText != null ? 16 : 0 : 0),
+                          FortressHtmlData(
+                            htmlData: fortressModel.translationText,
+                            footnoteColor: appColors.primary,
+                            font: AppStringConstraints.fontGilroyMedium,
+                            fontSize: fortressState.translationTextSize,
+                            textAlign: TextAlign.center,
+                            fontColor: appColors.onSurface,
+                          ),
+                          SupplicationMediaCard(
+                            supplicationModel: fortressModel,
+                            supplicationIndex: index + 1,
+                            supplicationLength: snapshot.data!.length,
+                          ),
+                        ],
+                      );
+                    },
                   ),
                 ),
               );

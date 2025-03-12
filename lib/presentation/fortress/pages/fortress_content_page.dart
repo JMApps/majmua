@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:majmua/presentation/fortress/widgets/fortress_settings.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
@@ -66,10 +67,22 @@ class _FortressContentPageState extends State<FortressContentPage> {
         appBar: AppBar(
           title: Text('${appLocale.chapter} ${widget.chapterId}'),
           actions: [
-            IconButton(
-              onPressed: () {},
-              tooltip: appLocale.settings,
-              icon: const Icon(Icons.settings),
+            Consumer<FortressState>(
+              builder: (context, fortressState, _) {
+                return IconButton(
+                  onPressed: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) => ChangeNotifierProvider.value(
+                        value: fortressState,
+                        child: const FortressSettings(),
+                      ),
+                    );
+                  },
+                  tooltip: appLocale.settings,
+                  icon: const Icon(Icons.settings),
+                );
+              },
             ),
           ],
         ),
@@ -90,7 +103,8 @@ class _FortressContentPageState extends State<FortressContentPage> {
                         return AppErrorText(text: snapshot.error.toString());
                       }
                       if (snapshot.hasData) {
-                        final FortressChapterEntity chapterModel = snapshot.data!;
+                        final FortressChapterEntity chapterModel =
+                            snapshot.data!;
                         return Card(
                           margin: EdgeInsets.zero,
                           color: appColors.secondaryContainer,
