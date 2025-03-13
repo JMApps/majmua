@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../../core/strings/app_string_constraints.dart';
 
@@ -12,16 +13,8 @@ class AppSettingsState extends ChangeNotifier {
     _appLocaleIndex = _appSettingsBox.get(AppStringConstraints.keyAppLocaleIndex, defaultValue: _defaultLocaleIndex());
     _appThemeColor = Color(_appSettingsBox.get(AppStringConstraints.keyAppThemeColor, defaultValue: Colors.indigo.value));
     _appThemeModeIndex = _appSettingsBox.get(AppStringConstraints.keyAppThemeModeIndex, defaultValue: 2);
-  }
-
-  int _defaultLocaleIndex() {
-    final deviceLocale = PlatformDispatcher.instance.locale;
-    switch (deviceLocale.languageCode) {
-      case 'en':
-        return 1;
-      default:
-        return 0;
-    }
+    _wakeLockState = _appSettingsBox.get(AppStringConstraints.keyWakeLock, defaultValue: true);
+    _wakeLockState ? WakelockPlus.enable() : WakelockPlus.disable();
   }
 
   late int _appLocaleIndex;
@@ -35,21 +28,11 @@ class AppSettingsState extends ChangeNotifier {
     }
   }
 
-  late Color _appThemeColor;
-
-  Color get getAppThemeColor => _appThemeColor;
-
-  set setAppThemeColor(Color color) {
-    if (_appThemeColor != color) {
-      _appThemeColor = color;
-      _appSettingsBox.put(AppStringConstraints.keyAppThemeColor, color.value);
-      notifyListeners();
-    }
-  }
-
   late int _appThemeModeIndex;
 
-  set setAppThemeModeIndex(int index) {
+  int get appThemeModeIndex => _appThemeModeIndex;
+
+  set appThemeModeIndex(int index) {
     if (_appThemeModeIndex != index) {
       _appThemeModeIndex = index;
       _appSettingsBox.put(AppStringConstraints.keyAppThemeModeIndex, index);
@@ -57,7 +40,7 @@ class AppSettingsState extends ChangeNotifier {
     }
   }
 
-  ThemeMode get getAppThemeMode {
+  ThemeMode get appThemeMode {
     late final ThemeMode themeMode;
     switch (_appThemeModeIndex) {
       case 0:
@@ -71,5 +54,38 @@ class AppSettingsState extends ChangeNotifier {
         break;
     }
     return themeMode;
+  }
+
+  Color _appThemeColor = Colors.indigo;
+
+  Color get appThemeColor => _appThemeColor;
+
+  set appThemeColor(Color color) {
+    if (_appThemeColor != color) {
+      _appThemeColor = color;
+      _appSettingsBox.put(AppStringConstraints.keyAppThemeColor, color.value);
+      notifyListeners();
+    }
+  }
+
+  bool _wakeLockState = true;
+
+  bool get wakeLockState => _wakeLockState;
+
+  set wakeLockState(bool state) {
+    _wakeLockState = state;
+    _wakeLockState ? WakelockPlus.enable() : WakelockPlus.disable();
+    _appSettingsBox.put(AppStringConstraints.keyWakeLock, state);
+    notifyListeners();
+  }
+
+  int _defaultLocaleIndex() {
+    final deviceLocale = PlatformDispatcher.instance.locale;
+    switch (deviceLocale.languageCode) {
+      case 'en':
+        return 1;
+      default:
+        return 0;
+    }
   }
 }

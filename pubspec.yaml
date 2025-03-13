@@ -26,6 +26,7 @@ dependencies:
   salomon_bottom_bar: ^3.3.2
   scrollable_positioned_list: ^0.3.8
   responsive_builder: ^0.7.1
+  flutter_material_color_picker: ^1.2.0
 
   # Databases
   sqflite: ^2.4.2

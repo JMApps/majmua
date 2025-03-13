@@ -8,6 +8,12 @@
   "notifications": "Уведомдения",
   "aboutUs": "О нас",
 
+  "appTheme": "Тема",
+  "themeModes": "Светлая, Тёмная, Системная",
+  "colorTheme": "Цвет темы",
+  "display": "Дисплей",
+  "alwaysOnDisplay": "Дисплей всегда включён",
+
   "otherApps": "Другие наши приложения:",
   "weSocials": "Мы в соцсетях:",
   "rateApp": "Оценить приложение:",
@@ -42,6 +48,7 @@
   "add": "Добавить",
   "select": "Выбрать",
   "cancel": "Отмена",
+  "close": "Закрыть",
   "change": "Изменить",
   "delete": "Удалить",
   "defaultAdjustments": "По умолчанию",
