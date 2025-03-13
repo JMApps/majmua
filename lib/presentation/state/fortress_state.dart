@@ -12,7 +12,7 @@ class FortressState extends ChangeNotifier {
 
   FortressState(this._supplicationUseCase) {
    _arabicTextSize = _mainSettingsBox.get(AppStringConstraints.keyFortressArabicTextSize, defaultValue: 22.0);
-   _translationTextSize = _mainSettingsBox.get(AppStringConstraints.keyFortressArabicTextSize, defaultValue: 18.0);
+   _translationTextSize = _mainSettingsBox.get(AppStringConstraints.keyFortressTranslationTextSize, defaultValue: 18.0);
    _transcriptionIsShow = _mainSettingsBox.get(AppStringConstraints.keyFortressTranscriptionIsShow, defaultValue: true);
   }
 

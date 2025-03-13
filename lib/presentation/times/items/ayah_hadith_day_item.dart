@@ -21,22 +21,21 @@ class AyahHadithDayItem extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     return CupertinoButton(
       onPressed: () {},
-      padding: EdgeInsets.zero,
+      padding: AppStyles.mardingRightMini,
       child: Container(
-        height: 115,
         alignment: Alignment.center,
-        padding: AppStyles.mainMarding,
         decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          image: DecorationImage(
-            image: AssetImage('assets/icons/circle.png'),
-            colorFilter: ColorFilter.mode(appColors.tertiary, BlendMode.srcATop)
+          borderRadius: AppStyles.mainBorderMini,
+          border: Border.all(
+            width: 1.75,
+            color: color,
           ),
         ),
         child: Text(
           title,
           style: TextStyle(
             color: appColors.secondary,
+            fontSize: 12.0,
             fontFamily: AppStringConstraints.fontGilroyMedium,
             height: 1.0,
           ),

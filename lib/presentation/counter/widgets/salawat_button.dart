@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/styles/app_styles.dart';
+import '../../state/prayer_state.dart';
 import '../../state/salawat_state.dart';
 
 class SalawatButton extends StatelessWidget {
@@ -17,7 +18,12 @@ class SalawatButton extends StatelessWidget {
       child: Row(
         children: [
           const Expanded(
-            flex: 3,
+            child: SizedBox(),
+          ),
+          const Expanded(
+            child: SizedBox(),
+          ),
+          const Expanded(
             child: SizedBox(),
           ),
           Expanded(
@@ -25,17 +31,21 @@ class SalawatButton extends StatelessWidget {
               children: [
                 CupertinoButton(
                   padding: EdgeInsets.zero,
-                  child: Stack(
-                    children: [
-                      Image.asset(
-                        'assets/pictures/salawat.png',
-                        color: appColors.primary,
-                      ),
-                      Image.asset(
-                        'assets/pictures/salawat_border_two.png',
-                        color: appColors.tertiaryFixed,
-                      ),
-                    ],
+                  child: Consumer<PrayerState>(
+                    builder: (context, prayerState, _) {
+                      return Stack(
+                        children: [
+                          Image.asset(
+                            'assets/pictures/salawat.png',
+                            color: prayerState.isFriday ? appColors.tertiary : appColors.primary,
+                          ),
+                          Image.asset(
+                            'assets/pictures/salawat_border_two.png',
+                            color: prayerState.isFriday ? appColors.primary : appColors.tertiary,
+                          ),
+                        ],
+                      );
+                    },
                   ),
                   onPressed: () {
                     HapticFeedback.lightImpact();
