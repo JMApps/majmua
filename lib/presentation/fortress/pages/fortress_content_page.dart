@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/presentation/fortress/widgets/fortress_settings.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
@@ -19,6 +18,7 @@ import '../../state/fortress_state.dart';
 import '../../widgets/app_error_text.dart';
 import '../lists/fortress_content_list.dart';
 import '../widgets/fortress_html_data.dart';
+import '../widgets/fortress_settings.dart';
 
 class FortressContentPage extends StatefulWidget {
   const FortressContentPage({

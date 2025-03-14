@@ -7,7 +7,7 @@ import '../../state/prayer_state.dart';
 import 'prayer_message_item.dart';
 
 class PrayerMessages extends StatelessWidget {
-  const PrayerMessages({super.key});
+  const  PrayerMessages({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,42 +21,42 @@ class PrayerMessages extends StatelessWidget {
               isVisible: prayerState.isAdhan(prayer: prayerState.prayerTimes.currentPrayer()),
               iconName: AppStringConstraints.iconAqsa,
               message: appLocale.adhanTime,
-              fortressChapterId: 0,
+              fortressChapterId: 15,
               iconColor: appColors.primary,
             ),
             PrayerMessageItem(
               isVisible: prayerState.isDhikr(prayer: prayerState.prayerTimes.currentPrayer()),
               iconName: AppStringConstraints.iconHandsFill,
               message: appLocale.adhkarsTime,
-              fortressChapterId: 0,
+              fortressChapterId: 25,
               iconColor: appColors.primary,
             ),
             PrayerMessageItem(
               isVisible: prayerState.isLastFridayHour,
               iconName: AppStringConstraints.iconHandsFill,
               message: appLocale.lastFridayHour,
-              fortressChapterId: 0,
+              fortressChapterId: 04033,
               iconColor: appColors.primary,
             ),
             PrayerMessageItem(
               isVisible: prayerState.isMorning,
               iconName: AppStringConstraints.iconHandsFill,
               message: appLocale.morningAdhkarsTime,
-              fortressChapterId: 0,
+              fortressChapterId: 27,
               iconColor: appColors.tertiary,
             ),
             PrayerMessageItem(
               isVisible: prayerState.isEvening,
               iconName: AppStringConstraints.iconHandsFill,
               message: appLocale.eveningAdhkarsTime,
-              fortressChapterId: 0,
+              fortressChapterId: 28,
               iconColor: appColors.tertiary,
             ),
             PrayerMessageItem(
               isVisible: prayerState.isNight,
               iconName: AppStringConstraints.iconHandsFill,
               message: appLocale.nightAdhkarsTime,
-              fortressChapterId: 0,
+              fortressChapterId: 29,
               iconColor: appColors.secondary,
             ),
           ],

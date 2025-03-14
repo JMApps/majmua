@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../../core/routes/app_route_names.dart';
 import '../../../core/styles/app_styles.dart';
+import '../../../data/models/args/fortress_chapter_args.dart';
 
 class PrayerMessageItem extends StatelessWidget {
   const PrayerMessageItem({
@@ -32,7 +34,20 @@ class PrayerMessageItem extends StatelessWidget {
           child: ListTile(
             onTap: () {
               HapticFeedback.lightImpact();
-              // Open fortress with chapter id
+              if (fortressChapterId != 04033) {
+                Navigator.pushNamed(
+                  context,
+                  AppRouteNames.pageContentFortress,
+                  arguments: FortressChapterArgs(
+                    chapterId: fortressChapterId,
+                  ),
+                );
+              } else {
+                Navigator.pushNamed(
+                  context,
+                  AppRouteNames.pageSFQ,
+                );
+              }
             },
             shape: AppStyles.mainShapeMini,
             splashColor: appColors.tertiaryContainer,
