@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:majmua/presentation/widgets/app_title.dart';
 
 import '../../core/routes/app_route_names.dart';
 import '../../core/strings/app_string_constraints.dart';
 import '../../core/styles/app_styles.dart';
-import '../about/pages/about_us_bottom_sheet.dart';
 import '../counter/widgets/salawat_button.dart';
 import '../library/widgets/library_button.dart';
 import '../mainbuttons/pages/main_buttons_card.dart';
 import '../prayer/pages/day_times_container.dart';
 import '../prayer/pages/prayers_container.dart';
 import '../ramadan/pages/ramadan_card.dart';
-import '../times/items/main_data_item.dart';
 import '../times/pages/rest_holidays_container.dart';
 import '../times/pages/season_times_container.dart';
 import '../times/pages/week_days_container.dart';
@@ -32,7 +31,7 @@ class HomePage extends StatelessWidget {
             centerTitle: false,
             stretch: true,
             floating: true,
-            title: const MainDataItem(),
+            title: const AppTitle(),
             actions: [
               MainIconButton(
                 onPressed: () {
@@ -46,31 +45,18 @@ class HomePage extends StatelessWidget {
                 iconName: AppStringConstraints.iconSettings,
                 iconColor: appColors.secondary,
               ),
-              MainIconButton(
-                onPressed: () {
-                  HapticFeedback.lightImpact();
-                  Navigator.pushNamed(
-                    context,
-                    AppRouteNames.pageAppNotifications,
-                  );
-                },
-                tooltip: appLocale.notifications,
-                iconName: AppStringConstraints.iconNotifications,
-                iconColor: appColors.secondary,
-              ),
               Padding(
                 padding: AppStyles.mardingRightMini,
                 child: MainIconButton(
                   onPressed: () {
                     HapticFeedback.lightImpact();
-                    showModalBottomSheet(
-                      context: context,
-                      isScrollControlled: true,
-                      builder: (context) => const AboutUsBottomSheet(),
+                    Navigator.pushNamed(
+                      context,
+                      AppRouteNames.pageAppNotifications,
                     );
                   },
-                  tooltip: appLocale.share,
-                  iconName: AppStringConstraints.iconLinks,
+                  tooltip: appLocale.notifications,
+                  iconName: AppStringConstraints.iconNotifications,
                   iconColor: appColors.secondary,
                 ),
               ),

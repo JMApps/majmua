@@ -24,7 +24,7 @@ class SocialItem extends StatelessWidget {
       },
       visualDensity: VisualDensity.compact,
       shape: AppStyles.mainShapeMini,
-      contentPadding: AppStyles.mardingHorizontalMini,
+      contentPadding: AppStyles.mardingHorizontal,
       leading: Image.asset(
         'assets/icons/$iconName.png',
         width: 35,

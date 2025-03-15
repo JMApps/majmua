@@ -20,20 +20,22 @@ class MainDataItem extends StatelessWidget {
             Text(
               '${timeState.getHijriDateTime.hDay} ${appLocale.hijriMonthNames.split(', ')[timeState.getHijriDateTime.hMonth - 1]} ${timeState.getHijriDateTime.hYear}',
               style: TextStyle(
-                fontSize: 15.0,
                 fontFamily: AppStringConstraints.fontGilroyMedium,
                 color: appColors.primary,
+                fontSize: 20.0,
               ),
               overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
             ),
             Text(
               '${timeState.getDateTime.day} ${appLocale.gregorianMonthNames.split(', ')[timeState.getDateTime.month - 1]} ${timeState.getDateTime.year}',
               style: TextStyle(
-                fontSize: 15.0,
                 fontFamily: AppStringConstraints.fontGilroyMedium,
                 color: appColors.tertiary,
+                fontSize: 20.0,
               ),
               overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
             ),
           ],
         );

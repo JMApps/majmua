@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../state/prayer_state.dart';
 import '../../state/salawat_state.dart';
+import '../../times/items/main_data_item.dart';
 
 class SalawatButton extends StatelessWidget {
   const SalawatButton({super.key});
@@ -18,13 +19,8 @@ class SalawatButton extends StatelessWidget {
       child: Row(
         children: [
           const Expanded(
-            child: SizedBox(),
-          ),
-          const Expanded(
-            child: SizedBox(),
-          ),
-          const Expanded(
-            child: SizedBox(),
+            flex: 3,
+            child:  MainDataItem(),
           ),
           Expanded(
             child: Column(

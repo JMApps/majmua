@@ -8,14 +8,9 @@ import '../../../core/routes/app_route_names.dart';
 import '../../../core/strings/app_string_constraints.dart';
 import '../../state/prayer_state.dart';
 
-class SelectCityItem extends StatefulWidget {
+class SelectCityItem extends StatelessWidget {
   const SelectCityItem({super.key});
 
-  @override
-  State<SelectCityItem> createState() => _SelectCityItemState();
-}
-
-class _SelectCityItemState extends State<SelectCityItem> {
   @override
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
