@@ -14,83 +14,88 @@ class SalawatButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
-    return Card(
-      margin: AppStyles.mardingWithoutBottomMini,
-      child: Row(
-        children: [
-          const Expanded(
-            flex: 3,
-            child:  MainDataItem(),
-          ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Card(
-              color: appColors.surface,
-              margin: AppStyles.mardingRightMini,
-              child: Column(
-                children: [
-                  CupertinoButton(
-                    padding: EdgeInsets.zero,
-                    child: Consumer<PrayerState>(
-                      builder: (context, prayerState, _) {
-                        return Stack(
-                          children: [
-                            Image.asset(
-                              'assets/pictures/salawat.png',
-                              color: prayerState.isFriday ? appColors.tertiary : appColors.primary,
-                            ),
-                            Image.asset(
-                              'assets/pictures/salawat_border_two.png',
-                              color: prayerState.isFriday ? appColors.primary : appColors.tertiary,
-                            ),
-                          ],
-                        );
+    final deviceHeight = MediaQuery.of(context).size.height;
+    final deviceOrientation = MediaQuery.of(context).orientation;
+    return SizedBox(
+      height: deviceOrientation == Orientation.portrait ? deviceHeight * 0.180 : deviceHeight * 0.75,
+      child: Card(
+        margin: AppStyles.mardingWithoutBottomMini,
+        child: Row(
+          children: [
+            const Expanded(
+              flex: 9,
+              child:  MainDataItem(),
+            ),
+            Expanded(
+              flex: 4,
+              child: Card(
+                color: appColors.surface,
+                margin: AppStyles.mainMardingMini,
+                child: Column(
+                  children: [
+                    CupertinoButton(
+                      padding: EdgeInsets.zero,
+                      child: Consumer<PrayerState>(
+                        builder: (context, prayerState, _) {
+                          return Stack(
+                            children: [
+                              Image.asset(
+                                'assets/pictures/salawat.png',
+                                color: prayerState.isFriday ? appColors.tertiary : appColors.primary,
+                              ),
+                              Image.asset(
+                                'assets/pictures/salawat_border_two.png',
+                                color: prayerState.isFriday ? appColors.primary : appColors.tertiary,
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                      onPressed: () {
+                        HapticFeedback.lightImpact();
+                        Provider.of<SalawatState>(context, listen: false).incrementCount();
+                      },
+                      onLongPress: () {
+                        HapticFeedback.vibrate();
+                        Provider.of<SalawatState>(context, listen: false).resetCount();
                       },
                     ),
-                    onPressed: () {
-                      HapticFeedback.lightImpact();
-                      Provider.of<SalawatState>(context, listen: false).incrementCount();
-                    },
-                    onLongPress: () {
-                      HapticFeedback.vibrate();
-                      Provider.of<SalawatState>(context, listen: false).resetCount();
-                    },
-                  ),
-                  SizedBox(
-                    width: double.maxFinite,
-                    child: Card(
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: AppStyles.mainBorderMini,
-                        side: BorderSide(
-                          color: appColors.primary,
-                          width: 1,
+                    SizedBox(
+                      width: double.maxFinite,
+                      child: Card(
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: AppStyles.mainBorderMini,
+                          side: BorderSide(
+                            color: appColors.primary,
+                            width: 1,
+                          ),
                         ),
-                      ),
-                      margin: AppStyles.mardingWithoutTopMini,
-                      child: Padding(
-                        padding: AppStyles.mardingTopMicroMini,
+                        margin: AppStyles.mardingWithoutTopMini,
                         child: Padding(
-                          padding: AppStyles.mardingHorizontalMini,
-                          child: Consumer<SalawatState>(
-                            builder: (context, salawatState, _) {
-                              return Text(
-                                salawatState.salawatCount.toString(),
-                                style: AppStyles.mainTextStyleMicroBold,
-                                textAlign: TextAlign.center,
-                                overflow: TextOverflow.ellipsis,
-                              );
-                            },
+                          padding: AppStyles.mardingTopMicroMini,
+                          child: Padding(
+                            padding: AppStyles.mardingHorizontalMini,
+                            child: Consumer<SalawatState>(
+                              builder: (context, salawatState, _) {
+                                return Text(
+                                  salawatState.salawatCount.toString(),
+                                  style: AppStyles.mainTextStyleMicroBold,
+                                  textAlign: TextAlign.center,
+                                  overflow: TextOverflow.ellipsis,
+                                );
+                              },
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

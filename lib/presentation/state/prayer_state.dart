@@ -8,7 +8,7 @@ import 'package:timezone/timezone.dart';
 
 import '../../core/strings/app_string_constraints.dart';
 
-class PrayerState extends ChangeNotifier {
+class PrayerState extends ChangeNotifier with WidgetsBindingObserver {
   late final Box _settingsPrayerTimeBox;
   TZDateTime _dateTime = tz.TZDateTime.from(DateTime.now(), tz.local);
   final Cron _cron = Cron();
@@ -39,6 +39,7 @@ class PrayerState extends ChangeNotifier {
   late int _madhabIndex;
 
   PrayerState(this._settingsPrayerTimeBox) {
+    WidgetsBinding.instance.addObserver(this);
     _fajrAdjustment = _settingsPrayerTimeBox.get(AppStringConstraints.keyFajrAdjustment, defaultValue: 0);
     _sunriseAdjustment = _settingsPrayerTimeBox.get(AppStringConstraints.keySunriseAdjustment, defaultValue: 0);
     _dhuhrAdjustment = _settingsPrayerTimeBox.get(AppStringConstraints.keyDhuhrAdjustment, defaultValue: 0);
@@ -314,7 +315,16 @@ class PrayerState extends ChangeNotifier {
   }
 
   @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      _updateDateTime();
+      notifyListeners();
+    }
+  }
+
+  @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _cron.close();
     super.dispose();
   }
