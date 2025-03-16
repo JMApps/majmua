@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/core/strings/app_string_constraints.dart';
 
 import '../../../core/styles/app_styles.dart';
 
@@ -46,6 +47,7 @@ class RemindHolidayDaysItem extends StatelessWidget {
                       remindDays.toString(),
                       style: TextStyle(
                         color: textColor,
+                        fontFamily: AppStringConstraints.fontGilroyMedium,
                         fontWeight: FontWeight.bold,
                       ),
                       textAlign: TextAlign.center,

@@ -31,7 +31,6 @@ class AppThemes {
         showDragHandle: true,
       ),
       cardTheme: const CardTheme(
-        elevation: 0.5,
         margin: EdgeInsets.zero,
       ),
       tooltipTheme: TooltipThemeData(

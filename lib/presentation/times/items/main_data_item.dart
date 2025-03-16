@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:majmua/core/styles/app_styles.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
@@ -14,30 +15,86 @@ class MainDataItem extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     return Consumer<TimeState>(
       builder: (context, timeState, _) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              '${timeState.getHijriDateTime.hDay} ${appLocale.hijriMonthNames.split(', ')[timeState.getHijriDateTime.hMonth - 1]} ${timeState.getHijriDateTime.hYear}',
-              style: TextStyle(
-                fontFamily: AppStringConstraints.fontGilroyMedium,
-                color: appColors.primary,
-                fontSize: 20.0,
+        return Padding(
+          padding: AppStyles.mardingLeftMini,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Card(
+                color: appColors.surface,
+                margin: AppStyles.mardingTopMini,
+                child: ListTile(
+                  contentPadding: AppStyles.mardingHorizontalMini,
+                  visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
+                  title: Text(
+                    appLocale.hijriMonthNames.split(', ')[timeState.getHijriDateTime.hMonth - 1],
+                    style: TextStyle(
+                      fontFamily: AppStringConstraints.fontGilroyMedium,
+                      color: appColors.primary,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  subtitle: Text(
+                    '${timeState.getHijriDateTime.hYear} ${appLocale.year.toLowerCase()}',
+                    style: TextStyle(
+                      fontFamily: AppStringConstraints.fontGilroy,
+                      color: appColors.primary,
+                    ),
+                  ),
+                  leading: CircleAvatar(
+                    backgroundColor: appColors.primaryContainer,
+                    child: Padding(
+                      padding: AppStyles.mardingTopMicroMini,
+                      child: Text(
+                        '${timeState.getHijriDateTime.hDay}',
+                        style: TextStyle(
+                          color: appColors.primary,
+                          fontFamily: AppStringConstraints.fontGilroyMedium,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ),
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              '${timeState.getDateTime.day} ${appLocale.gregorianMonthNames.split(', ')[timeState.getDateTime.month - 1]} ${timeState.getDateTime.year}',
-              style: TextStyle(
-                fontFamily: AppStringConstraints.fontGilroyMedium,
-                color: appColors.tertiary,
-                fontSize: 20.0,
+              const SizedBox(height: 8),
+              Card(
+                color: appColors.surface,
+                margin: AppStyles.mardingBottomMini,
+                child: ListTile(
+                  contentPadding: AppStyles.mardingHorizontalMini,
+                  visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
+                  title: Text(
+                    appLocale.gregorianMonthNames.split(', ')[timeState.getDateTime.month - 1],
+                    style: TextStyle(
+                      fontFamily: AppStringConstraints.fontGilroyMedium,
+                      color: appColors.tertiary,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  subtitle: Text(
+                    '${timeState.getDateTime.year} ${appLocale.year.toLowerCase()}',
+                    style: TextStyle(
+                      fontFamily: AppStringConstraints.fontGilroy,
+                      color: appColors.tertiary,
+                    ),
+                  ),
+                  leading: CircleAvatar(
+                    backgroundColor: appColors.tertiaryContainer,
+                    child: Padding(
+                      padding: AppStyles.mardingTopMicroMini,
+                      child: Text(
+                        '${timeState.getDateTime.day}',
+                        style: TextStyle(
+                          color: appColors.tertiary,
+                          fontFamily: AppStringConstraints.fontGilroyMedium,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ),
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.center,
-            ),
-          ],
+            ],
+          ),
         );
       },
     );
