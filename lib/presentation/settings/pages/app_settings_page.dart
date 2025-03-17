@@ -36,9 +36,12 @@ class AppSettingsPage extends StatelessWidget {
             const Divider(indent: 16, endIndent: 16),
             const AppWakeLock(),
             const Divider(indent: 16, endIndent: 16),
-            Text(
-              appLocale.otherApps,
-              style: AppStyles.mainTextStyleBold,
+            Padding(
+              padding: AppStyles.mardingHorizontalMini,
+              child: Text(
+                appLocale.otherApps,
+                style: AppStyles.mainTextStyleBold,
+              ),
             ),
             Visibility(
               visible: !isAndroid,
@@ -64,10 +67,15 @@ class AppSettingsPage extends StatelessWidget {
                 link: AppStringConstraints.googlePlayLink,
               ),
             ),
-            const SizedBox(height: 8),
-            Text(
-              appLocale.weSocials,
-              style: AppStyles.mainTextStyleBold,
+            const SizedBox(height: 4),
+            const Divider(indent: 16, endIndent: 16),
+            const SizedBox(height: 4),
+            Padding(
+              padding: AppStyles.mardingHorizontalMini,
+              child: Text(
+                appLocale.weSocials,
+                style: AppStyles.mainTextStyleBold,
+              ),
             ),
             const SizedBox(height: 8),
             const SocialItem(
@@ -87,10 +95,15 @@ class AppSettingsPage extends StatelessWidget {
               iconName: AppStringConstraints.iconUmmaLife,
               link: AppStringConstraints.ummaLifeLink,
             ),
-            const SizedBox(height: 8),
-            Text(
-              appLocale.rateApp,
-              style: AppStyles.mainTextStyleBold,
+            const SizedBox(height: 4),
+            const Divider(indent: 16, endIndent: 16),
+            const SizedBox(height: 4),
+            Padding(
+              padding: AppStyles.mardingHorizontalMini,
+              child: Text(
+                appLocale.rateApp,
+                style: AppStyles.mainTextStyleBold,
+              ),
             ),
             const SizedBox(height: 8),
             SocialItem(
@@ -98,7 +111,9 @@ class AppSettingsPage extends StatelessWidget {
               iconName: AppStringConstraints.iconStar,
               link: isAndroid ? AppStringConstraints.appLinkAndroid : AppStringConstraints.appLinkIOS,
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 4),
+            const Divider(indent: 16, endIndent: 16),
+            const SizedBox(height: 4),
             FilledButton.tonalIcon(
               onPressed: () {
                 Navigator.pop(context);

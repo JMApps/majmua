@@ -16,7 +16,7 @@ class MainButtonsCard extends StatelessWidget {
     final appLocale = AppLocalizations.of(context)!;
     final appColors = Theme.of(context).colorScheme;
     return Card(
-      margin: AppStyles.mardingWithoutBottomMini,
+      margin: AppStyles.mardingHorizontalMini,
       child: Padding(
         padding: AppStyles.mainMardingMini,
         child: Column(

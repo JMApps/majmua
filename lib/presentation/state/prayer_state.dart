@@ -299,6 +299,38 @@ class PrayerState extends ChangeNotifier with WidgetsBindingObserver {
     return firstCheck || secondCheck;
   }
 
+  DateTime get lastFridayHour {
+    return _getWeeklyNotificationTime(DateTime.friday, const Duration(hours: -1));
+  }
+
+  DateTime get weeklyThursday {
+    return _getWeeklyNotificationTime(DateTime.thursday, const Duration(hours: 1));
+  }
+
+  DateTime get weeklyWednesday {
+    return _getWeeklyNotificationTime(DateTime.wednesday, const Duration(hours: 1));
+  }
+
+  DateTime get weeklySunday {
+    return _getWeeklyNotificationTime(DateTime.sunday, const Duration(hours: 1));
+  }
+
+  DateTime _getWeeklyNotificationTime(int targetWeekday, Duration timeOffset) {
+    DateTime nextTargetDay = _dateTime.add(Duration(days: (targetWeekday - _dateTime.weekday + 7) % 7));
+
+    DateTime maghribTime = _prayerTimes.maghrib;
+
+    DateTime targetDayMaghribTime = DateTime(
+      nextTargetDay.year,
+      nextTargetDay.month,
+      nextTargetDay.day,
+      maghribTime.hour,
+      maghribTime.minute,
+    );
+
+    return targetDayMaghribTime.add(timeOffset);
+  }
+
   bool _isWithinRange(DateTime start, DateTime end) {
     return _dateTime.isAfter(start) && _dateTime.isBefore(end);
   }

@@ -58,6 +58,14 @@ class TimeState extends ChangeNotifier {
     return !isRamadan() && !isDhulhijjah() && !isRamadanHoliday() && !isDhulhijjahHoliday();
   }
 
+  DateTime get twelfthyDay {
+    if (_hijriCalendar.isBefore(_hijriCalendar.hYear, _hijriCalendar.hMonth, 12)) {
+      return _hijriCalendar.hijriToGregorian(_hijriCalendar.hYear, _hijriCalendar.hMonth, 12);
+    } else {
+      return _hijriCalendar.hijriToGregorian(_hijriCalendar.hYear, _hijriCalendar.hMonth + 1, 12);
+    }
+  }
+
   Map<String, dynamic> getDaysToRamadan() {
     final DateTime ramadanDate;
     if (_hijriCalendar.isBefore(_hijriCalendar.hYear, 9, 1)) {

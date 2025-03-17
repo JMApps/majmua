@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+import 'package:majmua/core/styles/app_styles.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
@@ -16,8 +17,8 @@ class RestHolidaysContainer extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     return Consumer<TimeState>(
       builder: (context, timeState, _) {
-        return SizedBox(
-          height: 100,
+        return Padding(
+          padding: AppStyles.mardingBottomMini,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
