@@ -29,8 +29,6 @@ class HomePage extends StatelessWidget {
         slivers: [
           SliverAppBar(
             centerTitle: false,
-            stretch: true,
-            floating: true,
             title: const AppTitle(),
             actions: [
               MainIconButton(

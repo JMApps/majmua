@@ -44,6 +44,18 @@ class _QuranPageState extends State<QuranPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge, overlays: []);
+  }
+
+  @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
     final brightness = Theme.of(context).brightness;
@@ -131,7 +143,7 @@ class _QuranPageState extends State<QuranPage> {
                                 children: [
                                   Image.file(
                                     File(snapshot.data!),
-                                    fit: BoxFit.cover,
+                                    fit: BoxFit.contain,
                                     color: textColor,
                                   ),
                                   const SizedBox(height: 32),
