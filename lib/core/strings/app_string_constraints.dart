@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import '../../data/models/adhan_information_model.dart';
 
 class AppStringConstraints {
+  static const String fontSize = 'Размер текста';
+
   static const String fontGilroy = 'Gilroy';
   static const String fontGilroyMedium = 'Gilroy medium';
   static const String fontHafs = 'Hafs';
@@ -129,6 +131,15 @@ class AppStringConstraints {
   static const String key1000CounterValue = 'key_counter_third_value';
   static const String keyCountValueShow = 'key_count_value_show';
   static const String keyFeedback = 'key_counter_vibrate';
+
+  // Library
+  static const String theNamesOf = 'Имена Аллаха';
+  static const String questions200 = '200 вопросов';
+  static const String hadith40 = '40 хадисов';
+  static const String lessonsRamadan = 'Уроки Рамадана';
+  static const String raqaiqQuran = 'Ракъаикъ Къуран';
+  static const String strengthOfWill = 'Сила воли';
+
 
   // Notification IDs
   static const int fajrNotificationID = 395;

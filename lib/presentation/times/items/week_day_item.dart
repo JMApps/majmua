@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+import 'package:majmua/core/styles/app_styles.dart';
 import 'package:provider/provider.dart';
 
 import '../../state/time_state.dart';
@@ -33,15 +34,18 @@ class _WeekDayItemState extends State<WeekDayItem> {
               child: Card(
                 color: isWeekday && timeState.getDateTime.weekday == 5 ? appColors.tertiaryContainer : isWeekday ? appColors.primary : appColors.secondaryContainer,
                 child: Center(
-                  child: Text(
-                    appLocale.week2DayNamesShort.split(', ')[widget.dayNumber - 1],
-                    style: TextStyle(
-                      fontSize: 13.0,
-                      color: isWeekday && timeState.getDateTime.weekday == 5 ? appColors.tertiary : isWeekday ? appColors.primaryContainer : appColors.secondary,
-                      fontWeight: !isWeekday ? FontWeight.normal : FontWeight.bold,
+                  child: Padding(
+                    padding: AppStyles.mardingTopMicroMini,
+                    child: Text(
+                      appLocale.week2DayNamesShort.split(', ')[widget.dayNumber - 1],
+                      style: TextStyle(
+                        fontSize: 13.0,
+                        color: isWeekday && timeState.getDateTime.weekday == 5 ? appColors.tertiary : isWeekday ? appColors.primaryContainer : appColors.secondary,
+                        fontWeight: !isWeekday ? FontWeight.normal : FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ),

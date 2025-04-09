@@ -21,6 +21,7 @@ class LibraryBookItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
+        Navigator.pop(context);
         HapticFeedback.lightImpact();
         Navigator.pushNamed(context, routeName);
       },

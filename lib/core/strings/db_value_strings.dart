@@ -49,4 +49,19 @@ class DBValueStrings {
   static const String dbFortressCounterNumber = 'count_number';
 
   static const String dbFortressSampleBy = 'sample_by';
+
+  // Libraries
+  static const String dbNameOfDatabaseName = 'names_of_database.db';
+  static const int dbNameOfDatabaseVersion = 1;
+  static const String dbNamesOfTableNames = 'Table_of_names';
+  static const String dbNamesOfTableAyahs = 'Table_of_ayahs';
+  static const String dbNamesOfTableOfContents = 'Table_of_contents';
+  static const String dbNameArabic = 'name_arabic';
+  static const String dbNameTranscription = 'name_transcription';
+  static const String dbNameTranslation = 'name_translation';
+
+  static const String dbClarificationTitle = 'clarification_title';
+  static const String dbClarificationContent = 'clarification_content';
+
+  static const String dbSortedBy = 'sorted_by';
 }

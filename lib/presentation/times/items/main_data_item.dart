@@ -29,47 +29,6 @@ class MainDataItem extends StatelessWidget {
                       contentPadding: AppStyles.mardingHorizontalMini,
                       visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
                       title: Text(
-                        appLocale.hijriMonthNames.split(', ')[timeState.getHijriDateTime.hMonth - 1],
-                        style: TextStyle(
-                          fontFamily: AppStringConstraints.fontGilroyMedium,
-                          color: appColors.primary,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      subtitle: Text(
-                        '${timeState.getHijriDateTime.hYear} ${appLocale.year.toLowerCase()}',
-                        style: TextStyle(
-                          fontFamily: AppStringConstraints.fontGilroy,
-                          color: appColors.primary,
-                        ),
-                      ),
-                      leading: CircleAvatar(
-                        backgroundColor: appColors.primaryContainer,
-                        child: Padding(
-                          padding: AppStyles.mardingTopMicroMini,
-                          child: Text(
-                            '${timeState.getHijriDateTime.hDay}',
-                            style: TextStyle(
-                              color: appColors.primary,
-                              fontFamily: AppStringConstraints.fontGilroyMedium,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 8),
-              Expanded(
-                child: Card(
-                  color: appColors.surface,
-                  margin: AppStyles.mardingBottomMini,
-                  child: Center(
-                    child: ListTile(
-                      contentPadding: AppStyles.mardingHorizontalMini,
-                      visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                      title: Text(
                         appLocale.gregorianMonthNames.split(', ')[timeState.getDateTime.month - 1],
                         style: TextStyle(
                           fontFamily: AppStringConstraints.fontGilroyMedium,
@@ -92,6 +51,47 @@ class MainDataItem extends StatelessWidget {
                             '${timeState.getDateTime.day}',
                             style: TextStyle(
                               color: appColors.tertiary,
+                              fontFamily: AppStringConstraints.fontGilroyMedium,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
+              Expanded(
+                child: Card(
+                  color: appColors.surface,
+                  margin: AppStyles.mardingBottomMini,
+                  child: Center(
+                    child: ListTile(
+                      contentPadding: AppStyles.mardingHorizontalMini,
+                      visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
+                      title: Text(
+                        appLocale.hijriMonthNames.split(', ')[timeState.getHijriDateTime.hMonth - 1],
+                        style: TextStyle(
+                          fontFamily: AppStringConstraints.fontGilroyMedium,
+                          color: appColors.primary,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      subtitle: Text(
+                        '${timeState.getHijriDateTime.hYear} ${appLocale.year.toLowerCase()}',
+                        style: TextStyle(
+                          fontFamily: AppStringConstraints.fontGilroy,
+                          color: appColors.primary,
+                        ),
+                      ),
+                      leading: CircleAvatar(
+                        backgroundColor: appColors.primaryContainer,
+                        child: Padding(
+                          padding: AppStyles.mardingTopMicroMini,
+                          child: Text(
+                            '${timeState.getHijriDateTime.hDay}',
+                            style: TextStyle(
+                              color: appColors.primary,
                               fontFamily: AppStringConstraints.fontGilroyMedium,
                             ),
                           ),

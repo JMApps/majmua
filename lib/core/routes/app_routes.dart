@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/presentation/library/pages/names_of_page.dart';
 
 import '../../data/models/args/fortress_chapter_args.dart';
 import '../../data/models/args/quran_args.dart';
@@ -58,5 +59,6 @@ class AppRoutes {
         chapterId: fortressChapterArgs.chapterId,
       );
     },
+    AppRouteNames.pageNamesOfContent: (context, args) => const NamesOfPage(),
   };
 }
