@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../data/models/adhan_information_model.dart';
 
 class AppStringConstraints {
+  static const String library = 'Библиотека';
   static const String fontSize = 'Размер текста';
 
   static const String fontGilroy = 'Gilroy';

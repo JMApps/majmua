@@ -64,4 +64,15 @@ class DBValueStrings {
   static const String dbClarificationContent = 'clarification_content';
 
   static const String dbSortedBy = 'sorted_by';
+
+  static const String dbQuestionsDatabaseName = 'questions_database.db';
+  static const int dbQuestionsDatabaseVersion = 1;
+  static const String dbQuestionsTableName = 'Table_of_questions';
+  static const String dbFootnotesTableName = 'Table_of_footnotes';
+
+  static const String dbQuestionNumber = 'question_number';
+  static const String dbQuestionContent = 'question_content';
+  static const String dbAnswerContent = 'answer_content';
+  static const String dbFootnoteContent = 'footnote_content';
+  static const String dbContentNumber = 'content_number';
 }

@@ -14,7 +14,7 @@ class LibraryButton extends StatelessWidget {
     return Padding(
       padding: AppStyles.mardingWithoutTopMini,
       child: Tooltip(
-        message: 'Библиотека',
+        message: AppStringConstraints.library,
         child: FilledButton.tonalIcon(
           onPressed: () {
             HapticFeedback.lightImpact();
@@ -27,7 +27,7 @@ class LibraryButton extends StatelessWidget {
           iconAlignment: IconAlignment.end,
           icon: const Icon(Icons.menu_book_rounded),
           label: const Text(
-            'Библиотека',
+            AppStringConstraints.library,
             style: TextStyle(
               fontSize: 15.0,
               fontFamily: AppStringConstraints.fontGilroyMedium,
@@ -35,8 +35,7 @@ class LibraryButton extends StatelessWidget {
           ),
           style: ButtonStyle(
             overlayColor: WidgetStateProperty.all(appColors.tertiaryContainer),
-            backgroundColor:
-                WidgetStateProperty.all(appColors.secondaryContainer),
+            backgroundColor: WidgetStateProperty.all(appColors.secondaryContainer),
             side: WidgetStateProperty.all<BorderSide>(
               BorderSide(
                 width: 0,

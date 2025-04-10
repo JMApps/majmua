@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/routes/app_route_names.dart';
-import 'package:majmua/core/strings/app_string_constraints.dart';
 
+import '../../../core/routes/app_route_names.dart';
+import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../items/library_book_item.dart';
 
@@ -26,7 +26,7 @@ class LibraryBottomSheet extends StatelessWidget {
             bookTitle: AppStringConstraints.questions200,
             bookNumber: 2,
             bookColor: Colors.green,
-            routeName: '',
+            routeName: AppRouteNames.pageQuestionsContent,
           ),
           LibraryBookItem(
             bookTitle: AppStringConstraints.hadith40,
