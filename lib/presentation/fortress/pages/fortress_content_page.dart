@@ -103,8 +103,7 @@ class _FortressContentPageState extends State<FortressContentPage> {
                         return AppErrorText(text: snapshot.error.toString());
                       }
                       if (snapshot.hasData) {
-                        final FortressChapterEntity chapterModel =
-                            snapshot.data!;
+                        final FortressChapterEntity chapterModel = snapshot.data!;
                         return Card(
                           margin: EdgeInsets.zero,
                           color: appColors.secondaryContainer,

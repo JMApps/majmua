@@ -58,17 +58,13 @@ class _NamesOfPageState extends State<NamesOfPage> {
             ),
           ],
         ),
-        body: Consumer<NamesOfState>(
-          builder: (context, namesOfState, _) {
-            return PageView.builder(
-              itemCount: 65,
-              itemBuilder: (context, index) {
-                return NamesOfColumn(pageIndex: index + 1);
-              },
-              onPageChanged: (int page) {
-                namesOfState.pageIndex = page;
-              },
-            );
+        body: PageView.builder(
+          itemCount: 65,
+          itemBuilder: (context, index) {
+            return NamesOfColumn(pageIndex: index + 1);
+          },
+          onPageChanged: (int page) {
+            Provider.of<NamesOfState>(context, listen: false).pageIndex = page;
           },
         ),
       ),

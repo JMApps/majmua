@@ -7,6 +7,7 @@ import '../../../core/styles/app_styles.dart';
 import '../../../domain/entities/names_of_ayah_entity.dart';
 import '../../../domain/entities/names_of_content_entity.dart';
 import '../../../domain/entities/names_of_entity.dart';
+import '../../state/book_settings_state.dart';
 import '../../state/library/names_of_state.dart';
 import '../../widgets/app_error_text.dart';
 import 'names_html_data.dart';
@@ -63,39 +64,43 @@ class _NamesOfColumnState extends State<NamesOfColumn> {
                         margin: AppStyles.mardingBottomMini,
                         child: Padding(
                           padding: AppStyles.mainMarding,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Text(
-                                model.nameArabic,
-                                style: TextStyle(
-                                  fontSize: 18.0,
-                                  fontFamily: AppStringConstraints.fontHafs,
-                                  color: appColors.primary,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                model.nameTranscription,
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontFamily: AppStringConstraints.fontGilroy,
-                                  color: appColors.secondary,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                model.nameTranslation,
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontFamily: AppStringConstraints.fontGilroyMedium,
-                                  color: appColors.tertiary,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
+                          child: Consumer<BookSettingsState>(
+                            builder: (context, settings, _) {
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  Text(
+                                    model.nameArabic,
+                                    style: TextStyle(
+                                      fontSize: settings.textSize + 3.0,
+                                      fontFamily: AppStringConstraints.fontHafs,
+                                      color: appColors.primary,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    model.nameTranscription,
+                                    style: TextStyle(
+                                      fontSize: settings.textSize,
+                                      fontFamily: AppStringConstraints.fontGilroy,
+                                      color: appColors.secondary,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    model.nameTranslation,
+                                    style: TextStyle(
+                                      fontSize: settings.textSize,
+                                      fontFamily: AppStringConstraints.fontGilroyMedium,
+                                      color: appColors.tertiary,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              );
+                            },
                           ),
                         ),
                       );
@@ -125,37 +130,41 @@ class _NamesOfColumnState extends State<NamesOfColumn> {
                         color: appColors.primary.withAlpha(25),
                         child: Padding(
                           padding: AppStyles.mainMarding,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Text(
-                                model.ayahArabic,
-                                style: TextStyle(
-                                  fontSize: 18.0,
-                                  fontFamily: AppStringConstraints.fontHafs,
-                                  color: appColors.primary,
-                                ),
-                                textDirection: TextDirection.rtl,
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                model.ayahTranslation,
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontFamily: AppStringConstraints.fontGilroyMedium,
-                                  color: appColors.tertiary,
-                                ),
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                model.ayahSource,
-                                style: TextStyle(
-                                  fontSize: 12.0,
-                                  fontFamily: AppStringConstraints.fontGilroy,
-                                  color: appColors.secondary,
-                                ),
-                              ),
-                            ],
+                          child: Consumer<BookSettingsState>(
+                            builder: (context, settings, _) {
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  Text(
+                                    model.ayahArabic,
+                                    style: TextStyle(
+                                      fontSize: settings.textSize + 3.0,
+                                      fontFamily: AppStringConstraints.fontHafs,
+                                      color: appColors.primary,
+                                    ),
+                                    textDirection: TextDirection.rtl,
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    model.ayahTranslation,
+                                    style: TextStyle(
+                                      fontSize: settings.textSize,
+                                      fontFamily: AppStringConstraints.fontGilroyMedium,
+                                      color: appColors.tertiary,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    model.ayahSource,
+                                    style: TextStyle(
+                                      fontSize: settings.textSize - 6.0,
+                                      fontFamily: AppStringConstraints.fontGilroy,
+                                      color: appColors.secondary,
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
                           ),
                         ),
                       );
@@ -173,13 +182,17 @@ class _NamesOfColumnState extends State<NamesOfColumn> {
                 }
                 if (snapshot.hasData) {
                   final NamesOfContentEntity model = snapshot.data!;
-                  return NamesHtmlData(
-                    htmlData: model.clarificationContent,
-                    footnoteColor: appColors.primary,
-                    font: AppStringConstraints.fontGilroy,
-                    fontSize: 16.0,
-                    textAlign: TextAlign.start,
-                    fontColor: appColors.onSurface,
+                  return Consumer<BookSettingsState>(
+                    builder: (context, settings, _) {
+                      return NamesHtmlData(
+                        htmlData: model.clarificationContent,
+                        footnoteColor: appColors.primary,
+                        font: AppStringConstraints.fontGilroy,
+                        fontSize: settings.textSize,
+                        textAlign: TextAlign.start,
+                        fontColor: appColors.onSurface,
+                      );
+                    },
                   );
                 }
                 return const SizedBox();
