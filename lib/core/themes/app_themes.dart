@@ -44,6 +44,15 @@ class AppThemes {
         ),
         textStyle: AppStyles.mainTextStyleMicro,
       ),
+      filledButtonTheme: FilledButtonThemeData(
+        style: ButtonStyle(
+          shape: WidgetStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        )
+      )
     );
   }
 }

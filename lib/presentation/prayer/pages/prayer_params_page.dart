@@ -29,13 +29,15 @@ class PrayerParamsPage extends StatelessWidget {
               children: [
                 Card(
                   child: Padding(
-                    padding: AppStyles.mardingVerticalMini,
+                    padding: AppStyles.mainMardingMini,
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         PrayerParamsDescriptionText(text: appLocale.selectedCity),
                         Text(
                           '${prayerState.country},',
                           style: AppStyles.mainTextStyle,
+                          textAlign: TextAlign.center,
                         ),
                         Text(
                           prayerState.city,
@@ -44,6 +46,7 @@ class PrayerParamsPage extends StatelessWidget {
                             color: appColors.primary,
                             fontFamily: AppStringConstraints.fontGilroyMedium,
                           ),
+                          textAlign: TextAlign.center,
                         ),
                         PrayerParamsDescriptionText(text: appLocale.coordinates),
                         Text(
@@ -53,6 +56,7 @@ class PrayerParamsPage extends StatelessWidget {
                             color: appColors.tertiary,
                             fontFamily: AppStringConstraints.fontGilroyMedium,
                           ),
+                          textAlign: TextAlign.center,
                         ),
                         Text(
                           prayerState.longitude.toString(),
@@ -60,6 +64,31 @@ class PrayerParamsPage extends StatelessWidget {
                             fontSize: 18.0,
                             color: appColors.tertiary,
                             fontFamily: AppStringConstraints.fontGilroyMedium,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        FilledButton.tonal(
+                          onPressed: () {
+                            Navigator.pushNamed(
+                              context,
+                              AppRouteNames.pageSelectCity,
+                            );
+                          },
+                          child: Text(
+                            appLocale.selectCity,
+                            style: AppStyles.mainTextStyleMini,
+                          ),
+                        ),
+                        FilledButton.tonal(
+                          onPressed: () {
+                            Navigator.pushNamed(
+                              context,
+                              AppRouteNames.pageAddCity,
+                            );
+                          },
+                          child: Text(
+                            appLocale.addCity,
+                            style: AppStyles.mainTextStyleMini,
                           ),
                         ),
                       ],
@@ -199,30 +228,6 @@ class PrayerParamsPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 4),
-                FilledButton.tonal(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      AppRouteNames.pageSelectCity,
-                    );
-                  },
-                  child: Text(
-                    appLocale.selectCity,
-                    style: AppStyles.mainTextStyleMini,
-                  ),
-                ),
-                FilledButton.tonal(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      AppRouteNames.pageAddCity,
-                    );
-                  },
-                  child: Text(
-                    appLocale.addCity,
-                    style: AppStyles.mainTextStyleMini,
-                  ),
-                ),
                 FilledButton.tonal(
                   onPressed: () {
                     Navigator.pushNamed(
