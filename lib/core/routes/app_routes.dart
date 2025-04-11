@@ -5,6 +5,7 @@ import '../../data/models/args/quran_args.dart';
 import '../../presentation/fortress/pages/fortress_content_page.dart';
 import '../../presentation/fortress/pages/main_fortress_page.dart';
 import '../../presentation/gems/pages/gems_page.dart';
+import '../../presentation/library/pages/hadith_page.dart';
 import '../../presentation/library/pages/names_of_page.dart';
 import '../../presentation/library/pages/questions_page.dart';
 import '../../presentation/prayer/pages/add_city_page.dart';
@@ -62,5 +63,6 @@ class AppRoutes {
     },
     AppRouteNames.pageNamesOfContent: (context, args) => const NamesOfPage(),
     AppRouteNames.pageQuestionsContent: (context, args) => const QuestionsPage(),
+    AppRouteNames.pageHadithsContent: (context, args) => const HadithPage(),
   };
 }

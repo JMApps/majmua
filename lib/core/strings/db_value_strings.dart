@@ -75,4 +75,12 @@ class DBValueStrings {
   static const String dbAnswerContent = 'answer_content';
   static const String dbFootnoteContent = 'footnote_content';
   static const String dbContentNumber = 'content_number';
+
+  static const String dbHadithName = 'hadith_database.db';
+  static const int dbHadithVersion = 1;
+  static const String dbHadithTableName = 'Table_of_hadith_ru';
+  static const String dbHadithNumber = 'hadith_number';
+  static const String dbHadithTitle = 'hadith_title';
+  static const String dbHadithArabic = 'hadith_arabic';
+  static const String dbHadithTranslation = 'hadith_translation';
 }

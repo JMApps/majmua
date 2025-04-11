@@ -32,7 +32,7 @@ class LibraryBottomSheet extends StatelessWidget {
             bookTitle: AppStringConstraints.hadith40,
             bookNumber: 3,
             bookColor: Colors.grey,
-            routeName: '',
+            routeName: AppRouteNames.pageHadithsContent,
           ),
           LibraryBookItem(
             bookTitle: AppStringConstraints.lessonsRamadan,
