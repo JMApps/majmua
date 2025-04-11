@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/presentation/library/pages/lessons_page.dart';
 
 import '../../data/models/args/fortress_chapter_args.dart';
 import '../../data/models/args/quran_args.dart';
@@ -64,5 +65,6 @@ class AppRoutes {
     AppRouteNames.pageNamesOfContent: (context, args) => const NamesOfPage(),
     AppRouteNames.pageQuestionsContent: (context, args) => const QuestionsPage(),
     AppRouteNames.pageHadithsContent: (context, args) => const HadithPage(),
+    AppRouteNames.pageLessonsContent: (context, args) => const LessonsPage(),
   };
 }

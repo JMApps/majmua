@@ -83,4 +83,11 @@ class DBValueStrings {
   static const String dbHadithTitle = 'hadith_title';
   static const String dbHadithArabic = 'hadith_arabic';
   static const String dbHadithTranslation = 'hadith_translation';
+
+  static const String dbLessonsName = 'lessons_database.db';
+  static const int dbLessonsVersion = 1;
+  static const String dbLessonsTableName = 'Table_of_lessons_ramadan';
+  static const String dbLessonNumber = 'number_chapter';
+  static const String dbLessonTitle = 'title_chapter';
+  static const String dbLessonContent = 'content_chapter';
 }
