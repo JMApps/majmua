@@ -2,38 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
-import '../../../data/repositories/questions_data_repository.dart';
-import '../../../data/services/databases/questions_database_service.dart';
-import '../../../domain/usecases/questions_use_case.dart';
+import '../../../data/repositories/raqaiq_data_repository.dart';
+import '../../../data/services/databases/raqaiq_database_service.dart';
+import '../../../domain/usecases/raqaiq_use_case.dart';
 import '../../state/book_settings_state.dart';
-import '../../state/library/questions_state.dart';
+import '../../state/library/raqaiq_state.dart';
 import '../../widgets/book_settings.dart';
-import '../widgets/questions_column.dart';
+import '../widgets/raqaiq_column.dart';
 
-class QuestionsPage extends StatefulWidget {
-  const QuestionsPage({super.key});
+class RaqaiqPage extends StatefulWidget {
+  const RaqaiqPage({super.key});
 
   @override
-  State<QuestionsPage> createState() => _QuestionsPageState();
+  State<RaqaiqPage> createState() => _RaqaiqPageState();
 }
 
-class _QuestionsPageState extends State<QuestionsPage> {
-  final QuestionsDatabaseService _questionsDatabaseService = QuestionsDatabaseService();
-
-  @override
-  void dispose() {
-    _questionsDatabaseService.closeDatabase();
-    super.dispose();
-  }
+class _RaqaiqPageState extends State<RaqaiqPage> {
+  final RaqaiqDatabaseService _raqaiqDatabaseService = RaqaiqDatabaseService();
 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => QuestionsState(
-            QuestionsUseCase(
-              QuestionsDataRepository(_questionsDatabaseService),
+          create: (_) => RaqaiqState(
+            RaqaiqUseCase(
+              RaqaiqDataRepository(_raqaiqDatabaseService),
             ),
           ),
         ),
@@ -43,7 +37,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
       ],
       child: Scaffold(
         appBar: AppBar(
-          title: Text(AppStringConstraints.questions200),
+          title: Text(AppStringConstraints.raqaiqQuran),
           actions: [
             Consumer<BookSettingsState>(
               builder: (context, settings, _) {
@@ -67,10 +61,10 @@ class _QuestionsPageState extends State<QuestionsPage> {
         body: PageView.builder(
           itemCount: 65,
           itemBuilder: (context, index) {
-            return QuestionsColumn(pageIndex: index + 1);
+            return RaqaiqColumn(pageIndex: index + 1);
           },
           onPageChanged: (int page) {
-            Provider.of<QuestionsState>(context, listen: false).pageIndex = page;
+            Provider.of<RaqaiqState>(context, listen: false).pageIndex = page;
           },
         ),
       ),

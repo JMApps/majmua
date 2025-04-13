@@ -90,4 +90,10 @@ class DBValueStrings {
   static const String dbLessonNumber = 'number_chapter';
   static const String dbLessonTitle = 'title_chapter';
   static const String dbLessonContent = 'content_chapter';
+
+  static const String dbRaqaiqName = 'raqaiq_database.db';
+  static const int dbRaqaiqVersion = 1;
+  static const String dbRaqaiqTableName = 'Table_of_raqaiq_content';
+  static const String dbRaqaiqTitle = 'chapter_title';
+  static const String dbRaqaiqContent = 'chapter_content';
 }

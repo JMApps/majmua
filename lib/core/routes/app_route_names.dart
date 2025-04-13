@@ -17,4 +17,5 @@ class AppRouteNames {
   static const String pageQuestionsContent = 'page_questions_content';
   static const String pageHadithsContent = 'page_hadiths_content';
   static const String pageLessonsContent = 'page_lessons_content';
+  static const String pageRaqaiqContent = 'page_raqaiq_content';
 }

@@ -6,7 +6,7 @@ import 'package:sqflite/sqflite.dart';
 
 import '../../../core/strings/db_value_strings.dart';
 
-class QuestionsDatabaseService {
+class RaqaiqDatabaseService {
   static Database? _db;
 
   Future<Database> get db async {
@@ -26,11 +26,11 @@ class QuestionsDatabaseService {
 
   Future<Database> initializeDatabase() async {
     final databasePath = await getDatabasesPath();
-    String path = join(databasePath, DBValueStrings.dbQuestionsDatabaseName);
+    String path = join(databasePath, DBValueStrings.dbRaqaiqName);
 
     var database = await openDatabase(path);
 
-    if (await database.getVersion() < DBValueStrings.dbQuestionsDatabaseVersion) {
+    if (await database.getVersion() < DBValueStrings.dbRaqaiqVersion) {
       database.close();
       await deleteDatabase(path);
 
@@ -38,12 +38,12 @@ class QuestionsDatabaseService {
         await Directory(dirname(path)).create(recursive: true);
       } catch (_) {}
 
-      ByteData data = await rootBundle.load(join('assets/databases', DBValueStrings.dbQuestionsDatabaseName));
+      ByteData data = await rootBundle.load(join('assets/databases', DBValueStrings.dbRaqaiqName));
       List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
       await File(path).writeAsBytes(bytes, flush: true);
 
       database = await openDatabase(path);
-      database.setVersion(DBValueStrings.dbQuestionsDatabaseVersion);
+      database.setVersion(DBValueStrings.dbRaqaiqVersion);
     }
 
     return database;

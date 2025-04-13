@@ -44,7 +44,7 @@ class LibraryBottomSheet extends StatelessWidget {
             bookTitle: AppStringConstraints.raqaiqQuran,
             bookNumber: 5,
             bookColor: Colors.amber,
-            routeName: '',
+            routeName: AppRouteNames.pageRaqaiqContent,
           ),
           LibraryBookItem(
             bookTitle: AppStringConstraints.strengthOfWill,

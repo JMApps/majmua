@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/presentation/library/pages/lessons_page.dart';
 
 import '../../data/models/args/fortress_chapter_args.dart';
 import '../../data/models/args/quran_args.dart';
@@ -7,8 +6,10 @@ import '../../presentation/fortress/pages/fortress_content_page.dart';
 import '../../presentation/fortress/pages/main_fortress_page.dart';
 import '../../presentation/gems/pages/gems_page.dart';
 import '../../presentation/library/pages/hadith_page.dart';
+import '../../presentation/library/pages/lessons_page.dart';
 import '../../presentation/library/pages/names_of_page.dart';
 import '../../presentation/library/pages/questions_page.dart';
+import '../../presentation/library/pages/raqaiq_page.dart';
 import '../../presentation/prayer/pages/add_city_page.dart';
 import '../../presentation/quran/pages/quran_page.dart';
 import '../../presentation/settings/pages/app_settings_page.dart';
@@ -66,5 +67,6 @@ class AppRoutes {
     AppRouteNames.pageQuestionsContent: (context, args) => const QuestionsPage(),
     AppRouteNames.pageHadithsContent: (context, args) => const HadithPage(),
     AppRouteNames.pageLessonsContent: (context, args) => const LessonsPage(),
+    AppRouteNames.pageRaqaiqContent: (context, args) => const RaqaiqPage(),
   };
 }
