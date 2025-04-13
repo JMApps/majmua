@@ -9,14 +9,13 @@ import '../services/databases/city_database_service.dart';
 class CityDataRepository implements CityRepository {
   final CityDatabaseService _cityDatabaseService;
 
-  CityDataRepository(this._cityDatabaseService);
+  const CityDataRepository(this._cityDatabaseService);
 
   @override
   Future<List<CityEntity>> getAllCities() async {
     final Database database = await _cityDatabaseService.db;
     final List<Map<String, Object?>> resources = await database.query(DBValueStrings.dbTableOfCities);
-    final List<CityEntity> allCities = resources.isNotEmpty ? resources.map((c) => CityEntity.fromModel(CityModel.fromMap(c))).toList() : [];
-    return allCities;
+    return resources.isNotEmpty ? resources.map((c) => CityEntity.fromModel(CityModel.fromMap(c))).toList() : [];
   }
 
   @override

@@ -13,7 +13,7 @@ import '../services/databases/names_of_database_service.dart';
 class NamesOfDataRepository implements NamesOfRepository {
   final NamesOfDatabaseService _namesOfDatabaseService;
 
-  NamesOfDataRepository(this._namesOfDatabaseService);
+  const NamesOfDataRepository(this._namesOfDatabaseService);
 
   @override
   Future<List<NamesOfEntity>> getAllNames() async {

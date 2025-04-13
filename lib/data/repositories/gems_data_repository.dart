@@ -9,7 +9,7 @@ import '../services/databases/gems_database_service.dart';
 class GemsDataRepository implements GemsRepository {
   final GemsDatabaseService _databaseService;
 
-  GemsDataRepository(this._databaseService);
+  const GemsDataRepository(this._databaseService);
 
   @override
   Future<List<GemEntity>> getAllGems() async {

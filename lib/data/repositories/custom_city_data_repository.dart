@@ -9,14 +9,13 @@ import '../services/databases/custom_city_database_service.dart';
 class CustomCityDataRepository implements CityRepository {
   final CustomCityDatabaseService _customCityDatabaseService;
 
-  CustomCityDataRepository(this._customCityDatabaseService);
+  const CustomCityDataRepository(this._customCityDatabaseService);
 
   @override
   Future<List<CityEntity>> getAllCities() async {
     final Database database = await _customCityDatabaseService.db;
     final List<Map<String, Object?>> resources = await database.query(DBValueStrings.dbTableOfCities, orderBy: '${DBValueStrings.id} DESC');
-    final List<CityEntity> allCities = resources.isNotEmpty ? resources.map((c) => CityEntity.fromModel(CityModel.fromMap(c))).toList() : [];
-    return allCities;
+    return resources.isNotEmpty ? resources.map((c) => CityEntity.fromModel(CityModel.fromMap(c))).toList() : [];
   }
 
   @override

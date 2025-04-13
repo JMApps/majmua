@@ -17,6 +17,13 @@ class CityDatabaseService {
     return _db!;
   }
 
+  Future<void> closeDatabase() async {
+    if (_db != null) {
+      await _db!.close();
+      _db = null;
+    }
+  }
+
   Future<Database> initializeDatabase() async {
     final databasePath = await getDatabasesPath();
     String path = join(databasePath, DBValueStrings.cityDBName);

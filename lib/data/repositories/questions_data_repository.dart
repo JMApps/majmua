@@ -11,7 +11,7 @@ import '../services/databases/questions_database_service.dart';
 class QuestionsDataRepository implements QuestionsRepository {
   final QuestionsDatabaseService _databaseService;
 
-  QuestionsDataRepository(this._databaseService);
+  const QuestionsDataRepository(this._databaseService);
 
   @override
   Future<List<QuestionEntity>> getAllQuestions() async {

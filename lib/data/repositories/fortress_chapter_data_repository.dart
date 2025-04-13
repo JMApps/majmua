@@ -9,14 +9,13 @@ import '../services/databases/fortress_database_service.dart';
 class FortressChapterDataRepository implements FortressChapterRepository {
   final FortressDatabaseService _databaseService;
 
-  FortressChapterDataRepository(this._databaseService);
+  const FortressChapterDataRepository(this._databaseService);
 
   @override
   Future<List<FortressChapterEntity>> getAllChapters({required String tableName}) async {
     final Database database = await _databaseService.db;
     final List<Map<String, Object?>> resources = await database.query(tableName);
-    final List<FortressChapterEntity> allChapters = resources.isNotEmpty ? resources.map((e) => FortressChapterEntity.fromModel(FortressChapterModel.fromMap(e))).toList() : [];
-    return allChapters;
+    return resources.isNotEmpty ? resources.map((e) => FortressChapterEntity.fromModel(FortressChapterModel.fromMap(e))).toList() : [];
   }
 
   @override

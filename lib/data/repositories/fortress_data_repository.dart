@@ -9,7 +9,7 @@ import '../services/databases/fortress_database_service.dart';
 class FortressDataRepository implements FortressRepository {
   final FortressDatabaseService _databaseService;
 
-  FortressDataRepository(this._databaseService);
+  const FortressDataRepository(this._databaseService);
 
   @override
   Future<List<FortressEntity>> getAllSupplications({required String tableName}) async {
