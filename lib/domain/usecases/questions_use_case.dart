@@ -5,7 +5,7 @@ import '../repositories/questions_repository.dart';
 class QuestionsUseCase {
   final QuestionsRepository _questionsRepository;
 
-  QuestionsUseCase(this._questionsRepository);
+  const QuestionsUseCase(this._questionsRepository);
 
   Future<List<QuestionEntity>> getAllQuestions() async {
     try {

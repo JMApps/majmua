@@ -59,4 +59,11 @@ class AppStyles {
   static const mainTextStyleMiniBold = TextStyle(fontSize: 16.0, fontFamily: AppStringConstraints.fontGilroy, fontWeight: FontWeight.bold);
   static const mainTextStyleMicro = TextStyle(fontSize: 14.0, fontFamily: AppStringConstraints.fontGilroy);
   static const mainTextStyleMicroBold = TextStyle(fontSize: 14.0, fontFamily: AppStringConstraints.fontGilroy, fontWeight: FontWeight.bold);
+
+  static const List<TextAlign> fontAligns = [
+    TextAlign.start,
+    TextAlign.center,
+    TextAlign.end,
+    TextAlign.justify,
+  ];
 }

@@ -5,13 +5,13 @@ class CityUseCase {
 
   final CityRepository _cityRepository;
 
-  CityUseCase(this._cityRepository);
+  const CityUseCase(this._cityRepository);
 
   Future<List<CityEntity>> fetchAllCities() async {
     try {
       return await _cityRepository.getAllCities();
     } catch (e) {
-      throw Exception('All cities: ${e.toString()}');
+      throw Exception(e.toString());
     }
   }
 

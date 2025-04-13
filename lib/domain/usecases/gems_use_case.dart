@@ -2,14 +2,13 @@ import '../entities/gem_entity.dart';
 import '../repositories/gems_repository.dart';
 
 class GemsUseCase {
-  GemsUseCase(this._gemsRepository);
+  const GemsUseCase(this._gemsRepository);
 
   final GemsRepository _gemsRepository;
 
   Future<List<GemEntity>> fetchAllGems() async {
     try {
-      final List<GemEntity> allGems = await _gemsRepository.getAllGems();
-      return allGems;
+      return await _gemsRepository.getAllGems();
     } catch (e) {
       throw Exception(e.toString());
     }

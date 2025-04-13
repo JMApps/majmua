@@ -50,7 +50,7 @@ class LibraryBottomSheet extends StatelessWidget {
             bookTitle: AppStringConstraints.strengthOfWill,
             bookNumber: 6,
             bookColor: Colors.indigo,
-            routeName: '',
+            routeName: AppRouteNames.pageStrengthContent,
           ),
         ],
       ),

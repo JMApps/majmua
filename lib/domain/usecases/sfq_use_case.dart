@@ -4,7 +4,7 @@ import '../repositories/sfq_repository.dart';
 class SFQUseCase {
   final SFQRepository _sfqRepository;
 
-  SFQUseCase(this._sfqRepository);
+  const SFQUseCase(this._sfqRepository);
 
   Future<List<SFQEntity>> getAllSupplications({required String tableName}) async {
     try {

@@ -5,13 +5,13 @@ class FortressChapterUseCase {
 
   final FortressChapterRepository _chapterRepository;
 
-  FortressChapterUseCase(this._chapterRepository);
+  const FortressChapterUseCase(this._chapterRepository);
 
   Future<List<FortressChapterEntity>> fetchAllChapters({required String languageCode}) async {
     try {
       return await _chapterRepository.getAllChapters(tableName: languageCode);
     } catch (e) {
-      throw Exception('$e');
+      throw Exception(e.toString());
     }
   }
 
@@ -19,7 +19,7 @@ class FortressChapterUseCase {
     try {
       return await _chapterRepository.getChapterById(tableName: languageCode, chapterId: chapterId);
     } catch (e) {
-      throw Exception('$e');
+      throw Exception(e.toString());
     }
   }
 
@@ -27,7 +27,7 @@ class FortressChapterUseCase {
     try {
       return await _chapterRepository.getFavoriteChapters(tableName: languageCode, ids: ids);
     } catch (e) {
-      throw Exception('$e');
+      throw Exception(e.toString());
     }
   }
 }

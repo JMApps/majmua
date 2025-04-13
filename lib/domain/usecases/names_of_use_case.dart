@@ -6,7 +6,7 @@ import '../repositories/names_of_repository.dart';
 class NamesOfUseCase {
   final NamesOfRepository _namesOfRepository;
 
-  NamesOfUseCase(this._namesOfRepository);
+  const NamesOfUseCase(this._namesOfRepository);
 
   Future<List<NamesOfEntity>> getAllNames() async {
     try {

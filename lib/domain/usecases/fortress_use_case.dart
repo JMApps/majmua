@@ -4,13 +4,13 @@ import '../repositories/fortress_repository.dart';
 class FortressUseCase {
   final FortressRepository _fortressRepository;
 
-  FortressUseCase(this._fortressRepository);
+  const FortressUseCase(this._fortressRepository);
 
   Future<List<FortressEntity>> fetchAllSupplications({required String tableName}) async {
     try {
       return await _fortressRepository.getAllSupplications(tableName: tableName);
     } catch (e) {
-      throw Exception('$e');
+      throw Exception(e.toString());
     }
   }
 
@@ -18,7 +18,7 @@ class FortressUseCase {
     try {
       return await _fortressRepository.getSupplicationsByChapterId(tableName: tableName, chapterId: chapterId);
     } catch (e) {
-      throw Exception('$e');
+      throw Exception(e.toString());
     }
   }
 
@@ -26,7 +26,7 @@ class FortressUseCase {
     try {
       return await _fortressRepository.getSupplicationById(tableName: tableName, supplicationId: supplicationId);
     } catch (e) {
-      throw Exception('$e');
+      throw Exception(e.toString());
     }
   }
 
@@ -34,7 +34,7 @@ class FortressUseCase {
     try {
       return await _fortressRepository.getFavoriteSupplications(tableName: tableName, ids: ids);
     } catch (e) {
-      throw Exception('$e');
+      throw Exception(e.toString());
     }
   }
 }

@@ -96,4 +96,13 @@ class DBValueStrings {
   static const String dbRaqaiqTableName = 'Table_of_raqaiq_content';
   static const String dbRaqaiqTitle = 'chapter_title';
   static const String dbRaqaiqContent = 'chapter_content';
+
+  static const String dbStrengthName = 'strength_database.db';
+  static const int dbStrengthVersion = 1;
+  static const String dbStrengthTableName = 'Table_of_chapters';
+  static const String dbStrengthFootnoteTableName = 'Table_of_footnotes';
+  static const String dbStrengthTitle = 'chapter_title';
+  static const String dbStrengthContent = 'chapter_content';
+
+  static const String dbStrengthFootnote = 'footnote';
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/presentation/widgets/app_title.dart';
 
 import '../../core/routes/app_route_names.dart';
 import '../../core/strings/app_string_constraints.dart';
@@ -15,6 +14,7 @@ import '../ramadan/pages/ramadan_card.dart';
 import '../times/pages/rest_holidays_container.dart';
 import '../times/pages/season_times_container.dart';
 import '../times/pages/week_days_container.dart';
+import '../widgets/app_title.dart';
 import '../widgets/main_icon_button.dart';
 
 class HomePage extends StatelessWidget {

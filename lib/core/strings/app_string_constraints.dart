@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import '../../data/models/adhan_information_model.dart';
 
 class AppStringConstraints {
-  static const String library = 'Библиотека';
-  static const String fontSize = 'Размер текста';
 
   static const String fontGilroy = 'Gilroy';
   static const String fontGilroyMedium = 'Gilroy medium';
@@ -141,6 +139,19 @@ class AppStringConstraints {
   static const String raqaiqQuran = 'Ракъаикъ Къуран';
   static const String strengthOfWill = 'Сила воли';
 
+  static const String library = 'Библиотека';
+  static const String fontSize = 'Размер текста';
+  static const String fontAlign = 'Расположение текста';
+
+  static const String keyBookTextSize = 'key_book_text_size';
+  static const String keyBookAlignIndex = 'key_book_align_index';
+
+  static const List<String> fontAligns = [
+    'По левому краю',
+    'По центру',
+    'По правому краю',
+    'По ширине',
+  ];
 
   // Notification IDs
   static const int fajrNotificationID = 395;

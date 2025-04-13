@@ -4,13 +4,13 @@ import '../repositories/fortress_footnote_repository.dart';
 class FortressFootnoteUseCase {
   final FortressFootnoteRepository _footnoteRepository;
 
-  FortressFootnoteUseCase(this._footnoteRepository);
+  const FortressFootnoteUseCase(this._footnoteRepository);
 
   Future<List<FortressFootnoteEntity>> fetchAllFootnotes({required String languageCode}) async {
     try {
       return await _footnoteRepository.getAllFootnotes(tableName: languageCode);
     } catch (e) {
-      throw Exception('$e');
+      throw Exception(e.toString());
     }
   }
 
@@ -18,7 +18,7 @@ class FortressFootnoteUseCase {
     try {
       return await _footnoteRepository.getFootnoteById(tableName: languageCode, footnoteId: footnoteId);
     } catch (e) {
-      throw Exception('$e');
+      throw Exception(e.toString());
     }
   }
 
@@ -26,7 +26,7 @@ class FortressFootnoteUseCase {
     try {
       return await _footnoteRepository.getFootnoteBySupplication(tableName: tableName, supplicationId: supplicationId);
     } catch (e) {
-      throw Exception('$e');
+      throw Exception(e.toString());
     }
   }
 }
