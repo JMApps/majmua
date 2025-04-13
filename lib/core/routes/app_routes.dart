@@ -10,6 +10,7 @@ import '../../presentation/library/pages/lessons_page.dart';
 import '../../presentation/library/pages/names_of_page.dart';
 import '../../presentation/library/pages/questions_page.dart';
 import '../../presentation/library/pages/raqaiq_page.dart';
+import '../../presentation/library/pages/strength_page.dart';
 import '../../presentation/prayer/pages/add_city_page.dart';
 import '../../presentation/quran/pages/quran_page.dart';
 import '../../presentation/settings/pages/app_settings_page.dart';
@@ -68,5 +69,6 @@ class AppRoutes {
     AppRouteNames.pageHadithsContent: (context, args) => const HadithPage(),
     AppRouteNames.pageLessonsContent: (context, args) => const LessonsPage(),
     AppRouteNames.pageRaqaiqContent: (context, args) => const RaqaiqPage(),
+    AppRouteNames.pageStrengthContent: (context, args) => const StrengthPage(),
   };
 }
