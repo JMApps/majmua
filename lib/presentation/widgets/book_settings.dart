@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/strings/app_string_constraints.dart';
-import 'package:majmua/presentation/state/book_settings_state.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/strings/app_string_constraints.dart';
 import '../../core/styles/app_styles.dart';
+import '../state/book_settings_state.dart';
 
 class BookSettings extends StatelessWidget {
   const BookSettings({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final appColors = Theme.of(context).colorScheme;
     return SingleChildScrollView(
       padding: AppStyles.mardingWithoutTop,
       child: Consumer<BookSettingsState>(
@@ -55,6 +56,42 @@ class BookSettings extends StatelessWidget {
                       }
                     },
                     child: const Icon(Icons.add),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      AppStringConstraints.fontAlign,
+                      style: AppStyles.mainTextStyle,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  DropdownButton<int>(
+                    iconEnabledColor: appColors.primary,
+                    padding: AppStyles.mardingHorizontal,
+                    borderRadius: AppStyles.mainBorder,
+                    elevation: 1,
+                    alignment: Alignment.centerRight,
+                    value: settings.textAlignIndex,
+                    items: List.generate(
+                      AppStyles.fontAlignIcons.length,
+                      (index) => DropdownMenuItem<int>(
+                        value: index,
+                        child: Center(
+                          child: Padding(
+                            padding: AppStyles.mardingRightMini,
+                            child: Icon(AppStyles.fontAlignIcons[index]),
+                          ),
+                        ),
+                      ),
+                    ),
+                    onChanged: (int? index) {
+                      settings.textAlignIndex = index!;
+                    },
+                    underline: Container(),
                   ),
                 ],
               ),

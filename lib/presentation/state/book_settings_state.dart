@@ -25,7 +25,7 @@ class BookSettingsState with ChangeNotifier {
 
   int get textAlignIndex => _textAlignIndex;
 
-  set textAlign(int alignIndex) {
+  set textAlignIndex(int alignIndex) {
     _textAlignIndex = alignIndex;
     _mainSettingsBox.put(AppStringConstraints.keyBookAlignIndex, _textAlignIndex);
     notifyListeners();

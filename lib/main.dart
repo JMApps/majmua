@@ -16,6 +16,7 @@ void main() async {
 
   await Hive.initFlutter();
   await Hive.openBox(AppStringConstraints.keyMainSettings);
+  await Hive.openBox(AppStringConstraints.keyMainScrollStatesBox);
   await Hive.openBox(AppStringConstraints.keyMainAppSettings);
   await Hive.openBox(AppStringConstraints.keySettingsPrayerTimeBox);
   await Hive.openBox(AppStringConstraints.keyMainCounter);

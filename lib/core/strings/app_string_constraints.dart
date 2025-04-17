@@ -143,6 +143,9 @@ class AppStringConstraints {
   static const String fontSize = 'Размер текста';
   static const String fontAlign = 'Расположение текста';
 
+  static const String keyMainScrollStatesBox = 'key_main_scroll_states_box';
+  static const String keyBookScrollState = 'key_book_scroll_state_';
+  static const String keyLastBookPage = 'key_last_book_page_';
   static const String keyBookTextSize = 'key_book_text_size';
   static const String keyBookAlignIndex = 'key_book_align_index';
 

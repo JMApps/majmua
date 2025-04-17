@@ -66,4 +66,11 @@ class AppStyles {
     TextAlign.end,
     TextAlign.justify,
   ];
+
+  static const List<IconData> fontAlignIcons = [
+    Icons.format_align_left_rounded,
+    Icons.format_align_center_rounded,
+    Icons.format_align_right_rounded,
+    Icons.format_align_justify_rounded,
+  ];
 }
