@@ -20,6 +20,17 @@ class NotificationService {
 
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
+  final AndroidNotificationDetails _prayerAndroidDetails = const AndroidNotificationDetails(
+    'Prayer notifications',
+    'SM notifications',
+    channelDescription: 'Shelf of the muslim prayer notifications',
+    icon: _logoName,
+    importance: Importance.max,
+    priority: Priority.max,
+    playSound: true,
+    sound: RawResourceAndroidNotificationSound('adhan'),
+  );
+
   final AndroidNotificationDetails _androidTimeNotificationDetails = const AndroidNotificationDetails(
     'Shelf muslim daily notifications',
     'Shelf muslim notifications',
@@ -27,6 +38,11 @@ class NotificationService {
     icon: _logoName,
     importance: Importance.max,
     priority: Priority.max,
+  );
+
+  final DarwinNotificationDetails _prayerIOSDetails = const DarwinNotificationDetails(
+    presentSound: true,
+    sound: 'adhan.caf',
   );
 
   final DarwinNotificationDetails _iOSTimeNotificationDetails = const DarwinNotificationDetails();
@@ -49,6 +65,28 @@ class NotificationService {
     await _flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
     );
+  }
+
+  Future<void> prayerNotification({required int id, required String title, required String body, required DateTime dateTime}) async {
+    TZDateTime tzDateNotification = tz.TZDateTime.from(dateTime, tz.local);
+    try {
+      await _flutterLocalNotificationsPlugin.zonedSchedule(
+        id,
+        title,
+        body,
+        tzDateNotification,
+        NotificationDetails(
+          android: _prayerAndroidDetails,
+          iOS: _prayerIOSDetails,
+        ),
+        androidScheduleMode: AndroidScheduleMode.alarmClock,
+        matchDateTimeComponents: DateTimeComponents.time,
+      );
+    } on PlatformException catch (e) {
+      debugPrint("Error scheduling notification: $e");
+    } catch (e) {
+      debugPrint("Unknown error: $e");
+    }
   }
 
   Future<void> dailyNotification({required int id, required String title, required String body, required DateTime dateTime}) async {

@@ -32,15 +32,15 @@ class QuestionsHtmlData extends StatelessWidget {
           data: htmlData,
           style: {
             '#': Style(
-                margin: Margins.zero,
-                padding: HtmlPaddings.zero,
-                fontFamily: font,
-                fontSize: FontSize(fontSize),
-                textAlign: textAlign,
-                color: fontColor
+              margin: Margins.zero,
+              padding: HtmlPaddings.zero,
+              fontFamily: font,
+              fontSize: FontSize(fontSize),
+              textAlign: textAlign,
+              color: fontColor,
             ),
             'small': Style(
-                fontSize: FontSize(12.0)
+              fontSize: FontSize(12.0),
             ),
             'a': Style(
               margin: Margins.zero,

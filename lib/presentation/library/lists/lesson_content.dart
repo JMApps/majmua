@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -41,40 +44,45 @@ class _LessonContentState extends State<LessonContent> {
         }
         if (snapshot.hasData) {
           final LessonsEntity model = snapshot.data!;
-          return SingleChildScrollView(
-            padding: AppStyles.mainMardingMini,
-            child: Consumer<BookSettingsState>(
-              builder: (context, settings, _) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Card(
-                      color: appColors.secondary.withAlpha(35),
-                      elevation: 0,
-                      child: Padding(
-                        padding: AppStyles.mainMarding,
-                        child: Text(
-                          '${model.lessonNumber.toUpperCase()}\n${model.lessonTitle}',
-                          style: TextStyle(
-                            fontSize: settings.textSize,
-                            fontFamily: AppStringConstraints.fontGilroyMedium,
+          return SelectableRegion(
+            selectionControls: Platform.isAndroid ? MaterialTextSelectionControls() : CupertinoTextSelectionControls(),
+            child: Scrollbar(
+              child: SingleChildScrollView(
+                padding: AppStyles.mainMardingMini,
+                child: Consumer<BookSettingsState>(
+                  builder: (context, settings, _) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Card(
+                          color: appColors.secondary.withAlpha(35),
+                          elevation: 0,
+                          child: Padding(
+                            padding: AppStyles.mainMarding,
+                            child: Text(
+                              '${model.lessonNumber.toUpperCase()}\n${model.lessonTitle}',
+                              style: TextStyle(
+                                fontSize: settings.textSize,
+                                fontFamily: AppStringConstraints.fontGilroyMedium,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
                           ),
-                          textAlign: TextAlign.center,
                         ),
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    LessonsHtmlData(
-                      htmlData: model.lessonContent,
-                      footnoteColor: appColors.primary,
-                      font: AppStringConstraints.fontGilroy,
-                      fontSize: settings.textSize,
-                      textAlign: TextAlign.justify,
-                      fontColor: appColors.onSurface,
-                    ),
-                  ],
-                );
-              },
+                        const SizedBox(height: 16),
+                        LessonsHtmlData(
+                          htmlData: model.lessonContent,
+                          footnoteColor: appColors.primary,
+                          font: AppStringConstraints.fontGilroy,
+                          fontSize: settings.textSize,
+                          textAlign: AppStyles.fontAligns[settings.textAlignIndex],
+                          fontColor: appColors.onSurface,
+                        ),
+                      ],
+                    );
+                  },
+                ),
+              ),
             ),
           );
         }

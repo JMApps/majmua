@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
+import '../../../core/styles/app_styles.dart';
 
 class LessonsHtmlData extends StatelessWidget {
   const LessonsHtmlData({

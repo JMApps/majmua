@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/presentation/library/lists/strength_chapters_list.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/routes/app_route_names.dart';
@@ -9,6 +8,7 @@ import '../../../data/services/databases/strength_database_service.dart';
 import '../../../domain/usecases/strength_use_case.dart';
 import '../../state/book_settings_state.dart';
 import '../../state/library/strength_state.dart';
+import '../lists/strength_chapters_list.dart';
 import '../lists/strength_content.dart';
 import '../widgets/book_settings_btn.dart';
 

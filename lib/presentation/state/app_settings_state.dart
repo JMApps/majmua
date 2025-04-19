@@ -41,19 +41,12 @@ class AppSettingsState extends ChangeNotifier {
   }
 
   ThemeMode get appThemeMode {
-    late final ThemeMode themeMode;
     switch (_appThemeModeIndex) {
-      case 0:
-        themeMode = ThemeMode.light;
-        break;
-      case 1:
-        themeMode = ThemeMode.dark;
-        break;
-      case 2:
-        themeMode = ThemeMode.system;
-        break;
+      case 0: return ThemeMode.light;
+      case 1: return ThemeMode.dark;
+      case 2: return ThemeMode.system;
+      default: return ThemeMode.system;
     }
-    return themeMode;
   }
 
   Color _appThemeColor = Colors.indigo;

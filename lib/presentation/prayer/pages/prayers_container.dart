@@ -35,7 +35,7 @@ class _PrayersContainerState extends State<PrayersContainer> {
     return Consumer3<NotificationsState, PrayerState, TimeState>(
       builder: (context, notification, prayer, time, _) {
         if (notification.isFajrNotification) {
-          _notificationService.dailyNotification(id: AppStringConstraints.fajrNotificationID, title: appLocale.prayerTime, body: appLocale.fajr, dateTime: prayer.prayerTimes.fajr);
+          _notificationService.prayerNotification(id: AppStringConstraints.fajrNotificationID, title: appLocale.prayerTime, body: appLocale.fajr, dateTime: prayer.prayerTimes.fajr);
         } else {
           _notificationService.cancelNotificationWithId(AppStringConstraints.fajrNotificationID);
         }
@@ -45,22 +45,22 @@ class _PrayersContainerState extends State<PrayersContainer> {
           _notificationService.cancelNotificationWithId(AppStringConstraints.sunriseNotificationID);
         }
         if (notification.isDhuhrNotification) {
-          _notificationService.dailyNotification(id: AppStringConstraints.dhuhrNotificationID, title: appLocale.prayerTime, body: appLocale.dhuhr, dateTime: prayer.prayerTimes.dhuhr);
+          _notificationService.prayerNotification(id: AppStringConstraints.dhuhrNotificationID, title: appLocale.prayerTime, body: appLocale.dhuhr, dateTime: prayer.prayerTimes.dhuhr);
         } else {
           _notificationService.cancelNotificationWithId(AppStringConstraints.dhuhrNotificationID);
         }
         if (notification.isAsrNotification) {
-          _notificationService.dailyNotification(id: AppStringConstraints.asrNotificationID, title: appLocale.prayerTime, body: appLocale.asr, dateTime: prayer.prayerTimes.asr);
+          _notificationService.prayerNotification(id: AppStringConstraints.asrNotificationID, title: appLocale.prayerTime, body: appLocale.asr, dateTime: prayer.prayerTimes.asr);
         } else {
           _notificationService.cancelNotificationWithId(AppStringConstraints.asrNotificationID);
         }
         if (notification.isMaghribNotification) {
-          _notificationService.dailyNotification(id: AppStringConstraints.maghribNotificationID, title: appLocale.prayerTime, body: appLocale.maghrib, dateTime: prayer.prayerTimes.maghrib);
+          _notificationService.prayerNotification(id: AppStringConstraints.maghribNotificationID, title: appLocale.prayerTime, body: appLocale.maghrib, dateTime: prayer.prayerTimes.maghrib);
         } else {
           _notificationService.cancelNotificationWithId(AppStringConstraints.maghribNotificationID);
         }
         if (notification.isIshaNotification) {
-          _notificationService.dailyNotification(id: AppStringConstraints.ishaNotificationID, title: appLocale.prayerTime, body: appLocale.isha, dateTime: prayer.prayerTimes.isha);
+          _notificationService.prayerNotification(id: AppStringConstraints.ishaNotificationID, title: appLocale.prayerTime, body: appLocale.isha, dateTime: prayer.prayerTimes.isha);
         } else {
           _notificationService.cancelNotificationWithId(AppStringConstraints.ishaNotificationID);
         }

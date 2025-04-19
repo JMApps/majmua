@@ -25,7 +25,10 @@ class LibraryButton extends StatelessWidget {
             );
           },
           iconAlignment: IconAlignment.end,
-          icon: const Icon(Icons.menu_book_rounded),
+          icon: Icon(
+            Icons.menu_book_rounded,
+            color: appColors.primary,
+          ),
           label: const Text(
             AppStringConstraints.library,
             style: TextStyle(
@@ -36,12 +39,6 @@ class LibraryButton extends StatelessWidget {
           style: ButtonStyle(
             overlayColor: WidgetStateProperty.all(appColors.tertiaryContainer),
             backgroundColor: WidgetStateProperty.all(appColors.secondaryContainer),
-            side: WidgetStateProperty.all<BorderSide>(
-              BorderSide(
-                width: 0,
-                color: appColors.secondaryContainer,
-              ),
-            ),
             shape: WidgetStateProperty.all(AppStyles.mainShapeMini),
           ),
         ),

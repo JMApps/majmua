@@ -10,7 +10,7 @@ class SalawatState extends ChangeNotifier {
     _salawatCount = _appCounterBox.get(AppStringConstraints.keySalawatCount, defaultValue: 0);
   }
 
-  int _salawatCount = 0;
+  late int _salawatCount;
 
   int get salawatCount => _salawatCount;
 

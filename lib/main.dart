@@ -22,7 +22,7 @@ void main() async {
   await Hive.openBox(AppStringConstraints.keyMainCounter);
   await Hive.openBox(AppStringConstraints.keyWeeklySalawatSettings);
 
-  NotificationService notificationService = NotificationService();
+  final NotificationService notificationService = NotificationService();
   await notificationService.setupNotification();
 
   runApp(

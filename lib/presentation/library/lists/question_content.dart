@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -41,40 +44,45 @@ class _QuestionContentState extends State<QuestionContent> {
         }
         if (snapshot.hasData) {
           final QuestionEntity model = snapshot.data!;
-          return SingleChildScrollView(
-            padding: AppStyles.mainMardingMini,
-            child: Consumer<BookSettingsState>(
-              builder: (context, settings, _) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Card(
-                      color: appColors.secondary.withAlpha(35),
-                      elevation: 0,
-                      child: Padding(
-                        padding: AppStyles.mainMarding,
-                        child: QuestionsHtmlData(
-                          htmlData: '<b>${model.questionNumber}</b><br/>${model.questionContent}',
+          return SelectableRegion(
+            selectionControls: Platform.isAndroid ? MaterialTextSelectionControls() : CupertinoTextSelectionControls(),
+            child: Scrollbar(
+              child: SingleChildScrollView(
+                padding: AppStyles.mainMardingMini,
+                child: Consumer<BookSettingsState>(
+                  builder: (context, settings, _) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Card(
+                          color: appColors.secondary.withAlpha(35),
+                          elevation: 0,
+                          child: Padding(
+                            padding: AppStyles.mainMarding,
+                            child: QuestionsHtmlData(
+                              htmlData: '<b>${model.questionNumber}</b><br/>${model.questionContent}',
+                              footnoteColor: appColors.primary,
+                              font: AppStringConstraints.fontGilroyMedium,
+                              fontSize: settings.textSize,
+                              textAlign: TextAlign.center,
+                              fontColor: appColors.onSurface,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        QuestionsHtmlData(
+                          htmlData: model.answerContent,
                           footnoteColor: appColors.primary,
                           font: AppStringConstraints.fontGilroyMedium,
                           fontSize: settings.textSize,
-                          textAlign: TextAlign.center,
+                          textAlign: AppStyles.fontAligns[settings.textAlignIndex],
                           fontColor: appColors.onSurface,
                         ),
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    QuestionsHtmlData(
-                      htmlData: model.answerContent,
-                      footnoteColor: appColors.primary,
-                      font: AppStringConstraints.fontGilroyMedium,
-                      fontSize: settings.textSize,
-                      textAlign: TextAlign.center,
-                      fontColor: appColors.onSurface,
-                    ),
-                  ],
-                );
-              },
+                      ],
+                    );
+                  },
+                ),
+              ),
             ),
           );
         }
