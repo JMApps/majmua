@@ -100,10 +100,6 @@ class TimeState extends ChangeNotifier {
     };
   }
 
-  bool get isDhulHijjahHoliday {
-    return _hijriCalendar.hMonth == 12 && _hijriCalendar.hDay >= 10 && _hijriCalendar.hDay <= 13;
-  }
-
   Map<String, dynamic> restPeriodTimes({required TimePeriod timePeriod}) {
     final Map<String, dynamic> timePeriodData;
 
@@ -155,14 +151,14 @@ class TimeState extends ChangeNotifier {
     final DateTime endDateTime = duration != null ? startPeriod.add(duration) : endPeriod!;
     final int totalMinutes = endDateTime.difference(startPeriod).inMinutes;
     final int remainingTimeInMinutes = _dateTime.difference(startPeriod).inMinutes;
-    final Duration remainingTaskTime = endDateTime.difference(_dateTime);
-    final double elapsedTaskPercentage = (remainingTimeInMinutes / totalMinutes) * 100.0;
+    final Duration remainingTime = endDateTime.difference(_dateTime);
+    final double elapsedPercentage = (remainingTimeInMinutes / totalMinutes) * 100.0;
 
     return {
       AppStringConstraints.startPeriod: startPeriod,
       AppStringConstraints.endPeriod: endDateTime.add(_minusMicro),
-      AppStringConstraints.remainingDateTime: remainingTaskTime,
-      AppStringConstraints.elapsedPercentage: elapsedTaskPercentage,
+      AppStringConstraints.remainingDateTime: remainingTime,
+      AppStringConstraints.elapsedPercentage: elapsedPercentage,
     };
   }
 
@@ -199,13 +195,10 @@ class TimeState extends ChangeNotifier {
       AppStringConstraints.endSeason: endSeason,
     };
   }
-
+  
   int daysInMonth(int year, int month) {
-    const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    if (month == 2 && isLeapYear(year)) {
-      return 29;
-    }
-    return daysInMonth[month - 1];
+    if (month == 2) return isLeapYear(year) ? 29 : 28;
+    return [31, -1, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month - 1];
   }
 
   bool isLeapYear(int year) {
