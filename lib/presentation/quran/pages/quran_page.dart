@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -46,7 +47,8 @@ class _QuranPageState extends State<QuranPage> {
   @override
   void initState() {
     super.initState();
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: [SystemUiOverlay.bottom]);
   }
 
   @override
@@ -57,6 +59,7 @@ class _QuranPageState extends State<QuranPage> {
 
   @override
   Widget build(BuildContext context) {
+    final appLocale = AppLocalizations.of(context)!;
     final appColors = Theme.of(context).colorScheme;
     final brightness = Theme.of(context).brightness;
     return MultiProvider(
@@ -75,11 +78,11 @@ class _QuranPageState extends State<QuranPage> {
             brightness == Brightness.light ? surahState.getWarmthValue / 100 : surahState.getWarmthValue / 200,
           );
           return GestureDetector(
-            onTap: () => surahState.setAppBarIsVisible = !surahState.getAppBarIsVisible,
+            onTap: () =>
+                surahState.setAppBarIsVisible = !surahState.getAppBarIsVisible,
             child: SafeArea(
               top: false,
               bottom: false,
-              left: false,
               child: Scaffold(
                 backgroundColor: yellowTint,
                 appBar: PreferredSize(
@@ -99,6 +102,7 @@ class _QuranPageState extends State<QuranPage> {
                               curve: Curves.easeIn,
                             );
                           },
+                          tooltip: appLocale.reset,
                           padding: EdgeInsets.zero,
                           visualDensity: VisualDensity.compact,
                           icon: const Icon(Icons.replay_circle_filled_rounded),
@@ -106,15 +110,16 @@ class _QuranPageState extends State<QuranPage> {
                         IconButton(
                           onPressed: () {
                             showModalBottomSheet(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return ChangeNotifierProvider.value(
-                                    value: surahState,
-                                    child: const SurahSettingsBottomSheet(),
-                                  );
-                                },
+                              context: context,
+                              builder: (BuildContext context) {
+                                return ChangeNotifierProvider.value(
+                                  value: surahState,
+                                  child: const SurahSettingsBottomSheet(),
+                                );
+                              },
                             );
                           },
+                          tooltip: appLocale.settings,
                           padding: EdgeInsets.zero,
                           visualDensity: VisualDensity.compact,
                           icon: const Icon(Icons.settings),
@@ -132,9 +137,7 @@ class _QuranPageState extends State<QuranPage> {
                       future: _cacheImage(widget.listPages[index]),
                       builder: (context, snapshot) {
                         if (snapshot.hasError) {
-                          return Center(
-                            child: AppErrorText(text: snapshot.error.toString()),
-                          );
+                          return AppErrorText(text: snapshot.error.toString());
                         }
                         if (snapshot.hasData) {
                           return Center(
@@ -143,7 +146,7 @@ class _QuranPageState extends State<QuranPage> {
                                 children: [
                                   Image.file(
                                     File(snapshot.data!),
-                                    fit: BoxFit.contain,
+                                    fit: BoxFit.cover,
                                     color: textColor,
                                   ),
                                   const SizedBox(height: 32),

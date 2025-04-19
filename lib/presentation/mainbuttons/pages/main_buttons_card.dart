@@ -19,77 +19,72 @@ class MainButtonsCard extends StatelessWidget {
       margin: AppStyles.mardingHorizontalMini,
       child: Padding(
         padding: AppStyles.mainMardingMini,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: Row(
           children: [
-            Row(
-              children: [
-                MainButtonItem(
-                  onTap: () {
-                    HapticFeedback.lightImpact();
-                    showModalBottomSheet(
-                      context: context,
-                      isScrollControlled: true,
-                      builder: (context) => const SurahsBottomSheet(),
-                    );
-                  },
-                  imageName: AppStringConstraints.iconQuran,
-                  title: appLocale.quran,
-                  buttonColor: appColors.secondaryContainer,
-                ),
-                const SizedBox(width: 8),
-                MainButtonItem(
-                  onTap: () {
-                    HapticFeedback.lightImpact();
-                    Navigator.pushNamed(
-                      context,
-                      AppRouteNames.pageSFQ,
-                    );
-                  },
-                  imageName: AppStringConstraints.iconSQuran,
-                  title: appLocale.sQuran,
-                  buttonColor: appColors.secondaryContainer,
-                ),
-                const SizedBox(width: 8),
-                MainButtonItem(
-                  onTap: () {
-                    HapticFeedback.lightImpact();
-                    Navigator.pushNamed(
-                      context,
-                      AppRouteNames.pageFortress,
-                    );
-                  },
-                  imageName: AppStringConstraints.iconFortress,
-                  title: appLocale.fortress,
-                  buttonColor: appColors.secondaryContainer,
-                ),
-                const SizedBox(width: 8),
-                MainButtonItem(
-                  onTap: () {
-                    HapticFeedback.lightImpact();
-                    Navigator.pushNamed(
-                      context,
-                      AppRouteNames.pageGems,
-                    );
-                  },
-                  imageName: AppStringConstraints.iconGems,
-                  title: appLocale.gems,
-                  buttonColor: appColors.secondaryContainer,
-                ),
-                const SizedBox(width: 8),
-                MainButtonItem(
-                  onTap: () {
-                    HapticFeedback.lightImpact();
-                    Navigator.pushNamed(
-                      context,
-                      AppRouteNames.pageCounter,
-                    );
-                  },
-                  imageName: AppStringConstraints.iconCounter,
-                  title: appLocale.counter,
-                  buttonColor: appColors.secondaryContainer,
-                ),
-              ],
+            MainButtonItem(
+              onTap: () {
+                HapticFeedback.lightImpact();
+                showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true,
+                  builder: (context) => const SurahsBottomSheet(),
+                );
+              },
+              imageName: AppStringConstraints.iconQuran,
+              title: appLocale.quran,
+              buttonColor: appColors.secondaryContainer,
+            ),
+            const SizedBox(width: 8),
+            MainButtonItem(
+              onTap: () {
+                HapticFeedback.lightImpact();
+                Navigator.pushNamed(
+                  context,
+                  AppRouteNames.pageSFQ,
+                );
+              },
+              imageName: AppStringConstraints.iconSQuran,
+              title: appLocale.sQuran,
+              buttonColor: appColors.secondaryContainer,
+            ),
+            const SizedBox(width: 8),
+            MainButtonItem(
+              onTap: () {
+                HapticFeedback.lightImpact();
+                Navigator.pushNamed(
+                  context,
+                  AppRouteNames.pageFortress,
+                );
+              },
+              imageName: AppStringConstraints.iconFortress,
+              title: appLocale.fortress,
+              buttonColor: appColors.secondaryContainer,
+            ),
+            const SizedBox(width: 8),
+            MainButtonItem(
+              onTap: () {
+                HapticFeedback.lightImpact();
+                Navigator.pushNamed(
+                  context,
+                  AppRouteNames.pageGems,
+                );
+              },
+              imageName: AppStringConstraints.iconGems,
+              title: appLocale.gems,
+              buttonColor: appColors.secondaryContainer,
+            ),
+            const SizedBox(width: 8),
+            MainButtonItem(
+              onTap: () {
+                HapticFeedback.lightImpact();
+                Navigator.pushNamed(
+                  context,
+                  AppRouteNames.pageCounter,
+                );
+              },
+              imageName: AppStringConstraints.iconCounter,
+              title: appLocale.counter,
+              buttonColor: appColors.secondaryContainer,
             ),
           ],
         ),

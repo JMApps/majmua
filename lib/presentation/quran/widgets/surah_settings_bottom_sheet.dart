@@ -21,14 +21,20 @@ class SurahSettingsBottomSheet extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(appLocale.backgroundWarmth),
+              Text(
+                appLocale.backgroundWarmth,
+                style: AppStyles.mainTextStyleMini,
+              ),
               Slider.adaptive(
                 value: surahState.getWarmthValue,
                 min: 0.0,
                 max: 35.0,
                 onChanged: (value) => surahState.setWarmthValue = value,
               ),
-              Text(appLocale.textContrast),
+              Text(
+                appLocale.textContrast,
+                style: AppStyles.mainTextStyleMini,
+              ),
               Slider.adaptive(
                 value: surahState.getFontContrast,
                 min: 50.0,

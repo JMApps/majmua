@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/routes/app_route_names.dart';
-import 'package:majmua/data/models/args/quran_args.dart';
 
+import '../../../core/routes/app_route_names.dart';
 import '../../../core/styles/app_styles.dart';
+import '../../../data/models/args/quran_args.dart';
 
 class SurahItem extends StatelessWidget {
   const SurahItem({
