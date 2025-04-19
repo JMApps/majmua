@@ -10,10 +10,10 @@ import '../../../domain/entities/names_of_entity.dart';
 import '../../state/book_settings_state.dart';
 import '../../state/library/names_of_state.dart';
 import '../../widgets/app_error_text.dart';
-import 'names_html_data.dart';
+import '../widgets/names_html_data.dart';
 
-class NamesOfColumn extends StatefulWidget {
-  const NamesOfColumn({
+class NamesOfContent extends StatefulWidget {
+  const NamesOfContent({
     super.key,
     required this.pageIndex,
   });
@@ -21,10 +21,10 @@ class NamesOfColumn extends StatefulWidget {
   final int pageIndex;
 
   @override
-  State<NamesOfColumn> createState() => _NamesOfColumnState();
+  State<NamesOfContent> createState() => _NamesOfContentState();
 }
 
-class _NamesOfColumnState extends State<NamesOfColumn> {
+class _NamesOfContentState extends State<NamesOfContent> {
   late final Future<List<NamesOfEntity>> _futureNames;
   late final Future<List<NamesOfAyahEntity>> _futureAyahs;
   late final Future<NamesOfContentEntity> _futureContent;

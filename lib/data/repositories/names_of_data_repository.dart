@@ -46,4 +46,12 @@ class NamesOfDataRepository implements NamesOfRepository {
     final NamesOfContentEntity? contentById = resources.isNotEmpty ? NamesOfContentEntity.fromModel(NamesOfContentModel.fromMap(resources.first)) : null;
     return contentById!;
   }
+
+  @override
+  Future<List<NamesOfContentEntity>> getAllContents() async {
+    final Database database = await _namesOfDatabaseService.db;
+    final List<Map<String, Object?>> resources = await database.query(DBValueStrings.dbNamesOfTableOfContents);
+    final List<NamesOfContentEntity> allContents = resources.isNotEmpty ? resources.map((c) => NamesOfContentEntity.fromModel(NamesOfContentModel.fromMap(c))).toList() : [];
+    return allContents;
+  }
 }

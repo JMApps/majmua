@@ -3,14 +3,14 @@ import 'package:provider/provider.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
-import '../../../domain/entities/lessons_entity.dart';
+import '../../../domain/entities/hadith_entity.dart';
 import '../../state/book_settings_state.dart';
-import '../../state/library/lessons_state.dart';
+import '../../state/library/hadith_state.dart';
 import '../../widgets/app_error_text.dart';
-import 'lessons_html_data.dart';
+import '../widgets/hadiths_html_data.dart';
 
-class LessonsColumn extends StatefulWidget {
-  const LessonsColumn({
+class HadithContent extends StatefulWidget {
+  const HadithContent({
     super.key,
     required this.pageIndex,
   });
@@ -18,29 +18,29 @@ class LessonsColumn extends StatefulWidget {
   final int pageIndex;
 
   @override
-  State<LessonsColumn> createState() => _LessonsColumnState();
+  State<HadithContent> createState() => _HadithContentState();
 }
 
-class _LessonsColumnState extends State<LessonsColumn> {
-  late final Future<LessonsEntity> _futureLessons;
+class _HadithContentState extends State<HadithContent> {
+  late final Future<HadithEntity> _futureHadiths;
 
   @override
   void initState() {
     super.initState();
-    _futureLessons = Provider.of<LessonsState>(context, listen: false).getLessonById(lessonId: widget.pageIndex);
+    _futureHadiths = Provider.of<HadithsState>(context, listen: false).getHadithById(hadithId: widget.pageIndex);
   }
 
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
-    return FutureBuilder<LessonsEntity>(
-      future: _futureLessons,
+    return FutureBuilder<HadithEntity>(
+      future: _futureHadiths,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return AppErrorText(text: snapshot.error.toString());
         }
         if (snapshot.hasData) {
-          final LessonsEntity model = snapshot.data!;
+          final HadithEntity model = snapshot.data!;
           return SingleChildScrollView(
             padding: AppStyles.mainMardingMini,
             child: Consumer<BookSettingsState>(
@@ -54,7 +54,7 @@ class _LessonsColumnState extends State<LessonsColumn> {
                       child: Padding(
                         padding: AppStyles.mainMarding,
                         child: Text(
-                          '${model.id} – ${model.lessonTitle}',
+                          '${model.hadithNumber.toUpperCase()}\n${model.hadithTitle}',
                           style: TextStyle(
                             fontSize: settings.textSize,
                             fontFamily: AppStringConstraints.fontGilroyMedium,
@@ -64,13 +64,24 @@ class _LessonsColumnState extends State<LessonsColumn> {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    LessonsHtmlData(
-                      htmlData: model.lessonContent,
+                    HadithsHtmlData(
+                      htmlData: model.hadithArabic,
+                      footnoteColor: appColors.primary,
+                      font: AppStringConstraints.fontHafs,
+                      fontSize: settings.textSize + 3.0,
+                      textAlign: AppStyles.fontAligns[settings.textAlignIndex],
+                      fontColor: appColors.onSurface,
+                      textDirection: TextDirection.rtl,
+                    ),
+                    const SizedBox(height: 16),
+                    HadithsHtmlData(
+                      htmlData: model.hadithTranslation,
                       footnoteColor: appColors.primary,
                       font: AppStringConstraints.fontGilroy,
                       fontSize: settings.textSize,
-                      textAlign: TextAlign.justify,
+                      textAlign: AppStyles.fontAligns[settings.textAlignIndex],
                       fontColor: appColors.onSurface,
+                      textDirection: TextDirection.ltr,
                     ),
                   ],
                 );

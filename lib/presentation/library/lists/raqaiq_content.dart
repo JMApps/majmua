@@ -3,14 +3,14 @@ import 'package:provider/provider.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
-import '../../../domain/entities/strength_entity.dart';
+import '../../../domain/entities/raqaiq_entity.dart';
 import '../../state/book_settings_state.dart';
-import '../../state/library/strength_state.dart';
+import '../../state/library/raqaiq_state.dart';
 import '../../widgets/app_error_text.dart';
-import 'strength_html_data.dart';
+import '../widgets/raqaiq_html_data.dart';
 
-class StrengthColumn extends StatefulWidget {
-  const StrengthColumn({
+class RaqaiqContent extends StatefulWidget {
+  const RaqaiqContent({
     super.key,
     required this.pageIndex,
   });
@@ -18,29 +18,29 @@ class StrengthColumn extends StatefulWidget {
   final int pageIndex;
 
   @override
-  State<StrengthColumn> createState() => _StrengthColumnState();
+  State<RaqaiqContent> createState() => _RaqaiqContentState();
 }
 
-class _StrengthColumnState extends State<StrengthColumn> {
-  late final Future<StrengthEntity> _futureStrengths;
+class _RaqaiqContentState extends State<RaqaiqContent> {
+  late final Future<RaqaiqEntity> _futureRaqaiqs;
 
   @override
   void initState() {
     super.initState();
-    _futureStrengths = Provider.of<StrengthState>(context, listen: false).getStrengthById(strengthId: widget.pageIndex);
+    _futureRaqaiqs = Provider.of<RaqaiqState>(context, listen: false).getRaqaiqById(raqaiqId: widget.pageIndex);
   }
 
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
-    return FutureBuilder<StrengthEntity>(
-      future: _futureStrengths,
+    return FutureBuilder<RaqaiqEntity>(
+      future: _futureRaqaiqs,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return AppErrorText(text: snapshot.error.toString());
         }
         if (snapshot.hasData) {
-          final StrengthEntity model = snapshot.data!;
+          final RaqaiqEntity model = snapshot.data!;
           return Scrollbar(
             child: SingleChildScrollView(
               padding: AppStyles.mainMardingMini,
@@ -55,7 +55,7 @@ class _StrengthColumnState extends State<StrengthColumn> {
                         child: Padding(
                           padding: AppStyles.mainMarding,
                           child: Text(
-                            model.chapterTitle,
+                            '${model.id} – ${model.chapterTitle}',
                             style: TextStyle(
                               fontSize: settings.textSize,
                               fontFamily: AppStringConstraints.fontGilroyMedium,
@@ -65,7 +65,7 @@ class _StrengthColumnState extends State<StrengthColumn> {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      StrengthHtmlData(
+                      RaqaiqHtmlData(
                         htmlData: model.chapterContent,
                         footnoteColor: appColors.primary,
                         font: AppStringConstraints.fontGilroy,

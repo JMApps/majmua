@@ -10,4 +10,6 @@ abstract class NamesOfRepository {
   Future<List<NamesOfAyahEntity>> getAyahByChapterId({required int chapterId});
 
   Future<NamesOfContentEntity> getContentById({required int contentId});
+
+  Future<List<NamesOfContentEntity>> getAllContents();
 }

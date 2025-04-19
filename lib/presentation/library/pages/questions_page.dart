@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/routes/app_route_names.dart';
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../data/repositories/questions_data_repository.dart';
 import '../../../data/services/databases/questions_database_service.dart';
 import '../../../domain/usecases/questions_use_case.dart';
 import '../../state/book_settings_state.dart';
 import '../../state/library/questions_state.dart';
-import '../../widgets/book_settings.dart';
-import '../widgets/questions_column.dart';
+import '../lists/question_chapters_list.dart';
+import '../lists/question_content.dart';
+import '../widgets/book_settings_btn.dart';
 
 class QuestionsPage extends StatefulWidget {
   const QuestionsPage({super.key});
@@ -32,9 +34,10 @@ class _QuestionsPageState extends State<QuestionsPage> {
       providers: [
         ChangeNotifierProvider(
           create: (_) => QuestionsState(
-            QuestionsUseCase(
+            questionsUseCase: QuestionsUseCase(
               QuestionsDataRepository(_questionsDatabaseService),
             ),
+            keyLastBookPage: AppRouteNames.pageQuestionsContent,
           ),
         ),
         ChangeNotifierProvider(
@@ -45,32 +48,22 @@ class _QuestionsPageState extends State<QuestionsPage> {
         appBar: AppBar(
           title: Text(AppStringConstraints.questions200),
           actions: [
-            Consumer<BookSettingsState>(
-              builder: (context, settings, _) {
-                return IconButton(
-                  onPressed: () {
-                    showModalBottomSheet(
-                      context: context,
-                      isScrollControlled: true,
-                      builder: (context) => ChangeNotifierProvider.value(
-                        value: settings,
-                        child: BookSettings(),
-                      ),
-                    );
-                  },
-                  icon: Icon(Icons.settings),
-                );
-              },
-            ),
+            QuestionChaptersList(),
+            BookSettingsBtn(),
           ],
         ),
-        body: PageView.builder(
-          itemCount: 65,
-          itemBuilder: (context, index) {
-            return QuestionsColumn(pageIndex: index + 1);
-          },
-          onPageChanged: (int page) {
-            Provider.of<QuestionsState>(context, listen: false).pageIndex = page;
+        body: Consumer<QuestionsState>(
+          builder: (context, questionsState, _) {
+            return PageView.builder(
+              controller: questionsState.pageController,
+              itemCount: 201,
+              itemBuilder: (context, index) {
+                return QuestionContent(pageIndex: index + 1);
+              },
+              onPageChanged: (int page) {
+                questionsState.pageIndex = page;
+              },
+            );
           },
         ),
       ),

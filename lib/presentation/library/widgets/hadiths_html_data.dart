@@ -12,6 +12,7 @@ class HadithsHtmlData extends StatelessWidget {
     required this.fontSize,
     required this.textAlign,
     required this.fontColor,
+    required this.textDirection,
   });
 
   final String htmlData;
@@ -21,21 +22,24 @@ class HadithsHtmlData extends StatelessWidget {
   final TextAlign textAlign;
   final Color fontColor;
 
+  final TextDirection textDirection;
+
   @override
   Widget build(BuildContext context) {
     return Html(
       data: htmlData,
       style: {
         '#': Style(
-            margin: Margins.zero,
-            padding: HtmlPaddings.zero,
-            fontFamily: font,
-            fontSize: FontSize(fontSize),
-            textAlign: textAlign,
-            color: fontColor
+          margin: Margins.zero,
+          padding: HtmlPaddings.zero,
+          fontFamily: font,
+          fontSize: FontSize(fontSize),
+          textAlign: textAlign,
+          color: fontColor,
+          direction: textDirection,
         ),
         'small': Style(
-            fontSize: FontSize(12.0)
+          fontSize: FontSize(12.0),
         ),
         'a': Style(
           margin: Margins.zero,

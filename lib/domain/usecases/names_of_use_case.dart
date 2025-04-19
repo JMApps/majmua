@@ -39,4 +39,12 @@ class NamesOfUseCase {
       throw Exception(e.toString());
     }
   }
+
+  Future<List<NamesOfContentEntity>> getAllContents() async {
+    try {
+      return await _namesOfRepository.getAllContents();
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
 }

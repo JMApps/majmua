@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:majmua/presentation/library/lists/strength_chapters_list.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/routes/app_route_names.dart';
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../data/repositories/strength_data_repository.dart';
 import '../../../data/services/databases/strength_database_service.dart';
 import '../../../domain/usecases/strength_use_case.dart';
 import '../../state/book_settings_state.dart';
 import '../../state/library/strength_state.dart';
-import '../../widgets/book_settings.dart';
-import '../widgets/strength_column.dart';
+import '../lists/strength_content.dart';
+import '../widgets/book_settings_btn.dart';
 
 class StrengthPage extends StatefulWidget {
   const StrengthPage({super.key});
@@ -21,14 +23,21 @@ class _StrengthPageState extends State<StrengthPage> {
   final StrengthDatabaseService _strengthDatabaseService = StrengthDatabaseService();
 
   @override
+  void dispose() {
+    _strengthDatabaseService.closeDatabase();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
           create: (_) => StrengthState(
-            StrengthUseCase(
+            strengthUseCase: StrengthUseCase(
               StrengthDataRepository(_strengthDatabaseService),
             ),
+            keyLastBookPage: AppRouteNames.pageStrengthContent,
           ),
         ),
         ChangeNotifierProvider(
@@ -39,32 +48,22 @@ class _StrengthPageState extends State<StrengthPage> {
         appBar: AppBar(
           title: Text(AppStringConstraints.strengthOfWill),
           actions: [
-            Consumer<BookSettingsState>(
-              builder: (context, settings, _) {
-                return IconButton(
-                  onPressed: () {
-                    showModalBottomSheet(
-                      context: context,
-                      isScrollControlled: true,
-                      builder: (context) => ChangeNotifierProvider.value(
-                        value: settings,
-                        child: BookSettings(),
-                      ),
-                    );
-                  },
-                  icon: Icon(Icons.settings),
-                );
-              },
-            ),
+            StrengthChaptersList(),
+            BookSettingsBtn(),
           ],
         ),
-        body: PageView.builder(
-          itemCount: 65,
-          itemBuilder: (context, index) {
-            return StrengthColumn(pageIndex: index + 1);
-          },
-          onPageChanged: (int page) {
-            Provider.of<StrengthState>(context, listen: false).pageIndex = page;
+        body: Consumer<StrengthState>(
+          builder: (context, strengthState, _) {
+            return PageView.builder(
+              controller: strengthState.pageController,
+              itemCount: 85,
+              itemBuilder: (context, index) {
+                return StrengthContent(pageIndex: index + 1);
+              },
+              onPageChanged: (int page) {
+                strengthState.pageIndex = page;
+              },
+            );
           },
         ),
       ),

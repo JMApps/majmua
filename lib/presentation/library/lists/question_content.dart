@@ -7,10 +7,10 @@ import '../../../domain/entities/question_entity.dart';
 import '../../state/book_settings_state.dart';
 import '../../state/library/questions_state.dart';
 import '../../widgets/app_error_text.dart';
-import 'questions_html_data.dart';
+import '../widgets/questions_html_data.dart';
 
-class QuestionsColumn extends StatefulWidget {
-  const QuestionsColumn({
+class QuestionContent extends StatefulWidget {
+  const QuestionContent({
     super.key,
     required this.pageIndex,
   });
@@ -18,10 +18,10 @@ class QuestionsColumn extends StatefulWidget {
   final int pageIndex;
 
   @override
-  State<QuestionsColumn> createState() => _QuestionsColumnState();
+  State<QuestionContent> createState() => _QuestionContentState();
 }
 
-class _QuestionsColumnState extends State<QuestionsColumn> {
+class _QuestionContentState extends State<QuestionContent> {
   late final Future<QuestionEntity> _futureQuestions;
 
   @override
@@ -54,7 +54,7 @@ class _QuestionsColumnState extends State<QuestionsColumn> {
                       child: Padding(
                         padding: AppStyles.mainMarding,
                         child: QuestionsHtmlData(
-                          htmlData: model.questionContent,
+                          htmlData: '<b>${model.questionNumber}</b><br/>${model.questionContent}',
                           footnoteColor: appColors.primary,
                           font: AppStringConstraints.fontGilroyMedium,
                           fontSize: settings.textSize,
