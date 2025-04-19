@@ -30,34 +30,36 @@ class HadithChaptersList extends StatelessWidget {
                         return AppErrorText(text: snapshot.error.toString());
                       }
                       if (snapshot.hasData) {
-                        return ListView.builder(
-                          padding: AppStyles.mardingHorizontalMini,
-                          itemCount: snapshot.data!.length,
-                          itemBuilder: (context, index) {
-                            final HadithEntity model = snapshot.data![index];
-                            return Container(
-                              margin: AppStyles.mardingBottomMini,
-                              decoration: BoxDecoration(
-                                borderRadius: AppStyles.mainBorder,
-                                color: index.isOdd ? itemOddColor : itemEvenColor,
-                              ),
-                              child: ListTile(
-                                onTap: () {
-                                  hadithState.pageIndex = index;
-                                  hadithState.pageController.animateToPage(hadithState.pageIndex, duration: Duration(milliseconds: 350), curve: Curves.easeIn);
-                                  Navigator.pop(context);
-                                },
-                                title: Text(
-                                  model.hadithNumber,
-                                  style: AppStyles.mainTextStyleMiniBold,
+                        return Scrollbar(
+                          child: ListView.builder(
+                            padding: AppStyles.mardingHorizontalMini,
+                            itemCount: snapshot.data!.length,
+                            itemBuilder: (context, index) {
+                              final HadithEntity model = snapshot.data![index];
+                              return Container(
+                                margin: AppStyles.mardingBottomMini,
+                                decoration: BoxDecoration(
+                                  borderRadius: AppStyles.mainBorder,
+                                  color: index.isOdd ? itemOddColor : itemEvenColor,
                                 ),
-                                subtitle: Text(
-                                  model.hadithTitle,
-                                  style: AppStyles.mainTextStyleMini,
+                                child: ListTile(
+                                  onTap: () {
+                                    hadithState.pageIndex = index;
+                                    hadithState.pageController.animateToPage(hadithState.pageIndex, duration: Duration(milliseconds: 350), curve: Curves.easeIn);
+                                    Navigator.pop(context);
+                                  },
+                                  title: Text(
+                                    model.hadithNumber,
+                                    style: AppStyles.mainTextStyleMiniBold,
+                                  ),
+                                  subtitle: Text(
+                                    model.hadithTitle,
+                                    style: AppStyles.mainTextStyleMini,
+                                  ),
                                 ),
-                              ),
-                            );
-                          },
+                              );
+                            },
+                          ),
                         );
                       }
                       return Center(

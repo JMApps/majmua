@@ -30,34 +30,36 @@ class LessonChaptersList extends StatelessWidget {
                         return AppErrorText(text: snapshot.error.toString());
                       }
                       if (snapshot.hasData) {
-                        return ListView.builder(
-                          padding: AppStyles.mardingHorizontalMini,
-                          itemCount: snapshot.data!.length,
-                          itemBuilder: (context, index) {
-                            final LessonsEntity model = snapshot.data![index];
-                            return Container(
-                              margin: AppStyles.mardingBottomMini,
-                              decoration: BoxDecoration(
-                                borderRadius: AppStyles.mainBorder,
-                                color: index.isOdd ? itemOddColor : itemEvenColor,
-                              ),
-                              child: ListTile(
-                                onTap: () {
-                                  lessonsState.pageIndex = index;
-                                  lessonsState.pageController.animateToPage(lessonsState.pageIndex, duration: Duration(milliseconds: 350), curve: Curves.easeIn);
-                                  Navigator.pop(context);
-                                },
-                                title: Text(
-                                  model.lessonNumber,
-                                  style: AppStyles.mainTextStyleMiniBold,
+                        return Scrollbar(
+                          child: ListView.builder(
+                            padding: AppStyles.mardingHorizontalMini,
+                            itemCount: snapshot.data!.length,
+                            itemBuilder: (context, index) {
+                              final LessonsEntity model = snapshot.data![index];
+                              return Container(
+                                margin: AppStyles.mardingBottomMini,
+                                decoration: BoxDecoration(
+                                  borderRadius: AppStyles.mainBorder,
+                                  color: index.isOdd ? itemOddColor : itemEvenColor,
                                 ),
-                                subtitle: Text(
-                                  model.lessonTitle,
-                                  style: AppStyles.mainTextStyleMini,
+                                child: ListTile(
+                                  onTap: () {
+                                    lessonsState.pageIndex = index;
+                                    lessonsState.pageController.animateToPage(lessonsState.pageIndex, duration: Duration(milliseconds: 350), curve: Curves.easeIn);
+                                    Navigator.pop(context);
+                                  },
+                                  title: Text(
+                                    model.lessonNumber,
+                                    style: AppStyles.mainTextStyleMiniBold,
+                                  ),
+                                  subtitle: Text(
+                                    model.lessonTitle,
+                                    style: AppStyles.mainTextStyleMini,
+                                  ),
                                 ),
-                              ),
-                            );
-                          },
+                              );
+                            },
+                          ),
                         );
                       }
                       return Center(

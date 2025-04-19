@@ -32,38 +32,40 @@ class QuestionChaptersList extends StatelessWidget {
                         return AppErrorText(text: snapshot.error.toString());
                       }
                       if (snapshot.hasData) {
-                        return ListView.builder(
-                          padding: AppStyles.mardingHorizontalMini,
-                          itemCount: snapshot.data!.length,
-                          itemBuilder: (context, index) {
-                            final QuestionEntity model = snapshot.data![index];
-                            return Container(
-                              margin: AppStyles.mardingBottomMini,
-                              decoration: BoxDecoration(
-                                borderRadius: AppStyles.mainBorder,
-                                color: index.isOdd ? itemOddColor : itemEvenColor,
-                              ),
-                              child: ListTile(
-                                onTap: () {
-                                  questionsState.pageIndex = index;
-                                  questionsState.pageController.animateToPage(questionsState.pageIndex, duration: Duration(milliseconds: 350), curve: Curves.easeIn);
-                                  Navigator.pop(context);
-                                },
-                                title: Text(
-                                  model.questionNumber,
-                                  style: AppStyles.mainTextStyleMiniBold,
+                        return Scrollbar(
+                          child: ListView.builder(
+                            padding: AppStyles.mardingHorizontalMini,
+                            itemCount: snapshot.data!.length,
+                            itemBuilder: (context, index) {
+                              final QuestionEntity model = snapshot.data![index];
+                              return Container(
+                                margin: AppStyles.mardingBottomMini,
+                                decoration: BoxDecoration(
+                                  borderRadius: AppStyles.mainBorder,
+                                  color: index.isOdd ? itemOddColor : itemEvenColor,
                                 ),
-                                subtitle: QuestionsHtmlData(
-                                  htmlData: model.questionContent,
-                                  footnoteColor: appColors.primary,
-                                  font: AppStringConstraints.fontGilroy,
-                                  fontSize: 16.0,
-                                  textAlign: TextAlign.start,
-                                  fontColor: appColors.onSurface,
+                                child: ListTile(
+                                  onTap: () {
+                                    questionsState.pageIndex = index;
+                                    questionsState.pageController.animateToPage(questionsState.pageIndex, duration: Duration(milliseconds: 350), curve: Curves.easeIn);
+                                    Navigator.pop(context);
+                                  },
+                                  title: Text(
+                                    model.questionNumber,
+                                    style: AppStyles.mainTextStyleMiniBold,
+                                  ),
+                                  subtitle: QuestionsHtmlData(
+                                    htmlData: model.questionContent,
+                                    footnoteColor: appColors.primary,
+                                    font: AppStringConstraints.fontGilroy,
+                                    fontSize: 16.0,
+                                    textAlign: TextAlign.start,
+                                    fontColor: appColors.onSurface,
+                                  ),
                                 ),
-                              ),
-                            );
-                          },
+                              );
+                            },
+                          ),
                         );
                       }
                       return Center(

@@ -30,30 +30,32 @@ class NamesOfChaptersList extends StatelessWidget {
                         return AppErrorText(text: snapshot.error.toString());
                       }
                       if (snapshot.hasData) {
-                        return ListView.builder(
-                          padding: AppStyles.mardingHorizontalMini,
-                          itemCount: snapshot.data!.length,
-                          itemBuilder: (context, index) {
-                            final NamesOfContentEntity model = snapshot.data![index];
-                            return Container(
-                              margin: AppStyles.mardingBottomMini,
-                              decoration: BoxDecoration(
-                                borderRadius: AppStyles.mainBorder,
-                                color: index.isOdd ? itemOddColor : itemEvenColor,
-                              ),
-                              child: ListTile(
-                                onTap: () {
-                                  namesOfState.pageIndex = index;
-                                  namesOfState.pageController.animateToPage(namesOfState.pageIndex, duration: Duration(milliseconds: 350), curve: Curves.easeIn);
-                                  Navigator.pop(context);
-                                },
-                                title: Text(
-                                  model.clarificationTitle,
-                                  style: AppStyles.mainTextStyleMiniBold,
+                        return Scrollbar(
+                          child: ListView.builder(
+                            padding: AppStyles.mardingHorizontalMini,
+                            itemCount: snapshot.data!.length,
+                            itemBuilder: (context, index) {
+                              final NamesOfContentEntity model = snapshot.data![index];
+                              return Container(
+                                margin: AppStyles.mardingBottomMini,
+                                decoration: BoxDecoration(
+                                  borderRadius: AppStyles.mainBorder,
+                                  color: index.isOdd ? itemOddColor : itemEvenColor,
                                 ),
-                              ),
-                            );
-                          },
+                                child: ListTile(
+                                  onTap: () {
+                                    namesOfState.pageIndex = index;
+                                    namesOfState.pageController.animateToPage(namesOfState.pageIndex, duration: Duration(milliseconds: 350), curve: Curves.easeIn);
+                                    Navigator.pop(context);
+                                  },
+                                  title: Text(
+                                    '${model.id} – ${model.clarificationTitle}',
+                                    style: AppStyles.mainTextStyleMiniBold,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
                         );
                       }
                       return Center(
