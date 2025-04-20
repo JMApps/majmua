@@ -60,18 +60,24 @@ class MainButtonsCard extends StatelessWidget {
               title: appLocale.fortress,
               buttonColor: appColors.secondaryContainer,
             ),
-            const SizedBox(width: 8),
-            MainButtonItem(
-              onTap: () {
-                HapticFeedback.lightImpact();
-                Navigator.pushNamed(
-                  context,
-                  AppRouteNames.pageGems,
-                );
-              },
-              imageName: AppStringConstraints.iconGems,
-              title: appLocale.gems,
-              buttonColor: appColors.secondaryContainer,
+            Visibility(
+              visible: appLocale.localeName.contains('ru'),
+              child: const SizedBox(width: 8),
+            ),
+            Visibility(
+              visible: appLocale.localeName.contains('ru'),
+              child: MainButtonItem(
+                onTap: () {
+                  HapticFeedback.lightImpact();
+                  Navigator.pushNamed(
+                    context,
+                    AppRouteNames.pageGems,
+                  );
+                },
+                imageName: AppStringConstraints.iconGems,
+                title: appLocale.gems,
+                buttonColor: appColors.secondaryContainer,
+              ),
             ),
             const SizedBox(width: 8),
             MainButtonItem(
