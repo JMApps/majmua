@@ -67,9 +67,7 @@ class CounterPage extends StatelessWidget {
                       },
                       icon: Icon(
                         Icons.vibration_rounded,
-                        color: counterState.tacticFeedback
-                            ? appColors.primary
-                            : appColors.tertiary,
+                        color: counterState.tacticFeedback ? appColors.primary : appColors.tertiary,
                       ),
                     ),
                     IconButton.filledTonal(
@@ -79,9 +77,7 @@ class CounterPage extends StatelessWidget {
                       },
                       icon: Icon(
                         Icons.remove_red_eye_outlined,
-                        color: counterState.countShowState
-                            ? appColors.primary
-                            : appColors.tertiary,
+                        color: counterState.countShowState ? appColors.primary : appColors.tertiary,
                       ),
                     ),
                     IconButton.filledTonal(

@@ -24,6 +24,7 @@ class CountTitleItem extends StatelessWidget {
               color: appColors.secondary,
             ),
             textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
           ),
         );
       },

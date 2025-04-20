@@ -24,7 +24,7 @@ class SalawatButton extends StatelessWidget {
           children: [
             const Expanded(
               flex: 9,
-              child:  MainDataItem(),
+              child: MainDataItem(),
             ),
             Expanded(
               flex: 4,
