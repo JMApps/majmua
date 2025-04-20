@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:provider/provider.dart';
+import 'package:html/parser.dart' as html_parser;
+import 'package:share_plus/share_plus.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
@@ -20,6 +22,9 @@ class GemItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
+    final Size screenSize = MediaQuery.of(context).size;
+    final double screenWidth = screenSize.width;
+    final double screenHeight = screenSize.height;
     return Card(
       margin: AppStyles.mardingBottomMini,
       child: Center(
@@ -45,24 +50,40 @@ class GemItem extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 8),
-              CircleAvatar(
-                backgroundColor: appColors.secondaryContainer,
-                child: Padding(
-                  padding: AppStyles.mardingTopMicroMini,
-                  child: Text(
-                    gemModel.id.toString(),
-                    style: const TextStyle(
-                      fontSize: 15.0,
-                      fontFamily: AppStringConstraints.fontGilroyMedium,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    backgroundColor: appColors.secondaryContainer,
+                    child: Padding(
+                      padding: AppStyles.mardingTopMicroMini,
+                      child: Text(
+                        gemModel.id.toString(),
+                        style: const TextStyle(
+                          fontSize: 15.0,
+                          fontFamily: AppStringConstraints.fontGilroyMedium,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    textAlign: TextAlign.center,
                   ),
-                ),
+                  IconButton(
+                    onPressed: () {
+                      Share.share(_parseString(htmlText: gemModel.citation), sharePositionOrigin: Rect.fromLTWH(0, 0, screenWidth, screenHeight / 2));
+                    },
+                    icon: Icon(Icons.ios_share_rounded),
+                  ),
+                ],
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  String _parseString({required String htmlText}) {
+    final document = html_parser.parse(htmlText);
+    return document.body!.text;
   }
 }
