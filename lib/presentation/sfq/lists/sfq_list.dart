@@ -24,34 +24,35 @@ class SFQList extends StatelessWidget {
               return AppErrorText(text: snapshot.error.toString());
             }
             if (snapshot.hasData) {
-              return sfqState.pageMode ? ScrollablePositionedList.builder(
-                itemScrollController: sfqState.itemController,
-                padding: AppStyles.mainMardingMini,
-                itemCount: snapshot.data!.length,
-                itemBuilder: (context, index) {
-                  final SFQEntity supplicationModel = snapshot.data![index];
-                  return SFQItem(
-                    supplicationModel: supplicationModel,
-                    index: index,
-                  );
-                },
-              ) : PageView.builder(
-                controller: sfqState.controller,
-                itemCount: snapshot.data!.length,
-                itemBuilder: (context, index) {
-                  final SFQEntity supplicationModel = snapshot.data![index];
-                  return Padding(
-                    padding: AppStyles.mainMardingMini,
-                    child: SFQItem(
-                      supplicationModel: supplicationModel,
-                      index: index,
-                    ),
-                  );
-                },
-                onPageChanged: (int page) {
-                  sfqState.lastPage = page;
-                },
-              );
+              return sfqState.pageMode
+                  ? ScrollablePositionedList.builder(
+                      itemScrollController: sfqState.itemController,
+                      padding: AppStyles.mainMardingMini,
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (context, index) {
+                        final SFQEntity supplicationModel = snapshot.data![index];
+                        return SFQItem(
+                          supplicationModel: supplicationModel,
+                          index: index,
+                        );
+                      },
+                    ) : PageView.builder(
+                      controller: sfqState.controller,
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (context, index) {
+                        final SFQEntity supplicationModel = snapshot.data![index];
+                        return Padding(
+                          padding: AppStyles.mainMardingMini,
+                          child: SFQItem(
+                            supplicationModel: supplicationModel,
+                            index: index,
+                          ),
+                        );
+                      },
+                      onPageChanged: (int page) {
+                        sfqState.lastPage = page;
+                      },
+                    );
             }
             return const Center(
               child: CircularProgressIndicator.adaptive(),

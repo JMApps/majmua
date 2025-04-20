@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:html/parser.dart' as html_parser;
 
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
@@ -19,6 +21,9 @@ class SFQItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
+    final Size screenSize = MediaQuery.of(context).size;
+    final double screenWidth = screenSize.width;
+    final double screenHeight = screenSize.height;
     return Card(
       margin: AppStyles.mardingBottomMini,
       child: Center(
@@ -59,20 +64,31 @@ class SFQItem extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 8),
-                  CircleAvatar(
-                    radius: 15.0,
-                    backgroundColor: appColors.secondaryContainer,
-                    child: Padding(
-                      padding: AppStyles.mardingTopMicroMini,
-                      child: Text(
-                        supplicationModel.id.toString(),
-                        style: const TextStyle(
-                          fontSize: 15.0,
-                          fontFamily: AppStringConstraints.fontGilroyMedium,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 15.0,
+                        backgroundColor: appColors.secondaryContainer,
+                        child: Padding(
+                          padding: AppStyles.mardingTopMicroMini,
+                          child: Text(
+                            supplicationModel.id.toString(),
+                            style: const TextStyle(
+                              fontSize: 15.0,
+                              fontFamily: AppStringConstraints.fontGilroyMedium,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
-                        textAlign: TextAlign.center,
                       ),
-                    ),
+                      IconButton(
+                        onPressed: () {
+                          Share.share('${supplicationModel.ayahArabic}\n\n${_parseString(htmlText: supplicationModel.ayahTranslation)}\n\n${supplicationModel.ayahSource}', sharePositionOrigin: Rect.fromLTWH(0, 0, screenWidth, screenHeight / 2));
+                        },
+                        icon: Icon(Icons.ios_share_rounded),
+                      ),
+                    ],
                   ),
                 ],
               );
@@ -81,5 +97,9 @@ class SFQItem extends StatelessWidget {
         ),
       ),
     );
+  }
+  String _parseString({required String htmlText}) {
+    final document = html_parser.parse(htmlText);
+    return document.body!.text;
   }
 }

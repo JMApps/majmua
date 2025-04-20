@@ -31,6 +31,12 @@ class _SfqPageState extends State<SfqPage> {
   }
 
   @override
+  void dispose() {
+    _databaseService.closeDatabase();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
     final appColors = Theme.of(context).colorScheme;
