@@ -29,7 +29,7 @@ class _MainFortressPageState extends State<MainFortressPage> {
   @override
   void dispose() {
     super.dispose();
-    _databaseService.closeDB();
+    _databaseService.closeDatabase();
   }
 
   @override

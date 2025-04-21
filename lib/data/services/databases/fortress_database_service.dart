@@ -48,11 +48,4 @@ class FortressDatabaseService {
 
     return database;
   }
-
-  Future<void> closeDB() async {
-    if (_db != null) {
-      await _db!.close();
-      _db = null;
-    }
-  }
 }
