@@ -1,0 +1,195 @@
+{
+  "@@locale": "en",
+  "appName": "Muslim's Shelf",
+  "shelf": "Muslim's ",
+  "muslim": "Shelf",
+
+  "appSlogan": "As days pass by, a part of you passes too",
+
+  "settings": "Settings",
+  "notifications": "Notifications",
+  "aboutUs": "About Us",
+
+  "appTheme": "Theme",
+  "themeModes": "Light, Dark, System",
+  "colorTheme": "Color Theme",
+  "display": "Display",
+  "alwaysOnDisplay": "Always-on Display",
+
+  "otherApps": "Our other apps:",
+  "weSocials": "Our social media:",
+  "rateApp": "Rate the app:",
+
+  "gregorianMonthNames": "January, February, March, April, May, June, July, August, September, October, November, December",
+  "hijriMonthNames": "Muharram, Safar, Rabi al-Awwal, Rabi al-Thani, Jumada al-Awwal, Jumada al-Thani, Rajab, Sha'ban, Ramadan, Shawwal, Dhul-Qa'dah, Dhul-Hijjah",
+
+  "location": "Location",
+
+  "prayerParams": "Parameters",
+  "selectedCity": "Current City",
+  "coordinates": "Coordinates",
+  "calculationPrayerMethod": "Calculation Method",
+  "highLatitude": "High Latitudes",
+  "madhabMethod": "Asr Prayer",
+  "selectCity": "Select City",
+  "addCity": "Add City",
+  "adjustmentTimes": "Minute Adjustments",
+  "information": "Information",
+  "adjustmentMessage": "If there's a slight difference between the calculated prayer times and your local schedule after selecting a calculation method, you can adjust the minutes:",
+  "calculationTimeMessage": "Dear app users!\n\nYou can use the available prayer time calculation methods in the app and additionally make manual time adjustments. If the prayer times still don't match your local schedule after these adjustments, we apologize and suggest looking for alternative solutions on Google Play or App Store.\n\nAvailable prayer time calculation methods in the app:",
+
+  "addCityMessage": "All fields must be filled.\nLatitude range: -90.0 to 90.0\nLongitude range: -180.0 to 180.0",
+  "enterCountryName": "Enter country name",
+  "enterCityName": "Enter city name",
+  "enterLatitude": "Enter latitude (e.g. 21.3924)",
+  "enterLongitude": "Enter longitude (e.g. 39.8579)",
+
+  "allFieldsRequired": "All fields are required",
+  "invalidCoordinates": "Invalid coordinates",
+
+  "add": "Add",
+  "select": "Select",
+  "cancel": "Cancel",
+  "close": "Close",
+  "change": "Change",
+  "delete": "Delete",
+  "defaultAdjustments": "Default",
+  "share": "Share",
+  "copy": "Copy",
+  "copied": "Copied",
+  "reset": "Reset",
+
+  "search": "Search",
+  "searchIsEmpty": "No results found for your query",
+  "customCityIsEmpty": "You haven't added any cities",
+
+  "prayerCalendar": "Prayer Schedule",
+  "prayerSchedule": "Monthly Schedule",
+  "dayNumber": "Date",
+  "qiblah": "Qibla Direction",
+
+  "fajr": "Fajr",
+  "dhuhr": "Dhuhr",
+  "asr": "Asr",
+  "maghrib": "Maghrib",
+  "isha": "Isha",
+
+  "adDuhaTime": "Duha Prayer Time",
+  "adhanTime": "Remembrance During Adhan",
+  "adhkarsTime": "Post-Prayer Remembrance",
+
+  "morningAdhkarsTime": "Morning Adhkars Time",
+  "eveningAdhkarsTime": "Evening Adhkars Time",
+  "nightAdhkarsTime": "Don't forget bedtime adhkars!",
+
+  "prayerTime": "Prayer Time",
+  "remind": "Reminder",
+  "adhan": "Adhan",
+  "adhkars": "Adhkars",
+  "morningAdhkars": "Morning Adhkars",
+  "eveningAdhkars": "Evening Adhkars",
+  "nightAdhkars": "Bedtime Adhkars",
+  "fastMonday": "Monday Fasting",
+  "fastThursday": "Thursday Fasting",
+
+  "nearWhiteDays": "White Days are approaching",
+  "whiteDays": "White Days",
+
+  "friday": "Friday",
+  "tomorrowFriday": "Indeed, Allah and His angels bless the Prophet. O you who have believed, bless him and give him peace.\n\nTomorrow is Friday",
+  "lastHourFriday": "Last Hour of Friday",
+
+  "prayerNotifications": "Prayer Notifications",
+  "adhkarsNotifications": "Adhkars Notifications",
+  "fastingNotifications": "Fasting Notifications",
+  "fridayNotifications": "Friday Notifications",
+
+  "sunrise": "Sunrise",
+  "duha": "(Duha)",
+  "midnight": "Midnight",
+  "lastThirdNightPart": "Last Third of the Night",
+
+  "week2DayNamesShort": "Mon, Tue, Wed, Thu, Fri, Sat, Sun",
+  "week2DayNames": "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
+
+  "nearFastingDay": "Tomorrow is a recommended fasting day",
+  "fastingDay": "Recommended fasting day",
+  "fridaySunans": "Friday Sunnahs",
+
+  "friday_sunna_1": "Perform ghusl (major ablution)",
+  "friday_sunna_2": "Groom yourself",
+  "friday_sunna_3": "Wear clean clothes",
+  "friday_sunna_4": "Apply perfume",
+  "friday_sunna_5": "Go to the mosque early",
+  "friday_sunna_6": "Walk to the mosque",
+  "friday_sunna_7": "Sit close to the minbar",
+  "friday_sunna_8": "Step over others except when necessary",
+  "friday_sunna_9": "Talk during the khutbah",
+  "friday_sunna_10": "Pray 4 rak'ahs (2+2) after Jumu'ah at the mosque or 2 rak'ahs at home",
+  "friday_sunna_11": "Read Surah Al-Kahf",
+  "friday_sunna_12": "Send abundant blessings upon the Prophet ﷺ",
+  "friday_sunna_13": "Make dua during the last hour of Friday\n(one hour before Maghrib)",
+
+  "mustahab": "Recommended",
+  "haram": "Forbidden (Haram)",
+
+  "lastFridayHour": "Last Hour of Friday",
+
+  "day": "Day",
+  "week": "Week",
+  "month": "Month",
+  "year": "Year",
+
+  "seasonSpring": "Spring",
+  "seasonSummer": "Summer",
+  "seasonFall": "Fall",
+  "seasonWinter": "Winter",
+
+  "daysToRamadan": "Days until Ramadan",
+  "blessedRamadan": "Blessed Ramadan",
+  "daysToDhulHujjah": "Days until Dhul-Hijjah",
+  "dhulHijjah": "Fasting in Dhul-Hijjah",
+  "congratulationRamadan": "Eid Mubarak!\nMay Allah accept it from us and you!",
+  "congratulationDhulHijjah": "Eid al-Adha Mubarak!\nMay Allah accept it from us and you!",
+
+  "backgroundWarmth": "Background Warmth",
+  "textContrast": "Text Contrast",
+
+  "ayahDay": "Verse of the Day",
+
+  "quran": "Quran",
+  "sQuran": "Quranic Supplications",
+  "fortress": "Adhkars",
+  "gems": "Gems",
+  "counter": "Counter",
+
+  "fortressMuslim": "Fortress of the Muslim",
+  "chapter": "Chapter",
+
+  "fortressChapterTableName": "Table_of_chapters_en",
+  "fortressFootnoteTableName": "Table_of_footnotes_en",
+  "fortressTableName": "Table_of_supplications_en",
+
+  "morning": "Morning",
+  "evening": "Evening",
+  "night": "Night",
+  "istikhara": "Istikhara",
+
+  "sfqTableName": "Table_of_supplications_en",
+  "randomAyah": "Random Verse",
+  "randomCitation": "Random Quote",
+
+  "arabicTextSize": "Arabic Text Size",
+  "translationTextSize": "Translation Text Size",
+  "textSize": "Text Size",
+  "transcription": "Transcription",
+
+  "surahKahf": "Surah Al-Kahf",
+  "surahSajda": "Surah As-Sajdah",
+  "surahMulk": "Surah Al-Mulk",
+  "djuzAmma": "Juz 'Amma",
+
+  "timeOffset": "Daylight Saving Time (DST)",
+
+  "salawatButton": "Send Blessings upon the Prophet ﷺ"
+}
