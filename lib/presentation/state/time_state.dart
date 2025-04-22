@@ -27,7 +27,7 @@ class TimeState extends ChangeNotifier {
   }
 
   bool isDhulhijjah() {
-    return _hijriCalendar.hMonth == 12;
+    return _hijriCalendar.hMonth == 12 && _hijriCalendar.hDay <= 9;
   }
 
   bool isRamadanHoliday() {

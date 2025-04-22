@@ -28,6 +28,17 @@ class SeasonTimesContainer extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                Card(
+                  margin: AppStyles.mardingBottomMini,
+                  child: Padding(
+                    padding: AppStyles.mardingVerticalMicro,
+                    child: Text(
+                      appLocale.appSlogan,
+                      style: AppStyles.mainTextStyleMini,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -55,25 +66,30 @@ class SeasonTimesContainer extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 IgnorePointer(
-                  child: CupertinoSlidingSegmentedControl(
-                    groupValue: timeState.getCurrentSeason(),
-                    thumbColor: appColors.surface,
-                    backgroundColor: appColors.surface,
-                    children: <Season, Widget>{
-                      Season.spring: timeState.getCurrentSeason() == Season.spring
-                          ? SeasonItem(season: Season.spring, seasonName: appLocale.seasonSpring)
-                          : SeasonName(seasonName: appLocale.seasonSpring),
-                      Season.summer: timeState.getCurrentSeason() == Season.summer
-                          ? SeasonItem(season: Season.summer, seasonName: appLocale.seasonSummer)
-                          : SeasonName(seasonName: appLocale.seasonSummer),
-                      Season.fall: timeState.getCurrentSeason() == Season.fall
-                          ? SeasonItem(season: Season.fall, seasonName: appLocale.seasonFall)
-                          : SeasonName(seasonName: appLocale.seasonFall),
-                      Season.winter: timeState.getCurrentSeason() == Season.winter
-                          ? SeasonItem(season: Season.winter, seasonName: appLocale.seasonWinter)
-                          : SeasonName(seasonName: appLocale.seasonWinter),
-                    },
-                    onValueChanged: (Object? value) {},
+                  child: Card(
+                    child: Padding(
+                      padding: AppStyles.mainMardingMicroMini,
+                      child: CupertinoSlidingSegmentedControl(
+                        groupValue: timeState.getCurrentSeason(),
+                        thumbColor: appColors.surface,
+                        backgroundColor: appColors.surface,
+                        children: <Season, Widget>{
+                          Season.spring: timeState.getCurrentSeason() == Season.spring
+                              ? SeasonItem(season: Season.spring, seasonName: appLocale.seasonSpring)
+                              : SeasonName(seasonName: appLocale.seasonSpring),
+                          Season.summer: timeState.getCurrentSeason() == Season.summer
+                              ? SeasonItem(season: Season.summer, seasonName: appLocale.seasonSummer)
+                              : SeasonName(seasonName: appLocale.seasonSummer),
+                          Season.fall: timeState.getCurrentSeason() == Season.fall
+                              ? SeasonItem(season: Season.fall, seasonName: appLocale.seasonFall)
+                              : SeasonName(seasonName: appLocale.seasonFall),
+                          Season.winter: timeState.getCurrentSeason() == Season.winter
+                              ? SeasonItem(season: Season.winter, seasonName: appLocale.seasonWinter)
+                              : SeasonName(seasonName: appLocale.seasonWinter),
+                        },
+                        onValueChanged: (Object? value) {},
+                      ),
+                    ),
                   ),
                 ),
               ],

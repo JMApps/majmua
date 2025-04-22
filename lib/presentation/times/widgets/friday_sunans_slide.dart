@@ -25,7 +25,7 @@ class _FridaySunansSlideState extends State<FridaySunansSlide> {
     final appLocale = AppLocalizations.of(context)!;
     final double customSize = MediaQuery.of(context).size.height * 0.4;
     final appColors = Theme.of(context).colorScheme;
-    final List<String> fridaySunnahs = [
+    final List<String> fridaySunans = [
       appLocale.friday_sunna_1,
       appLocale.friday_sunna_2,
       appLocale.friday_sunna_3,
@@ -86,7 +86,7 @@ class _FridaySunansSlideState extends State<FridaySunansSlide> {
                                 textAlign: TextAlign.center,
                               ),
                               Text(
-                                fridaySunnahs[index],
+                                fridaySunans[index],
                                 style: AppStyles.mainTextStyleMini,
                                 textAlign: TextAlign.center,
                               ),

@@ -4,8 +4,10 @@
   "shelf": "Полка ",
   "muslim": "мусульманина",
 
+  "appSlogan": "Уходят дни – уходит часть тебя",
+
   "settings": "Настройки",
-  "notifications": "Уведомдения",
+  "notifications": "Уведомления",
   "aboutUs": "О нас",
 
   "appTheme": "Тема",
@@ -24,7 +26,7 @@
   "location": "Местоположение",
 
   "prayerParams": "Параметры",
-  "selectedCity": "Выбранный город",
+  "selectedCity": "Текущий город",
   "coordinates": "Координаты",
   "calculationPrayerMethod": "Метод расчёта",
   "highLatitude": "Широкие высоты",
@@ -147,6 +149,8 @@
   "blessedRamadan": "Благословенный Рамадан",
   "daysToDhulHujjah": "Дней до Зу-ль-Хиджи",
   "dhulHijjah": "Пост в Зу-ль-Хиджа",
+  "congratulationRamadan": "С праздником разговения!\nДа примет Аллах от нас и от вас!",
+  "congratulationDhulHijjah": "С праздником жертвоприношения!\nДа примет Аллах от нас и от вас!",
 
   "backgroundWarmth": "Теплота фона",
   "textContrast": "Контраст текста",

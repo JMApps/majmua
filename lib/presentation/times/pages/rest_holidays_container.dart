@@ -23,7 +23,15 @@ class RestHolidaysContainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               RemindHolidayDaysItem(
-                remindTitle: !timeState.isRamadan() ? appLocale.daysToRamadan : appLocale.blessedRamadan,
+                remindTitle: () {
+                  if (timeState.isRamadanHoliday()) {
+                    return appLocale.congratulationRamadan;
+                  } else if (timeState.isRamadan()) {
+                    return appLocale.blessedRamadan;
+                  } else {
+                    return appLocale.daysToRamadan;
+                  }
+                } (),
                 remindDays: !timeState.isRamadan() ? timeState.getDaysToRamadan()[AppStringConstraints.mapDaysToRamadan] : timeState.getHijriDateTime.hDay,
                 eventDate: DateFormat('dd.MM.yyyy').format(timeState.getDaysToRamadan()[AppStringConstraints.mapRamadanDate]),
                 itemColor: appColors.primaryContainer,
@@ -31,7 +39,15 @@ class RestHolidaysContainer extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               RemindHolidayDaysItem(
-                remindTitle: !timeState.isDhulhijjah() ? appLocale.daysToDhulHujjah : appLocale.dhulHijjah,
+                remindTitle: () {
+                  if (timeState.isDhulhijjahHoliday()) {
+                    return appLocale.congratulationDhulHijjah;
+                  } else if (timeState.isDhulhijjah()) {
+                    return appLocale.dhulHijjah;
+                  } else {
+                    return appLocale.daysToDhulHujjah;
+                  }
+                } (),
                 remindDays: !timeState.isDhulhijjah() ? timeState.getDaysToDhulHijjah()[AppStringConstraints.mapDaysToDhulHijjah] : timeState.getHijriDateTime.hDay,
                 eventDate: DateFormat('dd.MM.yyyy').format(timeState.getDaysToDhulHijjah()[AppStringConstraints.mapDhulHijjahDate]),
                 itemColor: appColors.tertiaryContainer,

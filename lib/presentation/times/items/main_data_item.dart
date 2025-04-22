@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:majmua/core/styles/app_styles.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
+import '../../../core/styles/app_styles.dart';
 import '../../state/time_state.dart';
 
 class MainDataItem extends StatelessWidget {
@@ -40,7 +40,6 @@ class MainDataItem extends StatelessWidget {
                         '${timeState.getDateTime.year} ${appLocale.year.toLowerCase()}',
                         style: TextStyle(
                           fontFamily: AppStringConstraints.fontGilroy,
-                          color: appColors.tertiary,
                         ),
                       ),
                       leading: CircleAvatar(
@@ -81,7 +80,6 @@ class MainDataItem extends StatelessWidget {
                         '${timeState.getHijriDateTime.hYear} ${appLocale.year.toLowerCase()}',
                         style: TextStyle(
                           fontFamily: AppStringConstraints.fontGilroy,
-                          color: appColors.primary,
                         ),
                       ),
                       leading: CircleAvatar(
