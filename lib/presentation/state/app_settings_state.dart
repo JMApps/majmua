@@ -23,6 +23,7 @@ class AppSettingsState extends ChangeNotifier {
 
   set setAppLocaleIndex(int index) {
     if (_appLocaleIndex != index) {
+      _appLocaleIndex = index;
       _appSettingsBox.put(AppStringConstraints.keyAppLocaleIndex, index);
       notifyListeners();
     }
@@ -77,6 +78,10 @@ class AppSettingsState extends ChangeNotifier {
     switch (deviceLocale.languageCode) {
       case 'en':
         return 1;
+      case 'kz':
+        return 2;
+      case 'ky':
+        return 3;
       default:
         return 0;
     }

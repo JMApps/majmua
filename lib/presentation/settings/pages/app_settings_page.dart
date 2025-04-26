@@ -6,6 +6,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
+import '../widgets/app_locale_drop_down.dart';
 import '../widgets/social_item.dart';
 import '../widgets/app_wake_lock.dart';
 import '../widgets/theme_color_picker.dart';
@@ -30,6 +31,8 @@ class AppSettingsPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            const AppLocaleDropDown(),
+            const Divider(indent: 16, endIndent: 16),
             const ThemeModeDropDown(),
             const Divider(indent: 16, endIndent: 16),
             const ThemeColorPicker(),
