@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/enums/season.dart';
 import '../../../core/enums/time_period.dart';
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../state/time_state.dart';
 import '../items/period_time_item.dart';
 import '../items/season_item.dart';

@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
+import '../../../l10n/app_localizations.dart';
 import '../widgets/app_locale_drop_down.dart';
 import '../widgets/social_item.dart';
 import '../widgets/app_wake_lock.dart';

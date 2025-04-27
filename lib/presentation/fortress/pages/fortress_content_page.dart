@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
@@ -12,6 +11,7 @@ import '../../../domain/entities/fortress_chapter_entity.dart';
 import '../../../domain/usecases/fortress_chapter_use_case.dart';
 import '../../../domain/usecases/fortress_footnote_use_case.dart';
 import '../../../domain/usecases/fortress_use_case.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../state/fortress_chapters_state.dart';
 import '../../state/fortress_footnotes_state.dart';
 import '../../state/fortress_state.dart';

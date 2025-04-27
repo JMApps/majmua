@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../../../data/repositories/custom_city_data_repository.dart';
 import '../../../data/services/databases/custom_city_database_service.dart';
 import '../../../domain/usecases/city_use_case.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../state/city_state.dart';
 import '../lists/custom_cities_list.dart';
 import '../widgets/add_city_bottom_sheet.dart';

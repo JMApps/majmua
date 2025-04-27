@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
@@ -8,6 +7,7 @@ import '../../../core/styles/app_styles.dart';
 import '../../../data/repositories/city_data_repository.dart';
 import '../../../data/services/databases/city_database_service.dart';
 import '../../../domain/usecases/city_use_case.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../state/city_state.dart';
 import '../lists/cities_list.dart';
 

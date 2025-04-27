@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../state/time_state.dart';
 
 class MainDataItem extends StatelessWidget {
@@ -29,29 +29,33 @@ class MainDataItem extends StatelessWidget {
                     child: ListTile(
                       contentPadding: AppStyles.mardingHorizontalMini,
                       visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                      splashColor: appColors.tertiaryContainer,
+                      splashColor: Colors.transparent,
+                      shape: AppStyles.mainShapeMini,
                       onTap: () {
                         showModalBottomSheet(
                           context: context,
                           builder: (context) => IgnorePointer(
-                            child: SfDateRangePicker(
-                              todayHighlightColor: Colors.transparent,
-                              monthCellStyle: DateRangePickerMonthCellStyle(
-                                todayTextStyle: TextStyle(
-                                  color: appColors.tertiary,
-                                  fontWeight: FontWeight.bold,
+                            child: Padding(
+                              padding: AppStyles.mardingWithoutTopMini,
+                              child: SfDateRangePicker(
+                                todayHighlightColor: Colors.transparent,
+                                monthCellStyle: DateRangePickerMonthCellStyle(
+                                  todayTextStyle: TextStyle(
+                                    color: appColors.tertiary,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  todayCellDecoration: BoxDecoration(
+                                    color: appColors.tertiaryContainer,
+                                    shape: BoxShape.circle,
+                                  ),
                                 ),
-                                todayCellDecoration: BoxDecoration(
-                                  color: appColors.tertiaryContainer,
-                                  shape: BoxShape.circle,
-                                ),
+                                view: DateRangePickerView.month,
+                                backgroundColor: appColors.surfaceContainerLow,
+                                headerHeight: 0,
+                                allowViewNavigation: false,
+                                showTodayButton: false,
+                                showNavigationArrow: false,
                               ),
-                              view: DateRangePickerView.month,
-                              backgroundColor: appColors.surfaceContainerLow,
-                              headerHeight: 0,
-                              allowViewNavigation: false,
-                              showTodayButton: false,
-                              showNavigationArrow: false,
                             ),
                           ),
                         );
@@ -97,29 +101,33 @@ class MainDataItem extends StatelessWidget {
                     child: ListTile(
                       contentPadding: AppStyles.mardingHorizontalMini,
                       visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
-                      splashColor: appColors.primaryContainer,
+                      splashColor: Colors.transparent,
+                      shape: AppStyles.mainShapeMini,
                       onTap: () {
                         showModalBottomSheet(
                           context: context,
-                          builder: (context) => IgnorePointer(
-                            child: SfHijriDateRangePicker(
-                              todayHighlightColor: Colors.transparent,
-                              monthCellStyle: HijriDatePickerMonthCellStyle(
-                                todayTextStyle: TextStyle(
-                                  color: appColors.primary,
-                                  fontWeight: FontWeight.bold,
+                          builder: (newContext) => IgnorePointer(
+                            child: Padding(
+                              padding: AppStyles.mardingWithoutTopMini,
+                              child: SfHijriDateRangePicker(
+                                todayHighlightColor: Colors.transparent,
+                                monthCellStyle: HijriDatePickerMonthCellStyle(
+                                  todayTextStyle: TextStyle(
+                                    color: appColors.primary,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  todayCellDecoration: BoxDecoration(
+                                    color: appColors.inversePrimary,
+                                    shape: BoxShape.circle,
+                                  ),
                                 ),
-                                todayCellDecoration: BoxDecoration(
-                                  color: appColors.inversePrimary,
-                                  shape: BoxShape.circle,
-                                ),
+                                view: HijriDatePickerView.month,
+                                backgroundColor: appColors.surfaceContainerLow,
+                                headerHeight: 0,
+                                allowViewNavigation: false,
+                                showTodayButton: false,
+                                showNavigationArrow: false,
                               ),
-                              view: HijriDatePickerView.month,
-                              backgroundColor: appColors.surfaceContainerLow,
-                              headerHeight: 0,
-                              allowViewNavigation: false,
-                              showTodayButton: false,
-                              showNavigationArrow: false,
                             ),
                           ),
                         );

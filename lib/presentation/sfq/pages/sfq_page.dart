@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -7,6 +6,7 @@ import '../../../core/styles/app_styles.dart';
 import '../../../data/repositories/sfq_data_repository.dart';
 import '../../../data/services/databases/sfq_database_service.dart';
 import '../../../domain/usecases/sfq_use_case.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../state/sfq_state.dart';
 import '../lists/sfq_list.dart';
 import '../widgets/sfq_settings.dart';

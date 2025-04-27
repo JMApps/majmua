@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../core/styles/app_styles.dart';
 import '../../../domain/entities/city_entity.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../state/city_state.dart';
 import '../../widgets/app_error_text.dart';
 import '../../widgets/main_description_text.dart';

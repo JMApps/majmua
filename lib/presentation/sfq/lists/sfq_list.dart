@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../../../core/styles/app_styles.dart';
 import '../../../domain/entities/sfq_entity.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../state/sfq_state.dart';
 import '../../widgets/app_error_text.dart';
 import '../items/sfq_item.dart';

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../../domain/entities/fortress_footnote_entity.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../state/fortress_footnotes_state.dart';
 import '../../widgets/app_error_text.dart';
 import 'fortress_html_data.dart';

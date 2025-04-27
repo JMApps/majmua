@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/routes/app_routes.dart';
 import '../../core/strings/app_string_constraints.dart';
 import '../../core/themes/app_themes.dart';
+import '../../l10n/app_localizations.dart';
 import '../state/app_settings_state.dart';
 import 'home_page.dart';
 

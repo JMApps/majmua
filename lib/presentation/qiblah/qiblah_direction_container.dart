@@ -3,11 +3,11 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_compass/flutter_compass.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/strings/app_string_constraints.dart';
 import '../../core/styles/app_styles.dart';
+import '../../l10n/app_localizations.dart';
 import '../../presentation/state/prayer_state.dart';
 import '../../presentation/state/qiblah_direction_state.dart';
 

@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/strings/db_value_strings.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../../domain/entities/city_entity.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../state/city_state.dart';
 
 class ChangeCityBottomSheet extends StatefulWidget {

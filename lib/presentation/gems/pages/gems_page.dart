@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -7,6 +6,7 @@ import '../../../core/styles/app_styles.dart';
 import '../../../data/repositories/gems_data_repository.dart';
 import '../../../data/services/databases/gems_database_service.dart';
 import '../../../domain/usecases/gems_use_case.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../state/gems_state.dart';
 import '../lists/gem_list.dart';
 import '../widgets/gems_settings.dart';
