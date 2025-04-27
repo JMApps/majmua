@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:majmua/presentation/state/fortress_footnotes_state.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
+import '../../state/fortress_footnotes_state.dart';
 import 'fortress_footnote_data.dart';
 
 class FortressHtmlData extends StatelessWidget {

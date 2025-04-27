@@ -43,7 +43,9 @@ class _ShareSupplicationButtonState extends State<ShareSupplicationButton> {
                   onPressed: () async {
                     Navigator.pop(context);
                     final String footnoteSupplication = await _footnoteSupplication(tableName: appLocale.fortressFootnoteTableName);
-                    await Share.share(footnoteSupplication.isNotEmpty ? '${widget.dataSupplication}\n\n$footnoteSupplication' : widget.dataSupplication);
+                    await SharePlus.instance.share(
+                      ShareParams(text: footnoteSupplication.isNotEmpty ? '${widget.dataSupplication}\n\n$footnoteSupplication' : widget.dataSupplication),
+                    );
                   },
                   icon: Icon(
                     CupertinoIcons.share,

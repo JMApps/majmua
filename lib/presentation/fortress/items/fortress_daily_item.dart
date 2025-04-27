@@ -39,9 +39,7 @@ class FortressDailyItem extends StatelessWidget {
             image: DecorationImage(
               image: AssetImage('assets/pictures/$iconName.jpg'),
               fit: BoxFit.cover,
-              opacity: Theme.of(context).brightness == Brightness.light
-                  ? 0.65
-                  : 0.35,
+              opacity: Theme.of(context).brightness == Brightness.light ? 0.65 : 0.35,
             ),
           ),
           child: Text(
