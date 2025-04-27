@@ -6,7 +6,7 @@ import '../../core/enums/season.dart';
 import '../../core/enums/time_period.dart';
 import '../../core/strings/app_string_constraints.dart';
 
-class TimeState extends ChangeNotifier {
+class TimeState extends ChangeNotifier with WidgetsBindingObserver {
   DateTime _dateTime = DateTime.now();
   HijriCalendar _hijriCalendar = HijriCalendar.now();
   final Cron _cron = Cron();
@@ -17,6 +17,7 @@ class TimeState extends ChangeNotifier {
   HijriCalendar get getHijriDateTime => _hijriCalendar;
 
   TimeState() {
+    WidgetsBinding.instance.addObserver(this);
     _dateTime = DateTime.now();
     _hijriCalendar = HijriCalendar.now();
     _startCron();
@@ -216,6 +217,14 @@ class TimeState extends ChangeNotifier {
     return _getCurrentSeason(_dateTime.month);
   }
 
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      _updateDateTime();
+      notifyListeners();
+    }
+  }
+
   Season _getCurrentSeason(int month) {
     late Season currentSeason;
     switch (month) {
@@ -257,6 +266,7 @@ class TimeState extends ChangeNotifier {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _cron.close();
     super.dispose();
   }

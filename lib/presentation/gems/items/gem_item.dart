@@ -69,7 +69,9 @@ class GemItem extends StatelessWidget {
                   ),
                   IconButton(
                     onPressed: () {
-                      Share.share(_parseString(htmlText: gemModel.citation), sharePositionOrigin: Rect.fromLTWH(0, 0, screenWidth, screenHeight / 2));
+                      SharePlus.instance.share(
+                        ShareParams(text: _parseString(htmlText: gemModel.citation), sharePositionOrigin: Rect.fromLTWH(0, 0, screenWidth, screenHeight / 2)),
+                      );
                     },
                     icon: Icon(Icons.ios_share_rounded),
                   ),

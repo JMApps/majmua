@@ -31,10 +31,9 @@ class SeasonTimesContainer extends StatelessWidget {
                 Card(
                   margin: AppStyles.mardingBottomMini,
                   child: Padding(
-                    padding: AppStyles.mardingVerticalMicro,
+                    padding: AppStyles.mainMardingMicroMini,
                     child: Text(
                       appLocale.appSlogan,
-                      style: AppStyles.mainTextStyleMini,
                       textAlign: TextAlign.center,
                     ),
                   ),

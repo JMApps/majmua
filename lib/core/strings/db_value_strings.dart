@@ -2,7 +2,7 @@ class DBValueStrings {
   static const String cityDBName = 'countries_database.db';
   static const String customCityDBName = 'custom_countries.db';
   static const int dbCityVersion = 1;
-  static const int dbCustomCityVersion = 1;
+  static const int dbCustomCityVersion = 2;
 
   static const String id = 'id';
 
@@ -33,7 +33,7 @@ class DBValueStrings {
 
   // Fortress
   static const String dbFortressName = 'fortress_of_the_muslim.db';
-  static const int dbFortressVersion = 1;
+  static const int dbFortressVersion = 3;
 
   static const String dbFortressChapterId = 'chapter_id';
   static const String dbFortressChapterNumber = 'chapter_number';

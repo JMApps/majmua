@@ -80,12 +80,12 @@ class _PrayersContainerState extends State<PrayersContainer> {
           _notificationService.cancelNotificationWithId(AppStringConstraints.nightSupplicationsNotificationID);
         }
         if (notification.isFastThursdayNotification && time.isFasting()) {
-          _notificationService.weeklyNotification(id: AppStringConstraints.fastThursdayNotificationID, title: appLocale.remind, body: appLocale.fastThursday, dateTime: prayer.weeklyWednesday);
+          _notificationService.weeklyNotification(id: AppStringConstraints.fastThursdayNotificationID, title: appLocale.remind, body: appLocale.nearFastingDay, dateTime: prayer.weeklyWednesday);
         } else {
           _notificationService.cancelNotificationWithId(AppStringConstraints.fastThursdayNotificationID);
         }
         if (notification.isFastMondayNotification && time.isFasting()) {
-          _notificationService.weeklyNotification(id: AppStringConstraints.fastMondayNotificationID, title: appLocale.remind, body: appLocale.fastMonday, dateTime: prayer.weeklySunday);
+          _notificationService.weeklyNotification(id: AppStringConstraints.fastMondayNotificationID, title: appLocale.remind, body: appLocale.nearFastingDay, dateTime: prayer.weeklySunday);
         } else {
           _notificationService.cancelNotificationWithId(AppStringConstraints.fastMondayNotificationID);
         }

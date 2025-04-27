@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
@@ -28,6 +29,33 @@ class MainDataItem extends StatelessWidget {
                     child: ListTile(
                       contentPadding: AppStyles.mardingHorizontalMini,
                       visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
+                      splashColor: appColors.tertiaryContainer,
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (context) => IgnorePointer(
+                            child: SfDateRangePicker(
+                              todayHighlightColor: Colors.transparent,
+                              monthCellStyle: DateRangePickerMonthCellStyle(
+                                todayTextStyle: TextStyle(
+                                  color: appColors.tertiary,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                todayCellDecoration: BoxDecoration(
+                                  color: appColors.tertiaryContainer,
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                              view: DateRangePickerView.month,
+                              backgroundColor: appColors.surfaceContainerLow,
+                              headerHeight: 0,
+                              allowViewNavigation: false,
+                              showTodayButton: false,
+                              showNavigationArrow: false,
+                            ),
+                          ),
+                        );
+                      },
                       title: Text(
                         appLocale.gregorianMonthNames.split(', ')[timeState.getDateTime.month - 1],
                         style: TextStyle(
@@ -55,6 +83,7 @@ class MainDataItem extends StatelessWidget {
                           ),
                         ),
                       ),
+                      trailing: Icon(Icons.arrow_right_rounded),
                     ),
                   ),
                 ),
@@ -68,6 +97,33 @@ class MainDataItem extends StatelessWidget {
                     child: ListTile(
                       contentPadding: AppStyles.mardingHorizontalMini,
                       visualDensity: const VisualDensity(vertical: -4, horizontal: -4),
+                      splashColor: appColors.primaryContainer,
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (context) => IgnorePointer(
+                            child: SfHijriDateRangePicker(
+                              todayHighlightColor: Colors.transparent,
+                              monthCellStyle: HijriDatePickerMonthCellStyle(
+                                todayTextStyle: TextStyle(
+                                  color: appColors.primary,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                todayCellDecoration: BoxDecoration(
+                                  color: appColors.inversePrimary,
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                              view: HijriDatePickerView.month,
+                              backgroundColor: appColors.surfaceContainerLow,
+                              headerHeight: 0,
+                              allowViewNavigation: false,
+                              showTodayButton: false,
+                              showNavigationArrow: false,
+                            ),
+                          ),
+                        );
+                      },
                       title: Text(
                         appLocale.hijriMonthNames.split(', ')[timeState.getHijriDateTime.hMonth - 1],
                         style: TextStyle(
@@ -95,6 +151,7 @@ class MainDataItem extends StatelessWidget {
                           ),
                         ),
                       ),
+                      trailing: Icon(Icons.arrow_right_rounded),
                     ),
                   ),
                 ),

@@ -120,7 +120,9 @@ class AppSettingsPage extends StatelessWidget {
             FilledButton.tonalIcon(
               onPressed: () {
                 Navigator.pop(context);
-                Share.share('${appLocale.appName}\n\n${AppStringConstraints.iOS}\n${AppStringConstraints.appLinkIOS}\n\n${AppStringConstraints.android}\n${AppStringConstraints.appLinkAndroid}', sharePositionOrigin: Rect.fromLTWH(0, 0, screenWidth, screenHeight / 2));
+                SharePlus.instance.share(
+                  ShareParams(text: '${appLocale.appName}\n\n${AppStringConstraints.iOS}\n${AppStringConstraints.appLinkIOS}\n\n${AppStringConstraints.android}\n${AppStringConstraints.appLinkAndroid}', sharePositionOrigin: Rect.fromLTWH(0, 0, screenWidth, screenHeight / 2))
+                );
               },
               label: Text(
                 appLocale.share,

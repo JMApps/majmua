@@ -14,13 +14,11 @@ class SalawatButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
-    final deviceHeight = MediaQuery.of(context).size.height;
-    final deviceOrientation = MediaQuery.of(context).orientation;
-    return SizedBox(
-      height: deviceOrientation == Orientation.portrait ? deviceHeight * 0.180 : deviceHeight * 0.75,
-      child: Card(
-        margin: AppStyles.mardingWithoutBottomMini,
+    return Card(
+      margin: AppStyles.mardingWithoutBottomMini,
+      child: IntrinsicHeight(
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const Expanded(
               flex: 9,
@@ -32,12 +30,14 @@ class SalawatButton extends StatelessWidget {
                 color: appColors.surface,
                 margin: AppStyles.mainMardingMini,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CupertinoButton(
                       padding: EdgeInsets.zero,
                       child: Consumer<PrayerState>(
                         builder: (context, prayerState, _) {
                           return Stack(
+                            alignment: Alignment.center,
                             children: [
                               Image.asset(
                                 'assets/pictures/salawat.png',

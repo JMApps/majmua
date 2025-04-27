@@ -84,7 +84,9 @@ class SFQItem extends StatelessWidget {
                       ),
                       IconButton(
                         onPressed: () {
-                          Share.share('${supplicationModel.ayahArabic}\n\n${_parseString(htmlText: supplicationModel.ayahTranslation)}\n\n${supplicationModel.ayahSource}', sharePositionOrigin: Rect.fromLTWH(0, 0, screenWidth, screenHeight / 2));
+                          SharePlus.instance.share(
+                            ShareParams(text: '${supplicationModel.ayahArabic}\n\n${_parseString(htmlText: supplicationModel.ayahTranslation)}\n\n${supplicationModel.ayahSource}', sharePositionOrigin: Rect.fromLTWH(0, 0, screenWidth, screenHeight / 2)),
+                          );
                         },
                         icon: Icon(Icons.ios_share_rounded),
                       ),

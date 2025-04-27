@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.majmua"
+    namespace = "jmapps.project.majmua"
     compileSdk = 35
     ndkVersion "27.0.12077973"
 
@@ -25,7 +25,7 @@ android {
 
     defaultConfig {
         multiDexEnabled true
-        applicationId = "jmapps.project.majmua2"
+        applicationId = "jmapps.project.majmua"
         minSdk = 23
         targetSdk = 35
         versionCode = flutter.versionCode

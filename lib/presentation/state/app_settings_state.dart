@@ -11,7 +11,7 @@ class AppSettingsState extends ChangeNotifier {
 
   AppSettingsState() {
     _appLocaleIndex = _appSettingsBox.get(AppStringConstraints.keyAppLocaleIndex, defaultValue: _defaultLocaleIndex());
-    _appThemeColor = Color(_appSettingsBox.get(AppStringConstraints.keyAppThemeColor, defaultValue: Colors.indigo.value));
+    _appThemeColor = Color(_appSettingsBox.get(AppStringConstraints.keyAppThemeColor, defaultValue: Colors.indigo.toARGB32()));
     _appThemeModeIndex = _appSettingsBox.get(AppStringConstraints.keyAppThemeModeIndex, defaultValue: 2);
     _wakeLockState = _appSettingsBox.get(AppStringConstraints.keyWakeLock, defaultValue: true);
     _wakeLockState ? WakelockPlus.enable() : WakelockPlus.disable();
@@ -57,7 +57,7 @@ class AppSettingsState extends ChangeNotifier {
   set appThemeColor(Color color) {
     if (_appThemeColor != color) {
       _appThemeColor = color;
-      _appSettingsBox.put(AppStringConstraints.keyAppThemeColor, color.value);
+      _appSettingsBox.put(AppStringConstraints.keyAppThemeColor, color.toARGB32());
       notifyListeners();
     }
   }
