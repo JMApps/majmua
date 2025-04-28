@@ -15,8 +15,7 @@ class QiblahDirectionContainer extends StatefulWidget {
   const QiblahDirectionContainer({super.key});
 
   @override
-  State<QiblahDirectionContainer> createState() =>
-      _QiblahDirectionContainerState();
+  State<QiblahDirectionContainer> createState() => _QiblahDirectionContainerState();
 }
 
 class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
@@ -83,6 +82,11 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
                 Text(
                   '${appLocale.qiblah}:\n${prayerState.qiblahDirection.direction.toStringAsFixed(1)}°',
                   style: AppStyles.mainTextStyle,
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  'N',
+                  style: AppStyles.mainTextStyleBigBold,
                   textAlign: TextAlign.center,
                 ),
                 Expanded(
