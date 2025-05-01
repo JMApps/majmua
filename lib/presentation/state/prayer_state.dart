@@ -67,12 +67,14 @@ class PrayerState extends ChangeNotifier with WidgetsBindingObserver {
       ..highLatitudeRule = AppStringConstraints.highLatitude[_highLatitudeMethodIndex]
       ..madhab = AppStringConstraints.calculationMadhab[_madhabIndex];
 
-    _prayerParams.adjustments.fajr = _fajrAdjustment;
-    _prayerParams.adjustments.sunrise = _sunriseAdjustment;
-    _prayerParams.adjustments.dhuhr = _dhuhrAdjustment;
-    _prayerParams.adjustments.asr = _asrAdjustment;
-    _prayerParams.adjustments.maghrib = _maghribAdjustment;
-    _prayerParams.adjustments.isha = _ishaAdjustment;
+    final offset = dst ? 60 : 0;
+
+    _prayerParams.adjustments.fajr = _fajrAdjustment - offset;
+    _prayerParams.adjustments.sunrise = _sunriseAdjustment - offset;
+    _prayerParams.adjustments.dhuhr = _dhuhrAdjustment - offset;
+    _prayerParams.adjustments.asr = _asrAdjustment - offset;
+    _prayerParams.adjustments.maghrib = _maghribAdjustment - offset;
+    _prayerParams.adjustments.isha = _ishaAdjustment - offset;
 
     _prayerTimes = PrayerTimes.today(
       _coordinates,

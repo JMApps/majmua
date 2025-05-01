@@ -53,7 +53,7 @@ class PrayerItem extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   Text(
-                    DateFormat('HH:mm').format(prayerState.prayerTimes.timeForPrayer(prayer)!.add(prayerState.dst ? const Duration(hours: -1) : const Duration(hours: 0))),
+                    DateFormat('HH:mm').format(prayerState.prayerTimes.timeForPrayer(prayer)!),
                     style: isHourAfter || isHourBefore ? AppStyles.mainTextStyleMiniBold : AppStyles.mainTextStyleMini,
                   ),
                   Visibility(

@@ -49,7 +49,6 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
         child: SingleChildScrollView(
           child: Consumer<PrayerState>(
             builder: (context, prayerState, _) {
-              final Duration dstState = prayerState.dst ? const Duration(hours: - 1) : const Duration(hours: 0);
               return DataTable(
                 headingRowColor: WidgetStateProperty.all(appColors.inversePrimary.withAlpha(75)),
                 columnSpacing: 0,
@@ -128,7 +127,7 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                         SizedBox(
                           width: columnWidth,
                           child: Text(
-                            DateFormat('HH:mm').format(prayerTimes.fajr.add(dstState)),
+                            DateFormat('HH:mm').format(prayerTimes.fajr),
                             style: TextStyle(
                               color: dayIndex + 1 == _currentDateTime.day ? appColors.tertiary : appColors.primary,
                               fontWeight: FontWeight.bold,
@@ -140,7 +139,7 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                         SizedBox(
                           width: columnWidth,
                           child: Text(
-                            DateFormat('HH:mm').format(prayerTimes.sunrise.add(dstState)),
+                            DateFormat('HH:mm').format(prayerTimes.sunrise),
                           ),
                         ),
                       ),
@@ -148,7 +147,7 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                         SizedBox(
                           width: columnWidth,
                           child: Text(
-                            DateFormat('HH:mm').format(prayerTimes.dhuhr.add(dstState)),
+                            DateFormat('HH:mm').format(prayerTimes.dhuhr),
                             style: TextStyle(
                               color: dayIndex + 1 == _currentDateTime.day ? appColors.tertiary : appColors.primary,
                               fontWeight: FontWeight.bold,
@@ -160,7 +159,7 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                         SizedBox(
                           width: columnWidth,
                           child: Text(
-                            DateFormat('HH:mm').format(prayerTimes.asr.add(dstState)),
+                            DateFormat('HH:mm').format(prayerTimes.asr),
                           ),
                         ),
                       ),
@@ -168,7 +167,7 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                         SizedBox(
                           width: columnWidth,
                           child: Text(
-                            DateFormat('HH:mm').format(prayerTimes.maghrib.add(dstState)),
+                            DateFormat('HH:mm').format(prayerTimes.maghrib),
                             style: TextStyle(
                               color: dayIndex + 1 == _currentDateTime.day ? appColors.tertiary : appColors.primary,
                               fontWeight: FontWeight.bold,
@@ -180,7 +179,7 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                         SizedBox(
                           width: columnWidth,
                           child: Text(
-                            DateFormat('HH:mm').format(prayerTimes.isha.add(dstState)),
+                            DateFormat('HH:mm').format(prayerTimes.isha),
                           ),
                         ),
                       ),
