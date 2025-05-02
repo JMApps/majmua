@@ -38,6 +38,7 @@ class MainDataItem extends StatelessWidget {
                             child: Padding(
                               padding: AppStyles.mardingWithoutTopMini,
                               child: SfDateRangePicker(
+                                monthViewSettings: DateRangePickerMonthViewSettings(firstDayOfWeek: 1),
                                 todayHighlightColor: Colors.transparent,
                                 monthCellStyle: DateRangePickerMonthCellStyle(
                                   todayTextStyle: TextStyle(
@@ -110,6 +111,7 @@ class MainDataItem extends StatelessWidget {
                             child: Padding(
                               padding: AppStyles.mardingWithoutTopMini,
                               child: SfHijriDateRangePicker(
+                                monthViewSettings: HijriDatePickerMonthViewSettings(firstDayOfWeek: 1),
                                 todayHighlightColor: Colors.transparent,
                                 monthCellStyle: HijriDatePickerMonthCellStyle(
                                   todayTextStyle: TextStyle(

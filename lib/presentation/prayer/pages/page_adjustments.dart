@@ -21,7 +21,6 @@ class PageAdjustments extends StatelessWidget {
         padding: AppStyles.mainMardingMini,
         child: Consumer<PrayerState>(
           builder: (context, prayerState, _) {
-            final Duration isDst = prayerState.dst ? const Duration(hours: -1) : const Duration(hours: 0);
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
@@ -45,7 +44,7 @@ class PageAdjustments extends StatelessWidget {
                     child: const Icon(Icons.remove),
                   ),
                   title: Text(
-                    '${appLocale.fajr}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.fajr.add(isDst))}',
+                    '${appLocale.fajr}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.fajr)}',
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),
@@ -66,7 +65,7 @@ class PageAdjustments extends StatelessWidget {
                     child: const Icon(Icons.remove),
                   ),
                   title: Text(
-                    '${appLocale.sunrise}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.sunrise.add(isDst))}',
+                    '${appLocale.sunrise}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.sunrise)}',
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),
@@ -87,7 +86,7 @@ class PageAdjustments extends StatelessWidget {
                     child: const Icon(Icons.remove),
                   ),
                   title: Text(
-                    '${appLocale.dhuhr}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.dhuhr.add(isDst))}',
+                    '${appLocale.dhuhr}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.dhuhr)}',
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),
@@ -108,7 +107,7 @@ class PageAdjustments extends StatelessWidget {
                     child: const Icon(Icons.remove),
                   ),
                   title: Text(
-                    '${appLocale.asr}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.asr.add(isDst))}',
+                    '${appLocale.asr}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.asr)}',
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),
@@ -129,7 +128,7 @@ class PageAdjustments extends StatelessWidget {
                     child: const Icon(Icons.remove),
                   ),
                   title: Text(
-                    '${appLocale.maghrib}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.maghrib.add(isDst))}',
+                    '${appLocale.maghrib}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.maghrib)}',
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),
@@ -150,7 +149,7 @@ class PageAdjustments extends StatelessWidget {
                     child: const Icon(Icons.remove),
                   ),
                   title: Text(
-                    '${appLocale.isha}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.isha.add(isDst))}',
+                    '${appLocale.isha}\n${DateFormat('HH:mm').format(prayerState.prayerTimes.isha)}',
                     style: AppStyles.mainTextStyle,
                     textAlign: TextAlign.center,
                   ),

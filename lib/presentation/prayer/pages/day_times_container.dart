@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:majmua/presentation/prayer/items/time_period_percent.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/styles/app_styles.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../state/prayer_state.dart';
+import '../items/time_period_percent.dart';
 
 class DayTimesContainer extends StatelessWidget {
   const DayTimesContainer({super.key});
