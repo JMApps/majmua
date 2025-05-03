@@ -2,6 +2,8 @@ import 'package:adhan/adhan.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:home_widget/home_widget.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/routes/app_route_names.dart';
@@ -28,12 +30,40 @@ class PrayersContainer extends StatefulWidget {
 class _PrayersContainerState extends State<PrayersContainer> {
   final NotificationService _notificationService = NotificationService();
 
+  Future<void> savePrayerTimesToWidget({
+    required String fajr,
+    required String sunrise,
+    required String dhuhr,
+    required String asr,
+    required String maghrib,
+    required String isha,
+  }) async {
+    await HomeWidget.saveWidgetData<String>('prayer_fajr', fajr);
+    await HomeWidget.saveWidgetData<String>('prayer_sunrise', sunrise);
+    await HomeWidget.saveWidgetData<String>('prayer_dhuhr', dhuhr);
+    await HomeWidget.saveWidgetData<String>('prayer_asr', asr);
+    await HomeWidget.saveWidgetData<String>('prayer_maghrib', maghrib);
+    await HomeWidget.saveWidgetData<String>('prayer_isha', isha);
+
+    await HomeWidget.updateWidget(name: 'PrayerTimeWidget', iOSName: 'PrayerTimeWidget');
+  }
+
   @override
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
     final appColors = Theme.of(context).colorScheme;
     return Consumer3<NotificationsState, PrayerState, TimeState>(
       builder: (context, notification, prayer, time, _) {
+        final timeFormat = DateFormat('HH:mm');
+
+        savePrayerTimesToWidget(
+          fajr: timeFormat.format(prayer.prayerTimes.fajr),
+          sunrise: timeFormat.format(prayer.prayerTimes.sunrise),
+          dhuhr: timeFormat.format(prayer.prayerTimes.dhuhr),
+          asr: timeFormat.format(prayer.prayerTimes.asr),
+          maghrib: timeFormat.format(prayer.prayerTimes.maghrib),
+          isha: timeFormat.format(prayer.prayerTimes.isha),
+        );
         if (notification.isFajrNotification) {
           _notificationService.prayerNotification(id: AppStringConstraints.fajrNotificationID, title: appLocale.prayerTime, body: appLocale.fajr, dateTime: prayer.prayerTimes.fajr);
         } else {

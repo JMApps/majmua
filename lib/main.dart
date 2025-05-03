@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:home_widget/home_widget.dart';
 import 'package:provider/provider.dart';
 
 import 'core/strings/app_string_constraints.dart';
@@ -24,6 +25,8 @@ void main() async {
 
   final NotificationService notificationService = NotificationService();
   await notificationService.setupNotification();
+
+  await HomeWidget.setAppGroupId('group.jmapps.project.majmua');
 
   runApp(
     MultiProvider(

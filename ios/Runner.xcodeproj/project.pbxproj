@@ -21,6 +21,7 @@
 		DB01DDD92DC4E0FD00A46623 /* PrayerTimeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DB01DDCC2DC4E0FC00A46623 /* PrayerTimeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DB5DA0322DB497240091888E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB5DA0302DB497240091888E /* InfoPlist.strings */; };
 		DBAB36212DB803A100764A38 /* adhan.caf in Resources */ = {isa = PBXBuildFile; fileRef = DBAB36202DB803A100764A38 /* adhan.caf */; };
+		DBC612912DC662610066E64E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBC612902DC662610066E64E /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,10 @@
 		DB5DA02F2DB496F00091888E /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
 		DB5DA0332DB497420091888E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DBAB36202DB803A100764A38 /* adhan.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = adhan.caf; sourceTree = "<group>"; };
+		DBC6128C2DC662610066E64E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DBC6128D2DC662610066E64E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = kk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DBC6128E2DC662610066E64E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = ky.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DBC6128F2DC662610066E64E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DBD937842DBE348C00A876A6 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DBD937852DBE34AC00A876A6 /* ky */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ky; path = ky.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +183,7 @@
 		97C146E51CF9000F007C117D = {
 			isa = PBXGroup;
 			children = (
+				DBC612902DC662610066E64E /* Localizable.strings */,
 				DB06AE702DC400B6008A1546 /* PrayerTimeWidgetExtension.entitlements */,
 				DBAB36202DB803A100764A38 /* adhan.caf */,
 				9740EEB11CF90186004384FC /* Flutter */,
@@ -368,6 +374,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBC612912DC662610066E64E /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +541,17 @@
 				DBD937852DBE34AC00A876A6 /* ky */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DBC612902DC662610066E64E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DBC6128C2DC662610066E64E /* Localizable.strings */,
+				DBC6128D2DC662610066E64E /* Localizable.strings */,
+				DBC6128E2DC662610066E64E /* Localizable.strings */,
+				DBC6128F2DC662610066E64E /* Localizable.strings */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

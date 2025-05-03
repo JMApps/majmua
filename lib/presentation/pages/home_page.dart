@@ -74,6 +74,7 @@ class HomePage extends StatelessWidget {
                 MainButtonsCard(),
                 SizedBox(height: 4),
                 LibraryButton(),
+                SizedBox(height: 8),
               ],
             ),
           ),
