@@ -17,6 +17,7 @@ import '../../state/fortress_footnotes_state.dart';
 import '../../state/fortress_state.dart';
 import '../../widgets/app_error_text.dart';
 import '../lists/fortress_content_list.dart';
+import '../lists/fortress_content_pages.dart';
 import '../widgets/fortress_html_data.dart';
 import '../widgets/fortress_settings.dart';
 
@@ -63,13 +64,13 @@ class _FortressContentPageState extends State<FortressContentPage> {
           ),
         ),
       ],
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('${appLocale.chapter} ${widget.chapterId}'),
-          actions: [
-            Consumer<FortressState>(
-              builder: (context, fortressState, _) {
-                return IconButton(
+      child: Consumer<FortressState>(
+        builder: (context, fortressState, _) {
+          return Scaffold(
+            appBar: AppBar(
+              title: Text('${appLocale.chapter} ${widget.chapterId}'),
+              actions: [
+                IconButton(
                   onPressed: () {
                     showModalBottomSheet(
                       context: context,
@@ -81,65 +82,75 @@ class _FortressContentPageState extends State<FortressContentPage> {
                   },
                   tooltip: appLocale.settings,
                   icon: const Icon(Icons.settings),
-                );
-              },
+                ),
+                IconButton(
+                  onPressed: () {
+                    fortressState.pageMode = !fortressState.pageMode;
+                  },
+                  visualDensity: VisualDensity.compact,
+                  icon: Icon(
+                    fortressState.pageMode ? Icons.menu_book_outlined : Icons.view_list_sharp,
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-        body: SingleChildScrollView(
-          padding: AppStyles.mainMardingMini,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Consumer<FortressChaptersState>(
-                builder: (context, chapterState, _) {
-                  return FutureBuilder<FortressChapterEntity>(
-                    future: chapterState.getChapterById(
-                      tableName: appLocale.fortressChapterTableName,
-                      chapterId: widget.chapterId,
-                    ),
-                    builder: (context, snapshot) {
-                      if (snapshot.hasError) {
-                        return AppErrorText(text: snapshot.error.toString());
-                      }
-                      if (snapshot.hasData) {
-                        final FortressChapterEntity chapterModel = snapshot.data!;
-                        return Card(
-                          margin: EdgeInsets.zero,
-                          color: appColors.secondaryContainer,
-                          child: Padding(
-                            padding: AppStyles.mainMardingMini,
-                            child: FortressHtmlData(
-                              htmlData: chapterModel.chapterTitle,
-                              footnoteColor: appColors.primary,
-                              font: AppStringConstraints.fontGilroy,
-                              fontSize: 16.0,
-                              textAlign: TextAlign.center,
-                              fontColor: appColors.onSurface,
+            body: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Consumer<FortressChaptersState>(
+                  builder: (context, chapterState, _) {
+                    return FutureBuilder<FortressChapterEntity>(
+                      future: chapterState.getChapterById(
+                        tableName: appLocale.fortressChapterTableName,
+                        chapterId: widget.chapterId,
+                      ),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasError) {
+                          return AppErrorText(text: snapshot.error.toString());
+                        }
+                        if (snapshot.hasData) {
+                          final FortressChapterEntity chapterModel = snapshot.data!;
+                          return Card(
+                            margin: AppStyles.mardingWithoutBottomMini,
+                            color: appColors.secondaryContainer,
+                            child: Padding(
+                              padding: AppStyles.mainMardingMini,
+                              child: FortressHtmlData(
+                                htmlData: chapterModel.chapterTitle,
+                                footnoteColor: appColors.primary,
+                                font: AppStringConstraints.fontGilroy,
+                                fontSize: 16.0,
+                                textAlign: TextAlign.center,
+                                fontColor: appColors.onSurface,
+                              ),
                             ),
-                          ),
+                          );
+                        }
+                        return const Center(
+                          child: CircularProgressIndicator.adaptive(),
                         );
-                      }
-                      return const Center(
-                        child: CircularProgressIndicator.adaptive(),
-                      );
-                    },
-                  );
-                },
-              ),
-              const SizedBox(height: 8),
-              Consumer<FortressState>(
-                builder: (context, fortressState, _) {
-                  return FortressContentList(
+                      },
+                    );
+                  },
+                ),
+                const SizedBox(height: 8),
+                fortressState.pageMode ? Expanded(
+                  child: FortressContentPages(
                     chapterId: widget.chapterId,
                     fortressState: fortressState,
                     tableName: appLocale.fortressTableName,
-                  );
-                },
-              ),
-            ],
-          ),
-        ),
+                  ),
+                ) : Expanded(
+                  child: FortressContentList(
+                    chapterId: widget.chapterId,
+                    fortressState: fortressState,
+                    tableName: appLocale.fortressTableName,
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

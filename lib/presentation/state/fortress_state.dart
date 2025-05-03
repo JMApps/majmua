@@ -11,9 +11,10 @@ class FortressState extends ChangeNotifier {
   final FortressUseCase _supplicationUseCase;
 
   FortressState(this._supplicationUseCase) {
-   _arabicTextSize = _mainSettingsBox.get(AppStringConstraints.keyFortressArabicTextSize, defaultValue: 22.0);
-   _translationTextSize = _mainSettingsBox.get(AppStringConstraints.keyFortressTranslationTextSize, defaultValue: 18.0);
-   _transcriptionIsShow = _mainSettingsBox.get(AppStringConstraints.keyFortressTranscriptionIsShow, defaultValue: true);
+    _pageMode = _mainSettingsBox.get(AppStringConstraints.keyFortressListPageMode, defaultValue: true);
+    _arabicTextSize = _mainSettingsBox.get(AppStringConstraints.keyFortressArabicTextSize, defaultValue: 22.0);
+    _translationTextSize = _mainSettingsBox.get(AppStringConstraints.keyFortressTranslationTextSize, defaultValue: 18.0);
+    _transcriptionIsShow = _mainSettingsBox.get(AppStringConstraints.keyFortressTranscriptionIsShow, defaultValue: true);
   }
 
   double _arabicTextSize = 22.0;
@@ -27,6 +28,16 @@ class FortressState extends ChangeNotifier {
   double get translationTextSize => _translationTextSize;
 
   bool get transcriptionIsShow => _transcriptionIsShow;
+
+  bool _pageMode = true;
+
+  bool get pageMode => _pageMode;
+
+  set pageMode(bool state) {
+    _pageMode = state;
+    _mainSettingsBox.put(AppStringConstraints.keyFortressListPageMode, state);
+    notifyListeners();
+  }
 
   set arabicTextSize(double size) {
     _arabicTextSize = size;

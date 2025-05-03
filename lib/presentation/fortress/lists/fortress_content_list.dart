@@ -44,8 +44,6 @@ class _FortressContentListState extends State<FortressContentList> {
         if (snapshot.hasData) {
           return ListView.builder(
             padding: EdgeInsets.zero,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
             itemCount: snapshot.data!.length,
             itemBuilder: (context, index) {
               final FortressEntity fortressModel = snapshot.data![index];

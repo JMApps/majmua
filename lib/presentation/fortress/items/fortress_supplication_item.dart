@@ -25,49 +25,53 @@ class FortressSupplicationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
     return Card(
-      margin: AppStyles.mardingBottomMini,
+      margin: AppStyles.mardingWithoutTopMini,
       child: Padding(
         padding: AppStyles.mainMardingMini,
         child: Consumer<FortressState>(
           builder: (context, fortressState, _) {
-            return Column(
-              children: [
-                fortressModel.arabicText != null ? Text(
-                  fortressModel.arabicText!,
-                  style: TextStyle(
-                    fontSize: fortressState.arabicTextSize,
-                    fontFamily: AppStringConstraints.fontHafs,
-                    height: 1.75,
-                  ),
-                  textAlign: TextAlign.center,
-                  textDirection: TextDirection.rtl,
-                ) : const SizedBox(),
-                SizedBox(height: fortressModel.arabicText != null ? 16 : 0),
-                fortressModel.countNumber > 0 ? FortressCounterButton(count: fortressModel.countNumber) : SizedBox(),
-                SizedBox(height: fortressModel.countNumber > 0 ? 16 : 0),
-                fortressModel.transcriptionText != null && fortressModel.transcriptionText!.isNotEmpty && fortressState.transcriptionIsShow ? Text(
-                  fortressModel.transcriptionText!,
-                  style: TextStyle(
-                    fontSize: fortressState.translationTextSize,
-                    fontFamily: AppStringConstraints.fontGilroy,
-                  ),
-                  textAlign: TextAlign.center,
-                ) : const SizedBox(),
-                SizedBox(height: fortressModel.transcriptionText != null && fortressModel.transcriptionText!.isNotEmpty  && fortressState.transcriptionIsShow ? 16 : 0),
-                FortressHtmlData(
-                  htmlData: fortressModel.translationText,
-                  footnoteColor: appColors.primary,
-                  font: AppStringConstraints.fontGilroyMedium,
-                  fontSize: fortressState.translationTextSize,
-                  textAlign: TextAlign.center,
-                  fontColor: appColors.onSurface,
+            return Center(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    fortressModel.arabicText != null ? Text(
+                      fortressModel.arabicText!,
+                      style: TextStyle(
+                        fontSize: fortressState.arabicTextSize,
+                        fontFamily: AppStringConstraints.fontHafs,
+                        height: 1.75,
+                      ),
+                      textAlign: TextAlign.center,
+                      textDirection: TextDirection.rtl,
+                    ) : const SizedBox(),
+                    SizedBox(height: fortressModel.arabicText != null ? 16 : 0),
+                    fortressModel.countNumber > 0 ? FortressCounterButton(count: fortressModel.countNumber) : SizedBox(),
+                    SizedBox(height: fortressModel.countNumber > 0 ? 16 : 0),
+                    fortressModel.transcriptionText != null && fortressModel.transcriptionText!.isNotEmpty && fortressState.transcriptionIsShow ? Text(
+                      fortressModel.transcriptionText!,
+                      style: TextStyle(
+                        fontSize: fortressState.translationTextSize,
+                        fontFamily: AppStringConstraints.fontGilroy,
+                      ),
+                      textAlign: TextAlign.center,
+                    ) : const SizedBox(),
+                    SizedBox(height: fortressModel.transcriptionText != null && fortressModel.transcriptionText!.isNotEmpty  && fortressState.transcriptionIsShow ? 16 : 0),
+                    FortressHtmlData(
+                      htmlData: fortressModel.translationText,
+                      footnoteColor: appColors.primary,
+                      font: AppStringConstraints.fontGilroyMedium,
+                      fontSize: fortressState.translationTextSize,
+                      textAlign: TextAlign.center,
+                      fontColor: appColors.onSurface,
+                    ),
+                    SupplicationMediaCard(
+                      supplicationModel: fortressModel,
+                      supplicationIndex: index + 1,
+                      supplicationLength: supplicationsCount,
+                    ),
+                  ],
                 ),
-                SupplicationMediaCard(
-                  supplicationModel: fortressModel,
-                  supplicationIndex: index + 1,
-                  supplicationLength: supplicationsCount,
-                ),
-              ],
+              ),
             );
           },
         ),
