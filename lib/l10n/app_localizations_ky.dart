@@ -276,7 +276,7 @@ class AppLocalizationsKy extends AppLocalizations {
   String get midnight => 'Түн ортосу';
 
   @override
-  String get lastThirdNightPart => 'Түндүн акыркы үчтөн бир бөлүгү';
+  String get lastThirdNightPart => 'Түндүн акыркы ⅓ бөлүгү';
 
   @override
   String get week2DayNamesShort => 'Дш, Шш, Шр, Бш, Жм, Иш, Жш';
@@ -459,13 +459,13 @@ class AppLocalizationsKy extends AppLocalizations {
   String get transcription => 'Транскрипция';
 
   @override
-  String get surahKahf => '«Аль-Кахф» сурасы';
+  String get surahKahf => '«Аль-Кахф» сүрөсү';
 
   @override
-  String get surahSajda => '«Ас-Сажда» сурасы';
+  String get surahSajda => '«Ас-Сажда» сүрөсү';
 
   @override
-  String get surahMulk => '«Аль-Мулк» сурасы';
+  String get surahMulk => '«Аль-Мулк» сүрөсү';
 
   @override
   String get djuzAmma => '«Амма» парасы';

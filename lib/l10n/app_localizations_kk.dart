@@ -276,7 +276,7 @@ class AppLocalizationsKk extends AppLocalizations {
   String get midnight => 'Түн ортасы';
 
   @override
-  String get lastThirdNightPart => 'Түннің соңғы үштен бір бөлігі';
+  String get lastThirdNightPart => 'Түннің соңғы ⅓ бөлігі';
 
   @override
   String get week2DayNamesShort => 'Дс, Сс, Ср, Бс, Жм, Сб, Жс';

@@ -29,6 +29,7 @@ class SeasonTimesContainer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Card(
+                  color: appColors.surface,
                   margin: AppStyles.mardingBottomMini,
                   child: Padding(
                     padding: AppStyles.mainMardingMicroMini,

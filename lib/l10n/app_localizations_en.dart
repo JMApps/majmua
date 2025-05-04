@@ -276,7 +276,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get midnight => 'Midnight';
 
   @override
-  String get lastThirdNightPart => 'Last third of the night';
+  String get lastThirdNightPart => 'Last ⅓ of the night';
 
   @override
   String get week2DayNamesShort => 'Mon, Tue, Wed, Thu, Fri, Sat, Sun';

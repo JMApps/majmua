@@ -64,9 +64,9 @@ class _FortressContentPagesState extends State<FortressContentPages> {
               SmoothPageIndicator(
                 controller: _pageController,
                 count: snapshot.data!.length,
-                effect: WormEffect(
-                  dotHeight: 12,
-                  dotWidth: 20,
+                effect: ScrollingDotsEffect(
+                  dotHeight: 8,
+                  dotWidth: 16,
                   dotColor: appColors.secondaryContainer,
                   activeDotColor: appColors.primary,
                 ),
