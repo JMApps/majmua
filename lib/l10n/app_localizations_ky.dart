@@ -435,6 +435,9 @@ class AppLocalizationsKy extends AppLocalizations {
   String get istikhara => 'Истихара';
 
   @override
+  String get afterPrayer => 'Намаздан кийин';
+
+  @override
   String get sfqTableName => 'Table_of_supplications_ky';
 
   @override

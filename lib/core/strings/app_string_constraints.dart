@@ -76,6 +76,7 @@ class AppStringConstraints {
   static const String iconEvening = 'evening';
   static const String iconNight = 'night';
   static const String iconIstikhara = 'question';
+  static const String iconKaaba = 'kaaba';
 
   // Map season keys
   static const String startSeason = 'map_start_season';

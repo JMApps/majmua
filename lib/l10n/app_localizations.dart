@@ -951,6 +951,12 @@ abstract class AppLocalizations {
   /// **'Истихара'**
   String get istikhara;
 
+  /// No description provided for @afterPrayer.
+  ///
+  /// In ru, this message translates to:
+  /// **'После молитвы'**
+  String get afterPrayer;
+
   /// No description provided for @sfqTableName.
   ///
   /// In ru, this message translates to:

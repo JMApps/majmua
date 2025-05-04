@@ -435,6 +435,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get istikhara => 'Истихара';
 
   @override
+  String get afterPrayer => 'После молитвы';
+
+  @override
   String get sfqTableName => 'Table_of_supplications_ru';
 
   @override

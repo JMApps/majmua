@@ -435,6 +435,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get istikhara => 'Istikhara';
 
   @override
+  String get afterPrayer => 'After prayer';
+
+  @override
   String get sfqTableName => 'Table_of_supplications_en';
 
   @override

@@ -113,12 +113,18 @@ class _MainFortressPageState extends State<MainFortressPage> {
                   const SizedBox(width: 8),
                   Expanded(
                     child: FortressDailyItem(
-                      iconName: AppStringConstraints.iconIstikhara,
-                      title: appLocale.istikhara,
-                      chapterId: 26,
+                      iconName: AppStringConstraints.iconKaaba,
+                      title: appLocale.afterPrayer,
+                      chapterId: 25,
                     ),
                   ),
                 ],
+              ),
+              const SizedBox(height: 8),
+              FortressDailyItem(
+                iconName: AppStringConstraints.iconIstikhara,
+                title: appLocale.istikhara,
+                chapterId: 26,
               ),
               const Divider(),
               Consumer<FortressChaptersState>(

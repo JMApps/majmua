@@ -435,6 +435,9 @@ class AppLocalizationsKk extends AppLocalizations {
   String get istikhara => 'Истихара';
 
   @override
+  String get afterPrayer => 'Намаздан кейін';
+
+  @override
   String get sfqTableName => 'Table_of_supplications_kk';
 
   @override
