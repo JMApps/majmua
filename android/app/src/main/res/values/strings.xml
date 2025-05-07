@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appName">Полка</string>
+
+    <string name="fajr">Фаджр</string>
+    <string name="sunrise">Восход</string>
+    <string name="dhuhr">Зухр</string>
+    <string name="asr">Аср</string>
+    <string name="maghrib">Магриб</string>
+    <string name="isha">Иша</string>
+    <string name="nullTime">--:--</string>
 </resources>

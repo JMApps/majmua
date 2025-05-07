@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appName">Сөресі</string>
+
+    <string name="fajr">Таң</string>
+    <string name="sunrise">Күн шығу</string>
+    <string name="dhuhr">Бесін</string>
+    <string name="asr">Екінті</string>
+    <string name="maghrib">Ақшам</string>
+    <string name="isha">Құптан</string>
+    <string name="nullTime">--:--</string>
 </resources>
