@@ -55,7 +55,6 @@ class _PrayersContainerState extends State<PrayersContainer> {
     return Consumer3<NotificationsState, PrayerState, TimeState>(
       builder: (context, notification, prayer, time, _) {
         final timeFormat = DateFormat('HH:mm');
-
         savePrayerTimesToWidget(
           fajr: timeFormat.format(prayer.prayerTimes.fajr),
           sunrise: timeFormat.format(prayer.prayerTimes.sunrise),

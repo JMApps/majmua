@@ -117,11 +117,12 @@ struct PrayerTimeWidgetEntryView: View {
     var entry: Provider.Entry
 
     @ViewBuilder
-    func prayerText(_ key: String, time: String) -> some View {
+    func prayerText(_ key: String, icon: String, time: String) -> some View {
         let isCountdownTarget = entry.countdownTarget == key
         let countdown = entry.countdownLabel
 
         HStack {
+            Image(systemName: icon)
             // Левая часть: название молитвы (например, "Фаджр")
             Text(LocalizedStringKey(key))
                 .bold()
@@ -143,15 +144,15 @@ struct PrayerTimeWidgetEntryView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            prayerText("fajr", time: entry.fajr)
-            prayerText("sunrise", time: entry.sunrise)
-            prayerText("dhuhr", time: entry.dhuhr)
-            prayerText("asr", time: entry.asr)
-            prayerText("maghrib", time: entry.maghrib)
-            prayerText("isha", time: entry.isha)
+            prayerText("fajr", icon: "sunrise", time: entry.fajr)
+            prayerText("sunrise", icon: "sun.haze", time: entry.sunrise)
+            prayerText("dhuhr", icon: "sun.max", time: entry.dhuhr)
+            prayerText("asr", icon: "sun.min", time: entry.asr)
+            prayerText("maghrib", icon: "sunset", time: entry.maghrib)
+            prayerText("isha", icon: "moon.stars", time: entry.isha)
         }
         .font(.system(size: 12))
-        .padding(.horizontal, 4)  // Меньше отступов
+        .padding(.horizontal, 0)  // Меньше отступов
     }
 }
 
