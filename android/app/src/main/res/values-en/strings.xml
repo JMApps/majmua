@@ -9,4 +9,5 @@
     <string name="prayer_maghrib">Maghrib</string>
     <string name="prayer_isha">Isha</string>
     <string name="nullTime">--:--</string>
+    <string name="prayer_countdown">%1$s in ~%2$s</string>
 </resources>

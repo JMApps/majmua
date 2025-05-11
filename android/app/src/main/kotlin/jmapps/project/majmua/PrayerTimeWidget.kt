@@ -55,7 +55,7 @@ class PrayerTimeWidget : AppWidgetProvider() {
                 val minutes = minutesRemaining % 60
                 val timeLeftFormatted = String.format("%02d:%02d", hours, minutes)
 
-                val text = "$localizedName: –$timeLeftFormatted"
+                val text = context.getString(R.string.prayer_countdown, localizedName, timeLeftFormatted)
                 views.setTextViewText(R.id.countdown, text)
                 views.setViewVisibility(R.id.countdown, View.VISIBLE)
             } else {

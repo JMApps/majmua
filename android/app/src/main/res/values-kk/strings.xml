@@ -9,4 +9,5 @@
     <string name="prayer_maghrib">Ақшам</string>
     <string name="prayer_isha">Құптан</string>
     <string name="nullTime">--:--</string>
+    <string name="prayer_countdown">%1$s ~%2$s минуттан кейін</string>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="backgroundColor">#F1232222</color>
-    <color name="iconTextColor">#F1DEDEDE</color>
+    <color name="iconTextColor">#DEDEDE</color>
+    <color name="remindColor">#F1F69393</color>
 </resources>
