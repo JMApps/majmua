@@ -2,11 +2,11 @@
 <resources>
     <string name="appName">Полка</string>
 
-    <string name="fajr">Фаджр</string>
-    <string name="sunrise">Восход</string>
-    <string name="dhuhr">Зухр</string>
-    <string name="asr">Аср</string>
-    <string name="maghrib">Магриб</string>
-    <string name="isha">Иша</string>
+    <string name="prayer_fajr">Фаджр</string>
+    <string name="prayer_sunrise">Восход</string>
+    <string name="prayer_dhuhr">Зухр</string>
+    <string name="prayer_asr">Аср</string>
+    <string name="prayer_maghrib">Магриб</string>
+    <string name="prayer_isha">Иша</string>
     <string name="nullTime">--:--</string>
 </resources>

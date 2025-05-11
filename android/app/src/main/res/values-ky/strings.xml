@@ -2,11 +2,11 @@
 <resources>
     <string name="appName">Текчеси</string>
 
-    <string name="fajr">Багымдат</string>
-    <string name="sunrise">Күн чыгуу</string>
-    <string name="dhuhr">Бешим</string>
-    <string name="asr">Аср</string>
-    <string name="maghrib">Шам</string>
-    <string name="isha">Куптан</string>
+    <string name="prayer_fajr">Багымдат</string>
+    <string name="prayer_sunrise">Күн чыгуу</string>
+    <string name="prayer_dhuhr">Бешим</string>
+    <string name="prayer_asr">Аср</string>
+    <string name="prayer_maghrib">Шам</string>
+    <string name="prayer_isha">Куптан</string>
     <string name="nullTime">--:--</string>
 </resources>

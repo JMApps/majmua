@@ -1,14 +1,18 @@
+package jmapps.project.majmua
+
+import android.annotation.SuppressLint
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.view.View
 import android.widget.RemoteViews
-import jmapps.project.majmua.R
+import java.time.Duration
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 
 class PrayerTimeWidget : AppWidgetProvider() {
 
+    @SuppressLint("DefaultLocale")
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         for (appWidgetId in appWidgetIds) {
             val views = RemoteViews(context.packageName, R.layout.prayer_time_widget)
@@ -34,8 +38,8 @@ class PrayerTimeWidget : AppWidgetProvider() {
                     }
 
                     if (prayerTime != null) {
-                        val diff = java.time.Duration.between(now, prayerTime).toMinutes()
-                        if (diff in 1..59 && (minutesRemaining == null || diff < minutesRemaining)) {
+                        val diff = Duration.between(now, prayerTime).toMinutes()
+                        if (diff >= 1 && (minutesRemaining == null || diff < minutesRemaining)) {
                             minutesRemaining = diff
                             nextPrayerName = name
                         }
@@ -44,7 +48,14 @@ class PrayerTimeWidget : AppWidgetProvider() {
             }
 
             if (minutesRemaining != null && nextPrayerName != null) {
-                val text = "${nextPrayerName.replaceFirstChar { it.uppercase() }}: $minutesRemaining"
+                val prayerLabelResId = context.resources.getIdentifier("prayer_$nextPrayerName", "string", context.packageName)
+                val localizedName = if (prayerLabelResId != 0) context.getString(prayerLabelResId) else nextPrayerName
+
+                val hours = minutesRemaining / 60
+                val minutes = minutesRemaining % 60
+                val timeLeftFormatted = String.format("%02d:%02d", hours, minutes)
+
+                val text = "$localizedName: –$timeLeftFormatted"
                 views.setTextViewText(R.id.countdown, text)
                 views.setViewVisibility(R.id.countdown, View.VISIBLE)
             } else {

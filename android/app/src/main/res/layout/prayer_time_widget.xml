@@ -1,22 +1,33 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/widget_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/backgroundColor"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/fajr"
+            android:paddingEnd="8dp"
+            android:contentDescription="@string/prayer_fajr"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
             android:id="@+id/fajr_label"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/fajr"
+            android:text="@string/prayer_fajr"
+            android:textColor="@color/iconTextColor"
             android:textSize="12sp" />
 
         <TextView
@@ -24,20 +35,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nullTime"
+            android:textColor="@color/iconTextColor"
             android:textSize="12sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/duha"
+            android:paddingEnd="8dp"
+            android:contentDescription="@string/prayer_sunrise"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
             android:id="@+id/sunrise_label"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/sunrise"
+            android:text="@string/prayer_sunrise"
+            android:textColor="@color/iconTextColor"
             android:textSize="12sp" />
 
         <TextView
@@ -45,20 +67,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nullTime"
+            android:textColor="@color/iconTextColor"
             android:textSize="12sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/dhuhr"
+            android:paddingEnd="8dp"
+            android:contentDescription="@string/prayer_dhuhr"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
             android:id="@+id/dhuhr_label"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/dhuhr"
+            android:text="@string/prayer_dhuhr"
+            android:textColor="@color/iconTextColor"
             android:textSize="12sp" />
 
         <TextView
@@ -66,20 +99,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nullTime"
+            android:textColor="@color/iconTextColor"
             android:textSize="12sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/asr"
+            android:paddingEnd="8dp"
+            android:contentDescription="@string/prayer_asr"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
             android:id="@+id/asr_label"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/asr"
+            android:text="@string/prayer_asr"
+            android:textColor="@color/iconTextColor"
             android:textSize="12sp" />
 
         <TextView
@@ -87,20 +131,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nullTime"
+            android:textColor="@color/iconTextColor"
             android:textSize="12sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/maghrib"
+            android:paddingEnd="8dp"
+            android:contentDescription="@string/prayer_maghrib"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
             android:id="@+id/maghrib_label"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/maghrib"
+            android:text="@string/prayer_maghrib"
+            android:textColor="@color/iconTextColor"
             android:textSize="12sp" />
 
         <TextView
@@ -108,20 +163,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nullTime"
+            android:textColor="@color/iconTextColor"
             android:textSize="12sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/isha"
+            android:paddingEnd="8dp"
+            android:contentDescription="@string/prayer_isha"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
             android:id="@+id/isha_label"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/isha"
+            android:text="@string/prayer_isha"
+            android:textColor="@color/iconTextColor"
             android:textSize="12sp" />
 
         <TextView
@@ -129,6 +195,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nullTime"
+            android:textColor="@color/iconTextColor"
             android:textSize="12sp" />
     </LinearLayout>
 
@@ -137,7 +204,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
-        android:textColor="#FF0000"
+        android:gravity="center"
+        android:textColor="#DE4040"
         android:textSize="12sp"
         android:visibility="gone" />
 </LinearLayout>

@@ -2,11 +2,11 @@
 <resources>
     <string name="appName">Сөресі</string>
 
-    <string name="fajr">Таң</string>
-    <string name="sunrise">Күн шығу</string>
-    <string name="dhuhr">Бесін</string>
-    <string name="asr">Екінті</string>
-    <string name="maghrib">Ақшам</string>
-    <string name="isha">Құптан</string>
+    <string name="prayer_fajr">Таң</string>
+    <string name="prayer_sunrise">Күн шығу</string>
+    <string name="prayer_dhuhr">Бесін</string>
+    <string name="prayer_asr">Екінті</string>
+    <string name="prayer_maghrib">Ақшам</string>
+    <string name="prayer_isha">Құптан</string>
     <string name="nullTime">--:--</string>
 </resources>
