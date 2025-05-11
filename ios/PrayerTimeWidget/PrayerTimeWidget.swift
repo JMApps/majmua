@@ -135,7 +135,7 @@ struct PrayerTimeWidgetEntryView: View {
             // Если это целевая молитва, показываем остаток времени
             if isCountdownTarget, let countdown = countdown {
                 Text(countdown)
-                    .font(.system(size: 12))
+                    .font(.system(size: 11))
                     .foregroundColor(.red)
             }
         }
@@ -151,8 +151,9 @@ struct PrayerTimeWidgetEntryView: View {
             prayerText("maghrib", icon: "sunset", time: entry.maghrib)
             prayerText("isha", icon: "moon.stars", time: entry.isha)
         }
-        .font(.system(size: 12))
-        .padding(.horizontal, 0)  // Меньше отступов
+        .font(.system(size: 11))
+        .padding(.horizontal, 0)
+        .padding(.vertical, 0)// Меньше отступов
     }
 }
 
