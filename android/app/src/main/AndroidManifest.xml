@@ -11,7 +11,6 @@
     <queries>
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT" />
-
             <data android:mimeType="text/plain" />
         </intent>
     </queries>
@@ -20,13 +19,13 @@
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/appName">
+
         <receiver
             android:name=".PrayerTimeWidget"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
-
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/prayer_time_widget_info" />
@@ -44,18 +43,11 @@
             <meta-data
                 android:name="io.flutter.embedding.android.NormalTheme"
                 android:resource="@style/NormalTheme" />
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <meta-data
-            android:name="flutterEmbedding"
-            android:value="2" />
-
         <service
             android:name="com.dexterous.flutterlocalnotifications.ForegroundService"
             android:exported="false" />
@@ -73,6 +65,9 @@
                 <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
             </intent-filter>
         </receiver>
-    </application>
 
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
 </manifest>

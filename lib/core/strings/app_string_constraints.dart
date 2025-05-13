@@ -13,6 +13,9 @@ class AppStringConstraints {
   static const String fontSFPro = 'SF Pro';
   static const String fontArial = 'Arial';
 
+  static const String taskUniqueName = 'task unique majmua';
+  static const String taskAppName = 'task app majmua';
+
   static const String keyMainSettings = 'key_main_settings';
   static const String keyWeeklySalawatSettings = 'key_weekly_salawat_settings';
   static const String keySettingsPrayerTimeBox = 'key_settings_prayer_time_box';

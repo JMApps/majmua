@@ -4,3 +4,5 @@
 "asr" = "'Аср";
 "maghrib" = "Магриб";
 "isha" = "'Иша";
+"prayer_times_display_name" = "Время молитв";
+"prayer_times_display_description" = "Отображает время молитв на сегодня.";

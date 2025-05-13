@@ -1,6 +1,8 @@
-"fajr" = "Fajr";
-"sunrise" = "Sunrise";
-"dhuhr" = "Dhuhr";
-"asr" = "'Asr";
-"maghrib" = "Maghrib";
-"isha" = "'Isha";
+"fajr" = "Багымдат";
+"sunrise" = "Күн чыгуу";
+"dhuhr" = "Бешим";
+"asr" = "'Аср";
+"maghrib" = "Шам";
+"isha" = "Куптан";
+"prayer_times_display_name" = "Намаз убактысы";
+"prayer_times_display_description" = "Бүгүнкү күндө намаз убакыттарын көрсөтөт.";

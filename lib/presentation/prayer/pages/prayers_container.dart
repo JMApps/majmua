@@ -239,7 +239,7 @@ class _PrayersContainerState extends State<PrayersContainer> {
                         PrayerItem(
                           prayer: Prayer.fajr,
                           prayerName: appLocale.fajr,
-                          prayerIcon: CupertinoIcons.sunrise_fill,
+                          prayerIcon: CupertinoIcons.sparkles,
                         ),
                         const SizedBox(width: 8),
                         PrayerItem(

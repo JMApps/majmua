@@ -1,191 +1,278 @@
 import WidgetKit
 import SwiftUI
 
-struct SimpleEntry: TimelineEntry {
+// MARK: - Модель данных
+struct PrayerEntry: TimelineEntry {
     let date: Date
-    let fajr: String
-    let sunrise: String
-    let dhuhr: String
-    let asr: String
-    let maghrib: String
-    let isha: String
-    let countdownLabel: String?
-    let countdownTarget: String?
+    let prayers: [Prayer]
+    let currentPrayerKey: String?
+    
+    struct Prayer {
+        let nameKey: String  // Ключ для локализации (например, "fajr")
+        let time: String
+        let icon: String
+        
+        var localizedName: String {
+            NSLocalizedString(nameKey, comment: "")
+        }
+    }
 }
 
-struct Provider: TimelineProvider {
+// MARK: - Провайдер
+struct PrayerProvider: TimelineProvider {
+    private let userDefaults = UserDefaults(suiteName: "group.jmapps.project.majmua")
+    private let prayerKeys = ["fajr", "sunrise", "dhuhr", "asr", "maghrib", "isha"]
     
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(
-            date: Date(),
-            fajr: "--:--",
-            sunrise: "--:--",
-            dhuhr: "--:--",
-            asr: "--:--",
-            maghrib: "--:--",
-            isha: "--:--",
-            countdownLabel: nil,
-            countdownTarget: nil
-        )
+    func placeholder(in context: Context) -> PrayerEntry {
+        defaultPrayerEntry()
     }
     
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-        completion(loadEntry())
+    func getSnapshot(in context: Context, completion: @escaping (PrayerEntry) -> Void) {
+        completion(defaultPrayerEntry())
     }
     
-    func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> Void) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<PrayerEntry>) -> Void) {
         let now = Date()
-        let calendar = Calendar.current
-        let baseEntry = loadEntry()
-        
-        let prayers: [(name: String, time: String)] = [
-            ("fajr", baseEntry.fajr),
-            ("sunrise", baseEntry.sunrise),
-            ("dhuhr", baseEntry.dhuhr),
-            ("asr", baseEntry.asr),
-            ("maghrib", baseEntry.maghrib),
-            ("isha", baseEntry.isha),
-        ]
-        
-        var countdownName: String? = nil
-        var countdownStart: Date? = nil
-        
-        for (name, timeString) in prayers {
-            let components = timeString.split(separator: ":")
-            if components.count == 2,
-               let hour = Int(components[0]),
-               let minute = Int(components[1]) {
-                var prayerDate = calendar.date(bySettingHour: hour, minute: minute, second: 0, of: now)!
-                if prayerDate < now {
-                    prayerDate = calendar.date(byAdding: .day, value: 1, to: prayerDate)!
-                }
-                let minutesUntil = Int(prayerDate.timeIntervalSince(now) / 60)
-                if minutesUntil >= 0 && minutesUntil <= 60 {
-                    countdownName = name
-                    countdownStart = prayerDate
-                    break
-                }
-            }
+        let prayers = prayerKeys.map { key in
+            PrayerEntry.Prayer(
+                nameKey: key,
+                time: userDefaults?.string(forKey: "prayer_\(key)") ?? "--:--",
+                icon: iconForPrayer(key)
+            )
         }
         
-        var entries: [SimpleEntry] = []
+        let currentPrayerKey = userDefaults?.string(forKey: "current_prayer")?.lowercased()
+        let entry = PrayerEntry(date: now, prayers: prayers, currentPrayerKey: currentPrayerKey)
         
-        for offset in 0..<60 {
-            let date = calendar.date(byAdding: .minute, value: offset, to: now)!
-            var countdownText: String? = nil
-            if let start = countdownStart {
-                let minutesLeft = Int(start.timeIntervalSince(date) / 60)
-                if minutesLeft >= 0 {
-                    countdownText = "-\(minutesLeft)"
-                }
-            }
-            
-            entries.append(SimpleEntry(
-                date: date,
-                fajr: baseEntry.fajr,
-                sunrise: baseEntry.sunrise,
-                dhuhr: baseEntry.dhuhr,
-                asr: baseEntry.asr,
-                maghrib: baseEntry.maghrib,
-                isha: baseEntry.isha,
-                countdownLabel: countdownText,
-                countdownTarget: countdownName
-            ))
+        guard let nextPrayer = SmallPrayerView.getNextPrayer(from: entry),
+              let nextPrayerDate = PrayerUtils.calculateTargetDate(for: nextPrayer, relativeTo: entry) else {
+            let timeline = Timeline(entries: [entry], policy: .after(now.addingTimeInterval(60)))
+            completion(timeline)
+            return
+        }
+        
+        var entries: [PrayerEntry] = []
+        var currentDate = now
+        
+        while currentDate <= nextPrayerDate {
+            entries.append(
+                PrayerEntry(date: currentDate, prayers: prayers, currentPrayerKey: currentPrayerKey)
+            )
+            currentDate = Calendar.current.date(byAdding: .minute, value: 1, to: currentDate)!
         }
         
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
     
-    private func loadEntry() -> SimpleEntry {
-        let userDefaults = UserDefaults(suiteName: "group.jmapps.project.majmua")
-        return SimpleEntry(
-            date: Date(),
-            fajr: userDefaults?.string(forKey: "prayer_fajr") ?? "--:--",
-            sunrise: userDefaults?.string(forKey: "prayer_sunrise") ?? "--:--",
-            dhuhr: userDefaults?.string(forKey: "prayer_dhuhr") ?? "--:--",
-            asr: userDefaults?.string(forKey: "prayer_asr") ?? "--:--",
-            maghrib: userDefaults?.string(forKey: "prayer_maghrib") ?? "--:--",
-            isha: userDefaults?.string(forKey: "prayer_isha") ?? "--:--",
-            countdownLabel: nil,
-            countdownTarget: nil
-        )
+    private func defaultPrayerEntry() -> PrayerEntry {
+        let defaultPrayers = [
+            PrayerEntry.Prayer(nameKey: "fajr", time: "04:12", icon: "sparkles"),
+            PrayerEntry.Prayer(nameKey: "sunrise", time: "05:45", icon: "sunrise.fill"),
+            PrayerEntry.Prayer(nameKey: "dhuhr", time: "12:30", icon: "sun.max.fill"),
+            PrayerEntry.Prayer(nameKey: "asr", time: "15:45", icon: "sun.min.fill"),
+            PrayerEntry.Prayer(nameKey: "maghrib", time: "18:38", icon: "sunset.fill"),
+            PrayerEntry.Prayer(nameKey: "isha", time: "20:10", icon: "moon.stars.fill")
+        ]
+        return PrayerEntry(date: Date(), prayers: defaultPrayers, currentPrayerKey: nil)
+    }
+    
+    private func iconForPrayer(_ key: String) -> String {
+        switch key {
+        case "fajr": return "sparkles"
+        case "sunrise": return "sunrise.fill"
+        case "dhuhr": return "sun.max.fill"
+        case "asr": return "sun.min.fill"
+        case "maghrib": return "sunset.fill"
+        case "isha": return "moon.stars.fill"
+        default: return "clock.fill"
+        }
     }
 }
 
+// MARK: - Виджет
 struct PrayerTimeWidgetEntryView: View {
-    var entry: Provider.Entry
+    var entry: PrayerProvider.Entry
+    @Environment(\.widgetFamily) var family
+    
+    var body: some View {
+        switch family {
+        case .systemSmall:
+            SmallPrayerView(entry: entry)
+        case .systemMedium:
+            MediumPrayerView(entry: entry)
+        default:
+            EmptyView()
+        }
+    }
+}
 
-    @ViewBuilder
-    func prayerText(_ key: String, icon: String, time: String) -> some View {
-        let isCountdownTarget = entry.countdownTarget == key
-        let countdown = entry.countdownLabel
-
-        HStack {
-            Image(systemName: icon)
-            // Левая часть: название молитвы (например, "Фаджр")
-            Text(LocalizedStringKey(key))
-                .bold()
-                .frame(maxWidth: .infinity, alignment: .leading)
-
-            // Правая часть: время молитвы (например, "04:02")
-            Text(time)
-                .frame(maxWidth: .infinity, alignment: .trailing)
-
-            // Если это целевая молитва, показываем остаток времени
-            if isCountdownTarget, let countdown = countdown {
-                Text(countdown)
-                    .font(.system(size: 11))
-                    .foregroundColor(.red)
+// MARK: - Средний виджет
+struct MediumPrayerView: View {
+    let entry: PrayerEntry
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            ForEach(Array(entry.prayers.enumerated()), id: \.element.nameKey) { index, prayer in
+                PrayerRow(prayer: prayer, entry: entry)
+                
+                if index < entry.prayers.count - 1 {
+                    Divider().padding(.vertical, 4)
+                }
             }
         }
-        .font(.caption)
-    }
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            prayerText("fajr", icon: "sunrise", time: entry.fajr)
-            prayerText("sunrise", icon: "sun.haze", time: entry.sunrise)
-            prayerText("dhuhr", icon: "sun.max", time: entry.dhuhr)
-            prayerText("asr", icon: "sun.min", time: entry.asr)
-            prayerText("maghrib", icon: "sunset", time: entry.maghrib)
-            prayerText("isha", icon: "moon.stars", time: entry.isha)
-        }
-        .font(.system(size: 11))
-        .padding(.horizontal, 0)
-        .padding(.vertical, 0)// Меньше отступов
+        .padding(.vertical, 8)
     }
 }
 
+// MARK: - Ряд молитвы
+struct PrayerRow: View {
+    let prayer: PrayerEntry.Prayer
+    let entry: PrayerEntry
+    
+    var body: some View {
+        let isNextPrayer = prayer.nameKey == SmallPrayerView.getNextPrayer(from: entry)?.nameKey
+        
+        HStack(spacing: 0) {
+            Image(systemName: prayer.icon)
+                .foregroundColor(isNextPrayer ? .indigo : .secondary)
+                .frame(width: 16, height: 16)
+                .font(.system(size: 14))
+            
+            Text(prayer.localizedName)
+                .bold()
+                .font(.system(.caption, design: .rounded))
+                .foregroundColor(isNextPrayer ? .indigo : .primary)
+                .padding(.horizontal, 8)
+            
+            Spacer()
+            
+            HStack(spacing: 4) {
+                if isNextPrayer,
+                   let targetDate = PrayerUtils.calculateTargetDate(for: prayer, relativeTo: entry) {
+                    Text("– \(targetDate, style: .timer)")
+                        .bold()
+                        .font(.system(.caption2, design: .rounded))
+                        .foregroundColor(.red.opacity(0.85))
+                        .multilineTextAlignment(.trailing)
+                        .monospacedDigit()
+                }
+                
+                Text(prayer.time)
+                    .bold()
+                    .font(.system(.caption2, design: .rounded))
+                    .foregroundColor(isNextPrayer ? .indigo : .primary)
+            }
+        }
+    }
+}
+
+// MARK: - Маленький виджет
+struct SmallPrayerView: View {
+    let entry: PrayerEntry
+    
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                if let nextPrayer = SmallPrayerView.getNextPrayer(from: entry),
+                   let targetDate = PrayerUtils.calculateTargetDate(for: nextPrayer, relativeTo: entry) {
+                    
+                    Circle()
+                        .stroke(Color.indigo, style: StrokeStyle(lineWidth: 10))
+                        .shadow(radius: 0.25)
+                    
+                    VStack {
+                        Text("– \(targetDate, style: .timer)")
+                            .font(.system(.caption, design: .rounded))
+                            .bold()
+                            .foregroundColor(.indigo)
+                            .multilineTextAlignment(.center)
+                            .monospacedDigit()
+                        
+                        Text(nextPrayer.localizedName)
+                            .font(.system(.body, design: .rounded))
+                            .bold()
+                            .foregroundColor(.primary)
+                            .lineLimit(1)
+                            .multilineTextAlignment(.center)
+                        
+                        Text(nextPrayer.time)
+                            .font(.system(.caption, design: .rounded))
+                            .bold()
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else {
+                    Text("--:--").foregroundColor(.gray)
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .padding(8)
+    }
+    
+    static func getNextPrayer(from entry: PrayerEntry) -> PrayerEntry.Prayer? {
+        let currentTime = PrayerUtils.dateFormatter.string(from: Date())
+        
+        if let currentKey = entry.currentPrayerKey,
+           let currentIndex = entry.prayers.firstIndex(where: { $0.nameKey == currentKey }) {
+            for prayer in entry.prayers[(currentIndex + 1)...] {
+                if prayer.time > currentTime {
+                    return prayer
+                }
+            }
+        }
+        
+        return entry.prayers.first { $0.time > currentTime } ?? entry.prayers.first
+    }
+}
+
+// MARK: - Утилиты
+struct PrayerUtils {
+    static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter
+    }()
+    
+    static func calculateTargetDate(for prayer: PrayerEntry.Prayer, relativeTo entry: PrayerEntry) -> Date? {
+        let timeParts = prayer.time.split(separator: ":").compactMap { Int($0) }
+        guard timeParts.count == 2 else { return nil }
+        
+        var components = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        components.hour = timeParts[0]
+        components.minute = timeParts[1]
+        
+        if prayer.nameKey == "fajr",
+           let ishaPrayer = entry.prayers.first(where: { $0.nameKey == "isha" }) {
+            let ishaParts = ishaPrayer.time.split(separator: ":").compactMap { Int($0) }
+            if ishaParts.count == 2 {
+                var ishaComponents = components
+                ishaComponents.hour = ishaParts[0]
+                ishaComponents.minute = ishaParts[1]
+                
+                if let ishaDate = Calendar.current.date(from: ishaComponents),
+                   Date() > ishaDate {
+                    components.day! += 1
+                }
+            }
+        }
+        
+        return Calendar.current.date(from: components)
+    }
+}
+
+// MARK: - Конфигурация
 struct PrayerTimeWidget: Widget {
     let kind: String = "PrayerTimeWidget"
     
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            if #available(iOS 17.0, *) {
-                PrayerTimeWidgetEntryView(entry: entry)
-                    .containerBackground(.fill.tertiary, for: .widget)
-            } else {
-                PrayerTimeWidgetEntryView(entry: entry)
-            }
+        StaticConfiguration(kind: kind, provider: PrayerProvider()) { entry in
+            PrayerTimeWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Prayer Times")
-        .description("Shows daily prayer times and countdown to the next prayer.")
+        .configurationDisplayName(NSLocalizedString("prayer_times_display_name", comment: ""))
+        .description(NSLocalizedString("prayer_times_display_description", comment: ""))
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
-}
-
-#Preview(as: .systemSmall) {
-    PrayerTimeWidget()
-} timeline: {
-    SimpleEntry(
-        date: .now,
-        fajr: "04:15",
-        sunrise: "05:45",
-        dhuhr: "12:30",
-        asr: "16:00",
-        maghrib: "19:20",
-        isha: "20:45",
-        countdownLabel: "-59",
-        countdownTarget: "dhuhr"
-    )
 }

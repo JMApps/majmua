@@ -4,3 +4,5 @@
 "asr" = "'Asr";
 "maghrib" = "Maghrib";
 "isha" = "'Isha";
+"prayer_times_display_name" = "Prayer times";
+"prayer_times_display_description" = "Displays prayer times for today.";
