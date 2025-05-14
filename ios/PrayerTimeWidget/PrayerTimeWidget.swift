@@ -33,6 +33,7 @@ struct PrayerProvider: TimelineProvider {
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<PrayerEntry>) -> Void) {
         let now = Date()
+        
         let prayers = prayerKeys.map { key in
             PrayerEntry.Prayer(
                 nameKey: key,
@@ -40,29 +41,29 @@ struct PrayerProvider: TimelineProvider {
                 icon: iconForPrayer(key)
             )
         }
-        
+
         let currentPrayerKey = userDefaults?.string(forKey: "current_prayer")?.lowercased()
-        let entry = PrayerEntry(date: now, prayers: prayers, currentPrayerKey: currentPrayerKey)
-        
-        guard let nextPrayer = SmallPrayerView.getNextPrayer(from: entry),
-              let nextPrayerDate = PrayerUtils.calculateTargetDate(for: nextPrayer, relativeTo: entry) else {
-            let timeline = Timeline(entries: [entry], policy: .after(now.addingTimeInterval(60)))
-            completion(timeline)
-            return
-        }
-        
+
         var entries: [PrayerEntry] = []
-        var currentDate = now
-        
-        while currentDate <= nextPrayerDate {
-            entries.append(
-                PrayerEntry(date: currentDate, prayers: prayers, currentPrayerKey: currentPrayerKey)
-            )
-            currentDate = Calendar.current.date(byAdding: .minute, value: 1, to: currentDate)!
+
+        // Создаём entry на каждое время молитвы
+        for prayer in prayers {
+            if let targetDate = PrayerUtils.calculateTargetDate(for: prayer, relativeTo: PrayerEntry(date: now, prayers: prayers, currentPrayerKey: currentPrayerKey)),
+               targetDate > now {
+
+                let entry = PrayerEntry(date: targetDate, prayers: prayers, currentPrayerKey: currentPrayerKey)
+                entries.append(entry)
+            }
         }
-        
+
+        // Перестраховка: если ничего не добавилось
+        if entries.isEmpty {
+            entries.append(PrayerEntry(date: now, prayers: prayers, currentPrayerKey: currentPrayerKey))
+        }
+
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     private func defaultPrayerEntry() -> PrayerEntry {
@@ -101,6 +102,8 @@ struct PrayerTimeWidgetEntryView: View {
             SmallPrayerView(entry: entry)
         case .systemMedium:
             MediumPrayerView(entry: entry)
+        case .accessoryCircular:
+            CirclePrayerView(entry: entry)
         default:
             EmptyView()
         }
@@ -122,6 +125,7 @@ struct MediumPrayerView: View {
             }
         }
         .padding(.vertical, 8)
+        .widgetBackground(Color(.systemBackground))
     }
 }
 
@@ -210,6 +214,60 @@ struct SmallPrayerView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .padding(8)
+        .widgetBackground(Color(.systemBackground))
+    }
+    
+    static func getNextPrayer(from entry: PrayerEntry) -> PrayerEntry.Prayer? {
+        let currentTime = PrayerUtils.dateFormatter.string(from: Date())
+        
+        if let currentKey = entry.currentPrayerKey,
+           let currentIndex = entry.prayers.firstIndex(where: { $0.nameKey == currentKey }) {
+            for prayer in entry.prayers[(currentIndex + 1)...] {
+                if prayer.time > currentTime {
+                    return prayer
+                }
+            }
+        }
+        
+        return entry.prayers.first { $0.time > currentTime } ?? entry.prayers.first
+    }
+}
+
+// MARK: - Виджет экрана блокировки
+struct CirclePrayerView: View {
+    let entry: PrayerEntry
+    
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                if let nextPrayer = SmallPrayerView.getNextPrayer(from: entry),
+                   let targetDate = PrayerUtils.calculateTargetDate(for: nextPrayer, relativeTo: entry) {
+                    VStack {
+                        Text("– \(targetDate, style: .timer)")
+                            .font(.system(.caption, design: .rounded))
+                            .bold()
+                            .multilineTextAlignment(.center)
+                            .monospacedDigit()
+                        
+                        Text(nextPrayer.localizedName)
+                            .font(.system(.body, design: .rounded))
+                            .bold()
+                            .lineLimit(1)
+                            .multilineTextAlignment(.center)
+                        
+                        Text(nextPrayer.time)
+                            .font(.system(.caption, design: .rounded))
+                            .bold()
+                            .multilineTextAlignment(.center)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else {
+                    Text("--:--").foregroundColor(.gray)
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .widgetBackground(Color(.systemBackground))
     }
     
     static func getNextPrayer(from entry: PrayerEntry) -> PrayerEntry.Prayer? {
@@ -273,6 +331,19 @@ struct PrayerTimeWidget: Widget {
         }
         .configurationDisplayName(NSLocalizedString("prayer_times_display_name", comment: ""))
         .description(NSLocalizedString("prayer_times_display_description", comment: ""))
-        .supportedFamilies([.systemSmall, .systemMedium])
+        .supportedFamilies([.systemSmall, .systemMedium, .accessoryCircular])
+    }
+}
+
+extension View {
+    /// Применяет кастомный фон для виджета (если не нужен системный)
+    func widgetBackground(_ backgroundView: some View) -> some View {
+        if #available(iOSApplicationExtension 17.0, *) {
+            return containerBackground(for: .widget) {
+                backgroundView
+            }
+        } else {
+            return background(backgroundView)
+        }
     }
 }
