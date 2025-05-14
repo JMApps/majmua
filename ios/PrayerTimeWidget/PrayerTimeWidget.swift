@@ -33,7 +33,7 @@ struct PrayerProvider: TimelineProvider {
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<PrayerEntry>) -> Void) {
         let now = Date()
-        
+
         let prayers = prayerKeys.map { key in
             PrayerEntry.Prayer(
                 nameKey: key,
@@ -43,27 +43,23 @@ struct PrayerProvider: TimelineProvider {
         }
 
         let currentPrayerKey = userDefaults?.string(forKey: "current_prayer")?.lowercased()
-
         var entries: [PrayerEntry] = []
 
-        // Создаём entry на каждое время молитвы
-        for prayer in prayers {
-            if let targetDate = PrayerUtils.calculateTargetDate(for: prayer, relativeTo: PrayerEntry(date: now, prayers: prayers, currentPrayerKey: currentPrayerKey)),
-               targetDate > now {
+        let initialEntry = PrayerEntry(date: now, prayers: prayers, currentPrayerKey: currentPrayerKey)
+        entries.append(initialEntry)
 
-                let entry = PrayerEntry(date: targetDate, prayers: prayers, currentPrayerKey: currentPrayerKey)
-                entries.append(entry)
-            }
+        if let nextPrayer = SmallPrayerView.getNextPrayer(from: initialEntry),
+           let targetDate = PrayerUtils.calculateTargetDate(for: nextPrayer, relativeTo: initialEntry),
+           targetDate > now {
+            
+            // Добавим entry на момент наступления следующей молитвы
+            let nextEntry = PrayerEntry(date: targetDate, prayers: prayers, currentPrayerKey: currentPrayerKey)
+            entries.append(nextEntry)
         }
 
-        // Перестраховка: если ничего не добавилось
-        if entries.isEmpty {
-            entries.append(PrayerEntry(date: now, prayers: prayers, currentPrayerKey: currentPrayerKey))
-        }
-
+        // Завершаем таймлайн: обновится только в нужный момент
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
-        WidgetCenter.shared.reloadAllTimelines()
     }
     
     private func defaultPrayerEntry() -> PrayerEntry {
