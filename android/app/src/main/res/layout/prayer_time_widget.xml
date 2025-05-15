@@ -11,13 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
+        android:paddingBottom="4dp"
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/linear_fajr"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:padding="4dp"
+            android:layout_marginEnd="4dp"
             android:orientation="vertical">
 
             <ImageView
@@ -46,10 +50,13 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linear_sunrise"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:padding="4dp"
+            android:layout_marginEnd="4dp"
             android:orientation="vertical">
 
             <ImageView
@@ -78,10 +85,13 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linear_dhuhr"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:padding="4dp"
+            android:layout_marginEnd="4dp"
             android:orientation="vertical">
 
             <ImageView
@@ -110,10 +120,13 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linear_asr"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:padding="4dp"
+            android:layout_marginEnd="4dp"
             android:orientation="vertical">
 
             <ImageView
@@ -142,10 +155,13 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linear_maghrib"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:padding="4dp"
+            android:layout_marginEnd="4dp"
             android:orientation="vertical">
 
             <ImageView
@@ -174,10 +190,13 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linear_isha"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:padding="4dp"
+            android:layout_marginEnd="4dp"
             android:orientation="vertical">
 
             <ImageView
@@ -212,7 +231,6 @@
         android:layout_weight="1"
         android:background="@drawable/rounded_stroke"
         android:gravity="center"
-        android:visibility="gone"
         android:paddingHorizontal="16dp"
         android:padding="4dp">
 
@@ -223,8 +241,7 @@
             android:gravity="center"
             android:text=""
             android:textColor="@color/remindColor"
-            android:textSize="12sp"
-            android:visibility="visible" />
+            android:textSize="12sp" />
     </LinearLayout>
 
 </LinearLayout>
