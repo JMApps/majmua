@@ -29,8 +29,8 @@ android {
         applicationId = "jmapps.project.majmua"
         minSdk = 23
         targetSdk = 35
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        versionCode = 31
+        versionName = "1.9.5"
     }
 
     buildTypes {
