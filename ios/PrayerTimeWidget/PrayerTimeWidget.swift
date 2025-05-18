@@ -150,7 +150,7 @@ struct PrayerRow: View {
             HStack(spacing: 4) {
                 if isNextPrayer,
                    let targetDate = PrayerUtils.calculateTargetDate(for: prayer, relativeTo: entry) {
-                    Text("– \(targetDate, style: .timer)")
+                    Text("-\(targetDate, style: .timer)")
                         .bold()
                         .font(.system(.caption2, design: .rounded))
                         .foregroundColor(.red.opacity(0.85))
@@ -158,7 +158,7 @@ struct PrayerRow: View {
                         .monospacedDigit()
                 }
                 
-                Text(prayer.time)
+                Text(PrayerUtils.formattedTime(prayer.time))
                     .bold()
                     .font(.system(.caption2, design: .rounded))
                     .foregroundColor(isNextPrayer ? .indigo : .primary)
@@ -182,7 +182,7 @@ struct SmallPrayerView: View {
                         .shadow(radius: 0.25)
                     
                     VStack {
-                        Text("– \(targetDate, style: .timer)")
+                        Text("-\(targetDate, style: .timer)")
                             .font(.system(.caption, design: .rounded))
                             .bold()
                             .foregroundColor(.indigo)
@@ -196,7 +196,7 @@ struct SmallPrayerView: View {
                             .lineLimit(1)
                             .multilineTextAlignment(.center)
                         
-                        Text(nextPrayer.time)
+                        Text(PrayerUtils.formattedTime(nextPrayer.time))
                             .font(.system(.caption, design: .rounded))
                             .bold()
                             .foregroundColor(.secondary)
@@ -214,18 +214,15 @@ struct SmallPrayerView: View {
     }
     
     static func getNextPrayer(from entry: PrayerEntry) -> PrayerEntry.Prayer? {
-        let currentTime = PrayerUtils.dateFormatter.string(from: Date())
-        
-        if let currentKey = entry.currentPrayerKey,
-           let currentIndex = entry.prayers.firstIndex(where: { $0.nameKey == currentKey }) {
-            for prayer in entry.prayers[(currentIndex + 1)...] {
-                if prayer.time > currentTime {
-                    return prayer
-                }
+        let now = Date()
+
+        for prayer in entry.prayers {
+            if let targetDate = PrayerUtils.calculateTargetDate(for: prayer, relativeTo: entry),
+               targetDate > now {
+                return prayer
             }
         }
-        
-        return entry.prayers.first { $0.time > currentTime } ?? entry.prayers.first
+        return nil
     }
 }
 
@@ -239,7 +236,7 @@ struct CirclePrayerView: View {
                 if let nextPrayer = SmallPrayerView.getNextPrayer(from: entry),
                    let targetDate = PrayerUtils.calculateTargetDate(for: nextPrayer, relativeTo: entry) {
                     VStack {
-                        Text("– \(targetDate, style: .timer)")
+                        Text("-\(targetDate, style: .timer)")
                             .font(.system(.caption, design: .rounded))
                             .bold()
                             .multilineTextAlignment(.center)
@@ -248,10 +245,9 @@ struct CirclePrayerView: View {
                         Text(nextPrayer.localizedName)
                             .font(.system(.body, design: .rounded))
                             .bold()
-                            .lineLimit(1)
                             .multilineTextAlignment(.center)
                         
-                        Text(nextPrayer.time)
+                        Text(PrayerUtils.formattedTime(nextPrayer.time))
                             .font(.system(.caption, design: .rounded))
                             .bold()
                             .multilineTextAlignment(.center)
@@ -315,6 +311,22 @@ struct PrayerUtils {
         
         return Calendar.current.date(from: components)
     }
+    
+    static func formattedTime(_ time: String) -> String {
+            let inputFormatter = DateFormatter()
+            inputFormatter.dateFormat = "HH:mm"
+            inputFormatter.locale = Locale(identifier: "en_US_POSIX")
+
+            guard let date = inputFormatter.date(from: time) else {
+                return time
+            }
+
+            let outputFormatter = DateFormatter()
+            outputFormatter.timeStyle = .short
+            outputFormatter.locale = Locale.current
+
+            return outputFormatter.string(from: date)
+        }
 }
 
 // MARK: - Конфигурация
