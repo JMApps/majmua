@@ -30,6 +30,7 @@ class TimePeriodPercent extends StatelessWidget {
         child: Row(
           children: [
             Expanded(
+              flex: 2,
               child: Visibility(
                 visible: !isState,
                 child: Text(
@@ -42,13 +43,15 @@ class TimePeriodPercent extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 3,
+              flex: 5,
               child: Text(
                 title,
+                overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
               ),
             ),
             Expanded(
+              flex: 2,
               child: Text(
                 targetTime,
                 style: const TextStyle(

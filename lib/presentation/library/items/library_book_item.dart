@@ -26,9 +26,10 @@ class LibraryBookItem extends StatelessWidget {
         Navigator.pushNamed(context, routeName);
       },
       title: Text(bookTitle),
-      shape: AppStyles.mainShapeMini,
-      visualDensity: VisualDensity.comfortable,
-      contentPadding: AppStyles.mardingHorizontal,
+      shape: AppStyles.mainShape,
+      visualDensity: VisualDensity(vertical: -2, horizontal: -4),
+      contentPadding: AppStyles.mardingHorizontalMini,
+      horizontalTitleGap: 16,
       leading: CircleAvatar(
         backgroundColor: bookColor.withAlpha(175),
         child: Padding(

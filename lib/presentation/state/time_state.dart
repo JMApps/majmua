@@ -67,37 +67,29 @@ class TimeState extends ChangeNotifier with WidgetsBindingObserver {
     }
   }
 
-  Map<String, dynamic> getDaysToRamadan() {
-    final DateTime ramadanDate;
-    if (_hijriCalendar.isBefore(_hijriCalendar.hYear, 9, 1)) {
-      ramadanDate = _hijriCalendar.hijriToGregorian(_hijriCalendar.hYear, 9, 1);
+  Map<String, dynamic> getDaysToHijriDate({required int hijriMonth, required int hijriDay, required String daysKey, required String dateKey}) {
+    final DateTime targetDate;
+
+    if (_hijriCalendar.isBefore(_hijriCalendar.hYear, hijriMonth, hijriDay)) {
+      targetDate = _hijriCalendar.hijriToGregorian(
+        _hijriCalendar.hYear,
+        hijriMonth,
+        hijriDay,
+      );
     } else {
-      ramadanDate = _hijriCalendar.hijriToGregorian(_hijriCalendar.hYear + 1, 9, 1);
+      targetDate = _hijriCalendar.hijriToGregorian(
+        _hijriCalendar.hYear + 1,
+        hijriMonth,
+        hijriDay,
+      );
     }
 
-    final Duration difference = ramadanDate.difference(_dateTime);
-    final int daysToRamadan = difference.inDays + 1;
+    final Duration difference = targetDate.difference(_dateTime);
+    final int daysRemaining = difference.inDays + 1;
 
     return {
-      AppStringConstraints.mapDaysToRamadan: daysToRamadan,
-      AppStringConstraints.mapRamadanDate: ramadanDate,
-    };
-  }
-
-  Map<String, dynamic> getDaysToDhulHijjah() {
-    final DateTime dhulHijjahDate;
-    if (_hijriCalendar.isBefore(_hijriCalendar.hYear, 12, 1)) {
-      dhulHijjahDate = _hijriCalendar.hijriToGregorian(_hijriCalendar.hYear, 12, 1);
-    } else {
-      dhulHijjahDate = _hijriCalendar.hijriToGregorian(_hijriCalendar.hYear + 1, 12, 1);
-    }
-
-    final Duration difference = dhulHijjahDate.difference(_dateTime);
-    final int daysToDhulHijjah = difference.inDays + 1;
-
-    return {
-      AppStringConstraints.mapDaysToDhulHijjah: daysToDhulHijjah,
-      AppStringConstraints.mapDhulHijjahDate: dhulHijjahDate,
+      daysKey: daysRemaining,
+      dateKey: targetDate,
     };
   }
 

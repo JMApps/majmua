@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -70,6 +71,7 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
             width: double.infinity,
             padding: AppStyles.mardingWithoutTop,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   '${prayerState.country}, ${prayerState.city}',
@@ -84,40 +86,29 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
                   style: AppStyles.mainTextStyle,
                   textAlign: TextAlign.center,
                 ),
-                Text(
-                  'N',
-                  style: AppStyles.mainTextStyleBigBold,
-                  textAlign: TextAlign.center,
-                ),
-                Expanded(
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Transform.rotate(
-                        angle: compassAngle,
-                        child: Image.asset(
-                          'assets/pictures/compass_1.png',
-                          fit: BoxFit.contain,
-                          color: appColors.secondary,
+                Visibility(
+                  visible: Platform.isAndroid,
+                  child: Expanded(
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Transform.rotate(
+                          angle: compassAngle,
+                          child: Image.asset(
+                            'assets/pictures/compass.png',
+                            fit: BoxFit.contain,
+                            color: appColors.secondary,
+                          ),
                         ),
-                      ),
-                      Transform.rotate(
-                        angle: compassAngle,
-                        child: Image.asset(
-                          'assets/pictures/compass_2.png',
-                          fit: BoxFit.contain,
-                          color: appColors.primary,
+                        Transform.rotate(
+                          angle: qiblahAngle,
+                          child: Image.asset(
+                            'assets/pictures/arrow.png',
+                            fit: BoxFit.contain,
+                          ),
                         ),
-                      ),
-                      Transform.rotate(
-                        angle: qiblahAngle,
-                        child: Image.asset(
-                          'assets/pictures/arrow.png',
-                          fit: BoxFit.contain,
-                          color: appColors.tertiary,
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ],

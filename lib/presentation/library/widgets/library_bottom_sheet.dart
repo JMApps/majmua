@@ -11,7 +11,7 @@ class LibraryBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
-      padding: AppStyles.mardingWithoutTopMini,
+      padding: AppStyles.mardingWithoutTop,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
