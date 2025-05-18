@@ -29,7 +29,7 @@ android {
         applicationId = "jmapps.project.majmua"
         minSdk = 23
         targetSdk = 35
-        versionCode = 31
+        versionCode = 32
         versionName = "1.9.5"
     }
 

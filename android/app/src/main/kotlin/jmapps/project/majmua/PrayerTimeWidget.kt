@@ -4,6 +4,7 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.view.View
@@ -47,7 +48,22 @@ class PrayerTimeWidget : AppWidgetProvider() {
         }
     }
 
-    private fun scheduleWidgetUpdates(context: Context) {
+    override fun onReceive(context: Context?, intent: Intent?) {
+        super.onReceive(context, intent)
+        if (intent?.action == ACTION_UPDATE && context != null) {
+            val appWidgetManager = AppWidgetManager.getInstance(context)
+            val componentName = ComponentName(context, PrayerTimeWidget::class.java)
+            val appWidgetIds = appWidgetManager.getAppWidgetIds(componentName)
+
+            for (widgetId in appWidgetIds) {
+                updateWidget(context, appWidgetManager, widgetId)
+            }
+            // Снова ставим Alarm на обновление через минуту
+            scheduleWidgetUpdates(context)
+        }
+    }
+
+    fun scheduleWidgetUpdates(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, javaClass).apply {
             action = ACTION_UPDATE
@@ -60,7 +76,6 @@ class PrayerTimeWidget : AppWidgetProvider() {
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
         )
 
-        // Use ELAPSED_REALTIME to save battery
         val triggerTime = System.currentTimeMillis() + UPDATE_INTERVAL_MS
         alarmManager.setExactAndAllowWhileIdle(
             AlarmManager.RTC_WAKEUP,
