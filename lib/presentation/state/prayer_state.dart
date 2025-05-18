@@ -255,11 +255,13 @@ class PrayerState extends ChangeNotifier with WidgetsBindingObserver {
     return '${hours.abs().toString().padLeft(2, '0')}:${minutes.abs().toString().padLeft(2, '0')}';
   }
 
-  String fromFajrToMaghribFormatted({required String hour, required String minute}) {
+  String fromFajrToMaghribFormatted({required List<String> timeVariations}) {
     final duration = _prayerTimes.maghrib.difference(_prayerTimes.fajr);
     final hours = duration.inHours;
     final minutes = duration.inMinutes.remainder(60);
-    return '$hours $hour $minutes $minute';
+    final hoursText = _pluralize(hours, timeVariations[0], timeVariations[1], timeVariations[2]);
+    final String minutesText = _pluralize(minutes, timeVariations[3], timeVariations[4], timeVariations[5]);
+    return '$hoursText $minutesText';
   }
 
   bool isNextPrayer({required Prayer prayer}) => _prayerTimes.nextPrayer() == prayer;
@@ -355,6 +357,21 @@ class PrayerState extends ChangeNotifier with WidgetsBindingObserver {
   void _updateDateTime() {
     _dateTime = tz.TZDateTime.from(DateTime.now(), tz.local);
     notifyListeners();
+  }
+
+  String _pluralize(int number, String one, String few, String many) {
+    int n = number % 100;
+    if (n >= 11 && n <= 14) return '$number $many';
+    switch (n % 10) {
+      case 1:
+        return '$number $one';
+      case 2:
+      case 3:
+      case 4:
+        return '$number $few';
+      default:
+        return '$number $many';
+    }
   }
 
   @override

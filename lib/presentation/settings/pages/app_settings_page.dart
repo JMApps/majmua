@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:majmua/presentation/settings/widgets/day_length.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../../../core/strings/app_string_constraints.dart';
@@ -38,6 +39,8 @@ class AppSettingsPage extends StatelessWidget {
             const ThemeColorPicker(),
             const Divider(indent: 16, endIndent: 16),
             const AppWakeLock(),
+            const Divider(indent: 16, endIndent: 16),
+            const DayLength(),
             const Divider(indent: 16, endIndent: 16),
             Padding(
               padding: AppStyles.mardingHorizontalMini,

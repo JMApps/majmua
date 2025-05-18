@@ -111,8 +111,9 @@
   "midnight": "Полночь",
   "lastThirdNightPart": "Последняя ⅓ ночи",
   "lengthOfDay": "Продолжительность дня",
-  "shortHour": "ч.",
-  "shortMinute": "м.",
+  "hourMinuteValues": "час, часа, часов, минута, минуты, минут",
+  "start": "Начало",
+  "end": "Конец",
 
   "week2DayNamesShort": "Пн, Вт, Ср, Чт, Пт, Сб, Вс",
   "week2DayNames": "Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье",

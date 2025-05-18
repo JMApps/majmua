@@ -65,10 +65,11 @@ class RestHolidaysContainer extends StatelessWidget {
                       builder: (context) => AllHijriDates(),
                     );
                   },
-                  tileColor: appColors.tertiaryContainer.withAlpha(100),
                   title: Text(
                     appLocale.more,
-                    style: TextStyle(color: appColors.tertiary),
+                    style: TextStyle(
+                      color: appColors.tertiary,
+                    ),
                   ),
                   horizontalTitleGap: 0,
                   visualDensity: VisualDensity(vertical: -4, horizontal: -4),

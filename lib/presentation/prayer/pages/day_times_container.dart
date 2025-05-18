@@ -49,15 +49,6 @@ class DayTimesContainer extends StatelessWidget {
                   cardColor: appColors.tertiaryContainer,
                   textColor: appColors.tertiary,
                 ),
-                const SizedBox(height: 8),
-                TimePeriodPercent(
-                  isState: prayerState.isNightTime,
-                  remainingTime: prayerState.restPrayerTime(isBefore: true, time: prayerState.prayerTimes.maghrib),
-                  title: appLocale.lengthOfDay,
-                  targetTime: prayerState.fromFajrToMaghribFormatted(hour: appLocale.shortHour, minute: appLocale.shortMinute),
-                  cardColor: appColors.surfaceContainer,
-                  textColor: appColors.surface,
-                ),
               ],
             );
           },

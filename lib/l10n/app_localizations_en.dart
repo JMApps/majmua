@@ -282,10 +282,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get lengthOfDay => 'Length of the day';
 
   @override
-  String get shortHour => 'h';
+  String get hourMinuteValues => 'hour, hours, hours, minute, minutes, minutes';
 
   @override
-  String get shortMinute => 'm';
+  String get start => 'Start';
+
+  @override
+  String get end => 'End';
 
   @override
   String get week2DayNamesShort => 'Mon, Tue, Wed, Thu, Fri, Sat, Sun';

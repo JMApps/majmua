@@ -73,6 +73,16 @@ class AppSettingsState extends ChangeNotifier {
     notifyListeners();
   }
 
+  bool _dayLengthState = true;
+
+  bool get dayLengthState => _dayLengthState;
+
+  set dayLengthState(bool state) {
+    _dayLengthState = state;
+    _appSettingsBox.put(AppStringConstraints.keyDayLength, state);
+    notifyListeners();
+  }
+
   int _defaultLocaleIndex() {
     final deviceLocale = PlatformDispatcher.instance.locale;
     switch (deviceLocale.languageCode) {

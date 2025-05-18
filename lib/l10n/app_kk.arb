@@ -111,8 +111,9 @@
   "midnight": "Түн ортасы",
   "lastThirdNightPart": "Түннің соңғы ⅓ бөлігі",
   "lengthOfDay": "Күн ұзақтығы",
-  "shortHour": "с.",
-  "shortMinute": "м.",
+  "hourMinuteValues": "сағат, сағат, сағат, минут, минут, минут",
+  "start": "Басталуы",
+  "end": "Аяқталуы",
 
   "week2DayNamesShort": "Дс, Сс, Ср, Бс, Жм, Сб, Жс",
   "week2DayNames": "Дүйсенбі, Сейсенбі, Сәрсенбі, Бейсенбі, Жұма, Сенбі, Жексенбі",

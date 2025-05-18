@@ -282,10 +282,13 @@ class AppLocalizationsKy extends AppLocalizations {
   String get lengthOfDay => 'Күндүн узактыгы';
 
   @override
-  String get shortHour => 'с.';
+  String get hourMinuteValues => 'саат, саат, саат, мүнөт, мүнөт, мүнөт';
 
   @override
-  String get shortMinute => 'м.';
+  String get start => 'Башталышы';
+
+  @override
+  String get end => 'Аякташуу';
 
   @override
   String get week2DayNamesShort => 'Дш, Шш, Шр, Бш, Жм, Иш, Жш';

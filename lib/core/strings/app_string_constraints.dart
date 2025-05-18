@@ -47,6 +47,7 @@ class AppStringConstraints {
   static const String keyAppThemeModeIndex = 'key_app_theme_mode_index';
   static const String keyAppLocaleIndex = 'key_app_locale_index';
   static const String keyWakeLock = 'key_wake_lock';
+  static const String keyDayLength = 'key_day_length';
 
   // Icon names
   static const String iconSettings = 'settings';

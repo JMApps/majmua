@@ -282,10 +282,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get lengthOfDay => 'Продолжительность дня';
 
   @override
-  String get shortHour => 'ч.';
+  String get hourMinuteValues => 'час, часа, часов, минута, минуты, минут';
 
   @override
-  String get shortMinute => 'м.';
+  String get start => 'Начало';
+
+  @override
+  String get end => 'Конец';
 
   @override
   String get week2DayNamesShort => 'Пн, Вт, Ср, Чт, Пт, Сб, Вс';

@@ -645,17 +645,23 @@ abstract class AppLocalizations {
   /// **'Продолжительность дня'**
   String get lengthOfDay;
 
-  /// No description provided for @shortHour.
+  /// No description provided for @hourMinuteValues.
   ///
   /// In ru, this message translates to:
-  /// **'ч.'**
-  String get shortHour;
+  /// **'час, часа, часов, минута, минуты, минут'**
+  String get hourMinuteValues;
 
-  /// No description provided for @shortMinute.
+  /// No description provided for @start.
   ///
   /// In ru, this message translates to:
-  /// **'м.'**
-  String get shortMinute;
+  /// **'Начало'**
+  String get start;
+
+  /// No description provided for @end.
+  ///
+  /// In ru, this message translates to:
+  /// **'Конец'**
+  String get end;
 
   /// No description provided for @week2DayNamesShort.
   ///
