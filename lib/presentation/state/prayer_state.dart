@@ -255,6 +255,13 @@ class PrayerState extends ChangeNotifier with WidgetsBindingObserver {
     return '${hours.abs().toString().padLeft(2, '0')}:${minutes.abs().toString().padLeft(2, '0')}';
   }
 
+  String fromFajrToMaghribFormatted({required String hour, required String minute}) {
+    final duration = _prayerTimes.maghrib.difference(_prayerTimes.fajr);
+    final hours = duration.inHours;
+    final minutes = duration.inMinutes.remainder(60);
+    return '$hours $hour $minutes $minute';
+  }
+
   bool isNextPrayer({required Prayer prayer}) => _prayerTimes.nextPrayer() == prayer;
 
   bool isAdhan({required Prayer prayer}) {
@@ -292,6 +299,8 @@ class PrayerState extends ChangeNotifier with WidgetsBindingObserver {
   bool get isMidnight => _isWithinRange(_sunnahTimes.middleOfTheNight, _sunnahTimes.lastThirdOfTheNight);
 
   bool get isLastThird => _isWithinRange(_sunnahTimes.lastThirdOfTheNight, _prayerTimes.fajr);
+
+  bool get isNightTime => _isWithinRange(_prayerTimes.maghrib, _prayerTimes.fajr.add(Duration(days: 1)));
 
   bool get isLastFridayHour => _dateTime.weekday == 5 && _isWithinRange(_prayerTimes.maghrib.subtract(const Duration(hours: 1)), _prayerTimes.maghrib);
 

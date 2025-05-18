@@ -109,7 +109,10 @@
   "sunrise": "Күн шығу",
   "duha": "Духа",
   "midnight": "Түн ортасы",
-  "lastThirdNightPart": "Түннің соңғы үштен бір бөлігі",
+  "lastThirdNightPart": "Түннің соңғы ⅓ бөлігі",
+  "lengthOfDay": "Күн ұзақтығы",
+  "shortHour": "с.",
+  "shortMinute": "м.",
 
   "week2DayNamesShort": "Дс, Сс, Ср, Бс, Жм, Сб, Жс",
   "week2DayNames": "Дүйсенбі, Сейсенбі, Сәрсенбі, Бейсенбі, Жұма, Сенбі, Жексенбі",
@@ -153,6 +156,14 @@
   "dhulHijjah": "Зулхижжадағы ораза",
   "congratulationRamadan": "Ораза айт құтты болсын!\nАлла Тағала бізден де, сізден де қабыл етсін!",
   "congratulationDhulHijjah": "Құрбан айт құтты болсын!\nАлла Тағала бізден де, сізден де қабыл етсін!",
+
+  "more": "Көбірек",
+  "startRamadan": "Рамазан айының басталуы",
+  "idAlFitr": "Ораза айт",
+  "startDhulHijjah": "Зұл-хижжа айының басталуы",
+  "dayArafa": "Арафа күні",
+  "idAlAdha": "Құрбан айт",
+  "dayAshura": "Ашура күні",
 
   "backgroundWarmth": "Фон жылылығы",
   "textContrast": "Мәтін контрасты",

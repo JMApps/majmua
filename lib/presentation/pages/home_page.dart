@@ -10,7 +10,6 @@ import '../library/widgets/library_button.dart';
 import '../mainbuttons/pages/main_buttons_card.dart';
 import '../prayer/pages/day_times_container.dart';
 import '../prayer/pages/prayers_container.dart';
-import '../ramadan/pages/ramadan_card.dart';
 import '../times/pages/rest_holidays_container.dart';
 import '../times/pages/season_times_container.dart';
 import '../times/pages/week_days_container.dart';
@@ -65,7 +64,6 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 PrayersContainer(),
-                RamadanCard(),
                 DayTimesContainer(),
                 WeekDaysContainer(),
                 SalawatButton(),

@@ -279,6 +279,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get lastThirdNightPart => 'Last ⅓ of the night';
 
   @override
+  String get lengthOfDay => 'Length of the day';
+
+  @override
+  String get shortHour => 'h';
+
+  @override
+  String get shortMinute => 'm';
+
+  @override
   String get week2DayNamesShort => 'Mon, Tue, Wed, Thu, Fri, Sat, Sun';
 
   @override
@@ -382,6 +391,27 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get congratulationDhulHijjah => 'Eid al-Adha Mubarak!\nMay Allah accept it from us and you!';
+
+  @override
+  String get more => 'More';
+
+  @override
+  String get startRamadan => 'Beginning of Ramadan';
+
+  @override
+  String get idAlFitr => 'Eid al-Fitr';
+
+  @override
+  String get startDhulHijjah => 'Beginning of Dhul-Hijjah';
+
+  @override
+  String get dayArafa => 'Day of Arafah';
+
+  @override
+  String get idAlAdha => 'Eid al-Adha';
+
+  @override
+  String get dayAshura => 'Day of Ashura';
 
   @override
   String get backgroundWarmth => 'Background warmth';

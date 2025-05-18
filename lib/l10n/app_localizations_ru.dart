@@ -279,6 +279,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get lastThirdNightPart => 'Последняя ⅓ ночи';
 
   @override
+  String get lengthOfDay => 'Продолжительность дня';
+
+  @override
+  String get shortHour => 'ч.';
+
+  @override
+  String get shortMinute => 'м.';
+
+  @override
   String get week2DayNamesShort => 'Пн, Вт, Ср, Чт, Пт, Сб, Вс';
 
   @override
@@ -382,6 +391,27 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get congratulationDhulHijjah => 'С праздником жертвоприношения!\nДа примет Аллах от нас и от вас!';
+
+  @override
+  String get more => 'Больше';
+
+  @override
+  String get startRamadan => 'Начало Рамадана';
+
+  @override
+  String get idAlFitr => '\'Ид аль-Фитр';
+
+  @override
+  String get startDhulHijjah => 'Начало Зу-ль-Хиджи';
+
+  @override
+  String get dayArafa => 'День \'Арафа';
+
+  @override
+  String get idAlAdha => '\'Ид аль-Адха';
+
+  @override
+  String get dayAshura => 'День \'Ашура';
 
   @override
   String get backgroundWarmth => 'Теплота фона';

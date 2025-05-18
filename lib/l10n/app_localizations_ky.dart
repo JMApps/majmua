@@ -279,6 +279,15 @@ class AppLocalizationsKy extends AppLocalizations {
   String get lastThirdNightPart => 'Түндүн акыркы ⅓ бөлүгү';
 
   @override
+  String get lengthOfDay => 'Күндүн узактыгы';
+
+  @override
+  String get shortHour => 'с.';
+
+  @override
+  String get shortMinute => 'м.';
+
+  @override
   String get week2DayNamesShort => 'Дш, Шш, Шр, Бш, Жм, Иш, Жш';
 
   @override
@@ -382,6 +391,27 @@ class AppLocalizationsKy extends AppLocalizations {
 
   @override
   String get congratulationDhulHijjah => 'Курман айт майрамы куттуу болсун!\nАллах кабыл кылсын!';
+
+  @override
+  String get more => 'Көбүрөөк';
+
+  @override
+  String get startRamadan => 'Рамазан айынын башталышы';
+
+  @override
+  String get idAlFitr => 'Орозо айт';
+
+  @override
+  String get startDhulHijjah => 'Зул-хижжа айынын башталышы';
+
+  @override
+  String get dayArafa => 'Арафа күнү';
+
+  @override
+  String get idAlAdha => 'Курман айт';
+
+  @override
+  String get dayAshura => 'Ашура күнү';
 
   @override
   String get backgroundWarmth => 'Фондун өңүнүн жылуулугу';

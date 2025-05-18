@@ -110,6 +110,9 @@
   "duha": "(ад-духа)",
   "midnight": "Полночь",
   "lastThirdNightPart": "Последняя ⅓ ночи",
+  "lengthOfDay": "Продолжительность дня",
+  "shortHour": "ч.",
+  "shortMinute": "м.",
 
   "week2DayNamesShort": "Пн, Вт, Ср, Чт, Пт, Сб, Вс",
   "week2DayNames": "Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье",
@@ -153,6 +156,14 @@
   "dhulHijjah": "Пост в Зу-ль-Хиджа",
   "congratulationRamadan": "С праздником разговения!\nДа примет Аллах от нас и от вас!",
   "congratulationDhulHijjah": "С праздником жертвоприношения!\nДа примет Аллах от нас и от вас!",
+
+  "more": "Больше",
+  "startRamadan": "Начало Рамадана",
+  "idAlFitr": "'Ид аль-Фитр",
+  "startDhulHijjah": "Начало Зу-ль-Хиджи",
+  "dayArafa": "День 'Арафа",
+  "idAlAdha": "'Ид аль-Адха",
+  "dayAshura": "День 'Ашура",
 
   "backgroundWarmth": "Теплота фона",
   "textContrast": "Контраст текста",

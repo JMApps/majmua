@@ -9,16 +9,16 @@ class AppLocalizationsKk extends AppLocalizations {
   AppLocalizationsKk([String locale = 'kk']) : super(locale);
 
   @override
-  String get appName => 'Мұсылман сөресі';
+  String get appName => 'Мұсылман күнделігі';
 
   @override
-  String get shelf => 'Сөресі ';
+  String get shelf => 'Күнделік ';
 
   @override
   String get muslim => 'мұсылманның';
 
   @override
-  String get appSlogan => 'Күндер өтеді – сенің бір бөлігің де кетіп жатыр';
+  String get appSlogan => 'Бір күнің өтсе — бір бөлігің де кетті';
 
   @override
   String get language => 'Тіл';
@@ -36,13 +36,13 @@ class AppLocalizationsKk extends AppLocalizations {
   String get aboutUs => 'Біз туралы';
 
   @override
-  String get appTheme => 'Тақырып';
+  String get appTheme => 'Режим';
 
   @override
-  String get themeModes => 'Ашық, Қараңғы, Жүйелік';
+  String get themeModes => 'Жарық, Қараңғы, Жүйелік';
 
   @override
-  String get colorTheme => 'Тақырып түсі';
+  String get colorTheme => 'Режим түсі';
 
   @override
   String get display => 'Дисплей';
@@ -51,19 +51,19 @@ class AppLocalizationsKk extends AppLocalizations {
   String get alwaysOnDisplay => 'Дисплей әрқашан қосулы';
 
   @override
-  String get otherApps => 'Біздің басқа қосымшаларымыз:';
+  String get otherApps => 'Басқа қолданбаларымыз:';
 
   @override
   String get weSocials => 'Әлеуметтік желілердегі парақшаларымыз:';
 
   @override
-  String get rateApp => 'Қосымшаны бағалау:';
+  String get rateApp => 'Қолданбаны бағалау:';
 
   @override
   String get gregorianMonthNames => 'Қаңтар, Ақпан, Наурыз, Сәуір, Мамыр, Маусым, Шілде, Тамыз, Қыркүйек, Қазан, Қараша, Желтоқсан';
 
   @override
-  String get hijriMonthNames => 'Мұхаррам, Сафар, Рабиғ әл-әууәл, Рабиғ әс-сани, Джұмад әл-ұлә, Джұмад әл-ахирә, Раджаб, Шағбан, Рамазан, Шаууал, Зулқағда, Зулхижжа';
+  String get hijriMonthNames => 'Мұхаррам, Сафар, Рабиғ әл-әууәл, Рабиғ әс-сани, Джұмад әл-улә, Джұмад әл-ахирә, Раджаб, Шағбан, Рамазан, Шәууәл, Зулқағда, Зулхижжа';
 
   @override
   String get location => 'Орналасқан жері';
@@ -99,13 +99,13 @@ class AppLocalizationsKk extends AppLocalizations {
   String get information => 'Ақпарат';
 
   @override
-  String get adjustmentMessage => 'Егер намаз уақыттарын есептеу әдісін таңдағаннан кейін жергілікті кестемен шамалы айырмашылық болса, минуттарды түзетуді пайдалана аласыз:';
+  String get adjustmentMessage => ' Егер намаз уақыттарын есептеу әдісін таңдағаннан кейін жергілікті кестемен аздаған айырмашылық болса, минуттарды қолмен түзетуге болады:';
 
   @override
-  String get calculationTimeMessage => 'Құрметті қолданба пайдаланушылары!\n\nҚолданбада қол жетімді намаз уақыттарын есептеу әдістерін пайдалана аласыз, сонымен қатар уақытты қолмен түзете аласыз. Егер бұдан кейін де қолданбадағы намаз уақыттары сіздің жеріңіздегі уақыттармен сәйкес келмесе, кешіріңіз және Google Play немесе App Store-да балама шешімдерді іздеңіз.\n\nҚолданбада қол жетімді намаз уақыттарын есептеу әдістері:';
+  String get calculationTimeMessage => 'Құрметті қолданба пайдаланушылары!\n\nҚолданбада қол жетімді намаз уақыттарын есептеу әдістерін пайдалана аласыз, сондай-ақ уақытты қолмен түзетуге мүмкіндік бар. Егер осыдан кейін де қолданбадағы уақыт жергілікті уақытпен сәйкес келмесе, кешірім сұраймыз және Google Play немесе App Store-дан балама шешімдерді іздеңіз.\n\nҚолданбада қолжетімді есептеу әдістері:';
 
   @override
-  String get addCityMessage => 'Барлық өрістер толтырылуы керек.\nЕндік диапазоны: -90.0-ден 90.0-ге дейін\nБойлық диапазоны: -180.0-ден 180.0-ге дейін';
+  String get addCityMessage => ' Барлық жолақтар толтырылуы керек.\nЕндік диапазоны: -90.0-ден 90.0-ге дейін\nБойлық диапазоны: -180.0-ден 180.0-ге дейін';
 
   @override
   String get enterCountryName => 'Ел атауын енгізіңіз';
@@ -120,7 +120,7 @@ class AppLocalizationsKk extends AppLocalizations {
   String get enterLongitude => 'Бойлықты енгізіңіз (мысалы 39.8579)';
 
   @override
-  String get allFieldsRequired => 'Барлық өрістер толтырылуы керек';
+  String get allFieldsRequired => ' Барлық жолақтар толтырылуы қажет ';
 
   @override
   String get invalidCoordinates => 'Координаттар дұрыс емес';
@@ -144,7 +144,7 @@ class AppLocalizationsKk extends AppLocalizations {
   String get delete => 'Жою';
 
   @override
-  String get defaultAdjustments => 'Әдепкі бойынша';
+  String get defaultAdjustments => ' Алғашқы орнатылым ';
 
   @override
   String get share => 'Бөлісу';
@@ -162,10 +162,10 @@ class AppLocalizationsKk extends AppLocalizations {
   String get search => 'Іздеу';
 
   @override
-  String get searchIsEmpty => 'Сіздің сұранысыңыз бойынша ештеңе табылмады';
+  String get searchIsEmpty => 'Сұраныс бойынша ештеңе табылмады ';
 
   @override
-  String get customCityIsEmpty => 'Сіз ешқандай қала қоспадыңыз';
+  String get customCityIsEmpty => 'Сіз бірде-бір қала қоспадыңыз ';
 
   @override
   String get prayerCalendar => 'Намаз кестесі';
@@ -177,7 +177,7 @@ class AppLocalizationsKk extends AppLocalizations {
   String get dayNumber => 'Күн';
 
   @override
-  String get qiblah => 'Қыбла бағыты';
+  String get qiblah => 'Құбыла бағыты';
 
   @override
   String get fajr => 'Таң';
@@ -195,22 +195,22 @@ class AppLocalizationsKk extends AppLocalizations {
   String get isha => 'Құптан';
 
   @override
-  String get adDuhaTime => '«Әз-Зуха» намазы уақыты';
+  String get adDuhaTime => 'Духа намазы уақыты';
 
   @override
-  String get adhanTime => 'Азан уақытындағы зікір сөздері';
+  String get adhanTime => 'Азан кезіндегі зікірлер ';
 
   @override
-  String get adhkarsTime => 'Намаздан кейінгі зікір сөздері';
+  String get adhkarsTime => 'Намаздан кейінгі зікірлер';
 
   @override
-  String get morningAdhkarsTime => 'Таңертеңгі зікірлер уақыты';
+  String get morningAdhkarsTime => 'Таңғы зікірлер уақыты';
 
   @override
   String get eveningAdhkarsTime => 'Кешкі зікірлер уақыты';
 
   @override
-  String get nightAdhkarsTime => 'Ұйқыға жатпас бұрын зікірлерді ұмытпа!';
+  String get nightAdhkarsTime => ' Ұйықтар алдында Алланы еске алуды ұмытпа!';
 
   @override
   String get prayerTime => 'Намаз уақыты';
@@ -231,13 +231,13 @@ class AppLocalizationsKk extends AppLocalizations {
   String get eveningAdhkars => 'Кешкі зікірлер';
 
   @override
-  String get nightAdhkars => 'Ұйқыға жатпас бұрынғы зікірлер';
+  String get nightAdhkars => 'Ұйқы алдындағы зікірлер';
 
   @override
-  String get fastMonday => 'Дүйсенбі күні ораза';
+  String get fastMonday => 'Дүйсенбі оразасы';
 
   @override
-  String get fastThursday => 'Бейсенбі күні ораза';
+  String get fastThursday => 'Бейсенбі оразасы';
 
   @override
   String get nearWhiteDays => 'Ақ күндер жақындады';
@@ -249,28 +249,28 @@ class AppLocalizationsKk extends AppLocalizations {
   String get friday => 'Жұма';
 
   @override
-  String get tomorrowFriday => 'Шын мәнінде, Аллаһ пен Оның періштелері Пайғамбарға салауат айтады. Иман келтіргендер! Оған салауат айтыңдар және бейбітшілікпен амандасыңдар.\n\nЕртең жұма';
+  String get tomorrowFriday => ' Шынында, Алла және Оның періштелері Пайғамбарға салауат айтады. Ей, иман келтіргендер! Сендер де оған салауат айтып, сәлем жолдаңдар.\n\nЕртең жұма';
 
   @override
   String get lastHourFriday => 'Жұманың соңғы сағаты';
 
   @override
-  String get prayerNotifications => 'Намаз хабарландырулары';
+  String get prayerNotifications => 'Намаз уақыты хабарламалары';
 
   @override
-  String get adhkarsNotifications => 'Зікір хабарландырулары';
+  String get adhkarsNotifications => 'Зікір хабарламалары';
 
   @override
-  String get fastingNotifications => 'Ораза хабарландырулары';
+  String get fastingNotifications => 'Ораза хабарламалары';
 
   @override
-  String get fridayNotifications => 'Жұма хабарландырулары';
+  String get fridayNotifications => 'Жұма хабарламалары';
 
   @override
   String get sunrise => 'Күн шығу';
 
   @override
-  String get duha => '(әз-Зуха)';
+  String get duha => 'Духа';
 
   @override
   String get midnight => 'Түн ортасы';
@@ -279,31 +279,40 @@ class AppLocalizationsKk extends AppLocalizations {
   String get lastThirdNightPart => 'Түннің соңғы ⅓ бөлігі';
 
   @override
+  String get lengthOfDay => 'Күн ұзақтығы';
+
+  @override
+  String get shortHour => 'с.';
+
+  @override
+  String get shortMinute => 'м.';
+
+  @override
   String get week2DayNamesShort => 'Дс, Сс, Ср, Бс, Жм, Сб, Жс';
 
   @override
   String get week2DayNames => 'Дүйсенбі, Сейсенбі, Сәрсенбі, Бейсенбі, Жұма, Сенбі, Жексенбі';
 
   @override
-  String get nearFastingDay => 'Ертең мәкрух емес ораза күні';
+  String get nearFastingDay => 'Ертең нәпіл ораза күні';
 
   @override
-  String get fastingDay => 'Мәкрух емес ораза күні';
+  String get fastingDay => 'Нәпіл ораза күні';
 
   @override
   String get fridaySunans => 'Жұма сүннеттері';
 
   @override
-  String get friday_sunna_1 => 'Үлкен абдест алу';
+  String get friday_sunna_1 => 'Ғұсыл алу';
 
   @override
-  String get friday_sunna_2 => 'Өзін тазарту';
+  String get friday_sunna_2 => 'Өзін ретке келтіру';
 
   @override
   String get friday_sunna_3 => 'Таза киім кию';
 
   @override
-  String get friday_sunna_4 => 'Өзіне хош иіс себіңіз';
+  String get friday_sunna_4 => 'Хош иіс себу';
 
   @override
   String get friday_sunna_5 => 'Мешітке ерте бару';
@@ -312,31 +321,31 @@ class AppLocalizationsKk extends AppLocalizations {
   String get friday_sunna_6 => 'Мешітке жаяу бару';
 
   @override
-  String get friday_sunna_7 => 'Минбарға жақын орын алу';
+  String get friday_sunna_7 => 'Минбарға жақын жерге отыру';
 
   @override
-  String get friday_sunna_8 => 'Басқалардың үстінен өту, қажетті орынға басқа жолмен жете алмайтын жағдайлардан басқа';
+  String get friday_sunna_8 => 'Мешітте отырған адамдардың алдынан немесе үстінен аттап өтпеу (егер басқа жол болмаса ғана)';
 
   @override
-  String get friday_sunna_9 => 'Хутба кезінде сөйлесу';
+  String get friday_sunna_9 => 'Хұтба кезінде сөйлемеу';
 
   @override
-  String get friday_sunna_10 => 'Жұмадан кейін мешітте 4 рақат (2-ден 2) немесе үйде 2 рақат оқу';
+  String get friday_sunna_10 => 'Жұма намазы зікірінен кейін мешітте 4 ракағат (2+2), немесе үйде 2 ракағат оқу';
 
   @override
-  String get friday_sunna_11 => '«Әл-Кахф» сүресін оқу';
+  String get friday_sunna_11 => '«Кәһф» сүресін оқу';
 
   @override
   String get friday_sunna_12 => 'Пайғамбарға ﷺ көп салауат айту';
 
   @override
-  String get friday_sunna_13 => 'Жұманың соңғы сағатында дуа жасау\n(мағрибке дейін 1 сағат)';
+  String get friday_sunna_13 => 'Жұманың соңғы сағатында дұға жасау\n(мағрибке дейін сағат)';
 
   @override
-  String get mustahab => 'Мәкрух емес';
+  String get mustahab => 'Мұстахап (құпталған іс)';
 
   @override
-  String get haram => 'Тыйым салынған (харам)';
+  String get haram => 'Харам (тыйым салынған)';
 
   @override
   String get lastFridayHour => 'Жұманың соңғы сағаты';
@@ -366,22 +375,43 @@ class AppLocalizationsKk extends AppLocalizations {
   String get seasonWinter => 'Қыс';
 
   @override
-  String get daysToRamadan => 'Рамазанға дейін қалған күн';
+  String get daysToRamadan => 'Рамаданға дейін қалған күн';
 
   @override
-  String get blessedRamadan => 'Мүбарак Рамазан';
+  String get blessedRamadan => 'Берекелі Рамадан';
 
   @override
-  String get daysToDhulHujjah => 'Зулхижжаға дейін қалған күн';
+  String get daysToDhulHujjah => 'Зулхижжаға дейін қалған күндер';
 
   @override
-  String get dhulHijjah => 'Зулхижжада ораза';
+  String get dhulHijjah => 'Зулхижжадағы ораза';
 
   @override
-  String get congratulationRamadan => 'Ораза айт мейрамы құтты болсын!\nАллаһ қабыл етсін!';
+  String get congratulationRamadan => 'Ораза айт құтты болсын!\nАлла Тағала бізден де, сізден де қабыл етсін!';
 
   @override
-  String get congratulationDhulHijjah => 'Құрбан айт мейрамы құтты болсын!\nАллаһ қабыл етсін!';
+  String get congratulationDhulHijjah => 'Құрбан айт құтты болсын!\nАлла Тағала бізден де, сізден де қабыл етсін!';
+
+  @override
+  String get more => 'Көбірек';
+
+  @override
+  String get startRamadan => 'Рамазан айының басталуы';
+
+  @override
+  String get idAlFitr => 'Ораза айт';
+
+  @override
+  String get startDhulHijjah => 'Зұл-хижжа айының басталуы';
+
+  @override
+  String get dayArafa => 'Арафа күні';
+
+  @override
+  String get idAlAdha => 'Құрбан айт';
+
+  @override
+  String get dayAshura => 'Ашура күні';
 
   @override
   String get backgroundWarmth => 'Фон жылылығы';
@@ -390,7 +420,7 @@ class AppLocalizationsKk extends AppLocalizations {
   String get textContrast => 'Мәтін контрасты';
 
   @override
-  String get ayahDay => 'Күннің аяты';
+  String get ayahDay => 'Осы күннің аяты';
 
   @override
   String get quran => 'Құран';
@@ -402,16 +432,16 @@ class AppLocalizationsKk extends AppLocalizations {
   String get fortress => 'Зікірлер';
 
   @override
-  String get gems => 'Жемістер';
+  String get gems => 'Даналық сөздер';
 
   @override
-  String get counter => 'Есептегіш';
+  String get counter => 'Есептеу';
 
   @override
-  String get fortressMuslim => 'Мұсылманның қамалы';
+  String get fortressMuslim => 'Мұсылманның қорғаны';
 
   @override
-  String get chapter => 'Тақырып';
+  String get chapter => 'Тарау';
 
   @override
   String get fortressChapterTableName => 'Table_of_chapters_kk';
@@ -429,7 +459,7 @@ class AppLocalizationsKk extends AppLocalizations {
   String get evening => 'Кешке';
 
   @override
-  String get night => 'Ұйқыға жатпас бұрын';
+  String get night => 'Ұйықтар алдында';
 
   @override
   String get istikhara => 'Истихара';
@@ -444,7 +474,7 @@ class AppLocalizationsKk extends AppLocalizations {
   String get randomAyah => 'Кездейсоқ аят';
 
   @override
-  String get randomCitation => 'Кездейсоқ дәйексөз';
+  String get randomCitation => 'Кездейсоқ үзінді';
 
   @override
   String get arabicTextSize => 'Араб мәтінінің өлшемі';
@@ -459,16 +489,16 @@ class AppLocalizationsKk extends AppLocalizations {
   String get transcription => 'Транскрипция';
 
   @override
-  String get surahKahf => '«Әл-Кахф» сүресі';
+  String get surahKahf => '« Кәһф» сүресі';
 
   @override
-  String get surahSajda => '«Әс-Сәжде» сүресі';
+  String get surahSajda => '«Сәжде» сүресі';
 
   @override
-  String get surahMulk => '«Әл-Мүлк» сүресі';
+  String get surahMulk => '«Мүлік» сүресі';
 
   @override
-  String get djuzAmma => '«Амма» жүзі';
+  String get djuzAmma => '«‘Амма» жүзі (бөлігі)';
 
   @override
   String get timeOffset => 'Қысқы уақыт (DST)';

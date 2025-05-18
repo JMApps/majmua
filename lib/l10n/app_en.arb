@@ -110,6 +110,9 @@
   "duha": "(Duha)",
   "midnight": "Midnight",
   "lastThirdNightPart": "Last ⅓ of the night",
+  "lengthOfDay": "Length of the day",
+  "shortHour": "h",
+  "shortMinute": "m",
 
   "week2DayNamesShort": "Mon, Tue, Wed, Thu, Fri, Sat, Sun",
   "week2DayNames": "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
@@ -153,6 +156,14 @@
   "dhulHijjah": "Fasting in Dhul-Hijjah",
   "congratulationRamadan": "Eid Mubarak!\nMay Allah accept it from us and you!",
   "congratulationDhulHijjah": "Eid al-Adha Mubarak!\nMay Allah accept it from us and you!",
+
+  "more": "More",
+  "startRamadan": "Beginning of Ramadan",
+  "idAlFitr": "Eid al-Fitr",
+  "startDhulHijjah": "Beginning of Dhul-Hijjah",
+  "dayArafa": "Day of Arafah",
+  "idAlAdha": "Eid al-Adha",
+  "dayAshura": "Day of Ashura",
 
   "backgroundWarmth": "Background warmth",
   "textContrast": "Text contrast",

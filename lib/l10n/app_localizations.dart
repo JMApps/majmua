@@ -639,6 +639,24 @@ abstract class AppLocalizations {
   /// **'Последняя ⅓ ночи'**
   String get lastThirdNightPart;
 
+  /// No description provided for @lengthOfDay.
+  ///
+  /// In ru, this message translates to:
+  /// **'Продолжительность дня'**
+  String get lengthOfDay;
+
+  /// No description provided for @shortHour.
+  ///
+  /// In ru, this message translates to:
+  /// **'ч.'**
+  String get shortHour;
+
+  /// No description provided for @shortMinute.
+  ///
+  /// In ru, this message translates to:
+  /// **'м.'**
+  String get shortMinute;
+
   /// No description provided for @week2DayNamesShort.
   ///
   /// In ru, this message translates to:
@@ -848,6 +866,48 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'С праздником жертвоприношения!\nДа примет Аллах от нас и от вас!'**
   String get congratulationDhulHijjah;
+
+  /// No description provided for @more.
+  ///
+  /// In ru, this message translates to:
+  /// **'Больше'**
+  String get more;
+
+  /// No description provided for @startRamadan.
+  ///
+  /// In ru, this message translates to:
+  /// **'Начало Рамадана'**
+  String get startRamadan;
+
+  /// No description provided for @idAlFitr.
+  ///
+  /// In ru, this message translates to:
+  /// **'\'Ид аль-Фитр'**
+  String get idAlFitr;
+
+  /// No description provided for @startDhulHijjah.
+  ///
+  /// In ru, this message translates to:
+  /// **'Начало Зу-ль-Хиджи'**
+  String get startDhulHijjah;
+
+  /// No description provided for @dayArafa.
+  ///
+  /// In ru, this message translates to:
+  /// **'День \'Арафа'**
+  String get dayArafa;
+
+  /// No description provided for @idAlAdha.
+  ///
+  /// In ru, this message translates to:
+  /// **'\'Ид аль-Адха'**
+  String get idAlAdha;
+
+  /// No description provided for @dayAshura.
+  ///
+  /// In ru, this message translates to:
+  /// **'День \'Ашура'**
+  String get dayAshura;
 
   /// No description provided for @backgroundWarmth.
   ///

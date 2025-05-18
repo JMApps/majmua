@@ -87,9 +87,19 @@ class AppStringConstraints {
 
   static const String mapDaysToRamadan = 'map_days_to_ramadan';
   static const String mapRamadanDate = 'map_ramadan_date';
+  static const String mapDaysToIdAlFitr = 'map_days_to_id_al_fitr';
+  static const String mapIdAlFitrDate = 'map_id_al_fitr_date';
 
   static const String mapDaysToDhulHijjah = 'map_days_to_dhul_hijjah';
   static const String mapDhulHijjahDate = 'map_dhul_hijjah_date';
+  static const String mapDaysToIdAlAdha = 'map_days_to_id_al_adha';
+  static const String mapIdAlAdhaDate = 'map_id_al_adha_date';
+
+  static const String mapDaysToArafa = 'map_days_to_arafa';
+  static const String mapArafaDate = 'mad_arafa_date';
+
+  static const String mapDaysToAshura = 'map_days_to_ashura';
+  static const String mapAshuraDate = 'mad_ashura_date';
 
   static const String startPeriod = 'map_start_period';
   static const String endPeriod = 'map_end_period';
