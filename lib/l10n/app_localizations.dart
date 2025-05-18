@@ -210,7 +210,7 @@ abstract class AppLocalizations {
   /// No description provided for @hijriMonthNames.
   ///
   /// In ru, this message translates to:
-  /// **'Мухаррам, Сафар, Раби аль-авваль, Раби ас-сани, Джумада аль-уля, Джумада аль-ахира, Раджаб, Шаабан, Рамадан, Шавваль, Зу-ль-када, Зу-ль-хиджа'**
+  /// **'Мухаррам, Сафар, Раби аль-авваль, Раби ас-сани, Джумада аль-уля, Джумада аль-ахира, Раджаб, Шаабан, Рамадан, Шавваль, Зу-ль-ка\'да, Зу-ль-хиджа'**
   String get hijriMonthNames;
 
   /// No description provided for @location.

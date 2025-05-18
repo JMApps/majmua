@@ -23,7 +23,7 @@
 
         <receiver
             android:name=".PrayerTimeWidget"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -32,7 +32,11 @@
                 android:resource="@xml/prayer_time_widget_info" />
         </receiver>
 
-        <receiver android:name=".WidgetUpdateReceiver" android:exported="false" />
+        <receiver android:name=".WidgetUpdateReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
         <activity
             android:name=".MainActivity"
