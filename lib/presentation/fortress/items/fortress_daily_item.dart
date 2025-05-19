@@ -46,6 +46,8 @@ class FortressDailyItem extends StatelessWidget {
             title,
             style: AppStyles.mainTextStyleMiniBold,
             textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
           ),
         ),
       ),

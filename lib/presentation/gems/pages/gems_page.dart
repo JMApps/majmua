@@ -108,7 +108,7 @@ class _GemsPageState extends State<GemsPage> {
               },
               elevation: 0.5,
               tooltip: appLocale.randomCitation,
-              child: const Icon(Icons.next_plan_rounded),
+              child: const Icon(Icons.autorenew_rounded),
             ),
           );
         },

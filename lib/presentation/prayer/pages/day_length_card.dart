@@ -23,17 +23,24 @@ class DayLengthCard extends StatelessWidget {
             child: ListTile(
               contentPadding: AppStyles.mardingHorizontalMini,
               visualDensity: VisualDensity(horizontal: -4, vertical: -4),
-              title: Text(
-                appLocale.lengthOfDay,
-                textAlign: TextAlign.center,
-              ),
-              subtitle: Text(
-                '${prayerState.fromFajrToMaghribFormatted(timeVariations: appLocale.hourMinuteValues.split(', '))}${prayerState.isNightTime ? '' : ' / -${prayerState.restPrayerTime(isBefore: true, time: prayerState.prayerTimes.maghrib)}'}',
-                style: TextStyle(
-                  color: appColors.primary,
-                  fontWeight: FontWeight.bold,
+              title: Card(
+                color: appColors.surface,
+                margin: AppStyles.mardingBottomMini,
+                child: Text(
+                  appLocale.lengthOfDay,
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
+              ),
+              subtitle: Card(
+                color: appColors.surface,
+                child: Text(
+                  '${prayerState.fromFajrToMaghribFormatted(timeVariations: appLocale.hourMinuteValues.split(', '))}${prayerState.isNightTime ? '' : ' / -${prayerState.restPrayerTime(isBefore: true, time: prayerState.prayerTimes.maghrib)}'}',
+                  style: TextStyle(
+                    color: appColors.primary,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
               leading: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

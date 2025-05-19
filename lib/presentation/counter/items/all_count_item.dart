@@ -13,17 +13,8 @@ class AllCountItem extends StatelessWidget {
     return Consumer<CounterState>(
       builder: (context, counterState, _) {
         return Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            AnimatedOpacity(
-              duration: const Duration(seconds: 1),
-              opacity: counterState.countShowState ? 1.0 : 0.0,
-              child: Text(
-                counterState.getAllCounts.toString(),
-                style: AppStyles.mainTextStyleMini,
-                textAlign: TextAlign.center,
-              ),
-            ),
             IconButton(
               onPressed: () {
                 counterState.restoreAllCountValue();
@@ -32,6 +23,15 @@ class AllCountItem extends StatelessWidget {
               padding: EdgeInsets.zero,
               icon: const Icon(Icons.refresh_rounded),
               color: appColors.tertiary,
+            ),
+            AnimatedOpacity(
+              duration: const Duration(seconds: 1),
+              opacity: counterState.countShowState ? 1.0 : 0.0,
+              child: Text(
+                counterState.getAllCounts.toString(),
+                style: AppStyles.mainTextStyleMini,
+                textAlign: TextAlign.center,
+              ),
             ),
           ],
         );

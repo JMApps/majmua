@@ -48,6 +48,10 @@ class MainDataItem extends StatelessWidget {
                                   todayCellDecoration: BoxDecoration(
                                     color: appColors.tertiaryContainer,
                                     shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color: appColors.tertiary,
+                                      width: 2.0,
+                                    ),
                                   ),
                                 ),
                                 view: DateRangePickerView.month,
@@ -121,6 +125,10 @@ class MainDataItem extends StatelessWidget {
                                   todayCellDecoration: BoxDecoration(
                                     color: appColors.inversePrimary,
                                     shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color: appColors.primary,
+                                      width: 2.0,
+                                    ),
                                   ),
                                 ),
                                 view: HijriDatePickerView.month,
