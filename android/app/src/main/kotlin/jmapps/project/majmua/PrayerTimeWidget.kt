@@ -21,7 +21,7 @@ class PrayerTimeWidget : AppWidgetProvider() {
     companion object {
         private const val UPDATE_INTERVAL_MS = 60_000L // 1 minute
         private const val PREFS_NAME = "HomeWidgetPreferences"
-        private val PRAYER_NAMES = listOf("fajr", "dhuhr", "asr", "maghrib", "isha")
+        private val PRAYER_NAMES = listOf("fajr", "sunrise", "dhuhr", "asr", "maghrib", "isha")
         private val TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm")
 
         const val ACTION_UPDATE = "jmapps.project.majmua.ACTION_UPDATE_WIDGET"
@@ -161,23 +161,6 @@ class PrayerTimeWidget : AppWidgetProvider() {
                         LocalDateTime.of(today.plusDays(1), fajrTime),
                         Duration.between(now, LocalDateTime.of(today.plusDays(1), fajrTime)).toMinutes()
                     )
-                } catch (e: Exception) {
-                }
-            }
-
-            // Mark passed prayers
-            passedPrayers.forEach { prayerName ->
-                try {
-                    val linearId = context.resources.getIdentifier(
-                        "linear_$prayerName", "id", context.packageName
-                    )
-                    if (linearId != 0) {
-                        views.setInt(
-                            linearId,
-                            "setBackgroundResource",
-                            R.drawable.rounded_stroke
-                        )
-                    }
                 } catch (e: Exception) {
                 }
             }

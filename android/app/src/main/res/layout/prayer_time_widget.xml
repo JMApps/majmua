@@ -1,9 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/widget_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/rounded_widget_background"
     android:orientation="vertical"
     android:padding="8dp">
 
@@ -11,182 +9,193 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
-        android:paddingBottom="4dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="4dp">
 
         <LinearLayout
-            android:id="@+id/linear_fajr"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:padding="4dp"
-            android:layout_marginEnd="4dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="4dp">
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:contentDescription="@string/prayer_fajr"
-                android:src="@drawable/fajr"
-                tools:ignore="RtlSymmetry" />
+                android:src="@drawable/duha" />
 
             <TextView
                 android:id="@+id/fajr_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/prayer_fajr"
-                android:textColor="@color/iconTextColor"
-                android:textSize="12sp" />
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/prayer_fajr" />
 
             <TextView
                 android:id="@+id/fajr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nullTime"
-                android:textStyle="bold"
-                android:textColor="@color/iconTextColor"
-                android:textSize="12sp" />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear_dhuhr"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:padding="4dp"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="@string/prayer_sunrise"
+                android:src="@drawable/fajr" />
+
+            <TextView
+                android:id="@+id/sunrise_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/prayer_sunrise" />
+
+            <TextView
+                android:id="@+id/sunrise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nullTime"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
-            android:orientation="vertical">
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="4dp">
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:contentDescription="@string/prayer_dhuhr"
-                android:src="@drawable/dhuhr"
-                tools:ignore="RtlSymmetry" />
+                android:src="@drawable/dhuhr" />
 
             <TextView
                 android:id="@+id/dhuhr_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/prayer_dhuhr"
-                android:textColor="@color/iconTextColor"
-                android:textSize="12sp" />
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/prayer_dhuhr" />
 
             <TextView
                 android:id="@+id/dhuhr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nullTime"
-                android:textStyle="bold"
-                android:textColor="@color/iconTextColor"
-                android:textSize="12sp" />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear_asr"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:padding="4dp"
-            android:layout_marginEnd="4dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="4dp">
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:contentDescription="@string/prayer_asr"
-                android:src="@drawable/asr"
-                tools:ignore="RtlSymmetry" />
+                android:src="@drawable/asr" />
 
             <TextView
                 android:id="@+id/asr_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/prayer_asr"
-                android:textColor="@color/iconTextColor"
-                android:textSize="12sp" />
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/prayer_asr" />
 
             <TextView
                 android:id="@+id/asr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nullTime"
-                android:textStyle="bold"
-                android:textColor="@color/iconTextColor"
-                android:textSize="12sp" />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear_maghrib"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:padding="4dp"
-            android:layout_marginEnd="4dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="4dp">
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:contentDescription="@string/prayer_maghrib"
-                android:src="@drawable/maghrib"
-                tools:ignore="RtlSymmetry" />
+                android:src="@drawable/maghrib" />
 
             <TextView
                 android:id="@+id/maghrib_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/prayer_maghrib"
-                android:textColor="@color/iconTextColor"
-                android:textSize="12sp" />
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/prayer_maghrib" />
 
             <TextView
                 android:id="@+id/maghrib"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nullTime"
-                android:textStyle="bold"
-                android:textColor="@color/iconTextColor"
-                android:textSize="12sp" />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear_isha"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:padding="4dp"
-            android:layout_marginEnd="4dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="4dp">
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:contentDescription="@string/prayer_isha"
-                android:src="@drawable/isha"
-                tools:ignore="RtlSymmetry" />
+                android:src="@drawable/isha" />
 
             <TextView
                 android:id="@+id/isha_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/prayer_isha"
-                android:textColor="@color/iconTextColor"
-                android:textSize="12sp" />
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/prayer_isha" />
 
             <TextView
                 android:id="@+id/isha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nullTime"
-                android:textStyle="bold"
-                android:textColor="@color/iconTextColor"
-                android:textSize="12sp" />
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
@@ -194,19 +203,15 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@drawable/rounded_stroke"
-        android:gravity="center"
-        android:paddingHorizontal="16dp"
-        android:padding="4dp">
+        android:gravity="center">
 
         <TextView
             android:id="@+id/countdown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text=""
-            android:textColor="@color/remindColor"
-            android:textSize="12sp" />
+            android:gravity="end"
+            android:paddingEnd="16dp"
+            android:text="" />
     </LinearLayout>
 
 </LinearLayout>

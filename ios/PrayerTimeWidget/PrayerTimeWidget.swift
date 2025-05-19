@@ -150,7 +150,7 @@ struct PrayerRow: View {
             HStack(spacing: 4) {
                 if isNextPrayer,
                    let targetDate = PrayerUtils.calculateTargetDate(for: prayer, relativeTo: entry) {
-                    Text("-\(targetDate, style: .timer)")
+                    Text("\(targetDate, style: .timer)")
                         .bold()
                         .font(.system(.caption2, design: .rounded))
                         .foregroundColor(.red.opacity(0.85))
@@ -182,22 +182,22 @@ struct SmallPrayerView: View {
                         .shadow(radius: 0.25)
                     
                     VStack {
-                        Text("-\(targetDate, style: .timer)")
-                            .font(.system(.caption, design: .rounded))
-                            .bold()
-                            .foregroundColor(.indigo)
+                        Text("\(targetDate, style: .timer)")
+                            .font(.system(.headline, design: .rounded))
+
+                            .foregroundColor(.red)
                             .multilineTextAlignment(.center)
                             .monospacedDigit()
                         
                         Text(nextPrayer.localizedName)
-                            .font(.system(.body, design: .rounded))
+                            .font(.system(.title2, design: .rounded))
                             .bold()
                             .foregroundColor(.primary)
                             .lineLimit(1)
                             .multilineTextAlignment(.center)
                         
                         Text(PrayerUtils.formattedTime(nextPrayer.time))
-                            .font(.system(.caption, design: .rounded))
+                            .font(.system(.headline, design: .rounded))
                             .bold()
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
@@ -208,8 +208,9 @@ struct SmallPrayerView: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+
         }
-        .padding(8)
+        .padding(0)
         .widgetBackground(Color(.systemBackground))
     }
     
@@ -236,18 +237,13 @@ struct CirclePrayerView: View {
                 if let nextPrayer = SmallPrayerView.getNextPrayer(from: entry),
                    let targetDate = PrayerUtils.calculateTargetDate(for: nextPrayer, relativeTo: entry) {
                     VStack {
-                        Text("-\(targetDate, style: .timer)")
-                            .font(.system(.caption, design: .rounded))
+                        Text("\(targetDate, style: .timer)")
+                            .font(.system(.caption2, design: .rounded))
                             .bold()
                             .multilineTextAlignment(.center)
                             .monospacedDigit()
                         
                         Text(nextPrayer.localizedName)
-                            .font(.system(.body, design: .rounded))
-                            .bold()
-                            .multilineTextAlignment(.center)
-                        
-                        Text(PrayerUtils.formattedTime(nextPrayer.time))
                             .font(.system(.caption, design: .rounded))
                             .bold()
                             .multilineTextAlignment(.center)
@@ -259,6 +255,7 @@ struct CirclePrayerView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .widgetBackground(Color(.systemBackground))
     }
     
@@ -353,5 +350,32 @@ extension View {
         } else {
             return background(backgroundView)
         }
+    }
+}
+
+struct PrayerTimeWidget_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            PrayerTimeWidgetEntryView(entry: sampleEntry)
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+            
+            PrayerTimeWidgetEntryView(entry: sampleEntry)
+                .previewContext(WidgetPreviewContext(family: .systemMedium))
+            
+            PrayerTimeWidgetEntryView(entry: sampleEntry)
+                .previewContext(WidgetPreviewContext(family: .accessoryCircular))
+        }
+    }
+
+    static var sampleEntry: PrayerEntry {
+        let prayers = [
+            PrayerEntry.Prayer(nameKey: "fajr", time: "04:12", icon: "sparkles"),
+            PrayerEntry.Prayer(nameKey: "sunrise", time: "05:45", icon: "sunrise.fill"),
+            PrayerEntry.Prayer(nameKey: "dhuhr", time: "12:30", icon: "sun.max.fill"),
+            PrayerEntry.Prayer(nameKey: "asr", time: "15:45", icon: "sun.min.fill"),
+            PrayerEntry.Prayer(nameKey: "maghrib", time: "18:38", icon: "sunset.fill"),
+            PrayerEntry.Prayer(nameKey: "isha", time: "20:10", icon: "moon.stars.fill")
+        ]
+        return PrayerEntry(date: Date(), prayers: prayers, currentPrayerKey: "asr")
     }
 }
