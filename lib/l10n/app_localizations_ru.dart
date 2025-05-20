@@ -60,10 +60,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get rateApp => 'Оценить приложение:';
 
   @override
-  String get gregorianMonthNames => 'Январь, Февраль, Март, Апрель, Май, Июнь, Июль, Август, Сентябрь, Октябрь, Ноябрь, Декабрь';
+  String get gregorianMonthNames =>
+      'Январь, Февраль, Март, Апрель, Май, Июнь, Июль, Август, Сентябрь, Октябрь, Ноябрь, Декабрь';
 
   @override
-  String get hijriMonthNames => 'Мухаррам, Сафар, Раби аль-авваль, Раби ас-сани, Джумада аль-уля, Джумада аль-ахира, Раджаб, Шаабан, Рамадан, Шавваль, Зу-ль-ка\'да, Зу-ль-хиджа';
+  String get hijriMonthNames =>
+      'Мухаррам, Сафар, Раби аль-авваль, Раби ас-сани, Джумада аль-уля, Джумада аль-ахира, Раджаб, Шаабан, Рамадан, Шавваль, Зу-ль-ка\'да, Зу-ль-хиджа';
 
   @override
   String get location => 'Местоположение';
@@ -99,13 +101,16 @@ class AppLocalizationsRu extends AppLocalizations {
   String get information => 'Информация';
 
   @override
-  String get adjustmentMessage => 'Если после выбора метода расчёта времени молитв есть небольшая разница с местным расписанием, вы можете воспользоваться корректировкой минут:';
+  String get adjustmentMessage =>
+      'Если после выбора метода расчёта времени молитв есть небольшая разница с местным расписанием, вы можете воспользоваться корректировкой минут:';
 
   @override
-  String get calculationTimeMessage => 'Уважаемые пользователи приложения!\n\nВы можете воспользоваться доступными в приложении методами расчёта времени молитв, а также дополнительно откорректировать время вручную. Если после этого время молитв в приложении все равно не будет совпадать с временем молитв в вашей местности, то извините, и поищите альтернативные решения в Google Play или App Store.\n\nДоступные в приложении методы расчета времени молитв:';
+  String get calculationTimeMessage =>
+      'Уважаемые пользователи приложения!\n\nВы можете воспользоваться доступными в приложении методами расчёта времени молитв, а также дополнительно откорректировать время вручную. Если после этого время молитв в приложении все равно не будет совпадать с временем молитв в вашей местности, то извините, и поищите альтернативные решения в Google Play или App Store.\n\nДоступные в приложении методы расчета времени молитв:';
 
   @override
-  String get addCityMessage => 'Все поля должны быть заполнены.\nДиапазон широты: от -90.0 до 90.0\nДиапазон долготы: от -180.0 до 180.0';
+  String get addCityMessage =>
+      'Все поля должны быть заполнены.\nДиапазон широты: от -90.0 до 90.0\nДиапазон долготы: от -180.0 до 180.0';
 
   @override
   String get enterCountryName => 'Введите название страны';
@@ -249,7 +254,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get friday => 'Пятница';
 
   @override
-  String get tomorrowFriday => 'Воистину, Аллах и Его ангелы благословляют Пророка. О те, которые уверовали! Благословляйте его и приветствуйте миром.\n\nЗавтра пятница';
+  String get tomorrowFriday =>
+      'Воистину, Аллах и Его ангелы благословляют Пророка. О те, которые уверовали! Благословляйте его и приветствуйте миром.\n\nЗавтра пятница';
 
   @override
   String get lastHourFriday => 'Последний час пятницы';
@@ -294,7 +300,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get week2DayNamesShort => 'Пн, Вт, Ср, Чт, Пт, Сб, Вс';
 
   @override
-  String get week2DayNames => 'Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье';
+  String get week2DayNames =>
+      'Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье';
 
   @override
   String get nearFastingDay => 'Завтра день желательного поста';
@@ -327,13 +334,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get friday_sunna_7 => 'Занять место ближе к минбару';
 
   @override
-  String get friday_sunna_8 => 'Перешагивать через других, кроме тех случаев, когда иначе невозможно добраться до нужного места';
+  String get friday_sunna_8 =>
+      'Перешагивать через других, кроме тех случаев, когда иначе невозможно добраться до нужного места';
 
   @override
   String get friday_sunna_9 => 'Разговаривать во время хутбы';
 
   @override
-  String get friday_sunna_10 => 'Совершить 4 ракаата, (2 по 2), после джума в мечети или 2 ракаата дома';
+  String get friday_sunna_10 =>
+      'Совершить 4 ракаата, (2 по 2), после джума в мечети или 2 ракаата дома';
 
   @override
   String get friday_sunna_11 => 'Прочитать суру «Аль-Кахф»';
@@ -342,7 +351,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get friday_sunna_12 => 'Как можно больше читать салават на\nПророка ﷺ';
 
   @override
-  String get friday_sunna_13 => 'Сделать дуа в последний час пятницы\n(час до магриба)';
+  String get friday_sunna_13 =>
+      'Сделать дуа в последний час пятницы\n(час до магриба)';
 
   @override
   String get mustahab => 'Желательно';
@@ -390,10 +400,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get dhulHijjah => 'Пост в Зу-ль-Хиджа';
 
   @override
-  String get congratulationRamadan => 'С праздником разговения!\nДа примет Аллах от нас и от вас!';
+  String get congratulationRamadan =>
+      'С праздником разговения!\nДа примет Аллах от нас и от вас!';
 
   @override
-  String get congratulationDhulHijjah => 'С праздником жертвоприношения!\nДа примет Аллах от нас и от вас!';
+  String get congratulationDhulHijjah =>
+      'С праздником жертвоприношения!\nДа примет Аллах от нас и от вас!';
 
   @override
   String get more => 'Больше';

@@ -15,6 +15,7 @@ class AppSettingsState extends ChangeNotifier {
     _appThemeModeIndex = _appSettingsBox.get(AppStringConstraints.keyAppThemeModeIndex, defaultValue: 2);
     _wakeLockState = _appSettingsBox.get(AppStringConstraints.keyWakeLock, defaultValue: true);
     _wakeLockState ? WakelockPlus.enable() : WakelockPlus.disable();
+    _dayLengthState = _appSettingsBox.get(AppStringConstraints.keyDayLength, defaultValue: true);
   }
 
   late int _appLocaleIndex;

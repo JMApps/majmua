@@ -60,10 +60,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get rateApp => 'Rate the app:';
 
   @override
-  String get gregorianMonthNames => 'January, February, March, April, May, June, July, August, September, October, November, December';
+  String get gregorianMonthNames =>
+      'January, February, March, April, May, June, July, August, September, October, November, December';
 
   @override
-  String get hijriMonthNames => 'Muharram, Safar, Rabi al-Awwal, Rabi al-Thani, Jumada al-Awwal, Jumada al-Thani, Rajab, Sha\'ban, Ramadan, Shawwal, Dhul-Qa\'dah, Dhul-Hijjah';
+  String get hijriMonthNames =>
+      'Muharram, Safar, Rabi al-Awwal, Rabi al-Thani, Jumada al-Awwal, Jumada al-Thani, Rajab, Sha\'ban, Ramadan, Shawwal, Dhul-Qa\'dah, Dhul-Hijjah';
 
   @override
   String get location => 'Location';
@@ -99,13 +101,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get information => 'Information';
 
   @override
-  String get adjustmentMessage => 'If there\'s a slight difference between the calculated prayer times and your local schedule after selecting a calculation method, you can adjust the minutes:';
+  String get adjustmentMessage =>
+      'If there\'s a slight difference between the calculated prayer times and your local schedule after selecting a calculation method, you can adjust the minutes:';
 
   @override
-  String get calculationTimeMessage => 'Dear app users!\n\nYou can use the available prayer time calculation methods in the app and additionally make manual time adjustments. If the prayer times still don\'t match your local schedule after these adjustments, we apologize and suggest looking for alternative solutions on Google Play or App Store.\n\nAvailable prayer time calculation methods in the app:';
+  String get calculationTimeMessage =>
+      'Dear app users!\n\nYou can use the available prayer time calculation methods in the app and additionally make manual time adjustments. If the prayer times still don\'t match your local schedule after these adjustments, we apologize and suggest looking for alternative solutions on Google Play or App Store.\n\nAvailable prayer time calculation methods in the app:';
 
   @override
-  String get addCityMessage => 'All fields must be filled.\nLatitude range: -90.0 to 90.0\nLongitude range: -180.0 to 180.0';
+  String get addCityMessage =>
+      'All fields must be filled.\nLatitude range: -90.0 to 90.0\nLongitude range: -180.0 to 180.0';
 
   @override
   String get enterCountryName => 'Enter country name';
@@ -249,7 +254,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get friday => 'Friday';
 
   @override
-  String get tomorrowFriday => 'Indeed, Allah showers His blessings upon the Prophet, and His angels pray for him. O  believers! Invoke Allah’s blessings upon him, and salute him with worthy greetings of peace.\n\nTomorrow is Friday';
+  String get tomorrowFriday =>
+      'Indeed, Allah showers His blessings upon the Prophet, and His angels pray for him. O  believers! Invoke Allah’s blessings upon him, and salute him with worthy greetings of peace.\n\nTomorrow is Friday';
 
   @override
   String get lastHourFriday => 'Last hour of friday';
@@ -294,7 +300,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get week2DayNamesShort => 'Mon, Tue, Wed, Thu, Fri, Sat, Sun';
 
   @override
-  String get week2DayNames => 'Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday';
+  String get week2DayNames =>
+      'Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday';
 
   @override
   String get nearFastingDay => 'Tomorrow is a recommended fasting day';
@@ -333,7 +340,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get friday_sunna_9 => 'Talk during the khutbah';
 
   @override
-  String get friday_sunna_10 => 'Pray 4 rak\'ahs (2+2) after Jumu\'ah at the mosque or 2 rak\'ahs at home';
+  String get friday_sunna_10 =>
+      'Pray 4 rak\'ahs (2+2) after Jumu\'ah at the mosque or 2 rak\'ahs at home';
 
   @override
   String get friday_sunna_11 => 'Read Surah Al-Kahf';
@@ -342,7 +350,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get friday_sunna_12 => 'Send abundant blessings upon the Prophet ﷺ';
 
   @override
-  String get friday_sunna_13 => 'Make dua during the last hour of Friday\n(one hour before Maghrib)';
+  String get friday_sunna_13 =>
+      'Make dua during the last hour of Friday\n(one hour before Maghrib)';
 
   @override
   String get mustahab => 'Recommended';
@@ -390,10 +399,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dhulHijjah => 'Fasting in Dhul-Hijjah';
 
   @override
-  String get congratulationRamadan => 'Eid Mubarak!\nMay Allah accept it from us and you!';
+  String get congratulationRamadan =>
+      'Eid Mubarak!\nMay Allah accept it from us and you!';
 
   @override
-  String get congratulationDhulHijjah => 'Eid al-Adha Mubarak!\nMay Allah accept it from us and you!';
+  String get congratulationDhulHijjah =>
+      'Eid al-Adha Mubarak!\nMay Allah accept it from us and you!';
 
   @override
   String get more => 'More';

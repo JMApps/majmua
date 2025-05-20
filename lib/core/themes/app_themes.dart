@@ -30,7 +30,7 @@ class AppThemes {
       bottomSheetTheme: const BottomSheetThemeData(
         showDragHandle: true,
       ),
-      cardTheme: const CardTheme(
+      cardTheme: const CardThemeData(
         margin: EdgeInsets.zero,
       ),
       tooltipTheme: TooltipThemeData(

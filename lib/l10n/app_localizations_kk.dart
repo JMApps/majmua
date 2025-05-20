@@ -60,10 +60,12 @@ class AppLocalizationsKk extends AppLocalizations {
   String get rateApp => 'Қолданбаны бағалау:';
 
   @override
-  String get gregorianMonthNames => 'Қаңтар, Ақпан, Наурыз, Сәуір, Мамыр, Маусым, Шілде, Тамыз, Қыркүйек, Қазан, Қараша, Желтоқсан';
+  String get gregorianMonthNames =>
+      'Қаңтар, Ақпан, Наурыз, Сәуір, Мамыр, Маусым, Шілде, Тамыз, Қыркүйек, Қазан, Қараша, Желтоқсан';
 
   @override
-  String get hijriMonthNames => 'Мұхаррам, Сафар, Рабиғ әл-әууәл, Рабиғ әс-сани, Джұмад әл-улә, Джұмад әл-ахирә, Раджаб, Шағбан, Рамазан, Шәууәл, Зулқағда, Зулхижжа';
+  String get hijriMonthNames =>
+      'Мұхаррам, Сафар, Рабиғ әл-әууәл, Рабиғ әс-сани, Джұмад әл-улә, Джұмад әл-ахирә, Раджаб, Шағбан, Рамазан, Шәууәл, Зулқағда, Зулхижжа';
 
   @override
   String get location => 'Орналасқан жері';
@@ -99,13 +101,16 @@ class AppLocalizationsKk extends AppLocalizations {
   String get information => 'Ақпарат';
 
   @override
-  String get adjustmentMessage => ' Егер намаз уақыттарын есептеу әдісін таңдағаннан кейін жергілікті кестемен аздаған айырмашылық болса, минуттарды қолмен түзетуге болады:';
+  String get adjustmentMessage =>
+      ' Егер намаз уақыттарын есептеу әдісін таңдағаннан кейін жергілікті кестемен аздаған айырмашылық болса, минуттарды қолмен түзетуге болады:';
 
   @override
-  String get calculationTimeMessage => 'Құрметті қолданба пайдаланушылары!\n\nҚолданбада қол жетімді намаз уақыттарын есептеу әдістерін пайдалана аласыз, сондай-ақ уақытты қолмен түзетуге мүмкіндік бар. Егер осыдан кейін де қолданбадағы уақыт жергілікті уақытпен сәйкес келмесе, кешірім сұраймыз және Google Play немесе App Store-дан балама шешімдерді іздеңіз.\n\nҚолданбада қолжетімді есептеу әдістері:';
+  String get calculationTimeMessage =>
+      'Құрметті қолданба пайдаланушылары!\n\nҚолданбада қол жетімді намаз уақыттарын есептеу әдістерін пайдалана аласыз, сондай-ақ уақытты қолмен түзетуге мүмкіндік бар. Егер осыдан кейін де қолданбадағы уақыт жергілікті уақытпен сәйкес келмесе, кешірім сұраймыз және Google Play немесе App Store-дан балама шешімдерді іздеңіз.\n\nҚолданбада қолжетімді есептеу әдістері:';
 
   @override
-  String get addCityMessage => ' Барлық жолақтар толтырылуы керек.\nЕндік диапазоны: -90.0-ден 90.0-ге дейін\nБойлық диапазоны: -180.0-ден 180.0-ге дейін';
+  String get addCityMessage =>
+      ' Барлық жолақтар толтырылуы керек.\nЕндік диапазоны: -90.0-ден 90.0-ге дейін\nБойлық диапазоны: -180.0-ден 180.0-ге дейін';
 
   @override
   String get enterCountryName => 'Ел атауын енгізіңіз';
@@ -249,7 +254,8 @@ class AppLocalizationsKk extends AppLocalizations {
   String get friday => 'Жұма';
 
   @override
-  String get tomorrowFriday => ' Шынында, Алла және Оның періштелері Пайғамбарға салауат айтады. Ей, иман келтіргендер! Сендер де оған салауат айтып, сәлем жолдаңдар.\n\nЕртең жұма';
+  String get tomorrowFriday =>
+      ' Шынында, Алла және Оның періштелері Пайғамбарға салауат айтады. Ей, иман келтіргендер! Сендер де оған салауат айтып, сәлем жолдаңдар.\n\nЕртең жұма';
 
   @override
   String get lastHourFriday => 'Жұманың соңғы сағаты';
@@ -294,7 +300,8 @@ class AppLocalizationsKk extends AppLocalizations {
   String get week2DayNamesShort => 'Дс, Сс, Ср, Бс, Жм, Сб, Жс';
 
   @override
-  String get week2DayNames => 'Дүйсенбі, Сейсенбі, Сәрсенбі, Бейсенбі, Жұма, Сенбі, Жексенбі';
+  String get week2DayNames =>
+      'Дүйсенбі, Сейсенбі, Сәрсенбі, Бейсенбі, Жұма, Сенбі, Жексенбі';
 
   @override
   String get nearFastingDay => 'Ертең нәпіл ораза күні';
@@ -327,13 +334,15 @@ class AppLocalizationsKk extends AppLocalizations {
   String get friday_sunna_7 => 'Минбарға жақын жерге отыру';
 
   @override
-  String get friday_sunna_8 => 'Мешітте отырған адамдардың алдынан немесе үстінен аттап өтпеу (егер басқа жол болмаса ғана)';
+  String get friday_sunna_8 =>
+      'Мешітте отырған адамдардың алдынан немесе үстінен аттап өтпеу (егер басқа жол болмаса ғана)';
 
   @override
   String get friday_sunna_9 => 'Хұтба кезінде сөйлемеу';
 
   @override
-  String get friday_sunna_10 => 'Жұма намазы зікірінен кейін мешітте 4 ракағат (2+2), немесе үйде 2 ракағат оқу';
+  String get friday_sunna_10 =>
+      'Жұма намазы зікірінен кейін мешітте 4 ракағат (2+2), немесе үйде 2 ракағат оқу';
 
   @override
   String get friday_sunna_11 => '«Кәһф» сүресін оқу';
@@ -342,7 +351,8 @@ class AppLocalizationsKk extends AppLocalizations {
   String get friday_sunna_12 => 'Пайғамбарға ﷺ көп салауат айту';
 
   @override
-  String get friday_sunna_13 => 'Жұманың соңғы сағатында дұға жасау\n(мағрибке дейін сағат)';
+  String get friday_sunna_13 =>
+      'Жұманың соңғы сағатында дұға жасау\n(мағрибке дейін сағат)';
 
   @override
   String get mustahab => 'Мұстахап (құпталған іс)';
@@ -390,10 +400,12 @@ class AppLocalizationsKk extends AppLocalizations {
   String get dhulHijjah => 'Зулхижжадағы ораза';
 
   @override
-  String get congratulationRamadan => 'Ораза айт құтты болсын!\nАлла Тағала бізден де, сізден де қабыл етсін!';
+  String get congratulationRamadan =>
+      'Ораза айт құтты болсын!\nАлла Тағала бізден де, сізден де қабыл етсін!';
 
   @override
-  String get congratulationDhulHijjah => 'Құрбан айт құтты болсын!\nАлла Тағала бізден де, сізден де қабыл етсін!';
+  String get congratulationDhulHijjah =>
+      'Құрбан айт құтты болсын!\nАлла Тағала бізден де, сізден де қабыл етсін!';
 
   @override
   String get more => 'Көбірек';
