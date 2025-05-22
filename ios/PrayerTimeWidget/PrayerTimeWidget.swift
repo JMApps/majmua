@@ -247,6 +247,11 @@ struct CirclePrayerView: View {
                             .font(.system(.caption, design: .rounded))
                             .bold()
                             .multilineTextAlignment(.center)
+                        
+                        Text(nextPrayer.time)
+                            .font(.system(.caption, design: .rounded))
+                            .bold()
+                            .multilineTextAlignment(.center)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else {

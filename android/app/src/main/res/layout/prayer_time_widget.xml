@@ -31,6 +31,7 @@
                 android:id="@+id/fajr_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="?android:colorBackground"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@string/prayer_fajr" />
@@ -39,6 +40,7 @@
                 android:id="@+id/fajr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="?android:colorBackground"
                 android:text="@string/nullTime"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -62,6 +64,7 @@
                 android:id="@+id/sunrise_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="?android:colorBackground"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@string/prayer_sunrise" />
@@ -70,6 +73,7 @@
                 android:id="@+id/sunrise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="?android:colorBackground"
                 android:text="@string/nullTime"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -93,6 +97,7 @@
                 android:id="@+id/dhuhr_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="?android:colorBackground"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@string/prayer_dhuhr" />
@@ -101,6 +106,7 @@
                 android:id="@+id/dhuhr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="?android:colorBackground"
                 android:text="@string/nullTime"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -124,6 +130,7 @@
                 android:id="@+id/asr_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="?android:colorBackground"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@string/prayer_asr" />
@@ -132,6 +139,7 @@
                 android:id="@+id/asr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="?android:colorBackground"
                 android:text="@string/nullTime"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -155,6 +163,7 @@
                 android:id="@+id/maghrib_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="?android:colorBackground"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@string/prayer_maghrib" />
@@ -163,6 +172,7 @@
                 android:id="@+id/maghrib"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="?android:colorBackground"
                 android:text="@string/nullTime"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -186,6 +196,7 @@
                 android:id="@+id/isha_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="?android:colorBackground"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@string/prayer_isha" />
@@ -194,6 +205,7 @@
                 android:id="@+id/isha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="?android:colorBackground"
                 android:text="@string/nullTime"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -209,6 +221,7 @@
             android:id="@+id/countdown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="?android:colorBackground"
             android:gravity="end"
             android:paddingEnd="16dp"
             android:text="" />
