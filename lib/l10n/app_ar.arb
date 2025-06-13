@@ -1,0 +1,209 @@
+{
+  "@@locale": "ar",
+  "appName": "رف المسلم",
+  "shelf": "رف ",
+  "muslim": "المسلم",
+
+  "appSlogan": "تمضي الأيام – وتمضي معك",
+  "language": "اللغة",
+  "languageApp": "لغة التطبيق",
+
+  "settings": "الإعدادات",
+  "notifications": "الإشعارات",
+  "aboutUs": "معلومات عنا",
+
+  "appTheme": "السمة",
+  "themeModes": "فاتح, داكن, حسب النظام",
+  "colorTheme": "لون السمة",
+  "display": "العرض",
+  "alwaysOnDisplay": "الشاشة دائمة التشغيل",
+
+  "otherApps": "تطبيقاتنا الأخرى:",
+  "weSocials": "تابعنا على مواقع التواصل:",
+  "rateApp": "قيّم التطبيق:",
+
+  "gregorianMonthNames": "يناير, فبراير, مارس, أبريل, مايو, يونيو, يوليو, أغسطس, سبتمبر, أكتوبر, نوفمبر, ديسمبر",
+  "hijriMonthNames": "محرم, صفر, ربيع الأول, ربيع الآخر, جمادى الأولى, جمادى الآخرة, رجب, شعبان, رمضان, شوال, ذو القعدة, ذو الحجة",
+
+  "location": "الموقع",
+
+  "prayerParams": "الإعدادات",
+  "selectedCity": "المدينة الحالية",
+  "coordinates": "الإحداثيات",
+  "calculationPrayerMethod": "طريقة الحساب",
+  "highLatitude": "المناطق المرتفعة",
+  "madhabMethod": "المذهب لصلاة العصر",
+  "selectCity": "اختر مدينة",
+  "addCity": "أضف مدينة",
+  "adjustmentTimes": "تعديل الأوقات",
+  "information": "معلومات",
+  "adjustmentMessage": "إذا كان هناك فرق بسيط في أوقات الصلاة بعد اختيار طريقة الحساب, يمكنك تعديل الوقت يدوياً:",
+  "calculationTimeMessage": "أعزائنا مستخدمي التطبيق!\n\nيمكنكم اختيار طريقة الحساب المناسبة من المتوفرة, وأيضًا تعديل الأوقات يدويًا. إن استمر الفرق بعد ذلك, نرجو المعذرة وابحثوا عن حلول بديلة في Google Play أو App Store.\n\nطرق الحساب المتوفرة في التطبيق:",
+
+  "addCityMessage": "يجب ملء جميع الحقول.\nنطاق خطوط العرض: من -90.0 إلى 90.0\nنطاق خطوط الطول: من -180.0 إلى 180.0",
+  "enterCountryName": "أدخل اسم الدولة",
+  "enterCityName": "أدخل اسم المدينة",
+  "enterLatitude": "أدخل خط العرض (مثال: 21.3924)",
+  "enterLongitude": "أدخل خط الطول (مثال: 39.8579)",
+
+  "allFieldsRequired": "جميع الحقول مطلوبة",
+  "invalidCoordinates": "إحداثيات غير صالحة",
+
+  "add": "إضافة",
+  "select": "اختيار",
+  "cancel": "إلغاء",
+  "close": "إغلاق",
+  "change": "تعديل",
+  "delete": "حذف",
+  "defaultAdjustments": "افتراضي",
+  "share": "مشاركة",
+  "copy": "نسخ",
+  "copied": "تم النسخ",
+  "reset": "إعادة ضبط",
+
+  "search": "بحث",
+  "searchIsEmpty": "لا توجد نتائج لبحثك",
+  "customCityIsEmpty": "لم تضف أي مدينة",
+
+  "prayerCalendar": "تقويم الصلاة",
+  "prayerSchedule": "الجدول الشهري",
+  "dayNumber": "اليوم",
+  "qiblah": "اتجاه القبلة",
+
+  "fajr": "الفجر",
+  "dhuhr": "الظهر",
+  "asr": "العصر",
+  "maghrib": "المغرب",
+  "isha": "العشاء",
+
+  "adDuhaTime": "وقت صلاة الضحى",
+  "adhanTime": "أذكار الأذان",
+  "adhkarsTime": "أذكار بعد الصلاة",
+
+  "morningAdhkarsTime": "وقت الأذكار الصباحية",
+  "eveningAdhkarsTime": "وقت الأذكار المسائية",
+  "nightAdhkarsTime": "لا تنس أذكار النوم!",
+
+  "prayerTime": "أوقات الصلاة",
+  "remind": "تذكير",
+  "adhan": "الأذان",
+  "adhkars": "الأذكار",
+  "morningAdhkars": "أذكار الصباح",
+  "eveningAdhkars": "أذكار المساء",
+  "nightAdhkars": "أذكار قبل النوم",
+  "fastMonday": "صيام الاثنين",
+  "fastThursday": "صيام الخميس",
+
+  "nearWhiteDays": "اقتربت الأيام البيض",
+  "whiteDays": "الأيام البيض",
+
+  "friday": "الجمعة",
+  "tomorrowFriday": "إن الله وملائكته يصلون على النبي. يا أيها الذين آمنوا صلوا عليه وسلموا تسليماً.\n\nغداً الجمعة",
+  "lastHourFriday": "الساعة الأخيرة من يوم الجمعة",
+
+  "prayerNotifications": "تنبيهات الصلاة",
+  "adhkarsNotifications": "تنبيهات الأذكار",
+  "fastingNotifications": "تنبيهات الصيام",
+  "fridayNotifications": "تنبيهات الجمعة",
+
+  "sunrise": "الشروق",
+  "duha": "(الضحى)",
+  "midnight": "منتصف الليل",
+  "lastThirdNightPart": "الثلث الأخير من الليل",
+  "lengthOfDay": "طول النهار",
+  "hourMinuteValues": "ساعة, ساعتان, ساعات, دقيقة, دقيقتان, دقائق",
+  "start": "البداية",
+  "end": "النهاية",
+
+  "week2DayNamesShort": "اث, ثل, أربع, خم, جم, سبت, أحد",
+  "week2DayNames": "الاثنين, الثلاثاء, الأربعاء, الخميس, الجمعة, السبت, الأحد",
+
+  "nearFastingDay": "غداً يوم صيام مستحب",
+  "fastingDay": "يوم صيام مستحب",
+  "fridaySunans": "سُنن يوم الجمعة",
+  "friday_sunna_1": "الاغتسال",
+  "friday_sunna_2": "التجمل",
+  "friday_sunna_3": "ارتداء ملابس نظيفة",
+  "friday_sunna_4": "التطيب",
+  "friday_sunna_5": "الذهاب إلى المسجد مبكراً",
+  "friday_sunna_6": "الذهاب سيراً على الأقدام",
+  "friday_sunna_7": "الجلوس قرب المنبر",
+  "friday_sunna_8": "عدم تخطي رقاب الناس إلا للضرورة",
+  "friday_sunna_9": "عدم التحدث أثناء الخطبة",
+  "friday_sunna_10": "صلاة ٤ ركعات (٢+٢) بعد الجمعة أو ركعتان في البيت",
+  "friday_sunna_11": "قراءة سورة الكهف",
+  "friday_sunna_12": "الإكثار من الصلاة على النبي ﷺ",
+  "friday_sunna_13": "الدعاء في الساعة الأخيرة من الجمعة (قبل المغرب)",
+
+  "mustahab": "مستحب",
+  "haram": "محرم",
+
+  "lastFridayHour": "الساعة الأخيرة من يوم الجمعة",
+
+  "day": "يوم",
+  "week": "أسبوع",
+  "month": "شهر",
+  "year": "سنة",
+
+  "seasonSpring": "الربيع",
+  "seasonSummer": "الصيف",
+  "seasonFall": "الخريف",
+  "seasonWinter": "الشتاء",
+
+  "daysToRamadan": "أيام حتى رمضان",
+  "blessedRamadan": "رمضان مبارك",
+  "daysToDhulHujjah": "أيام حتى ذو الحجة",
+  "dhulHijjah": "صيام ذو الحجة",
+  "congratulationRamadan": "عيد مبارك!\nتقبل الله منا ومنكم",
+  "congratulationDhulHijjah": "عيد الأضحى مبارك!\nتقبل الله منا ومنكم",
+
+  "more": "المزيد",
+  "startRamadan": "بداية رمضان",
+  "idAlFitr": "عيد الفطر",
+  "startDhulHijjah": "بداية ذو الحجة",
+  "dayArafa": "يوم عرفة",
+  "idAlAdha": "عيد الأضحى",
+  "dayAshura": "يوم عاشوراء",
+
+  "backgroundWarmth": "دفء الخلفية",
+  "textContrast": "تباين النص",
+
+  "ayahDay": "آية اليوم",
+
+  "quran": "القرآن",
+  "sQuran": "أدعية من القرآن",
+  "fortress": "الأذكار",
+  "gems": "درر",
+  "counter": "عداد",
+
+  "fortressMuslim": "حصن المسلم",
+  "chapter": "الفصل",
+
+  "fortressChapterTableName": "Table_of_chapters_ar",
+  "fortressFootnoteTableName": "Table_of_footnotes_ar",
+  "fortressTableName": "Table_of_supplications_ar",
+
+  "morning": "صباحًا",
+  "evening": "مساءً",
+  "night": "قبل النوم",
+  "istikhara": "الاستخارة",
+  "afterPrayer": "بعد الصلاة",
+
+  "sfqTableName": "Table_of_supplications_ar",
+  "randomAyah": "آية عشوائية",
+  "randomCitation": "اقتباس عشوائي",
+
+  "arabicTextSize": "حجم النص العربي",
+  "translationTextSize": "حجم الترجمة",
+  "textSize": "حجم النص",
+  "transcription": "النسخ الصوتي",
+
+  "surahKahf": "سورة الكهف",
+  "surahSajda": "سورة السجدة",
+  "surahMulk": "سورة الملك",
+  "djuzAmma": "جزء عمّ",
+
+  "timeOffset": "الوقت الشتوي (DST)",
+
+  "salawatButton": "الصلاة على النبي ﷺ"
+}

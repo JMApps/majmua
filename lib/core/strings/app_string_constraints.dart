@@ -216,6 +216,7 @@ class AppStringConstraints {
     Locale('en'),
     Locale('kk'),
     Locale('ky'),
+    Locale('ar'),
   ];
 
   static const List<String> appLanguages = [
@@ -223,6 +224,7 @@ class AppStringConstraints {
     'English',
     'Қазақша',
     'Кыргызча',
+    'العربية',
   ];
 
   static const List<CalculationMethod> prayerCalculationMethods = [
