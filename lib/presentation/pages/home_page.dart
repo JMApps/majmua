@@ -4,7 +4,6 @@ import '../../l10n/app_localizations.dart';
 
 import '../../core/routes/app_route_names.dart';
 import '../../core/strings/app_string_constraints.dart';
-import '../../core/styles/app_styles.dart';
 import '../counter/widgets/salawat_button.dart';
 import '../library/widgets/library_button.dart';
 import '../mainbuttons/pages/main_buttons_card.dart';
@@ -22,8 +21,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appLocale = AppLocalizations.of(context)!;
-    final appColors = Theme.of(context).colorScheme;
+    final AppLocalizations appLocale = AppLocalizations.of(context)!;
+    final ColorScheme appColors = Theme.of(context).colorScheme;
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -43,21 +42,19 @@ class HomePage extends StatelessWidget {
                 iconName: AppStringConstraints.iconSettings,
                 iconColor: appColors.secondary,
               ),
-              Padding(
-                padding: AppStyles.mardingRightMini,
-                child: MainIconButton(
-                  onPressed: () {
-                    HapticFeedback.lightImpact();
-                    Navigator.pushNamed(
-                      context,
-                      AppRouteNames.pageAppNotifications,
-                    );
-                  },
-                  tooltip: appLocale.notifications,
-                  iconName: AppStringConstraints.iconNotifications,
-                  iconColor: appColors.secondary,
-                ),
+              MainIconButton(
+                onPressed: () {
+                  HapticFeedback.lightImpact();
+                  Navigator.pushNamed(
+                    context,
+                    AppRouteNames.pageAppNotifications,
+                  );
+                },
+                tooltip: appLocale.notifications,
+                iconName: AppStringConstraints.iconNotifications,
+                iconColor: appColors.secondary,
               ),
+              const SizedBox(width: 8),
             ],
           ),
           const SliverToBoxAdapter(

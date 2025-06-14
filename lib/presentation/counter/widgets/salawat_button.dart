@@ -20,15 +20,17 @@ class SalawatButton extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            const SizedBox(width: 8),
             const Expanded(
               flex: 9,
               child: MainDataItem(),
             ),
+            const SizedBox(width: 8),
             Expanded(
               flex: 4,
               child: Card(
                 color: appColors.surface,
-                margin: AppStyles.mainMardingMini,
+                margin: AppStyles.mardingVerticalMini,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -94,6 +96,7 @@ class SalawatButton extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(width: 8),
           ],
         ),
       ),

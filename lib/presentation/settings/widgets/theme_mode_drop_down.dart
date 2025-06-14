@@ -28,7 +28,7 @@ class ThemeModeDropDown extends StatelessWidget {
             borderRadius: AppStyles.mainBorder,
             padding: AppStyles.mardingLeftMini,
             elevation: 1,
-            alignment: Alignment.centerRight,
+            alignment: Alignment.center,
             value: appSettings.appThemeModeIndex,
             items: List.generate(
               appLocale.themeModes.split(', ').length,

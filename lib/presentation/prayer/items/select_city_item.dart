@@ -28,7 +28,7 @@ class SelectCityItem extends StatelessWidget {
               );
             },
             alignment: Alignment.centerLeft,
-            padding: const EdgeInsets.symmetric(horizontal: 12),
+            padding: EdgeInsets.zero,
             child: Row(
               children: [
                 Image.asset(

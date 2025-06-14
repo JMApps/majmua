@@ -18,7 +18,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get muslim => 'المسلم';
 
   @override
-  String get appSlogan => 'تمضي الأيام – وتمضي معك';
+  String get appSlogan => ' تمضي الأيام – وتمضي معها جزء منك';
 
   @override
   String get language => 'اللغة';
@@ -65,7 +65,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get hijriMonthNames =>
-      'محرم, صفر, ربيع الأول, ربيع الآخر, جمادى الأولى, جمادى الآخرة, رجب, شعبان, رمضان, شوال, ذو القعدة, ذو الحجة';
+      'محرم, صفر, ربيع الأول, ربيع الثاني, جمادى الأولى, جمادى الآخرة, رجب, شعبان, رمضان, شوال, ذو القعدة, ذو الحجة';
 
   @override
   String get location => 'الموقع';
@@ -89,10 +89,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get madhabMethod => 'المذهب لصلاة العصر';
 
   @override
-  String get selectCity => 'اختر مدينة';
+  String get selectCity => 'اختيار مدينة';
 
   @override
-  String get addCity => 'أضف مدينة';
+  String get addCity => 'اضافة مدينة';
 
   @override
   String get adjustmentTimes => 'تعديل الأوقات';
@@ -415,7 +415,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get idAlFitr => 'عيد الفطر';
 
   @override
-  String get startDhulHijjah => 'بداية ذو الحجة';
+  String get startDhulHijjah => 'بداية ذي الحجة';
 
   @override
   String get dayArafa => 'يوم عرفة';
@@ -499,7 +499,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get textSize => 'حجم النص';
 
   @override
-  String get transcription => 'النسخ الصوتي';
+  String get transcription => 'النقحرة';
 
   @override
   String get surahKahf => 'سورة الكهف';

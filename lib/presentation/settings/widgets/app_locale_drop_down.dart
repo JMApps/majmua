@@ -29,7 +29,7 @@ class AppLocaleDropDown extends StatelessWidget {
             borderRadius: AppStyles.mainBorder,
             padding: AppStyles.mardingHorizontalMini,
             elevation: 1,
-            alignment: Alignment.centerRight,
+            alignment: Alignment.center,
             value: appSettings.getAppLocaleIndex,
             items: List.generate(
               AppStringConstraints.appLanguages.length,

@@ -181,6 +181,7 @@ class _PrayersContainerState extends State<PrayersContainer> {
             ),
             Row(
               children: [
+                const SizedBox(width: 12),
                 const Expanded(
                   child: SelectCityItem(),
                 ),
@@ -209,21 +210,19 @@ class _PrayersContainerState extends State<PrayersContainer> {
                   iconName: AppStringConstraints.iconCalendar,
                   iconColor: appColors.primary,
                 ),
-                Padding(
-                  padding: AppStyles.mardingRightMini,
-                  child: MainIconButton(
-                    onPressed: () {
-                      HapticFeedback.lightImpact();
-                      showModalBottomSheet(
-                        context: context,
-                        builder: (context) => const QiblahDirectionContainer(),
-                      );
-                    },
-                    tooltip: appLocale.qiblah,
-                    iconName: AppStringConstraints.iconQiblah,
-                    iconColor: appColors.primary,
-                  ),
+                MainIconButton(
+                  onPressed: () {
+                    HapticFeedback.lightImpact();
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) => const QiblahDirectionContainer(),
+                    );
+                  },
+                  tooltip: appLocale.qiblah,
+                  iconName: AppStringConstraints.iconQiblah,
+                  iconColor: appColors.primary,
                 ),
+                const SizedBox(width: 8),
               ],
             ),
             Card(
