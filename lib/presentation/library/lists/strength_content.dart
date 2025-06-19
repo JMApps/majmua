@@ -63,7 +63,6 @@ class _StrengthContentState extends State<StrengthContent> {
                               '${model.id} – ${model.chapterTitle}',
                               style: TextStyle(
                                 fontSize: settings.textSize,
-                                fontFamily: AppStringConstraints.fontGilroyMedium,
                               ),
                               textAlign: TextAlign.center,
                             ),

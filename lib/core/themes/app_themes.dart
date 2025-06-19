@@ -6,7 +6,9 @@ import '../styles/app_styles.dart';
 class AppThemes {
   final Color _appColor;
 
-  AppThemes(this._appColor);
+  final String _appFont;
+
+  AppThemes(this._appColor, this._appFont);
 
   ThemeData get lightTheme => _buildTheme(Brightness.light);
 
@@ -18,7 +20,7 @@ class AppThemes {
       seedColor: _appColor,
     );
     return ThemeData(
-      fontFamily: AppStringConstraints.fontGilroy,
+      fontFamily: _appFont,
       fontFamilyFallback: const [
         AppStringConstraints.fontSFPro,
         AppStringConstraints.fontArial,

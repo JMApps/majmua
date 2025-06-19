@@ -457,13 +457,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get chapter => 'الفصل';
 
   @override
-  String get fortressChapterTableName => 'Table_of_chapters_ar';
+  String get fortressChapterTableName => 'Table_of_chapters_en';
 
   @override
-  String get fortressFootnoteTableName => 'Table_of_footnotes_ar';
+  String get fortressFootnoteTableName => 'Table_of_footnotes_en';
 
   @override
-  String get fortressTableName => 'Table_of_supplications_ar';
+  String get fortressTableName => 'Table_of_supplications_en';
 
   @override
   String get morning => 'صباحًا';
@@ -481,7 +481,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get afterPrayer => 'بعد الصلاة';
 
   @override
-  String get sfqTableName => 'Table_of_supplications_ar';
+  String get sfqTableName => 'Table_of_supplications_en';
 
   @override
   String get randomAyah => 'آية عشوائية';

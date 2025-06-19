@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/strings/db_value_strings.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../../l10n/app_localizations.dart';
@@ -166,12 +165,10 @@ class _AddCityBottomSheetState extends State<AddCityBottomSheet> {
       style: TextStyle(
         fontSize: 16.0,
         color: appColors.onSurface,
-        fontFamily: AppStringConstraints.fontGilroy,
       ),
       placeholderStyle: TextStyle(
         fontSize: 16.0,
         color: appColors.secondary.withAlpha(150),
-        fontFamily: AppStringConstraints.fontGilroy,
       ),
       placeholder: placeholder,
       clearButtonMode: OverlayVisibilityMode.editing,

@@ -50,7 +50,6 @@ class SFQItem extends StatelessWidget {
                     supplicationModel.ayahTranslation,
                     style: TextStyle(
                       fontSize: sfqState.translationTextSize,
-                      fontFamily: AppStringConstraints.fontGilroyMedium,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -59,7 +58,6 @@ class SFQItem extends StatelessWidget {
                     supplicationModel.ayahSource,
                     style: TextStyle(
                       fontSize: sfqState.translationTextSize - 4.0,
-                      fontFamily: AppStringConstraints.fontGilroy,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -76,7 +74,6 @@ class SFQItem extends StatelessWidget {
                             supplicationModel.id.toString(),
                             style: const TextStyle(
                               fontSize: 15.0,
-                              fontFamily: AppStringConstraints.fontGilroyMedium,
                             ),
                             textAlign: TextAlign.center,
                           ),

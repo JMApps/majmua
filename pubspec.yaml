@@ -27,7 +27,7 @@ dependencies:
   scrollable_positioned_list: ^0.3.8
   responsive_builder: ^0.7.1
   flutter_material_color_picker: ^1.2.0
-  syncfusion_flutter_datepicker: ^29.2.10
+  syncfusion_flutter_datepicker: ^29.2.11
   home_widget: ^0.8.0
 
   # Databases
@@ -99,3 +99,6 @@ flutter:
     - family: 'Arial'
       fonts:
         - asset: assets/fonts/arial.ttf
+    - family: 'Rubik'
+      fonts:
+        - asset: assets/fonts/rubik_regular.ttf

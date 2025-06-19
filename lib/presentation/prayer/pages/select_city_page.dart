@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../../data/repositories/city_data_repository.dart';
 import '../../../data/services/databases/city_database_service.dart';
@@ -50,7 +49,6 @@ class _SelectCityPageState extends State<SelectCityPage> {
                     style: TextStyle(
                       fontSize: 17.0,
                       color: appColors.onSurface,
-                      fontFamily: AppStringConstraints.fontGilroyMedium,
                     ),
                     placeholder: appLocale.search,
                     textCapitalization: TextCapitalization.sentences,
@@ -59,7 +57,6 @@ class _SelectCityPageState extends State<SelectCityPage> {
                     placeholderStyle: TextStyle(
                       fontSize: 17.0,
                       color: appColors.secondary.withAlpha(175),
-                      fontFamily: AppStringConstraints.fontGilroy,
                     ),
                     decoration: BoxDecoration(
                       color: appColors.secondary.withAlpha(25),

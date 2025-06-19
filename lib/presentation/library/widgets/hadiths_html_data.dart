@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
-import '../../../core/strings/app_string_constraints.dart';
 
 class HadithsHtmlData extends StatelessWidget {
   const HadithsHtmlData({
@@ -48,7 +47,6 @@ class HadithsHtmlData extends StatelessWidget {
           letterSpacing: 1.5,
           color: footnoteColor,
           fontWeight: FontWeight.bold,
-          fontFamily: AppStringConstraints.fontGilroyMedium,
         ),
       },
     );

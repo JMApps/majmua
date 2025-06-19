@@ -63,7 +63,6 @@ class _HadithContentState extends State<HadithContent> {
                               '${model.hadithNumber.toUpperCase()}\n${model.hadithTitle}',
                               style: TextStyle(
                                 fontSize: settings.textSize,
-                                fontFamily: AppStringConstraints.fontGilroyMedium,
                               ),
                               textAlign: TextAlign.center,
                             ),

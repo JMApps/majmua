@@ -44,7 +44,6 @@ class PrayerParamsPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 18.0,
                             color: appColors.primary,
-                            fontFamily: AppStringConstraints.fontGilroyMedium,
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -54,7 +53,6 @@ class PrayerParamsPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 18.0,
                             color: appColors.tertiary,
-                            fontFamily: AppStringConstraints.fontGilroyMedium,
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -63,7 +61,6 @@ class PrayerParamsPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 18.0,
                             color: appColors.tertiary,
-                            fontFamily: AppStringConstraints.fontGilroyMedium,
                           ),
                           textAlign: TextAlign.center,
                         ),

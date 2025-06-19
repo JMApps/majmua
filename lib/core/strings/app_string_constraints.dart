@@ -13,6 +13,8 @@ class AppStringConstraints {
   static const String fontSFPro = 'SF Pro';
   static const String fontArial = 'Arial';
 
+  static const String fontRubik = 'Rubik';
+
   static const String taskUniqueName = 'task unique majmua';
   static const String taskAppName = 'task app majmua';
 
@@ -108,7 +110,7 @@ class AppStringConstraints {
   static const String elapsedPercentage = 'map_elapsedPercentage';
 
   static const String appStoreLink = 'https://apps.apple.com/ru/developer/imanil-binyaminov/id1564920953';
-  static const String googlePlayLink = 'https://play.google.com/store/apps/dev?id=8649252597553656018';
+  static const String googlePlayLink = 'https://play.google.com/store/apps/dev?id=8618604926669167137';
   static const String telegramLink = 'https://t.me/jmapps';
   static const String instagramLink = 'https://www.instagram.com/dev_muslim';
   static const String ummaLifeLink = 'https://ummalife.com/jmapps';

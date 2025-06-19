@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
-import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../state/time_state.dart';
@@ -66,16 +65,12 @@ class MainDataItem extends StatelessWidget {
                     title: Text(
                       appLocale.gregorianMonthNames.split(', ')[timeState.getDateTime.month - 1],
                       style: TextStyle(
-                        fontFamily: AppStringConstraints.fontGilroyMedium,
                         color: appColors.tertiary,
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),
                     subtitle: Text(
                       '${timeState.getDateTime.year} ${appLocale.year.toLowerCase()}',
-                      style: TextStyle(
-                        fontFamily: AppStringConstraints.fontGilroy,
-                      ),
                     ),
                     leading: CircleAvatar(
                       backgroundColor: appColors.tertiaryContainer,
@@ -85,7 +80,6 @@ class MainDataItem extends StatelessWidget {
                           '${timeState.getDateTime.day}',
                           style: TextStyle(
                             color: appColors.tertiary,
-                            fontFamily: AppStringConstraints.fontGilroyMedium,
                           ),
                         ),
                       ),
@@ -143,7 +137,6 @@ class MainDataItem extends StatelessWidget {
                     title: Text(
                       appLocale.hijriMonthNames.split(', ')[timeState.getHijriDateTime.hMonth - 1],
                       style: TextStyle(
-                        fontFamily: AppStringConstraints.fontGilroyMedium,
                         color: appColors.primary,
                       ),
                       overflow: TextOverflow.ellipsis,
@@ -151,7 +144,6 @@ class MainDataItem extends StatelessWidget {
                     subtitle: Text(
                       '${timeState.getHijriDateTime.hYear} ${appLocale.year.toLowerCase()}',
                       style: TextStyle(
-                        fontFamily: AppStringConstraints.fontGilroy,
                       ),
                     ),
                     leading: CircleAvatar(
@@ -162,7 +154,6 @@ class MainDataItem extends StatelessWidget {
                           '${timeState.getHijriDateTime.hDay}',
                           style: TextStyle(
                             color: appColors.primary,
-                            fontFamily: AppStringConstraints.fontGilroyMedium,
                           ),
                         ),
                       ),

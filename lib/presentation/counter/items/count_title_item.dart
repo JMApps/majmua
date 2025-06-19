@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/strings/app_string_constraints.dart';
 import '../../state/counter_state.dart';
 
 class CountTitleItem extends StatelessWidget {
@@ -19,7 +18,6 @@ class CountTitleItem extends StatelessWidget {
             counterState.currentCount(),
             style: TextStyle(
               fontSize: 100,
-              fontFamily: AppStringConstraints.fontGilroyMedium,
               fontWeight: FontWeight.bold,
               color: appColors.secondary,
             ),

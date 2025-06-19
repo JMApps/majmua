@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../strings/app_string_constraints.dart';
-
 class AppStyles {
   static const mainMarding = EdgeInsets.all(16);
   static const mainMardingMini = EdgeInsets.all(8);
@@ -51,14 +49,14 @@ class AppStyles {
   static const mainBorderMini = BorderRadius.all(Radius.circular(10));
   static const mainBorderMicro = BorderRadius.all(Radius.circular(5));
 
-  static const mainTextStyleBig = TextStyle(fontSize: 20.0, fontFamily: AppStringConstraints.fontGilroy);
-  static const mainTextStyleBigBold = TextStyle(fontSize: 20.0, fontFamily: AppStringConstraints.fontGilroy, fontWeight: FontWeight.bold);
-  static const mainTextStyle = TextStyle(fontSize: 18.0, fontFamily: AppStringConstraints.fontGilroy);
-  static const mainTextStyleBold = TextStyle(fontSize: 18.0, fontFamily: AppStringConstraints.fontGilroy, fontWeight: FontWeight.bold);
-  static const mainTextStyleMini = TextStyle(fontSize: 16.0, fontFamily: AppStringConstraints.fontGilroy);
-  static const mainTextStyleMiniBold = TextStyle(fontSize: 16.0, fontFamily: AppStringConstraints.fontGilroy, fontWeight: FontWeight.bold);
-  static const mainTextStyleMicro = TextStyle(fontSize: 14.0, fontFamily: AppStringConstraints.fontGilroy);
-  static const mainTextStyleMicroBold = TextStyle(fontSize: 14.0, fontFamily: AppStringConstraints.fontGilroy, fontWeight: FontWeight.bold);
+  static const mainTextStyleBig = TextStyle(fontSize: 20.0);
+  static const mainTextStyleBigBold = TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold);
+  static const mainTextStyle = TextStyle(fontSize: 18.0);
+  static const mainTextStyleBold = TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold);
+  static const mainTextStyleMini = TextStyle(fontSize: 16.0);
+  static const mainTextStyleMiniBold = TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold);
+  static const mainTextStyleMicro = TextStyle(fontSize: 14.0);
+  static const mainTextStyleMicroBold = TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold);
 
   static const List<TextAlign> fontAligns = [
     TextAlign.start,

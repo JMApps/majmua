@@ -93,6 +93,8 @@ class AppSettingsState extends ChangeNotifier {
         return 2;
       case 'ky':
         return 3;
+      case 'ar':
+        return 4;
       default:
         return 0;
     }

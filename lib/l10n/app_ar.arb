@@ -179,9 +179,9 @@
   "fortressMuslim": "حصن المسلم",
   "chapter": "الفصل",
 
-  "fortressChapterTableName": "Table_of_chapters_ar",
-  "fortressFootnoteTableName": "Table_of_footnotes_ar",
-  "fortressTableName": "Table_of_supplications_ar",
+  "fortressChapterTableName": "Table_of_chapters_en",
+  "fortressFootnoteTableName": "Table_of_footnotes_en",
+  "fortressTableName": "Table_of_supplications_en",
 
   "morning": "صباحًا",
   "evening": "مساءً",
@@ -189,7 +189,7 @@
   "istikhara": "الاستخارة",
   "afterPrayer": "بعد الصلاة",
 
-  "sfqTableName": "Table_of_supplications_ar",
+  "sfqTableName": "Table_of_supplications_en",
   "randomAyah": "آية عشوائية",
   "randomCitation": "اقتباس عشوائي",
 

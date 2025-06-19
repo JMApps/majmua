@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/styles/app_styles.dart';
-import '../../../core/strings/app_string_constraints.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../state/app_settings_state.dart';
 
@@ -13,7 +12,7 @@ class ThemeModeDropDown extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
     final appColors = Theme.of(context).colorScheme;
-    final itemSelectedTextStyle = TextStyle(fontSize: 16, fontFamily: AppStringConstraints.fontGilroy, color: appColors.primary, fontWeight: FontWeight.bold);
+    final itemSelectedTextStyle = TextStyle(fontSize: 16, color: appColors.primary, fontWeight: FontWeight.bold);
     return Consumer<AppSettingsState>(
       builder: (BuildContext context, appSettings, _) {
         return ListTile(

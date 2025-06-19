@@ -43,7 +43,6 @@ class SelectCityItem extends StatelessWidget {
                     prayerState.city,
                     style: TextStyle(
                       color: appColors.primary,
-                      fontFamily: AppStringConstraints.fontGilroyMedium,
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,

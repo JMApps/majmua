@@ -88,7 +88,6 @@ class _NamesOfContentState extends State<NamesOfContent> {
                                       model.nameTranscription,
                                       style: TextStyle(
                                         fontSize: settings.textSize,
-                                        fontFamily: AppStringConstraints.fontGilroy,
                                         color: appColors.secondary,
                                       ),
                                       textAlign: TextAlign.center,
@@ -98,7 +97,6 @@ class _NamesOfContentState extends State<NamesOfContent> {
                                       model.nameTranslation,
                                       style: TextStyle(
                                         fontSize: settings.textSize,
-                                        fontFamily: AppStringConstraints.fontGilroyMedium,
                                         color: appColors.tertiary,
                                       ),
                                       textAlign: TextAlign.center,
@@ -155,7 +153,6 @@ class _NamesOfContentState extends State<NamesOfContent> {
                                       model.ayahTranslation,
                                       style: TextStyle(
                                         fontSize: settings.textSize,
-                                        fontFamily: AppStringConstraints.fontGilroyMedium,
                                         color: appColors.tertiary,
                                       ),
                                     ),
@@ -164,7 +161,6 @@ class _NamesOfContentState extends State<NamesOfContent> {
                                       model.ayahSource,
                                       style: TextStyle(
                                         fontSize: settings.textSize - 6.0,
-                                        fontFamily: AppStringConstraints.fontGilroy,
                                         color: appColors.secondary,
                                       ),
                                     ),

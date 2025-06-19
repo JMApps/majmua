@@ -51,7 +51,6 @@ class FortressSupplicationItem extends StatelessWidget {
                       fortressModel.transcriptionText!,
                       style: TextStyle(
                         fontSize: fortressState.translationTextSize,
-                        fontFamily: AppStringConstraints.fontGilroy,
                       ),
                       textAlign: TextAlign.center,
                     ) : const SizedBox(),

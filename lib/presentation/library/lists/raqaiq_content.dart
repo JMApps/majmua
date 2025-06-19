@@ -63,7 +63,6 @@ class _RaqaiqContentState extends State<RaqaiqContent> {
                               '${model.id} – ${model.chapterTitle}',
                               style: TextStyle(
                                 fontSize: settings.textSize,
-                                fontFamily: AppStringConstraints.fontGilroyMedium,
                               ),
                               textAlign: TextAlign.center,
                             ),

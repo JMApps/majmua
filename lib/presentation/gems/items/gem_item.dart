@@ -61,7 +61,6 @@ class GemItem extends StatelessWidget {
                         gemModel.id.toString(),
                         style: const TextStyle(
                           fontSize: 15.0,
-                          fontFamily: AppStringConstraints.fontGilroyMedium,
                         ),
                         textAlign: TextAlign.center,
                       ),

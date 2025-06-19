@@ -37,7 +37,6 @@ class LibraryButton extends StatelessWidget {
               AppStringConstraints.library,
               style: TextStyle(
                 fontSize: 15.0,
-                fontFamily: AppStringConstraints.fontGilroyMedium,
               ),
             ),
             style: ButtonStyle(

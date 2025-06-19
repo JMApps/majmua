@@ -63,7 +63,6 @@ class _LessonContentState extends State<LessonContent> {
                               '${model.lessonNumber.toUpperCase()}\n${model.lessonTitle}',
                               style: TextStyle(
                                 fontSize: settings.textSize,
-                                fontFamily: AppStringConstraints.fontGilroyMedium,
                               ),
                               textAlign: TextAlign.center,
                             ),

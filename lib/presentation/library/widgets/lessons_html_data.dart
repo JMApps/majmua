@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
-import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 
 class LessonsHtmlData extends StatelessWidget {
@@ -45,7 +44,6 @@ class LessonsHtmlData extends StatelessWidget {
           letterSpacing: 1.5,
           color: footnoteColor,
           fontWeight: FontWeight.bold,
-          fontFamily: AppStringConstraints.fontGilroyMedium,
         ),
       },
       onLinkTap: (String? footnoteContent, _, __) {

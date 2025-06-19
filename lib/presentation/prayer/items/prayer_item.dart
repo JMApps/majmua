@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/strings/app_string_constraints.dart';
 import '../../../core/styles/app_styles.dart';
 import '../../state/prayer_state.dart';
 
@@ -48,7 +47,7 @@ class PrayerItem extends StatelessWidget {
                   Text(
                     prayerName,
                     style: TextStyle(
-                      fontFamily: isHourAfter || isHourBefore ? AppStringConstraints.fontGilroyMedium : AppStringConstraints.fontGilroy,
+                      fontWeight: isHourAfter || isHourBefore ? FontWeight.bold : FontWeight.normal,
                     ),
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -63,7 +62,6 @@ class PrayerItem extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 12.0,
                         color: appColors.tertiary,
-                        fontFamily: AppStringConstraints.fontGilroyMedium,
                       ),
                     ),
                   ),
@@ -74,7 +72,6 @@ class PrayerItem extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 12.0,
                         color: appColors.primary,
-                        fontFamily: AppStringConstraints.fontGilroyMedium,
                       ),
                     ),
                   ),
