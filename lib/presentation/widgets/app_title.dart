@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../l10n/app_localizations.dart';
+import 'package:majmua/core/strings/app_string_constraints.dart';
 
+import '../../l10n/app_localizations.dart';
 
 class AppTitle extends StatelessWidget {
   const AppTitle({super.key});
@@ -17,6 +18,8 @@ class AppTitle extends StatelessWidget {
             style: TextStyle(
               color: appColors.primary,
               fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: Theme.of(context).textTheme.bodyLarge?.fontFamily,
             ),
           ),
           TextSpan(
@@ -24,6 +27,8 @@ class AppTitle extends StatelessWidget {
             style: TextStyle(
               color: appColors.secondary,
               fontSize: 20.0,
+              fontWeight: FontWeight.normal,
+              fontFamily: Theme.of(context).textTheme.bodyLarge?.fontFamily,
             ),
           ),
         ],

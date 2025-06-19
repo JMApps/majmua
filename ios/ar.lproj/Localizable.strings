@@ -1,0 +1,8 @@
+"fajr" = "الفجر";
+"sunrise" = "الشروق";
+"dhuhr" = "الظهر";
+"asr" = "'العصر";
+"maghrib" = "المغرب";
+"isha" = "العشاء";
+"prayer_times_display_name" = "مواقيت الصلاة";
+"prayer_times_display_description" = "يعرض مواقيت الصلاة لليوم.";
