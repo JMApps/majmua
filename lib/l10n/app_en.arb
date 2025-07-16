@@ -60,6 +60,7 @@
   "copy": "Copy",
   "copied": "Copied",
   "reset": "Reset",
+  "resetMessage": "Reset values?",
 
   "search": "Search",
   "searchIsEmpty": "No results found for your query",

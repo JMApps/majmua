@@ -164,6 +164,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reset => 'Reset';
 
   @override
+  String get resetMessage => 'Reset values?';
+
+  @override
   String get search => 'Search';
 
   @override

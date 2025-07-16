@@ -164,6 +164,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get reset => 'إعادة ضبط';
 
   @override
+  String get resetMessage => 'هل تريد إعادة تعيين القيم؟';
+
+  @override
   String get search => 'بحث';
 
   @override

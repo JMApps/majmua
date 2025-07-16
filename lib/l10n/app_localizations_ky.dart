@@ -165,6 +165,10 @@ class AppLocalizationsKy extends AppLocalizations {
   String get reset => 'Баштапкы абалга келтирүү';
 
   @override
+  String get resetMessage =>
+      'Маанилерди баштапкы абалга келтирүүнү каалайсызбы?';
+
+  @override
   String get search => 'Издөө';
 
   @override

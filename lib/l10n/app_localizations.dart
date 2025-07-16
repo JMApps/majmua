@@ -404,6 +404,12 @@ abstract class AppLocalizations {
   /// **'Сброс'**
   String get reset;
 
+  /// No description provided for @resetMessage.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сбросить значения?'**
+  String get resetMessage;
+
   /// No description provided for @search.
   ///
   /// In ru, this message translates to:
@@ -959,7 +965,7 @@ abstract class AppLocalizations {
   /// No description provided for @gems.
   ///
   /// In ru, this message translates to:
-  /// **'Жемчужины'**
+  /// **'Жемчужины Тарифи'**
   String get gems;
 
   /// No description provided for @counter.

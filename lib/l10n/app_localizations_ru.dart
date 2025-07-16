@@ -164,6 +164,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get reset => 'Сброс';
 
   @override
+  String get resetMessage => 'Сбросить значения?';
+
+  @override
   String get search => 'Поиск';
 
   @override
@@ -447,7 +450,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get fortress => 'Азкары';
 
   @override
-  String get gems => 'Жемчужины';
+  String get gems => 'Жемчужины Тарифи';
 
   @override
   String get counter => 'Счётчик';

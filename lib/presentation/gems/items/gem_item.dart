@@ -25,6 +25,7 @@ class GemItem extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
     final double screenWidth = screenSize.width;
     final double screenHeight = screenSize.height;
+    final String shaikhName = 'Шейх \'Абду-ль-\'Азиз ат-Тарифи';
     return Card(
       margin: AppStyles.mardingBottomMini,
       child: Center(
@@ -69,7 +70,9 @@ class GemItem extends StatelessWidget {
                   IconButton(
                     onPressed: () {
                       SharePlus.instance.share(
-                        ShareParams(text: _parseString(htmlText: gemModel.citation), sharePositionOrigin: Rect.fromLTWH(0, 0, screenWidth, screenHeight / 2)),
+                        ShareParams(text: '${_parseString(htmlText: gemModel.citation)}\n\n$shaikhName',
+                            sharePositionOrigin: Rect.fromLTWH(0, 0, screenWidth, screenHeight / 2),
+                        ),
                       );
                     },
                     icon: Icon(Icons.ios_share_rounded),

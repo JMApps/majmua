@@ -164,6 +164,9 @@ class AppLocalizationsKk extends AppLocalizations {
   String get reset => 'Қалпына келтіру';
 
   @override
+  String get resetMessage => 'Мәндерді бастапқы күйге келтіргіңіз келе ме?';
+
+  @override
   String get search => 'Іздеу';
 
   @override

@@ -43,23 +43,18 @@ class AllHijriItem extends StatelessWidget {
         visible: remindDays != 0,
         child: Container(
           padding: AppStyles.mainMarding,
-          width: 75,
-          alignment: Alignment.center,
           decoration: BoxDecoration(
             color: appColors.tertiaryContainer,
             shape: BoxShape.circle,
           ),
-          child: Padding(
-            padding: AppStyles.mardingTopMicroMini,
-            child: Text(
-              '-$remindDays',
-              style: TextStyle(
-                fontSize: 15.0,
-                color: appColors.tertiary,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
+          child: Text(
+            '-$remindDays',
+            style: TextStyle(
+              color: appColors.tertiary,
+              fontSize: 15.0,
+              fontWeight: FontWeight.bold,
             ),
+            textAlign: TextAlign.center,
           ),
         ),
       ),

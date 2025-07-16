@@ -81,9 +81,31 @@ class CounterPage extends StatelessWidget {
                       ),
                     ),
                     IconButton.filledTonal(
-                      onPressed: () {
+                      onPressed: () async {
                         HapticFeedback.lightImpact();
-                        counterState.restoreCountValue();
+                        await showAdaptiveDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog.adaptive(
+                              title: Text(appLocale.resetMessage),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text(appLocale.cancel),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                    counterState.restoreCountValue();
+                                  },
+                                  child: Text(appLocale.reset),
+                                ),
+                              ],
+                            );
+                          },
+                        );
                       },
                       icon: Icon(
                         CupertinoIcons.refresh_circled,

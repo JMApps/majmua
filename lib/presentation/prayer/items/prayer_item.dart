@@ -23,6 +23,10 @@ class PrayerItem extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     final mediaQuery = MediaQuery.of(context);
     final isPortrait = mediaQuery.orientation == Orientation.portrait;
+
+    final use24h = mediaQuery.alwaysUse24HourFormat;
+    final timeFormatter = DateFormat(use24h ? 'HH:mm' : 'hh:mm a');
+
     return Expanded(
       child: SizedBox(
         height: isPortrait ? mediaQuery.size.height * 0.15 : mediaQuery.size.width * 0.15,
@@ -52,7 +56,7 @@ class PrayerItem extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   Text(
-                    DateFormat('HH:mm').format(prayerState.prayerTimes.timeForPrayer(prayer)!),
+                    timeFormatter.format(currentPrayerTime.toLocal()),
                     style: isHourAfter || isHourBefore ? AppStyles.mainTextStyleMiniBold : AppStyles.mainTextStyleMini,
                   ),
                   Visibility(

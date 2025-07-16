@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:majmua/core/strings/app_string_constraints.dart';
 
 import '../../l10n/app_localizations.dart';
 
