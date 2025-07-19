@@ -22,8 +22,6 @@ class PrayerTimeWidget : AppWidgetProvider() {
         private const val UPDATE_INTERVAL_MS = 60_000L // 1 minute
         private const val PREFS_NAME = "HomeWidgetPreferences"
         private val PRAYER_NAMES = listOf("fajr", "sunrise", "dhuhr", "asr", "maghrib", "isha")
-        private val TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm")
-
         const val ACTION_UPDATE = "jmapps.project.majmua.ACTION_UPDATE_WIDGET"
         private const val REQUEST_CODE = 1001
     }
@@ -58,12 +56,11 @@ class PrayerTimeWidget : AppWidgetProvider() {
             for (widgetId in appWidgetIds) {
                 updateWidget(context, appWidgetManager, widgetId)
             }
-            // Снова ставим Alarm на обновление через минуту
             scheduleWidgetUpdates(context)
         }
     }
 
-    fun scheduleWidgetUpdates(context: Context) {
+    private fun scheduleWidgetUpdates(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, javaClass).apply {
             action = ACTION_UPDATE
@@ -110,29 +107,27 @@ class PrayerTimeWidget : AppWidgetProvider() {
             val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
             val now = LocalDateTime.now()
             val today = LocalDate.now()
+            val formatter = getTimeFormatter(context)
 
             var nextPrayer: NextPrayerInfo? = null
             val passedPrayers = mutableListOf<String>()
 
-            // Process each prayer time
             PRAYER_NAMES.forEach { prayerName ->
                 try {
                     val timeStr = prefs.getString("prayer_$prayerName", null) ?: return@forEach
 
-                    // Update prayer time text
-                    val viewId = context.resources.getIdentifier(prayerName, "id", context.packageName)
-                    if (viewId != 0) {
-                        views.setTextViewText(viewId, timeStr)
-                    }
-
-                    // Parse and calculate prayer time
                     val prayerTime = try {
-                        LocalTime.parse(timeStr, TIME_FORMATTER)
+                        LocalTime.parse(timeStr, DateTimeFormatter.ofPattern("HH:mm"))
                     } catch (e: DateTimeParseException) {
                         return@forEach
                     }
 
                     val prayerDateTime = LocalDateTime.of(today, prayerTime)
+
+                    val viewId = context.resources.getIdentifier(prayerName, "id", context.packageName)
+                    if (viewId != 0) {
+                        views.setTextViewText(viewId, formatter.format(prayerTime))
+                    }
 
                     if (prayerDateTime.isBefore(now)) {
                         passedPrayers.add(prayerName)
@@ -142,35 +137,28 @@ class PrayerTimeWidget : AppWidgetProvider() {
                             nextPrayer = NextPrayerInfo(prayerName, prayerDateTime, minutesRemaining)
                         }
                     }
-                } catch (e: Exception) {
+                } catch (_: Exception) {
                 }
             }
 
-            // If all prayers passed, show next day's fajr
             if (nextPrayer == null) {
                 try {
                     val fajrStr = prefs.getString("prayer_fajr", null) ?: return
-                    val fajrTime = try {
-                        LocalTime.parse(fajrStr, TIME_FORMATTER)
-                    } catch (e: DateTimeParseException) {
-                        return
-                    }
+                    val fajrTime = LocalTime.parse(fajrStr, DateTimeFormatter.ofPattern("HH:mm"))
 
+                    val fajrDateTime = LocalDateTime.of(today.plusDays(1), fajrTime)
                     nextPrayer = NextPrayerInfo(
                         "fajr",
-                        LocalDateTime.of(today.plusDays(1), fajrTime),
-                        Duration.between(now, LocalDateTime.of(today.plusDays(1), fajrTime)).toMinutes()
+                        fajrDateTime,
+                        Duration.between(now, fajrDateTime).toMinutes()
                     )
-                } catch (e: Exception) {
+                } catch (_: Exception) {
                 }
             }
 
-            // Update countdown display
             updateCountdownView(context, views, nextPrayer)
-
-            // Finally update the widget
             appWidgetManager.updateAppWidget(appWidgetId, views)
-        } catch (e: Exception) {
+        } catch (_: Exception) {
         }
     }
 
@@ -204,8 +192,17 @@ class PrayerTimeWidget : AppWidgetProvider() {
                 context.getString(R.string.prayer_countdown, prayerName, timeLeft)
             )
             views.setViewVisibility(R.id.countdown, View.VISIBLE)
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             views.setViewVisibility(R.id.countdown, View.GONE)
+        }
+    }
+
+    private fun getTimeFormatter(context: Context): DateTimeFormatter {
+        val is24Hour = android.text.format.DateFormat.is24HourFormat(context)
+        return if (is24Hour) {
+            DateTimeFormatter.ofPattern("HH:mm")
+        } else {
+            DateTimeFormatter.ofPattern("hh:mm a")
         }
     }
 

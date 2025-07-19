@@ -6,8 +6,8 @@ plugins {
 
 android {
     namespace = "jmapps.project.majmua"
-    compileSdk = 35
-    ndkVersion = "27.0.12077973"
+    compileSdk = 36
+    ndkVersion = "29.0.13599879"
 
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
@@ -28,9 +28,9 @@ android {
         multiDexEnabled = true
         applicationId = "jmapps.project.majmua"
         minSdk = 23
-        targetSdk = 35
-        versionCode = 35
-        versionName = "1.9.7"
+        targetSdk = 36
+        versionCode = 36
+        versionName = "1.9.8"
     }
 
     buildTypes {

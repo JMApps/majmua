@@ -114,7 +114,7 @@ class AppStringConstraints {
   static const String telegramLink = 'https://t.me/jmapps';
   static const String instagramLink = 'https://www.instagram.com/dev_muslim';
   static const String ummaLifeLink = 'https://ummalife.com/jmapps';
-  static const String appLinkIOS = 'https://apps.apple.com/ru/app/полка-мусульманина/id1659190395';
+  static const String appLinkIOS = 'https://apps.apple.com/app/полка-мусульманина/id1659190395';
   static const String appLinkAndroid = 'https://play.google.com/store/apps/details?id=jmapps.project.majmua';
   static const String iOS = 'iOS:';
   static const String android = 'Android:';
