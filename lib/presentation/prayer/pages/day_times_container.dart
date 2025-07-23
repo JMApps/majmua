@@ -14,6 +14,9 @@ class DayTimesContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
     final appColors = Theme.of(context).colorScheme;
+    final is24h = MediaQuery.of(context).alwaysUse24HourFormat;
+    final timeFormatter = DateFormat(is24h ? 'HH:mm' : 'hh:mm a');
+
     return Card(
       margin: AppStyles.mainMardingMini,
       child: Padding(
@@ -25,27 +28,36 @@ class DayTimesContainer extends StatelessWidget {
               children: [
                 TimePeriodPercent(
                   isState: prayerState.isDuha,
-                  remainingTime: prayerState.restPrayerTime(isBefore: true, time: prayerState.prayerTimes.sunrise),
+                  remainingTime: prayerState.restPrayerTime(
+                    isBefore: true,
+                    time: prayerState.prayerTimes.sunrise,
+                  ),
                   title: !prayerState.isDuha ? appLocale.sunrise : appLocale.adDuhaTime,
-                  targetTime: DateFormat('HH:mm').format(prayerState.prayerTimes.sunrise),
+                  targetTime: timeFormatter.format(prayerState.prayerTimes.sunrise.toLocal()),
                   cardColor: appColors.primaryContainer,
                   textColor: appColors.primary,
                 ),
                 const SizedBox(height: 8),
                 TimePeriodPercent(
                   isState: prayerState.isMidnight,
-                  remainingTime: prayerState.restPrayerTime(isBefore: true, time: prayerState.sunnahTimes.middleOfTheNight),
+                  remainingTime: prayerState.restPrayerTime(
+                    isBefore: true,
+                    time: prayerState.sunnahTimes.middleOfTheNight,
+                  ),
                   title: appLocale.midnight,
-                  targetTime: DateFormat('HH:mm').format(prayerState.sunnahTimes.middleOfTheNight),
+                  targetTime: timeFormatter.format(prayerState.sunnahTimes.middleOfTheNight.toLocal()),
                   cardColor: appColors.secondaryContainer,
                   textColor: appColors.secondary,
                 ),
                 const SizedBox(height: 8),
                 TimePeriodPercent(
                   isState: prayerState.isLastThird,
-                  remainingTime: prayerState.restPrayerTime(isBefore: true, time: prayerState.sunnahTimes.lastThirdOfTheNight),
+                  remainingTime: prayerState.restPrayerTime(
+                    isBefore: true,
+                    time: prayerState.sunnahTimes.lastThirdOfTheNight,
+                  ),
                   title: appLocale.lastThirdNightPart,
-                  targetTime: DateFormat('HH:mm').format(prayerState.sunnahTimes.lastThirdOfTheNight),
+                  targetTime: timeFormatter.format(prayerState.sunnahTimes.lastThirdOfTheNight.toLocal()),
                   cardColor: appColors.tertiaryContainer,
                   textColor: appColors.tertiary,
                 ),

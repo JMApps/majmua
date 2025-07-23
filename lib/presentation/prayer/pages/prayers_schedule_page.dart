@@ -19,8 +19,7 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
 
   @override
   void initState() {
-    _daysInMonth =
-        DateTime(_currentDateTime.year, _currentDateTime.month + 1, 0).day;
+    _daysInMonth = DateTime(_currentDateTime.year, _currentDateTime.month + 1, 0).day;
     super.initState();
   }
 
@@ -28,9 +27,8 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
     List<PrayerTimes> prayerTimesList = [];
     for (int day = 1; day <= _daysInMonth; day++) {
       DateTime currentDate =
-          DateTime(_currentDateTime.year, _currentDateTime.month, day);
-      final prayerTimes = Provider.of<PrayerState>(context, listen: false)
-          .prayerTimeSchedule(time: currentDate);
+      DateTime(_currentDateTime.year, _currentDateTime.month, day);
+      final prayerTimes = Provider.of<PrayerState>(context, listen: false).prayerTimeSchedule(time: currentDate);
       prayerTimesList.add(prayerTimes);
     }
     return prayerTimesList;
@@ -45,6 +43,34 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
           textAlign: TextAlign.center,
           style: style,
         ),
+      ),
+    );
+  }
+
+  Widget centeredTimeCell(DateTime time, {TextStyle? timeStyle, TextStyle? periodStyle, double? width}) {
+    final formattedTime = DateFormat('hh:mm').format(time);
+    final period = DateFormat('a').format(time).toLowerCase(); // am / pm
+
+    return SizedBox(
+      width: width,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            formattedTime,
+            textAlign: TextAlign.center,
+            style: timeStyle,
+          ),
+          Text(
+            period,
+            textAlign: TextAlign.center,
+            style: periodStyle ??
+                TextStyle(
+                  fontSize: 10,
+                  color: Colors.grey[600],
+                ),
+          ),
+        ],
       ),
     );
   }
@@ -68,8 +94,8 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
               return DataTable(
                 headingRowColor: WidgetStateProperty.all(appColors.inversePrimary.withAlpha(75)),
                 columnSpacing: 0,
-                dataRowMinHeight: 45,
-                dataRowMaxHeight: 45,
+                dataRowMinHeight: 50,
+                dataRowMaxHeight: 60,
                 columns: [
                   DataColumn(
                     tooltip: appLocale.dayNumber,
@@ -121,48 +147,49 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                         centeredCell(
                           day.toString(),
                           style: TextStyle(
-                            fontWeight:
-                                isToday ? FontWeight.bold : FontWeight.normal,
+                            fontWeight: isToday
+                                ? FontWeight.bold
+                                : FontWeight.normal,
                           ),
                           width: columnWidth / 1.75,
                         ),
                       ),
                       DataCell(
-                        centeredCell(
-                          DateFormat('HH:mm').format(prayerTimes.fajr),
-                          style: highlightStyle,
+                        centeredTimeCell(
+                          prayerTimes.fajr,
+                          timeStyle: highlightStyle,
                           width: columnWidth,
                         ),
                       ),
                       DataCell(
-                        centeredCell(
-                          DateFormat('HH:mm').format(prayerTimes.sunrise),
+                        centeredTimeCell(
+                          prayerTimes.sunrise,
                           width: columnWidth,
                         ),
                       ),
                       DataCell(
-                        centeredCell(
-                          DateFormat('HH:mm').format(prayerTimes.dhuhr),
-                          style: highlightStyle,
+                        centeredTimeCell(
+                          prayerTimes.dhuhr,
+                          timeStyle: highlightStyle,
                           width: columnWidth,
                         ),
                       ),
                       DataCell(
-                        centeredCell(
-                          DateFormat('HH:mm').format(prayerTimes.asr),
+                        centeredTimeCell(
+                          prayerTimes.asr,
                           width: columnWidth,
                         ),
                       ),
                       DataCell(
-                        centeredCell(
-                          DateFormat('HH:mm').format(prayerTimes.maghrib),
-                          style: highlightStyle,
+                        centeredTimeCell(
+                          prayerTimes.maghrib,
+                          timeStyle: highlightStyle,
                           width: columnWidth,
                         ),
                       ),
                       DataCell(
-                        centeredCell(
-                          DateFormat('HH:mm').format(prayerTimes.isha),
+                        centeredTimeCell(
+                          prayerTimes.isha,
                           width: columnWidth,
                         ),
                       ),

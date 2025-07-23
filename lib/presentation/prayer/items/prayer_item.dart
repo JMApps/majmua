@@ -23,16 +23,18 @@ class PrayerItem extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     final mediaQuery = MediaQuery.of(context);
     final isPortrait = mediaQuery.orientation == Orientation.portrait;
+    final is24h = mediaQuery.alwaysUse24HourFormat;
 
-    final use24h = mediaQuery.alwaysUse24HourFormat;
-    final timeFormatter = DateFormat(use24h ? 'HH:mm' : 'hh:mm a');
+    final timeFormatter = DateFormat(is24h ? 'HH:mm' : 'hh:mm');
+    final periodFormatter = DateFormat('a'); // AM / PM
 
     return Expanded(
       child: SizedBox(
         height: isPortrait ? mediaQuery.size.height * 0.15 : mediaQuery.size.width * 0.15,
         child: Consumer<PrayerState>(
           builder: (context, prayerState, _) {
-            DateTime currentPrayerTime = prayerState.prayerTimes.timeForPrayer(prayer)!;
+            DateTime currentPrayerTime =
+            prayerState.prayerTimes.timeForPrayer(prayer)!;
             bool isHourBefore = prayerState.isPrayerInHourRange(before: true, prayerTime: currentPrayerTime);
             bool isHourAfter = prayerState.isPrayerInHourRange(before: false, prayerTime: currentPrayerTime);
             return Card(
@@ -42,7 +44,8 @@ class PrayerItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Tooltip(
-                    message: '-${prayerState.restPrayerTime(isBefore: true, time: currentPrayerTime)}',
+                    message:
+                    '-${prayerState.restPrayerTime(isBefore: true, time: currentPrayerTime)}',
                     child: Icon(
                       prayerIcon,
                       color: isHourBefore ? appColors.tertiary : appColors.primary,
@@ -55,9 +58,23 @@ class PrayerItem extends StatelessWidget {
                     ),
                     overflow: TextOverflow.ellipsis,
                   ),
-                  Text(
+                  is24h ? Text(
                     timeFormatter.format(currentPrayerTime.toLocal()),
                     style: isHourAfter || isHourBefore ? AppStyles.mainTextStyleMiniBold : AppStyles.mainTextStyleMini,
+                  ) : Column(
+                    children: [
+                      Text(
+                        timeFormatter.format(currentPrayerTime.toLocal()),
+                        style: isHourAfter || isHourBefore ? AppStyles.mainTextStyleMiniBold : AppStyles.mainTextStyleMini,
+                      ),
+                      Text(
+                        periodFormatter.format(currentPrayerTime.toLocal()),
+                        style: TextStyle(
+                          fontSize: 10,
+                          color: appColors.outline,
+                        ),
+                      ),
+                    ],
                   ),
                   Visibility(
                     visible: isHourBefore || prayerState.isNextPrayer(prayer: prayer),
@@ -69,6 +86,7 @@ class PrayerItem extends StatelessWidget {
                       ),
                     ),
                   ),
+
                   Visibility(
                     visible: isHourAfter,
                     child: Text(
