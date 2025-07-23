@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../l10n/app_localizations.dart';
@@ -23,59 +25,66 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations appLocale = AppLocalizations.of(context)!;
     final ColorScheme appColors = Theme.of(context).colorScheme;
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            centerTitle: false,
-            title: const AppTitle(),
-            actions: [
-              MainIconButton(
-                onPressed: () {
-                  HapticFeedback.lightImpact();
-                  Navigator.pushNamed(
-                    context,
-                    AppRouteNames.pageAppSettings,
-                  );
-                },
-                tooltip: appLocale.settings,
-                iconName: AppStringConstraints.iconSettings,
-                iconColor: appColors.secondary,
-              ),
-              MainIconButton(
-                onPressed: () {
-                  HapticFeedback.lightImpact();
-                  Navigator.pushNamed(
-                    context,
-                    AppRouteNames.pageAppNotifications,
-                  );
-                },
-                tooltip: appLocale.notifications,
-                iconName: AppStringConstraints.iconNotifications,
-                iconColor: appColors.secondary,
-              ),
-              const SizedBox(width: 8),
-            ],
-          ),
-          const SliverToBoxAdapter(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                PrayersContainer(),
-                DayTimesContainer(),
-                DayLengthCard(),
-                WeekDaysContainer(),
-                SalawatButton(),
-                SeasonTimesContainer(),
-                RestHolidaysContainer(),
-                MainButtonsCard(),
-                SizedBox(height: 4),
-                LibraryButton(),
-                SizedBox(height: 8),
+    final mediaQuery = MediaQuery.of(context);
+    final bottomInset = mediaQuery.viewPadding.bottom;
+    return Padding(
+      padding: EdgeInsets.only(
+        bottom: Platform.isAndroid ? bottomInset : 0,
+      ),
+      child: Scaffold(
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              centerTitle: false,
+              title: const AppTitle(),
+              actions: [
+                MainIconButton(
+                  onPressed: () {
+                    HapticFeedback.lightImpact();
+                    Navigator.pushNamed(
+                      context,
+                      AppRouteNames.pageAppSettings,
+                    );
+                  },
+                  tooltip: appLocale.settings,
+                  iconName: AppStringConstraints.iconSettings,
+                  iconColor: appColors.secondary,
+                ),
+                MainIconButton(
+                  onPressed: () {
+                    HapticFeedback.lightImpact();
+                    Navigator.pushNamed(
+                      context,
+                      AppRouteNames.pageAppNotifications,
+                    );
+                  },
+                  tooltip: appLocale.notifications,
+                  iconName: AppStringConstraints.iconNotifications,
+                  iconColor: appColors.secondary,
+                ),
+                const SizedBox(width: 8),
               ],
             ),
-          ),
-        ],
+            const SliverToBoxAdapter(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  PrayersContainer(),
+                  DayTimesContainer(),
+                  DayLengthCard(),
+                  WeekDaysContainer(),
+                  SalawatButton(),
+                  SeasonTimesContainer(),
+                  RestHolidaysContainer(),
+                  MainButtonsCard(),
+                  SizedBox(height: 4),
+                  LibraryButton(),
+                  SizedBox(height: 8),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

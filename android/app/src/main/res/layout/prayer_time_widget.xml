@@ -26,7 +26,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:contentDescription="@string/prayer_fajr"
-                android:src="@drawable/duha" />
+                android:src="@drawable/fajr" />
 
             <TextView
                 android:id="@+id/fajr_label"
@@ -60,7 +60,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:contentDescription="@string/prayer_sunrise"
-                android:src="@drawable/fajr" />
+                android:src="@drawable/duha" />
 
             <TextView
                 android:id="@+id/sunrise_label"
