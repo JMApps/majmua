@@ -29,11 +29,13 @@ class RootPage extends StatelessWidget {
           darkTheme: appThemes.darkTheme,
           themeMode: appSettings.appThemeMode,
           builder: (context, child) {
+            final mediaQuery = MediaQuery.of(context);
+            final bottomInset = mediaQuery.viewPadding.bottom;
             return SafeArea(
               top: false,
               right: false,
               left: false,
-              bottom: Platform.isAndroid,
+              bottom: Platform.isAndroid && bottomInset > 24.0,
               child: child!,
             );
           },

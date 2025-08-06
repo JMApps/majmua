@@ -29,8 +29,8 @@ android {
         applicationId = "jmapps.project.majmua"
         minSdk = 23
         targetSdk = 36
-        versionCode = 36
-        versionName = "1.9.8"
+        versionCode = 37
+        versionName = "1.9.9"
     }
 
     buildTypes {
@@ -46,6 +46,6 @@ flutter {
 
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
-    implementation("androidx.work:work-runtime-ktx:2.10.2")
+    implementation("androidx.work:work-runtime-ktx:2.10.3")
     implementation("androidx.multidex:multidex:2.0.1")
 }

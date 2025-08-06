@@ -35,6 +35,7 @@
                 android:textColor="?android:colorBackground"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:textSize="12sp"
                 android:text="@string/prayer_fajr" />
 
             <TextView
@@ -69,6 +70,7 @@
                 android:textColor="?android:colorBackground"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:textSize="12sp"
                 android:text="@string/prayer_sunrise" />
 
             <TextView
@@ -103,6 +105,7 @@
                 android:textColor="?android:colorBackground"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:textSize="12sp"
                 android:text="@string/prayer_dhuhr" />
 
             <TextView
@@ -137,6 +140,7 @@
                 android:textColor="?android:colorBackground"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:textSize="12sp"
                 android:text="@string/prayer_asr" />
 
             <TextView
@@ -171,6 +175,7 @@
                 android:textColor="?android:colorBackground"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:textSize="12sp"
                 android:text="@string/prayer_maghrib" />
 
             <TextView
@@ -205,6 +210,7 @@
                 android:textColor="?android:colorBackground"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:textSize="12sp"
                 android:text="@string/prayer_isha" />
 
             <TextView
