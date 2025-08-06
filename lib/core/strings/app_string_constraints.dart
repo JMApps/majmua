@@ -327,11 +327,6 @@ class AppStringConstraints {
       ishaAngle: '15.0',
     ),
     const AdhanInformationModel(
-      convention: 'Tatarstan',
-      fajrAngle: '18.0',
-      ishaAngle: '15.0',
-    ),
-    const AdhanInformationModel(
       convention: 'France',
       fajrAngle: '12.0',
       ishaAngle: '12.0',

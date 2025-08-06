@@ -20,8 +20,6 @@ void main() async {
       SystemUiOverlayStyle(
           statusBarColor: Colors.transparent,
           systemNavigationBarColor: Colors.transparent,
-          systemNavigationBarIconBrightness: Brightness.dark,
-          statusBarBrightness: Brightness.light
       )
   );
 

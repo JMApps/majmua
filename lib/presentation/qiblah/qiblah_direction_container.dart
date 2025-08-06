@@ -95,7 +95,6 @@ class _QiblahDirectionContainerState extends State<QiblahDirectionContainer> {
                           child: Image.asset(
                             'assets/pictures/compass.png',
                             fit: BoxFit.contain,
-                            color: appColors.secondary,
                           ),
                         ),
                         Transform.rotate(

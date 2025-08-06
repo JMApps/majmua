@@ -32,32 +32,29 @@ class MainDataItem extends StatelessWidget {
                       showModalBottomSheet(
                         context: context,
                         builder: (context) => IgnorePointer(
-                          child: Padding(
-                            padding: AppStyles.mardingWithoutTopMini,
-                            child: SfDateRangePicker(
-                              monthViewSettings: DateRangePickerMonthViewSettings(firstDayOfWeek: 1),
-                              todayHighlightColor: Colors.transparent,
-                              monthCellStyle: DateRangePickerMonthCellStyle(
-                                todayTextStyle: TextStyle(
+                          child: SfDateRangePicker(
+                            monthViewSettings: DateRangePickerMonthViewSettings(firstDayOfWeek: 1),
+                            todayHighlightColor: Colors.transparent,
+                            monthCellStyle: DateRangePickerMonthCellStyle(
+                              todayTextStyle: TextStyle(
+                                color: appColors.tertiary,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              todayCellDecoration: BoxDecoration(
+                                color: appColors.tertiaryContainer,
+                                shape: BoxShape.circle,
+                                border: Border.all(
                                   color: appColors.tertiary,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                todayCellDecoration: BoxDecoration(
-                                  color: appColors.tertiaryContainer,
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                    color: appColors.tertiary,
-                                    width: 2.0,
-                                  ),
+                                  width: 2.0,
                                 ),
                               ),
-                              view: DateRangePickerView.month,
-                              backgroundColor: appColors.surfaceContainerLow,
-                              headerHeight: 0,
-                              allowViewNavigation: false,
-                              showTodayButton: false,
-                              showNavigationArrow: false,
                             ),
+                            view: DateRangePickerView.month,
+                            backgroundColor: appColors.surfaceContainerLow,
+                            headerHeight: 0,
+                            allowViewNavigation: false,
+                            showTodayButton: false,
+                            showNavigationArrow: false,
                           ),
                         ),
                       );

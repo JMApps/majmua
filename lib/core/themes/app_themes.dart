@@ -44,7 +44,11 @@ class AppThemes {
             color: colorScheme.primary,
           ),
         ),
-        textStyle: AppStyles.mainTextStyleMicro,
+        textStyle: TextStyle(
+          color: colorScheme.onSurface,
+          fontSize: 14.0,
+          fontFamily: AppStringConstraints.fontGilroy,
+        ),
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: ButtonStyle(

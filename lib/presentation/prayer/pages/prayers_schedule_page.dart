@@ -23,11 +23,10 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
     super.initState();
   }
 
-  List<PrayerTimes> getPrayerTimesForWeek() {
+  List<PrayerTimes> getPrayerTimesForMonth() {
     List<PrayerTimes> prayerTimesList = [];
     for (int day = 1; day <= _daysInMonth; day++) {
-      DateTime currentDate =
-      DateTime(_currentDateTime.year, _currentDateTime.month, day);
+      DateTime currentDate = DateTime(_currentDateTime.year, _currentDateTime.month, day);
       final prayerTimes = Provider.of<PrayerState>(context, listen: false).prayerTimeSchedule(time: currentDate);
       prayerTimesList.add(prayerTimes);
     }
@@ -47,9 +46,9 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
     );
   }
 
-  Widget centeredTimeCell(DateTime time, {TextStyle? timeStyle, TextStyle? periodStyle, double? width}) {
-    final formattedTime = DateFormat('hh:mm').format(time);
-    final period = DateFormat('a').format(time).toLowerCase(); // am / pm
+  Widget centeredTimeCell(DateTime time, {required bool use24HourFormat, TextStyle? timeStyle, TextStyle? periodStyle, double? width}) {
+    final formattedTime = DateFormat(use24HourFormat ? 'HH:mm' : 'hh:mm').format(time);
+    final period = use24HourFormat ? '' : DateFormat('a').format(time).toLowerCase();
 
     return SizedBox(
       width: width,
@@ -61,15 +60,16 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
             textAlign: TextAlign.center,
             style: timeStyle,
           ),
-          Text(
-            period,
-            textAlign: TextAlign.center,
-            style: periodStyle ??
-                TextStyle(
-                  fontSize: 10,
-                  color: Colors.grey[600],
-                ),
-          ),
+          if (!use24HourFormat)
+            Text(
+              period,
+              textAlign: TextAlign.center,
+              style: periodStyle ??
+                  TextStyle(
+                    fontSize: 10,
+                    color: Colors.grey[600],
+                  ),
+            ),
         ],
       ),
     );
@@ -78,7 +78,8 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
   @override
   Widget build(BuildContext context) {
     final appLocale = AppLocalizations.of(context)!;
-    final prayerTimesList = getPrayerTimesForWeek();
+    final use24HourFormat = MediaQuery.of(context).alwaysUse24HourFormat;
+    final prayerTimesList = getPrayerTimesForMonth();
     final screenWidth = MediaQuery.of(context).size.width;
     final columnWidth = screenWidth / 7;
     final appColors = Theme.of(context).colorScheme;
@@ -137,19 +138,14 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                   );
 
                   return DataRow(
-                    color: WidgetStateProperty.all(
-                      isToday
-                          ? appColors.tertiaryContainer
-                          : appColors.secondaryContainer.withAlpha(75),
-                    ),
+                    color: WidgetStateProperty.all(isToday ? appColors.tertiaryContainer : appColors.secondaryContainer.withAlpha(75)),
                     cells: [
                       DataCell(
                         centeredCell(
                           day.toString(),
                           style: TextStyle(
-                            fontWeight: isToday
-                                ? FontWeight.bold
-                                : FontWeight.normal,
+                            fontWeight:
+                            isToday ? FontWeight.bold : FontWeight.normal,
                           ),
                           width: columnWidth / 1.75,
                         ),
@@ -159,12 +155,14 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                           prayerTimes.fajr,
                           timeStyle: highlightStyle,
                           width: columnWidth,
+                          use24HourFormat: use24HourFormat,
                         ),
                       ),
                       DataCell(
                         centeredTimeCell(
                           prayerTimes.sunrise,
                           width: columnWidth,
+                          use24HourFormat: use24HourFormat,
                         ),
                       ),
                       DataCell(
@@ -172,12 +170,14 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                           prayerTimes.dhuhr,
                           timeStyle: highlightStyle,
                           width: columnWidth,
+                          use24HourFormat: use24HourFormat,
                         ),
                       ),
                       DataCell(
                         centeredTimeCell(
                           prayerTimes.asr,
                           width: columnWidth,
+                          use24HourFormat: use24HourFormat,
                         ),
                       ),
                       DataCell(
@@ -185,12 +185,14 @@ class _PrayersSchedulePageState extends State<PrayersSchedulePage> {
                           prayerTimes.maghrib,
                           timeStyle: highlightStyle,
                           width: columnWidth,
+                          use24HourFormat: use24HourFormat,
                         ),
                       ),
                       DataCell(
                         centeredTimeCell(
                           prayerTimes.isha,
                           width: columnWidth,
+                          use24HourFormat: use24HourFormat,
                         ),
                       ),
                     ],

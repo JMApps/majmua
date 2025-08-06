@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,6 +16,7 @@ class SalawatButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).colorScheme;
+    late final Timer? holdTimer;
     return Card(
       margin: AppStyles.mardingWithoutBottomMini,
       child: IntrinsicHeight(
@@ -34,33 +37,40 @@ class SalawatButton extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CupertinoButton(
-                      padding: EdgeInsets.zero,
-                      child: Consumer<PrayerState>(
-                        builder: (context, prayerState, _) {
-                          return Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              Image.asset(
-                                'assets/pictures/salawat.png',
-                                color: prayerState.isFriday ? appColors.tertiary : appColors.primary,
-                              ),
-                              Image.asset(
-                                'assets/pictures/salawat_border_two.png',
-                                color: prayerState.isFriday ? appColors.primary : appColors.tertiary,
-                              ),
-                            ],
-                          );
+                    GestureDetector(
+                      onLongPressStart: (_) {
+                        holdTimer = Timer(const Duration(milliseconds: 1500), () {
+                          HapticFeedback.vibrate();
+                          Provider.of<SalawatState>(context, listen: false).resetCount();
+                        });
+                      },
+                      onLongPressEnd: (_) {
+                        holdTimer?.cancel();
+                      },
+                      child: CupertinoButton(
+                        padding: EdgeInsets.zero,
+                        child: Consumer<PrayerState>(
+                          builder: (context, prayerState, _) {
+                            return Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Image.asset(
+                                  'assets/pictures/salawat.png',
+                                  color: prayerState.isFriday ? appColors.tertiary : appColors.primary,
+                                ),
+                                Image.asset(
+                                  'assets/pictures/salawat_border_two.png',
+                                  color: prayerState.isFriday ? appColors.primary : appColors.tertiary,
+                                ),
+                              ],
+                            );
+                          },
+                        ),
+                        onPressed: () {
+                          HapticFeedback.lightImpact();
+                          Provider.of<SalawatState>(context, listen: false).incrementCount();
                         },
                       ),
-                      onPressed: () {
-                        HapticFeedback.lightImpact();
-                        Provider.of<SalawatState>(context, listen: false).incrementCount();
-                      },
-                      onLongPress: () {
-                        HapticFeedback.vibrate();
-                        Provider.of<SalawatState>(context, listen: false).resetCount();
-                      },
                     ),
                     SizedBox(
                       width: double.maxFinite,
