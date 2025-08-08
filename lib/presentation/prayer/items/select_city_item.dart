@@ -37,12 +37,15 @@ class SelectCityItem extends StatelessWidget {
                   width: 25.0,
                   color: appColors.primary,
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 4),
                 Expanded(
                   child: Text(
                     prayerState.city,
                     style: TextStyle(
                       color: appColors.primary,
+                      fontFamily: AppStringConstraints.fontGilroy,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 0.15,
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,

@@ -29,8 +29,8 @@ android {
         applicationId = "jmapps.project.majmua"
         minSdk = 23
         targetSdk = 36
-        versionCode = 37
-        versionName = "1.9.9"
+        versionCode = 38
+        versionName = "1.9.9-2"
     }
 
     buildTypes {
